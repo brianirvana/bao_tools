@@ -1,0 +1,5 @@
+Hay que copiar la librería Entropia.dll y pegarla en la carpeta SYSWOW64 (en caso de tener win 7 en adelante y 64 bits, sino si se tiene XP en la carpeta System32)
+y registrar la librería con:
+
+
+regsvr32 "C:\Windows\SysWOW64\Entropia.dll"

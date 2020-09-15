@@ -1,0 +1,3 @@
+08:17 p.m. 26/06/2012 - First Release (MaTeO)
+08:18 p.m. 26/06/2012 - Arreglado el bug de que si se minimiza tira error (MaTeO)
+12:00 p.m. 04/07/2012 - Agrego al menu, las opciones de indexar/exportar: cabezas, cascos, fxs, personajes, graficos y por ultimo todo (About)

@@ -1,0 +1,11 @@
+frmMain = 0, 0, 965, 529, , 446, 117, 1258, 646, C
+modGeneral = 173, 82, 1018, 611, 
+clsEngine = 99, 269, 911, 798, C
+modErrorMsg = -64, 161, 781, 690, C
+clsTileEngine = 74, -20, 1104, 509, 
+frmDirectory = 100, 100, 1071, 629, C, 200, 200, 1230, 729, C
+modFunctions = 61, 93, 1091, 622, Z
+clsCBFolder = 225, 225, 1196, 754, C
+frmCargando = 0, 0, 702, 560, C, 200, 200, 1167, 729, C
+clsRecursosBender = 0, 0, 1042, 529, C
+modRecursosBender = 50, 50, 1092, 579, C
