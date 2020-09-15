@@ -1,0 +1,30 @@
+Como se explicó en el tutorial de "Como usar los objetos en un mapa.txt" el uso de técnicas
+de mapeo, no esta exento en Bender, ya que gran parte de la optimización de los mapas, va por
+cuenta de los Mappers y que sepan hacer buenos mapas, de la manera más optima.
+
+Esto no es muy dificil.
+
+
+En los límites de un mapa (por ejemplo) podemos ver que no estan bloqueados todos los limites.
+Solo esta bloqueado 1 tile entre mapa y mapa. Eso se debe, a que no hace falta en realidad
+bloquear un área en la cual un personaje jamás pudiera llegar. Como así tampoco los npcs pueden
+llegar.
+Entonces, sabiendo que en los bordes del mapa, solo se puede "ver" lo que está, pero nunca se
+podrá pisar con nuestro personaje, tenemos que evitar fundamentalmente, el hecho de poner:
+Bloqueos
+Triggers
+Objetos
+Traslados inalcanzables.
+
+Y todo lo que posiblemente me esté olvidando ahora de ponerles, pero que ustedes van a dar
+cuenta con el tiempo, mirando como ejemplo, los mapas que ya estan realizados por mi, o por
+cualquiera de los mappers de BenderAO a cuales ya les trasmití estas técnicas de mapeo.
+
+Con esto por ejemplo, se logró mejorar muchísimo la cantidad de FPS del cliente, y parece
+extraño.. pero en las primeras versiones del AO, (e inclusive hasta alkon hoy en día) se
+encontraban mapas que tenian en todos sus bordes, bloqueos, traslados, objetos, triggrs,
+siendo estas cosas, imposibles de utlizar mientras consumían espacio en memoria reverendamente
+al pedo.
+
+
+About 10:46 p.m. 03/12/2011

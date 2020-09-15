@@ -1,0 +1,39 @@
+Los triggers, son los TILES del mapa.
+
+Para entender este tutorial, es fundamental haber leido el de Capas.
+
+Por ejemplo:
+
+Existen 7 tipos de triggers.
+
+Trigger 0
+Trigger 1
+Trigger 2
+Trigger 3
+Trigger 4
+Trigger 5
+Trigger 6
+
+Trigger 0 = NADA.
+
+Trigger 1 = No afecta la lluvia, y la capa 4 desaparece cuando estamos pisando ese tile con nuestro personaje.
+
+Trigger 2 = No me acuerdo.
+
+Trigger 3 = Posición inválida para los NPCS. Los Npcs no pueden pisar ese tile, ni respawnear en él.
+
+Trigger 4 = Lo mismo que el trigger 1, pero en este tile no se puede atacar ni aunque sea mapa inseguro.
+
+Trigger 5 = En este trigger, si permanecemos mucho tiempo parados, nos lleva a la carcel por 10 minutos (sin pena en prontuario) por bloqueo de la libre circulación.
+
+Trigger 6 = RING DE TORNEO. En este trigger vale todo. Las muertes de Criminales y Ciudadanos no cuentan. Cuando hay un espacio entre una arena y la otra (osea, que los triggers no son contínuos) no te deja atacar. Es para evitar que de una arena a la otra se ataquen.
+
+
+
+About 10:23 p.m. 03/12/2011 
+
+
+
+Trigger 2 = Lo mismo que el trigger 1, pero conbinado con el trigger 3. 
+
+JuanMa 09:56 a.m. 05/12/2011

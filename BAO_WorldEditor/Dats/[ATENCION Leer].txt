@@ -1,0 +1,5 @@
+Al momento de editar OBJ.DAT se debe tener en cuenta que
+si se utilizan comillas en el valor de la propiedad, 
+puede que haya problemas al ejecutar el servidor.
+
+Gracias.

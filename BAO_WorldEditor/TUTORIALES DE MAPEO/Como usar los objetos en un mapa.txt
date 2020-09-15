@@ -1,0 +1,24 @@
+Entre los objetos normales del juego, podemos encontrar cosas como:
+
+Yunkes (Que sirven para poder construír ítems con herrero)
+Fragua (Lo mismo pero para hacer lingotes)
+Árboles (Que sirven para ser talados por usuarios o trabajadores)
+
+Es fundamental saber porqué no debemos llenar los mapas de objetos, y esas razones son:
+
+Que el servidor cuando abre, carga todos los objetos de cada mapa. E imaginen que un mapa
+tiene normalmente: Piso, capas2, capas 3, capas 4, triggers, y algunos tienen montones de
+objetos además.
+
+Lo bueno, es que el servidor no carga los graficos de los mapas.. eso solo lo hace el cliente
+para ahorrar espacio en memoria ^^. Si tota, ¿para que cargar los graficos en el servidor?
+¿Quien los va a ver? xD nadie :P
+
+Entonces, el servidor carga: Bloqueos, triggers (importantisimo saberlo), objetos, traslados
+y las dimensiones del mapa :P osea 100x100 siempre.
+
+Entonces, como talar se puede talar en zona segura, evitamos el hecho de poner objetos como
+"arboles" en zonas inseguras, y con esto evitamos que el servidor carge objetos al pedo.
+Y de esta manera optimizamos a nivel "técnicas" los mapas.
+
+About 10:22 p.m. 03/12/2011

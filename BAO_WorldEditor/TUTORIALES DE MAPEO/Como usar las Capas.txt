@@ -1,0 +1,18 @@
+Las capas son principalmente, para que lo entiendan más facil, la posición del grafico
+con respecto a los personajes.
+
+Capa 1: Pisos, paredes, y cualquier decoración similar a un piso que se use de Piso.
+
+Capa 2: Costas, piedras.
+Extra: 
+- Las costas, al ser capa 2, reproducen un sonido dinstínto de los pasos.
+- Las piedras siempre van en capa 2, ya que si le pasamos por arriba a una pierda, el personaje tambien le pasa por arriba.
+
+Capa 3: Entradas de cavernas, Árboles (que no son objetos, porque los árboles pueden ser añadidos a un mapa, como objetos (arboles talables) y como capa 3 (no se pueden talar))
+Extra: Normalmente, todo lo que sea una estatua, un monumento, un castillo, o una piramide, va en capa 3, porque si el personaje pasa por detrás de esa imagen, el body del pj desaparece. Como si fuera 3D.
+
+Capa 4: Techos.
+
+Todo lo que sea un techo, o que esté realizado con el fin de que tape todo. (Como una zona oscura por ejemplo)
+
+About 10:23 p.m. 03/12/2011

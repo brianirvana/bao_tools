@@ -1,0 +1,18 @@
+[INIT]
+ConsultaActual= 1
+ConsultaActualTexto=¿Cuando deseas un reset completo del servidor?
+NivelRequerido= 30
+
+
+[ENCUESTA1]
+CantOpciones=4
+OPCION1=¡Hoy mismo!
+OPCION2=En esta semana por favor.
+OPCION3=De 2 a 6 meses.
+OPCION4=¡Nah, nunca!
+
+[RESULTADOS1]
+V1= 0
+V2= 0
+V4= 0
+V3= 0
