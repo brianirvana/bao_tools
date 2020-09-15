@@ -1,0 +1,140 @@
+[INIT]
+NumArmaduras=46
+
+[Armadura1] ' Casco de hierro completo
+Index=131
+
+[Armadura2] ' Casco de plata
+Index=405
+
+[Armadura3] ' Escudo de hierro
+Index=128
+
+[Armadura4] ' Escudo de plata
+Index=130
+
+[Armadura5] ' Escudo imperial
+Index=133
+
+[Armadura6] ' Escudo infernal
+Index=708
+
+[Armadura7] ' Escudo KHAN
+Index=1060
+
+[Armadura8] ' Manto de Noble
+Index=484
+
+[Armadura9] ' Cota de Mallas Larga (E/G)
+Index=975
+
+[Armadura10] ' Armadura de Campeón
+Index=903
+
+[Armadura11] ' Armadura placas
+Index=195
+
+[Armadura12] ' Armadura placas + 1
+Index=390
+
+[Armadura13] ' Armadura placas + 2
+Index=391
+
+[Armadura14] ' Armadura placas enanos
+Index=243
+
+[Armadura15] ' Armadura placas enanos + 1
+Index=392
+
+[Armadura16] ' Armadura placas enanos + 2
+Index=393
+
+[Armadura17] ' Armadura de Placas Rojas
+Index=493
+
+[Armadura18] ' Armadura de Placas Azul
+Index=489
+
+[Armadura19] ' Armadura de Placas de Gala
+Index=497
+
+[Armadura20] ' Trampa Visual (H/E/EO-M)
+Index=503
+
+[Armadura21] ' Placas Combinadas (H/E/EO-M)
+Index=904
+
+[Armadura22] ' Suprema Armadura Dorada (H/E/EO-M)
+Index=905
+
+[Armadura23] ' Armadura de Elite (E/G)
+Index=672
+
+[Armadura24] ' Armadura Bruñida (E/G)
+Index=500
+
+[Armadura25] ' Armadura Pesada de Hierro y Bronce (E/G)
+Index=976
+
+[Armadura26] ' Cienaga
+Index=496
+
+[Armadura27] ' Escarlata
+Index=495
+
+[Armadura28] ' Dama de las tinieblas
+Index=487
+
+[Armadura29] ' Armadura Legendaria
+Index=485
+
+[Armadura30] ' Armadura de Dragón (Hombre)
+Index=481
+
+[Armadura31] ' Armadura de Dragón (Mujer)
+Index=482
+
+[Armadura32] ' Armadura de Dragón (Enano/Enana)
+Index=483
+
+[Armadura33] ' Manto del Dragón (H/E/EO)
+Index=906
+
+[Armadura34] ' Anillo Mágico
+Index=697
+
+[Armadura35] ' Anillo de resistencia Mágica
+Index=698
+
+[Armadura36] ' Anillo de Disolución Mágica
+Index=699
+
+[Armadura37] ' Túnica Legendaria
+Index=519
+
+[Armadura38] ' Casco de Aguila
+Index=863
+
+[Armadura39] ' Casco de Lobo
+Index=864
+
+[Armadura40] ' Casco de Oso
+Index=907
+
+[Armadura41] ' Casco de Tigre
+Index=1071
+
+[Armadura42] ' Cota de Anillas Compuesta (H/E/EO)
+Index=883
+
+[Armadura43] ' Cota de Anillas Compuesta (H/E/EO-M)
+Index=884
+
+[Armadura44] ' Armadura de la Ciénaga (H/E/EO-M)
+Index=881
+
+[Armadura45] ' Tunica Legendaria (H/E/EO-M)
+Index=1144
+
+[Armadura46] ' Armadura Legendaria (E/G) 
+Index=895

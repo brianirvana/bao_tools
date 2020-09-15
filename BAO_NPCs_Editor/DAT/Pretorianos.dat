@@ -1,0 +1,44 @@
+[MAIN]
+Combinaciones=24
+
+[KING]
+Cantidad=1
+Alto1=800 'Rey Bajo
+Bajo1=801 'Rey Alto
+
+[HEALER]
+Cantidad=2
+Alto1=802 'Clerigo Alto
+Bajo1=803 'Clerigo Bajo
+Alto2=804 'Bardo Alto
+Bajo2=805 'Bardo Bajo
+
+[SPELLCASTER]
+Cantidad=2 
+Alto1=806 'Mago Alto  
+Bajo1=807 'Mago Bajo
+Alto2=808 'Druida Alto
+Bajo2=809 'Druida Bajo
+
+[LONGRANGE]
+Cantidad=2
+Alto1=810 'Caza Alto
+Bajo1=811 'Caza Bajo
+Alto2=812 'Pirata Alto
+Bajo2=813 'Pirata Bajo
+
+[SWORDSWINGER]
+Cantidad=4
+Alto1=814 'Guerre Alto
+Bajo1=815 'Guerre Bajo
+Alto2=816 'Pala Alto
+Bajo2=817 'Pala Bajo
+Alto3=818 'Ase Alto
+Bajo3=819 'Ase Bajo
+Alto4=820 'Bandido Alto
+Bajo4=821 'Bandido Bajo
+
+[THIEF]
+Cantidad=1
+Alto1=822 'Ladron Alto
+Bajo1=823 'Ladron Bajo

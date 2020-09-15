@@ -1,0 +1,20 @@
+[INIT]
+ConsultaActual= 1
+ConsultaActualTexto=¿Qué te parece el nuevo host desde el 11/07/2015 a las 20hs en adelante?
+NivelRequerido= 30
+
+
+[ENCUESTA1]
+CantOpciones=4
+EsArmada=0
+EsCaos=0
+OPCION1=¡Excelente! Anda muy bien.
+OPCION2=Muy bueno, me anda normal.
+OPCION3=Malo, me sigue andando mal.
+OPCION4=Muy malo, ahora me anda mal.
+
+[RESULTADOS1]
+V1= 10
+V2= 5
+V4= 2
+V3= 0

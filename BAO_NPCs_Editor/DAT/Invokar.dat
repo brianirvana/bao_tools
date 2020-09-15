@@ -1,0 +1,118 @@
+'#################### LISTA DE SPAWN #############################
+[INIT]
+NumNPCs=35
+
+
+[LIST]
+NI1=500
+NN1=Murciélago
+
+NI2=501
+NN2=Lobo
+
+NI3=502
+NN3=Zombie
+
+NI4=503
+NN4=Esqueleto
+
+NI5=504
+NN5=Serpiente
+
+NI6=505
+NN6=Goblin
+
+NI7=506
+NN7=Gallo Salvaje
+
+NI8=507
+NN8=Lord Zombie
+
+NI9=508
+NN9=Esqueleto Guerrero
+
+NI10=509
+NN10=Dragón Rojo
+
+NI11=510
+NN11=Araña Gigante
+
+NI12=523
+NN12=Orco
+
+NI13=529
+NN13=Escorpión
+
+NI14=530
+NN14=Bandido
+
+NI15=531
+NN15=Asesino
+
+NI16=541
+NN16=Ogro
+
+NI17=540
+NN17=Duende
+
+NI18=537
+NN18=Beholder
+
+NI19=538
+NN19=Oso Pardo
+
+NI20=534
+NN20=Hormiga Gigante
+
+
+NI21=6
+NN21=Guardia Imperial I
+
+
+NI22=100
+NN22=Guardia Imperial II
+
+
+NI23=49
+NN23=Guardia Imperial III
+
+
+NI24=102
+NN24=Guardia Imperial IV
+
+
+NI25=106
+NN25=Arquera Real
+
+
+NI26=81
+NN26=Sacerdote Imperial I
+
+
+NI27=82
+NN27=Sacerdote Imperial II
+
+
+NI28=83
+NN28=Druida Imperial I
+
+NI29=84
+NN29=Druida Imperial II
+
+NI30=85
+NN30=Druida Imperial III
+
+NI31=86
+NN31=Mago Imperial I
+
+NI32=87
+NN32=Mago Imperial II
+
+NI33=127
+NN33=Guardia Infernal
+
+NI34=105
+NN34=Mago del Caos
+
+NI35=107
+NN35=Golem Oscur
