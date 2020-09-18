@@ -861,14 +861,3 @@
 16/09/2020 9:38:43 PM Error 76 Descripción: & (Path not found) Error FATAL: EL archivo no se esta guardando. Initialize del Módulo clsIniReader linea: 30 Handle: 1 File: D:\BenderAO\BAOGIT\bao_tools\BAO_WorldEditor\..\..\DAT\NPCs.dat Texto: 
 17/09/2020 12:10:48 PM Error 76 Descripción: & (Path not found) Error FATAL: EL archivo no se esta guardando. Initialize del Módulo clsIniReader linea: 30 Handle: 1 File: D:\BenderAO\BAOGIT\bao_tools\BAO_WorldEditor\..\..\DAT\NPCs.dat Texto: 
 17/09/2020 12:34:14 PM Error 76 Descripción: & (Path not found) Error FATAL: EL archivo no se esta guardando. Initialize del Módulo clsIniReader linea: 30 Handle: 1 File: D:\BenderAO\BAOGIT\bao_tools\BAO_WorldEditor\..\..\DAT\NPCs.dat Texto: 
-17/9/2020 20:32:14 Error 713 (Class not registered. 
-You need the following file to be installed on your machine. MSSTDFMT.DLL.) en procedimiento MapInfo_Actualizar de Módulo modMapIO línea: 10
-17/9/2020 20:32:23 Error 713 (Class not registered. 
-You need the following file to be installed on your machine. MSSTDFMT.DLL.) en procedimiento MapInfo_Actualizar de Módulo modMapIO línea: 10
-17/9/2020 20:32:41 Error 713 (Class not registered. 
-You need the following file to be installed on your machine. MSSTDFMT.DLL.) en procedimiento MapInfo_Actualizar de Módulo modMapIO línea: 10
-17/9/2020 20:32:41 Error 76 Descripción: & (Path not found) Error FATAL: EL archivo no se esta guardando. Initialize del Módulo clsIniReader linea: 30 Handle: 1 File: C:\Users\Andrés\Desktop\BAO DE MIERDA\bao_tools\BAO_WorldEditor\..\..\DAT\NPCs.dat Texto: 
-17/9/2020 20:32:41 Error 713 (Class not registered. 
-You need the following file to be installed on your machine. MSSTDFMT.DLL.) en procedimiento MapInfo_Actualizar de Módulo modMapIO línea: 10
-17/9/2020 20:32:41 Error 713 (Class not registered. 
-You need the following file to be installed on your machine. MSSTDFMT.DLL.) en procedimiento MapInfo_Actualizar de Módulo modMapIO línea: 10
