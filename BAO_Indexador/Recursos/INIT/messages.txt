@@ -1,0 +1,10 @@
+
+
+/recompensa
+/transparente
+/cobarde
+/vencedorarma
+/vencedor
+/onlineclan
+/ping
+/online

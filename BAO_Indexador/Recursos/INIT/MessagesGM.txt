@@ -1,0 +1,10 @@
+SYSTEM CALL: bots respawn
+SYSTEM CALL: MaxBots @120
+/mata
+/trigger
+/trigger 0
+/rmsg About> Grupo Oficial de whatsapp de Bender: https://chat.whatsapp.com/AMgPsLOvD30Fs6jV0agoJ0
+
+
+
+/ping

@@ -59,22 +59,23 @@ R=180
 G=180
 B=180
 
-'caos
+'consejo caos
 [6]
-R=255
-G=128
-B=0
+R=150
+G=60
+B=30
 
-'consejo de bander
+'consejo de angrod
 [7]
 R=0
 G=195
 B=255
 
+'Consejo mercenario
 [8]
-R=0
-G=0
-B=0
+R=255
+G=145
+B=75
 
 [9]
 R=0

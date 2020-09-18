@@ -1,5 +1,5 @@
 [INIT]
-NumArmas=43
+NumArmas=45
 
 [Arma1]
 Dir1=4719
@@ -281,3 +281,13 @@ Dir1=0
 Dir2=0
 Dir3=0
 Dir4=0
+[ARMA44]
+Dir1=19711
+Dir2=19713
+Dir3=19710
+Dir4=19712
+[ARMA45]
+Dir1=13948
+Dir2=13951
+Dir3=13949
+Dir4=13950
