@@ -1,0 +1,18 @@
+# Initialized files
+*.basic
+*.vbw
+*.cfg
+Server/Charfile/*
+Server/Logs/*
+Server/WorldBackup/*
+Server/Guilds/*
+.DS_Store
+*.vbw
+*.csi
+*.OBJ
+*.log
+*.LOG
+*.bot
+bkNpcs.dat
+*.exe
+Guilds/guildsinfo.inf
