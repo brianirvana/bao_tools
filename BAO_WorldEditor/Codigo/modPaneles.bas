@@ -262,7 +262,7 @@ Public Function DameGrhIndex(ByVal GrhIn As Integer) As Integer
 'Last modified: 20/05/06
 '*************************************************
 
-If GrhIn >= 0 Then
+'If GrhIn >= 0 Then
 
     DameGrhIndex = SupData(GrhIn).Grh
     If SupData(GrhIn).Width > 0 Then
@@ -276,7 +276,7 @@ If GrhIn >= 0 Then
         frmConfigSup.mLargo.Text = "0"
     End If
 
-End If
+'End If
 
 End Function
 
@@ -297,10 +297,10 @@ If Val(GrhIn) > MaxGrhs Then
 End If
 
 'Change CurrentGrh
-CurrentGrh.GrhIndex = GrhIn
+CurrentGrh.grhindex = GrhIn
 CurrentGrh.Started = 1
 CurrentGrh.FrameCounter = 1
-CurrentGrh.SpeedCounter = GrhData(CurrentGrh.GrhIndex).Speed
+CurrentGrh.SpeedCounter = GrhData(CurrentGrh.grhindex).Speed
 
 End Sub
 
@@ -314,18 +314,18 @@ Public Sub VistaPreviaDeSup()
 'Last modified: 26/05/06
 '*************************************************
 Dim SR As RECT, DR As RECT
-If CurrentGrh.GrhIndex = 0 Then Exit Sub
+If CurrentGrh.grhindex = 0 Then Exit Sub
 frmGrafico.ShowPic = frmGrafico.Picture1
     If frmConfigSup.MOSAICO = vbUnchecked Then
         DR.Left = 0
         DR.Top = 0
-        DR.Bottom = (GrhData(CurrentGrh.GrhIndex).pixelHeight)
-        DR.Right = (GrhData(CurrentGrh.GrhIndex).pixelWidth)
-        SR.Left = GrhData(CurrentGrh.GrhIndex).sX
-        SR.Top = GrhData(CurrentGrh.GrhIndex).sY
-        SR.Bottom = SR.Top + (GrhData(CurrentGrh.GrhIndex).pixelHeight)
-        SR.Right = SR.Left + (GrhData(CurrentGrh.GrhIndex).pixelWidth)
-        Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.GrhIndex, SR, DR)
+        DR.Bottom = (GrhData(CurrentGrh.grhindex).pixelHeight)
+        DR.Right = (GrhData(CurrentGrh.grhindex).pixelWidth)
+        SR.Left = GrhData(CurrentGrh.grhindex).sX
+        SR.Top = GrhData(CurrentGrh.grhindex).sY
+        SR.Bottom = SR.Top + (GrhData(CurrentGrh.grhindex).pixelHeight)
+        SR.Right = SR.Left + (GrhData(CurrentGrh.grhindex).pixelWidth)
+        Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.grhindex, SR, DR)
     Else
         Dim j As Integer, i As Integer
         Dim Cont As Integer
@@ -335,16 +335,16 @@ frmGrafico.ShowPic = frmGrafico.Picture1
                 DR.Top = (i - 1) * 32
                 DR.Right = j * 32
                 DR.Bottom = i * 32
-                SR.Left = GrhData(CurrentGrh.GrhIndex).sX
-                SR.Top = GrhData(CurrentGrh.GrhIndex).sY
-                SR.Right = SR.Left + GrhData(CurrentGrh.GrhIndex).pixelWidth
-                SR.Bottom = SR.Top + GrhData(CurrentGrh.GrhIndex).pixelHeight
-                Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.GrhIndex, SR, DR)
+                SR.Left = GrhData(CurrentGrh.grhindex).sX
+                SR.Top = GrhData(CurrentGrh.grhindex).sY
+                SR.Right = SR.Left + GrhData(CurrentGrh.grhindex).pixelWidth
+                SR.Bottom = SR.Top + GrhData(CurrentGrh.grhindex).pixelHeight
+                Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.grhindex, SR, DR)
                 If Cont < CInt(Val(frmConfigSup.mLargo)) * CInt(Val(frmConfigSup.mAncho)) Then _
-                    Cont = Cont + 1: CurrentGrh.GrhIndex = CurrentGrh.GrhIndex + 1
+                    Cont = Cont + 1: CurrentGrh.grhindex = CurrentGrh.grhindex + 1
             Next
         Next
-        CurrentGrh.GrhIndex = CurrentGrh.GrhIndex - Cont
+        CurrentGrh.grhindex = CurrentGrh.grhindex - Cont
     End If
 frmGrafico.ShowPic.Picture = frmGrafico.ShowPic.Image
 frmMain.PreviewGrh = frmGrafico.ShowPic

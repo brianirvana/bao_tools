@@ -28,6 +28,7 @@ Attribute VB_Name = "modDeclaraciones"
 ' @date 20081218
 
 Option Explicit
+
 Public Des_StartX As Integer
 Public Des_StartY As Integer
 Public Des_FinishX As Integer
@@ -111,6 +112,14 @@ Public Type tSetupMods
     bNoMusic    As Boolean
     bNoSound    As Boolean
 End Type
+
+Public Type mCostaType
+    GrhIndex As Integer
+    X As Integer
+    Y As Integer
+End Type
+
+Public MCostaV(1 To 3) As mCostaType
 
 Public ClientSetup As tSetupMods
 
@@ -311,7 +320,7 @@ End Type
 
 'Holds info about a object
 Public Type Obj
-    ObjIndex                    As Integer
+    objindex                    As Integer
     Amount                      As Integer
 End Type
 

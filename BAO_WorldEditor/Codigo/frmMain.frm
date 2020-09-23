@@ -5,19 +5,849 @@ Begin VB.Form frmMain
    BackColor       =   &H00000000&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "WorldEditor"
-   ClientHeight    =   10740
+   ClientHeight    =   13140
    ClientLeft      =   390
    ClientTop       =   840
-   ClientWidth     =   15270
+   ClientWidth     =   23385
    Icon            =   "frmMain.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
-   ScaleHeight     =   716
+   ScaleHeight     =   876
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   1018
+   ScaleWidth      =   1559
    StartUpPosition =   1  'CenterOwner
    Visible         =   0   'False
    WindowState     =   2  'Maximized
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   0
+      Left            =   19560
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   140
+      Top             =   480
+      Width           =   255
+      Begin VB.Shape Shape5 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   225
+         Left            =   0
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape13 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   105
+         Left            =   0
+         Top             =   0
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   1
+      Left            =   19800
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   139
+      Top             =   480
+      Width           =   255
+      Begin VB.Shape Shape12 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   105
+         Left            =   0
+         Top             =   0
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   2
+      Left            =   20040
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   138
+      Top             =   480
+      Width           =   255
+      Begin VB.Shape Shape9 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   225
+         Left            =   90
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape14 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   105
+         Left            =   0
+         Top             =   0
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   3
+      Left            =   19560
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   137
+      Top             =   720
+      Width           =   255
+      Begin VB.Shape Shape7 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   225
+         Left            =   0
+         Top             =   0
+         Width           =   105
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   4
+      Left            =   19800
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   136
+      Top             =   720
+      Width           =   255
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   5
+      Left            =   20040
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   135
+      Top             =   720
+      Width           =   255
+      Begin VB.Shape Shape10 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   225
+         Left            =   90
+         Top             =   0
+         Width           =   105
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   6
+      Left            =   19560
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   134
+      Top             =   960
+      Width           =   255
+      Begin VB.Shape Shape8 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   225
+         Left            =   0
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape16 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   105
+         Left            =   0
+         Top             =   90
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   7
+      Left            =   19800
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   133
+      Top             =   960
+      Width           =   255
+      Begin VB.Shape Shape15 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   105
+         Left            =   0
+         Top             =   90
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp2 
+      BackColor       =   &H0000C000&
+      Height          =   255
+      Index           =   8
+      Left            =   20040
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   132
+      Top             =   960
+      Width           =   255
+      Begin VB.Shape Shape11 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   225
+         Left            =   90
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape17 
+         BackColor       =   &H00FF0000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H00FF0000&
+         Height          =   105
+         Left            =   0
+         Top             =   90
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   0
+      Left            =   18720
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   131
+      Tag             =   "102"
+      Top             =   480
+      Width           =   255
+      Begin VB.Shape Shape20 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   225
+         Left            =   0
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape26 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   105
+         Left            =   0
+         Top             =   0
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   1
+      Left            =   18960
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   130
+      Top             =   480
+      Width           =   255
+      Begin VB.Shape Shape24 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   105
+         Left            =   0
+         Top             =   0
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   2
+      Left            =   19200
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   129
+      Top             =   480
+      Width           =   255
+      Begin VB.Shape Shape23 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   225
+         Left            =   120
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape27 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   105
+         Left            =   0
+         Top             =   0
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   3
+      Left            =   18720
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   128
+      Top             =   720
+      Width           =   255
+      Begin VB.Shape Shape18 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   225
+         Left            =   0
+         Top             =   0
+         Width           =   105
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   4
+      Left            =   18960
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   127
+      Top             =   720
+      Width           =   255
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   6
+      Left            =   18720
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   126
+      Top             =   960
+      Width           =   255
+      Begin VB.Shape Shape19 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   225
+         Left            =   0
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape28 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   105
+         Left            =   0
+         Top             =   90
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   7
+      Left            =   18960
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   125
+      Top             =   960
+      Width           =   255
+      Begin VB.Shape Shape25 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   105
+         Left            =   0
+         Top             =   90
+         Width           =   210
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   5
+      Left            =   19200
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   124
+      Top             =   720
+      Width           =   255
+      Begin VB.Shape Shape22 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   225
+         Left            =   90
+         Top             =   0
+         Width           =   105
+      End
+   End
+   Begin VB.PictureBox tp1 
+      BackColor       =   &H00FF0000&
+      Height          =   255
+      Index           =   8
+      Left            =   19200
+      ScaleHeight     =   13
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   13
+      TabIndex        =   123
+      Top             =   960
+      Width           =   255
+      Begin VB.Shape Shape21 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   225
+         Left            =   120
+         Top             =   0
+         Width           =   105
+      End
+      Begin VB.Shape Shape29 
+         BackColor       =   &H0000C000&
+         BackStyle       =   1  'Opaque
+         BorderColor     =   &H0000C000&
+         Height          =   105
+         Left            =   0
+         Top             =   90
+         Width           =   210
+      End
+   End
+   Begin VB.OptionButton Option3 
+      BackColor       =   &H00000000&
+      Caption         =   "Nie"
+      ForeColor       =   &H00FFFFFF&
+      Height          =   195
+      Left            =   19200
+      TabIndex        =   122
+      Top             =   240
+      Width           =   615
+   End
+   Begin VB.OptionButton Option2 
+      BackColor       =   &H00000000&
+      Caption         =   "De"
+      ForeColor       =   &H00FFFFFF&
+      Height          =   195
+      Left            =   19800
+      TabIndex        =   121
+      Top             =   240
+      Width           =   615
+   End
+   Begin VB.OptionButton Option1 
+      BackColor       =   &H00000000&
+      Caption         =   "Ti"
+      ForeColor       =   &H00FFFFFF&
+      Height          =   195
+      Left            =   18720
+      TabIndex        =   120
+      Top             =   240
+      Value           =   -1  'True
+      Width           =   495
+   End
+   Begin VB.CheckBox Check1 
+      BackColor       =   &H00000000&
+      Caption         =   "Pintar Rect"
+      ForeColor       =   &H00FFFFFF&
+      Height          =   195
+      Left            =   20400
+      TabIndex        =   119
+      Top             =   960
+      Width           =   1215
+   End
+   Begin VB.CheckBox chkCostas 
+      BackColor       =   &H00000000&
+      Caption         =   "Auto-Costas"
+      ForeColor       =   &H00FFFFFF&
+      Height          =   255
+      Left            =   20400
+      TabIndex        =   118
+      Top             =   600
+      Width           =   1215
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "Mapa3"
+      Height          =   255
+      Left            =   17520
+      TabIndex        =   117
+      Top             =   840
+      Width           =   1095
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "Mapa2"
+      Height          =   255
+      Left            =   17520
+      TabIndex        =   116
+      Top             =   480
+      Width           =   1095
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Mapa1"
+      Height          =   255
+      Left            =   17520
+      TabIndex        =   115
+      Top             =   120
+      Width           =   1095
+   End
+   Begin VB.Frame FraOpciones 
+      BackColor       =   &H00000000&
+      Caption         =   "Opciones"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H8000000B&
+      Height          =   1335
+      Left            =   15120
+      TabIndex        =   106
+      Top             =   0
+      Width           =   2295
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   0
+         Left            =   240
+         TabIndex        =   107
+         Top             =   360
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         Image           =   "frmMain.frx":628A
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   1
+         Left            =   720
+         TabIndex        =   108
+         Top             =   360
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         Image           =   "frmMain.frx":6EDC
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   2
+         Left            =   1200
+         TabIndex        =   109
+         Top             =   360
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         Image           =   "frmMain.frx":7B2E
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   3
+         Left            =   1680
+         TabIndex        =   110
+         Top             =   360
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         Image           =   "frmMain.frx":8780
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   4
+         Left            =   240
+         TabIndex        =   111
+         Top             =   840
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         Caption         =   "1"
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   5
+         Left            =   720
+         TabIndex        =   112
+         Top             =   840
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         Caption         =   "2"
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   6
+         Left            =   1200
+         TabIndex        =   113
+         Top             =   840
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         Caption         =   "3"
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         cBack           =   -2147483633
+      End
+      Begin WorldEditor.lvButtons_H LvBOpcion 
+         Height          =   375
+         Index           =   7
+         Left            =   1680
+         TabIndex        =   114
+         Top             =   840
+         Width           =   375
+         _ExtentX        =   661
+         _ExtentY        =   661
+         Caption         =   "4"
+         CapAlign        =   2
+         BackStyle       =   2
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Tahoma"
+            Size            =   9.75
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         cGradient       =   0
+         Mode            =   0
+         Value           =   0   'False
+         cBack           =   -2147483633
+      End
+   End
+   Begin VB.CommandButton cmdDM 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   240
+      Index           =   0
+      Left            =   14400
+      Picture         =   "frmMain.frx":93D2
+      Style           =   1  'Graphical
+      TabIndex        =   105
+      Top             =   240
+      Width           =   240
+   End
+   Begin VB.CommandButton cmdDM 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   240
+      Index           =   1
+      Left            =   14160
+      Picture         =   "frmMain.frx":96C4
+      Style           =   1  'Graphical
+      TabIndex        =   104
+      Top             =   480
+      Width           =   240
+   End
+   Begin VB.CommandButton cmdDM 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   240
+      Index           =   2
+      Left            =   14640
+      Picture         =   "frmMain.frx":99B4
+      Style           =   1  'Graphical
+      TabIndex        =   103
+      Top             =   480
+      Width           =   240
+   End
+   Begin VB.CommandButton cmdDM 
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   240
+      Index           =   3
+      Left            =   14400
+      Picture         =   "frmMain.frx":9CA3
+      Style           =   1  'Graphical
+      TabIndex        =   102
+      Top             =   720
+      Width           =   240
+   End
+   Begin VB.CommandButton cmdDM 
+      Caption         =   "O"
+      BeginProperty Font 
+         Name            =   "Arial"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   240
+      Index           =   4
+      Left            =   14400
+      Style           =   1  'Graphical
+      TabIndex        =   101
+      Top             =   480
+      Width           =   240
+   End
    Begin VB.PictureBox picRadar 
       BackColor       =   &H00008000&
       BorderStyle     =   0  'None
@@ -117,7 +947,7 @@ Begin VB.Form frmMain
       Value           =   0   'False
       CustomClick     =   1
       ImgAlign        =   5
-      Image           =   "frmMain.frx":628A
+      Image           =   "frmMain.frx":9F8A
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -149,7 +979,7 @@ Begin VB.Form frmMain
       Value           =   0   'False
       CustomClick     =   1
       ImgAlign        =   5
-      Image           =   "frmMain.frx":6850
+      Image           =   "frmMain.frx":A550
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -181,7 +1011,7 @@ Begin VB.Form frmMain
       Value           =   0   'False
       CustomClick     =   1
       ImgAlign        =   5
-      Image           =   "frmMain.frx":6D51
+      Image           =   "frmMain.frx":AA51
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -213,7 +1043,7 @@ Begin VB.Form frmMain
       Value           =   0   'False
       CustomClick     =   1
       ImgAlign        =   5
-      Image           =   "frmMain.frx":7105
+      Image           =   "frmMain.frx":AE05
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -244,7 +1074,7 @@ Begin VB.Form frmMain
       Mode            =   1
       Value           =   0   'False
       ImgAlign        =   5
-      Image           =   "frmMain.frx":7486
+      Image           =   "frmMain.frx":B186
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -276,7 +1106,7 @@ Begin VB.Form frmMain
       Mode            =   1
       Value           =   0   'False
       ImgAlign        =   5
-      Image           =   "frmMain.frx":AAE6
+      Image           =   "frmMain.frx":E7E6
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -334,7 +1164,7 @@ Begin VB.Form frmMain
       ScrollBars      =   2  'Vertical
       TabIndex        =   9
       TabStop         =   0   'False
-      Text            =   "frmMain.frx":E02C
+      Text            =   "frmMain.frx":11D2C
       Top             =   6240
       Width           =   4320
    End
@@ -345,7 +1175,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   4395
       Left            =   120
-      Picture         =   "frmMain.frx":E06C
+      Picture         =   "frmMain.frx":11D6C
       ScaleHeight     =   4365
       ScaleWidth      =   4365
       TabIndex        =   8
@@ -562,9 +1392,9 @@ Begin VB.Form frmMain
          EndProperty
          ForeColor       =   &H80000014&
          Height          =   330
-         ItemData        =   "frmMain.frx":206D0
+         ItemData        =   "frmMain.frx":243D0
          Left            =   1080
-         List            =   "frmMain.frx":206E0
+         List            =   "frmMain.frx":243E0
          TabIndex        =   1
          TabStop         =   0   'False
          Text            =   "1"
@@ -627,9 +1457,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   0
-         ItemData        =   "frmMain.frx":206F0
+         ItemData        =   "frmMain.frx":243F0
          Left            =   120
-         List            =   "frmMain.frx":206F2
+         List            =   "frmMain.frx":243F2
          Sorted          =   -1  'True
          TabIndex        =   71
          Tag             =   "-1"
@@ -730,9 +1560,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   2
-         ItemData        =   "frmMain.frx":206F4
+         ItemData        =   "frmMain.frx":243F4
          Left            =   3360
-         List            =   "frmMain.frx":206F6
+         List            =   "frmMain.frx":243F6
          TabIndex        =   67
          Text            =   "1"
          Top             =   3120
@@ -754,9 +1584,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   2
-         ItemData        =   "frmMain.frx":206F8
+         ItemData        =   "frmMain.frx":243F8
          Left            =   840
-         List            =   "frmMain.frx":206FA
+         List            =   "frmMain.frx":243FA
          TabIndex        =   0
          Text            =   "1"
          Top             =   3120
@@ -777,9 +1607,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   3
-         ItemData        =   "frmMain.frx":206FC
+         ItemData        =   "frmMain.frx":243FC
          Left            =   120
-         List            =   "frmMain.frx":206FE
+         List            =   "frmMain.frx":243FE
          TabIndex        =   66
          Tag             =   "-1"
          Top             =   120
@@ -821,9 +1651,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   0
-         ItemData        =   "frmMain.frx":20700
+         ItemData        =   "frmMain.frx":24400
          Left            =   840
-         List            =   "frmMain.frx":20702
+         List            =   "frmMain.frx":24402
          TabIndex        =   58
          Text            =   "1"
          Top             =   3120
@@ -845,9 +1675,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   0
-         ItemData        =   "frmMain.frx":20704
+         ItemData        =   "frmMain.frx":24404
          Left            =   3360
-         List            =   "frmMain.frx":20706
+         List            =   "frmMain.frx":24406
          TabIndex        =   57
          Text            =   "1"
          Top             =   3120
@@ -888,9 +1718,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   1
-         ItemData        =   "frmMain.frx":20708
+         ItemData        =   "frmMain.frx":24408
          Left            =   120
-         List            =   "frmMain.frx":2070A
+         List            =   "frmMain.frx":2440A
          TabIndex        =   55
          Tag             =   "-1"
          Top             =   120
@@ -911,9 +1741,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   3210
          Index           =   4
-         ItemData        =   "frmMain.frx":2070C
+         ItemData        =   "frmMain.frx":2440C
          Left            =   120
-         List            =   "frmMain.frx":2070E
+         List            =   "frmMain.frx":2440E
          TabIndex        =   54
          Tag             =   "-1"
          Top             =   120
@@ -1388,9 +2218,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   1
-         ItemData        =   "frmMain.frx":20710
+         ItemData        =   "frmMain.frx":24410
          Left            =   840
-         List            =   "frmMain.frx":20712
+         List            =   "frmMain.frx":24412
          TabIndex        =   77
          Text            =   "1"
          Top             =   3120
@@ -1431,9 +2261,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   2
-         ItemData        =   "frmMain.frx":20714
+         ItemData        =   "frmMain.frx":24414
          Left            =   120
-         List            =   "frmMain.frx":20716
+         List            =   "frmMain.frx":24416
          TabIndex        =   79
          Tag             =   "-1"
          Top             =   120
@@ -1455,9 +2285,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   1
-         ItemData        =   "frmMain.frx":20718
+         ItemData        =   "frmMain.frx":24418
          Left            =   3360
-         List            =   "frmMain.frx":2071A
+         List            =   "frmMain.frx":2441A
          TabIndex        =   80
          Text            =   "500"
          Top             =   3120
@@ -2016,7 +2846,7 @@ Begin VB.Form frmMain
       Value           =   0   'False
       CustomClick     =   1
       ImgAlign        =   5
-      Image           =   "frmMain.frx":2071C
+      Image           =   "frmMain.frx":2441C
       ImgSize         =   24
       cBack           =   -2147483633
    End
@@ -2343,10 +3173,10 @@ Begin VB.Form frmMain
       BackColor       =   &H000000FF&
       BorderColor     =   &H00C0C0C0&
       FillColor       =   &H00C0E0FF&
-      Height          =   9165
-      Left            =   4560
+      Height          =   11565
+      Left            =   4680
       Top             =   1440
-      Width           =   10605
+      Width           =   17925
    End
    Begin VB.Menu FileMnu 
       Caption         =   "&Archivo"
@@ -2418,6 +3248,28 @@ Begin VB.Form frmMain
       Begin VB.Menu mnuCopiar 
          Caption         =   "&Copiar Selección"
          Shortcut        =   ^C
+      End
+      Begin VB.Menu mnuLineEdicion02 
+         Caption         =   "-"
+      End
+      Begin VB.Menu mnuMapaIzquierda 
+         Caption         =   "&Pegar Mapa Izquierda"
+         Shortcut        =   ^I
+      End
+      Begin VB.Menu mnuMapaDerecha 
+         Caption         =   "&Pegar Mapa Derecha"
+         Shortcut        =   ^Q
+      End
+      Begin VB.Menu mnuDerAbajo 
+         Caption         =   "&Pegar Mapa Derecha Abajo"
+         Shortcut        =   ^E
+      End
+      Begin VB.Menu mnuMapaAbajo 
+         Caption         =   "&Pegar Mapa abajo"
+         Shortcut        =   ^W
+      End
+      Begin VB.Menu mnuLineEdicion01 
+         Caption         =   "-"
       End
       Begin VB.Menu mnuPegar 
          Caption         =   "&Pegar Selección"
@@ -2697,6 +3549,9 @@ Begin VB.Form frmMain
       End
       Begin VB.Menu mnuLine2 
          Caption         =   "-"
+      End
+      Begin VB.Menu mnuRecargarIndices 
+         Caption         =   "&Rercargar Indices"
       End
       Begin VB.Menu mnuGuardarUltimaConfig 
          Caption         =   "&Guardar Ultima Configuración"
@@ -2982,6 +3837,24 @@ End If
 End Sub
 
 
+Private Sub cmdDM_Click(index As Integer)
+frmConfigSup.DespMosaic.value = vbChecked
+Select Case index
+    Case 0 'A
+
+frmConfigSup.DMLargo.Text = Val(frmConfigSup.DMLargo.Text) + 1
+    Case 1 '<
+    frmConfigSup.DMAncho.Text = Val(frmConfigSup.DMAncho.Text) + 1
+    Case 2 '>
+    frmConfigSup.DMAncho.Text = Val(frmConfigSup.DMAncho.Text) - 1
+    Case 3 'V
+    frmConfigSup.DMLargo.Text = Val(frmConfigSup.DMLargo.Text) - 1
+    Case 4 '0
+frmConfigSup.DMAncho.Text = 0
+frmConfigSup.DMLargo.Text = 0
+End Select
+End Sub
+
 Private Sub cmdInformacionDelMapa_Click()
 '*************************************************
 'Author: ^[GS]^
@@ -3000,6 +3873,68 @@ Call mnuQuitarFunciones_Click
 End Sub
 
 
+
+Private Sub Command5_Click()
+
+End Sub
+
+Private Sub Command1_Click()
+On Error GoTo ErrHandler
+
+    If FileExist(Dialog.FileName, vbArchive) = False Then Exit Sub
+    If MapInfo(CurMap).Changed = 1 Then
+        If MsgBox(MSGMod, vbExclamation + vbYesNo) = vbYes Then
+            modMapIO.GuardarMapa Dialog.FileName
+        End If
+    End If
+    Dialog.FileName = Dir(App.Path & "\Maps\mapa1.map") 'ReyarB
+    Call modMapIO.NuevoMapa
+    modMapIO.AbrirMapa Dialog.FileName
+    DoEvents
+    mnuReAbrirMapa.Enabled = True
+    EngineRun = True
+Exit Sub
+ErrHandler:
+End Sub
+
+Private Sub Command2_Click()
+On Error GoTo ErrHandler
+
+    If FileExist(Dialog.FileName, vbArchive) = False Then Exit Sub
+    If MapInfo(CurMap).Changed = 1 Then
+        If MsgBox(MSGMod, vbExclamation + vbYesNo) = vbYes Then
+            modMapIO.GuardarMapa Dialog.FileName
+        End If
+    End If
+    Dialog.FileName = Dir(App.Path & "\Maps\mapa2.map") 'ReyarB
+    Call modMapIO.NuevoMapa
+    modMapIO.AbrirMapa Dialog.FileName
+    DoEvents
+    mnuReAbrirMapa.Enabled = True
+    EngineRun = True
+Exit Sub
+ErrHandler:
+End Sub
+
+Private Sub Command3_Click()
+On Error GoTo ErrHandler
+
+
+    If FileExist(Dialog.FileName, vbArchive) = False Then Exit Sub
+    If MapInfo(CurMap).Changed = 1 Then
+        If MsgBox(MSGMod, vbExclamation + vbYesNo) = vbYes Then
+            modMapIO.GuardarMapa Dialog.FileName
+        End If
+    End If
+    Dialog.FileName = Dir(App.Path & "\Maps\mapa3.map") 'ReyarB
+    Call modMapIO.NuevoMapa
+    modMapIO.AbrirMapa Dialog.FileName
+    DoEvents
+    mnuReAbrirMapa.Enabled = True
+    EngineRun = True
+Exit Sub
+ErrHandler:
+End Sub
 
 Private Sub cUnionManual_Click()
 '*************************************************
@@ -3395,16 +4330,22 @@ Private Sub lListado_Click(index As Integer)
 230                   End If
 240               End If
 250               Call fPreviewGrh(cGrh.Text)
+                  Call modPaneles.VistaPreviaDeSup
 260           Case 1
 270               cNumFunc(0).Text = ReadField(2, lListado(index).Text, Asc("#"))
 280           Case 2
 290               cNumFunc(1).Text = ReadField(2, lListado(index).Text, Asc("#"))
 300           Case 3
-310               cNumFunc(2).Text = ReadField(2, lListado(index).Text, Asc("#"))
+                frmConfigSup.mLargo.Text = 1
+                frmConfigSup.mAncho.Text = 1
+                cNumFunc(2).Text = ReadField(2, lListado(index).Text, Asc("#"))
+                fPreviewGrh (ObjData(Val(ReadField(2, lListado(index).Text, Asc("#")))).GrhIndex)
+                Call modPaneles.VistaPreviaDeSup
+310
 320       End Select
-'330   Else
+330   Else
 '          Debug.Print lListado(index).Tag
-'340       lListado(index).listIndex = Val(lListado(index).Tag)
+340       lListado(index).listIndex = Val(lListado(index).Tag)
 350   End If
 
    On Error GoTo 0
@@ -3442,6 +4383,29 @@ Private Sub lListado_MouseMove(index As Integer, Button As Integer, Shift As Int
 lListado_MouseMove_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento lListado_MouseMove de Formulario frmMain línea: " & Erl())
+End Sub
+
+Private Sub LvBOpcion_Click(index As Integer)
+    Select Case index
+        Case 0
+            cVerBloqueos.value = (cVerBloqueos.value = False)
+            mnuVerBloqueos.Checked = cVerBloqueos.value
+        Case 1
+            mnuVerTranslados.Checked = (mnuVerTranslados.Checked = False)
+        Case 2
+            mnuVerObjetos.Checked = (mnuVerObjetos.Checked = False)
+        Case 3
+            cVerTriggers.value = (cVerTriggers.value = False)
+            mnuVerTriggers.Checked = cVerTriggers.value
+        Case 4
+            mnuVerCapa1.Checked = (mnuVerCapa1.Checked = False)
+        Case 5
+            mnuVerCapa2.Checked = (mnuVerCapa2.Checked = False)
+        Case 6
+            mnuVerCapa3.Checked = (mnuVerCapa3.Checked = False)
+        Case 7
+            mnuVerCapa4.Checked = (mnuVerCapa4.Checked = False)
+    End Select
 End Sub
 
 Public Sub MapPest_Click(index As Integer)
@@ -3709,6 +4673,15 @@ Call modEdicion.Deshacer_Add("Cortar Selección")
 Call CortarSeleccion
 End Sub
 
+Private Sub mnuDerAbajo_Click()
+'*************************************************
+'Author: ^[GS]^
+'Last modified: 01/11/08
+'*************************************************
+Call modEdicion.Deshacer_Add("Pegar Selección")
+Call PegarSeleccionDerechaAbajo
+End Sub
+
 Private Sub mnuDeshacer_Click()
 '*************************************************
 'Author: ^[GS]^
@@ -3876,6 +4849,33 @@ If LenB(Dir(App.Path & "\manual\index.html", vbArchive)) <> 0 Then
     Call Shell("explorer " & App.Path & "\manual\index.html")
     DoEvents
 End If
+End Sub
+
+Private Sub mnuMapaAbajo_Click()
+'*************************************************
+'Author: ^[GS]^
+'Last modified: 01/11/08
+'*************************************************
+Call modEdicion.Deshacer_Add("Pegar Selección")
+Call PegarSeleccionAbajo
+End Sub
+
+Private Sub mnuMapaDerecha_Click()
+'*************************************************
+'Author: ^[GS]^
+'Last modified: 01/11/08
+'*************************************************
+Call modEdicion.Deshacer_Add("Pegar Selección")
+Call PegarSeleccionDerecha
+End Sub
+
+Private Sub mnuMapaIzquierda_Click()
+'*************************************************
+'Author: ^[GS]^
+'Last modified: 01/11/08
+'*************************************************
+Call modEdicion.Deshacer_Add("Pegar Selección")
+Call PegarSeleccionIzquierda
 End Sub
 
 Private Sub mnuModoCaminata_Click()
@@ -4187,6 +5187,10 @@ Call modEdicion.Deshacer_Add("Realizar Operación en Selección")
 Call AccionSeleccion
 End Sub
 
+Private Sub mnuRecargarIndices_Click()
+Call CargarIndicesSuperficie
+End Sub
+
 Private Sub mnuSalir_Click()
 '*************************************************
 'Author: ^[GS]^
@@ -4341,6 +5345,72 @@ cVerTriggers.value = (cVerTriggers.value = False)
 mnuVerTriggers.Checked = cVerTriggers.value
 End Sub
 
+Private Sub Option1_Click()
+tp1(0).Tag = "357"
+tp1(1).Tag = "366"
+tp1(2).Tag = "359"
+tp1(3).Tag = "362"
+tp1(4).Tag = "137"
+tp1(5).Tag = "365"
+tp1(6).Tag = "356"
+tp1(7).Tag = "367"
+tp1(8).Tag = "358"
+
+tp2(0).Tag = "364"
+tp2(1).Tag = "367"
+tp2(2).Tag = "361"
+tp2(3).Tag = "365"
+tp2(4).Tag = "0"
+tp2(5).Tag = "362"
+tp2(6).Tag = "363"
+tp2(7).Tag = "366"
+tp2(8).Tag = "360"
+End Sub
+
+Private Sub Option2_Click()
+tp1(0).Tag = "369"
+tp1(1).Tag = "374"
+tp1(2).Tag = "371"
+tp1(3).Tag = "375"
+tp1(4).Tag = "137"
+tp1(5).Tag = "378"
+tp1(6).Tag = "368"
+tp1(7).Tag = "379"
+tp1(8).Tag = "370"
+
+tp2(0).Tag = "377"
+tp2(1).Tag = "379"
+tp2(2).Tag = "373"
+tp2(3).Tag = "378"
+tp2(4).Tag = "130"
+tp2(5).Tag = "375"
+tp2(6).Tag = "376"
+tp2(7).Tag = "374"
+tp2(8).Tag = "372"
+End Sub
+
+Private Sub Option3_Click()
+tp1(0).Tag = "658"
+tp1(1).Tag = "667"
+tp1(2).Tag = "660"
+tp1(3).Tag = "663"
+tp1(4).Tag = "137"
+tp1(5).Tag = "666"
+tp1(6).Tag = "657"
+tp1(7).Tag = "668"
+tp1(8).Tag = "659"
+
+tp2(0).Tag = "665"
+tp2(1).Tag = "668"
+tp2(2).Tag = "662"
+tp2(3).Tag = "666"
+tp2(4).Tag = "621"
+tp2(5).Tag = "663"
+tp2(6).Tag = "664"
+tp2(7).Tag = "667"
+tp2(8).Tag = "661"
+End Sub
+
 Private Sub picRadar_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
       '*************************************************
       'Author: ^[GS]^
@@ -4352,7 +5422,7 @@ Private Sub picRadar_MouseDown(Button As Integer, Shift As Integer, X As Single,
       'If Y > 92 Then Y = 92
    On Error GoTo picRadar_MouseDown_Error
 
-10    UserPos.X = X * 12
+10    UserPos.X = X * 12#
 20    UserPos.Y = Y * 12
 
       Dim tTrans As WorldPos
@@ -4571,4 +5641,307 @@ Public Sub ObtenerNombreArchivo(ByVal Guardar As Boolean)
 ObtenerNombreArchivo_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento ObtenerNombreArchivo de Formulario frmMain línea: " & Erl())
+End Sub
+
+Private Sub tp1_Click(index As Integer)
+    cGrh.Text = DameGrhIndex(tp1(index).Tag)
+    cCapas.Text = IIf(index = 4, 1, 2)
+    If index = 4 Then
+        frmConfigSup.mLargo.Text = 4
+        frmConfigSup.mAncho.Text = 4
+        chkCostas.value = vbUnchecked
+    End If
+    Call fPreviewGrh(cGrh.Text)
+    Call modPaneles.VistaPreviaDeSup
+End Sub
+
+Private Sub tp2_Click(index As Integer)
+    cGrh.Text = DameGrhIndex(tp2(index).Tag)
+    cCapas.Text = IIf(index = 4, 1, 2)
+    If index = 4 Then
+        frmConfigSup.mLargo.Text = 4
+        frmConfigSup.mAncho.Text = 4
+        chkCostas.value = vbUnchecked
+    End If
+    Call fPreviewGrh(cGrh.Text)
+    Call modPaneles.VistaPreviaDeSup
+End Sub
+Sub HacerCostas(ByVal Button As Integer, ByVal tX As Integer, ByVal tY As Integer)
+    Dim gh(0 To 8) As Integer
+    Dim i As Integer
+    Dim YY As Integer
+    Dim XX As Integer
+    
+If Button = 1 Then
+    MapInfo(CurMap).Changed = 1
+    For YY = tY - 1 To tY + 1
+        For XX = tX - 1 To tX + 1
+            gh(i) = MapData(XX, YY).Graphic(2).GrhIndex
+            i = i + 1
+        Next XX
+    Next YY
+    If gh(4) > 0 Then
+        Exit Sub
+    ElseIf gh(1) = DameGrhIndex(tp1(1).Tag) + 1 Then 'Click abajo
+        tp1_Click (2)
+        ClickEdit 1, tX, tY - 1
+        ClickEdit 1, tX - 1, tY - 1
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(1).Tag) + 0 Then
+        tp1_Click (0)
+        ClickEdit 1, tX, tY - 1
+        ClickEdit 1, tX + 1, tY - 1
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(2).Tag) + 3 Then
+        tp1_Click (5)
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(0).Tag) + 2 Then
+        tp1_Click (3)
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(3).Tag) Or gh(1) = DameGrhIndex(tp1(3).Tag) + 2 Then
+        tp1_Click (3)
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(5).Tag) + 1 Or gh(1) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        tp1_Click (5)
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        tp2_Click (0)
+        ClickEdit 1, tX, tY - 1
+        tp2_Click (3)
+        ClickEdit 1, tX, tY
+    ElseIf gh(1) = DameGrhIndex(tp1(7).Tag) + 2 Then
+        tp2_Click (2)
+        ClickEdit 1, tX, tY - 1
+        tp2_Click (5)
+        ClickEdit 1, tX, tY
+    ElseIf gh(7) = DameGrhIndex(tp1(1).Tag) + 0 Then 'Click arriba
+        tp2_Click (5)
+        ClickEdit 1, tX, tY
+        tp2_Click (8)
+        ClickEdit 1, tX, tY + 1
+    ElseIf gh(7) = DameGrhIndex(tp1(1).Tag) + 1 Then
+        tp2_Click (3)
+        ClickEdit 1, tX, tY
+        tp2_Click (6)
+        ClickEdit 1, tX, tY + 1
+    ElseIf gh(7) = DameGrhIndex(tp1(6).Tag) + 0 Then
+        tp1_Click (3)
+        ClickEdit 1, tX, tY
+    ElseIf gh(7) = DameGrhIndex(tp1(8).Tag) + 1 Then
+        tp1_Click (5)
+        ClickEdit 1, tX, tY
+    ElseIf gh(7) = DameGrhIndex(tp1(3).Tag) Or gh(7) = DameGrhIndex(tp1(3).Tag) + 2 Then
+        tp1_Click (3)
+        ClickEdit 1, tX, tY
+    ElseIf gh(7) = DameGrhIndex(tp1(5).Tag) + 1 Or gh(7) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        tp1_Click (5)
+        ClickEdit 1, tX, tY
+    ElseIf gh(7) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        tp1_Click (8)
+        ClickEdit 1, tX, tY + 1
+        ClickEdit 1, tX - 1, tY + 1
+        ClickEdit 1, tX, tY
+    ElseIf gh(7) = DameGrhIndex(tp1(7).Tag) + 2 Then
+        tp1_Click (6)
+        ClickEdit 1, tX, tY + 1
+        ClickEdit 1, tX + 1, tY + 1
+        ClickEdit 1, tX, tY
+    ElseIf gh(5) = DameGrhIndex(tp1(3).Tag) + 2 Then 'Click izquierda
+        tp2_Click (1)
+        ClickEdit 1, tX, tY
+        tp2_Click (2)
+        ClickEdit 1, tX + 1, tY
+    ElseIf gh(5) = DameGrhIndex(tp1(3).Tag) + 0 Then
+        tp2_Click (7)
+        ClickEdit 1, tX, tY
+        tp2_Click (8)
+        ClickEdit 1, tX + 1, tY
+    ElseIf gh(5) = DameGrhIndex(tp1(5).Tag) + 1 Then
+        tp1_Click (2)
+        ClickEdit 1, tX, tY
+        ClickEdit 1, tX + 1, tY
+        ClickEdit 1, tX + 1, tY + 1
+    ElseIf gh(5) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        tp1_Click (8)
+        ClickEdit 1, tX, tY
+        ClickEdit 1, tX + 1, tY
+        ClickEdit 1, tX + 1, tY - 1
+    ElseIf gh(5) = DameGrhIndex(tp1(1).Tag) Or gh(5) = DameGrhIndex(tp1(1).Tag) + 1 Then
+        tp1_Click (1)
+        ClickEdit 1, tX, tY
+    ElseIf gh(5) = DameGrhIndex(tp1(7).Tag) + 2 Or gh(5) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        tp1_Click (7)
+        ClickEdit 1, tX, tY
+    ElseIf gh(5) = DameGrhIndex(tp1(2).Tag) + 0 Then
+        tp1_Click (1)
+        ClickEdit 1, tX, tY
+    ElseIf gh(5) = DameGrhIndex(tp1(8).Tag) + 2 Then
+        tp1_Click (7)
+        ClickEdit 1, tX, tY
+    ElseIf gh(3) = DameGrhIndex(tp1(3).Tag) + 0 Then 'Click derecha
+        tp1_Click (0)
+        ClickEdit 1, tX, tY
+        ClickEdit 1, tX - 1, tY
+        ClickEdit 1, tX - 1, tY + 1
+    ElseIf gh(3) = DameGrhIndex(tp1(3).Tag) + 2 Then
+        tp1_Click (6)
+        ClickEdit 1, tX, tY
+        ClickEdit 1, tX - 1, tY
+        ClickEdit 1, tX - 1, tY - 1
+    ElseIf gh(3) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        tp2_Click (0)
+        ClickEdit 1, tX - 1, tY
+        tp2_Click (1)
+        ClickEdit 1, tX, tY
+    ElseIf gh(3) = DameGrhIndex(tp1(5).Tag) + 1 Then
+        tp2_Click (6)
+        ClickEdit 1, tX - 1, tY
+        tp2_Click (7)
+        ClickEdit 1, tX, tY
+    ElseIf gh(3) = DameGrhIndex(tp1(1).Tag) Or gh(3) = DameGrhIndex(tp1(1).Tag) + 1 Then
+        tp1_Click (1)
+        ClickEdit 1, tX, tY
+    ElseIf gh(3) = DameGrhIndex(tp1(7).Tag) + 2 Or gh(3) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        tp1_Click (7)
+        ClickEdit 1, tX, tY
+    ElseIf gh(3) = DameGrhIndex(tp1(0).Tag) + 1 Then
+        tp1_Click (1)
+        ClickEdit 1, tX, tY
+    ElseIf gh(3) = DameGrhIndex(tp1(6).Tag) + 3 Then
+        tp1_Click (7)
+        ClickEdit 1, tX, tY
+    End If
+ElseIf Button = 2 Then
+    MapInfo(CurMap).Changed = 1
+    MapData(tX, tY).Graphic(2).GrhIndex = 0
+End If
+End Sub
+
+Sub MostrarCostas(tX As Integer, tY As Integer)
+    Dim gh(0 To 8) As Integer
+    Dim i As Integer
+    Dim YY As Integer
+    Dim XX As Integer
+    For YY = tY - 1 To tY + 1
+        For XX = tX - 1 To tX + 1
+            If InMapBounds(XX, YY) Then
+            gh(i) = MapData(XX, YY).Graphic(2).GrhIndex
+            End If
+            i = i + 1
+        Next XX
+    Next YY
+    Call MCosta(0, 0, 0, 0)
+    If gh(4) > 0 Then
+        Exit Sub
+    ElseIf gh(1) = DameGrhIndex(tp1(1).Tag) + 1 Then 'Click abajo
+        Call MCosta(1, tp1(2).Tag, tX, tY - 1)
+        Call MCosta(2, tp1(2).Tag, tX - 1, tY - 1)
+        Call MCosta(3, tp1(2).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(1).Tag) + 0 Then
+        Call MCosta(1, tp1(0).Tag, tX, tY - 1)
+        Call MCosta(2, tp1(0).Tag, tX + 1, tY - 1)
+        Call MCosta(3, tp1(0).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(2).Tag) + 3 Then
+        Call MCosta(1, tp1(5).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(0).Tag) + 2 Then
+        Call MCosta(1, tp1(3).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(3).Tag) Or gh(1) = DameGrhIndex(tp1(3).Tag) + 2 Then
+        Call MCosta(1, tp1(3).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(5).Tag) + 1 Or gh(1) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        Call MCosta(1, tp1(5).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        Call MCosta(1, tp2(0).Tag, tX, tY - 1)
+        Call MCosta(2, tp2(3).Tag, tX, tY)
+    ElseIf gh(1) = DameGrhIndex(tp1(7).Tag) + 2 Then
+        Call MCosta(1, tp2(2).Tag, tX, tY - 1)
+        Call MCosta(2, tp2(5).Tag, tX, tY)
+    ElseIf gh(7) = DameGrhIndex(tp1(1).Tag) + 0 Then 'Click arriba
+        Call MCosta(1, tp2(5).Tag, tX, tY)
+        Call MCosta(2, tp2(8).Tag, tX, tY + 1)
+    ElseIf gh(7) = DameGrhIndex(tp1(1).Tag) + 1 Then
+        Call MCosta(1, tp2(3).Tag, tX, tY)
+        Call MCosta(2, tp2(6).Tag, tX, tY + 1)
+    ElseIf gh(7) = DameGrhIndex(tp1(6).Tag) + 0 Then
+        Call MCosta(1, tp1(3).Tag, tX, tY)
+    ElseIf gh(7) = DameGrhIndex(tp1(8).Tag) + 1 Then
+        Call MCosta(1, tp1(5).Tag, tX, tY)
+    ElseIf gh(7) = DameGrhIndex(tp1(3).Tag) Or gh(7) = DameGrhIndex(tp1(3).Tag) + 2 Then
+        Call MCosta(1, tp1(3).Tag, tX, tY)
+    ElseIf gh(7) = DameGrhIndex(tp1(5).Tag) + 1 Or gh(7) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        Call MCosta(1, tp1(5).Tag, tX, tY)
+    ElseIf gh(7) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        Call MCosta(1, tp1(8).Tag, tX, tY + 1)
+        Call MCosta(2, tp1(8).Tag, tX - 1, tY + 1)
+        Call MCosta(3, tp1(8).Tag, tX, tY)
+    ElseIf gh(7) = DameGrhIndex(tp1(7).Tag) + 2 Then
+        Call MCosta(1, tp1(6).Tag, tX, tY + 1)
+        Call MCosta(2, tp1(6).Tag, tX + 1, tY + 1)
+        Call MCosta(3, tp1(6).Tag, tX, tY)
+    ElseIf gh(5) = DameGrhIndex(tp1(3).Tag) + 2 Then 'Click izquierda
+        Call MCosta(1, tp2(1).Tag, tX, tY)
+        Call MCosta(2, tp2(2).Tag, tX + 1, tY)
+    ElseIf gh(5) = DameGrhIndex(tp1(3).Tag) + 0 Then
+        Call MCosta(1, tp2(7).Tag, tX, tY)
+        Call MCosta(2, tp2(8).Tag, tX + 1, tY)
+    ElseIf gh(5) = DameGrhIndex(tp1(5).Tag) + 1 Then
+        Call MCosta(1, tp1(2).Tag, tX, tY)
+        Call MCosta(2, tp1(2).Tag, tX + 1, tY)
+        Call MCosta(3, tp1(2).Tag, tX + 1, tY + 1)
+    ElseIf gh(5) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        Call MCosta(1, tp1(8).Tag, tX, tY)
+        Call MCosta(2, tp1(8).Tag, tX + 1, tY)
+        Call MCosta(3, tp1(8).Tag, tX + 1, tY - 1)
+    ElseIf gh(5) = DameGrhIndex(tp1(1).Tag) Or gh(5) = DameGrhIndex(tp1(1).Tag) + 1 Then
+        Call MCosta(1, tp1(1).Tag, tX, tY)
+    ElseIf gh(5) = DameGrhIndex(tp1(7).Tag) + 2 Or gh(5) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        Call MCosta(1, tp1(7).Tag, tX, tY)
+    ElseIf gh(5) = DameGrhIndex(tp1(2).Tag) + 0 Then
+        Call MCosta(1, tp1(1).Tag, tX, tY)
+    ElseIf gh(5) = DameGrhIndex(tp1(8).Tag) + 2 Then
+        Call MCosta(1, tp1(7).Tag, tX, tY)
+    ElseIf gh(3) = DameGrhIndex(tp1(3).Tag) + 0 Then 'Click derecha
+        Call MCosta(1, tp1(0).Tag, tX, tY)
+        Call MCosta(2, tp1(0).Tag, tX - 1, tY)
+        Call MCosta(3, tp1(0).Tag, tX - 1, tY + 1)
+    ElseIf gh(3) = DameGrhIndex(tp1(3).Tag) + 2 Then
+        Call MCosta(1, tp1(6).Tag, tX, tY)
+        Call MCosta(2, tp1(6).Tag, tX - 1, tY)
+        Call MCosta(3, tp1(6).Tag, tX - 1, tY - 1)
+    ElseIf gh(3) = DameGrhIndex(tp1(5).Tag) + 3 Then
+        Call MCosta(1, tp2(0).Tag, tX - 1, tY)
+        Call MCosta(2, tp2(1).Tag, tX, tY)
+    ElseIf gh(3) = DameGrhIndex(tp1(5).Tag) + 1 Then
+        Call MCosta(1, tp2(6).Tag, tX - 1, tY)
+        Call MCosta(2, tp2(7).Tag, tX, tY)
+    ElseIf gh(3) = DameGrhIndex(tp1(1).Tag) Or gh(3) = DameGrhIndex(tp1(1).Tag) + 1 Then
+        Call MCosta(1, tp1(1).Tag, tX, tY)
+    ElseIf gh(3) = DameGrhIndex(tp1(7).Tag) + 2 Or gh(3) = DameGrhIndex(tp1(7).Tag) + 3 Then
+        Call MCosta(1, tp1(7).Tag, tX, tY)
+    ElseIf gh(3) = DameGrhIndex(tp1(0).Tag) + 1 Then
+        Call MCosta(1, tp1(1).Tag, tX, tY)
+    ElseIf gh(3) = DameGrhIndex(tp1(6).Tag) + 3 Then
+        Call MCosta(1, tp1(7).Tag, tX, tY)
+    End If
+End Sub
+
+Sub MCosta(Pos As Byte, GrhIndex As Integer, X As Integer, Y As Integer)
+If Pos = 0 Then
+    MCostaV(1).GrhIndex = 0
+    MCostaV(1).X = 0
+    MCostaV(1).Y = 0
+    MCostaV(2).GrhIndex = 0
+    MCostaV(2).X = 0
+    MCostaV(2).Y = 0
+    MCostaV(3).GrhIndex = 0
+    MCostaV(3).X = 0
+    MCostaV(3).Y = 0
+Else
+    MCostaV(Pos).GrhIndex = DameGrhIndex(GrhIndex)
+    MCostaV(Pos).X = X
+    MCostaV(Pos).Y = Y
+End If
+End Sub
+
+Private Sub Renderer_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    Call Form_MouseUp(Button, Shift, X, Y)
 End Sub

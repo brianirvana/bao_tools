@@ -126,7 +126,7 @@ Public Sub Initialize(ByVal File As String)
 'Opens the requested file and loads it's data into memory
 '**************************************************************
 
-Dim Handle                      As Integer
+Dim handle                      As Integer
 Dim i                           As Long
 Dim Pos                         As Long
 Dim Text                        As String
@@ -137,12 +137,17 @@ Dim Text                        As String
 10        Call Class_Terminate
           
           'Get a free handle and start reading line by line until the end
-20        Handle = FreeFile
+20        handle = FreeFile
           
-30        Open File For Input As Handle
+          If Not FileExist(File, vbArchive) Then
+              MsgBox "File not exist: " & File
+              Exit Sub
+          End If
           
-40        Do Until EOF(Handle)
-50            Line Input #Handle, Text
+30        Open File For Input As handle
+          
+40        Do Until EOF(handle)
+50            Line Input #handle, Text
               
               'Is it null??
 '60            If Len(Text) Then
@@ -178,7 +183,7 @@ Dim Text                        As String
 270           End If
 280       Loop
           
-290       Close Handle
+290       Close handle
           
 300       If MainNodes Then
               'Sort main nodes to allow binary search
@@ -194,7 +199,7 @@ Dim Text                        As String
 
 Initialize_Error:
 
-    Call LogError("Error " & err.Number & " Descripción: & (" & err.Description & ") Error FATAL: EL archivo no se esta guardando. Initialize del Módulo clsIniReader linea: " & Erl & " Handle: " & Handle & " File: " & File & " Texto: " & Text)
+    Call LogError("Error " & err.Number & " Descripción: & (" & err.Description & ") Error FATAL: EL archivo no se esta guardando. Initialize del Módulo clsIniReader linea: " & Erl & " Handle: " & handle & " File: " & File & " Texto: " & Text)
     'Call WriteErrorMsg(UserIndex, "Codigo Rojo - Error FATAL: Su personaje no esta siendo guardado por error del sistema. Por favor cierre el personaje y logee otro, de lo contrario su personaje se podría borrar por completo. Reporte esto en: www.foro-bender.com.ar (Sección Ayuda & Bugs)")
 End Sub
 
@@ -205,7 +210,7 @@ End Sub
 ' @param    first The first index to consider when sorting.
 ' @param    last The last index to be considered when sorting.
 
-Private Sub SortChildNodes(ByRef Node As MainNode, ByVal First As Integer, ByVal Last As Integer)
+Private Sub SortChildNodes(ByRef Node As MainNode, ByVal first As Integer, ByVal last As Integer)
 '**************************************************************
 'Author: Juan Martín Sotuyo Dodero
 'Last Modify Date: 5/01/2006
@@ -213,35 +218,35 @@ Private Sub SortChildNodes(ByRef Node As MainNode, ByVal First As Integer, ByVal
 'this allows the use of Binary Search for faster searches
 '**************************************************************
     Dim min As Integer      'First item in the list
-    Dim Max As Integer      'Last item in the list
+    Dim max As Integer      'Last item in the list
     Dim comp As String      'Item used to compare
     Dim temp As ChildNode
     
-    min = First
-    Max = Last
+    min = first
+    max = last
     
     With Node
-        comp = .values((min + Max) \ 2).key
+        comp = .values((min + max) \ 2).key
     
-        Do While min <= Max
-            Do While .values(min).key < comp And min < Last
+        Do While min <= max
+            Do While .values(min).key < comp And min < last
                 min = min + 1
             Loop
-            Do While .values(Max).key > comp And Max > First
-                Max = Max - 1
+            Do While .values(max).key > comp And max > first
+                max = max - 1
             Loop
-            If min <= Max Then
+            If min <= max Then
                 temp = .values(min)
-                .values(min) = .values(Max)
-                .values(Max) = temp
+                .values(min) = .values(max)
+                .values(max) = temp
                 min = min + 1
-                Max = Max - 1
+                max = max - 1
             End If
         Loop
     End With
     
-    If First < Max Then SortChildNodes Node, First, Max
-    If min < Last Then SortChildNodes Node, min, Last
+    If first < max Then SortChildNodes Node, first, max
+    If min < last Then SortChildNodes Node, min, last
 End Sub
 
 ''
@@ -250,7 +255,7 @@ End Sub
 ' @param    first The first index to consider when sorting.
 ' @param    last The last index to be considered when sorting.
 
-Private Sub SortMainNodes(ByVal First As Integer, ByVal Last As Integer)
+Private Sub SortMainNodes(ByVal first As Integer, ByVal last As Integer)
 '**************************************************************
 'Author: Juan Martín Sotuyo Dodero
 'Last Modify Date: 5/01/2006
@@ -258,33 +263,33 @@ Private Sub SortMainNodes(ByVal First As Integer, ByVal Last As Integer)
 'this allows the use of Binary Search for faster searches
 '**************************************************************
     Dim min As Integer      'First item in the list
-    Dim Max As Integer      'Last item in the list
+    Dim max As Integer      'Last item in the list
     Dim comp As String      'Item used to compare
     Dim temp As MainNode
     
-    min = First
-    Max = Last
+    min = first
+    max = last
     
-    comp = fileData((min + Max) \ 2).Name
+    comp = fileData((min + max) \ 2).Name
     
-    Do While min <= Max
-        Do While fileData(min).Name < comp And min < Last
+    Do While min <= max
+        Do While fileData(min).Name < comp And min < last
             min = min + 1
         Loop
-        Do While fileData(Max).Name > comp And Max > First
-            Max = Max - 1
+        Do While fileData(max).Name > comp And max > first
+            max = max - 1
         Loop
-        If min <= Max Then
+        If min <= max Then
             temp = fileData(min)
-            fileData(min) = fileData(Max)
-            fileData(Max) = temp
+            fileData(min) = fileData(max)
+            fileData(max) = temp
             min = min + 1
-            Max = Max - 1
+            max = max - 1
         End If
     Loop
     
-    If First < Max Then SortMainNodes First, Max
-    If min < Last Then SortMainNodes min, Last
+    If first < max Then SortMainNodes first, max
+    If min < last Then SortMainNodes min, last
 End Sub
 
 ''
@@ -362,19 +367,19 @@ Private Function FindKey(ByRef Node As MainNode, ByVal key As String) As Long
 'or the negation of the position were it should be if not found
 '**************************************************************
     Dim min As Long
-    Dim Max As Long
+    Dim max As Long
     Dim mid As Long
     
     min = 0
-    Max = Node.numValues - 1
+    max = Node.numValues - 1
     
-    Do While min <= Max
-        mid = (min + Max) \ 2
+    Do While min <= max
+        mid = (min + max) \ 2
         
         If Node.values(mid).key < key Then
             min = mid + 1
         ElseIf Node.values(mid).key > key Then
-            Max = mid - 1
+            max = mid - 1
         Else
             'We found it
             FindKey = mid
@@ -401,19 +406,19 @@ Private Function FindMain(ByVal Name As String) As Long
 'or the negation of the position were it should be if not found
 '**************************************************************
     Dim min As Long
-    Dim Max As Long
+    Dim max As Long
     Dim mid As Long
     
     min = 0
-    Max = MainNodes - 1
+    max = MainNodes - 1
     
-    Do While min <= Max
-        mid = (min + Max) \ 2
+    Do While min <= max
+        mid = (min + max) \ 2
         
         If fileData(mid).Name < Name Then
             min = mid + 1
         ElseIf fileData(mid).Name > Name Then
-            Max = mid - 1
+            max = mid - 1
         Else
             'We found it
             FindMain = mid

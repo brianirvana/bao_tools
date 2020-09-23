@@ -53,23 +53,24 @@ Dim X                           As Long
 Dim Y                           As Long
 Dim i                           As Long
 Dim Escala                      As Integer
+Const tmpScale                  As Integer = 1580
 
-    Escala = 10
+    Escala = 10 '15.8
     Ruta = App.Path & "\..\ImagenesMundoBAO\"
     
-    TestPicture.Width = 1580 / Escala * 12
-    TestPicture.Height = 1580 / Escala * 12
+    TestPicture.Width = tmpScale / Escala * 12
+    TestPicture.Height = tmpScale / Escala * 12
     
     For X = 0 To 11
         For Y = 0 To 11
             If i < 145 Then
                 i = i + 1
                 Form1.Caption = i & "/144"
-                Debug.Print "Ruta: " & Ruta
+                'Debug.Print "Ruta: " & Ruta
                 Temporal.Picture = LoadPicture(Ruta & i & ".bmp")
-        '        Temporal.Width = 1580 / Escala
-                'Temporal.Height = 1580 / Escala
-                Call TestPicture.PaintPicture(Temporal, X * 1580 / Escala, Y * 1580 / Escala, 1580 / Escala, 1580 / Escala)
+        '        Temporal.Width = tmpScale / Escala
+                'Temporal.Height = tmpScale / Escala
+                Call TestPicture.PaintPicture(Temporal, X * tmpScale / Escala, Y * tmpScale / Escala, tmpScale / Escala, tmpScale / Escala)
             End If
         Next Y
     Next X

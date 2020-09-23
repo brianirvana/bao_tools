@@ -207,6 +207,14 @@ Begin VB.Form frmMain
       TabIndex        =   0
       Top             =   0
       Width           =   3255
+      Begin VB.TextBox txtCountUsersRespawn 
+         Height          =   285
+         Left            =   1080
+         TabIndex        =   46
+         Text            =   "0"
+         Top             =   7200
+         Width           =   2055
+      End
       Begin VB.TextBox txtMaxHour 
          Height          =   285
          Left            =   1080
@@ -325,6 +333,16 @@ Begin VB.Form frmMain
          TabIndex        =   1
          Top             =   720
          Width           =   3015
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "CountUsers:"
+         Height          =   255
+         Index           =   14
+         Left            =   120
+         TabIndex        =   47
+         Top             =   7200
+         Width           =   855
       End
       Begin VB.Label lblInfo 
          Alignment       =   1  'Right Justify
@@ -750,6 +768,7 @@ Dim NPCName                     As String
         
         txtMinHour.Text = .MinHour
         txtMaxHour.Text = .MaxHour
+        txtCountUsersRespawn.Text = .WithCountUsers
 
         If .ID > 0 Then
             Dim tExp As Double
@@ -810,6 +829,18 @@ Private Sub lstNPCs_KeyPress(KeyAscii As Integer)
     
 End Sub
 
+Private Sub txtCountUsersRespawn_Change()
+
+    txtCountUsersRespawn.Text = Val(txtCountUsersRespawn.Text)
+    
+    Dim WithCountUsers As Integer
+    WithCountUsers = Val(txtCountUsersRespawn.Text)
+    
+    NPCRespawn(SelectedRespawnIndex).WithCountUsers = WithCountUsers
+    cmdGuardar.Enabled = True
+
+End Sub
+
 Private Sub txtExp_Change()
 
 Dim tFactor As Single
@@ -841,6 +872,7 @@ Private Sub txtMaxHour_Change()
     NPCRespawn(SelectedRespawnIndex).MaxHour = MaxHour
     cmdGuardar.Enabled = True
 End Sub
+
 
 Private Sub txtMinHour_Change()
     txtMinHour.Text = Val(txtMinHour.Text)

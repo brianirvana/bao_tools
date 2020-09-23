@@ -291,6 +291,8 @@ Attribute NPCRespawnCount.VB_VarUserMemId = 1073741829
 Public NPCRespawn()             As tNPCRespawn
 Attribute NPCRespawn.VB_VarUserMemId = 1073741830
 
+Public NPCRespawn2()            As tNPCRespawn2
+
 Public Type tNPCRespawn
     ID                          As Integer
     AreaX                       As Integer
@@ -306,6 +308,25 @@ Public Type tNPCRespawn
     NumPosRespawns              As Long
     MinHour                     As Byte
     MaxHour                     As Byte
+    WithCountUsers              As Byte '@ NUEVO!
+End Type
+
+Public Type tNPCRespawn2
+    ID                          As Integer
+    AreaX                       As Integer
+    AreaY                       As Integer
+    RespawnTime                 As Long
+    TickCount                   As Long
+    Count                       As Integer
+    CountRespawn                As Integer
+    Nivel                       As Integer
+    FactorMulExp                As Single
+    Pos                         As WorldPos
+    PosRespawns()               As WorldPos
+    NumPosRespawns              As Long
+    MinHour                     As Byte
+    MaxHour                     As Byte
+    WithCountUsers              As Byte
 End Type
 
 Private LeerNPCs                As New clsIniReader
@@ -321,7 +342,7 @@ Dim i                           As Long
     Open DatPath & "\Respawn.dat" For Binary As #nFile
         Put #nFile, , NPCRespawnCount
         For i = 0 To NPCRespawnCount - 1
-            With NPCRespawn(i)
+            With NPCRespawn(i) 'NPCRespawn2(i)
                 Put #nFile, , .AreaX
                 Put #nFile, , .AreaY
                 Put #nFile, , .Count
@@ -332,6 +353,8 @@ Dim i                           As Long
                 Put #nFile, , .FactorMulExp
                 Put #nFile, , .MinHour
                 Put #nFile, , .MaxHour
+                Put #nFile, , .WithCountUsers
+                
             End With
         Next i
     Close #nFile
@@ -396,15 +419,12 @@ Dim TempTick                    As Long
 
     NpcIndex = NpcNumber
 
-
     NpcList(NpcIndex).TimerAI = TempTick + Rnd * 500
     NpcList(NpcIndex).PasosSound = Val(Leer.GetValue("NPC" & NpcNumber, "SND4"))
-
     NpcList(NpcIndex).PuedeRobar = Val(Leer.GetValue("NPC" & NpcNumber, "PuedeRobar"))
-
     NpcList(NpcIndex).Velocity = Val(Leer.GetValue("NPC" & NpcNumber, "Velocity"))
-
     NpcList(NpcIndex).Quest.Quest = Val(Leer.GetValue("NPC" & NpcNumber, "Quest"))
+    
     If NpcList(NpcIndex).Quest.Quest <> 0 Then
         NpcList(NpcIndex).Quest.ReDoo = Leer.GetValue("NPC" & NpcNumber, "ReDo")
         NpcList(NpcIndex).Quest.OroDa = Val(Leer.GetValue("NPC" & NpcNumber, "OroDa"))
@@ -428,16 +448,17 @@ Dim TempTick                    As Long
             Next j
         End If
     End If
+    
     NpcList(NpcIndex).flags.Atravesable = Val(Leer.GetValue("NPC" & NpcNumber, "Atravesable"))
-
     NpcList(NpcIndex).Velocity = Val(Leer.GetValue("NPC" & NpcNumber, "Velocity"))
+    
     If NpcList(NpcIndex).Velocity = 0 Then NpcList(NpcIndex).Velocity = 400    'Velocidad Defeult
 
     NpcList(NpcIndex).TimerGolpe = TempTick + Rnd * 120
     NpcList(NpcIndex).GolpeTimer = Val(Leer.GetValue("NPC" & NpcNumber, "GolpeTimer"))
-
     NpcList(NpcIndex).TiempoInvocacion = Val(Leer.GetValue("NPC" & NpcNumber, "TiempoInvocacion"))
     NpcList(NpcIndex).MaxMascotas = Val(Leer.GetValue("NPC" & NpcNumber, "MaxMascotas"))
+    
     If NpcList(NpcIndex).MaxMascotas = 0 Then NpcList(NpcIndex).MaxMascotas = 1
     ReDim NpcList(NpcIndex).ListMascotas(1 To NpcList(NpcIndex).MaxMascotas) As Integer
 
@@ -450,14 +471,11 @@ Dim TempTick                    As Long
     NpcList(NpcIndex).desc = Leer.GetValue("NPC" & NpcNumber, "Desc")
     NpcList(NpcIndex).desc1 = Leer.GetValue("NPC" & NpcNumber, "Desc1")
     NpcList(NpcIndex).desc2 = Leer.GetValue("NPC" & NpcNumber, "Desc2")
-
-
-
     NpcList(NpcIndex).flags.AguaValida = Val(Leer.GetValue("NPC" & NpcNumber, "AguaValida"))
     NpcList(NpcIndex).flags.TierraInvalida = Val(Leer.GetValue("NPC" & NpcNumber, "TierraInValida"))
     NpcList(NpcIndex).flags.Faccion = Val(Leer.GetValue("NPC" & NpcNumber, "Faccion"))
-
     NpcList(NpcIndex).NPCtype = Val(Leer.GetValue("NPC" & NpcNumber, "NpcType"))
+    
     #If AutoDuelos = 1 Then
         If NpcList(NpcIndex).NPCtype = eNPCType.Duelo1vs1 Then
             NpcIndex1vs1 = NpcIndex
@@ -465,6 +483,7 @@ Dim TempTick                    As Long
             NpcIndex2vs2 = NpcIndex
         End If
     #End If
+    
     NpcList(NpcIndex).Char.body = Val(Leer.GetValue("NPC" & NpcNumber, "Body"))
     NpcList(NpcIndex).Char.Head = Val(Leer.GetValue("NPC" & NpcNumber, "Head"))
     NpcList(NpcIndex).Char.ShieldAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Escudo"))
@@ -479,11 +498,7 @@ Dim TempTick                    As Long
     NpcList(NpcIndex).Hostile = Val(Leer.GetValue("NPC" & NpcNumber, "Hostile"))
     NpcList(NpcIndex).flags.OldHostil = NpcList(NpcIndex).Hostile
     NpcList(NpcIndex).NpcLvl = Val(Leer.GetValue("NPC" & NpcNumber, "NpcLvl"))    '[/About] 28-12-12
-    'If HayHappyHour = True Then
-    '    NpcList(NpcIndex).GiveEXP = val(Leer.GetValue("NPC" & NpcNumber, "GiveEXP")) * ExpMul * HappyHour
-    'Else
     NpcList(NpcIndex).GiveEXP = Val(Leer.GetValue("NPC" & NpcNumber, "GiveEXP"))
-    'End If
     NpcList(NpcIndex).flags.ExpCount = NpcList(NpcIndex).GiveEXP
     NpcList(NpcIndex).Veneno = Val(Leer.GetValue("NPC" & NpcNumber, "Veneno"))
     NpcList(NpcIndex).flags.Domable = Val(Leer.GetValue("NPC" & NpcNumber, "Domable"))
@@ -491,7 +506,6 @@ Dim TempTick                    As Long
     NpcList(NpcIndex).PoderAtaque = Val(Leer.GetValue("NPC" & NpcNumber, "PoderAtaque"))
     NpcList(NpcIndex).PoderEvasion = Val(Leer.GetValue("NPC" & NpcNumber, "PoderEvasion"))
     NpcList(NpcIndex).InvReSpawn = Val(Leer.GetValue("NPC" & NpcNumber, "InvReSpawn"))
-
     NpcList(NpcIndex).STATS.MaxHP = Val(Leer.GetValue("NPC" & NpcNumber, "MaxHP"))
     NpcList(NpcIndex).STATS.MinHP = Val(Leer.GetValue("NPC" & NpcNumber, "MinHP"))
     NpcList(NpcIndex).STATS.MaxHit = Val(Leer.GetValue("NPC" & NpcNumber, "MaxHIT"))
@@ -500,10 +514,11 @@ Dim TempTick                    As Long
     NpcList(NpcIndex).STATS.defM = Val(Leer.GetValue("NPC" & NpcNumber, "DEFm"))
     NpcList(NpcIndex).STATS.Alineacion = Val(Leer.GetValue("NPC" & NpcNumber, "Alineacion"))
 
-
     Dim LoopC                   As Integer
     Dim ln                      As String
+    
     NpcList(NpcIndex).Invent.NroItems = Val(Leer.GetValue("NPC" & NpcNumber, "NROITEMS"))
+    
     For LoopC = 1 To NpcList(NpcIndex).Invent.NroItems
         ln = Leer.GetValue("NPC" & NpcNumber, "Obj" & LoopC)
         NpcList(NpcIndex).Invent.Object(LoopC).ObjIndex = Val(ReadField(1, ln, 45))
@@ -511,6 +526,7 @@ Dim TempTick                    As Long
     Next LoopC
 
     NpcList(NpcIndex).Drop.NroItems = Val(Leer.GetValue("NPC" & NpcNumber, "NRODROP"))
+    
     For LoopC = 1 To NpcList(NpcIndex).Drop.NroItems
         ln = Leer.GetValue("NPC" & NpcNumber, "Drop" & LoopC)
         NpcList(NpcIndex).Drop.Object(LoopC).ObjIndex = Val(ReadField(1, ln, 45))
@@ -519,21 +535,16 @@ Dim TempTick                    As Long
     Next LoopC
 
     NpcList(NpcIndex).flags.LanzaSpells = Val(Leer.GetValue("NPC" & NpcNumber, "LanzaSpells"))
+    
     If NpcList(NpcIndex).flags.LanzaSpells > 0 Then ReDim NpcList(NpcIndex).Spells(1 To NpcList(NpcIndex).flags.LanzaSpells)
     For LoopC = 1 To NpcList(NpcIndex).flags.LanzaSpells
         NpcList(NpcIndex).Spells(LoopC) = Val(Leer.GetValue("NPC" & NpcNumber, "Sp" & LoopC))
         'If NpcList(NpcIndex).Spells(LoopC) = 0 Then Call LogError("¡¡ERROR EN EL NPC NUMERO " & NpcNumber & " TIENE UN HECHIZO INVALIDO REVISAR LOS HECHIZOS DEL NPC!!!")
     Next LoopC
 
-
-
     NpcList(NpcIndex).flags.NPCActive = True
     NpcList(NpcIndex).flags.UseAINow = False
-
-
     NpcList(NpcIndex).flags.Respawn = 0
-
-
     NpcList(NpcIndex).flags.Backup = Val(Leer.GetValue("NPC" & NpcNumber, "BackUp"))
     NpcList(NpcIndex).flags.RespawnOrigPos = Val(Leer.GetValue("NPC" & NpcNumber, "OrigPos"))
     NpcList(NpcIndex).flags.AfectaBender = Val(Leer.GetValue("NPC" & NpcNumber, "AfectaBender"))    '[/About] AfectaBender
@@ -543,14 +554,11 @@ Dim TempTick                    As Long
     NpcList(NpcIndex).flags.priv = Val(Leer.GetValue("NPC" & NpcNumber, "Priv"))    '[/MaTeO] Privilegios para el color ^^
     NpcList(NpcIndex).flags.AfectaParalisis = Val(Leer.GetValue("NPC" & NpcNumber, "AfectaParalisis"))
     NpcList(NpcIndex).flags.GolpeExacto = Val(Leer.GetValue("NPC" & NpcNumber, "GolpeExacto"))
-
-
     NpcList(NpcIndex).flags.Snd1 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd1"))
     NpcList(NpcIndex).flags.Snd2 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd2"))
     NpcList(NpcIndex).flags.Snd3 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd3"))
 
     '<<<<<<<<<<<<<< Expresiones >>>>>>>>>>>>>>>>
-
     Dim aux                     As String
     aux = Leer.GetValue("NPC" & NpcNumber, "NROEXP")
     If LenB(aux) = 0 Then
@@ -562,12 +570,10 @@ Dim TempTick                    As Long
             NpcList(NpcIndex).Expresiones(LoopC) = Leer.GetValue("NPC" & NpcNumber, "Exp" & LoopC)
         Next LoopC
     End If
-
     '<<<<<<<<<<<<<< Expresiones >>>>>>>>>>>>>>>>
 
     'Tipo de items con los que comercia
     NpcList(NpcIndex).TipoItems = Val(Leer.GetValue("NPC" & NpcNumber, "TipoItems"))
-
 
     'Devuelve el nuevo Indice
     OpenNPC = NpcIndex
@@ -588,6 +594,7 @@ Public Sub LoadNPCRespawn()
         Open DatPath & "\Respawn.dat" For Binary As #nFile
             Get #nFile, , NPCRespawnCount
             ReDim NPCRespawn(NPCRespawnCount)
+            ReDim NPCRespawn2(NPCRespawnCount)
             
             For i = 0 To NPCRespawnCount - 1
                 With NPCRespawn(i)
@@ -601,6 +608,21 @@ Public Sub LoadNPCRespawn()
                     Get #nFile, , .FactorMulExp
                     Get #nFile, , .MinHour
                     Get #nFile, , .MaxHour
+                    Get #nFile, , .WithCountUsers
+                    
+                    '@ Para ampliar la cantidad de datos del array, usamos un array suplente con los nuevos datos, y luego guardamos con esos nuevos datos cargados, para no perder los viejos.
+'                    NPCRespawn2(i).AreaX = .AreaX
+'                    NPCRespawn2(i).AreaY = .AreaY
+'                    NPCRespawn2(i).Count = .Count
+'                    NPCRespawn2(i).ID = .ID
+'                    NPCRespawn2(i).Pos = .Pos
+'                    NPCRespawn2(i).RespawnTime = .RespawnTime
+'                    NPCRespawn2(i).Nivel = -.Nivel
+'                    NPCRespawn2(i).FactorMulExp = .FactorMulExp
+'                    NPCRespawn2(i).MinHour = .MinHour
+'                    NPCRespawn2(i).MaxHour = .MaxHour
+                    'NPCRespawn2(i).WithCountUsers = .WithCountUsers
+                    
                     'Debug.Print " Num: " & .ID & " resp time: " & .RespawnTime & " factor: " & .FactorMulExp
                 End With
             Next i

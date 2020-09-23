@@ -149,8 +149,8 @@ Private Type JPEG_CORE_PROPERTIES_VB ' Sadly, due to a limitation in VB (UDT var
 End Type
 
 '
-Private Declare Function GetDC Lib "user32" (ByVal hwnd As Long) As Long
-Private Declare Function ReleaseDC Lib "user32" (ByVal hwnd As Long, ByVal hdc As Long) As Long
+Private Declare Function GetDC Lib "user32" (ByVal hWnd As Long) As Long
+Private Declare Function ReleaseDC Lib "user32" (ByVal hWnd As Long, ByVal hdc As Long) As Long
 Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef dest As Any, ByRef source As Any, ByVal byteCount As Long)
 
 '
@@ -844,6 +844,7 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
       ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
       '''''''''''''''''''Guardo la imagen'''''''''''''''''''''
       ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 1860  If RenderToBMP Then
 1870      SavePicture frmRenderer.Picture1.Picture, App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
 1880      Debug.Print NameMap & " - " & err.Description
@@ -859,7 +860,7 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
 
       'Unload frmRenderer
 1970  Set BMPSurface = Nothing
-
+      Unload frmRenderer
 1980  Exit Sub
 
 Error:

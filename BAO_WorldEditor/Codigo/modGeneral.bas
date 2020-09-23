@@ -99,6 +99,7 @@ If HotKeysAllow = False Then Exit Sub
         '    Else
                 If GetKeyState(vbKeyS) < 0 Then DePegar ' GS
                 If GetKeyState(vbKeyV) < 0 Then PegarSeleccion
+                If GetKeyState(vbKeyV) < 0 Then PegarSeleccionAbajo
             End If
     
         End If
@@ -178,13 +179,13 @@ Public Function ReadField(Pos As Integer, Text As String, SepASCII As Integer) A
 'Last modified: 20/05/06
 '*************************************************
 Dim i As Integer
-Dim lastPos As Integer
+Dim LastPos As Integer
 Dim CurChar As String * 1
 Dim FieldNum As Integer
 Dim Seperator As String
 
 Seperator = Chr(SepASCII)
-lastPos = 0
+LastPos = 0
 FieldNum = 0
 
 For i = 1 To Len(Text)
@@ -192,16 +193,16 @@ For i = 1 To Len(Text)
     If CurChar = Seperator Then
         FieldNum = FieldNum + 1
         If FieldNum = Pos Then
-            ReadField = mid(Text, lastPos + 1, (InStr(lastPos + 1, Text, Seperator, vbTextCompare) - 1) - (lastPos))
+            ReadField = mid(Text, LastPos + 1, (InStr(LastPos + 1, Text, Seperator, vbTextCompare) - 1) - (LastPos))
             Exit Function
         End If
-        lastPos = i
+        LastPos = i
     End If
 Next i
 FieldNum = FieldNum + 1
 
 If FieldNum = Pos Then
-    ReadField = mid(Text, lastPos + 1)
+    ReadField = mid(Text, LastPos + 1)
 End If
 
 End Function
@@ -347,8 +348,8 @@ PantallaY = Val(Leer.GetValue("MOSTRAR", "PantallaY"))
 
 'If PantallaX > 23 Or PantallaX <= 2 Then PantallaX = 23
 'If PantallaY > 32 Or PantallaY <= 2 Then PantallaY = 32
-PantallaX = 30
-PantallaY = 30
+PantallaX = 29
+PantallaY = 51
 
 ' [GS] 02/10/06
 ' Tamaño de visualizacion en el cliente
@@ -445,8 +446,8 @@ Public Sub Main()
 290       Set SurfaceDB = New clsSurfaceManDyn
 300   'End If
 
-310   frmMain.MainViewShp.Width = PantallaX ^ 3
-320   frmMain.MainViewShp.Height = PantallaY ^ 3
+310   frmMain.MainViewShp.Width = PantallaX ^ 3 ' ver ReyarB
+320   frmMain.MainViewShp.Height = PantallaY ^ 3 ' ver ReyarB
 330   If InitTileEngine(frmMain.hwnd, frmMain.MainViewShp.Top + 47, frmMain.MainViewShp.Left + 4, 32, 32, PantallaX, PantallaY, 9) Then ' 30/05/2006
           'Display form handle, View window offset from 0,0 of display form, Tile Size, Display size in tiles, Screen buffer
 340       frmCargando.P1.Visible = True

@@ -209,7 +209,7 @@ Public Sub NuevoMapa()
 200           End If
 
               ' OBJs
-210           MapData(X, Y).OBJInfo.ObjIndex = 0
+210           MapData(X, Y).OBJInfo.objindex = 0
 220           MapData(X, Y).OBJInfo.Amount = 0
 230           MapData(X, Y).ObjGrh.GrhIndex = 0
 
@@ -366,7 +366,7 @@ Dim IniManager                  As clsIniReader
                     ByFlags = ByFlags Or 2
                 End If
                 
-                If .OBJInfo.ObjIndex Then ByFlags = ByFlags Or 4
+                If .OBJInfo.objindex Then ByFlags = ByFlags Or 4
                 
                 Call InfWriter.putByte(ByFlags)
                 
@@ -380,8 +380,8 @@ Dim IniManager                  As clsIniReader
                 '[/About] ESTO ES LO QUE ME BUGEA TODO? LPM!?
                 If ByFlags And 2 Then Call InfWriter.putInteger(.NPCIndex)
                 
-                If .OBJInfo.ObjIndex Then
-                    Call InfWriter.putInteger(.OBJInfo.ObjIndex)
+                If .OBJInfo.objindex Then
+                    Call InfWriter.putInteger(.OBJInfo.objindex)
                     Call InfWriter.putInteger(.OBJInfo.Amount)
                 End If
             End With
@@ -529,7 +529,7 @@ On Error GoTo ErrorSave
                     
                     If .TileExit.Map Then ByFlags = ByFlags Or 1
                     If .NPCIndex Then ByFlags = ByFlags Or 2
-                    If .OBJInfo.ObjIndex Then ByFlags = ByFlags Or 4
+                    If .OBJInfo.objindex Then ByFlags = ByFlags Or 4
                     
                     Put FreeFileInf, , ByFlags
                     
@@ -544,8 +544,8 @@ On Error GoTo ErrorSave
                         Put FreeFileInf, , CInt(.NPCIndex)
                     End If
                     
-                    If .OBJInfo.ObjIndex Then
-                        Put FreeFileInf, , .OBJInfo.ObjIndex
+                    If .OBJInfo.objindex Then
+                        Put FreeFileInf, , .OBJInfo.objindex
                         Put FreeFileInf, , .OBJInfo.Amount
                     End If
                 Else
@@ -696,7 +696,7 @@ On Error GoTo ErrorSave
             Put FreeFileInf, , MapData(X, Y).NPCIndex
             
             'Object
-            Put FreeFileInf, , MapData(X, Y).OBJInfo.ObjIndex
+            Put FreeFileInf, , MapData(X, Y).OBJInfo.objindex
             Put FreeFileInf, , MapData(X, Y).OBJInfo.Amount
             
             'Empty place holders for future expansion
@@ -840,10 +840,10 @@ Public Sub MapaV2_Cargar_Seccion(ByVal Map As String)
     
             If ByFlags And 4 Then
                 'Get and make Object
-                Get FreeFileInf, , SeleccionMap(X - 1, Y - 1).OBJInfo.ObjIndex
+                Get FreeFileInf, , SeleccionMap(X - 1, Y - 1).OBJInfo.objindex
                 Get FreeFileInf, , SeleccionMap(X - 1, Y - 1).OBJInfo.Amount
-                If SeleccionMap(X - 1, Y - 1).OBJInfo.ObjIndex > 0 Then
-                    InitGrh SeleccionMap(X - 1, Y - 1).ObjGrh, ObjData(SeleccionMap(X - 1, Y - 1).OBJInfo.ObjIndex).GrhIndex
+                If SeleccionMap(X - 1, Y - 1).OBJInfo.objindex > 0 Then
+                    InitGrh SeleccionMap(X - 1, Y - 1).ObjGrh, ObjData(SeleccionMap(X - 1, Y - 1).OBJInfo.objindex).GrhIndex
                 End If
             End If
     
@@ -881,6 +881,11 @@ Dim tMap                        As String
 30    Set Leer = New clsIniReader
 
 40        On Error GoTo CargarMapa_Error
+          
+          If Not FileExist(MAPFl, vbArchive) Then
+            MsgBox "Mapa " & MAPFl & " no existe."
+            Exit Sub
+          End If
           
 50        NpcFile = App.Path & "\..\..\DAT\" & "NPCs" & ".dat"
 60        LeerNPCs.Initialize (NpcFile)
@@ -963,11 +968,11 @@ Dim tMap                        As String
 
 560                   If ByFlags And 4 Then
                           'Get and make Object
-570                       .OBJInfo.ObjIndex = InfReader.getInteger
+570                       .OBJInfo.objindex = InfReader.getInteger
 580                       .OBJInfo.Amount = InfReader.getInteger
 
-590                       If MapData(X, Y).OBJInfo.ObjIndex > 0 Then
-600                           InitGrh MapData(X, Y).ObjGrh, ObjData(MapData(X, Y).OBJInfo.ObjIndex).GrhIndex
+590                       If MapData(X, Y).OBJInfo.objindex > 0 Then
+600                           InitGrh MapData(X, Y).ObjGrh, ObjData(MapData(X, Y).OBJInfo.objindex).GrhIndex
 610                       End If
 
 620                   End If
@@ -1126,8 +1131,8 @@ Dim tMap                        As String
             
                If ByFlags And 4 Then
                    'Get and make Object
-                   If .OBJInfo.ObjIndex > 0 Then
-                       InitGrh .ObjGrh, ObjData(.OBJInfo.ObjIndex).GrhIndex
+                   If .OBJInfo.objindex > 0 Then
+                       InitGrh .ObjGrh, ObjData(.OBJInfo.objindex).GrhIndex
                    End If
                End If
             End With
@@ -1177,6 +1182,7 @@ Public Sub MapaV2_Cargar(ByVal Map As String)
 '*************************************************
 
 Dim tMap As String
+
     tMap = Right$(Map, 5)
     tMap = Left$(tMap, 1)
     CurMap = tMap
@@ -1297,10 +1303,10 @@ Dim FreeFileInf                 As Long
           
 680               If ByFlags And 4 Then
                       'Get and make Object
-690                   Get FreeFileInf, , MapData(X, Y).OBJInfo.ObjIndex
+690                   Get FreeFileInf, , MapData(X, Y).OBJInfo.objindex
 700                   Get FreeFileInf, , MapData(X, Y).OBJInfo.Amount
-710                   If MapData(X, Y).OBJInfo.ObjIndex > 0 Then
-720                       InitGrh MapData(X, Y).ObjGrh, ObjData(MapData(X, Y).OBJInfo.ObjIndex).GrhIndex
+710                   If MapData(X, Y).OBJInfo.objindex > 0 Then
+720                       InitGrh MapData(X, Y).ObjGrh, ObjData(MapData(X, Y).OBJInfo.objindex).GrhIndex
 730                   End If
 740               End If
           
@@ -1456,7 +1462,7 @@ Public Sub TempMapa_Cargar(ByVal Map As String)
           
 600               If ByFlags And 4 Then
                       'Get and make Object
-610                   Get FreeFileInf, , TempMapData(X, Y).OBJInfo.ObjIndex
+610                   Get FreeFileInf, , TempMapData(X, Y).OBJInfo.objindex
 620                   Get FreeFileInf, , TempMapData(X, Y).OBJInfo.Amount
       '                If TempMapData(X, Y).OBJInfo.objindex > 0 Then
       '                    InitGrh TempMapData(X, Y).ObjGrh, ObjData(TempMapData(X, Y).OBJInfo.objindex).GrhIndex
@@ -1586,10 +1592,10 @@ Public Sub MapaV1_Cargar(ByVal Map As String)
 420               End If
                   
                   'Make obj
-430               Get FreeFileInf, , MapData(X, Y).OBJInfo.ObjIndex
+430               Get FreeFileInf, , MapData(X, Y).OBJInfo.objindex
 440               Get FreeFileInf, , MapData(X, Y).OBJInfo.Amount
-450               If MapData(X, Y).OBJInfo.ObjIndex > 0 Then
-460                   InitGrh MapData(X, Y).ObjGrh, ObjData(MapData(X, Y).OBJInfo.ObjIndex).GrhIndex
+450               If MapData(X, Y).OBJInfo.objindex > 0 Then
+460                   InitGrh MapData(X, Y).ObjGrh, ObjData(MapData(X, Y).OBJInfo.objindex).GrhIndex
 470               End If
                   
                   'Empty place holders for future expansion
