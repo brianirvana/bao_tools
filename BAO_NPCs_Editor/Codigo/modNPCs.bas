@@ -610,6 +610,9 @@ Public Sub LoadNPCRespawn()
                     Get #nFile, , .MaxHour
                     Get #nFile, , .WithCountUsers
                     
+                    '@ Fix algunos bugs.
+                    '.Nivel = Abs(.Nivel)
+                    
                     '@ Para ampliar la cantidad de datos del array, usamos un array suplente con los nuevos datos, y luego guardamos con esos nuevos datos cargados, para no perder los viejos.
 '                    NPCRespawn2(i).AreaX = .AreaX
 '                    NPCRespawn2(i).AreaY = .AreaY
