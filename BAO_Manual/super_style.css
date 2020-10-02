@@ -1,0 +1,74 @@
+body{color:#FFFFFF;text-align:justify;margin:0;}
+a:link, a:visited {color:#dab358;text-decoration:none;font:bold 11px tahoma}
+a:hover{color:#FF0000;text-decoration:none;font:bold 11px tahoma}
+
+
+.linkmanual a:link, .linkmanual a:visited {font:bold 11px arial;color:#659afc;text-decoration:none}
+.linkmanual a:hover{font:bold 11px arial;color:#659afc;text-decoration:underline;text-transform:uppercase}
+
+
+.titulo_seccion{background-image:linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1), rgba(255,255,255,0));color:#DF0000;border:0;height:16px;width:100%;font:bold 11px verdana;text-align:center}
+.volver_indice{background-image:url(imagenes/manual/fondo_indice.png);color:#DF0000;border:0;height:25px;width:100%;font:bold 11px verdana;text-align:left}
+.indice{background-image:url(imagenes/manual/fondo_indice.png);border:0;width:100%}
+
+
+.IndiceSeccionTitulo{font:bold 10px verdana;color:#F4F4F4}
+.resaltarcmd{font:bold 10px tahoma;color:#B8BC05}
+.resaltarcreditos{font:bold 11px tahoma;color:#B8BC05}
+.size{font:bold 13px tahoma;}
+
+table{border-collapse:collapse;font:normal 11px verdana}
+.tablaindice{border:0px;text-align:center;background-color:#414136}
+.tablaindice2{font:normal 11px ms sans serif;border:0px;text-align:center;background-color:#414136;color:#ffffff}
+.tablamodifycal{font:normal 11px ms sans serif;text-align:center;border:solid #916500 1px}
+
+
+.tablasinborde{border:0px}
+.tablaindices{border:0px;font:bold 11px ms sans serif;color:#ffffff;text-align:center}
+
+
+.resaltar{font:bold 11px verdana;color:#ff0000}
+.resaltar2{font:normal 11px verdana;color:#ffffff}
+.italic{font:italic 11px verdana}
+
+
+.td{text-align:justify;color:#000000}
+.td2{text-align:center;color:#000000}
+.td3{text-align:left;color:#000000}
+.td4{text-align:center;color:#ffffff}
+.td5{text-align:left;color:#ffffff}
+.td6{text-align:left}
+.td7{text-align:center}
+.td, .td2, .td3, .td4, .td5, .td6, .td7 {font:normal 11px verdana}
+.td, .td2, .td3, .td4, .td5 {border-right:solid #C7C7C7 2px;border-left:solid #C7C7C7 2px;border-bottom:solid #C7C7C7 2px;border-top:solid #C7C7C7 2px}
+.td6, .td7 {color:#F0F0F0;background-color:#2B3C40;border:solid #916500 1px}
+
+
+.tdresaltar{text-align:center;color: #e60000;background-color: #000000}
+.tdresaltar2{text-align:left;color: #e60000;background-color: #000000}
+.tdresaltar3{text-align:center;color: #c4865e;background-color: #000000}
+.tdresaltar4{text-align:center;color: #DDDDDD;background-color: #6C5346}
+.tdresaltar5{text-align:center;color: #E4E4E4;background-color: #000000}
+.tdresaltar6{text-align:center;color: #e60000}
+.tdresaltar, .tdresaltar2, .tdresaltar3, .tdresaltar4, .tdresaltar5, .tdresaltar6 {font:bold 11px tahoma;border:solid #916500 1px}
+
+
+.colorcolumna1{background-color:#D0D8DD} /* #E0E0E2 */
+.colorcolumna2{background-color:#DADADA} /* #E2DFCF */
+
+
+.imgmax{max-width:95px;max-height:80px}
+
+
+
+#menuinfoespecial{font-size:11px;font-family:verdana;color:#1C4680;background-color:#FFF}
+#menuinfoespecial a:link, #menuinfoespecial a:visited {font-size:10px;font-family:tahoma;color:#F60;text-decoration:none;font-weight:normal;}
+#menuinfoespecial a:hover {font-size:10px;font-family:tahoma;color:#FB3200;text-decoration:none;font-weight:normal;}
+
+
+
+td.sortedColumn {background-color: #f0f0f0;color: #330000}
+tr.alternateRow td.sortedColumn {background-color: #BCBCBC}
+
+
+.contenedor{width: 500px;margin: 0 auto;}
