@@ -207,6 +207,14 @@ Begin VB.Form frmMain
       TabIndex        =   0
       Top             =   0
       Width           =   3255
+      Begin VB.CommandButton cmdUpdateOrder 
+         Caption         =   "Update"
+         Height          =   255
+         Left            =   2280
+         TabIndex        =   48
+         Top             =   2880
+         Width           =   735
+      End
       Begin VB.TextBox txtCountUsersRespawn 
          Height          =   285
          Left            =   1080
@@ -244,7 +252,7 @@ Begin VB.Form frmMain
          TabIndex        =   34
          Text            =   "0"
          Top             =   2880
-         Width           =   2055
+         Width           =   1095
       End
       Begin VB.TextBox txtAreaY 
          Height          =   285
@@ -493,6 +501,8 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Private tmpOrder As Integer
+
 Private cachePictures(1 To 3) As IPictureDisp
 
 Private Type POINTAPI
@@ -608,6 +618,41 @@ Dim i As Long
         End With
     Next i
 
+End Sub
+
+Private Sub cmdUpdateOrder_Click()
+
+Dim bFirstFound                 As Boolean
+Dim i                           As Integer
+Dim tmpNewOrder                 As Integer
+
+    tmpNewOrder = Val(txtRespawnOrder.Text)
+    tmptNPCRespawn = NPCRespawn
+    bFirstFound = False
+
+    If tmpNewOrder > UBound(NPCRespawn) Then
+        MsgBox "El nuevo órden del npc no puede ser mayor al número de respawns totales existentes: " & UBound(NPCRespawn)
+        Exit Sub
+    End If
+    
+    For i = 0 To UBound(NPCRespawn)
+        '¿Existe y no soy el que está modificado?
+        If NPCRespawn(i).Order = tmpNewOrder And i <> tmpOrder Then
+            NPCRespawn(i) = tmptNPCRespawn(tmpOrder)
+            If bFirstFound Then
+                Call SaveNPCRespawn
+                Call lstNPCs.Clear
+                Call LoadNPCs
+                Exit Sub
+            End If
+        Else
+            If Not bFirstFound Then
+                NPCRespawn(tmpOrder) = tmptNPCRespawn(tmpNewOrder)
+                bFirstFound = True
+            End If
+        End If
+    Next i
+    
 End Sub
 
 Private Sub ComboNPCS_Click()
@@ -726,6 +771,7 @@ Private Sub updateArea(ByVal RespawnIndex As Integer)
         AreaNPC.Visible = True
     End With
 End Sub
+
 Private Sub lstNPCs_Click()
 
 Dim NpcIndex                    As Integer
@@ -738,9 +784,7 @@ Dim NPCName                     As String
 
     If lstNPCs.ListIndex = -1 Then Exit Sub
     RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
-    
-    
-    
+    txtRespawnOrder.Text = RespawnIndex
     'Call FindNpcByName(lstNPCs.List(RespawnIndex))
     
     With NPCRespawn(RespawnIndex)
@@ -786,6 +830,7 @@ Dim NPCName                     As String
     lstNPCs.Enabled = True
     lstNPCs.SetFocus
     frmMain.Caption = "NPC Seleccionado: " & NPCName
+    tmpOrder = Val(txtRespawnOrder.Text)
 
 End Sub
 
@@ -881,6 +926,10 @@ Private Sub txtMinHour_Change()
     
     NPCRespawn(SelectedRespawnIndex).MinHour = MinHour
     cmdGuardar.Enabled = True
+End Sub
+
+Private Sub txtRespawnOrder_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+    tmpOrder = Val(txtRespawnOrder.Text)
 End Sub
 
 Private Sub txtSearch_Change()
@@ -1052,12 +1101,6 @@ Private Sub txtPos_Change()
     
     NoProcess = False
     cmdGuardar.Enabled = True
-    
-End Sub
-
-Private Sub txtRespawnOrder_Change()
-    
-    'txtRespawnOrder.Text = SelectedRespawnIndex
     
 End Sub
 

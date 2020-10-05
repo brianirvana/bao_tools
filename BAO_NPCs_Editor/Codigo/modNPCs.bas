@@ -290,10 +290,12 @@ Public NPCRespawnCount          As Long
 Attribute NPCRespawnCount.VB_VarUserMemId = 1073741829
 Public NPCRespawn()             As tNPCRespawn
 Attribute NPCRespawn.VB_VarUserMemId = 1073741830
+Public tmptNPCRespawn()         As tNPCRespawn
 
 Public NPCRespawn2()            As tNPCRespawn2
 
 Public Type tNPCRespawn
+    Order                       As Integer
     ID                          As Integer
     AreaX                       As Integer
     AreaY                       As Integer
@@ -598,6 +600,7 @@ Public Sub LoadNPCRespawn()
             
             For i = 0 To NPCRespawnCount - 1
                 With NPCRespawn(i)
+                    .Order = i
                     Get #nFile, , .AreaX
                     Get #nFile, , .AreaY
                     Get #nFile, , .Count
