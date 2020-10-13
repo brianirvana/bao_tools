@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.1#0"; "mscomctl.ocx"
 Begin VB.Form frmMain 
    Caption         =   "Estilo 1"
    ClientHeight    =   6495
@@ -958,6 +958,7 @@ Private Sub Form_Resize()
         If Not (TileEngine Is Nothing) Then
             Call TileEngine.Resize
         End If
+        
     End If
 End Sub
 Private Function TransformMod13(ByVal Value As Single) As Integer

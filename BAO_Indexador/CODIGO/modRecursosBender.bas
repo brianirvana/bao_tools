@@ -143,34 +143,49 @@ Public Sub LoadResourceInterface()
     frmMain.cmbEfectos.AddItem "0"
     
     'Armas
+    frmMain.cmbArmas.Clear
     For i = 1 To NumWeaponAnims
         frmMain.cmbArmas.AddItem i & IIf(i = 2, " (No-Anim)", "")
     Next i
+    
     frmMain.cmbArmas.ListIndex = NumAnim_Armas
+    
     'Cabezas
+    frmMain.cmbCabezas.Clear
     For i = 1 To Numheads
         frmMain.cmbCabezas.AddItem i & IIf(HeadData(i).Head(1).GrhIndex = 0, " (Libre)", "")
     Next i
     frmMain.cmbCabezas.ListIndex = NumAnim_Cabezas
+    
     'Cascos
+    frmMain.cmbCascos.Clear
     For i = 1 To NumCascos
         frmMain.cmbCascos.AddItem i & IIf(i = 2, " (No-Anim)", "")
     Next i
     frmMain.cmbCascos.ListIndex = NumAnim_Cascos
+    
     'Cuerpos
+    frmMain.cmbCuerpos.Clear
     For i = 1 To NumBodies
         frmMain.cmbCuerpos.AddItem i
     Next i
+    
     frmMain.cmbCuerpos.ListIndex = NumAnim_Cuerpos
+    
     'Escudos
+    frmMain.cmbEscudos.Clear
     For i = 1 To NumEscudosAnims
         frmMain.cmbEscudos.AddItem i & IIf(i = 2, " (No-Anim)", "")
     Next i
+    
     frmMain.cmbEscudos.ListIndex = NumAnim_Escudos
+    
     'Efectos
+    frmMain.cmbEfectos.Clear
     For i = 1 To NumFxs
         frmMain.cmbEfectos.AddItem i
     Next i
+    
     frmMain.cmbEfectos.ListIndex = NumAnim_Efectos
     
     frmMain.cmbArmas.AddItem "Resize"
