@@ -135,12 +135,12 @@ Public Sub LoadResourceInterface()
     
     frmMain.lstGraphics.AddItem "Resize"
     
-    frmMain.cmbArmas.AddItem "0"
-    frmMain.cmbCabezas.AddItem "0"
-    frmMain.cmbCascos.AddItem "0"
-    frmMain.cmbCuerpos.AddItem "0"
-    frmMain.cmbEscudos.AddItem "0"
-    frmMain.cmbEfectos.AddItem "0"
+'    frmMain.cmbArmas.AddItem "0"
+'    frmMain.cmbCabezas.AddItem "0"
+'    frmMain.cmbCascos.AddItem "0"
+'    frmMain.cmbCuerpos.AddItem "0"
+'    frmMain.cmbEscudos.AddItem "0"
+'    frmMain.cmbEfectos.AddItem "0"
     
     'Armas
     frmMain.cmbArmas.Clear

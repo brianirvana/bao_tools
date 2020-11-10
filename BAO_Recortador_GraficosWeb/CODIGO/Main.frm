@@ -86,16 +86,16 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-Dim pngClass As New LoadPNG
+Dim pngClass                    As New LoadPNG
 Private Declare Function SetPixel Lib "gdi32" (ByVal hDC As Long, _
-    ByVal X As Long, ByVal Y As Long, _
-    ByVal crColor As Long) As Long
+                                               ByVal X As Long, ByVal Y As Long, _
+                                               ByVal crColor As Long) As Long
 Private Declare Function GetPixel Lib "gdi32" (ByVal hDC As Long, ByVal X As Long, ByVal Y As Long) As Long
 
 Private Sub Filtrar()
-Dim X As Long
-Dim Y As Long
-Dim Color As Long
+Dim X                           As Long
+Dim Y                           As Long
+Dim Color                       As Long
     For X = 0 To Picture1.width
         For Y = 0 To Picture1.height
             Color = GetPixel(Picture1.hDC, X, Y)
@@ -109,207 +109,209 @@ Dim Color As Long
 End Sub
 
 Private Sub Command_Click()
-On Error Resume Next
-Dim CurrentGrhIndex As Integer
-Dim Grafico As Integer
-Dim i As Long
-For i = 1 To UBound(CascoAnimData)
-    With CascoAnimData(i)
-        Picture1.Cls
-        Picture1.Refresh
-        CurrentGrhIndex = GrhData(.Head(E_Heading.SOUTH).GrhIndex).Frames(1)
-        Grafico = GrhData(CurrentGrhIndex).FileNum
-        
-        'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
-        Picture2.Picture = LoadPicture("")
-        pngClass.PicBox = Picture2
-        pngClass.SetToBkgrnd False, 0, 0  'set to Background (True or false), x and y
-        pngClass.BackgroundPicture = Picture2 'same Backgroundpicture
-        pngClass.SetAlpha = True 'when Alpha then alpha
-        pngClass.SetTrans = True 'when transparent Color then transparent Color
-        pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
-        
-        Picture2.Refresh
-        Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
-        Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
-        Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
-        Picture1.Refresh
-        Call Filtrar
-        Call SavePicture(Picture1.Image, App.Path & "\Archivos\Helmet\" & i & ".bmp")
-        DoEvents
-    End With
-Next i
+    On Error Resume Next
+    Dim CurrentGrhIndex         As Integer
+    Dim Grafico                 As Integer
+    Dim i                       As Long
+    For i = 1 To UBound(CascoAnimData)
+        With CascoAnimData(i)
+            Picture1.Cls
+            Picture1.Refresh
+            CurrentGrhIndex = GrhData(.Head(E_Heading.SOUTH).GrhIndex).Frames(1)
+            Grafico = GrhData(CurrentGrhIndex).FileNum
+
+            'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
+            Picture2.Picture = LoadPicture("")
+            pngClass.PicBox = Picture2
+            pngClass.SetToBkgrnd False, 0, 0    'set to Background (True or false), x and y
+            pngClass.BackgroundPicture = Picture2    'same Backgroundpicture
+            pngClass.SetAlpha = True    'when Alpha then alpha
+            pngClass.SetTrans = True    'when transparent Color then transparent Color
+            pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
+
+            Picture2.Refresh
+            Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
+            Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
+            Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
+            Picture1.Refresh
+            Call Filtrar
+            Call SavePicture(Picture1.Image, App.Path & "\Archivos\Helmet\" & i & ".bmp")
+            DoEvents
+        End With
+    Next i
 End Sub
 
 Private Sub Command1_Click()
-On Error Resume Next
-Dim CurrentGrhIndex As Integer
-Dim Grafico As Integer
-Dim i As Long
-For i = 1 To UBound(BodyData)
-    With BodyData(i)
-        Picture1.Cls
-        Picture1.Refresh
-        CurrentGrhIndex = GrhData(.Walk(E_Heading.SOUTH).GrhIndex).Frames(1)
-        Grafico = GrhData(CurrentGrhIndex).FileNum
-        
-        'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
-        Picture2.Picture = LoadPicture("")
-        pngClass.PicBox = Picture2
-        pngClass.SetToBkgrnd False, 0, 0  'set to Background (True or false), x and y
-        pngClass.BackgroundPicture = Picture2 'same Backgroundpicture
-        pngClass.SetAlpha = True 'when Alpha then alpha
-        pngClass.SetTrans = True 'when transparent Color then transparent Color
-        pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
-        
-        Picture2.Refresh
-        Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
-        Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
-        Call Filtrar
-        Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
-        Picture1.Refresh
-        Call Filtrar
-        Call GuardarInt(App.Path & "\Archivos\Body\" & i & ".txt", CStr(.HeadOffset.Y))
-        Call SavePicture(Picture1.Image, App.Path & "\Archivos\Body\" & i & ".bmp")
-        DoEvents
-    End With
-Next i
+    On Error Resume Next
+    Dim CurrentGrhIndex         As Integer
+    Dim Grafico                 As Integer
+    Dim i                       As Long
+    For i = 1 To UBound(BodyData)
+        With BodyData(i)
+            Picture1.Cls
+            Picture1.Refresh
+            CurrentGrhIndex = GrhData(.Walk(E_Heading.SOUTH).GrhIndex).Frames(1)
+            Grafico = GrhData(CurrentGrhIndex).FileNum
+
+            'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
+            Picture2.Picture = LoadPicture("")
+            pngClass.PicBox = Picture2
+            pngClass.SetToBkgrnd False, 0, 0    'set to Background (True or false), x and y
+            pngClass.BackgroundPicture = Picture2    'same Backgroundpicture
+            pngClass.SetAlpha = True    'when Alpha then alpha
+            pngClass.SetTrans = True    'when transparent Color then transparent Color
+            pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
+
+            Picture2.Refresh
+            Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
+            Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
+            Call Filtrar
+            Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
+            Picture1.Refresh
+            Call Filtrar
+            Call GuardarInt(App.Path & "\Archivos\Body\" & i & ".txt", CStr(.HeadOffset.Y))
+            Call SavePicture(Picture1.Image, App.Path & "\Archivos\Body\" & i & ".bmp")
+            DoEvents
+        End With
+    Next i
 End Sub
 
 Private Sub Command2_Click()
-On Error Resume Next
-Dim CurrentGrhIndex As Integer
-Dim Grafico As Integer
-Dim i As Long
-For i = 1 To UBound(HeadData)
-    With HeadData(i)
-        Picture1.Cls
-        Picture1.Refresh
-        CurrentGrhIndex = GrhData(.Head(E_Heading.SOUTH).GrhIndex).Frames(1)
-        Grafico = GrhData(CurrentGrhIndex).FileNum
-        
-        'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
-        Picture2.Picture = LoadPicture("")
-        pngClass.PicBox = Picture2
-        pngClass.SetToBkgrnd False, 0, 0  'set to Background (True or false), x and y
-        pngClass.BackgroundPicture = Picture2 'same Backgroundpicture
-        pngClass.SetAlpha = True 'when Alpha then alpha
-        pngClass.SetTrans = True 'when transparent Color then transparent Color
-        pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
-        
-        Picture2.Refresh
-        Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
-        Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
-        Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
-        Picture1.Refresh
-        Call Filtrar
-        Call SavePicture(Picture1.Image, App.Path & "\Archivos\Head\" & i & ".bmp")
-        DoEvents
-    End With
-Next i
+    On Error Resume Next
+    Dim CurrentGrhIndex         As Integer
+    Dim Grafico                 As Integer
+    Dim i                       As Long
+    For i = 1 To UBound(HeadData)
+        With HeadData(i)
+            Picture1.Cls
+            Picture1.Refresh
+            CurrentGrhIndex = GrhData(.Head(E_Heading.SOUTH).GrhIndex).Frames(1)
+            Grafico = GrhData(CurrentGrhIndex).FileNum
+
+            'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
+            Picture2.Picture = LoadPicture("")
+            pngClass.PicBox = Picture2
+            pngClass.SetToBkgrnd False, 0, 0    'set to Background (True or false), x and y
+            pngClass.BackgroundPicture = Picture2    'same Backgroundpicture
+            pngClass.SetAlpha = True    'when Alpha then alpha
+            pngClass.SetTrans = True    'when transparent Color then transparent Color
+            pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
+
+            Picture2.Refresh
+            Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
+            Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
+            Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
+            Picture1.Refresh
+            Call Filtrar
+            Call SavePicture(Picture1.Image, App.Path & "\Archivos\Head\" & i & ".bmp")
+            DoEvents
+        End With
+    Next i
 End Sub
 
 Private Sub Command3_Click()
-On Error Resume Next
-Dim CurrentGrhIndex As Integer
-Dim Grafico As Integer
-Dim i As Long
-For i = 1 To UBound(ShieldAnimData)
-    With ShieldAnimData(i)
-        Picture1.Cls
-        Picture1.Refresh
-        CurrentGrhIndex = GrhData(.ShieldWalk(E_Heading.SOUTH).GrhIndex).Frames(1)
-        Grafico = GrhData(CurrentGrhIndex).FileNum
-        
-        
-        'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
-        Picture2.Picture = LoadPicture("")
-        pngClass.PicBox = Picture2
-        pngClass.SetToBkgrnd False, 0, 0  'set to Background (True or false), x and y
-        pngClass.BackgroundPicture = Picture2 'same Backgroundpicture
-        pngClass.SetAlpha = True 'when Alpha then alpha
-        pngClass.SetTrans = True 'when transparent Color then transparent Color
-        pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
-        
-        Picture2.Refresh
-        Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
-        Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
-        Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
-        Picture1.Refresh
-        Call Filtrar
-        Call SavePicture(Picture1.Image, App.Path & "\Archivos\Shield\" & i & ".bmp")
-        DoEvents
-    End With
-Next i
+    On Error Resume Next
+    Dim CurrentGrhIndex         As Integer
+    Dim Grafico                 As Integer
+    Dim i                       As Long
+    For i = 1 To UBound(ShieldAnimData)
+        With ShieldAnimData(i)
+            Picture1.Cls
+            Picture1.Refresh
+            CurrentGrhIndex = GrhData(.ShieldWalk(E_Heading.SOUTH).GrhIndex).Frames(1)
+            Grafico = GrhData(CurrentGrhIndex).FileNum
+
+
+            'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
+            Picture2.Picture = LoadPicture("")
+            pngClass.PicBox = Picture2
+            pngClass.SetToBkgrnd False, 0, 0    'set to Background (True or false), x and y
+            pngClass.BackgroundPicture = Picture2    'same Backgroundpicture
+            pngClass.SetAlpha = True    'when Alpha then alpha
+            pngClass.SetTrans = True    'when transparent Color then transparent Color
+            pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
+
+            Picture2.Refresh
+            Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
+            Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
+            Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
+            Picture1.Refresh
+            Call Filtrar
+            Call SavePicture(Picture1.Image, App.Path & "\Archivos\Shield\" & i & ".bmp")
+            DoEvents
+        End With
+    Next i
 End Sub
 
 Private Sub Command4_Click()
-On Error Resume Next
-Dim CurrentGrhIndex As Integer
-Dim Grafico As Integer
-Dim i As Long
-For i = 1 To UBound(WeaponAnimData)
-    With WeaponAnimData(i)
-    
-    ' Visualiza el Archivo en Picture1
-    
-        
-        Picture1.Cls
-        Picture1.Refresh
-        CurrentGrhIndex = GrhData(.WeaponWalk(E_Heading.SOUTH).GrhIndex).Frames(1)
-        Grafico = GrhData(CurrentGrhIndex).FileNum
-        
-        'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
-        Picture2.Picture = LoadPicture("")
-        pngClass.PicBox = Picture2
-        pngClass.SetToBkgrnd False, 0, 0  'set to Background (True or false), x and y
-        pngClass.BackgroundPicture = Picture2 'same Backgroundpicture
-        pngClass.SetAlpha = True 'when Alpha then alpha
-        pngClass.SetTrans = True 'when transparent Color then transparent Color
-        pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
-    
-        Picture2.Refresh
-        Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
-        Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
-        Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
-        Picture1.Refresh
-        Call Filtrar
-        
-        Call SavePicture(Picture1.Image, App.Path & "\Archivos\Weapon\" & i & ".bmp")
-        'Call FImage.FILoad(App.Path & "\Archivos\Weapon\" & i & ".bmp")
-        'Call FImage.FISave(App.Path & "\Archivos\Weapon\" & i & ".png", FIF_PNG)
-        DoEvents
-        
-    End With
-Next i
+    On Error Resume Next
+    Dim CurrentGrhIndex         As Integer
+    Dim Grafico                 As Integer
+    Dim i                       As Long
+    For i = 1 To UBound(WeaponAnimData)
+        With WeaponAnimData(i)
+
+            ' Visualiza el Archivo en Picture1
+
+
+            Picture1.Cls
+            Picture1.Refresh
+            CurrentGrhIndex = GrhData(.WeaponWalk(E_Heading.SOUTH).GrhIndex).Frames(1)
+            Grafico = GrhData(CurrentGrhIndex).FileNum
+
+            'Picture2.Picture = LoadPicture(App.Path & "\GRAFICOS\" & Grafico & ".bmp")
+            Picture2.Picture = LoadPicture("")
+            pngClass.PicBox = Picture2
+            pngClass.SetToBkgrnd False, 0, 0    'set to Background (True or false), x and y
+            pngClass.BackgroundPicture = Picture2    'same Backgroundpicture
+            pngClass.SetAlpha = True    'when Alpha then alpha
+            pngClass.SetTrans = True    'when transparent Color then transparent Color
+            pngClass.OpenPNG App.Path & "\GRAFICOS\" & Grafico & ".png"
+
+            Picture2.Refresh
+            Picture1.height = GrhData(CurrentGrhIndex).pixelHeight
+            Picture1.width = GrhData(CurrentGrhIndex).pixelWidth
+            Call Picture1.PaintPicture(Picture2.Image, 0, 0, , , GrhData(CurrentGrhIndex).sX, GrhData(CurrentGrhIndex).sY, GrhData(CurrentGrhIndex).pixelWidth, GrhData(CurrentGrhIndex).pixelHeight)
+            Picture1.Refresh
+            Call Filtrar
+
+            Call SavePicture(Picture1.Image, App.Path & "\Archivos\Weapon\" & i & ".bmp")
+            'Call FImage.FILoad(App.Path & "\Archivos\Weapon\" & i & ".bmp")
+            'Call FImage.FISave(App.Path & "\Archivos\Weapon\" & i & ".png", FIF_PNG)
+            DoEvents
+
+        End With
+    Next i
 End Sub
 
 Private Sub Form_Load()
-If Not FileExist(App.Path & "\INIT", vbDirectory) Then MsgBox "Se requiere los INIT.": End
-If Not FileExist(App.Path & "\GRAFICOS", vbDirectory) Then MsgBox "Se requiere los GRAFICOS.": End
-Dim Temp As String
-Temp = App.Path & "\Archivos"
-If Not FileExist(Temp, vbDirectory) Then MkDir Temp
-Temp = App.Path & "\Archivos\Body"
-If Not FileExist(Temp, vbDirectory) Then MkDir Temp
-Temp = App.Path & "\Archivos\Head"
-If Not FileExist(Temp, vbDirectory) Then MkDir Temp
-Temp = App.Path & "\Archivos\Shield"
-If Not FileExist(Temp, vbDirectory) Then MkDir Temp
-Temp = App.Path & "\Archivos\Helmet"
-If Not FileExist(Temp, vbDirectory) Then MkDir Temp
-Temp = App.Path & "\Archivos\Weapon"
-If Not FileExist(Temp, vbDirectory) Then MkDir Temp
-Call modCargar.LoadGrhData
-Call modCargar.CargarCabezas
-Call modCargar.CargarCascos
-Call modCargar.CargarCuerpos
-Call modCargar.CargarAnimEscudos
-Call modCargar.CargarAnimArmas
+
+    If Not FileExist(App.Path & "\INIT", vbDirectory) Then MsgBox "Se requiere los INIT.": End
+    If Not FileExist(App.Path & "\GRAFICOS", vbDirectory) Then MsgBox "Se requiere los GRAFICOS.": End
+    Dim Temp                    As String
+    Temp = App.Path & "\Archivos"
+    If Not FileExist(Temp, vbDirectory) Then MkDir Temp
+    Temp = App.Path & "\Archivos\Body"
+    If Not FileExist(Temp, vbDirectory) Then MkDir Temp
+    Temp = App.Path & "\Archivos\Head"
+    If Not FileExist(Temp, vbDirectory) Then MkDir Temp
+    Temp = App.Path & "\Archivos\Shield"
+    If Not FileExist(Temp, vbDirectory) Then MkDir Temp
+    Temp = App.Path & "\Archivos\Helmet"
+    If Not FileExist(Temp, vbDirectory) Then MkDir Temp
+    Temp = App.Path & "\Archivos\Weapon"
+    If Not FileExist(Temp, vbDirectory) Then MkDir Temp
+    Call modCargar.LoadGrhData
+    Call modCargar.CargarCabezas
+    Call modCargar.CargarCascos
+    Call modCargar.CargarCuerpos
+    Call modCargar.CargarAnimEscudos
+    Call modCargar.CargarAnimArmas
+    
 End Sub
 
 Private Sub GuardarInt(ByRef Ruta As String, ByRef Data As String)
-    Dim f As Integer
+Dim f                           As Integer
     f = FreeFile
     Open Ruta For Output As f
     Print #f, Data

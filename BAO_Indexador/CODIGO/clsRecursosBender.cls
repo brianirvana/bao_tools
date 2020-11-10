@@ -77,11 +77,11 @@ If FileExist(AppExpo & "\Graficos.ini", vbArchive) Then Kill AppExpo & "\Grafico
 Open AppExpo & "\Graficos.ini" For Output As #nfile
     Print #nfile, "'ADVERTENCIA: No tener este archivo abierto cuando se vaya a trabajar con el INDEXADOR."
     Print #nfile, "[INIT]"
-    Print #nfile, "CountGrh=" & grhcount
+    Print #nfile, "CountGrh=" & grhCount
     Print #nfile, ""
     
     Print #nfile, "[GRAFICOS]"
-For i = 1 To grhcount
+For i = 1 To grhCount
     Print #nfile, ProcessGraphicBinToLine(i)
 Next i
 
@@ -100,19 +100,21 @@ Public Sub Save_Indexs()
 End Sub
 
 Public Sub Expo_To_Index()
+
 On Error GoTo err:
+    
     Dim nfile As Integer
     Dim sValue As String
     
     Dim i As Long
     frmMain.Caption = FrmMainCaption & " - Indexando..."
     DoEvents
-    grhcount = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
-    If grhcount = 0 Then
+    grhCount = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
+    If grhCount = 0 Then
         MsgBox "Graficos.ini invalidos. Verifiquelos ya que no se encuentra el ""CountGrh""."
         Exit Sub
     End If
-    ReDim GrhData(1 To grhcount) As GrhData
+    ReDim GrhData(1 To grhCount) As GrhData
     
     nfile = FreeFile ' obtenemos un canal
     Open AppExpo & "\Graficos.ini" For Input As #nfile
@@ -166,10 +168,10 @@ Private Function LoadGrhData(Path As String) As Boolean
     Get handle, , fileVersion
     
     'Get number of grhs
-    Get handle, , grhcount
+    Get handle, , grhCount
     
     'Resize arrays
-    ReDim GrhData(1 To grhcount) As GrhData
+    ReDim GrhData(1 To grhCount) As GrhData
     
     While Not EOF(handle)
         Get handle, , Grh
@@ -190,7 +192,7 @@ Private Function LoadGrhData(Path As String) As Boolean
                     'Read a animation GRH set
                     For Frame = 1 To .NumFrames
                         Get handle, , .Frames(Frame)
-                        If .Frames(Frame) <= 0 Or .Frames(Frame) > grhcount Then
+                        If .Frames(Frame) <= 0 Or .Frames(Frame) > grhCount Then
                             .Frames(Frame) = 1
                             isError = True
                             Call AddText(TempError, "Frame" & Frame)
@@ -319,9 +321,9 @@ Private Function SaveGrhData(Path As String) As Boolean
 60        Put handle, , fileVersion
           
           'Get number of grhs
-70        Put handle, , grhcount
+70        Put handle, , grhCount
           
-80        For Grh = 1 To grhcount
+80        For Grh = 1 To grhCount
 90            With GrhData(Grh)
 100               If .NumFrames > 0 Then
 110                   Put handle, , Grh
