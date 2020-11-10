@@ -430,6 +430,7 @@ Private Sub CargarCascos(Path As String)
 End Sub
 
 Private Sub CargarCuerpos(Path As String)
+          
           Dim n As Integer
           Dim i As Long
           Dim MisCuerpos() As tIndiceCuerpo

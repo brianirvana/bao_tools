@@ -144,7 +144,7 @@ Public Sub LoadResourceInterface()
     
     'Armas
     frmMain.cmbArmas.Clear
-    For i = 1 To NumWeaponAnims
+    For i = 0 To NumWeaponAnims
         frmMain.cmbArmas.AddItem i & IIf(i = 2, " (No-Anim)", "")
     Next i
     
@@ -152,21 +152,21 @@ Public Sub LoadResourceInterface()
     
     'Cabezas
     frmMain.cmbCabezas.Clear
-    For i = 1 To Numheads
+    For i = 0 To Numheads
         frmMain.cmbCabezas.AddItem i & IIf(HeadData(i).Head(1).GrhIndex = 0, " (Libre)", "")
     Next i
     frmMain.cmbCabezas.ListIndex = NumAnim_Cabezas
     
     'Cascos
     frmMain.cmbCascos.Clear
-    For i = 1 To NumCascos
+    For i = 0 To NumCascos
         frmMain.cmbCascos.AddItem i & IIf(i = 2, " (No-Anim)", "")
     Next i
     frmMain.cmbCascos.ListIndex = NumAnim_Cascos
     
     'Cuerpos
     frmMain.cmbCuerpos.Clear
-    For i = 1 To NumBodies
+    For i = 0 To NumBodies
         frmMain.cmbCuerpos.AddItem i
     Next i
     
@@ -174,7 +174,7 @@ Public Sub LoadResourceInterface()
     
     'Escudos
     frmMain.cmbEscudos.Clear
-    For i = 1 To NumEscudosAnims
+    For i = 0 To NumEscudosAnims
         frmMain.cmbEscudos.AddItem i & IIf(i = 2, " (No-Anim)", "")
     Next i
     
@@ -182,7 +182,7 @@ Public Sub LoadResourceInterface()
     
     'Efectos
     frmMain.cmbEfectos.Clear
-    For i = 1 To NumFxs
+    For i = 0 To NumFxs
         frmMain.cmbEfectos.AddItem i
     Next i
     
