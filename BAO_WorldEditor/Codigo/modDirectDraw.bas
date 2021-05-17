@@ -479,6 +479,7 @@ Sub DDrawTransGrhtoSurface(ByRef Surface As DirectDrawSurface7, Grh As Grh, ByVa
 '*************************************************
 
     On Error Resume Next
+    
     If MapaCargado = False Then Exit Sub
 
     Dim iGrhIndex               As Integer
@@ -488,6 +489,8 @@ Sub DDrawTransGrhtoSurface(ByRef Surface As DirectDrawSurface7, Grh As Grh, ByVa
     If Grh.GrhIndex = 0 Then Exit Sub
 
     'Figure out what frame to draw (always 1 if not animated)
+
+    If Grh.GrhIndex > UBound(GrhData) Then Exit Sub
 
     If GrhData(Grh.GrhIndex).NumFrames = 0 Then
         TempGrhIndex = Grh.GrhIndex
