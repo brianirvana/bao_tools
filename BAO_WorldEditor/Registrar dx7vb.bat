@@ -1,0 +1,1 @@
+regsvr32 "C:\Windows\SysWOW64\dx7vb.dll"

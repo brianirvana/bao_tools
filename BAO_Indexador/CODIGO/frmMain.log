@@ -1,8 +1,1 @@
-Line 46: Class MSComctlLib.Slider of control Escala was not a loaded control class.
-Line 52: The property name _ExtentX in Escala is invalid.
-Line 53: The property name _ExtentY in Escala is invalid.
-Line 54: The property name _Version in Escala is invalid.
-Line 55: The property name Min in Escala is invalid.
-Line 56: The property name Max in Escala is invalid.
-Line 57: The property name SelStart in Escala is invalid.
-Line 58: The property name Value in Escala is invalid.
+Line 67: Class MSComctlLib.Slider of control Escala was not a loaded control class.

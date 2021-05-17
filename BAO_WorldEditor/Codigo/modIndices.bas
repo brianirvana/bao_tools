@@ -138,6 +138,7 @@ Public Function LoadGrhData() As Boolean
 
     'Open files
     handle = FreeFile()
+    
     Open IniPath & "\INIT\Graficos.ind" For Binary Access Read As handle
     Seek #1, 1
 
@@ -223,6 +224,8 @@ Public Function LoadGrhData() As Boolean
     Exit Function
 ErrorHandler:
     LoadGrhData = False
+    
+    
 End Function
 
 
