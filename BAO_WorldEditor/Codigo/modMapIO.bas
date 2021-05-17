@@ -887,7 +887,7 @@ Dim tMap                        As String
         Exit Sub
     End If
 
-50  NpcFile = App.Path & "\..\..\DAT\" & "NPCs" & ".dat"
+50  NpcFile = App.Path & "\DATs\" & "NPCs" & ".dat"
 60  LeerNPCs.Initialize (NpcFile)
 
 70  hFile = FreeFile

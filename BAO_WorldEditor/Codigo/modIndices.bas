@@ -322,17 +322,21 @@ Public Sub CargarIndicesTriggers()
 'Last modified: 28/05/06
 '*************************************************
 
+Dim NumT                        As Integer
+Dim T                           As Integer
+Dim Leer                        As New clsIniReader
+
     On Error GoTo Fallo
+
     If FileExist(DirIndex & "Triggers.ini", vbArchive) = False Then
         MsgBox "Falta el archivo 'Triggers.ini' en " & DirIndex, vbCritical
         End
     End If
-    Dim NumT                    As Integer
-    Dim T                       As Integer
-    Dim Leer                    As New clsIniReader
+
     Call Leer.Initialize(DirIndex & "Triggers.ini")
     frmMain.lListado(4).Clear
     NumT = Val(Leer.GetValue("INIT", "NumTriggers"))
+    
     For T = 1 To NumT
         frmMain.lListado(4).AddItem Leer.GetValue("Trig" & T, "Name") & " - #" & (T - 1)
     Next T

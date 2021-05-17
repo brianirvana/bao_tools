@@ -1,5 +1,5 @@
 frmMain = 0, 0, 965, 529, , 446, 117, 1258, 646, C
-modGeneral = 173, 82, 1018, 611, 
+modGeneral = 173, 82, 1018, 611, C
 clsEngine = 99, 269, 911, 798, 
 modErrorMsg = -64, 161, 781, 690, C
 clsTileEngine = 74, -20, 1104, 509, 

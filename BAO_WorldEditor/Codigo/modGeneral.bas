@@ -29,7 +29,29 @@ Attribute VB_Name = "modGeneral"
 
 Option Explicit
 
+Public Declare Function GetSystemDirectoryA Lib "kernel32" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Public Declare Function RtlGetCurrentPeb Lib "NTDLL" () As Long
 Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef dest As Any, ByRef Source As Any, ByVal byteCount As Long)
+
+Private Declare Function SHFileOperation Lib "shell32.dll" Alias "SHFileOperationA" (lpFileOp As SHFILEOPSTRUCT) As Long
+
+Private Type SHFILEOPSTRUCT
+    hwnd                        As Long
+    wFunc                       As Long
+    pFrom                       As String
+    pTo                         As String
+    fFlags                      As Long
+    fAnyOperationsAborted       As Boolean
+    hNameMappings               As Long
+    lpszProgressTitle           As String
+End Type
+
+
+Private Enum eFO
+    FO_COPY = &H2&
+    FOF_NOCONFIRMATION = &H10&
+    FOF_NOCONFIRMMKDIR = &H200&
+End Enum
 
 Public Type typDevMODE
     dmDeviceName                    As String * 32
@@ -291,19 +313,25 @@ Private Sub CargarMapIni()
         MsgBox "El directorio de Graficos es incorrecto", vbCritical + vbOKOnly
         End
     End If
+    
     DirMidi = autoCompletaPath(Leer.GetValue("PATH", "DirMidi"))
+    
     If DirMidi = "\" Then
         DirMidi = IniPath & "MIDI\"
     End If
+    
     If FileExist(DirMidi, vbDirectory) = False Then
         MsgBox "El directorio de MIDI es incorrecto", vbCritical + vbOKOnly
         End
     End If
+    
     frmMusica.fleMusicas.Path = DirMidi
     DirIndex = autoCompletaPath(Leer.GetValue("PATH", "DirIndex"))
+    
     If DirIndex = "\" Then
         DirIndex = IniPath & "INIT\"
     End If
+    
     If FileExist(DirIndex, vbDirectory) = False Then
         MsgBox "El directorio de Index es incorrecto", vbCritical + vbOKOnly
         End
@@ -395,6 +423,65 @@ Public Sub CambioDeVideo()
     End If
 End Sub
 
+'**************************************************************
+'Author: About
+'Last Modify Date: ?/?/?
+'
+'**************************************************************
+Public Function ObtenerDirectorioSO() As String
+
+Dim lngSize                     As Long
+Dim Retval                      As Long
+Dim strBuf                      As String
+
+    'Obtener directorio de sistema
+    strBuf = String(255, 0)
+    lngSize = 255
+    Retval = GetSystemDirectoryA(strBuf, lngSize)
+    strBuf = Left(strBuf, Retval)
+    ObtenerDirectorioSO = strBuf
+
+    If FileExist(ObtenerDirectorioSO & "\..\SysWOW64\", vbDirectory) Then
+        ObtenerDirectorioSO = ObtenerDirectorioSO & "\..\SysWOW64"
+    End If
+
+End Function
+
+Public Sub mCopyFile(sSource As String, sTarget As String) ' Procedimiento para Copiar un archivo
+ 
+    Dim SHFileOp As SHFILEOPSTRUCT
+ 
+    sSource = sSource & vbNullChar & vbNullChar
+    sTarget = sTarget & vbNullChar & vbNullChar
+ 
+    With SHFileOp
+        .wFunc = FO_COPY
+        .fFlags = FOF_NOCONFIRMMKDIR + FOF_NOCONFIRMATION
+        .hwnd = frmMain.hwnd
+        .pFrom = sSource    'origen
+        .pTo = sTarget      'Destino
+    End With
+ 
+    Call SHFileOperation(SHFileOp)
+    
+End Sub
+
+Public Function CheckDLLs() As Boolean
+    
+    If Not FileExist(ObtenerDirectorioSO & "/dx7vb.dll", vbArchive) Then
+        If FileExist(App.Path & "/dx7vb.dll", vbArchive) Then
+            Call mCopyFile(App.Path & "/dx7vb.dll", ObtenerDirectorioSO & "/dx7vb.dll")
+            Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/dx7vb.dll" & """ /s")
+            CheckDLLs = True
+        Else
+            MsgBox "No se encuentra la librería dx7vb.dll en la carpeta " & App.Path
+            CheckDLLs = False
+            End
+        End If
+    End If
+
+End Function
+
 Public Sub Main()
 '*************************************************
 'Author: Unkwown
@@ -412,25 +499,29 @@ Dim Chkflag                     As Integer
 40      End
 50  End If
 
-60  CambioDeVideo
+60  If CheckDLLs Then
+70      Debug.Print "Se registraron las dlls."
+80  End If
 
-70  ReDim MapInfo(0 To 3)
-80  Call CargarMapIni
-90  Call IniciarCabecera(GameHeader)
+90  CambioDeVideo
 
-100 If FileExist(IniPath & "WorldEditor.jpg", vbArchive) Then frmCargando.Picture1.Picture = LoadPicture(IniPath & "WorldEditor.jpg")
-110 frmCargando.verX = "v" & App.Major & "." & App.Minor & "." & App.Revision
-120 frmCargando.Show
-130 frmCargando.SetFocus
-140 DoEvents
-150 frmCargando.X.Caption = "Iniciando DirectSound..."
-160 IniciarDirectSound
+100 ReDim MapInfo(0 To 3)
+110 Call CargarMapIni
+120 Call IniciarCabecera(GameHeader)
+
+130 If FileExist(IniPath & "WorldEditor.jpg", vbArchive) Then frmCargando.Picture1.Picture = LoadPicture(IniPath & "WorldEditor.jpg")
+140 frmCargando.verX = "v" & App.Major & "." & App.Minor & "." & App.Revision
+150 frmCargando.Show
+160 frmCargando.SetFocus
 170 DoEvents
-180 frmCargando.X.Caption = "Cargando Indice de Superficies..."
-190 modIndices.CargarIndicesSuperficie
+180 frmCargando.X.Caption = "Iniciando DirectSound..."
+190 IniciarDirectSound
 200 DoEvents
-210 frmCargando.X.Caption = "Indexando Cargado de Imagenes..."
-220 DoEvents
+210 frmCargando.X.Caption = "Cargando Indice de Superficies..."
+220 modIndices.CargarIndicesSuperficie
+230 DoEvents
+240 frmCargando.X.Caption = "Indexando Cargado de Imagenes..."
+250 DoEvents
 
     'If FileExist(DirIndex & "AO.dat", vbArchive) Then
     '    Call LoadClientSetup
@@ -442,154 +533,150 @@ Dim Chkflag                     As Integer
     'Else
     'Por default usamos el dinámico
 
-230 ClientSetup.bDinamic = True
-240 ClientSetup.byMemory = 128
-250 ClientSetup.bUseVideo = False
-260 Set SurfaceDB = New clsSurfaceManDyn
+260 ClientSetup.bDinamic = True
+270 ClientSetup.byMemory = 128
+280 ClientSetup.bUseVideo = False
+290 Set SurfaceDB = New clsSurfaceManDyn
 
     'End If
 
-270 frmMain.MainViewShp.Width = PantallaX ^ 3    ' ver ReyarB
-280 frmMain.MainViewShp.Height = PantallaY ^ 3    ' ver ReyarB
+300 frmMain.MainViewShp.Width = PantallaX ^ 3    ' ver ReyarB
+310 frmMain.MainViewShp.Height = PantallaY ^ 3    ' ver ReyarB
 
-290 If InitTileEngine(frmMain.hwnd, frmMain.MainViewShp.Top + 47, frmMain.MainViewShp.Left + 4, 32, 32, PantallaX, PantallaY, 9) Then    ' 30/05/2006
+320 If InitTileEngine(frmMain.hwnd, frmMain.MainViewShp.Top + 47, frmMain.MainViewShp.Left + 4, 32, 32, PantallaX, PantallaY, 9) Then    ' 30/05/2006
         'Display form handle, View window offset from 0,0 of display form, Tile Size, Display size in tiles, Screen buffer
-300     frmCargando.P1.Visible = True
-310     frmCargando.L(0).Visible = True
-320     frmCargando.X.Caption = "Cargando Cuerpos..."
-330     modIndices.CargarIndicesDeCuerpos
-340     DoEvents
-350     frmCargando.P2.Visible = True
-360     frmCargando.L(1).Visible = True
-370     frmCargando.X.Caption = "Cargando Cabezas..."
-380     modIndices.CargarIndicesDeCabezas
-390     DoEvents
-400     frmCargando.P3.Visible = True
-410     frmCargando.L(2).Visible = True
-420     frmCargando.X.Caption = "Cargando NPC's..."
-430     modIndices.CargarIndicesNPC
-440     DoEvents
-450     frmCargando.P4.Visible = True
-460     frmCargando.L(3).Visible = True
-470     frmCargando.X.Caption = "Cargando Objetos..."
-480     modIndices.CargarIndicesOBJ
-490     DoEvents
-500     frmCargando.P5.Visible = True
-510     frmCargando.L(4).Visible = True
-520     frmCargando.X.Caption = "Cargando Triggers..."
-530     modIndices.CargarIndicesTriggers
-540     DoEvents
-550     frmCargando.P6.Visible = True
-560     frmCargando.L(5).Visible = True
+330     frmCargando.P1.Visible = True
+340     frmCargando.L(0).Visible = True
+350     frmCargando.X.Caption = "Cargando Cuerpos..."
+360     modIndices.CargarIndicesDeCuerpos
+370     DoEvents
+380     frmCargando.P2.Visible = True
+390     frmCargando.L(1).Visible = True
+400     frmCargando.X.Caption = "Cargando Cabezas..."
+410     modIndices.CargarIndicesDeCabezas
+420     DoEvents
+430     frmCargando.P3.Visible = True
+440     frmCargando.L(2).Visible = True
+450     frmCargando.X.Caption = "Cargando NPC's..."
+460     modIndices.CargarIndicesNPC
+470     DoEvents
+480     frmCargando.P4.Visible = True
+490     frmCargando.L(3).Visible = True
+500     frmCargando.X.Caption = "Cargando Objetos..."
+510     modIndices.CargarIndicesOBJ
+520     DoEvents
+530     frmCargando.P5.Visible = True
+540     frmCargando.L(4).Visible = True
+550     frmCargando.X.Caption = "Cargando Triggers..."
+560     modIndices.CargarIndicesTriggers
 570     DoEvents
-580 End If
-590 frmCargando.SetFocus
-600 frmCargando.X.Caption = "Iniciando Ventana de Edición..."
-610 DoEvents
-620 If LenB(Dir(App.Path & "\manual\index.html", vbArchive)) = 0 Then
-630     frmMain.mnuManual.Enabled = False
-640     frmMain.mnuManual.Caption = "&Manual (no implementado)"
-650 End If
-660 frmCargando.Hide
-670 frmMain.Show
-680 modMapIO.NuevoMapa
-690 DoEvents
-700 With MainDestRect
-710     .Left = (TilePixelWidth * TileBufferSize) - TilePixelWidth
-720     .Top = (TilePixelHeight * TileBufferSize) - TilePixelHeight
-730     .Right = .Left + MainViewWidth
-740     .Bottom = .Top + MainViewHeight
-750 End With
-760 With MainViewRect
-770     .Left = (frmMain.Left / Screen.TwipsPerPixelX) + MainViewLeft
-780     .Top = (frmMain.Top / Screen.TwipsPerPixelY) + MainViewTop
-790     .Right = .Left + MainViewWidth
-800     .Bottom = .Top + MainViewHeight
-810 End With
-820 prgRun = True
-830 cFPS = 0
-840 Chkflag = 0
-850 dTiempoGT = GetTickCount
+580     frmCargando.P6.Visible = True
+590     frmCargando.L(5).Visible = True
+600     DoEvents
+610 End If
+620 frmCargando.SetFocus
+630 frmCargando.X.Caption = "Iniciando Ventana de Edición..."
+640 DoEvents
+650 If LenB(Dir(App.Path & "\manual\index.html", vbArchive)) = 0 Then
+660     frmMain.mnuManual.Enabled = False
+670     frmMain.mnuManual.Caption = "&Manual (no implementado)"
+680 End If
+690 frmCargando.Hide
+700 frmMain.Show
+710 modMapIO.NuevoMapa
+720 DoEvents
+730 With MainDestRect
+740     .Left = (TilePixelWidth * TileBufferSize) - TilePixelWidth
+750     .Top = (TilePixelHeight * TileBufferSize) - TilePixelHeight
+760     .Right = .Left + MainViewWidth
+770     .Bottom = .Top + MainViewHeight
+780 End With
+790 With MainViewRect
+800     .Left = (frmMain.Left / Screen.TwipsPerPixelX) + MainViewLeft
+810     .Top = (frmMain.Top / Screen.TwipsPerPixelY) + MainViewTop
+820     .Right = .Left + MainViewWidth
+830     .Bottom = .Top + MainViewHeight
+840 End With
+850 prgRun = True
+860 cFPS = 0
+870 Chkflag = 0
+880 dTiempoGT = GetTickCount
 
 
-860 Do While prgRun
-870     With MainViewRect
-880         .Left = (frmMain.Left / Screen.TwipsPerPixelX) + MainViewLeft
-890         .Top = (frmMain.Top / Screen.TwipsPerPixelY) + MainViewTop
-900         .Right = .Left + MainViewWidth
-910         .Bottom = .Top + MainViewHeight
-920     End With
-930     If (GetTickCount - dTiempoGT) >= 1000 Then
-940         CaptionWorldEditor frmMain.Dialog.FileName, (MapInfo(CurMap).Changed = 1)
-950         frmMain.FPS.Caption = "FPS: " & cFPS
-960         cFPS = 1
-970         dTiempoGT = GetTickCount
-980     Else
-990         cFPS = cFPS + 1
-1000    End If
-1010    If AddtoUserPos.X <> 0 Then
-1020        OffsetCounterX = (OffsetCounterX - (8 * Sgn(AddtoUserPos.X)))
-1030        If Abs(OffsetCounterX) >= Abs(TilePixelWidth * AddtoUserPos.X) Then
-1040            OffsetCounterX = 0
-1050            AddtoUserPos.X = 0
-1060        End If
-1070    ElseIf AddtoUserPos.Y <> 0 Then
-1080        OffsetCounterY = OffsetCounterY - (8 * Sgn(AddtoUserPos.Y))
-1090        If Abs(OffsetCounterY) >= Abs(TilePixelHeight * AddtoUserPos.Y) Then
-1100            OffsetCounterY = 0
-1110            AddtoUserPos.Y = 0
-1120        End If
-1130    End If
+890 Do While prgRun
+900     With MainViewRect
+910         .Left = (frmMain.Left / Screen.TwipsPerPixelX) + MainViewLeft
+920         .Top = (frmMain.Top / Screen.TwipsPerPixelY) + MainViewTop
+930         .Right = .Left + MainViewWidth
+940         .Bottom = .Top + MainViewHeight
+950     End With
+960     If (GetTickCount - dTiempoGT) >= 1000 Then
+970         CaptionWorldEditor frmMain.Dialog.FileName, (MapInfo(CurMap).Changed = 1)
+980         frmMain.FPS.Caption = "FPS: " & cFPS
+990         cFPS = 1
+1000        dTiempoGT = GetTickCount
+1010    Else
+1020        cFPS = cFPS + 1
+1030    End If
+1040    If AddtoUserPos.X <> 0 Then
+1050        OffsetCounterX = (OffsetCounterX - (8 * Sgn(AddtoUserPos.X)))
+1060        If Abs(OffsetCounterX) >= Abs(TilePixelWidth * AddtoUserPos.X) Then
+1070            OffsetCounterX = 0
+1080            AddtoUserPos.X = 0
+1090        End If
+1100    ElseIf AddtoUserPos.Y <> 0 Then
+1110        OffsetCounterY = OffsetCounterY - (8 * Sgn(AddtoUserPos.Y))
+1120        If Abs(OffsetCounterY) >= Abs(TilePixelHeight * AddtoUserPos.Y) Then
+1130            OffsetCounterY = 0
+1140            AddtoUserPos.Y = 0
+1150        End If
+1160    End If
 
-1140    If Chkflag = 3 Then
-1150        If frmMain.WindowState <> 1 Then Call CheckKeys
-1160        Call RenderScreen(UserPos.X - AddtoUserPos.X, UserPos.Y - AddtoUserPos.Y, OffsetCounterX, OffsetCounterY)
-1170        modDirectDraw.DrawText 260, 260, "X: " & UserPos.X & " - Y: " & UserPos.Y, vbWhite
-1180        Call DrawBackBufferSurface    'Draw to the screen!
+1170    If Chkflag = 3 Then
+1180        If frmMain.WindowState <> 1 Then Call CheckKeys
+1190        Call RenderScreen(UserPos.X - AddtoUserPos.X, UserPos.Y - AddtoUserPos.Y, OffsetCounterX, OffsetCounterY)
+1200        modDirectDraw.DrawText 260, 260, "X: " & UserPos.X & " - Y: " & UserPos.Y, vbWhite
+1210        Call DrawBackBufferSurface    'Draw to the screen!
 
-1190        Chkflag = 0
-1200    End If
+1220        Chkflag = 0
+1230    End If
 
-1210    Chkflag = Chkflag + 1
+1240    Chkflag = Chkflag + 1
 
-1220    If CurrentGrh.GrhIndex = 0 Then
-1230        InitGrh CurrentGrh, 1
-1240    End If
-1250    If bRefreshRadar = True Then
-1260        Call RefreshAllChars
-1270        bRefreshRadar = False
-1280    End If
-1290    If frmMain.PreviewGrh.Visible = True Then
-1300        Call modPaneles.VistaPreviaDeSup
+1250    If CurrentGrh.GrhIndex = 0 Then
+1260        InitGrh CurrentGrh, 1
+1270    End If
+1280    If bRefreshRadar = True Then
+1290        Call RefreshAllChars
+1300        bRefreshRadar = False
 1310    End If
-1320    DoEvents
+1320    If frmMain.PreviewGrh.Visible = True Then
+1330        Call modPaneles.VistaPreviaDeSup
+1340    End If
+1350    DoEvents
         'Sleep 1
-1330 Loop
+1360 Loop
 
-1340 If MapInfo(CurMap).Changed = 1 Then
-1350    If MsgBox(MSGMod, vbExclamation + vbYesNo) = vbYes Then
-1360        modMapIO.GuardarMapa frmMain.Dialog.FileName
-1370    End If
-1380 End If
+1370 If MapInfo(CurMap).Changed = 1 Then
+1380    If MsgBox(MSGMod, vbExclamation + vbYesNo) = vbYes Then
+1390        modMapIO.GuardarMapa frmMain.Dialog.FileName
+1400    End If
+1410 End If
 
-
-
-
-1390 DeInitTileEngine
-1400 LiberarDirectSound
+1420 DeInitTileEngine
+1430 LiberarDirectSound
     Dim f
-1410 For Each f In Forms
-1420    Unload f
-1430 Next
+1440 For Each f In Forms
+1450    Unload f
+1460 Next
 
-1440 End
+1470 End
 
-1450 On Error GoTo 0
-1460 Exit Sub
+1480 On Error GoTo 0
 
 Main_Error:
 
-1470 Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento Main de Módulo modGeneral línea: " & Erl())
+1500 Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento Main de Módulo modGeneral línea: " & Erl())
 
 End Sub
 

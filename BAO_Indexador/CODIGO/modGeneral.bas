@@ -149,8 +149,10 @@ Public Function CheckEntropia() As Boolean
         If FileExist(App.Path & "/Entropia.dll", vbArchive) Then
             Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
             Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
+            CheckEntropia = True
         Else
             MsgBox "No se encuentra la librería Entropia.dll en la carpeta " & App.Path
+            CheckEntropia = False
             End
         End If
     End If
