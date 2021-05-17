@@ -37,6 +37,7 @@ Public Function FormsEnabled(localform As Form) As Boolean
         End If
     Next
 End Function
+
 Public Function UnloadAllForms() As Boolean
     Dim mifrm As Form
     
