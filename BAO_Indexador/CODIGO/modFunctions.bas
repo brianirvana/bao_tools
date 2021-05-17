@@ -45,6 +45,14 @@ Public Function UnloadAllForms() As Boolean
     Next
 End Function
 
+Public Sub LogError(ByRef sError As String)
+
+    Debug.Print Time & " " & Date & " " & sError
+    
+    
+
+End Sub
+
 Public Sub WriteVar(ByRef file As String, ByRef Main As String, ByRef var As String, ByRef Value As String)
 '*****************************************************************
 'Writes a var to a text file
@@ -65,6 +73,7 @@ Function GetVar(ByRef file As String, ByRef Main As String, ByRef var As String,
     GetVar = RTrim$(sSpaces)
     GetVar = Left$(GetVar, Len(GetVar) - 1)
 End Function
+
 Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As Byte) As String
 '*****************************************************************
 'Gets a field from a delimited string
