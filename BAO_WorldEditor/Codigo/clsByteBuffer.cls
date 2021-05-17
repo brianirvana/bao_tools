@@ -13,7 +13,7 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 Option Explicit
 
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef destination As Any, ByRef source As Any, ByVal Length As Long)
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef Destination As Any, ByRef Source As Any, ByVal Length As Long)
 
 Private data()                  As Byte
 
@@ -61,12 +61,12 @@ Public Sub initializeWriterTo()
 
 End Sub
 
-Public Sub getBytes(ByRef destination() As Byte, Optional ByVal Length As Long = -1)
+Public Sub getBytes(ByRef Destination() As Byte, Optional ByVal Length As Long = -1)
 
     If Length >= 0 Then
-        Call CopyMemory(destination(0), data(CurrentPos), Length)
+        Call CopyMemory(Destination(0), data(CurrentPos), Length)
     Else
-        Call CopyMemory(destination(0), data(0), LastPos + 1)
+        Call CopyMemory(Destination(0), data(0), LastPos + 1)
     End If
 
 End Sub
@@ -121,33 +121,33 @@ Dim Ret()                       As Byte
 
 End Function
 
-Public Sub putByte(ByVal value As Byte)
-    data(LastPos + 1) = value
+Public Sub putByte(ByVal Value As Byte)
+    data(LastPos + 1) = Value
     LastPos = LastPos + BYTE_SIZE
 End Sub
 
-Public Sub putBoolean(ByVal value As Boolean)
-    Call CopyMemory(data(LastPos + 1), value, BOOL_SIZE)
+Public Sub putBoolean(ByVal Value As Boolean)
+    Call CopyMemory(data(LastPos + 1), Value, BOOL_SIZE)
     LastPos = LastPos + BOOL_SIZE
 End Sub
 
-Public Sub putInteger(ByVal value As Integer)
-    Call CopyMemory(data(LastPos + 1), value, INTEGER_SIZE)
+Public Sub putInteger(ByVal Value As Integer)
+    Call CopyMemory(data(LastPos + 1), Value, INTEGER_SIZE)
     LastPos = LastPos + INTEGER_SIZE
 End Sub
 
-Public Sub putLong(ByVal value As Long)
-    Call CopyMemory(data(LastPos + 1), value, LONG_SIZE)
+Public Sub putLong(ByVal Value As Long)
+    Call CopyMemory(data(LastPos + 1), Value, LONG_SIZE)
     LastPos = LastPos + LONG_SIZE
 End Sub
 
-Public Sub putSingle(ByVal value As Single)
-    Call CopyMemory(data(LastPos + 1), value, SINGLE_SIZE)
+Public Sub putSingle(ByVal Value As Single)
+    Call CopyMemory(data(LastPos + 1), Value, SINGLE_SIZE)
     LastPos = LastPos + SINGLE_SIZE
 End Sub
 
-Public Sub putDouble(ByVal value As Double)
-    Call CopyMemory(data(LastPos + 1), value, DOUBLE_SIZE)
+Public Sub putDouble(ByVal Value As Double)
+    Call CopyMemory(data(LastPos + 1), Value, DOUBLE_SIZE)
     LastPos = LastPos + DOUBLE_SIZE
 End Sub
 
@@ -213,7 +213,7 @@ End Sub
 
 Public Sub saveBufferTo(ByRef buf() As Byte)
 
-If hFile > 0 Then                                     'hFile es el objeto inicializado como "Private" en ésta clase.
+If hFile > 0 Then              'hFile es el objeto inicializado como "Private" en ésta clase.
         ReDim buf(LastPos) As Byte
         Call CopyMemory(buf(0), data(0), LastPos + 1)
         Put hFile, , buf

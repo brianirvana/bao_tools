@@ -95,10 +95,10 @@ Dim n                           As Integer
     Close #n
 End Sub
 
-Public Function Load_Settings(ByRef Key As String) As String
-    Load_Settings = GetSetting("PlusIndex", "Info", Key)
+Public Function Load_Settings(ByRef key As String) As String
+    Load_Settings = GetSetting("PlusIndex", "Info", key)
 End Function
 
-Public Function Save_Settings(ByRef Key As String, ByRef Setting As String)
-    Call SaveSetting("PlusIndex", "Info", Key, Setting)
+Public Function Save_Settings(ByRef key As String, ByRef Setting As String)
+    Call SaveSetting("PlusIndex", "Info", key, Setting)
 End Function

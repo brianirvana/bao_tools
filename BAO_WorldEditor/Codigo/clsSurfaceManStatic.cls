@@ -51,18 +51,18 @@ Implements clsSurfaceManager
 Private Const DEFAULT_LIST_SIZE As Integer = 1500
 
 Private Type SURFACE_ENTRY_STATIC
-    fileIndex As Long
-    Surface As DirectDrawSurface7
+    fileIndex                       As Long
+    Surface                     As DirectDrawSurface7
 End Type
 
-Private surfaceList() As SURFACE_ENTRY_STATIC
-Private surfaceCount As Long
+Private surfaceList()           As SURFACE_ENTRY_STATIC
+Private surfaceCount            As Long
 
-Private DirectDraw As DirectDraw7
+Private DirectDraw              As DirectDraw7
 
-Private useVideoMemory As Boolean
+Private useVideoMemory          As Boolean
 
-Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef dest As Any, ByRef source As Any, ByVal byteCount As Long)
+Private Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef dest As Any, ByRef Source As Any, ByVal byteCount As Long)
 
 Private Sub Class_Initialize()
 '**************************************************************
@@ -80,13 +80,13 @@ Private Sub Class_Terminate()
 'Last Modify Date: 3/06/2006
 'Clean up
 '**************************************************************
-    Dim i  As Long
-    
+Dim i                           As Long
+
     'Destroy every surface in memory
     For i = 0 To surfaceCount - 1
         Set surfaceList(i).Surface = Nothing
     Next i
-    
+
     'Destroy the array
     Erase surfaceList
 End Sub
@@ -98,9 +98,9 @@ Private Sub clsSurfaceManager_Initialize(ByRef DD As DirectDraw7, ByVal videoMem
 '
 '**************************************************************
     Set DirectDraw = DD
-    
+
     useVideoMemory = videoMemory
-    
+
     Call LoadSurfaces(graphicPath)
 End Sub
 
@@ -110,77 +110,77 @@ Private Property Get clsSurfaceManager_Surface(ByVal fileIndex As Long) As Direc
 'Last Modify Date: 3/06/2006
 'Retrieves the requested texture
 '**************************************************************
-On Error GoTo ErrHandler:
-    Dim index As Long
-    
+    On Error GoTo ErrHandler:
+Dim index                       As Long
+
     ' Search the index on the list
     index = BinarySearch(fileIndex)
-    
+
     'Return it
     Set clsSurfaceManager_Surface = surfaceList(index).Surface
-Exit Property
+    Exit Property
 
 ErrHandler:
     If index < 0 Then
         MsgBox "No se encuentra el archivo " & CStr(fileIndex) & ".bmp. Reinstale el juego, " _
-                & "y si el problema persiste contactese con los adminsitradores", vbOKOnly Or vbCritical Or vbExclamation, "Error"
+               & "y si el problema persiste contactese con los adminsitradores", vbOKOnly Or vbCritical Or vbExclamation, "Error"
     Else
         MsgBox "Un error inesperado ocurrió a intentar cargar el archivo " & CStr(fileIndex) & ".bmp. & vbcrlf" _
-                & "Error: " & CStr(err.Number), vbOKOnly Or vbCritical Or vbExclamation, "Error"
+               & "Error: " & CStr(err.Number), vbOKOnly Or vbCritical Or vbExclamation, "Error"
     End If
-    
+
     End
 End Property
 
 Private Sub LoadSurfaces(ByVal GrhPath As String)
-      '**************************************************************
-      'Author: Juan Martín Sotuyo Dodero
-      'Last Modify Date: 26/05/2006
-      'Loads all surfaces in random order and then sorts them
-      ' 26/05/2005 - GS . LenB
-      '**************************************************************
+'**************************************************************
+'Author: Juan Martín Sotuyo Dodero
+'Last Modify Date: 26/05/2006
+'Loads all surfaces in random order and then sorts them
+' 26/05/2005 - GS . LenB
+'**************************************************************
 
-      Dim FileName                    As String
-      Dim surfaceIndex                As Long
-          
-          'Set up the list at a standard value big enough to prevent using ReDim Preserve constantly (which is slow)
-   On Error GoTo LoadSurfaces_Error
+Dim FileName                    As String
+Dim surfaceIndex                As Long
 
-10        ReDim surfaceList(DEFAULT_LIST_SIZE) As SURFACE_ENTRY_STATIC
-          
-20        FileName = Dir$(GrhPath & "*.bmp", vbArchive)
-          
-30        While LenB(FileName) <> 0 ' GS
-              'Get the surface index (numeric part of the number) - NEVER use Val() here or the error won't be raised!!! - Don't use IsNumeric or hexa strings will be accepted
-40            surfaceIndex = CLng(Left$(FileName, Len(FileName) - 4))
-              
-50            If err.Number = 13 Then
-                  'Type mysmatch - the name of the file isn't numneric, therefore it isn't a surface
-60                err.Clear
-70            Else
-                  'Increase surface count and resize list if needed
-80                surfaceCount = surfaceCount + 1
-90                If surfaceCount > DEFAULT_LIST_SIZE + 1 Then
-100                   ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
-110               End If
-                  
-120               Call LoadSurface(GrhPath, surfaceIndex, surfaceCount - 1)
-130           End If
-              
-              'Get next .bmp file
-140           FileName = Dir$()
-150       Wend
-          
-          'Trim the list if needed
-160       If surfaceCount <> UBound(surfaceList) + 1 Then
-170           ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
-180       End If
-          
-          'Sort the list
-190       Call SortSurfaces(0, surfaceCount - 1)
+    'Set up the list at a standard value big enough to prevent using ReDim Preserve constantly (which is slow)
+    On Error GoTo LoadSurfaces_Error
 
-   On Error GoTo 0
-   Exit Sub
+10  ReDim surfaceList(DEFAULT_LIST_SIZE) As SURFACE_ENTRY_STATIC
+
+20  FileName = Dir$(GrhPath & "*.bmp", vbArchive)
+
+30  While LenB(FileName) <> 0  ' GS
+        'Get the surface index (numeric part of the number) - NEVER use Val() here or the error won't be raised!!! - Don't use IsNumeric or hexa strings will be accepted
+40      surfaceIndex = CLng(Left$(FileName, Len(FileName) - 4))
+
+50      If err.Number = 13 Then
+            'Type mysmatch - the name of the file isn't numneric, therefore it isn't a surface
+60          err.Clear
+70      Else
+            'Increase surface count and resize list if needed
+80          surfaceCount = surfaceCount + 1
+90          If surfaceCount > DEFAULT_LIST_SIZE + 1 Then
+100             ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
+110         End If
+
+120         Call LoadSurface(GrhPath, surfaceIndex, surfaceCount - 1)
+130     End If
+
+        'Get next .bmp file
+140     FileName = Dir$()
+150 Wend
+
+    'Trim the list if needed
+160 If surfaceCount <> UBound(surfaceList) + 1 Then
+170     ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
+180 End If
+
+    'Sort the list
+190 Call SortSurfaces(0, surfaceCount - 1)
+
+    On Error GoTo 0
+    Exit Sub
 
 LoadSurfaces_Error:
 
@@ -194,16 +194,16 @@ Private Function BinarySearch(ByVal fileIndex As Long) As Long
 'Returns the index of the surface in the list, or the negation
 'of the position were it should be if not found (for binary insertion)
 '**************************************************************
-    Dim min As Long
-    Dim max As Long
-    Dim mid As Long
-    
+Dim min                         As Long
+Dim max                         As Long
+Dim mid                         As Long
+
     min = 0
     max = surfaceCount - 1
-    
+
     Do While min <= max
         mid = (min + max) \ 2
-        
+
         If surfaceList(mid).fileIndex < fileIndex Then
             min = mid + 1
         ElseIf surfaceList(mid).fileIndex > fileIndex Then
@@ -214,7 +214,7 @@ Private Function BinarySearch(ByVal fileIndex As Long) As Long
             Exit Function
         End If
     Loop
-    
+
     'Not found, return the negation of the position where it should be
     '(all higher values are to the right of the list and lower values are to the left)
     BinarySearch = Not mid
@@ -227,48 +227,48 @@ Private Sub LoadSurface(ByVal GrhPath As String, ByVal fileIndex As Long, ByVal 
 'Loads the surface named fileIndex + ".bmp" and inserts it to the
 'surface list in the listIndex position
 '**************************************************************
-On Error GoTo ErrHandler
+    On Error GoTo ErrHandler
 
-    Dim newSurface As SURFACE_ENTRY_STATIC
-    Dim ddsd As DDSURFACEDESC2
-    Dim ddck As DDCOLORKEY
-    Dim filePath As String
-    
+    Dim newSurface              As SURFACE_ENTRY_STATIC
+    Dim ddsd                    As DDSURFACEDESC2
+    Dim ddck                    As DDCOLORKEY
+    Dim filePath                As String
+
     'Store complete file path
     filePath = GrhPath & CStr(fileIndex) & ".bmp"
-    
+
     'Set up the surface desc
     ddsd.lFlags = DDSD_CAPS Or DDSD_HEIGHT Or DDSD_WIDTH
-    
+
     If useVideoMemory Then
         ddsd.ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN
     Else
         ddsd.ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN Or DDSCAPS_SYSTEMMEMORY
     End If
-    
+
     Call surfaceDimensions(filePath, ddsd.lHeight, ddsd.lWidth)
-    
+
     With newSurface
         .fileIndex = fileIndex
-        
+
         'Load surface
         Set .Surface = DirectDraw.CreateSurfaceFromFile(filePath, ddsd)
-        
+
         'Set colorkey
         ddck.high = 0
         ddck.low = 0
         Call .Surface.SetColorKey(DDCKEY_SRCBLT, ddck)
     End With
-    
+
     'Store the surface in the given index (it MUST be empty or data will be lost)
     surfaceList(listIndex) = newSurface
-Exit Sub
+    Exit Sub
 
 ErrHandler:
     MsgBox "Un error inesperado ocurrió al intentar cargar el gráfico " & filePath & ". " & vbCrLf & _
-            "El código de error es " & CStr(err.Number) & vbCrLf & "Copia este mensaje y notifica a los administradores.", _
-            vbOKOnly Or vbCritical Or vbExclamation, "Error"
-        End
+           "El código de error es " & CStr(err.Number) & vbCrLf & "Copia este mensaje y notifica a los administradores.", _
+           vbOKOnly Or vbCritical Or vbExclamation, "Error"
+    End
 End Sub
 
 Private Sub surfaceDimensions(ByVal Archivo As String, ByRef Height As Long, ByRef Width As Long)
@@ -277,16 +277,16 @@ Private Sub surfaceDimensions(ByVal Archivo As String, ByRef Height As Long, ByR
 'Last Modify Date: 3/06/2006
 'Loads the headers of a bmp file to retrieve it's dimensions at rt
 '**************************************************************
-    Dim handle As Integer
-    Dim bmpFileHead As BITMAPFILEHEADER
-    Dim bmpInfoHead As BITMAPINFOHEADER
-    
+Dim handle                      As Integer
+Dim bmpFileHead                 As BITMAPFILEHEADER
+Dim bmpInfoHead                 As BITMAPINFOHEADER
+
     handle = FreeFile()
     Open Archivo For Binary Access Read Lock Write As handle
-        Get handle, , bmpFileHead
-        Get handle, , bmpInfoHead
+    Get handle, , bmpFileHead
+    Get handle, , bmpInfoHead
     Close handle
-    
+
     Height = bmpInfoHead.biHeight
     Width = bmpInfoHead.biWidth
 End Sub
@@ -297,16 +297,16 @@ Private Sub SortSurfaces(ByVal first As Integer, ByVal last As Integer)
 'Last Modify Date: 5/04/2005
 'Sorts the list using quicksort, this allows the use of BinarySearch for faster searches
 '**************************************************************
-    Dim min As Integer      'First item in the list
-    Dim max As Integer      'Last item in the list
-    Dim comp As Long        'Item used to compare
-    Dim temp As SURFACE_ENTRY_STATIC
-    
+Dim min                         As Integer    'First item in the list
+Dim max                         As Integer    'Last item in the list
+Dim comp                        As Long    'Item used to compare
+Dim temp                        As SURFACE_ENTRY_STATIC
+
     min = first
     max = last
-    
+
     comp = surfaceList((min + max) \ 2).fileIndex
-    
+
     Do While min <= max
         Do While surfaceList(min).fileIndex < comp And min < last
             min = min + 1
@@ -322,7 +322,7 @@ Private Sub SortSurfaces(ByVal first As Integer, ByVal last As Integer)
             max = max - 1
         End If
     Loop
-    
+
     If first < max Then SortSurfaces first, max
     If min < last Then SortSurfaces min, last
 End Sub

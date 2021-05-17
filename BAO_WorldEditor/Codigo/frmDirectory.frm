@@ -140,13 +140,13 @@ Private cBFolder                As clsCBFolder
 Private Sub cmdExaminarExpo_Click()
 
 Dim Ret                         As VbMsgBoxResult
-    
+
     If FileExist(Me.txtIndex.Text, vbDirectory) And Len(Me.txtIndex.Text) <> 0 Then
         Ret = MsgBox("¿Desea crear una carpeta de exportación llamada ""Expo"" en la carpeta de indexación?", vbYesNo)
     Else
         Ret = vbNo
     End If
-    
+
     If Ret = vbYes Then
         If Not FileExist(Me.txtIndex.Text & "\Expo", vbDirectory) Then MkDir Me.txtIndex.Text & "\Expo"
         txtExpo.Text = Me.txtIndex.Text & "\Expo"
@@ -159,7 +159,7 @@ Dim Ret                         As VbMsgBoxResult
             txtExpo.Text = sPath
         End With
     End If
-    
+
 End Sub
 
 Private Sub cmdExaminarGraficos_Click()
@@ -171,7 +171,7 @@ Private Sub cmdExaminarGraficos_Click()
 
         txtGraficos.Text = sPath
     End With
-    
+
 End Sub
 
 Private Sub cmdExaminarInit_Click()
@@ -183,14 +183,14 @@ Private Sub cmdExaminarInit_Click()
 
         txtIndex.Text = sPath
     End With
-    
+
 End Sub
 
 Private Sub cmdAplicar_Click()
 
 
     AppGraficos = txtGraficos.Text
-    
+
     AppInit = txtIndex.Text
     AppExpo = txtExpo.Text
     AppPNG = OptPNG1.Value
@@ -209,7 +209,7 @@ Private Sub cmdAplicar_Click()
     '[INICIALIZAMOS VARIABLES]
     'frmCargando.Show
     Unload Me
-    
+
     'Iniciamos el TileEngine
     'Set TileEngine = Nothing
     'Set TileEngine = New clsTileEngine
@@ -268,7 +268,7 @@ Public Sub CloseProgram()
 End Sub
 
 Public Function FormsEnabled(localform As Form) As Boolean
-    Dim mifrm As Form
+Dim mifrm                       As Form
     For Each mifrm In Forms
         If mifrm.Visible And localform.Name <> mifrm.Name Then
             FormsEnabled = True
@@ -278,8 +278,8 @@ Public Function FormsEnabled(localform As Form) As Boolean
 End Function
 
 Public Function UnloadAllForms() As Boolean
-    Dim mifrm As Form
-    
+Dim mifrm                       As Form
+
     For Each mifrm In Forms
         Unload mifrm
     Next

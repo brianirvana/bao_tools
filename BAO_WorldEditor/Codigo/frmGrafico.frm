@@ -78,7 +78,7 @@ Private Sub Form_Deactivate()
 'Author: Unkwown
 'Last modified: 20/05/06
 '*************************************************
-Me.Visible = False
+    Me.Visible = False
 End Sub
 
 
