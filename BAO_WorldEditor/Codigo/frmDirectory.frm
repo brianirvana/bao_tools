@@ -138,12 +138,15 @@ Private cBFolder                As clsCBFolder
 
 
 Private Sub cmdExaminarExpo_Click()
+
 Dim Ret                         As VbMsgBoxResult
+    
     If FileExist(Me.txtIndex.Text, vbDirectory) And Len(Me.txtIndex.Text) <> 0 Then
         Ret = MsgBox("¿Desea crear una carpeta de exportación llamada ""Expo"" en la carpeta de indexación?", vbYesNo)
     Else
         Ret = vbNo
     End If
+    
     If Ret = vbYes Then
         If Not FileExist(Me.txtIndex.Text & "\Expo", vbDirectory) Then MkDir Me.txtIndex.Text & "\Expo"
         txtExpo.Text = Me.txtIndex.Text & "\Expo"
@@ -156,6 +159,7 @@ Dim Ret                         As VbMsgBoxResult
             txtExpo.Text = sPath
         End With
     End If
+    
 End Sub
 
 Private Sub cmdExaminarGraficos_Click()
@@ -167,9 +171,11 @@ Private Sub cmdExaminarGraficos_Click()
 
         txtGraficos.Text = sPath
     End With
+    
 End Sub
 
 Private Sub cmdExaminarInit_Click()
+
     With cBFolder
         .ShowButton = True
         Dim sPath               As String
@@ -177,9 +183,11 @@ Private Sub cmdExaminarInit_Click()
 
         txtIndex.Text = sPath
     End With
+    
 End Sub
 
 Private Sub cmdAplicar_Click()
+
 
     AppGraficos = txtGraficos.Text
     
