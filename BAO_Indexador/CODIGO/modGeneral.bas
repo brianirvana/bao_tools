@@ -84,12 +84,27 @@ LoopPaths:
         End If
     End If
     '[/DETECCIÓN DE PATHS]
+<<<<<<< Updated upstream
 
     FirstRun = True
 
     '[INICIALIZAMOS VARIABLES]
     frmCargando.Show
     frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+=======
+
+    FirstRun = True
+
+    '[INICIALIZAMOS VARIABLES]
+    frmCargando.Show
+    
+    If CheckEntropia Then
+        Debug.Print "Se registró Entropia.dll"
+    End If
+    
+    frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+    
+>>>>>>> Stashed changes
     'Iniciamos el TileEngine
     Set TileEngine = New clsTileEngine
     Call TileEngine.Initialize
@@ -112,6 +127,43 @@ Public Sub CloseProgram()
     Call UnloadAllForms
     End
 End Sub
+
+'**************************************************************
+'Author: About
+'Last Modify Date: ?/?/?
+'
+'**************************************************************
+Public Function ObtenerDirectorioSO() As String
+
+Dim lngSize                     As Long
+Dim Retval                      As Long
+Dim strBuf                      As String
+
+    'Obtener directorio de sistema
+    strBuf = String(255, 0)
+    lngSize = 255
+    Retval = GetSystemDirectoryA(strBuf, lngSize)
+    strBuf = Left(strBuf, Retval)
+    ObtenerDirectorioSO = strBuf
+
+    If FileExist(ObtenerDirectorioSO & "\..\SysWOW64\", vbDirectory) Then
+        ObtenerDirectorioSO = ObtenerDirectorioSO & "\..\SysWOW64"
+    End If
+
+End Function
+
+Public Function CheckEntropia() As Boolean
+    
+    If Not FileExist(ObtenerDirectorioSO & "/Entropia.dll", vbArchive) Then
+        If FileExist(App.Path & "/Entropia.dll", vbArchive) Then
+            Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
+            Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
+        Else
+            MsgBox "No se encuentra la librería Entropia.dll en la carpeta " & App.Path
+            End
+        End If
+    End If
+End Function
 
 Public Function Detect_Paths() As Boolean
     AppPNG = IIf(modFunctions.Load_Settings("AppPNG") = "1", True, False)

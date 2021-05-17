@@ -331,22 +331,23 @@ Dim Line                        As String
             Else
                 Line = Line & Separator & .FileNum & Separator & .sX & Separator & .sY & Separator & .pixelWidth & Separator & .pixelHeight
                 
-                frmMain.txtNumFrames.Text = .NumFrames
-                frmMain.txtNumPNG.Enabled = True
-                frmMain.txtNumPNG.Text = .FileNum
-                'frmMain.lblNumPNG.Caption = "Num PNG"
-                frmMain.txtXFrom.Text = .sX
-                frmMain.txtYFrom.Text = .sY
-                frmMain.txtXTo.Text = .pixelWidth
-                frmMain.txtYTo.Text = .pixelHeight
-                frmMain.txtVelocity.Text = 0
-                
-                frmMain.txtXTo.Enabled = True
-                frmMain.txtYTo.Enabled = True
-                
-                frmMain.txtXFrom.Enabled = True
-                frmMain.txtYFrom.Enabled = True
-                
+                If frmMain.Visible Then
+                    frmMain.txtNumFrames.Text = .NumFrames
+                    frmMain.txtNumPNG.Enabled = True
+                    frmMain.txtNumPNG.Text = .FileNum
+                    'frmMain.lblNumPNG.Caption = "Num PNG"
+                    frmMain.txtXFrom.Text = .sX
+                    frmMain.txtYFrom.Text = .sY
+                    frmMain.txtXTo.Text = .pixelWidth
+                    frmMain.txtYTo.Text = .pixelHeight
+                    frmMain.txtVelocity.Text = 0
+                    
+                    frmMain.txtXTo.Enabled = True
+                    frmMain.txtYTo.Enabled = True
+                    
+                    frmMain.txtXFrom.Enabled = True
+                    frmMain.txtYFrom.Enabled = True
+                End If
             End If
         End If
     End With
