@@ -53,8 +53,8 @@ Option Base 0
 '
 
 Private Type ChildNode
-    key As String
-    value As String
+    key                             As String
+    Value                       As String
 End Type
 
 ''
@@ -67,18 +67,18 @@ End Type
 ' @param    numValues Number of entrys in the main node.
 
 Private Type MainNode
-    Name As String
-    values() As ChildNode
-    numValues As Integer
+    Name                            As String
+    values()                    As ChildNode
+    numValues                   As Integer
 End Type
 
 ''
 'Containts all Main sections of the loaded INI file
-Private fileData() As MainNode
+Private fileData()              As MainNode
 
 ''
 'Stores the total number of main sections in the loaded INI file
-Private MainNodes As Long
+Private MainNodes               As Long
 
 ''
 'Default constructor. Does nothing.
@@ -101,17 +101,17 @@ Private Sub Class_Terminate()
 'Last Modify Date: 5/01/2006
 '
 '**************************************************************
-    Dim i As Long
-    
+Dim i                           As Long
+
     'Clean up
     If MainNodes Then
         For i = 1 To MainNodes - 1
             Erase fileData(i).values
         Next i
-        
+
         Erase fileData
     End If
-    
+
     MainNodes = 0
 End Sub
 
@@ -131,71 +131,71 @@ Dim i                           As Long
 Dim Pos                         As Long
 Dim Text                        As String
 
-   'Prevent memory losses if we are attempting to reload a file....
-   On Error GoTo Initialize_Error
+    'Prevent memory losses if we are attempting to reload a file....
+    On Error GoTo Initialize_Error
 
-10        Call Class_Terminate
-          
-          'Get a free handle and start reading line by line until the end
-20        handle = FreeFile
-          
-          If Not FileExist(File, vbArchive) Then
-              MsgBox "File not exist: " & File
-              Exit Sub
-          End If
-          
-30        Open File For Input As handle
-          
-40        Do Until EOF(handle)
-50            Line Input #handle, Text
-              
-              'Is it null??
-'60            If Len(Text) Then
-60             If Not StrComp(Text, vbNullString) = 0 Then  'About
-                  'If it starts with '[' it is a main node or nothing (GetPrivateProfileStringA works this way), otherwise it's a value
-70                If Left$(Text, 1) = "[" Then
-                      'If it has an ending ']' it's a main node, otherwise it's nothing
-80                    Pos = InStr(2, Text, "]")
-90                    If Pos Then
-                          'Add a main node
-100                       ReDim Preserve fileData(MainNodes) As MainNode
-110                       fileData(MainNodes).Name = UCase$(Trim$(mid$(Text, 2, Pos - 2)))
-120                       MainNodes = MainNodes + 1
-130                   End If
-140               Else
-                      'So it's a value. Check if it has a '=', otherwise it's nothing
-150                   Pos = InStr(2, Text, "=")
-160                   If Pos Then
-                          'Is it under any main node??
-170                       If MainNodes Then
-180                           With fileData(MainNodes - 1)
-                                  'Add it to the main node's value
-190                               ReDim Preserve .values(.numValues) As ChildNode
-                                  
-200                               .values(.numValues).value = Right$(Text, Len(Text) - Pos)
-210                               .values(.numValues).key = UCase$(Left$(Text, Pos - 1))
-                                  
-220                               .numValues = .numValues + 1
-230                           End With
-240                       End If
-250                   End If
-260               End If
-270           End If
-280       Loop
-          
-290       Close handle
-          
-300       If MainNodes Then
-              'Sort main nodes to allow binary search
-310           Call SortMainNodes(0, MainNodes - 1)
-              'Sort values of each node to allow binary search
-320           For i = 0 To MainNodes - 1
-330               If fileData(i).numValues Then Call SortChildNodes(fileData(i), 0, fileData(i).numValues - 1)
-340           Next i
-350       End If
+10  Call Class_Terminate
 
-   On Error GoTo 0
-   Exit Sub
+    'Get a free handle and start reading line by line until the end
+20  handle = FreeFile
+
+    If Not FileExist(File, vbArchive) Then
+        MsgBox "File not exist: " & File
+        Exit Sub
+    End If
+
+30  Open File For Input As handle
+
+40  Do Until EOF(handle)
+50      Line Input #handle, Text
+
+        'Is it null??
+        '60            If Len(Text) Then
+60      If Not StrComp(Text, vbNullString) = 0 Then    'About
+            'If it starts with '[' it is a main node or nothing (GetPrivateProfileStringA works this way), otherwise it's a value
+70          If Left$(Text, 1) = "[" Then
+                'If it has an ending ']' it's a main node, otherwise it's nothing
+80              Pos = InStr(2, Text, "]")
+90              If Pos Then
+                    'Add a main node
+100                 ReDim Preserve fileData(MainNodes) As MainNode
+110                 fileData(MainNodes).Name = UCase$(Trim$(mid$(Text, 2, Pos - 2)))
+120                 MainNodes = MainNodes + 1
+130             End If
+140         Else
+                'So it's a value. Check if it has a '=', otherwise it's nothing
+150             Pos = InStr(2, Text, "=")
+160             If Pos Then
+                    'Is it under any main node??
+170                 If MainNodes Then
+180                     With fileData(MainNodes - 1)
+                            'Add it to the main node's value
+190                         ReDim Preserve .values(.numValues) As ChildNode
+
+200                         .values(.numValues).Value = Right$(Text, Len(Text) - Pos)
+210                         .values(.numValues).key = UCase$(Left$(Text, Pos - 1))
+
+220                         .numValues = .numValues + 1
+230                     End With
+240                 End If
+250             End If
+260         End If
+270     End If
+280 Loop
+
+290 Close handle
+
+300 If MainNodes Then
+        'Sort main nodes to allow binary search
+310     Call SortMainNodes(0, MainNodes - 1)
+        'Sort values of each node to allow binary search
+320     For i = 0 To MainNodes - 1
+330         If fileData(i).numValues Then Call SortChildNodes(fileData(i), 0, fileData(i).numValues - 1)
+340     Next i
+350 End If
+
+    On Error GoTo 0
+    Exit Sub
 
 Initialize_Error:
 
@@ -217,17 +217,17 @@ Private Sub SortChildNodes(ByRef Node As MainNode, ByVal first As Integer, ByVal
 'Sorts the list of values in a given MainNode using quicksort,
 'this allows the use of Binary Search for faster searches
 '**************************************************************
-    Dim min As Integer      'First item in the list
-    Dim max As Integer      'Last item in the list
-    Dim comp As String      'Item used to compare
-    Dim temp As ChildNode
-    
+Dim min                         As Integer    'First item in the list
+Dim max                         As Integer    'Last item in the list
+Dim comp                        As String    'Item used to compare
+Dim temp                        As ChildNode
+
     min = first
     max = last
-    
+
     With Node
         comp = .values((min + max) \ 2).key
-    
+
         Do While min <= max
             Do While .values(min).key < comp And min < last
                 min = min + 1
@@ -244,7 +244,7 @@ Private Sub SortChildNodes(ByRef Node As MainNode, ByVal first As Integer, ByVal
             End If
         Loop
     End With
-    
+
     If first < max Then SortChildNodes Node, first, max
     If min < last Then SortChildNodes Node, min, last
 End Sub
@@ -262,16 +262,16 @@ Private Sub SortMainNodes(ByVal first As Integer, ByVal last As Integer)
 'Sorts the MainNodes list using quicksort,
 'this allows the use of Binary Search for faster searches
 '**************************************************************
-    Dim min As Integer      'First item in the list
-    Dim max As Integer      'Last item in the list
-    Dim comp As String      'Item used to compare
-    Dim temp As MainNode
-    
+Dim min                         As Integer    'First item in the list
+Dim max                         As Integer    'Last item in the list
+Dim comp                        As String    'Item used to compare
+Dim temp                        As MainNode
+
     min = first
     max = last
-    
+
     comp = fileData((min + max) \ 2).Name
-    
+
     Do While min <= max
         Do While fileData(min).Name < comp And min < last
             min = min + 1
@@ -287,7 +287,7 @@ Private Sub SortMainNodes(ByVal first As Integer, ByVal last As Integer)
             max = max - 1
         End If
     Loop
-    
+
     If first < max Then SortMainNodes first, max
     If min < last Then SortMainNodes min, last
 End Sub
@@ -305,18 +305,18 @@ Public Function GetValue(ByVal Main As String, ByVal key As String) As String
 'Last Modify Date: 5/01/2006
 'Returns a value if the key and main node exist, or a nullstring otherwise
 '**************************************************************
-    Dim i As Long
-    Dim j As Long
-    
+Dim i                           As Long
+Dim J                           As Long
+
     'Search for the main node
     i = FindMain(UCase$(Main))
-    
+
     If i >= 0 Then
         'If valid, binary search among keys
-        j = FindKey(fileData(i), UCase$(key))
-        
+        J = FindKey(fileData(i), UCase$(key))
+
         'If we found it we return it
-        If j >= 0 Then GetValue = fileData(i).values(j).value
+        If J >= 0 Then GetValue = fileData(i).values(J).Value
     End If
 End Function
 
@@ -327,28 +327,28 @@ End Function
 ' @param    key The key of the value we are looking for.
 ' @returns  The value asociated with the given key under the requeted main section of the INI file or a null string if it's not found.
 
-Public Sub ChangeValue(ByVal Main As String, ByVal key As String, ByVal value As String)
+Public Sub ChangeValue(ByVal Main As String, ByVal key As String, ByVal Value As String)
 '**************************************************************
 'Author: ZaMa
 'Last Modify Date: 27/05/2009
 'If the key and main node exist, changes the value
 '**************************************************************
-    Dim i As Long
-    Dim j As Long
-    
+Dim i                           As Long
+Dim J                           As Long
+
     'Search for the main node
     i = FindMain(UCase$(Main))
-    
+
     If i < 0 Then i = AddNode(Main)
-    
+
     'If valid, binary search among keys
-    j = FindKey(fileData(i), UCase$(key))
-    
-    If j < 0 Then
-        Call AddKey(Main, key, value)
+    J = FindKey(fileData(i), UCase$(key))
+
+    If J < 0 Then
+        Call AddKey(Main, key, Value)
     Else
         'If we found it we change it
-        fileData(i).values(j).value = value
+        fileData(i).values(J).Value = Value
     End If
 End Sub
 
@@ -366,16 +366,16 @@ Private Function FindKey(ByRef Node As MainNode, ByVal key As String) As Long
 'Returns the index of the value which key matches the requested one,
 'or the negation of the position were it should be if not found
 '**************************************************************
-    Dim min As Long
-    Dim max As Long
-    Dim mid As Long
-    
+Dim min                         As Long
+Dim max                         As Long
+Dim mid                         As Long
+
     min = 0
     max = Node.numValues - 1
-    
+
     Do While min <= max
         mid = (min + max) \ 2
-        
+
         If Node.values(mid).key < key Then
             min = mid + 1
         ElseIf Node.values(mid).key > key Then
@@ -386,7 +386,7 @@ Private Function FindKey(ByRef Node As MainNode, ByVal key As String) As Long
             Exit Function
         End If
     Loop
-    
+
     'Not found, return the negation of the position where it should be
     '(all higher values are to the right of the list and lower values are to the left)
     FindKey = Not min
@@ -405,16 +405,16 @@ Private Function FindMain(ByVal Name As String) As Long
 'Returns the index of the MainNode which name matches the requested one,
 'or the negation of the position were it should be if not found
 '**************************************************************
-    Dim min As Long
-    Dim max As Long
-    Dim mid As Long
-    
+Dim min                         As Long
+Dim max                         As Long
+Dim mid                         As Long
+
     min = 0
     max = MainNodes - 1
-    
+
     Do While min <= max
         mid = (min + max) \ 2
-        
+
         If fileData(mid).Name < Name Then
             min = mid + 1
         ElseIf fileData(mid).Name > Name Then
@@ -425,7 +425,7 @@ Private Function FindMain(ByVal Name As String) As Long
             Exit Function
         End If
     Loop
-    
+
     'Not found, return the negation of the position where it should be
     '(all higher values are to the right of the list and lower values are to the left)
     FindMain = Not min
@@ -452,110 +452,110 @@ Private Function AddNode(ByRef Name As String) As Long
 'Last Modify Date: 10/10/2010
 '
 '**************************************************************
-Dim i As Long
-Dim MainPos As Long
+Dim i                           As Long
+Dim MainPos                     As Long
 
-Name = UCase$(Name)
+    Name = UCase$(Name)
 
-'Add a main node
-ReDim Preserve fileData(MainNodes) As MainNode
+    'Add a main node
+    ReDim Preserve fileData(MainNodes) As MainNode
 
-If MainNodes Then
-    i = MainNodes - 1
-    MainPos = Not FindMain(Name)
-    
-    Do While i >= MainPos
-        fileData(i + 1) = fileData(i)
-        i = i - 1
-    Loop
-    
-    fileData(MainPos).numValues = 0
-    Erase fileData(MainPos).values
-End If
+    If MainNodes Then
+        i = MainNodes - 1
+        MainPos = Not FindMain(Name)
 
-fileData(MainPos).Name = Name
+        Do While i >= MainPos
+            fileData(i + 1) = fileData(i)
+            i = i - 1
+        Loop
 
-MainNodes = MainNodes + 1
+        fileData(MainPos).numValues = 0
+        Erase fileData(MainPos).values
+    End If
 
-AddNode = MainPos
+    fileData(MainPos).Name = Name
+
+    MainNodes = MainNodes + 1
+
+    AddNode = MainPos
 End Function
 
-Private Function AddKey(ByRef Main As String, ByRef key As String, Optional ByRef value As String = vbNullString) As Long
+Private Function AddKey(ByRef Main As String, ByRef key As String, Optional ByRef Value As String = vbNullString) As Long
 '**************************************************************
 'Author: Torres Patricio (Pato)
 'Last Modify Date: 10/10/2010
 '
 '**************************************************************
-Dim MainPos As Long
-Dim KeyPos As Long
-Dim i As Long
+Dim MainPos                     As Long
+Dim KeyPos                      As Long
+Dim i                           As Long
 
-Main = UCase$(Main)
-key = UCase$(key)
+    Main = UCase$(Main)
+    key = UCase$(key)
 
-MainPos = FindMain(Main)
+    MainPos = FindMain(Main)
 
-If MainPos < 0 Then MainPos = AddNode(Main)
+    If MainPos < 0 Then MainPos = AddNode(Main)
 
-With fileData(MainPos)
-    'Add it to the main node's value
-    ReDim Preserve .values(.numValues) As ChildNode
-    
-    If .numValues > 0 Then
-        i = .numValues - 1
-        KeyPos = Not FindKey(fileData(MainPos), key)
-        
-        Do While i >= KeyPos
-            .values(i + 1) = .values(i)
-            i = i - 1
-        Loop
-    End If
-    
-    .values(KeyPos).key = key
-    .values(KeyPos).value = value
-    
-    .numValues = .numValues + 1
-End With
+    With fileData(MainPos)
+        'Add it to the main node's value
+        ReDim Preserve .values(.numValues) As ChildNode
 
-AddKey = KeyPos
+        If .numValues > 0 Then
+            i = .numValues - 1
+            KeyPos = Not FindKey(fileData(MainPos), key)
+
+            Do While i >= KeyPos
+                .values(i + 1) = .values(i)
+                i = i - 1
+            Loop
+        End If
+
+        .values(KeyPos).key = key
+        .values(KeyPos).Value = Value
+
+        .numValues = .numValues + 1
+    End With
+
+    AddKey = KeyPos
 End Function
 
 Public Sub DumpFile(ByRef File As String)
-      '**************************************************************
-      'Author: Torres Patricio (Pato)
-      'Last Modify Date: 10/10/2010
-      '
-      '**************************************************************
-      Dim hFile As Integer
-      Dim i As Long
-      Dim j As Long
+'**************************************************************
+'Author: Torres Patricio (Pato)
+'Last Modify Date: 10/10/2010
+'
+'**************************************************************
+Dim hFile                       As Integer
+Dim i                           As Long
+Dim J                           As Long
 
-   On Error GoTo DumpFile_Error
+    On Error GoTo DumpFile_Error
 
-10    hFile = FreeFile()
+10  hFile = FreeFile()
 
-20    Open File For Output As hFile
-30        For i = 0 To MainNodes - 1
-40            With fileData(i)
-50                Print #hFile, "[" & .Name & "]"
-                  
-60                For j = 0 To .numValues - 1
-70                    Print #hFile, .values(j).key & "=" & .values(j).value
-80                Next j
-                  
-90                Print #hFile, ""
-100           End With
-110       Next i
-          
-120   Close hFile
+20  Open File For Output As hFile
+30  For i = 0 To MainNodes - 1
+40      With fileData(i)
+50          Print #hFile, "[" & .Name & "]"
 
-130      On Error GoTo 0
-140      Exit Sub
+60          For J = 0 To .numValues - 1
+70              Print #hFile, .values(J).key & "=" & .values(J).Value
+80          Next J
+
+90          Print #hFile, ""
+100     End With
+110 Next i
+
+120 Close hFile
+
+130 On Error GoTo 0
+140 Exit Sub
 
 DumpFile_Error:
 
-150       Call LogError("Error " & err.Number & " Descripción: & (" & err.Description & ") Error FATAL: El ARCHIVO no se esta guardando. Este personaje podría desaparecer por completo. Procedimiento DumpFile del Módulo de clase clsIniReader" & " En la linea: " & Erl & " file: " & File & " name: " & hFile)
-160       Resume Next
+150 Call LogError("Error " & err.Number & " Descripción: & (" & err.Description & ") Error FATAL: El ARCHIVO no se esta guardando. Este personaje podría desaparecer por completo. Procedimiento DumpFile del Módulo de clase clsIniReader" & " En la linea: " & Erl & " file: " & File & " name: " & hFile)
+160 Resume Next
 End Sub
 
 

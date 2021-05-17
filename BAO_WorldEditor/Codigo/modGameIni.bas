@@ -29,30 +29,30 @@ Attribute VB_Name = "modGameIni"
 
 Option Explicit
 
-Public Type tCabecera 'Cabecera de los con
-    Desc As String * 255
-    CrC As Long
-    MagicWord As Long
+Public Type tCabecera          'Cabecera de los con
+    Desc                            As String * 255
+    CrC                         As Long
+    MagicWord                   As Long
 End Type
 
 Public Type tGameIni
-    Puerto As Long
-    Musica As Byte
-    fX As Byte
-    tip As Byte
-    Password As String
-    Name As String
-    DirGraficos As String
-    DirSonidos As String
-    DirMusica As String
-    DirMapas As String
-    NumeroDeBMPs As Long
-    NumeroMapas As Integer
+    Puerto                          As Long
+    Musica                      As Byte
+    fX                          As Byte
+    tip                         As Byte
+    Password                    As String
+    Name                        As String
+    DirGraficos                 As String
+    DirSonidos                  As String
+    DirMusica                   As String
+    DirMapas                    As String
+    NumeroDeBMPs                As Long
+    NumeroMapas                 As Integer
 End Type
 
 
-Public MiCabecera As tCabecera
-Public Config_Inicio As tGameIni
+Public MiCabecera               As tCabecera
+Public Config_Inicio            As tGameIni
 
 'Public Sub IniciarCabecera(ByRef Cabecera As tCabecera)
 ''*************************************************
@@ -69,16 +69,16 @@ Public Function LeerGameIni() As tGameIni
 'Author: Unkwown
 'Last modified: 20/05/06
 '*************************************************
-Dim n As Integer
-Dim GameIni As tGameIni
-n = FreeFile
-Open DirIndex & "Inicio.con" For Binary As #n
-Get #n, , MiCabecera
+Dim n                           As Integer
+Dim GameIni                     As tGameIni
+    n = FreeFile
+    Open DirIndex & "Inicio.con" For Binary As #n
+    Get #n, , MiCabecera
 
-Get #n, , GameIni
+    Get #n, , GameIni
 
-Close #n
-LeerGameIni = GameIni
+    Close #n
+    LeerGameIni = GameIni
 End Function
 
 Public Sub EscribirGameIni(ByRef GameIniConfiguration As tGameIni)
@@ -86,12 +86,19 @@ Public Sub EscribirGameIni(ByRef GameIniConfiguration As tGameIni)
 'Author: Unkwown
 'Last modified: 20/05/06
 '*************************************************
-Dim n As Integer
-n = FreeFile
-Open DirIndex & "Inicio.con" For Binary As #n
-Put #n, , MiCabecera
-GameIniConfiguration.Password = "DAMMLAMERS!"
-Put #n, , GameIniConfiguration
-Close #n
+Dim n                           As Integer
+    n = FreeFile
+    Open DirIndex & "Inicio.con" For Binary As #n
+    Put #n, , MiCabecera
+    GameIniConfiguration.Password = "DAMMLAMERS!"
+    Put #n, , GameIniConfiguration
+    Close #n
 End Sub
 
+Public Function Load_Settings(ByRef key As String) As String
+    Load_Settings = GetSetting("PlusIndex", "Info", key)
+End Function
+
+Public Function Save_Settings(ByRef key As String, ByRef Setting As String)
+    Call SaveSetting("PlusIndex", "Info", key, Setting)
+End Function

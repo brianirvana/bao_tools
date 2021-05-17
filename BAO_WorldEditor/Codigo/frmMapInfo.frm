@@ -413,8 +413,8 @@ Private Sub chkMapBackup_LostFocus()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-MapInfo(CurMap).Backup = chkMapBackup.value
-MapInfo(CurMap).Changed = 1
+    MapInfo(CurMap).Backup = chkMapBackup.Value
+    MapInfo(CurMap).Changed = 1
 End Sub
 
 Private Sub chkMapMagiaSinEfecto_LostFocus()
@@ -451,8 +451,8 @@ Private Sub chkMapNoEncriptarMP_LostFocus()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-MapInfo(CurMap).NoEncriptarMP = chkMapNoEncriptarMP.value
-MapInfo(CurMap).Changed = 1
+    MapInfo(CurMap).NoEncriptarMP = chkMapNoEncriptarMP.Value
+    MapInfo(CurMap).Changed = 1
 End Sub
 
 Private Sub chkMapPK_LostFocus()
@@ -469,7 +469,7 @@ Private Sub cmdCerrar_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-Me.Hide
+    Me.Hide
 End Sub
 
 Private Sub cmdMusica_Click()
@@ -477,7 +477,7 @@ Private Sub cmdMusica_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-frmMusica.Show
+    frmMusica.Show
 End Sub
 
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
@@ -485,10 +485,10 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-If UnloadMode = vbFormControlMenu Then
-    Cancel = True
-    Me.Hide
-End If
+    If UnloadMode = vbFormControlMenu Then
+        Cancel = True
+        Me.Hide
+    End If
 End Sub
 
 Private Sub txtMapMusica_LostFocus()
@@ -506,9 +506,9 @@ Private Sub txtMapVersion_LostFocus()
 'Author: ^[GS]^
 'Last modified: 29/05/06
 '*************************************************
-MapInfo(CurMap).MapVersion = txtMapVersion.Text
-frmMain(CurMap).lblMapVersion.Caption = MapInfo(CurMap).MapVersion
-MapInfo(CurMap).Changed = 1
+    MapInfo(CurMap).MapVersion = txtMapVersion.Text
+    frmMain(CurMap).lblMapVersion.Caption = MapInfo(CurMap).MapVersion
+    MapInfo(CurMap).Changed = 1
 End Sub
 
 Private Sub txtMapNombre_LostFocus()
@@ -516,9 +516,9 @@ Private Sub txtMapNombre_LostFocus()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-MapInfo(CurMap).Name = txtMapNombre.Text
-frmMain.lblMapNombre.Caption = MapInfo(CurMap).Name
-MapInfo(CurMap).Changed = 1
+    MapInfo(CurMap).Name = txtMapNombre.Text
+    frmMain.lblMapNombre.Caption = MapInfo(CurMap).Name
+    MapInfo(CurMap).Changed = 1
 End Sub
 
 Private Sub txtMapRestringir_KeyPress(KeyAscii As Integer)
@@ -526,7 +526,7 @@ Private Sub txtMapRestringir_KeyPress(KeyAscii As Integer)
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-KeyAscii = 0
+    KeyAscii = 0
 End Sub
 
 Private Sub txtMapRestringir_LostFocus()
@@ -543,7 +543,7 @@ Private Sub txtMapTerreno_KeyPress(KeyAscii As Integer)
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-KeyAscii = 0
+    KeyAscii = 0
 End Sub
 
 Private Sub txtMapTerreno_LostFocus()
@@ -560,7 +560,7 @@ Private Sub txtMapZona_KeyPress(KeyAscii As Integer)
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-KeyAscii = 0
+    KeyAscii = 0
 End Sub
 
 Private Sub txtMapZona_LostFocus()

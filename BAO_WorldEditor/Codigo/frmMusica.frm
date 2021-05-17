@@ -159,30 +159,30 @@ Attribute VB_Exposed = False
 '**************************************************************
 Option Explicit
 
-Private MidiActual As String
+Private MidiActual              As String
 
 ''
 ' Aplica la Musica seleccionada y oculta la ventana
 '
 
 Private Sub cmdAplicarYCerrar_Click()
-      '*************************************************
-      'Author: ^[GS]^
-      'Last modified: 20/05/06
-      '*************************************************
+'*************************************************
+'Author: ^[GS]^
+'Last modified: 20/05/06
+'*************************************************
 
-   On Error GoTo cmdAplicarYCerrar_Click_Error
+    On Error GoTo cmdAplicarYCerrar_Click_Error
 
-10   ' If Len(MidiActual) >= 5 Then
-20        'MapInfo.Music = Left(MidiActual, Len(MidiActual) - 4)
-30        'frmMapInfo.txtMapMusica.Text = MapInfo.Music
-40        'frmMain.lblMapMusica = MapInfo.Music
-50        'MidiActual = Empty
-60    'End If
-70    Me.Hide
+10  ' If Len(MidiActual) >= 5 Then
+20  'MapInfo.Music = Left(MidiActual, Len(MidiActual) - 4)
+30  'frmMapInfo.txtMapMusica.Text = MapInfo.Music
+40  'frmMain.lblMapMusica = MapInfo.Music
+50  'MidiActual = Empty
+60  'End If
+70  Me.Hide
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 cmdAplicarYCerrar_Click_Error:
 
@@ -199,7 +199,7 @@ Private Sub cmdCerrar_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-Me.Hide
+    Me.Hide
 End Sub
 
 ''
@@ -211,10 +211,10 @@ Private Sub cmdDetener_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-Stop_Midi
-cmdEscuchar.Enabled = True
-cmdDetener.Enabled = False
-Play = False
+    Stop_Midi
+    cmdEscuchar.Enabled = True
+    cmdDetener.Enabled = False
+    Play = False
 End Sub
 
 ''
@@ -226,10 +226,10 @@ Private Sub cmdEscuchar_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-Play_Midi
-cmdDetener.Enabled = True
-cmdEscuchar.Enabled = False
-Play = True
+    Play_Midi
+    cmdDetener.Enabled = True
+    cmdEscuchar.Enabled = False
+    Play = True
 End Sub
 
 ''
@@ -241,9 +241,9 @@ Private Sub fleMusicas_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-MidiActual = fleMusicas.List(fleMusicas.listIndex)
-CargarMIDI fleMusicas.Path & "\" & fleMusicas.List(fleMusicas.listIndex)
-cmdAplicarYCerrar.Enabled = True
-If Play = False Then cmdEscuchar.Enabled = True
+    MidiActual = fleMusicas.List(fleMusicas.listIndex)
+    CargarMIDI fleMusicas.Path & "\" & fleMusicas.List(fleMusicas.listIndex)
+    cmdAplicarYCerrar.Enabled = True
+    If Play = False Then cmdEscuchar.Enabled = True
 End Sub
 

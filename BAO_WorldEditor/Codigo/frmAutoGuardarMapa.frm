@@ -191,18 +191,18 @@ Private Sub cmdAceptar_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-If IsNumeric(cmbMinutos.Text) = False Then
-    MsgBox "Los minutos deben ingresarse de forma númerica.", vbCritical + vbOKOnly
-    Exit Sub
-ElseIf Val(cmbMinutos.Text) < 5 Or Val(cmbMinutos.Text) > 120 Then
-    MsgBox "Los minutos ingresados son invalidos." & vbCrLf & "Solo estan permitidos los valores de entre 5 y 120 minutos inclusive.", vbCritical + vbOKOnly
-    Exit Sub
-End If
-bAutoGuardarMapa = Val(cmbMinutos.Text)
-bAutoGuardarMapaCount = 0
-frmMain.TimAutoGuardarMapa.Enabled = True
-frmMain.mnuAutoGuardarMapas.Checked = True
-Unload Me
+    If IsNumeric(cmbMinutos.Text) = False Then
+        MsgBox "Los minutos deben ingresarse de forma númerica.", vbCritical + vbOKOnly
+        Exit Sub
+    ElseIf Val(cmbMinutos.Text) < 5 Or Val(cmbMinutos.Text) > 120 Then
+        MsgBox "Los minutos ingresados son invalidos." & vbCrLf & "Solo estan permitidos los valores de entre 5 y 120 minutos inclusive.", vbCritical + vbOKOnly
+        Exit Sub
+    End If
+    bAutoGuardarMapa = Val(cmbMinutos.Text)
+    bAutoGuardarMapaCount = 0
+    frmMain.TimAutoGuardarMapa.Enabled = True
+    frmMain.mnuAutoGuardarMapas.Checked = True
+    Unload Me
 End Sub
 
 Private Sub cmdCerrar_Click()
@@ -210,7 +210,7 @@ Private Sub cmdCerrar_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-Unload Me
+    Unload Me
 End Sub
 
 Private Sub cmdDetener_Click()
@@ -218,9 +218,9 @@ Private Sub cmdDetener_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-frmMain.TimAutoGuardarMapa.Enabled = False
-frmMain.mnuAutoGuardarMapas.Checked = False
-Unload Me
+    frmMain.TimAutoGuardarMapa.Enabled = False
+    frmMain.mnuAutoGuardarMapas.Checked = False
+    Unload Me
 End Sub
 
 Private Sub Form_Load()
@@ -228,5 +228,5 @@ Private Sub Form_Load()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-cmbMinutos.Text = bAutoGuardarMapa
+    cmbMinutos.Text = bAutoGuardarMapa
 End Sub

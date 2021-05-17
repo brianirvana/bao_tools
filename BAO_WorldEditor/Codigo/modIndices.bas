@@ -34,12 +34,12 @@ Public grhCount                 As Long
 
 Public Sub CargarIndicesDeGraficos()
 
-On Error GoTo ErrorHandler
-    Dim Grh As Long
-    Dim Frame As Long
-    Dim grhCount As Long
-    Dim handle As Integer
-    Dim FileVersion As Long
+    On Error GoTo ErrorHandler
+    Dim Grh                     As Long
+    Dim Frame                   As Long
+    Dim grhCount                As Long
+    Dim handle                  As Integer
+    Dim FileVersion             As Long
 
     'Open files
     handle = FreeFile()
@@ -119,38 +119,38 @@ On Error GoTo ErrorHandler
     Wend
 
     Close handle
-Exit Sub
+    Exit Sub
 
 ErrorHandler:
-Close #1
+    Close #1
     MsgBox "Error al intentar cargar el Graficos " & Grh & " de graficos.ind en " & DirIndex & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
 
 End Sub
 
 Public Function LoadGrhData() As Boolean
 
-On Error GoTo ErrorHandler
+    On Error GoTo ErrorHandler
 
-Dim handle                      As Integer
-Dim Grh                         As Long
-Dim Frame                       As Long
-Dim FileVersion                 As Long
-    
+    Dim handle                  As Integer
+    Dim Grh                     As Long
+    Dim Frame                   As Long
+    Dim FileVersion             As Long
+
     'Open files
     handle = FreeFile()
     
     Open IniPath & "\INIT\Graficos.ind" For Binary Access Read As handle
     Seek #1, 1
-    
+
     'Get file version
     Get handle, , FileVersion
-    
+
     'Get number of grhs
     Get handle, , grhCount
-    
+
     'Resize arrays
     ReDim GrhData(0 To grhCount) As GrhData
-    
+
     'Do Until Grh <= 0
     While Not EOF(handle)
         Get handle, , Grh
@@ -160,9 +160,9 @@ Dim FileVersion                 As Long
                 'If Grh = 7307 Then Stop
                 Get handle, , .NumFrames
                 If .NumFrames <= 0 Then GoTo ErrorHandler
-                
+
                 ReDim .Frames(1 To GrhData(Grh).NumFrames)
-                
+
                 If .NumFrames > 1 Then
                     'Read a animation GRH set
                     For Frame = 1 To .NumFrames
@@ -171,57 +171,57 @@ Dim FileVersion                 As Long
                             GoTo ErrorHandler
                         End If
                     Next Frame
-                    
+
                     Get handle, , .Speed
-                    
+
                     If .Speed <= 0 Then GoTo ErrorHandler
-                    
+
                     'Compute width and height
                     .pixelHeight = GrhData(.Frames(1)).pixelHeight
                     If .pixelHeight <= 0 Then GoTo ErrorHandler
-                    
+
                     .pixelWidth = GrhData(.Frames(1)).pixelWidth
                     If .pixelWidth <= 0 Then GoTo ErrorHandler
-                    
+
                     .TileWidth = GrhData(.Frames(1)).TileWidth
                     If .TileWidth <= 0 Then GoTo ErrorHandler
-                    
+
                     .TileHeight = GrhData(.Frames(1)).TileHeight
                     If .TileHeight <= 0 Then GoTo ErrorHandler
                 Else
                     'Read in normal GRH data
                     Get handle, , .FileNum
                     If .FileNum <= 0 Then GoTo ErrorHandler
-                    
+
                     Get handle, , GrhData(Grh).sX
                     If .sX < 0 Then GoTo ErrorHandler
-                    
+
                     Get handle, , .sY
                     If .sY < 0 Then GoTo ErrorHandler
-                    
+
                     Get handle, , .pixelWidth
                     If .pixelWidth <= 0 Then GoTo ErrorHandler
-                    
+
                     Get handle, , .pixelHeight
                     If .pixelHeight <= 0 Then GoTo ErrorHandler
-                    
+
                     'Compute width and height
                     .TileWidth = .pixelWidth / 32
                     .TileHeight = .pixelHeight / 32
-                    
+
                     .Frames(1) = Grh
                 End If
             End With
         End If
-        
+
         'Get handle, , Grh
     Wend
     'Loop
-    
+
     Close handle
-    
+
     LoadGrhData = True
-Exit Function
+    Exit Function
 ErrorHandler:
     LoadGrhData = False
     
@@ -237,21 +237,21 @@ Public Sub CargarIndicesSuperficie()
 'Last modified: 29/05/06
 '*************************************************
 
-On Error GoTo Fallo
+    On Error GoTo Fallo
 
     If FileExist(IniPath & "GrhIndex\indices.ini", vbArchive) = False Then
         MsgBox "Falta el archivo 'GrhIndex\indices.ini'", vbCritical
         End
     End If
-    
-    Dim Leer As New clsIniReader
-    Dim i As Integer
-    
+
+    Dim Leer                    As New clsIniReader
+    Dim i                       As Integer
+
     Leer.Initialize IniPath & "GrhIndex\indices.ini"
     MaxSup = Leer.GetValue("INIT", "Referencias")
     ReDim SupData(MaxSup) As SupData
     frmMain.lListado(0).Clear
-    
+
     For i = 0 To MaxSup
         SupData(i).Name = Replace(Leer.GetValue("REFERENCIA" & i, "Nombre"), "#", "~")
         SupData(i).Grh = Val(Leer.GetValue("REFERENCIA" & i, "GrhIndex"))
@@ -261,7 +261,7 @@ On Error GoTo Fallo
         SupData(i).Capa = Val(Leer.GetValue("REFERENCIA" & i, "Capa"))
         frmMain.lListado(0).AddItem SupData(i).Name & " - #" & i
     Next
-    
+
     DoEvents
     Exit Sub
 Fallo:
@@ -279,21 +279,21 @@ Public Sub CargarIndicesOBJ()
 'Last modified: 20/05/06
 '*************************************************
 
-On Error GoTo Fallo
+    On Error GoTo Fallo
 
     If FileExist(DirDats & "\OBJ.dat", vbArchive) = False Then
         MsgBox "Falta el archivo 'OBJ.dat' en " & DirDats, vbCritical
         End
     End If
-    
-    Dim Obj As Integer
-    Dim Leer As New clsIniReader
-    
+
+    Dim Obj                     As Integer
+    Dim Leer                    As New clsIniReader
+
     Call Leer.Initialize(DirDats & "\OBJ.dat")
     frmMain.lListado(3).Clear
     NumOBJs = Val(Leer.GetValue("INIT", "NumOBJs"))
     ReDim ObjData(1 To NumOBJs) As ObjData
-    
+
     For Obj = 1 To NumOBJs
         frmCargando.X.Caption = "Cargando Datos de Objetos..." & Obj & "/" & NumOBJs
         DoEvents
@@ -307,11 +307,11 @@ On Error GoTo Fallo
         ObjData(Obj).GrhSecundario = Val(Leer.GetValue("OBJ" & Obj, "GrhSec"))
         frmMain.lListado(3).AddItem ObjData(Obj).Name & " - #" & Obj
     Next Obj
-    
+
     Exit Sub
-    
+
 Fallo:
-MsgBox "Error al intentar cargar el Objteto " & Obj & " de OBJ.dat en " & DirDats & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
+    MsgBox "Error al intentar cargar el Objteto " & Obj & " de OBJ.dat en " & DirDats & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
 
 End Sub
 
@@ -325,22 +325,22 @@ Public Sub CargarIndicesTriggers()
 'Last modified: 28/05/06
 '*************************************************
 
-On Error GoTo Fallo
+    On Error GoTo Fallo
     If FileExist(DirIndex & "Triggers.ini", vbArchive) = False Then
         MsgBox "Falta el archivo 'Triggers.ini' en " & DirIndex, vbCritical
         End
     End If
-    Dim NumT As Integer
-    Dim T As Integer
-    Dim Leer As New clsIniReader
+    Dim NumT                    As Integer
+    Dim T                       As Integer
+    Dim Leer                    As New clsIniReader
     Call Leer.Initialize(DirIndex & "Triggers.ini")
     frmMain.lListado(4).Clear
     NumT = Val(Leer.GetValue("INIT", "NumTriggers"))
     For T = 1 To NumT
-         frmMain.lListado(4).AddItem Leer.GetValue("Trig" & T, "Name") & " - #" & (T - 1)
+        frmMain.lListado(4).AddItem Leer.GetValue("Trig" & T, "Name") & " - #" & (T - 1)
     Next T
 
-Exit Sub
+    Exit Sub
 Fallo:
     MsgBox "Error al intentar cargar el Trigger " & T & " de Triggers.ini en " & DirIndex & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
 
@@ -356,13 +356,13 @@ Public Sub CargarIndicesDeCuerpos()
 'Last modified: 29/05/06
 '*************************************************
 
-On Error GoTo Fallo
+    On Error GoTo Fallo
     If FileExist(DirIndex & "Personajes.ind", vbArchive) = False Then
         MsgBox "Falta el archivo 'Personajes.ind' en " & DirIndex, vbCritical
         End
     End If
-    Dim n As Integer
-    Dim i As Integer
+    Dim n                       As Integer
+    Dim i                       As Integer
     n = FreeFile
     Open DirIndex & "Personajes.ind" For Binary Access Read As #n
     'cabecera
@@ -382,7 +382,7 @@ On Error GoTo Fallo
         BodyData(i).HeadOffset.Y = MisCuerpos(i).HeadOffsetY
     Next i
     Close #n
-Exit Sub
+    Exit Sub
 Fallo:
     MsgBox "Error al intentar cargar el Cuerpo " & i & " de Personajes.ind en " & DirIndex & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
 
@@ -393,14 +393,14 @@ End Sub
 '
 
 Public Sub CargarIndicesDeCabezas()
-On Error GoTo Fallo
+    On Error GoTo Fallo
     If FileExist(DirIndex & "Cabezas.ind", vbArchive) = False Then
         MsgBox "Falta el archivo 'Cabezas.ind' en " & DirIndex, vbCritical
         End
     End If
-    Dim n As Integer
-    Dim i As Integer
-    Dim MisCabezas() As tIndiceCabeza
+    Dim n                       As Integer
+    Dim i                       As Integer
+    Dim MisCabezas()            As tIndiceCabeza
     n = FreeFile
     Open DirIndex & "Cabezas.ind" For Binary Access Read As #n
     'cabecera
@@ -418,7 +418,7 @@ On Error GoTo Fallo
         InitGrh HeadData(i).Head(4), MisCabezas(i).Head(4), 0
     Next i
     Close #n
-Exit Sub
+    Exit Sub
 Fallo:
     MsgBox "Error al intentar cargar la Cabeza " & i & " de Cabezas.ind en " & DirIndex & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
 
@@ -429,51 +429,51 @@ End Sub
 '
 
 Public Sub CargarIndicesNPC()
-      '*************************************************
-      'Author: ^[GS]^
-      'Last modified: 26/05/06
-      '*************************************************
+'*************************************************
+'Author: ^[GS]^
+'Last modified: 26/05/06
+'*************************************************
 
-      'On Error GoTo Fallo
-   On Error GoTo CargarIndicesNPC_Error
+'On Error GoTo Fallo
+    On Error GoTo CargarIndicesNPC_Error
 
-10        If FileExist(DirDats & "\NPCs.dat", vbArchive) = False Then
-20            MsgBox "Falta el archivo 'NPCs.dat' en " & DirDats, vbCritical
-30            End
-40        End If
-          'If FileExist(DirDats & "\NPCs-HOSTILES.dat", vbArchive) = False Then
-          '    MsgBox "Falta el archivo 'NPCs-HOSTILES.dat' en " & DirDats, vbCritical
-          '    End
-          'End If
-          Dim Trabajando As String
-          Dim NPC As Integer
-          Dim Leer As New clsIniReader
-50        frmMain.lListado(1).Clear
-60        frmMain.lListado(2).Clear
-70        Call Leer.Initialize(DirDats & "\NPCs.dat")
-80        NumNPCs = Val(Leer.GetValue("INIT", "NumNPCs"))
-          'Call Leer.Initialize(DirDats & "\NPCs-HOSTILES.dat")
-          'NumNPCsHOST = Val(Leer.GetValue("INIT", "NumNPCs"))
-90        ReDim NpcData(1000) As NpcData
-100       Trabajando = "Dats\NPCs.dat"
-          
-110       For NPC = 1 To NumNPCs
-120           NpcData(NPC).Name = Leer.GetValue("NPC" & NPC, "Name")
-              
-130           NpcData(NPC).Body = Val(Leer.GetValue("NPC" & NPC, "Body"))
-140           NpcData(NPC).Head = Val(Leer.GetValue("NPC" & NPC, "Head"))
-150           NpcData(NPC).Heading = Val(Leer.GetValue("NPC" & NPC, "Heading"))
+10  If FileExist(DirDats & "\NPCs.dat", vbArchive) = False Then
+20      MsgBox "Falta el archivo 'NPCs.dat' en " & DirDats, vbCritical
+30      End
+40  End If
+    'If FileExist(DirDats & "\NPCs-HOSTILES.dat", vbArchive) = False Then
+    '    MsgBox "Falta el archivo 'NPCs-HOSTILES.dat' en " & DirDats, vbCritical
+    '    End
+    'End If
+    Dim Trabajando              As String
+    Dim NPC                     As Integer
+    Dim Leer                    As New clsIniReader
+50  frmMain.lListado(1).Clear
+60  frmMain.lListado(2).Clear
+70  Call Leer.Initialize(DirDats & "\NPCs.dat")
+80  NumNPCs = Val(Leer.GetValue("INIT", "NumNPCs"))
+    'Call Leer.Initialize(DirDats & "\NPCs-HOSTILES.dat")
+    'NumNPCsHOST = Val(Leer.GetValue("INIT", "NumNPCs"))
+90  ReDim NpcData(1000) As NpcData
+100 Trabajando = "Dats\NPCs.dat"
 
-              
-160           If LenB(NpcData(NPC).Name) <> 0 Then frmMain.lListado(1).AddItem NpcData(NPC).Name & " - #" & NPC
-170       Next
+110 For NPC = 1 To NumNPCs
+120     NpcData(NPC).Name = Leer.GetValue("NPC" & NPC, "Name")
 
-180       Exit Sub
+130     NpcData(NPC).Body = Val(Leer.GetValue("NPC" & NPC, "Body"))
+140     NpcData(NPC).Head = Val(Leer.GetValue("NPC" & NPC, "Head"))
+150     NpcData(NPC).Heading = Val(Leer.GetValue("NPC" & NPC, "Heading"))
+
+
+160     If LenB(NpcData(NPC).Name) <> 0 Then frmMain.lListado(1).AddItem NpcData(NPC).Name & " - #" & NPC
+170 Next
+
+180 Exit Sub
 Fallo:
-190       MsgBox "Error al intentar cargar el NPC " & NPC & " de " & Trabajando & " en " & DirDats & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
+190 MsgBox "Error al intentar cargar el NPC " & NPC & " de " & Trabajando & " en " & DirDats & vbCrLf & "Err: " & err.Number & " - " & err.Description, vbCritical + vbOKOnly
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 CargarIndicesNPC_Error:
 

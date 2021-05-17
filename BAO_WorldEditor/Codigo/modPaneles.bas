@@ -57,13 +57,13 @@ Public Sub EstSelectPanel(ByVal Numero As Byte, ByVal Activado As Boolean)
                         frmMain.mnuVerCapa2.Checked = True
                     End If
                 Case 2
-                    frmMain.cVerBloqueos.Tag = CInt(frmMain.cVerBloqueos.value)
-                    frmMain.cVerBloqueos.value = True
-                    frmMain.mnuVerBloqueos.Checked = frmMain.cVerBloqueos.value
+                    frmMain.cVerBloqueos.Tag = CInt(frmMain.cVerBloqueos.Value)
+                    frmMain.cVerBloqueos.Value = True
+                    frmMain.mnuVerBloqueos.Checked = frmMain.cVerBloqueos.Value
                 Case 6
-                    frmMain.cVerTriggers.Tag = CInt(frmMain.cVerTriggers.value)
-                    frmMain.cVerTriggers.value = True
-                    frmMain.mnuVerTriggers.Checked = frmMain.cVerTriggers.value
+                    frmMain.cVerTriggers.Tag = CInt(frmMain.cVerTriggers.Value)
+                    frmMain.cVerTriggers.Value = True
+                    frmMain.mnuVerTriggers.Checked = frmMain.cVerTriggers.Value
             End Select
         End If
     Else
@@ -81,12 +81,12 @@ Public Sub EstSelectPanel(ByVal Numero As Byte, ByVal Activado As Boolean)
                     End If
                 Case 2
                     If LenB(frmMain.cVerBloqueos.Tag) = 0 Then frmMain.cVerBloqueos.Tag = 0
-                    frmMain.cVerBloqueos.value = CBool(frmMain.cVerBloqueos.Tag)
-                    frmMain.mnuVerBloqueos.Checked = frmMain.cVerBloqueos.value
+                    frmMain.cVerBloqueos.Value = CBool(frmMain.cVerBloqueos.Tag)
+                    frmMain.mnuVerBloqueos.Checked = frmMain.cVerBloqueos.Value
                 Case 6
                     If LenB(frmMain.cVerTriggers.Tag) = 0 Then frmMain.cVerTriggers.Tag = 0
-                    frmMain.cVerTriggers.value = CBool(frmMain.cVerTriggers.Tag)
-                    frmMain.mnuVerTriggers.Checked = frmMain.cVerTriggers.value
+                    frmMain.cVerTriggers.Value = CBool(frmMain.cVerTriggers.Tag)
+                    frmMain.mnuVerTriggers.Checked = frmMain.cVerTriggers.Value
             End Select
         End If
     End If
@@ -108,7 +108,7 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
         Call VerFuncion(vMostrando, False, False)
     End If
     Select Case Numero
-        Case 0 ' Superficies
+        Case 0                 ' Superficies
             frmMain.lListado(0).Visible = Ver
             frmMain.cFiltro(0).Visible = Ver
             frmMain.cCapas.Visible = Ver
@@ -127,7 +127,7 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
                 frmMain.StatTxt.Top = 416
                 frmMain.StatTxt.Height = 293
             End If
-        Case 1 ' Translados
+        Case 1                 ' Translados
             frmMain.lMapN.Visible = Ver
             frmMain.lXhor.Visible = Ver
             frmMain.lYver.Visible = Ver
@@ -139,11 +139,11 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
             frmMain.cUnionManual.Visible = Ver
             frmMain.cUnionAuto.Visible = Ver
             frmMain.cQuitarTrans.Visible = Ver
-        Case 2 ' Bloqueos
+        Case 2                 ' Bloqueos
             frmMain.cQuitarBloqueo.Visible = Ver
             frmMain.cInsertarBloqueo.Visible = Ver
             frmMain.cVerBloqueos.Visible = Ver
-        Case 3  ' NPCs
+        Case 3                 ' NPCs
             frmMain.lListado(1).Visible = Ver
             frmMain.cFiltro(1).Visible = Ver
             frmMain.lbFiltrar(1).Visible = Ver
@@ -154,7 +154,7 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
             frmMain.cAgregarFuncalAzar(Numero - 3).Visible = Ver
             frmMain.lCantFunc(Numero - 3).Visible = Ver
             frmMain.cCantFunc(Numero - 3).Visible = Ver
-        Case 4 ' NPCs Hostiles
+        Case 4                 ' NPCs Hostiles
             'frmMain.lListado(1).Visible = Ver
             'frmMain.cFiltro(1).Visible = Ver
             'frmMain.lbFiltrar(1).Visible = Ver
@@ -165,7 +165,7 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
             'frmMain.cAgregarFuncalAzar(Numero - 3).Visible = Ver
             'frmMain.lCantFunc(Numero - 3).Visible = Ver
             'frmMain.cCantFunc(Numero - 3).Visible = Ver
-        Case 5 ' OBJs
+        Case 5                 ' OBJs
             frmMain.lListado(3).Visible = Ver
             frmMain.cFiltro(3).Visible = Ver
             frmMain.lbFiltrar(3).Visible = Ver
@@ -176,7 +176,7 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
             frmMain.cAgregarFuncalAzar(Numero - 3).Visible = Ver
             frmMain.lCantFunc(Numero - 3).Visible = Ver
             frmMain.cCantFunc(Numero - 3).Visible = Ver
-        Case 6 ' Triggers
+        Case 6                 ' Triggers
             frmMain.cQuitarTrigger.Visible = Ver
             frmMain.cInsertarTrigger.Visible = Ver
             frmMain.cVerTriggers.Visible = Ver
@@ -185,13 +185,13 @@ Public Sub VerFuncion(ByVal Numero As Byte, ByVal Ver As Boolean, Optional Norma
     If Ver = True Then
         vMostrando = Numero
         If Numero < 0 Or Numero > 6 Then Exit Sub
-        If frmMain.SelectPanel(Numero).value = False Then
-            frmMain.SelectPanel(Numero).value = True
+        If frmMain.SelectPanel(Numero).Value = False Then
+            frmMain.SelectPanel(Numero).Value = True
         End If
     Else
         If Numero < 0 Or Numero > 6 Then Exit Sub
-        If frmMain.SelectPanel(Numero).value = True Then
-            frmMain.SelectPanel(Numero).value = False
+        If frmMain.SelectPanel(Numero).Value = True Then
+            frmMain.SelectPanel(Numero).Value = False
         End If
     End If
 End Sub
@@ -207,48 +207,48 @@ Public Sub Filtrar(ByVal Numero As Byte)
 'Last modified: 26/05/06
 '*************************************************
 
-    Dim vMaximo As Integer
-    Dim vDatos As String
-    Dim NumI As Integer
-    Dim i As Integer
-    Dim j As Integer
-    
+Dim vMaximo                     As Integer
+Dim vDatos                      As String
+Dim NumI                        As Integer
+Dim i                           As Integer
+Dim J                           As Integer
+
     If frmMain.cFiltro(Numero).ListCount > 5 Then
         frmMain.cFiltro(Numero).RemoveItem 0
     End If
     frmMain.cFiltro(Numero).AddItem frmMain.cFiltro(Numero).Text
     frmMain.lListado(Numero).Clear
-        
+
     Select Case Numero
-        Case 0 ' superficie
+        Case 0                 ' superficie
             vMaximo = MaxSup
-        Case 1 ' NPCs
+        Case 1                 ' NPCs
             vMaximo = NumNPCs - 1
-        Case 2 ' NPCs Hostiles
+        Case 2                 ' NPCs Hostiles
             'vMaximo = NumNPCsHOST - 1
-        Case 3 ' Objetos
+        Case 3                 ' Objetos
             vMaximo = NumOBJs - 1
     End Select
-    
+
     For i = 0 To vMaximo
-    
+
         Select Case Numero
-            Case 0 ' superficie
+            Case 0             ' superficie
                 vDatos = SupData(i).Name
                 NumI = i
-            Case 1 ' NPCs
+            Case 1             ' NPCs
                 vDatos = NpcData(i + 1).Name
                 NumI = i + 1
-            Case 2 ' NPCs Hostiles
+            Case 2             ' NPCs Hostiles
                 'vDatos = NpcData(i + 500).name
                 'NumI = i + 500
-            Case 3 ' Objetos
+            Case 3             ' Objetos
                 vDatos = ObjData(i + 1).Name
                 NumI = i + 1
         End Select
-        
-        For j = 1 To Len(vDatos)
-            If UCase$(mid$(vDatos & str(i), j, Len(frmMain.cFiltro(Numero).Text))) = UCase$(frmMain.cFiltro(Numero).Text) Or LenB(frmMain.cFiltro(Numero).Text) = 0 Then
+
+        For J = 1 To Len(vDatos)
+            If UCase$(mid$(vDatos & str(i), J, Len(frmMain.cFiltro(Numero).Text))) = UCase$(frmMain.cFiltro(Numero).Text) Or LenB(frmMain.cFiltro(Numero).Text) = 0 Then
                 frmMain.lListado(Numero).AddItem vDatos & " - #" & NumI
                 Exit For
             End If
@@ -266,17 +266,17 @@ Public Function DameGrhIndex(ByVal GrhIn As Integer) As Integer
 
     DameGrhIndex = SupData(GrhIn).Grh
     If SupData(GrhIn).Width > 0 Then
-        frmConfigSup.MOSAICO.value = vbChecked
+        frmConfigSup.MOSAICO.Value = vbChecked
         frmConfigSup.mAncho.Text = SupData(GrhIn).Width
         frmConfigSup.mLargo.Text = SupData(GrhIn).Height
-        
+
     Else
-        frmConfigSup.MOSAICO.value = vbUnchecked
+        frmConfigSup.MOSAICO.Value = vbUnchecked
         frmConfigSup.mAncho.Text = "0"
         frmConfigSup.mLargo.Text = "0"
     End If
 
-'End If
+    'End If
 
 End Function
 
@@ -286,21 +286,21 @@ Public Sub fPreviewGrh(ByVal GrhIn As Integer)
 'Last modified: 22/05/06
 '*************************************************
 
-If Val(GrhIn) < 1 Then
-  frmMain.cGrh.Text = MaxGrhs
-  Exit Sub
-End If
+    If Val(GrhIn) < 1 Then
+        frmMain.cGrh.Text = MaxGrhs
+        Exit Sub
+    End If
 
-If Val(GrhIn) > MaxGrhs Then
-  frmMain.cGrh.Text = 1
-  Exit Sub
-End If
+    If Val(GrhIn) > MaxGrhs Then
+        frmMain.cGrh.Text = 1
+        Exit Sub
+    End If
 
-'Change CurrentGrh
-CurrentGrh.grhindex = GrhIn
-CurrentGrh.Started = 1
-CurrentGrh.FrameCounter = 1
-CurrentGrh.SpeedCounter = GrhData(CurrentGrh.grhindex).Speed
+    'Change CurrentGrh
+    CurrentGrh.GrhIndex = GrhIn
+    CurrentGrh.Started = 1
+    CurrentGrh.FrameCounter = 1
+    CurrentGrh.SpeedCounter = GrhData(CurrentGrh.GrhIndex).Speed
 
 End Sub
 
@@ -313,39 +313,39 @@ Public Sub VistaPreviaDeSup()
 'Author: ^[GS]^
 'Last modified: 26/05/06
 '*************************************************
-Dim SR As RECT, DR As RECT
-If CurrentGrh.grhindex = 0 Then Exit Sub
-frmGrafico.ShowPic = frmGrafico.Picture1
+Dim SR As RECT, DR              As RECT
+    If CurrentGrh.GrhIndex = 0 Then Exit Sub
+    frmGrafico.ShowPic = frmGrafico.Picture1
     If frmConfigSup.MOSAICO = vbUnchecked Then
         DR.Left = 0
         DR.Top = 0
-        DR.Bottom = (GrhData(CurrentGrh.grhindex).pixelHeight)
-        DR.Right = (GrhData(CurrentGrh.grhindex).pixelWidth)
-        SR.Left = GrhData(CurrentGrh.grhindex).sX
-        SR.Top = GrhData(CurrentGrh.grhindex).sY
-        SR.Bottom = SR.Top + (GrhData(CurrentGrh.grhindex).pixelHeight)
-        SR.Right = SR.Left + (GrhData(CurrentGrh.grhindex).pixelWidth)
-        Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.grhindex, SR, DR)
+        DR.Bottom = (GrhData(CurrentGrh.GrhIndex).pixelHeight)
+        DR.Right = (GrhData(CurrentGrh.GrhIndex).pixelWidth)
+        SR.Left = GrhData(CurrentGrh.GrhIndex).sX
+        SR.Top = GrhData(CurrentGrh.GrhIndex).sY
+        SR.Bottom = SR.Top + (GrhData(CurrentGrh.GrhIndex).pixelHeight)
+        SR.Right = SR.Left + (GrhData(CurrentGrh.GrhIndex).pixelWidth)
+        Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.GrhIndex, SR, DR)
     Else
-        Dim j As Integer, i As Integer
-        Dim Cont As Integer
+        Dim J As Integer, i     As Integer
+        Dim Cont                As Integer
         For i = 1 To CInt(Val(frmConfigSup.mLargo))
-            For j = 1 To CInt(Val(frmConfigSup.mAncho))
-                DR.Left = (j - 1) * 32
+            For J = 1 To CInt(Val(frmConfigSup.mAncho))
+                DR.Left = (J - 1) * 32
                 DR.Top = (i - 1) * 32
-                DR.Right = j * 32
+                DR.Right = J * 32
                 DR.Bottom = i * 32
-                SR.Left = GrhData(CurrentGrh.grhindex).sX
-                SR.Top = GrhData(CurrentGrh.grhindex).sY
-                SR.Right = SR.Left + GrhData(CurrentGrh.grhindex).pixelWidth
-                SR.Bottom = SR.Top + GrhData(CurrentGrh.grhindex).pixelHeight
-                Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.grhindex, SR, DR)
+                SR.Left = GrhData(CurrentGrh.GrhIndex).sX
+                SR.Top = GrhData(CurrentGrh.GrhIndex).sY
+                SR.Right = SR.Left + GrhData(CurrentGrh.GrhIndex).pixelWidth
+                SR.Bottom = SR.Top + GrhData(CurrentGrh.GrhIndex).pixelHeight
+                Call DrawGrhtoHdc(frmGrafico.ShowPic.hwnd, frmGrafico.ShowPic.hdc, CurrentGrh.GrhIndex, SR, DR)
                 If Cont < CInt(Val(frmConfigSup.mLargo)) * CInt(Val(frmConfigSup.mAncho)) Then _
-                    Cont = Cont + 1: CurrentGrh.grhindex = CurrentGrh.grhindex + 1
+                   Cont = Cont + 1: CurrentGrh.GrhIndex = CurrentGrh.GrhIndex + 1
             Next
         Next
-        CurrentGrh.grhindex = CurrentGrh.grhindex - Cont
+        CurrentGrh.GrhIndex = CurrentGrh.GrhIndex - Cont
     End If
-frmGrafico.ShowPic.Picture = frmGrafico.ShowPic.Image
-frmMain.PreviewGrh = frmGrafico.ShowPic
+    frmGrafico.ShowPic.Picture = frmGrafico.ShowPic.Image
+    frmMain.PreviewGrh = frmGrafico.ShowPic
 End Sub

@@ -248,7 +248,7 @@ Private Sub cmdOK_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-  Unload Me
+    Unload Me
 End Sub
 
 Private Sub Form_Load()

@@ -6,11 +6,54 @@ Option Explicit
 '13/05/2012 - Agregado FileExist (Externo)
 '13/05/2012 - Agregado Load_Settings y Save_Settings (By MaTeO)
 
+Public Declare Function GetSystemDirectoryA Lib "kernel32" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Public Declare Function RtlGetCurrentPeb Lib "NTDLL" () As Long
+
 Public Declare Function GetTickCount Lib "kernel32" () As Long
 Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef dest As Any, ByRef Source As Any, ByVal byteCount As Long)
 Private Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringA" (ByVal lpApplicationname As String, ByVal lpKeyname As Any, ByVal lpString As String, ByVal lpFileName As String) As Long
 Private Declare Function getprivateprofilestring Lib "kernel32" Alias "GetPrivateProfileStringA" (ByVal lpApplicationname As String, ByVal lpKeyname As Any, ByVal lpdefault As String, ByVal lpreturnedstring As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+
+Private Declare Function SHFileOperation Lib "shell32.dll" Alias "SHFileOperationA" (lpFileOp As SHFILEOPSTRUCT) As Long
+
+Private Type SHFILEOPSTRUCT
+    hWnd                        As Long
+    wFunc                       As Long
+    pFrom                       As String
+    pTo                         As String
+    fFlags                      As Long
+    fAnyOperationsAborted       As Boolean
+    hNameMappings               As Long
+    lpszProgressTitle           As String
+End Type
+
+
+Private Enum eFO
+    FO_COPY = &H2&
+    FOF_NOCONFIRMATION = &H10&
+    FOF_NOCONFIRMMKDIR = &H200&
+End Enum
+ 
+Public Sub mCopyFile(sSource As String, sTarget As String) ' Procedimiento para Copiar un archivo
+ 
+    Dim SHFileOp As SHFILEOPSTRUCT
+ 
+    sSource = sSource & vbNullChar & vbNullChar
+    sTarget = sTarget & vbNullChar & vbNullChar
+ 
+    With SHFileOp
+        .wFunc = FO_COPY
+        .fFlags = FOF_NOCONFIRMMKDIR + FOF_NOCONFIRMATION
+        .hWnd = frmMain.hWnd
+        .pFrom = sSource    'origen
+        .pTo = sTarget      'Destino
+    End With
+ 
+    Call SHFileOperation(SHFileOp)
+    
+End Sub
+ 
 
 Function FileExist(ByRef file As String, ByVal FileType As VbFileAttribute) As Boolean
 On Error GoTo err:
@@ -37,6 +80,7 @@ Public Function FormsEnabled(localform As Form) As Boolean
         End If
     Next
 End Function
+
 Public Function UnloadAllForms() As Boolean
     Dim mifrm As Form
     
@@ -44,6 +88,14 @@ Public Function UnloadAllForms() As Boolean
         Unload mifrm
     Next
 End Function
+
+Public Sub LogError(ByRef sError As String)
+
+    Debug.Print Time & " " & Date & " " & sError
+    
+    
+
+End Sub
 
 Public Sub WriteVar(ByRef file As String, ByRef Main As String, ByRef var As String, ByRef Value As String)
 '*****************************************************************
@@ -65,6 +117,7 @@ Function GetVar(ByRef file As String, ByRef Main As String, ByRef var As String,
     GetVar = RTrim$(sSpaces)
     GetVar = Left$(GetVar, Len(GetVar) - 1)
 End Function
+
 Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As Byte) As String
 '*****************************************************************
 'Gets a field from a delimited string

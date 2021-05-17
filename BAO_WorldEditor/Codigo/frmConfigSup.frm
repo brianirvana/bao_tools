@@ -384,26 +384,26 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub cmdDM_Click(index As Integer)
-      '*************************************************
-      'Author: Unkwown
-      'Last modified: 20/05/06
-      '*************************************************
+'*************************************************
+'Author: Unkwown
+'Last modified: 20/05/06
+'*************************************************
 
-   On Error GoTo cmdDM_Click_Error
+    On Error GoTo cmdDM_Click_Error
 
-10    Select Case index
-              Case 0
-20                DMAncho.Text = Str(Val(DMAncho.Text) + 1)
-30            Case 1
-40                DMAncho.Text = Str(Val(DMAncho.Text) - 1)
-50            Case 2
-60                DMLargo.Text = Str(Val(DMLargo.Text) - 1)
-70            Case 3
-80                DMLargo.Text = Str(Val(DMLargo.Text) + 1)
-90    End Select
+10  Select Case index
+        Case 0
+20          DMAncho.Text = str(Val(DMAncho.Text) + 1)
+30      Case 1
+40          DMAncho.Text = str(Val(DMAncho.Text) - 1)
+50      Case 2
+60          DMLargo.Text = str(Val(DMLargo.Text) - 1)
+70      Case 3
+80          DMLargo.Text = str(Val(DMLargo.Text) + 1)
+90  End Select
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 cmdDM_Click_Error:
 
@@ -416,7 +416,7 @@ Private Sub Form_Deactivate()
 'Last modified: 20/05/06
 '*************************************************
 
-Me.Hide
+    Me.Hide
 End Sub
 
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
@@ -425,10 +425,10 @@ Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
 'Last modified: 20/05/06
 '*************************************************
 
-If UnloadMode <> 0 Then
-    Cancel = True
-    Me.Hide
-End If
+    If UnloadMode <> 0 Then
+        Cancel = True
+        Me.Hide
+    End If
 End Sub
 
 Private Sub DespMosaic_Click()
@@ -436,8 +436,8 @@ Private Sub DespMosaic_Click()
 'Author: ^[GS]^
 'Last modified: 26/05/06
 '*************************************************
-If LenB(DMAncho.Text) = 0 Then DMAncho.Text = "0"
-If LenB(DMLargo.Text) = 0 Then DMLargo.Text = "0"
+    If LenB(DMAncho.Text) = 0 Then DMAncho.Text = "0"
+    If LenB(DMLargo.Text) = 0 Then DMLargo.Text = "0"
 End Sub
 
 
@@ -447,7 +447,7 @@ Private Sub mAncho_KeyPress(KeyAscii As Integer)
 'Last modified: 20/05/06
 '*************************************************
 ' Impedir que se ingrese un valor no numerico
-If KeyAscii <> 8 And IsNumeric(Chr(KeyAscii)) = False Then KeyAscii = 0
+    If KeyAscii <> 8 And IsNumeric(Chr(KeyAscii)) = False Then KeyAscii = 0
 End Sub
 
 Private Sub mLargo_KeyPress(KeyAscii As Integer)
@@ -456,7 +456,7 @@ Private Sub mLargo_KeyPress(KeyAscii As Integer)
 'Last modified: 20/05/06
 '*************************************************
 ' Impedir que se ingrese un valor no numerico
-If KeyAscii <> 8 And IsNumeric(Chr(KeyAscii)) = False Then KeyAscii = 0
+    If KeyAscii <> 8 And IsNumeric(Chr(KeyAscii)) = False Then KeyAscii = 0
 End Sub
 
 Private Sub cmdAceptar_Click()
@@ -464,7 +464,7 @@ Private Sub cmdAceptar_Click()
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
-Me.Hide
+    Me.Hide
 End Sub
 
 Private Sub MOSAICO_Click()
@@ -472,6 +472,6 @@ Private Sub MOSAICO_Click()
 'Author: ^[GS]^
 'Last modified: 26/05/06
 '*************************************************
-If LenB(mAncho.Text) = 0 Then mAncho.Text = "0"
-If LenB(mLargo.Text) = 0 Then mLargo.Text = "0"
+    If LenB(mAncho.Text) = 0 Then mAncho.Text = "0"
+    If LenB(mLargo.Text) = 0 Then mLargo.Text = "0"
 End Sub

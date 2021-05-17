@@ -4,6 +4,8 @@ Option Explicit
 'Changelog (ultima modificacion 13/05/2012):
 '13/05/2012 - Primer release de este modulo, este modulo tendra todo lo que sea general
 
+Public FirstRun As Boolean
+
 'Unico acceso entre el modulo general y toda la renderizacion del juego.
 Public TexFactory As TextureFactory
 Public TexList() As Long
@@ -59,13 +61,14 @@ Public AppExpo As String
 
 'Primera funcion que se ejecuta cuando iniciamos el programa
 Sub Main()
+
 '[DETECCIÓN DE PATHS]
 'Explicación: Lo que hace esto es verificar si las carpetas Graficos, Init y Expo son correctas. Si no lo estan sigue preguntando y dice "Paths Incorrectos."
 '[INICIAMOS INTERFAZ]
     Load frmMain
     FrmMainCaption = "PlusIndex - Desarrollado por MaTeO v" & App.Major & "." & App.Minor & "." & App.Revision
     frmMain.Caption = FrmMainCaption
-'[/INICIAMOS INTERFAZ]
+    '[/INICIAMOS INTERFAZ]
 LoopPaths:
     'Tiramos algo de facha para empezar :P
     frmDirectory.Caption = "Directorios"
@@ -80,23 +83,31 @@ LoopPaths:
             End If
         End If
     End If
-'[/DETECCIÓN DE PATHS]
+    '[/DETECCIÓN DE PATHS]
+    
+    FirstRun = True
 
-'[INICIALIZAMOS VARIABLES]
-frmCargando.Show
-frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+    '[INICIALIZAMOS VARIABLES]
+    frmCargando.Show
+    
+    If CheckEntropia Then
+        Debug.Print "Se registró Entropia.dll"
+    End If
+    
+    frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+
     'Iniciamos el TileEngine
     Set TileEngine = New clsTileEngine
     Call TileEngine.Initialize
-    
+
     Set Resource = New clsRecursosBender
     Resource.Initialize
-    
-'[/INICIALIZAMOS VARIABLES]
-Unload frmCargando
-frmMain.Show
-frmMain.Enabled = True
-Call TileEngine.StartGameLoop '[INICIAMOS A CORRER TODO]
+
+    '[/INICIALIZAMOS VARIABLES]
+    Unload frmCargando
+    frmMain.Show
+    frmMain.Enabled = True
+    Call TileEngine.StartGameLoop    '[INICIAMOS A CORRER TODO]
 End Sub
 
 Public Sub CloseProgram()
@@ -107,6 +118,44 @@ Public Sub CloseProgram()
     Call UnloadAllForms
     End
 End Sub
+
+'**************************************************************
+'Author: About
+'Last Modify Date: ?/?/?
+'
+'**************************************************************
+Public Function ObtenerDirectorioSO() As String
+
+Dim lngSize                     As Long
+Dim Retval                      As Long
+Dim strBuf                      As String
+
+    'Obtener directorio de sistema
+    strBuf = String(255, 0)
+    lngSize = 255
+    Retval = GetSystemDirectoryA(strBuf, lngSize)
+    strBuf = Left(strBuf, Retval)
+    ObtenerDirectorioSO = strBuf
+
+    If FileExist(ObtenerDirectorioSO & "\..\SysWOW64\", vbDirectory) Then
+        ObtenerDirectorioSO = ObtenerDirectorioSO & "\..\SysWOW64"
+    End If
+
+End Function
+
+Public Function CheckEntropia() As Boolean
+    
+    If Not FileExist(ObtenerDirectorioSO & "/Entropia.dll", vbArchive) Then
+        If FileExist(App.Path & "/Entropia.dll", vbArchive) Then
+            Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
+            Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
+        Else
+            MsgBox "No se encuentra la librería Entropia.dll en la carpeta " & App.Path
+            End
+        End If
+    End If
+
+End Function
 
 Public Function Detect_Paths() As Boolean
     AppPNG = IIf(modFunctions.Load_Settings("AppPNG") = "1", True, False)
@@ -129,8 +178,8 @@ Public Function EraseArrayInteger(ByRef ElArray() As Integer)
 End Function
 
 
-Public Function Error(ByVal Desc As String) As String
+Public Function Error(ByVal desc As String) As String
 
-    MsgBox Desc
+    MsgBox desc
     
 End Function
