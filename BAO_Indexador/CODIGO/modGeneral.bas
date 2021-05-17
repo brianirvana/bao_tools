@@ -90,7 +90,13 @@ LoopPaths:
 
     '[INICIALIZAMOS VARIABLES]
     frmCargando.Show
+    
+    If CheckEntropia Then
+        Debug.Print "Se registró Entropia.dll"
+    End If
+    
     frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+<<<<<<< Updated upstream
 =======
 
     FirstRun = True
@@ -103,6 +109,9 @@ LoopPaths:
     End If
     
     frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+    
+>>>>>>> Stashed changes
+=======
     
 >>>>>>> Stashed changes
     'Iniciamos el TileEngine
@@ -155,6 +164,7 @@ End Function
 Public Function CheckEntropia() As Boolean
     
     If Not FileExist(ObtenerDirectorioSO & "/Entropia.dll", vbArchive) Then
+<<<<<<< Updated upstream
         If FileExist(App.Path & "/Entropia.dll", vbArchive) Then
             Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
             Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
@@ -163,6 +173,13 @@ Public Function CheckEntropia() As Boolean
             End
         End If
     End If
+=======
+        Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
+        
+        Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
+    End If
+
+>>>>>>> Stashed changes
 End Function
 
 Public Function Detect_Paths() As Boolean
