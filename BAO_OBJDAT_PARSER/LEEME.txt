@@ -1,0 +1,4 @@
+1-Pegar dentro de la carpeta objdat algoritm la nueva version de OBJ.dat
+2-ejecutar el index.js
+3-ahora el archivo OBJ.txt es el OBJ.dat pero parseado como un JSON
+4-ahora podes ir a google a buscar JSON TO -> CSV o JSON To -> EXCEL
