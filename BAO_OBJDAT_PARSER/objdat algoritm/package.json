@@ -1,0 +1,18 @@
+{
+  "name": "objdat-algoritm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Centorios",
+  "license": "ISC",
+  "dependencies": {
+    "blob": "^0.1.0",
+    "cross-blob": "^3.0.0",
+    "file-saver": "^2.0.5",
+    "google-spreadsheet": "^3.1.15",
+    "xlsx": "^0.17.0"
+  }
+}
