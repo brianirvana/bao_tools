@@ -16,3 +16,6 @@ if __name__=="__main__":
         src = filename
         newpath = "EXPORT/" + filename.strip('.png').strip('.PNG') + '.bmp'
         transformarPNGaBMP(filename, newpath)
+
+
+#si no esta creada la carpeta EXPORT adentro de los recursos del cliente el script NO funciona
