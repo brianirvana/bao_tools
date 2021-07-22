@@ -1,0 +1,22 @@
+Para crear los dos gráficos por cada mapa (si, son dos por cada mapa, en total son 6)
+se debe hacer lo siguiente:
+
+En el WorldEditor, generar todas las screehnshots
+con la app "crear mega mundo" se acoplan en una sola imagen (creo que de 1800x1800 pixeles aprox)
+Luego, abrís el PSD correspondiente al mapa (ejemplo, supongamos que estamos haciendo el Mapa1.map)
+Ponemos el .bmp final que nos dió la APP "Crear mega mundo", 
+Destildamos la opción "TEXTOS" del grupo de capas de textos (el que contiene el nombre de las ciudades)
+
+en Photoshpop vamos a Archivo> Guardar para web y dispositivos:
+
+En tamaño de imagen elegimos 1200x1200, ponemos guardar y lo guardamos como JPEG.
+
+Ahora vamos al historial de Photoshop, borramos la redimensión, 
+Ahora si activamos la opción "TEXTOS" del grupo de capas.
+
+y volvemos a Archivo> Guardar para web y dispositivos, elegimos "Tamaño de imagen" 569x569 pixeles (siempre hablamos en pixeles)
+guardar en JPEG y listo.
+
+El nombre de cada uno de esos archivos está en la carpeta de gráficos del cliente... Uno es Mapa1.jpg y otro es MiniMapa1.jpg (no me acuerdo bien cual era para cada cosa.. pero bueno, se fijan ahí para no errarle.)
+
+

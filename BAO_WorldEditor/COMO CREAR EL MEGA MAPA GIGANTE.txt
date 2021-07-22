@@ -1,0 +1,12 @@
+Para crear el mapa gigante que aparece con la Q en bender
+1-Abrir con el mapeador el mapa en cuestion a renderizar
+2-Acordarse de ocultar todas las capas innecesarias (dejarlas visibles relentiza mucho el proceso) (Bloqueos,Triggers,Traslados,objetos,npcs)
+3-Crear en el directorio en el que se encuentra el ejecutable del editor del mundo una carpeta de nombre "ImagenesMundoBAO"
+4-Ir al menu de Archivo->Guardar todos los mapas
+5-Una vez finalizado el proceso ingresar a la carpeta "BAO_Crear_Mega_Mapa_Q" y ejecutar el archivo "Crear Mega Mapa.exe"
+6-una vez finalizada la ejecucion de dicho programa, el archivo .bmp gigante se encuentra al fondo de nuestra carpeta "ImagenesMundoBAO"
+7-Ese archivo se encuentra en formato .bmp por lo tanto hay que pasarlo por un convertidor o photoshop antes de ponerlo con su respectivo nombre en la carpeta de recursos del cliente
+
+
+
+Alejo (Centorios) 21/07/2021
