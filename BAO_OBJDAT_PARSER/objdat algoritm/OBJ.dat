@@ -12,7 +12,7 @@
 ' 11: Pociones
 ' 12: Libros
 ' 13: Bebidae
-' 14: Leña
+' 14: Leï¿½a
 ' 15: Fogata
 ' 16: escudos
 ' 17: cascos
@@ -111,19 +111,19 @@ Bot_MinLvl=1
 Bot_MaxLvl=15
 
 [OBJ4]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7000
 ObjType=4
 Agarrable=1
 
 [OBJ5]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7001
 ObjType=4
 Agarrable=1
 
 [OBJ6]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7002
 ObjType=4
 Agarrable=1
@@ -222,7 +222,7 @@ Agarrable=0
 Anim=12
 MinHit=1
 MaxHit=2
-Apuñala=1
+Apuï¿½ala=1
 Valor=140
 Crucial=1
 LingH=2
@@ -261,7 +261,7 @@ GrhIndex=512
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=¡La mejor comida, al mejor precio! || Si tu energía está baja, y tienes hambre, este es el lugar recomendado para que compres alimento y bebida para recuperar fuerzas y seguir viaje.
+Texto=ï¿½La mejor comida, al mejor precio! || Si tu energï¿½a estï¿½ baja, y tienes hambre, este es el lugar recomendado para que compres alimento y bebida para recuperar fuerzas y seguir viaje.
 
 [OBJ19]
 Name=Espada Dos Manos
@@ -286,15 +286,15 @@ LingO=0
 SkHerreria=20
 
 [OBJ20]
-Name=Lápida
+Name=Lï¿½pida
 GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Aquí yace Durmin Van Brick, otrora gran guerrero del Imperio.
+Texto=Aquï¿½ yace Durmin Van Brick, otrora gran guerrero del Imperio.
 
 [OBJ21]
-Name=Porción de Tarta
+Name=Porciï¿½n de Tarta
 GrhIndex=515
 ObjType=1
 Agarrable=0
@@ -321,7 +321,7 @@ Valor=3
 Crucial=1
 
 [OBJ24]
-Name=Pan de Maíz
+Name=Pan de Maï¿½z
 GrhIndex=518
 ObjType=1
 Agarrable=0
@@ -366,7 +366,7 @@ Valor=6
 Crucial=1
 
 [OBJ29]
-Name=Sandía
+Name=Sandï¿½a
 GrhIndex=523
 ObjType=1
 Agarrable=0
@@ -398,7 +398,7 @@ Name=Vestimentas Comunes
 GrhIndex=527
 ObjType=3
 NumRopaje=1
-'NumRopaje=524 'Ropaje Parche Navdeño
+'NumRopaje=524 'Ropaje Parche Navdeï¿½o
 Agarrable=0
 MaxDef=0
 MinDef=0
@@ -414,7 +414,7 @@ Name=Vestimentas Comunes
 GrhIndex=528
 ObjType=3
 NumRopaje=2
-'NumRopaje=526 'Ropaje Parche Navdeño
+'NumRopaje=526 'Ropaje Parche Navdeï¿½o
 Agarrable=0
 MaxDef=0
 MinDef=0
@@ -431,7 +431,7 @@ GrhIndex=530
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Ropa Azrra: Aquí podrás encontrar vestimentas para mantener tu energía siempre al máximo. Consulta precios, defenza, y fijate siempre si puedes usar los ropajes antes de comprar una armadura ó túnica.
+Texto=Ropa Azrra: Aquï¿½ podrï¿½s encontrar vestimentas para mantener tu energï¿½a siempre al mï¿½ximo. Consulta precios, defenza, y fijate siempre si puedes usar los ropajes antes de comprar una armadura ï¿½ tï¿½nica.
 
 [OBJ34]
 Name=Foro de Ullathorpe
@@ -456,7 +456,7 @@ Bot_MinLvl=1
 Bot_MaxLvl=5
 
 [OBJ36]
-Name=Poción Amarilla
+Name=Pociï¿½n Amarilla
 GrhIndex=540
 ObjType=11
 Agarrable=0
@@ -469,7 +469,7 @@ Crucial=1
 Respawn=1
 
 [OBJ37] 
-Name=Poción Azul
+Name=Pociï¿½n Azul
 GrhIndex=541
 ObjType=11
 Agarrable=0
@@ -482,7 +482,7 @@ Respawn=1
 Bot_MinLvl=18
 
 [OBJ38]
-Name=Poción Roja
+Name=Pociï¿½n Roja
 GrhIndex=542
 ObjType=11
 Agarrable=0
@@ -495,7 +495,7 @@ Respawn=1
 Bot_MinLvl=18
 
 [OBJ39]
-Name=Poción Verde
+Name=Pociï¿½n Verde
 GrhIndex=543
 ObjType=11
 Agarrable=0
@@ -559,31 +559,31 @@ Valor=80
 Crucial=1
 
 [OBJ46]'Nieve 1
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=641
 ObjType=4
 Agarrable=1
 
 [OBJ47]'Nieve 2
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=642
 ObjType=4
 Agarrable=1
 
 [OBJ48]'Nieve 3
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=641
 ObjType=4
 Agarrable=1
 
 [OBJ49]'Nieve 4
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=644
 ObjType=4
 Agarrable=1
 
 [OBJ50]'Nieve 5
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=647
 ObjType=4
 Agarrable=1
@@ -665,7 +665,7 @@ Llave=1
 Clave=3
 
 [OBJ58]
-Name=Leña
+Name=Leï¿½a
 GrhIndex=550
 ObjType=14
 Agarrable=0
@@ -677,10 +677,10 @@ GrhIndex=546
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Las pociones son brebajes mágicos, que aumentan siempre alguna cualidad (Salvo la poción Negra, que es veneno y sirve para morir).||Estos objetos, son preciados y fundamentales para aventurarte lejos de las zonas seguras.||Las pociones rojas, curarán 30 puntos de vida c/u.|Las pociones azules, curarán el 5% de tu mana total (si es que tienes).|Las pociones Violetas, curan en veneno adquirido por vívoras o escorpiones.|Las Pociones Amarillas aumentan tu agilidad para evadir golpes y mejora tu habilidad para realizarlos durante un minuto. Las pociones Verdes, son similares a las amarillas, pero con la fuerza.
+Texto=Las pociones son brebajes mï¿½gicos, que aumentan siempre alguna cualidad (Salvo la pociï¿½n Negra, que es veneno y sirve para morir).||Estos objetos, son preciados y fundamentales para aventurarte lejos de las zonas seguras.||Las pociones rojas, curarï¿½n 30 puntos de vida c/u.|Las pociones azules, curarï¿½n el 5% de tu mana total (si es que tienes).|Las pociones Violetas, curan en veneno adquirido por vï¿½voras o escorpiones.|Las Pociones Amarillas aumentan tu agilidad para evadir golpes y mejora tu habilidad para realizarlos durante un minuto. Las pociones Verdes, son similares a las amarillas, pero con la fuerza.
 
 [OBJ60]
-Name=Casa Número 1
+Name=Casa Nï¿½mero 1
 GrhIndex=547
 VGrande=501
 ObjType=8
@@ -688,12 +688,12 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ61]
-Name=Cartel Carpintería
+Name=Cartel Carpinterï¿½a
 GrhIndex=548
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=¡Compra y venta de madera! Consigue aquí las herramientas para trabajadores de la madera. Para construír tu barca, por ejemplo, necesitarás una de estas herramientas (serrucho) y al menos 9.000 leños. Deberás talar con paciencia, y con 35 puntos de habilidad en carpintería y un serrucho construirás tu primer barca.
+Texto=ï¿½Compra y venta de madera! Consigue aquï¿½ las herramientas para trabajadores de la madera. Para construï¿½r tu barca, por ejemplo, necesitarï¿½s una de estas herramientas (serrucho) y al menos 9.000 leï¿½os. Deberï¿½s talar con paciencia, y con 35 puntos de habilidad en carpinterï¿½a y un serrucho construirï¿½s tu primer barca.
 
 [OBJ62]
 Name=Cartel Propiedades
@@ -701,7 +701,7 @@ GrhIndex=549
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Compra y venta de propiedades. ¡Stock limitado!
+Texto=Compra y venta de propiedades. ï¿½Stock limitado!
 
 [OBJ63]
 Name=Fogata
@@ -860,7 +860,7 @@ IndexCerrada=75
 IndexCerradaLlave=76
 
 [OBJ77]
-Name=Casa Número 2
+Name=Casa Nï¿½mero 2
 GrhIndex=553
 VGrande=501
 ObjType=8
@@ -868,7 +868,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ78]
-Name=Casa Número 3
+Name=Casa Nï¿½mero 3
 GrhIndex=552
 VGrande=501
 ObjType=8
@@ -876,7 +876,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ79]
-Name=Casa Número 4
+Name=Casa Nï¿½mero 4
 GrhIndex=551
 VGrande=501
 ObjType=8
@@ -895,7 +895,7 @@ Valor=80
 Crucial=1
 
 [OBJ81]
-Name=Sandía
+Name=Sandï¿½a
 GrhIndex=523
 ObjType=1
 Agarrable=0
@@ -905,7 +905,7 @@ Valor=5
 Crucial=1
 
 [OBJ82]
-Name=Casa Número 5
+Name=Casa Nï¿½mero 5
 GrhIndex=555
 VGrande=501
 ObjType=8
@@ -913,7 +913,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ83]
-Name=Casa Número 6
+Name=Casa Nï¿½mero 6
 GrhIndex=556
 VGrande=501
 ObjType=8
@@ -921,7 +921,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ84]
-Name=Casa Número 7
+Name=Casa Nï¿½mero 7
 GrhIndex=567
 VGrande=501
 ObjType=8
@@ -929,7 +929,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ85]
-Name=Casa Número 8
+Name=Casa Nï¿½mero 8
 GrhIndex=568
 VGrande=501
 ObjType=8
@@ -937,7 +937,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ86]
-Name=Casa Número 9
+Name=Casa Nï¿½mero 9
 GrhIndex=569
 VGrande=501
 ObjType=8
@@ -1322,7 +1322,7 @@ Bot_MinLvl=20
 Bot_MaxLvl=40
 
 [OBJ127]
-Name=Hacha de Leñador
+Name=Hacha de Leï¿½ador
 GrhIndex=565
 ObjType=2
 Agarrable=0
@@ -1494,10 +1494,10 @@ GrhIndex=570
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Compra y venta de armaduras, cascos y escudos. Necesitarás de la ayuda de este tipo de objetos si quieres aventurarte más allá del horizonte.
+Texto=Compra y venta de armaduras, cascos y escudos. Necesitarï¿½s de la ayuda de este tipo de objetos si quieres aventurarte mï¿½s allï¿½ del horizonte.
 
 [OBJ135]
-Name=Túnica Roja Burda
+Name=Tï¿½nica Roja Burda
 GrhIndex=657
 ObjType=3
 NumRopaje=50
@@ -1524,7 +1524,7 @@ ObjType=10
 Agarrable=1
 
 [OBJ138]
-Name=Caña de Pescar
+Name=Caï¿½a de Pescar
 GrhIndex=574
 ObjType=2
 Agarrable=0
@@ -1547,7 +1547,7 @@ Crucial=1
 
 '<--------------------MANSION Turgon ------------------------>
 [OBJ140]
-Name=Llave Turgon Mansión
+Name=Llave Turgon Mansiï¿½n
 GrhIndex=509
 ObjType=9
 Agarrable=0
@@ -1610,49 +1610,49 @@ ObjType=19
 Agarrable=1
 
 [OBJ147] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7001
 ObjType=4
 Agarrable=1
 
 [OBJ148] 
-Name=Árbol de la Jungla
+Name=ï¿½rbol de la Jungla
 GrhIndex=7002
 ObjType=4
 Agarrable=1
 
 [OBJ149] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7000
 ObjType=4
 Agarrable=1
 
 [OBJ150] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7222
 ObjType=4
 Agarrable=1
 
 [OBJ151] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7223
 ObjType=4
 Agarrable=1
 
 [OBJ152] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7224
 ObjType=4
 Agarrable=1
 
 [OBJ153] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7225
 ObjType=4
 Agarrable=1
 
 [OBJ154] 
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=7226
 ObjType=4
 Agarrable=1
@@ -1695,7 +1695,7 @@ Valor=2
 Crucial=1
 
 [OBJ159]
-Name=Hacha de Bárbaro
+Name=Hacha de Bï¿½rbaro
 GrhIndex=583
 ObjType=2
 Agarrable=0
@@ -1761,7 +1761,7 @@ Agarrable=0
 Anim=14
 MinHit=1
 MaxHit=5
-Apuñala=1
+Apuï¿½ala=1
 Valor=1050
 Crucial=1
 LingH=15
@@ -1778,7 +1778,7 @@ Agarrable=0
 Anim=12
 MinHit=2
 MaxHit=4
-Apuñala=1
+Apuï¿½ala=1
 Valor=490
 LingH=7
 LingP=0
@@ -1789,7 +1789,7 @@ SND2=177
 SND3=2
 
 [OBJ166] 
-Name=Poción Violeta
+Name=Pociï¿½n Violeta
 GrhIndex=601
 ObjType=11
 Agarrable=0
@@ -1799,7 +1799,7 @@ Crucial=1
 Respawn=1
 
 [OBJ167]
-Name=Mueble Rústico
+Name=Mueble Rï¿½stico
 GrhIndex=593
 ObjType=20
 Agarrable=0
@@ -2113,7 +2113,7 @@ Bot_MinLvl=40
 Bot_MaxLvl=50
 
 [OBJ196]
-Name=Túnica de Monje Gris
+Name=Tï¿½nica de Monje Gris
 GrhIndex=606
 ObjType=3
 NumRopaje=46
@@ -2128,7 +2128,7 @@ Bot_MinLvl=12
 Bot_MaxLvl=20
 
 [OBJ197]
-Name=Flecha Mágica
+Name=Flecha Mï¿½gica
 GrhIndex=609
 ObjType=24
 Agarrable=0
@@ -2197,7 +2197,7 @@ Crucial=1
 HechizoIndex=5
 
 [OBJ204]
-Name=Flecha Eléctrica
+Name=Flecha Elï¿½ctrica
 GrhIndex=27538
 ObjType=24
 Agarrable=0
@@ -2206,7 +2206,7 @@ Crucial=1
 HechizoIndex=7
 
 [OBJ205]
-Name=Misil Mágico
+Name=Misil Mï¿½gico
 GrhIndex=27527
 ObjType=24
 Agarrable=0
@@ -2224,7 +2224,7 @@ Crucial=1
 HechizoIndex=9
 
 [OBJ207]
-Name=Remover Parálisis
+Name=Remover Parï¿½lisis
 GrhIndex=27532
 ObjType=24
 Agarrable=0
@@ -2233,7 +2233,7 @@ Crucial=1
 HechizoIndex=10
 
 [OBJ208]
-Name=Flauta Mágica
+Name=Flauta Mï¿½gica
 GrhIndex=1522
 ObjType=26
 Agarrable=0
@@ -2267,7 +2267,7 @@ Agarrable=1
 Texto=Bienvenidos al Gremio de los Mineros, contamos con fabulosas herramientas para trabajadores y compramos los minerales de todo el mundo.
 
 [OBJ210]
-Name=Casa Número 11
+Name=Casa Nï¿½mero 11
 GrhIndex=611
 VGrande=501
 ObjType=8
@@ -2275,7 +2275,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ211]
-Name=Casa Número 12
+Name=Casa Nï¿½mero 12
 GrhIndex=612
 VGrande=501
 ObjType=8
@@ -2283,7 +2283,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ212]
-Name=Casa Número 13
+Name=Casa Nï¿½mero 13
 GrhIndex=613
 VGrande=501
 ObjType=8
@@ -2291,7 +2291,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ213]
-Name=Casa Número 14
+Name=Casa Nï¿½mero 14
 GrhIndex=614
 VGrande=501
 ObjType=8
@@ -2299,7 +2299,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ214]
-Name=Casa Número 15
+Name=Casa Nï¿½mero 15
 GrhIndex=615
 VGrande=501
 ObjType=8
@@ -2307,7 +2307,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ215]
-Name=Casa Número 16
+Name=Casa Nï¿½mero 16
 GrhIndex=616
 VGrande=501
 ObjType=8
@@ -2315,7 +2315,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ216]
-Name=Casa Número 17
+Name=Casa Nï¿½mero 17
 GrhIndex=617
 VGrande=501
 ObjType=8
@@ -2323,7 +2323,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ217]
-Name=Casa Número 18
+Name=Casa Nï¿½mero 18
 GrhIndex=618
 VGrande=501
 ObjType=8
@@ -2331,7 +2331,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ218]
-Name=Casa Número 19
+Name=Casa Nï¿½mero 19
 GrhIndex=619
 VGrande=501
 ObjType=8
@@ -2339,7 +2339,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ219]
-Name=Casa Número 10
+Name=Casa Nï¿½mero 10
 GrhIndex=620
 VGrande=501
 ObjType=8
@@ -2347,7 +2347,7 @@ Agarrable=1
 Texto=Residencia Privada.
 
 [OBJ220]
-Name=Casa Número 20
+Name=Casa Nï¿½mero 20
 GrhIndex=621
 VGrande=501
 ObjType=8
@@ -2360,7 +2360,7 @@ GrhIndex=622
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=La venta de hechizos no esta ofializada. Deberás matar criaturas para conseguir los hechizos más poderosos. Solo conseguirás hechizos muy básicos a la venta, en mercaderes comunes de las ciudades. Revisa el mapa de la letra "Q" para más info.
+Texto=La venta de hechizos no esta ofializada. Deberï¿½s matar criaturas para conseguir los hechizos mï¿½s poderosos. Solo conseguirï¿½s hechizos muy bï¿½sicos a la venta, en mercaderes comunes de las ciudades. Revisa el mapa de la letra "Q" para mï¿½s info.
 
 [OBJ222]
 Name=Cartel Pescadores
@@ -2368,7 +2368,7 @@ GrhIndex=623
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Gremio de Pescadores.|Aquí se encuentra el mercader de pescados de la zona, y podrás comprar y vender tus pescados. La pesca, sigue siendo un buen recurso para adquirir algunas monedas de oro en epocas de crisis. La pesca es buena por estos lares.
+Texto=Gremio de Pescadores.|Aquï¿½ se encuentra el mercader de pescados de la zona, y podrï¿½s comprar y vender tus pescados. La pesca, sigue siendo un buen recurso para adquirir algunas monedas de oro en epocas de crisis. La pesca es buena por estos lares.
 
 [OBJ223]
 Name=Cartel Angrod, Piramide y Harrogath
@@ -2376,7 +2376,7 @@ GrhIndex=625
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Hola aventurero, por el sendero hacia el Norte se encuentra el pueblo de Angrod y al Oeste (<---), atravez del desierto encontrarás la gran Piramide. Hacia el este (--->), encontraras la ciudad de Harrogath ¡Buena suerte viajero!
+Texto=Hola aventurero, por el sendero hacia el Norte se encuentra el pueblo de Angrod y al Oeste (<---), atravez del desierto encontrarï¿½s la gran Piramide. Hacia el este (--->), encontraras la ciudad de Harrogath ï¿½Buena suerte viajero!
 
 [OBJ224]
 Name=Cartel
@@ -2384,7 +2384,7 @@ GrhIndex=624
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Forasteros: Este Pueblo forma parte del Gran Imperio de Angrod, cualquier acción criminal será reprimida por la Guardia Real. Todo criminal será perseguido y ajusticiado.                                Ordenanza Real.
+Texto=Forasteros: Este Pueblo forma parte del Gran Imperio de Angrod, cualquier acciï¿½n criminal serï¿½ reprimida por la Guardia Real. Todo criminal serï¿½ perseguido y ajusticiado.                                Ordenanza Real.
 
 [OBJ225]
 Name=Cartel Newbie Dungeon
@@ -2392,7 +2392,7 @@ GrhIndex=626
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=¡Hola osados aventureros, sean bienvenidos en el Dungeon Newbie! Aquí podrán entrenar sus habilidades sin correr ningún riesgo ya que el Dungeon está fuertemente custodiado por la Guardia Imperial. Adentrándose encontrarán criaturas perversas con las cuales podrán luchar, también encontrarán un Sacerdote para ser resucitados, provisiones, etc. ¡Suerte y que lo disfruteís!
+Texto=ï¿½Hola osados aventureros, sean bienvenidos en el Dungeon Newbie! Aquï¿½ podrï¿½n entrenar sus habilidades sin correr ningï¿½n riesgo ya que el Dungeon estï¿½ fuertemente custodiado por la Guardia Imperial. Adentrï¿½ndose encontrarï¿½n criaturas perversas con las cuales podrï¿½n luchar, tambiï¿½n encontrarï¿½n un Sacerdote para ser resucitados, provisiones, etc. ï¿½Suerte y que lo disfruteï¿½s!
 
 [OBJ226]
 Name=Cartel Peligro Dungeon Lava
@@ -2400,7 +2400,7 @@ GrhIndex=628
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Estas son las cavernas más peligrosas, el Dungeon Lava
+Texto=Estas son las cavernas mï¿½s peligrosas, el Dungeon Lava
 
 [OBJ227]
 Name=Cartel Dungeon Lava Hacia el Sur
@@ -2408,7 +2408,7 @@ GrhIndex=627
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Hacia el sur encontrarás la entrada hacia Dungeon Lava ¡Ten cuidado viajero!
+Texto=Hacia el sur encontrarï¿½s la entrada hacia Dungeon Lava ï¿½Ten cuidado viajero!
 
 [OBJ228]
 Name=Yacimiento de Oro
@@ -2474,7 +2474,7 @@ Agarrable=0
 
 
 [OBJ237]
-Name=Túnica Roja Burda
+Name=Tï¿½nica Roja Burda
 GrhIndex=657
 ObjType=3
 NumRopaje=50
@@ -2487,7 +2487,7 @@ SND1=202
 SND2=203
 
 [OBJ238]
-Name=Túnica de Sacerdote
+Name=Tï¿½nica de Sacerdote
 GrhIndex=656
 ObjType=3
 NumRopaje=49
@@ -2502,7 +2502,7 @@ Bot_MinLvl=15
 Bot_MaxLvl=24
 
 [OBJ239]
-Name=Túnica Roja
+Name=Tï¿½nica Roja
 GrhIndex=657
 ObjType=3
 NumRopaje=50
@@ -2521,7 +2521,7 @@ Name=Ropa de Enano (E/G)
 GrhIndex=658
 ObjType=3
 NumRopaje=52
-'NumRopaje=521 'Ropaje Parche Navideño (reparar!!!)
+'NumRopaje=521 'Ropaje Parche Navideï¿½o (reparar!!!)
 Agarrable=0
 RazaEnana=1
 MaxDef=0
@@ -2734,7 +2734,7 @@ Agarrable=1
 
 [OBJ257]
 Name=Foro
-ID=Mesón Hostigado
+ID=Mesï¿½n Hostigado
 GrhIndex=529
 ObjType=10
 Agarrable=1
@@ -2745,7 +2745,7 @@ GrhIndex=670
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Banco Goliath. La mayor seguridad. Puedes depositar el oro que quieras con el comando /DEPOSITAR seguido de la cantidad.|Ejemplo:|/DEPOSITAR 500|Y depositarás 500 monedas de oro en tu cuenta bancaria.||Para retirar el dinero, utiliza: /RETIRAR seguido de la cantidad.|Ejemplo:|/RETIRAR 500|Y podrás retirar el oro.||Siempre es bueno mantener el oro seguro, lejos de los malhechores y bandidos.
+Texto=Banco Goliath. La mayor seguridad. Puedes depositar el oro que quieras con el comando /DEPOSITAR seguido de la cantidad.|Ejemplo:|/DEPOSITAR 500|Y depositarï¿½s 500 monedas de oro en tu cuenta bancaria.||Para retirar el dinero, utiliza: /RETIRAR seguido de la cantidad.|Ejemplo:|/RETIRAR 500|Y podrï¿½s retirar el oro.||Siempre es bueno mantener el oro seguro, lejos de los malhechores y bandidos.
 
 [OBJ259]
 Name=Cartel Provisiones
@@ -2753,7 +2753,7 @@ GrhIndex=672
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Provisiones: Para mantener tu energía alta, deberás alimentarte y beber. Pasa, sientate y toma un trago mientras preparo algo para comer.
+Texto=Provisiones: Para mantener tu energï¿½a alta, deberï¿½s alimentarte y beber. Pasa, sientate y toma un trago mientras preparo algo para comer.
 
 [OBJ260]
 Name=Cartel Sacerdote
@@ -2761,15 +2761,15 @@ GrhIndex=673
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Sacerdote. Aquí podrás resucitarte en caso de que estes muerto, o curarte en caso de que estes herido. Con doble clic en el cuerpo del Sacerdote, te resucitará y automáticamente también te curará. Si no, puedes utilizar el comando cliz izquierdo + /RESUCITAR y luego /CURAR.
+Texto=Sacerdote. Aquï¿½ podrï¿½s resucitarte en caso de que estes muerto, o curarte en caso de que estes herido. Con doble clic en el cuerpo del Sacerdote, te resucitarï¿½ y automï¿½ticamente tambiï¿½n te curarï¿½. Si no, puedes utilizar el comando cliz izquierdo + /RESUCITAR y luego /CURAR.
 
 [OBJ261]
-Name=Cartel Mesón Hostigado
+Name=Cartel Mesï¿½n Hostigado
 GrhIndex=671
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=El Mesón Hostigado.
+Texto=El Mesï¿½n Hostigado.
 
 [OBJ262]
 Name=Cartel
@@ -3256,7 +3256,7 @@ Clave=34
 '<<<<<<<<<<<<<<<Puerta del vault 1 del gran consejo de Angrod >>>>>>>>>>>>>>>>>
 
 [OBJ303]
-Name=Puerta de la Bóveda del Gran Consejo abierta
+Name=Puerta de la Bï¿½veda del Gran Consejo abierta
 GrhIndex=9199
 ObjType=6
 Agarrable=1
@@ -3268,7 +3268,7 @@ IndexCerrada=304
 IndexCerradaLlave=305
 
 [OBJ304]
-Name=Puerta de la Bóveda del Gran Consejo cerrada
+Name=Puerta de la Bï¿½veda del Gran Consejo cerrada
 GrhIndex=9193
 ObjType=6
 Agarrable=1
@@ -3280,7 +3280,7 @@ IndexCerrada=304
 IndexCerradaLlave=305
 
 [OBJ305]
-Name=Puerta de la Bóveda del Gran Consejo cerrada con llave
+Name=Puerta de la Bï¿½veda del Gran Consejo cerrada con llave
 GrhIndex=9193
 ObjType=6
 Agarrable=1
@@ -3292,17 +3292,17 @@ IndexCerrada=304
 IndexCerradaLlave=305
 
 [OBJ306]
-Name=Llave Bóveda del Gran Consejo
+Name=Llave Bï¿½veda del Gran Consejo
 GrhIndex=509
 ObjType=9
 Agarrable=0
 Clave=35
 
 
-'<<<<<<<<<<<<<<<Puerta de la Bóveda Goliath>>>>>>>>>>>>>>>>>
+'<<<<<<<<<<<<<<<Puerta de la Bï¿½veda Goliath>>>>>>>>>>>>>>>>>
 
 [OBJ311]
-Name=Puerta de la Bóveda Goliath abierta
+Name=Puerta de la Bï¿½veda Goliath abierta
 GrhIndex=9199
 ObjType=6
 Agarrable=1
@@ -3314,7 +3314,7 @@ IndexCerrada=312
 IndexCerradaLlave=313
 
 [OBJ312]
-Name=Puerta de la Bóveda Goliath cerrada
+Name=Puerta de la Bï¿½veda Goliath cerrada
 GrhIndex=9193
 ObjType=6
 Agarrable=1
@@ -3326,7 +3326,7 @@ IndexCerrada=312
 IndexCerradaLlave=313
 
 [OBJ313]
-Name=Puerta de la Bóveda Goliath cerrada con llave
+Name=Puerta de la Bï¿½veda Goliath cerrada con llave
 GrhIndex=9193
 ObjType=6
 Agarrable=1
@@ -3338,7 +3338,7 @@ IndexCerrada=312
 IndexCerradaLlave=313
 
 [OBJ314]
-Name=Llave de la Bóveda Goliath
+Name=Llave de la Bï¿½veda Goliath
 GrhIndex=509
 ObjType=9
 Agarrable=02
@@ -3353,7 +3353,7 @@ GrhIndex=675
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Te estás acercando al dungeon más peligroso, Dungeon Lava. Desde el oeste norte y sur podrás ingresar, aunque no es recomendable. Sige el sendero para encontrarlo. ¡Mucha suerte viajero!
+Texto=Te estï¿½s acercando al dungeon mï¿½s peligroso, Dungeon Lava. Desde el oeste norte y sur podrï¿½s ingresar, aunque no es recomendable. Sige el sendero para encontrarlo. ï¿½Mucha suerte viajero!
 
 [OBJ316]
 Name=Cartel Goliath
@@ -3845,7 +3845,7 @@ Bot_MinLvl=25
 Bot_MaxLvl=50
 
 [OBJ357]
-Name=Túnica de Monje Marrón
+Name=Tï¿½nica de Monje Marrï¿½n
 GrhIndex=693
 ObjType=3
 NumRopaje=79
@@ -3942,7 +3942,7 @@ Crucial=1
 HechizoIndex=12
 
 [OBJ364]
-Name=Terrible Hambre de Igôr
+Name=Terrible Hambre de Igï¿½r
 GrhIndex=27534
 ObjType=24
 Agarrable=0
@@ -3958,7 +3958,7 @@ Agarrable=0
 Anim=26
 MinHit=3
 MaxHit=6
-Apuñala=1
+Apuï¿½ala=1
 Valor=1960
 LingH=28
 LingP=0
@@ -3976,7 +3976,7 @@ Agarrable=0
 Anim=27
 MinHit=4
 MaxHit=7
-Apuñala=1
+Apuï¿½ala=1
 Valor=1000
 CP1=GUERRERO
 LingH=38
@@ -3987,7 +3987,7 @@ Fundible=1
 SND1=176
 SND2=177
 SND3=2
-APUÑALA=1
+APUï¿½ALA=1
 
 [OBJ367]
 Name=Daga +4
@@ -3997,7 +3997,7 @@ Agarrable=0
 Anim=28
 MinHit=5
 MaxHit=8
-Apuñala=1
+Apuï¿½ala=1
 Valor=5000
 CP1=DRUIDA
 CP2=MAGO
@@ -4015,15 +4015,15 @@ Fundible=1
 SND1=176
 SND2=177
 SND3=2
-APUÑALA=1
+APUï¿½ALA=1
 
 [OBJ368]
-Name=Lápida
+Name=Lï¿½pida
 GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Aquí yace Altair de Oteren. Fue conocido y amado por todos, sobre todo en Nix donde siempre mostraba su generosidad y su paciencia con los newbies, ayudando con todo lo que tenía a todos, pescando por horas para dar a los demás. Altair, descansa en paz... el pueblo de Nix siempre honrará tu memoria.
+Texto=Aquï¿½ yace Altair de Oteren. Fue conocido y amado por todos, sobre todo en Nix donde siempre mostraba su generosidad y su paciencia con los newbies, ayudando con todo lo que tenï¿½a a todos, pescando por horas para dar a los demï¿½s. Altair, descansa en paz... el pueblo de Nix siempre honrarï¿½ tu memoria.
 
 [OBJ369]
 Name=Armadura Legionaria
@@ -4077,7 +4077,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Bajo este mármol descansan los restos de Mherlyna, esa pequeña demiurgo de grandes sueños. Era tan solo un niño cuando dejo este y el otro mundo. Todos sus amigos, familiares y en las tierras de BenderAO lo recordarán por siempre. Qué en paz descances.
+Texto=Bajo este mï¿½rmol descansan los restos de Mherlyna, esa pequeï¿½a demiurgo de grandes sueï¿½os. Era tan solo un niï¿½o cuando dejo este y el otro mundo. Todos sus amigos, familiares y en las tierras de BenderAO lo recordarï¿½n por siempre. Quï¿½ en paz descances.
 
 [OBJ372]
 Name=Manto de Sacerdote del Imperio
@@ -4184,7 +4184,7 @@ SND1=241
 SND2=240
 
 [OBJ380]
-Name=Invocación de Ultratumba
+Name=Invocaciï¿½n de Ultratumba
 GrhIndex=27521
 ObjType=24
 Agarrable=0
@@ -4193,7 +4193,7 @@ Crucial=1
 HechizoIndex=33
 
 [OBJ381]
-Name=Túnica de Obispo
+Name=Tï¿½nica de Obispo
 GrhIndex=571
 ObjType=3
 NumRopaje=38
@@ -4220,7 +4220,7 @@ Bot_MinLvl=1
 Bot_MaxLvl=10
 
 [OBJ384]
-Name=Hacha de Leñador Donante
+Name=Hacha de Leï¿½ador Donante
 GrhIndex=603
 ObjType=2
 Agarrable=2
@@ -5047,10 +5047,10 @@ IndexAbierta=446
 IndexCerrada=447
 IndexCerradaLlave=448
 
-'<<<<< PRISIÓN ANGROD >>>>>>>>
+'<<<<< PRISIï¿½N ANGROD >>>>>>>>
 
 [OBJ449]
-Name=Puerta de prisión de Angrod abierta
+Name=Puerta de prisiï¿½n de Angrod abierta
 GrhIndex=20609
 ObjType=6
 Agarrable=1
@@ -5062,7 +5062,7 @@ IndexCerrada=450
 IndexCerradaLlave=451
 
 [OBJ450]
-Name=Puerta de prisión de Angrod cerrada
+Name=Puerta de prisiï¿½n de Angrod cerrada
 GrhIndex=20610
 ObjType=6
 Agarrable=1
@@ -5074,7 +5074,7 @@ IndexCerrada=450
 IndexCerradaLlave=451
 
 [OBJ451]
-Name=Puerta de prisión de Angrod cerrada
+Name=Puerta de prisiï¿½n de Angrod cerrada
 GrhIndex=20610
 ObjType=6
 Agarrable=1
@@ -5086,7 +5086,7 @@ IndexCerrada=450
 IndexCerradaLlave=451
 
 [OBJ452]
-Name=Llave Prisión de Angrod
+Name=Llave Prisiï¿½n de Angrod
 GrhIndex=509
 ObjType=9
 Agarrable=0
@@ -5121,21 +5121,21 @@ GrhIndex=669
 ObjType=19
 Agarrable=1
 
-[OBJ457]'Prisión 1
+[OBJ457]'Prisiï¿½n 1
 Name=Cartel
 GrhIndex=718
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Prisión del Reino
+Texto=Prisiï¿½n del Reino
 
-[OBJ458]'Prisión 2
+[OBJ458]'Prisiï¿½n 2
 Name=Cartel
 GrhIndex=720
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Prisión
+Texto=Prisiï¿½n
 
 [OBJ459]
 Name=Cartel Turgon hacia el Sur
@@ -5155,14 +5155,14 @@ newbie=1
 NoSeCae=1
 MinHit=1
 MaxHit=3
-Apuñala=1
+Apuï¿½ala=1
 SoloNPC=1
 SND1=176
 SND2=177
 SND3=2
 
 [OBJ461] 'Repone HP
-Name=Poción Roja (Newbie)
+Name=Pociï¿½n Roja (Newbie)
 GrhIndex=542
 ObjType=11
 Agarrable=2
@@ -5176,7 +5176,7 @@ Crucial=1
 Respawn=1
 
 [OBJ462] 'Mod Fuerza
-Name=Poción Verde (Newbie)
+Name=Pociï¿½n Verde (Newbie)
 GrhIndex=543
 ObjType=11
 Agarrable=2
@@ -5263,7 +5263,7 @@ MinAgu=10
 
 
 [OBJ469]
-Name=Laúd
+Name=Laï¿½d
 GrhIndex=685
 ObjType=26
 Agarrable=0
@@ -5351,7 +5351,7 @@ Madera=50000
 SkCarpinteria=65
 
 [OBJ476]
-Name=Galeón
+Name=Galeï¿½n
 GrhIndex=749
 ObjType=31
 NumRopaje=86
@@ -5438,7 +5438,7 @@ CP1=MAGO
 CP2=DRUIDA
 
 [OBJ481]
-Name=Armadura de Dragón
+Name=Armadura de Dragï¿½n
 GrhIndex=756
 ObjType=3
 NumRopaje=89
@@ -5465,7 +5465,7 @@ SND1=241
 SND2=240
 
 [OBJ482]
-Name=Armadura de Dragón (H/E/EO-M)
+Name=Armadura de Dragï¿½n (H/E/EO-M)
 GrhIndex=757
 ObjType=3
 NumRopaje=90
@@ -5493,7 +5493,7 @@ SND1=241
 SND2=240
 
 [OBJ483]
-Name=Armadura de Dragón (E/G)
+Name=Armadura de Dragï¿½n (E/G)
 GrhIndex=758
 ObjType=3
 NumRopaje=91
@@ -5736,7 +5736,7 @@ SND1=241
 SND2=240
 
 [OBJ496]
-Name=Armadura de la Ciénaga
+Name=Armadura de la Ciï¿½naga
 GrhIndex=772
 ObjType=3
 NumRopaje=106
@@ -5811,7 +5811,7 @@ Bot_MinLvl=18
 Bot_MaxLvl=35
 
 [OBJ500]
-Name=Armadura Bruñida (E/G)
+Name=Armadura Bruï¿½ida (E/G)
 GrhIndex=776
 ObjType=3
 NumRopaje=110
@@ -5964,7 +5964,7 @@ Bot_MinLvl=5
 Bot_MaxLvl=25
 
 [OBJ509]
-Name=Túnica de Maga Oscura (H/E/EO-M)
+Name=Tï¿½nica de Maga Oscura (H/E/EO-M)
 GrhIndex=785
 ObjType=3
 NumRopaje=119
@@ -6006,7 +6006,7 @@ Name=Vestido de Novia Sensual (H/E/EO-M)
 GrhIndex=787
 ObjType=3
 NumRopaje=121
-'NumRopaje=520 'Ropaje Parche Navideño
+'NumRopaje=520 'Ropaje Parche Navideï¿½o
 Agarrable=0
 Mujer=1
 MaxDef=10
@@ -6074,7 +6074,7 @@ Valor=3900
 Crucial=1
 
 [OBJ516]
-Name=Túnica de Maga del Imperio (H/E/EO-M)
+Name=Tï¿½nica de Maga del Imperio (H/E/EO-M)
 GrhIndex=793
 ObjType=3
 NumRopaje=127
@@ -6100,7 +6100,7 @@ SND1=202
 SND2=203
 
 [OBJ517]
-Name=Túnica de Mago del Imperio
+Name=Tï¿½nica de Mago del Imperio
 GrhIndex=794
 ObjType=3
 NumRopaje=128
@@ -6125,7 +6125,7 @@ SND1=202
 SND2=203
 
 [OBJ518]
-Name=Túnica de Mago Oscuro
+Name=Tï¿½nica de Mago Oscuro
 GrhIndex=795
 ObjType=3
 NumRopaje=129
@@ -6148,7 +6148,7 @@ SND1=202
 SND2=203
 
 [OBJ519]
-Name=Túnica Legendaria
+Name=Tï¿½nica Legendaria
 GrhIndex=796
 ObjType=3
 NumRopaje=130
@@ -6222,7 +6222,7 @@ ObjType=19
 Agarrable=1
 
 [OBJ523]
-Name=Manto de Sacerdote Demoníaco
+Name=Manto de Sacerdote Demonï¿½aco
 GrhIndex=800
 ObjType=3
 NumRopaje=134
@@ -6243,7 +6243,7 @@ CP8=LADRON
 CP9=TRABAJADOR
 
 [OBJ524]
-Name=Túnica Roja Especial (E/G)
+Name=Tï¿½nica Roja Especial (E/G)
 GrhIndex=801
 ObjType=3
 NumRopaje=135
@@ -6259,7 +6259,7 @@ Bot_MinLvl=30
 Bot_MaxLvl=50
 
 [OBJ525]
-Name=Túnica Reforzada (E/G)
+Name=Tï¿½nica Reforzada (E/G)
 GrhIndex=802
 ObjType=3
 NumRopaje=136
@@ -6275,7 +6275,7 @@ Bot_MinLvl=25
 Bot_MaxLvl=50
 
 [OBJ526]
-Name=Túnica Reforzada de Mujer (E/G-M)
+Name=Tï¿½nica Reforzada de Mujer (E/G-M)
 GrhIndex=803
 ObjType=3
 NumRopaje=137
@@ -6296,7 +6296,7 @@ Name=Ropa de Enana (E/G-M)
 GrhIndex=804
 ObjType=3
 NumRopaje=138
-'NumRopaje=523 'Ropaje Parche Navdeño
+'NumRopaje=523 'Ropaje Parche Navdeï¿½o
 Agarrable=0
 RazaEnana=1
 Mujer=1
@@ -6308,7 +6308,7 @@ Bot_MinLvl=1
 Bot_MaxLvl=10
 
 [OBJ528]
-Name=Túnica Negra
+Name=Tï¿½nica Negra
 GrhIndex=806
 ObjType=3
 NumRopaje=140
@@ -6349,7 +6349,7 @@ Crucial=1
 HechizoIndex=24
 
 [OBJ531]
-Name=Descarga Eléctrica
+Name=Descarga Elï¿½ctrica
 GrhIndex=27486
 ObjType=24
 Agarrable=0
@@ -6379,7 +6379,7 @@ IndexAbierta=533
 IndexCerrada=534
 
 [OBJ534]
-Name=Odre Vacía
+Name=Odre Vacï¿½a
 GrhIndex=849
 ObjType=33
 Agarrable=0
@@ -6394,7 +6394,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Lápida en homenaje a nuestro gran demiurgo, Gulfas Morgolock, quien desapareció físicamente de estas tierras para salvarnos del oscuro poder del mal.
+Texto=Lï¿½pida en homenaje a nuestro gran demiurgo, Gulfas Morgolock, quien desapareciï¿½ fï¿½sicamente de estas tierras para salvarnos del oscuro poder del mal.
 
 [OBJ536]
 Name=Invocar Elemental de Fuego
@@ -6462,7 +6462,7 @@ Crucial=1
 HechizoIndex=30
 
 [OBJ542]
-Name=Turbación
+Name=Turbaciï¿½n
 GrhIndex=27537
 ObjType=24
 Agarrable=0
@@ -6512,7 +6512,7 @@ GrhIndex=863
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Hacia el Este llegarás a las catacumbas subterraneas, sige por el sendero y las encontraras. ¡Pero ten mucho cuidado! Los criminales acechan allí
+Texto=Hacia el Este llegarï¿½s a las catacumbas subterraneas, sige por el sendero y las encontraras. ï¿½Pero ten mucho cuidado! Los criminales acechan allï¿½
 
 [OBJ548]
 Name=Cartel Ullathorpe, Cementerio
@@ -6520,10 +6520,10 @@ GrhIndex=864
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Hacia el oeste (<---), más allá del océano se encuentra el cementerio, y hacia el Norte tienes la ciudad neutral de Ullathorpe, la más popular de las ciudades por su comercio y pasatiempos.
+Texto=Hacia el oeste (<---), mï¿½s allï¿½ del ocï¿½ano se encuentra el cementerio, y hacia el Norte tienes la ciudad neutral de Ullathorpe, la mï¿½s popular de las ciudades por su comercio y pasatiempos.
 
 [OBJ549]
-Name=Túnica de Mago del Imperio (E/G)
+Name=Tï¿½nica de Mago del Imperio (E/G)
 GrhIndex=799
 ObjType=3
 NumRopaje=133
@@ -6662,7 +6662,7 @@ CP10=TRABAJADOR
 CP11=ASESINO
 CP12=PALADIN
 Log=1
-APUÑALA=1
+APUï¿½ALA=1
 
 [OBJ557]
 Name=Teleport a Mapa 32.
@@ -6671,7 +6671,7 @@ ObjType=19
 Agarrable=1
 
 [OBJ558]
-Name=Túnica de Mago Oscuro (E/G)
+Name=Tï¿½nica de Mago Oscuro (E/G)
 GrhIndex=774
 ObjType=3
 NumRopaje=23
@@ -6702,7 +6702,7 @@ Agarrable=0
 Anim=12
 MinHit=6
 MaxHit=8
-Apuñala=1
+Apuï¿½ala=1
 Valor=4060
 LingH=58
 LingP=0
@@ -6748,7 +6748,7 @@ Destroy=1
 NoSeCae=1
 
 [OBJ562]
-Name=Poción Azul (Newbie)
+Name=Pociï¿½n Azul (Newbie)
 GrhIndex=541
 ObjType=11
 Agarrable=2
@@ -6762,7 +6762,7 @@ Crucial=1
 Respawn=1
 
 [OBJ563]
-Name=Poción Amarilla (Newbie)
+Name=Pociï¿½n Amarilla (Newbie)
 GrhIndex=540
 ObjType=11
 Agarrable=2
@@ -6855,7 +6855,7 @@ GrhIndex=875
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=La mística ciudad de Arghâl se encuentra hacia el este.
+Texto=La mï¿½stica ciudad de Arghï¿½l se encuentra hacia el este.
 
 [OBJ575]
 Name=Foro
@@ -7479,7 +7479,7 @@ Agarrable=0
 
 
 [OBJ614]'2da Jerarq
-Name=Túnica de Archimago
+Name=Tï¿½nica de Archimago
 GrhIndex=806
 ObjType=3
 NumRopaje=140
@@ -7502,7 +7502,7 @@ SND1=202
 SND2=203
 
 [OBJ615]]'2da Jerarq
-Name=Túnica de Archimago (E/G)
+Name=Tï¿½nica de Archimago (E/G)
 GrhIndex=657
 ObjType=3
 NumRopaje=135
@@ -7526,7 +7526,7 @@ SND1=202
 SND2=203
 
 [OBJ616]]'2da Jerarq
-Name=Armadura de Guerrero Campeón
+Name=Armadura de Guerrero Campeï¿½n
 GrhIndex=756
 ObjType=3
 NumRopaje=89
@@ -7547,7 +7547,7 @@ SND1=241
 SND2=240
 
 [OBJ617]]]'2da Jerarq
-Name=Armadura de Guerrero Campeón (E/G)
+Name=Armadura de Guerrero Campeï¿½n (E/G)
 GrhIndex=758
 ObjType=3
 NumRopaje=91
@@ -7581,7 +7581,7 @@ Agarrable=0
 Anim=12
 MinHit=2
 MaxHit=3
-Apuñala=1
+Apuï¿½ala=1
 Envenena=1
 Valor=350
 Crucial=1
@@ -7594,12 +7594,12 @@ SND2=177
 SND3=2
 
 [OBJ620]
-Name=Lápida
+Name=Lï¿½pida
 GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Aquí yace el cuerpo del Pollo Encantado.
+Texto=Aquï¿½ yace el cuerpo del Pollo Encantado.
 
 [OBJ621]
 Name=Cartel
@@ -7668,7 +7668,7 @@ ObjType=12
 Agarrable=1
 
 [OBJ628]'2da Jerarq
-Name=Túnica de Archimago Imperial
+Name=Tï¿½nica de Archimago Imperial
 GrhIndex=687
 ObjType=3
 NumRopaje=61
@@ -7692,7 +7692,7 @@ SND1=202
 SND2=203
 
 [OBJ629]
-Name=Armadura Nobilísima
+Name=Armadura Nobilï¿½sima
 GrhIndex=688
 ObjType=3
 NumRopaje=62
@@ -7714,7 +7714,7 @@ SND1=241
 SND2=240
 
 [OBJ630]
-Name=Túnica Celestial para Consejos de Angrod (Humanos-Altos)
+Name=Tï¿½nica Celestial para Consejos de Angrod (Humanos-Altos)
 GrhIndex=767
 ObjType=3
 NumRopaje=101
@@ -7728,7 +7728,7 @@ SND1=202
 SND2=203
 
 [OBJ631]
-Name=Túnica Celestial para Consejos de Angrod (E/G)
+Name=Tï¿½nica Celestial para Consejos de Angrod (E/G)
 GrhIndex=20272
 ObjType=3
 NumRopaje=519
@@ -7743,7 +7743,7 @@ SND1=202
 SND2=203
 
 [OBJ632]
-Name=Túnica Infernal para Concilios de las Sombras (Altos)
+Name=Tï¿½nica Infernal para Concilios de las Sombras (Altos)
 GrhIndex=19840
 ObjType=3
 NumRopaje=479
@@ -7757,7 +7757,7 @@ SND1=202
 SND2=203
 
 [OBJ633] '2da Jerarq
-Name=Túnica Infernal para Concilios de las Sombras (E/G)
+Name=Tï¿½nica Infernal para Concilios de las Sombras (E/G)
 GrhIndex=19813
 ObjType=3
 NumRopaje=483
@@ -7772,7 +7772,7 @@ SND1=202
 SND2=203
 
 [OBJ634]
-Name=Túnica Egregia de Mago Oscuro
+Name=Tï¿½nica Egregia de Mago Oscuro
 GrhIndex=692
 ObjType=3
 NumRopaje=78
@@ -7795,7 +7795,7 @@ SND1=202
 SND2=203
 
 [OBJ635]
-Name=Armadura Lóbrega (H/E/EO-M)
+Name=Armadura Lï¿½brega (H/E/EO-M)
 GrhIndex=770
 ObjType=3
 NumRopaje=104
@@ -7815,7 +7815,7 @@ SND1=241
 SND2=240
 
 [OBJ636] '2da jerarq
-Name=Túnica de Líder del Caos (E/G)
+Name=Tï¿½nica de Lï¿½der del Caos (E/G)
 GrhIndex=657
 ObjType=3
 NumRopaje=135
@@ -7837,7 +7837,7 @@ SND1=202
 SND2=203
 
 [OBJ637] '2da jerarq
-Name=Túnica de líder del Caos
+Name=Tï¿½nica de lï¿½der del Caos
 GrhIndex=806
 ObjType=3
 NumRopaje=140
@@ -7859,7 +7859,7 @@ SND1=202
 SND2=203
 
 [OBJ638] '2da Jerarq
-Name=Armadura de Guardián del Demonio
+Name=Armadura de Guardiï¿½n del Demonio
 GrhIndex=22440
 ObjType=3
 NumRopaje=459
@@ -7876,7 +7876,7 @@ SND1=241
 SND2=240
 
 [OBJ639] '2da jerarq
-Name=Armadura de Guardián del Demonio (E/G)
+Name=Armadura de Guardiï¿½n del Demonio (E/G)
 GrhIndex=758
 ObjType=3
 NumRopaje=91
@@ -7894,7 +7894,7 @@ SND1=241
 SND2=240
 
 [OBJ640]'2da jerarq
-Name=Túnica de Archimago del Caos
+Name=Tï¿½nica de Archimago del Caos
 GrhIndex=657
 ObjType=3
 NumRopaje=50
@@ -7936,7 +7936,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Aquí descansa el alma pura de Calixto, diosa eterna de estas tierras.
+Texto=Aquï¿½ descansa el alma pura de Calixto, diosa eterna de estas tierras.
 
 [OBJ643]
 Name=Cartel Ullathorpe, Dungeon Lava y Murus.
@@ -7944,7 +7944,7 @@ GrhIndex=720
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Hacia el oeste, la ciudad más prestigiosa y concurrida, Ullathorpe. Hacia el este, el dungeon más peligroso y temido: Dungeon Lava, y hacia el sur, la ciudad del Caos, Murus, donde habita el gran Demonio y su ejército Legionario
+Texto=Hacia el oeste, la ciudad mï¿½s prestigiosa y concurrida, Ullathorpe. Hacia el este, el dungeon mï¿½s peligroso y temido: Dungeon Lava, y hacia el sur, la ciudad del Caos, Murus, donde habita el gran Demonio y su ejï¿½rcito Legionario
 
 [OBJ644]
 Name=Cartel Catacumbas y Murus
@@ -7952,10 +7952,10 @@ GrhIndex=531
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Hacia el Norte, las catacumbas más habitadas del mundo hacia el sur, la ciudad tenebrosa del mal: Murus donde habita el ejército Legionario y sus secuases.
+Texto=Hacia el Norte, las catacumbas mï¿½s habitadas del mundo hacia el sur, la ciudad tenebrosa del mal: Murus donde habita el ejï¿½rcito Legionario y sus secuases.
 
 [OBJ645]
-Name=Poción Negra
+Name=Pociï¿½n Negra
 GrhIndex=53
 ObjType=11
 Agarrable=0
@@ -7965,7 +7965,7 @@ Crucial=1
 Respawn=1
 
 [OBJ646]
-Name=Túnica Real Benderiana
+Name=Tï¿½nica Real Benderiana
 GrhIndex=689
 ObjType=3
 NumRopaje=63
@@ -7986,7 +7986,7 @@ GrhIndex=500
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Ud está entrando en territorio del Imperio Benderiano. Los visitantes NO son bienvenidos y serán atacados sin piedad.
+Texto=Ud estï¿½ entrando en territorio del Imperio Benderiano. Los visitantes NO son bienvenidos y serï¿½n atacados sin piedad.
 
 [OBJ648]
 Name=Armadura de Cazador (E/G)
@@ -8021,10 +8021,10 @@ GrhIndex=500
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=La reglamentación del robo de NPCs no se aplica aquí. Es un lugar de entrenamiento común y nadie puede proclamarse dueño de las criaturas.
+Texto=La reglamentaciï¿½n del robo de NPCs no se aplica aquï¿½. Es un lugar de entrenamiento comï¿½n y nadie puede proclamarse dueï¿½o de las criaturas.
 
 [OBJ650]
-Name=Túnica Castillo Benderiano
+Name=Tï¿½nica Castillo Benderiano
 GrhIndex=689
 ObjType=3
 NumRopaje=63
@@ -8037,14 +8037,14 @@ SND1=202
 SND2=203
 
 [OBJ651]
-Name=Portal Mágico
+Name=Portal Mï¿½gico
 GrhIndex=308
 VGrande=501
 ObjType=30
 Agarrable=1
 
 [OBJ652]
-Name=Piedra de Arghâl
+Name=Piedra de Arghï¿½l
 GrhIndex=705
 ObjType=29
 
@@ -8067,7 +8067,7 @@ ObjType=12
 Agarrable=1
 
 [OBJ656]
-Name=Túnica Real Benderiana (E/G)
+Name=Tï¿½nica Real Benderiana (E/G)
 GrhIndex=13282
 NumRopaje=180
 ObjType=3
@@ -8083,7 +8083,7 @@ SND1=202
 SND2=203
 
 [OBJ657]
-Name=Quitar la turbación
+Name=Quitar la turbaciï¿½n
 GrhIndex=27530
 ObjType=24
 Agarrable=0
@@ -8121,7 +8121,7 @@ Bot_MinLvl=1
 Bot_MaxLvl=25
 
 [OBJ659]
-Name=Bastón Nudoso
+Name=Bastï¿½n Nudoso
 GrhIndex=959
 ObjType=2
 Agarrable=0
@@ -8147,7 +8147,7 @@ Bot_MinLvl=20
 Bot_MaxLvl=45
 
 [OBJ660]
-Name=Báculo Engarzado
+Name=Bï¿½culo Engarzado
 GrhIndex=986
 ObjType=2
 Agarrable=0
@@ -8209,7 +8209,7 @@ Bot_MinLvl=1
 Bot_MaxLvl=30
 
 [OBJ383]
-Name=Sombrero Mágico
+Name=Sombrero Mï¿½gico
 GrhIndex=18994
 ObjType=17
 NumRopaje=2
@@ -8335,7 +8335,7 @@ SND2=208
 SND3=232
 
 [OBJ666]
-Name=Objetos Voodoo Satánicos
+Name=Objetos Voodoo Satï¿½nicos
 GrhIndex=740
 VGrande=740
 ObjType=8
@@ -8401,7 +8401,7 @@ CP7=BANDIDO
 CP8=PIRATA
 
 [OBJ670]
-Name=Túnica de Monje Gris (E/G)
+Name=Tï¿½nica de Monje Gris (E/G)
 GrhIndex=1208
 ObjType=3
 NumRopaje=159
@@ -8415,7 +8415,7 @@ SND1=202
 SND2=203
 
 [OBJ671]
-Name=Túnica de Monje Marron (E/G)
+Name=Tï¿½nica de Monje Marron (E/G)
 GrhIndex=1235
 ObjType=3
 NumRopaje=160
@@ -8524,7 +8524,7 @@ SND1=202
 SND2=203
 
 [OBJ679]
-Name=Túnica Conspicua de Mago Imperial
+Name=Tï¿½nica Conspicua de Mago Imperial
 GrhIndex=1181
 ObjType=3
 NumRopaje=173
@@ -8577,7 +8577,7 @@ SND1=241
 SND2=240
 
 [OBJ681]
-Name=Armadura Nobilísima (E/G)
+Name=Armadura Nobilï¿½sima (E/G)
 GrhIndex=4921
 ObjType=3
 NumRopaje=179
@@ -8598,7 +8598,7 @@ SND1=241
 SND2=240
 
 [OBJ682]
-Name=Túnica Conspicua de Mago Imperial (E/G)
+Name=Tï¿½nica Conspicua de Mago Imperial (E/G)
 GrhIndex=4920
 ObjType=3
 NumRopaje=171
@@ -8623,7 +8623,7 @@ SND1=202
 SND2=203
 
 [OBJ683]
-Name=Armadura Lóbrega
+Name=Armadura Lï¿½brega
 GrhIndex=4919
 ObjType=3
 NumRopaje=170
@@ -8645,7 +8645,7 @@ SND1=241
 SND2=240
 
 [OBJ684]
-Name=Armadura de Gran Sacerdote Demoníaco
+Name=Armadura de Gran Sacerdote Demonï¿½aco
 GrhIndex=4918
 ObjType=3
 NumRopaje=169
@@ -8673,7 +8673,7 @@ SND1=241
 SND2=240
 
 [OBJ685]
-Name=Armadura Lóbrega (E/G)
+Name=Armadura Lï¿½brega (E/G)
 GrhIndex=4917
 ObjType=3
 NumRopaje=168
@@ -8694,7 +8694,7 @@ SND1=241
 SND2=240
 
 [OBJ686]
-Name=Túnica Egregia de Mago Oscuro (E/G)
+Name=Tï¿½nica Egregia de Mago Oscuro (E/G)
 GrhIndex=4916
 ObjType=3
 NumRopaje=167
@@ -8718,7 +8718,7 @@ SND1=202
 SND2=203
 
 [OBJ687]
-Name=Túnica Palatina
+Name=Tï¿½nica Palatina
 GrhIndex=687
 ObjType=3
 NumRopaje=61
@@ -8733,7 +8733,7 @@ SND1=202
 SND2=203
 
 [OBJ688]
-Name=Pequeña Túnica Palatina (E/G)
+Name=Pequeï¿½a Tï¿½nica Palatina (E/G)
 GrhIndex=4915
 ObjType=3
 NumRopaje=166
@@ -8749,7 +8749,7 @@ SND1=202
 SND2=203
 
 [OBJ689]
-Name=Túnica Avernal
+Name=Tï¿½nica Avernal
 GrhIndex=806
 ObjType=3
 NumRopaje=140
@@ -8764,7 +8764,7 @@ SND1=202
 SND2=203
 
 [OBJ690]
-Name=Pequeña Túnica Avernal (E/G)
+Name=Pequeï¿½a Tï¿½nica Avernal (E/G)
 GrhIndex=4914
 ObjType=3
 NumRopaje=165
@@ -8885,7 +8885,7 @@ SND1=241
 SND2=240
 
 [OBJ695]
-Name=Armadura de Pequeño Pandemonium (E/G)
+Name=Armadura de Pequeï¿½o Pandemonium (E/G)
 GrhIndex=4910
 ObjType=3
 NumRopaje=163
@@ -8912,7 +8912,7 @@ SND1=241
 SND2=240
 
 [OBJ696]
-Name=Laúd Mágico
+Name=Laï¿½d Mï¿½gico
 GrhIndex=1523
 ObjType=26
 Agarrable=0
@@ -8940,7 +8940,7 @@ SND3=40
 LOG=0
 
 [OBJ697]
-Name=Anillo Mágico
+Name=Anillo Mï¿½gico
 GrhIndex=4900
 ObjType=18
 Agarrable=0
@@ -8961,7 +8961,7 @@ Fundible=1
 StaffPower=2
 
 [OBJ698]
-Name=Anillo de Resistencia Mágica
+Name=Anillo de Resistencia Mï¿½gica
 GrhIndex=4901
 ObjType=18
 Agarrable=0
@@ -8985,7 +8985,7 @@ LOG=1
 StaffPower=2
 
 [OBJ699]
-Name=Anillo de Disolución Mágica
+Name=Anillo de Disoluciï¿½n Mï¿½gica
 GrhIndex=4902
 ObjType=18
 Agarrable=0
@@ -9051,11 +9051,11 @@ SND1=241
 SND2=240
 
 [OBJ702]
-Name=¿Dónde entreno más rápido? Parate sobre este cartel para más info.
+Name=ï¿½Dï¿½nde entreno mï¿½s rï¿½pido? Parate sobre este cartel para mï¿½s info.
 GrhIndex=500
 ObjType=36
 Agarrable=1
-Texto=Las criaturas tienen niveles.|Si tenes 10 o más niveles de diferencia con el de una criatura, no te darán experiencia al atacarlas.|Si tienen el mismo nivel que vos, te dará un bonus de 10% de experiencia.||Para más info, ve al botón FAQS abajo del botón estadísticas, y busca la consigna: ¿Por qué las criaturas no me dan experiencia?
+Texto=Las criaturas tienen niveles.|Si tenes 10 o mï¿½s niveles de diferencia con el de una criatura, no te darï¿½n experiencia al atacarlas.|Si tienen el mismo nivel que vos, te darï¿½ un bonus de 10% de experiencia.||Para mï¿½s info, ve al botï¿½n FAQS abajo del botï¿½n estadï¿½sticas, y busca la consigna: ï¿½Por quï¿½ las criaturas no me dan experiencia?
 
 [OBJ703]
 Name=Cartel Isla de Circe
@@ -9063,14 +9063,14 @@ GrhIndex=545
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Estas llegando a la isla más codiciada de este mundo, ya que allí exísten las criaturas de mayores recompensas materiales. Pero no te dejes encantar por el canto de las sirenas...
+Texto=Estas llegando a la isla mï¿½s codiciada de este mundo, ya que allï¿½ exï¿½sten las criaturas de mayores recompensas materiales. Pero no te dejes encantar por el canto de las sirenas...
 
 [OBJ704]
-Name=¿Dónde consiguo los hechizos? Parate sobre este cartel para más info.
+Name=ï¿½Dï¿½nde consiguo los hechizos? Parate sobre este cartel para mï¿½s info.
 GrhIndex=500
 ObjType=36
 Agarrable=1
-Texto=Muchos hechizos no se compran, pero se consiguen matando criaturas.|Hay muchas criaturas que tienen un porcentaje de probabilidades (Es decir, no siempre) de tirar un hechizo.|Dependiendo la criatura, te va tirando ciertos hechizos. ||Para ver qué criatura te tira cual hechizo, podes ver el mapa de la letra "Q" y buscar si queres, el nombre del hechizo, hacer clic en "Buscar Ítem" Y te marca en el mapa, en qué sector del mudo está esa criatura normalmente, y qué hechizos tira, además de todas sus características principales.||Para más info, ve al botón FAQS abajo del botón estadísticas.
+Texto=Muchos hechizos no se compran, pero se consiguen matando criaturas.|Hay muchas criaturas que tienen un porcentaje de probabilidades (Es decir, no siempre) de tirar un hechizo.|Dependiendo la criatura, te va tirando ciertos hechizos. ||Para ver quï¿½ criatura te tira cual hechizo, podes ver el mapa de la letra "Q" y buscar si queres, el nombre del hechizo, hacer clic en "Buscar ï¿½tem" Y te marca en el mapa, en quï¿½ sector del mudo estï¿½ esa criatura normalmente, y quï¿½ hechizos tira, ademï¿½s de todas sus caracterï¿½sticas principales.||Para mï¿½s info, ve al botï¿½n FAQS abajo del botï¿½n estadï¿½sticas.
 
 [OBJ705]
 Name=El Ojo del Demiurgo
@@ -9086,7 +9086,7 @@ GrhIndex=500
 Vgrande=501
 ObjType=8
 Agarrable=1
-Texto=PROHIBIDO TOCAR (¡dioses y semidioses incluidos!). Este pergamino fue encargado al imperio real por los dioses de Argentum para su estudio.
+Texto=PROHIBIDO TOCAR (ï¿½dioses y semidioses incluidos!). Este pergamino fue encargado al imperio real por los dioses de Argentum para su estudio.
 
 [OBJ707]
 Name=Vestimenta de Noble (E/G)
@@ -9149,7 +9149,7 @@ GRHINDEX=513
 VGRANDE=514
 OBJTYPE=8
 AGARRABLE=1
-TEXTO=Aquí descansan los restos del Dios About, quien dejó todo de el para ser la gran fuerza ordenadora de estas tierras durante largos años. El mundo de Bender AO siempre te lo agradecerá.
+TEXTO=Aquï¿½ descansan los restos del Dios About, quien dejï¿½ todo de el para ser la gran fuerza ordenadora de estas tierras durante largos aï¿½os. El mundo de Bender AO siempre te lo agradecerï¿½.
 
 [OBJ712]
 NAME=Tumba de Plaguelord de Angrod
@@ -9157,7 +9157,7 @@ GRHINDEX=513
 VGRANDE=514
 OBJTYPE=8
 AGARRABLE=1
-TEXTO=Aquí descansan los restos de Plaguelord, una gran guerrera del palacio de Angrod, inmortalizadola aquí en esta tumba. Largo fue el camino desde su infancia como gitana hasta diosa de la ciudad del norte, quien luchó con los peores males que estas tierras han conocido. Que este mundo no olvide tu sacrificio y tu lucha contra los dioses malignos que gobernaron en otras épocas. Que tu hijo Sir Nayrb vele por tu espíritu en este pacífico lugar.
+TEXTO=Aquï¿½ descansan los restos de Plaguelord, una gran guerrera del palacio de Angrod, inmortalizadola aquï¿½ en esta tumba. Largo fue el camino desde su infancia como gitana hasta diosa de la ciudad del norte, quien luchï¿½ con los peores males que estas tierras han conocido. Que este mundo no olvide tu sacrificio y tu lucha contra los dioses malignos que gobernaron en otras ï¿½pocas. Que tu hijo Sir Nayrb vele por tu espï¿½ritu en este pacï¿½fico lugar.
 
 [OBJ713]
 NAME=Tumba de Candee
@@ -9165,7 +9165,7 @@ GRHINDEX=513
 VGRANDE=514
 OBJTYPE=8
 AGARRABLE=1
-TEXTO=Aquí descansan los restos de Candee. Antigua y maligna luchadora, líder del ejército de guerrilleros neutrales <Blur>, quienes atentaron contra El Rey y hasta con el propio Demonio al mismo tiempo. Sus almas hoy son recordadas por todas las ciudades, que los clasifican entre los más poderosos, quienes combatieron contra el clan <Sangre Azul> del bien (los Hijos de <Dumb>), y <Valhalla> capitanes de las tierras neutrales.
+TEXTO=Aquï¿½ descansan los restos de Candee. Antigua y maligna luchadora, lï¿½der del ejï¿½rcito de guerrilleros neutrales <Blur>, quienes atentaron contra El Rey y hasta con el propio Demonio al mismo tiempo. Sus almas hoy son recordadas por todas las ciudades, que los clasifican entre los mï¿½s poderosos, quienes combatieron contra el clan <Sangre Azul> del bien (los Hijos de <Dumb>), y <Valhalla> capitanes de las tierras neutrales.
 
 [OBJ714]
 NAME=Tumba de Vancake y ElNiCk
@@ -9173,7 +9173,7 @@ GRHINDEX=513
 VGRANDE=514
 OBJTYPE=8
 AGARRABLE=1
-TEXTO=Aquí descansan los restos de ElNiCk. Líder de Bender AO junto con Vancake. Dos dioses que sembraron alegría en Bender AO.
+TEXTO=Aquï¿½ descansan los restos de ElNiCk. Lï¿½der de Bender AO junto con Vancake. Dos dioses que sembraron alegrï¿½a en Bender AO.
 
 [OBJ715]
 NAME=Tumba de Aslan
@@ -9181,7 +9181,7 @@ GRHINDEX=513
 VGRANDE=514
 OBJTYPE=8
 AGARRABLE=1
-TEXTO=Aquí descansan los restos de Aslan. El Rey de los Reyes. Otro de los dioses que sembraron mucha alegría en Bender AO.
+TEXTO=Aquï¿½ descansan los restos de Aslan. El Rey de los Reyes. Otro de los dioses que sembraron mucha alegrï¿½a en Bender AO.
 
 [OBJ716]
 Name=Rueca
@@ -9277,7 +9277,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ730]
-Name=Cántaro
+Name=Cï¿½ntaro
 GrhIndex=99
 ObjType=20
 Agarrable=1
@@ -9325,7 +9325,7 @@ ObjType=21
 Agarrable=1
 
 [OBJ737]
-Name=Cómoda
+Name=Cï¿½moda
 GrhIndex=493
 ObjType=20
 Agarrable=1
@@ -9338,13 +9338,13 @@ Agarrable=0
 
 
 [OBJ739]
-Name=Baúl Abierto
+Name=Baï¿½l Abierto
 GrhIndex=496
 ObjType=7
 Agarrable=0
 
 [OBJ740]
-Name=Baúl Cerrado
+Name=Baï¿½l Cerrado
 GrhIndex=495
 ObjType=7
 Agarrable=0
@@ -9392,7 +9392,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ748]
-Name=Sillón 
+Name=Sillï¿½n 
 GrhIndex=525
 ObjType=20
 Agarrable=0
@@ -9414,13 +9414,13 @@ ObjType=20
 Agarrable=1
 
 [OBJ751]
-Name=Barril Pequeño
+Name=Barril Pequeï¿½o
 GrhIndex=580
 ObjType=20
 Agarrable=1
 
 [OBJ752]
-Name=Barril Pequeño
+Name=Barril Pequeï¿½o
 GrhIndex=582
 ObjType=20
 Agarrable=1
@@ -9445,7 +9445,7 @@ LingO=0
 SkHerreria=25
 
 [OBJ754]
-Name=Rábano
+Name=Rï¿½bano
 GrhIndex=591
 ObjType=1
 Agarrable=0
@@ -9460,7 +9460,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ756]
-Name=Mueble Rústico
+Name=Mueble Rï¿½stico
 GrhIndex=594
 ObjType=20
 Agarrable=0
@@ -9624,7 +9624,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ781]
-Name=Órgano 
+Name=ï¿½rgano 
 GrhIndex=1477
 ObjType=20
 Agarrable=1
@@ -9666,7 +9666,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ788]
-Name=Sillón
+Name=Sillï¿½n
 GrhIndex=1484
 ObjType=20
 Agarrable=0
@@ -9676,7 +9676,7 @@ Madera=50
 SkCarpinteria=9
 
 [OBJ789]
-Name=Sillón
+Name=Sillï¿½n
 GrhIndex=1485
 ObjType=20
 Agarrable=0
@@ -9686,7 +9686,7 @@ Madera=60
 SkCarpinteria=15
 
 [OBJ790]
-Name=Sillón Azul
+Name=Sillï¿½n Azul
 GrhIndex=1485
 ObjType=20
 Agarrable=0
@@ -9696,7 +9696,7 @@ Madera=60
 SkCarpinteria=15
 
 [OBJ791]
-Name=Sillón Azul Doble
+Name=Sillï¿½n Azul Doble
 GrhIndex=1485
 ObjType=20
 Agarrable=0
@@ -9912,37 +9912,37 @@ ObjType=20
 Agarrable=1
 
 [OBJ825]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=1529
 ObjType=4
 Agarrable=1
 
 [OBJ826]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=1530
 ObjType=4
 Agarrable=1
 
 [OBJ827]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=1531
 ObjType=4
 Agarrable=1
 
 [OBJ828]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=1532
 ObjType=4
 Agarrable=1
 
 [OBJ829]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=1533
 ObjType=4
 Agarrable=1
 
 [OBJ830]
-Name=Árbol
+Name=ï¿½rbol
 GrhIndex=1534
 ObjType=4
 Agarrable=1
@@ -9967,13 +9967,13 @@ Agarrable=0
 
 
 [OBJ834]
-Name=Fósil
+Name=Fï¿½sil
 GrhIndex=1538
 ObjType=20
 Agarrable=1
 
 [OBJ835]
-Name=Fósil
+Name=Fï¿½sil
 GrhIndex=1539
 ObjType=20
 Agarrable=1
@@ -10212,7 +10212,7 @@ MaxHit=7
 Valor=8000
 
 [OBJ867]
-Name=Túnica de Gnomo (E/G)
+Name=Tï¿½nica de Gnomo (E/G)
 GrhIndex=5326
 ObjType=3
 NumRopaje=34
@@ -10231,7 +10231,7 @@ GrhIndex=18996
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Yacen bajo esta tumba los restos del Gran Dios Chatillon, que dejó su vida por la gloria y el orden de estas tierras. 
+Texto=Yacen bajo esta tumba los restos del Gran Dios Chatillon, que dejï¿½ su vida por la gloria y el orden de estas tierras. 
 
 [OBJ869]
 Name=Tumba de Nightsorrow
@@ -10239,7 +10239,7 @@ GrhIndex=18996
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Aquí descansan los restos del Dios Nightsorrow, que mucho colaboró por la justicia del Argentum.
+Texto=Aquï¿½ descansan los restos del Dios Nightsorrow, que mucho colaborï¿½ por la justicia del Argentum.
 
 [OBJ870]
 Name=Tumba de Shep
@@ -10247,7 +10247,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Bajo esta piedra reposan en paz los restos del gran Shep, aquel Dios que dedicó su vida entera a estas tierras y sus habitantes.
+Texto=Bajo esta piedra reposan en paz los restos del gran Shep, aquel Dios que dedicï¿½ su vida entera a estas tierras y sus habitantes.
 
 [OBJ871]
 Name=Tumba de Patrick
@@ -10255,7 +10255,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Yacen aquí los restos de Patrick, aquel bondadoso Dios que con esfuerzo y trabajo mucho dió por estas tierras.
+Texto=Yacen aquï¿½ los restos de Patrick, aquel bondadoso Dios que con esfuerzo y trabajo mucho diï¿½ por estas tierras.
 
 [OBJ872]
 Name=Tumba de EL OSO
@@ -10263,7 +10263,7 @@ GrhIndex=513
 VGrande=514
 ObjType=8
 Agarrable=1
-Texto=Aquí descansan los restos del mítico EL OSO, poderoso Dios que durante siglos fue el responsable de darle el hálito de vida a este hermoso mundo gracias a su gran ciencia, bondad y dedicación. Por siempre el pueblo del Argentum glorificará tu paso por estas tierras y te estrará eternamente agradecido.
+Texto=Aquï¿½ descansan los restos del mï¿½tico EL OSO, poderoso Dios que durante siglos fue el responsable de darle el hï¿½lito de vida a este hermoso mundo gracias a su gran ciencia, bondad y dedicaciï¿½n. Por siempre el pueblo del Argentum glorificarï¿½ tu paso por estas tierras y te estrarï¿½ eternamente agradecido.
 
 [OBJ873]
 Name=Guantes de Hurto
@@ -10316,7 +10316,7 @@ SND1=202
 SND2=203
 
 [OBJ877] 'enano
-Name=Túnica de Gran Hechicero (E/G)
+Name=Tï¿½nica de Gran Hechicero (E/G)
 GrhIndex=15519
 ObjType=3
 NumRopaje=311
@@ -10332,7 +10332,7 @@ Bot_MinLvl=15
 Bot_MaxLvl=50
 
 [OBJ878] 'enano mujer
-Name=Túnica de Gran Hechicera (E/G-M)
+Name=Tï¿½nica de Gran Hechicera (E/G-M)
 GrhIndex=15303
 ObjType=3
 NumRopaje=302
@@ -10361,7 +10361,7 @@ Crucial=1
 Mujer=1
 
 [OBJ880] 'humano mujer
-Name=Túnica del Oráculo (H/E/EO-M)
+Name=Tï¿½nica del Orï¿½culo (H/E/EO-M)
 GrhIndex=16194
 ObjType=3
 NumRopaje=336
@@ -10378,7 +10378,7 @@ SND1=202
 SND2=203
 
 [OBJ881] 'humano Mujer
-Name=Armadura de la Ciénaga (H/E/EO-M)
+Name=Armadura de la Ciï¿½naga (H/E/EO-M)
 GrhIndex=772
 ObjType=3
 NumRopaje=232
@@ -10496,7 +10496,7 @@ CP10=CLERIGO
 CP11=TRABAJADOR
 
 [OBJ887] 'humano
-Name=Cotas de Manto Marrón (H/E/EO)
+Name=Cotas de Manto Marrï¿½n (H/E/EO)
 GrhIndex=16221
 ObjType=3
 NumRopaje=337
@@ -10683,7 +10683,7 @@ SND1=241
 SND2=240
 
 [OBJ896] 'humano mujer
-Name=Túnica de Morgana (H/E/EO-M)
+Name=Tï¿½nica de Morgana (H/E/EO-M)
 GrhIndex=16248
 ObjType=3
 NumRopaje=338
@@ -10819,7 +10819,7 @@ LingO=0
 SkHerreria=73
 
 [OBJ903] 'humano
-Name=Armadura de Campeón (H/E/EO)
+Name=Armadura de Campeï¿½n (H/E/EO)
 GrhIndex=15681
 ObjType=3
 NumRopaje=317
@@ -10883,7 +10883,7 @@ SND1=241
 SND2=240
 
 [OBJ906] 'humano
-Name=Manto del Dragón (H/E/EO)
+Name=Manto del Dragï¿½n (H/E/EO)
 GrhIndex=16329
 ObjType=3
 NumRopaje=342
@@ -11014,7 +11014,7 @@ SND1=202
 SND2=203
 
 [OBJ913] 'gnomo
-Name=Ropaje de Ermitaño (E/G)
+Name=Ropaje de Ermitaï¿½o (E/G)
 GrhIndex=14736
 ObjType=3
 NumRopaje=281
@@ -11092,7 +11092,7 @@ SND1=202
 SND2=203
 
 [OBJ918] 'gnomo
-Name=Gabán de Cuero Pequeño (E/G)
+Name=Gabï¿½n de Cuero Pequeï¿½o (E/G)
 GrhIndex=14574
 ObjType=3
 NumRopaje=282
@@ -11145,7 +11145,7 @@ CP10=CAZADOR
 CP11=CLERIGO
 
 [OBJ921] 'gnomo
-Name=Túnica Sírica Elegante (E/G)
+Name=Tï¿½nica Sï¿½rica Elegante (E/G)
 GrhIndex=15168
 ObjType=3
 NumRopaje=297
@@ -11159,7 +11159,7 @@ SND1=202
 SND2=203
 
 [OBJ922] 'gnomo
-Name=Traje de Capitán Pirata (E/G)
+Name=Traje de Capitï¿½n Pirata (E/G)
 GrhIndex=15195
 ObjType=3
 NumRopaje=298
@@ -11269,7 +11269,7 @@ CP9=CAZADOR
 CP10=CLERIGO
 
 [OBJ928] 'gnomo
-Name=Barragán de Cazador (E/G)
+Name=Barragï¿½n de Cazador (E/G)
 GrhIndex=14628
 ObjType=3
 NumRopaje=277
@@ -11292,7 +11292,7 @@ CP10=CLERIGO
 CP11=TRABAJADOR
 
 [OBJ929] 'gnomo
-Name=Barragán Compuesto (E/G)
+Name=Barragï¿½n Compuesto (E/G)
 GrhIndex=14709
 ObjType=3
 NumRopaje=280
@@ -11319,7 +11319,7 @@ Crucial=1
 RazaEnana=1
 
 [OBJ931] 'gnomo mujer
-Name=Vestido Elegante Púrpura (E/G-M)
+Name=Vestido Elegante Pï¿½rpura (E/G-M)
 GrhIndex=15384
 ObjType=3
 NumRopaje=307
@@ -11413,7 +11413,7 @@ Bot_MinLvl=5
 Bot_MaxLvl=25
 
 [OBJ936] 'gnomo mujer 
-Name=Túnica de Gran Hechicera (E/G-M)
+Name=Tï¿½nica de Gran Hechicera (E/G-M)
 GrhIndex=15303
 ObjType=3
 NumRopaje=302
@@ -11428,7 +11428,7 @@ SND1=202
 SND2=203
 
 [OBJ937] 'gnomo
-Name=Cota de Peto Púrpura (E/G)
+Name=Cota de Peto Pï¿½rpura (E/G)
 GrhIndex=14790
 ObjType=3
 NumRopaje=283
@@ -11465,7 +11465,7 @@ Bot_MinLvl=18
 Bot_MaxLvl=30
 
 [OBJ939] 'gnomo
-Name=Túnica de Gala Roja (E/G)
+Name=Tï¿½nica de Gala Roja (E/G)
 GrhIndex=15546
 ObjType=3
 NumRopaje=312
@@ -11530,7 +11530,7 @@ Bot_MinLvl=25
 Bot_MaxLvl=50
 
 [OBJ943] 'elfo
-Name=Sobrevesta Élfica (H/E/EO)
+Name=Sobrevesta ï¿½lfica (H/E/EO)
 GrhIndex=16356
 ObjType=3
 NumRopaje=390
@@ -11541,7 +11541,7 @@ Valor=50
 Crucial=1
 
 [OBJ944] 'elfo mujer
-Name=Vestido Aurë (H/E/EO-M)
+Name=Vestido Aurï¿½ (H/E/EO-M)
 GrhIndex=16410
 ObjType=3
 NumRopaje=343
@@ -11565,7 +11565,7 @@ Crucial=1
 Mujer=1
 
 [OBJ946] 'elfo
-Name=Vestimentas de Poblador Élfico (H/E/EO)
+Name=Vestimentas de Poblador ï¿½lfico (H/E/EO)
 GrhIndex=16625
 ObjType=3
 NumRopaje=351
@@ -11578,7 +11578,7 @@ SND1=202
 SND2=203
 
 [OBJ947] 'elfo
-Name=Hábito Liviano de Ritual (H/E/EO)
+Name=Hï¿½bito Liviano de Ritual (H/E/EO)
 GrhIndex=16679
 ObjType=3
 NumRopaje=353
@@ -11601,7 +11601,7 @@ Crucial=1
 Mujer=1
 
 [OBJ949] 'elfo Mujer
-Name=Hábito Liviano de Ritual (H/E/EO-M)
+Name=Hï¿½bito Liviano de Ritual (H/E/EO-M)
 GrhIndex=16571
 ObjType=3
 NumRopaje=349
@@ -11613,7 +11613,7 @@ Crucial=1
 Mujer=1
 
 [OBJ950] 'elfo mujer
-Name=Sírica Élfica Rojiza (H/E/EO-M)
+Name=Sï¿½rica ï¿½lfica Rojiza (H/E/EO-M)
 GrhIndex=16652
 ObjType=3
 NumRopaje=352
@@ -11646,7 +11646,7 @@ CP8=PALADIN
 CP9=CLERIGO
 
 [OBJ952] 'elfo
-Name=Ropa de Explorador Élfico (H/E/EO)
+Name=Ropa de Explorador ï¿½lfico (H/E/EO)
 GrhIndex=16544
 ObjType=3
 NumRopaje=348
@@ -11658,7 +11658,7 @@ Crucial=1
 CP1=MAGO
 
 [OBJ953] 'elfo mujer 
-Name=Manto Élfico Púrpura (H/E/EO-M)
+Name=Manto ï¿½lfico Pï¿½rpura (H/E/EO-M)
 GrhIndex=16437
 ObjType=3
 NumRopaje=345
@@ -11670,7 +11670,7 @@ Crucial=1
 Mujer=1
 
 [OBJ954] 'elfo
-Name=Hábito de Ritual de Hombre (H/E/EO)
+Name=Hï¿½bito de Ritual de Hombre (H/E/EO)
 GrhIndex=16490
 ObjType=3
 NumRopaje=346
@@ -11681,7 +11681,7 @@ Valor=8000
 Crucial=1
 
 [OBJ955] 'elfo mujer
-Name=Hábito de Ritual Femenino (H/E/EO-M)
+Name=Hï¿½bito de Ritual Femenino (H/E/EO-M)
 GrhIndex=16517
 ObjType=3
 NumRopaje=347
@@ -11727,7 +11727,7 @@ Bot_MinLvl=1
 Bot_MaxLvl=5
 
 [OBJ958] 'enano
-Name=Vestimenta Común (E/G)
+Name=Vestimenta Comï¿½n (E/G)
 GrhIndex=17139
 ObjType=3
 NumRopaje=370
@@ -11766,7 +11766,7 @@ CP10=CAZADOR
 CP11=CLERIGO
 
 [OBJ960] 'enano
-Name=Ropa de Leñador (E/G)
+Name=Ropa de Leï¿½ador (E/G)
 GrhIndex=17085
 ObjType=3
 NumRopaje=368
@@ -11812,7 +11812,7 @@ CP10=CAZADOR
 CP11=CLERIGO
 
 [OBJ962] 'enano
-Name=Túnica Elegante (E/G)
+Name=Tï¿½nica Elegante (E/G)
 GrhIndex=17166
 ObjType=3
 NumRopaje=371
@@ -11926,7 +11926,7 @@ Bot_MinLvl=5
 Bot_MaxLvl=25
 
 [OBJ969] 'enano
-Name=Túnica Dorada de Gala (E/G)
+Name=Tï¿½nica Dorada de Gala (E/G)
 GrhIndex=16950
 ObjType=3
 NumRopaje=363
@@ -11984,7 +11984,7 @@ Bot_MinLvl=20
 Bot_MaxLvl=40
 
 [OBJ972] 'enano
-Name=Túnica de Mahal (E/G)
+Name=Tï¿½nica de Mahal (E/G)
 GrhIndex=17004
 ObjType=3
 NumRopaje=365
@@ -12235,8 +12235,8 @@ CP3=DRUIDA
 Bot_MinLvl=35
 Bot_MaxLvl=50
 
-[OBJ986] 'Túnica de Druida
-Name=Túnica de Viajero
+[OBJ986] 'Tï¿½nica de Druida
+Name=Tï¿½nica de Viajero
 GrhIndex=681
 ObjType=3
 NumRopaje=56
@@ -12264,7 +12264,7 @@ GRHINDEX=20551
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos de Gengis, un gran dios que hizo mucho por estas tierras.
+TEXTO=Aquï¿½ yacen los restos de Gengis, un gran dios que hizo mucho por estas tierras.
 
 [OBJ989]
 NAME=Estatua en honor al creador de BenderAO, llamado ALLPORT
@@ -12272,7 +12272,7 @@ GRHINDEX=20552
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos de Allport, nuestro creador. El pueblo de Bender AO agradece mucho a este dios, por darle vida a nuestro querído BenderAO.
+TEXTO=Aquï¿½ yacen los restos de Allport, nuestro creador. El pueblo de Bender AO agradece mucho a este dios, por darle vida a nuestro querï¿½do BenderAO.
 
 [OBJ990]
 NAME=Estatua del clan Valhalla
@@ -12280,7 +12280,7 @@ GRHINDEX=20553
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del clan Campeon del antigüo Torneo de Clanes de la versión 0.1.6, <Valhalla>.
+TEXTO=Aquï¿½ yacen los restos del clan Campeon del antigï¿½o Torneo de Clanes de la versiï¿½n 0.1.6, <Valhalla>.
 
 [OBJ991]
 NAME=Estatua de Curi
@@ -12288,15 +12288,15 @@ GRHINDEX=20554
 VGRANDE=514
 OBJTYPE=8
 AGARRABLE=1
-TEXTO=Aquí yacen los restos Curi, campeon del antigüo torneo de Cazadores año 2009
+TEXTO=Aquï¿½ yacen los restos Curi, campeon del antigï¿½o torneo de Cazadores aï¿½o 2009
 
 [OBJ992]
-NAME=Estatua de Ku ganador torneo de clases año 2009
+NAME=Estatua de Ku ganador torneo de clases aï¿½o 2009
 GRHINDEX=20555
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Clérigos, Ku.
+TEXTO=Aquï¿½ yacen los restos del campeon del antigï¿½o torneo de Clï¿½rigos, Ku.
 
 [OBJ993]
 NAME=Estatua de Oakenfold
@@ -12304,7 +12304,7 @@ GRHINDEX=20556
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Magos, Oakenfold.
+TEXTO=Aquï¿½ yacen los restos del campeon del antigï¿½o torneo de Magos, Oakenfold.
 
 [OBJ994]
 NAME=Estatua de Be jaiming
@@ -12312,7 +12312,7 @@ GRHINDEX=20557
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Paladines, Be jaming.
+TEXTO=Aquï¿½ yacen los restos del campeon del antigï¿½o torneo de Paladines, Be jaming.
 
 [OBJ995]
 NAME=Estatua de Shi nnyne
@@ -12320,7 +12320,7 @@ GRHINDEX=20558
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Asesinos, Shy Nnyne.
+TEXTO=Aquï¿½ yacen los restos del campeon del antigï¿½o torneo de Asesinos, Shy Nnyne.
 
 [OBJ996]
 NAME=Estatua de Temud
@@ -12328,7 +12328,7 @@ GRHINDEX=20559
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Bardos, Temud.
+TEXTO=Aquï¿½ yacen los restos del campeon del antigï¿½o torneo de Bardos, Temud.
 
 [OBJ997]
 NAME=Estatua de Godines
@@ -12336,7 +12336,7 @@ GRHINDEX=20560
 VGRANDE=514
 OBJTYPE=30
 AGARRABLE=1
-TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Guerreros, Godines.
+TEXTO=Aquï¿½ yacen los restos del campeon del antigï¿½o torneo de Guerreros, Godines.
 
 [OBJ998]
 Name=Espada BenderAO
@@ -12348,7 +12348,7 @@ MINHIT=12
 MAXHIT=18
 Valor=1000
 Crucial=1
-Apuñala=0
+Apuï¿½ala=0
 CP1=MAGO
 CP2=ASESINO
 LingH=35
@@ -12356,7 +12356,7 @@ LingP=0
 LingO=0
 SkHerreria=90
 SOLONPC=100
-APUÑALA=0
+APUï¿½ALA=0
 
 [OBJ999]
 Name=Hacha BenderAO
@@ -12416,7 +12416,7 @@ AGARRABLE=0
 ANIM=43
 MINHIT=6
 MAXHIT=9
-Apuñala=1
+Apuï¿½ala=1
 VALOR=20000
 CP1=PIRATA
 CP2=MAGO
@@ -12437,7 +12437,7 @@ SND1=176
 SND2=177
 SND3=2
 Envenena=1
-APUÑALA=1
+APUï¿½ALA=1
 
 [OBJ1003]
 NAME=Espada Mitrhil
@@ -13078,10 +13078,10 @@ Agarrable=0
 Clave=111
 Valor=0
 
-'<<<<<<<<<<<<<<< Puerta Vaúlt de Consejo de Murus >>>>>>>>>>>>>>>>>
+'<<<<<<<<<<<<<<< Puerta Vaï¿½lt de Consejo de Murus >>>>>>>>>>>>>>>>>
 
 [OBJ1055]
-Name=Puerta Vaúlt de Consejo de Murus abierta
+Name=Puerta Vaï¿½lt de Consejo de Murus abierta
 GrhIndex=8685
 ObjType=6
 Agarrable=1
@@ -13093,7 +13093,7 @@ IndexCerrada=1056
 IndexCerradaLlave=1057
 
 [OBJ1056]
-Name=Puerta Vaúlt de Consejo de Murus cerrada
+Name=Puerta Vaï¿½lt de Consejo de Murus cerrada
 GrhIndex=8684
 ObjType=6
 Agarrable=1
@@ -13105,7 +13105,7 @@ IndexCerrada=1056
 IndexCerradaLlave=1057
 
 [OBJ1057]
-Name=Puerta Vaúlt de Consejo de Murus cerrada
+Name=Puerta Vaï¿½lt de Consejo de Murus cerrada
 GrhIndex=8684
 ObjType=6
 Agarrable=1
@@ -13117,7 +13117,7 @@ IndexCerrada=1056
 IndexCerradaLlave=1057
 
 [OBJ1058]
-Name=Llave Vaúlt de Consejo de Murus
+Name=Llave Vaï¿½lt de Consejo de Murus
 GrhIndex=509
 ObjType=9
 Agarrable=0
@@ -13193,12 +13193,12 @@ LingH=35
 LingP=0
 LingO=0
 SkHerreria=90
-Apuñala=1
+Apuï¿½ala=1
 SOLONPC=1
 SND1=176
 SND2=177
 SND3=2
-APUÑALA=1
+APUï¿½ALA=1
 
 [OBJ1063]
 Name=Capucha Negra de Game Master
@@ -13235,7 +13235,7 @@ SND1=202
 SND2=203
 
 [OBJ1066]
-Name=Túnica Donante (Altos) (Modelo 1)
+Name=Tï¿½nica Donante (Altos) (Modelo 1)
 'Name=Tunica Donante Conejillo de Indias
 GrhIndex=20029
 ObjType=3
@@ -13323,7 +13323,7 @@ SND1=241
 SND2=240
 
 [OBJ1073]
-Name=Túnica Donante (E/G) (Modelo 2)
+Name=Tï¿½nica Donante (E/G) (Modelo 2)
 GrhIndex=20245
 ObjType=3
 NumRopaje=498
@@ -13338,7 +13338,7 @@ SND1=202
 SND2=203
 
 [OBJ1074]
-Name=Túnica Especial
+Name=Tï¿½nica Especial
 GrhIndex=18293
 ObjType=3
 NumRopaje=409
@@ -13568,7 +13568,7 @@ Bot_MaxLvl=40
 
 'Armaduras Segunda jerarquia CAOS
 [OBJ1099]
-Name=Armadura de Asesino 2da Jerarquía Caos
+Name=Armadura de Asesino 2da Jerarquï¿½a Caos
 GrhIndex=22386
 NumRopaje=457
 ObjType=3
@@ -13593,7 +13593,7 @@ SND1=241
 SND2=240
 
 [OBJ1100]
-Name=Armadura de Asesino 2da Jerarquía Caos (E/G)
+Name=Armadura de Asesino 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22413
 NumRopaje=458
 ObjType=3
@@ -13619,7 +13619,7 @@ SND1=241
 SND2=240
 
 [OBJ1101]
-Name=Armadura de Clerigo 2da Jerarquía Caos
+Name=Armadura de Clerigo 2da Jerarquï¿½a Caos
 GrhIndex=22440
 NumRopaje=459
 ObjType=3
@@ -13644,7 +13644,7 @@ SND1=241
 SND2=240
 
 [OBJ1102]
-Name=Armadura de Clerigo 2da Jerarquía Caos (E/G)
+Name=Armadura de Clerigo 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22467
 NumRopaje=460
 ObjType=3
@@ -13670,7 +13670,7 @@ SND1=241
 SND2=240
 
 [OBJ1103]
-Name=Armadura de Bardo 2da Jerarquía Caos
+Name=Armadura de Bardo 2da Jerarquï¿½a Caos
 GrhIndex=22494
 NumRopaje=461
 ObjType=3
@@ -13695,7 +13695,7 @@ SND1=241
 SND2=240
 
 [OBJ1104]
-Name=Armadura de Bardo 2da Jerarquía Caos (E/G)
+Name=Armadura de Bardo 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22521
 NumRopaje=462
 ObjType=3
@@ -13721,7 +13721,7 @@ SND1=241
 SND2=240
 
 [OBJ1105]
-Name=Armadura de Bandido 2da Jerarquía Caos
+Name=Armadura de Bandido 2da Jerarquï¿½a Caos
 GrhIndex=22548
 NumRopaje=463
 ObjType=3
@@ -13746,7 +13746,7 @@ SND1=241
 SND2=240
 
 [OBJ1106]
-Name=Armadura de Bandido 2da Jerarquía Caos (E/G)
+Name=Armadura de Bandido 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22575
 NumRopaje=464
 ObjType=3
@@ -13772,7 +13772,7 @@ SND1=241
 SND2=240
 
 [OBJ1107]
-Name=Armadura de Paladin 2da Jerarquía Caos
+Name=Armadura de Paladin 2da Jerarquï¿½a Caos
 GrhIndex=22602
 NumRopaje=465
 ObjType=3
@@ -13797,7 +13797,7 @@ SND1=241
 SND2=240
 
 [OBJ1108]
-Name=Armadura de Paladin 2da Jerarquía Caos (E/G)
+Name=Armadura de Paladin 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22629
 NumRopaje=466
 ObjType=3
@@ -13823,7 +13823,7 @@ SND1=241
 SND2=240
 
 [OBJ1109]
-Name=Túnica de Druida 2da Jerarquía Caos
+Name=Tï¿½nica de Druida 2da Jerarquï¿½a Caos
 GrhIndex=22656
 NumRopaje=467
 ObjType=3
@@ -13847,7 +13847,7 @@ SND1=202
 SND2=203
 
 [OBJ1110]
-Name=Túnica de Druida 2da Jerarquía Caos (E/G)
+Name=Tï¿½nica de Druida 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22683
 NumRopaje=468
 ObjType=3
@@ -13873,7 +13873,7 @@ SND1=202
 SND2=203
 
 [OBJ1111]
-Name=Armadura de Cazador 2da Jerarquía Caos
+Name=Armadura de Cazador 2da Jerarquï¿½a Caos
 GrhIndex=22710
 NumRopaje=469
 ObjType=3
@@ -13898,7 +13898,7 @@ SND1=241
 SND2=240
 
 [OBJ1112]
-Name=Armadura de Cazador 2da Jerarquía Caos (E/G)
+Name=Armadura de Cazador 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=22737
 NumRopaje=470
 ObjType=3
@@ -13924,7 +13924,7 @@ SND1=241
 SND2=240
 
 [OBJ1113]
-Name=Armadura de Ladrón 2da Jerarquía Caos
+Name=Armadura de Ladrï¿½n 2da Jerarquï¿½a Caos
 GrhIndex=22764
 NumRopaje=471
 ObjType=3
@@ -13949,7 +13949,7 @@ SND1=241
 SND2=240
 
 [OBJ1114]
-Name=Armadura de Ladrón 2da Jerarquía Caos (E/G)
+Name=Armadura de Ladrï¿½n 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=21342
 NumRopaje=472
 ObjType=3
@@ -13975,7 +13975,7 @@ SND1=241
 SND2=240
 
 [OBJ1115] 'Desde aca hay que correjir los CP (about)
-Name=Túnica de Mago 2da Jerarquía Caos
+Name=Tï¿½nica de Mago 2da Jerarquï¿½a Caos
 GrhIndex=21369
 NumRopaje=473
 ObjType=3
@@ -14000,7 +14000,7 @@ SND1=202
 SND2=203
 
 [OBJ1116]
-Name=Túnica de Mago 2da Jerarquía Caos (E/G)
+Name=Tï¿½nica de Mago 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=21396
 NumRopaje=474
 ObjType=3
@@ -14026,7 +14026,7 @@ SND1=202
 SND2=203
 
 [OBJ1117]
-Name=Armadura de Guerrero 2da Jerarquía Caos
+Name=Armadura de Guerrero 2da Jerarquï¿½a Caos
 GrhIndex=21423
 NumRopaje=475
 ObjType=3
@@ -14051,7 +14051,7 @@ SND1=241
 SND2=240
 
 [OBJ1118]
-Name=Armadura de Guerrero 2da Jerarquía Caos (E/G)
+Name=Armadura de Guerrero 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=21450
 NumRopaje=476
 ObjType=3
@@ -14077,7 +14077,7 @@ SND1=241
 SND2=240
 
 [OBJ1119]
-Name=Arapos Pirata 2da Jerarquía Caos
+Name=Arapos Pirata 2da Jerarquï¿½a Caos
 GrhIndex=21477
 NumRopaje=477
 ObjType=3
@@ -14102,7 +14102,7 @@ SND1=202
 SND2=203
 
 [OBJ1120]
-Name=Arapos Pirata 2da Jerarquía Caos (E/G)
+Name=Arapos Pirata 2da Jerarquï¿½a Caos (E/G)
 GrhIndex=21504
 NumRopaje=478
 ObjType=3
@@ -14128,7 +14128,7 @@ SND2=203
 
 //ARMY
 [OBJ1121]
-Name=Armadura de Asesino 2da Jerarquía Real
+Name=Armadura de Asesino 2da Jerarquï¿½a Real
 GrhIndex=21792
 NumRopaje=435
 ObjType=3
@@ -14153,7 +14153,7 @@ SND1=241
 SND2=240
 
 [OBJ1122]
-Name=Armadura de Asesino 2da Jerarquía Real (E/G)
+Name=Armadura de Asesino 2da Jerarquï¿½a Real (E/G)
 GrhIndex=21819
 NumRopaje=436
 ObjType=3
@@ -14179,7 +14179,7 @@ SND1=241
 SND2=240
 
 [OBJ1123]
-Name=Armadura de Clerigo 2da Jerarquía Real
+Name=Armadura de Clerigo 2da Jerarquï¿½a Real
 GrhIndex=21846
 NumRopaje=437
 ObjType=3
@@ -14204,7 +14204,7 @@ SND1=241
 SND2=240
 
 [OBJ1124]
-Name=Armadura de Clerigo 2da Jerarquía Real (E/G)
+Name=Armadura de Clerigo 2da Jerarquï¿½a Real (E/G)
 GrhIndex=21873
 NumRopaje=438
 ObjType=3
@@ -14230,7 +14230,7 @@ SND1=241
 SND2=240
 
 [OBJ1125]
-Name=Armadura de Bardo 2da Jerarquía Real
+Name=Armadura de Bardo 2da Jerarquï¿½a Real
 GrhIndex=21900
 NumRopaje=441
 ObjType=3
@@ -14255,7 +14255,7 @@ SND1=241
 SND2=240
 
 [OBJ1126]
-Name=Armadura de Bardo 2da Jerarquía Real (E/G)
+Name=Armadura de Bardo 2da Jerarquï¿½a Real (E/G)
 GrhIndex=21927
 NumRopaje=442
 ObjType=3
@@ -14281,7 +14281,7 @@ SND1=241
 SND2=240
 
 [OBJ1127]
-Name=Armadura de Bandido 2da Jerarquía Real
+Name=Armadura de Bandido 2da Jerarquï¿½a Real
 GrhIndex=21954
 NumRopaje=439
 ObjType=3
@@ -14306,7 +14306,7 @@ SND1=241
 SND2=240
 
 [OBJ1128]
-Name=Armadura de Bandido 2da Jerarquía Real (E/G)
+Name=Armadura de Bandido 2da Jerarquï¿½a Real (E/G)
 GrhIndex=21981
 NumRopaje=440
 ObjType=3
@@ -14332,7 +14332,7 @@ SND1=241
 SND2=240
 
 [OBJ1129]
-Name=Armadura de Cazador 2da Jerarquía Real
+Name=Armadura de Cazador 2da Jerarquï¿½a Real
 GrhIndex=22008
 NumRopaje=443
 ObjType=3
@@ -14357,7 +14357,7 @@ SND1=241
 SND2=240
 
 [OBJ1130]
-Name=Armadura de Cazador 2da Jerarquía Real (E/G)
+Name=Armadura de Cazador 2da Jerarquï¿½a Real (E/G)
 GrhIndex=22035
 NumRopaje=444
 ObjType=3
@@ -14383,7 +14383,7 @@ SND1=241
 SND2=240
 
 [OBJ1131]
-Name=Túnica de Druida 2da Jerarquía Real
+Name=Tï¿½nica de Druida 2da Jerarquï¿½a Real
 GrhIndex=22062
 NumRopaje=445
 ObjType=3
@@ -14408,7 +14408,7 @@ SND1=202
 SND2=203
 
 [OBJ1132]
-Name=Túnica de Druida 2da Jerarquía Real (E/G)
+Name=Tï¿½nica de Druida 2da Jerarquï¿½a Real (E/G)
 GrhIndex=22089
 NumRopaje=446
 ObjType=3
@@ -14434,7 +14434,7 @@ SND1=202
 SND2=203
 
 [OBJ1133]
-Name=Armadura de Guerrero 2da Jerarquía Real
+Name=Armadura de Guerrero 2da Jerarquï¿½a Real
 GrhIndex=22278
 NumRopaje=453
 ObjType=3
@@ -14459,7 +14459,7 @@ SND1=241
 SND2=240
 
 [OBJ1134]
-Name=Armadura de Guerrero 2da Jerarquía Real (E/G)
+Name=Armadura de Guerrero 2da Jerarquï¿½a Real (E/G)
 NumRopaje=454
 GrhIndex=22305
 ObjType=3
@@ -14485,7 +14485,7 @@ SND1=241
 SND2=240
 
 [OBJ1135]
-Name=Armadura de Ladrón 2da Jerarquía Real
+Name=Armadura de Ladrï¿½n 2da Jerarquï¿½a Real
 GrhIndex=22170
 NumRopaje=449
 ObjType=3
@@ -14510,7 +14510,7 @@ SND1=241
 SND2=240
 
 [OBJ1136]
-Name=Armadura de Ladrón 2da Jerarquía Real (E/G)
+Name=Armadura de Ladrï¿½n 2da Jerarquï¿½a Real (E/G)
 GrhIndex=22197
 NumRopaje=450
 ObjType=3
@@ -14536,7 +14536,7 @@ SND1=241
 SND2=240
 
 [OBJ1137]
-Name=Túnica de Mago 2da Jerarquía Real
+Name=Tï¿½nica de Mago 2da Jerarquï¿½a Real
 GrhIndex=22224
 NumRopaje=451
 ObjType=3
@@ -14561,7 +14561,7 @@ SND1=202
 SND2=203
 
 [OBJ1138]
-Name=Túnica de Mago 2da Jerarquía Real (E/G)
+Name=Tï¿½nica de Mago 2da Jerarquï¿½a Real (E/G)
 GrhIndex=22251
 NumRopaje=452
 ObjType=3
@@ -14587,7 +14587,7 @@ SND1=202
 SND2=203
 
 [OBJ1139]
-Name=Armadura de Paladín 2da Jerarquía Real
+Name=Armadura de Paladï¿½n 2da Jerarquï¿½a Real
 GrhIndex=22116
 NumRopaje=447
 ObjType=3
@@ -14612,7 +14612,7 @@ SND1=241
 SND2=240
 
 [OBJ1140]
-Name=Armadura de Paladín 2da Jerarquía Real (E/G)
+Name=Armadura de Paladï¿½n 2da Jerarquï¿½a Real (E/G)
 GrhIndex=22143
 NumRopaje=448
 ObjType=3
@@ -14638,7 +14638,7 @@ SND1=241
 SND2=240
 
 [OBJ1141]
-Name=Arapos Pirata 2da Jerarquía Real
+Name=Arapos Pirata 2da Jerarquï¿½a Real
 GrhIndex=22332
 NumRopaje=455
 ObjType=3
@@ -14663,7 +14663,7 @@ SND1=202
 SND2=203
 
 [OBJ1142]
-Name=Arapos Pirata 2da Jerarquía Real (E/G)
+Name=Arapos Pirata 2da Jerarquï¿½a Real (E/G)
 GrhIndex=22359
 NumRopaje=456
 ObjType=3
@@ -14720,7 +14720,7 @@ Bot_MinLvl=25
 Bot_MaxLvl=50
 
 [OBJ1144]
-Name=Túnica Legendaria (Mujer)
+Name=Tï¿½nica Legendaria (Mujer)
 GrhIndex=6967
 ObjType=3
 NumRopaje=211
@@ -14739,7 +14739,7 @@ SND1=202
 SND2=203
 
 [OBJ1145]
-Name=Túnica de Viajera (M)
+Name=Tï¿½nica de Viajera (M)
 GrhIndex=6764
 ObjType=3
 NumRopaje=251
@@ -14760,7 +14760,7 @@ GrhIndex=500
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=[Parte 1 - Instrucciones FutbolAO]. El evento consiste en 2 equipos de 5 participantes se enfrenten entre si. Al comenzar, la pelota estará en el centro del área con 2 miembros del equipo que comenzara (el equipo que empezara se denominara al azar) los otros miembros deberán estar AFUERA del área central (sin pisar la línea). Luego al comenzar la cuenta regresiva los usuarios del equipo contrario deberán matar al participante que tiene la pelota. Cuando este muere únicamente la pelota caerá debajo de sus pies.
+Texto=[Parte 1 - Instrucciones FutbolAO]. El evento consiste en 2 equipos de 5 participantes se enfrenten entre si. Al comenzar, la pelota estarï¿½ en el centro del ï¿½rea con 2 miembros del equipo que comenzara (el equipo que empezara se denominara al azar) los otros miembros deberï¿½n estar AFUERA del ï¿½rea central (sin pisar la lï¿½nea). Luego al comenzar la cuenta regresiva los usuarios del equipo contrario deberï¿½n matar al participante que tiene la pelota. Cuando este muere ï¿½nicamente la pelota caerï¿½ debajo de sus pies.
 
 [OBJ1147]
 Name=Reglas FutbolAO Parte 2
@@ -14768,7 +14768,7 @@ GrhIndex=500
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=[Parte 2 - Instrucciones FutbolAO] Luego de matarlo deberá agarrar la pelota y meterla en el otro arco. Los usuarios de su propio equipo NO PUEDEN entrar a su ARCO (los últimos 2 tiles) ya que en estos 2 no se puede atacar y es donde el equipo contrario tira la pelota para meter gol. Arriba del área central hay un sacerdote donde deberán resucitar. Se cobrara falta cuando: -Se ataca antes de la cuenta regresiva -Si se usa otra vestimenta que no sea la del propio equipo. Se cobrara gol en contra cuando: -Un usuario del mismo equipo se ponga APROPOSITO adentro de su propio arco, o si traba al que quiere meter el gol.
+Texto=[Parte 2 - Instrucciones FutbolAO] Luego de matarlo deberï¿½ agarrar la pelota y meterla en el otro arco. Los usuarios de su propio equipo NO PUEDEN entrar a su ARCO (los ï¿½ltimos 2 tiles) ya que en estos 2 no se puede atacar y es donde el equipo contrario tira la pelota para meter gol. Arriba del ï¿½rea central hay un sacerdote donde deberï¿½n resucitar. Se cobrara falta cuando: -Se ataca antes de la cuenta regresiva -Si se usa otra vestimenta que no sea la del propio equipo. Se cobrara gol en contra cuando: -Un usuario del mismo equipo se ponga APROPOSITO adentro de su propio arco, o si traba al que quiere meter el gol.
 
 [OBJ1148]
 Name=Reglas FutbolAO
@@ -14777,7 +14777,7 @@ ObjType=29
 Agarrable=1
 
 [OBJ1149] 'gnomo
-Name=Túnica de Viajero (E/G)
+Name=Tï¿½nica de Viajero (E/G)
 GrhIndex=20083
 ObjType=3
 NumRopaje=492
@@ -14833,7 +14833,7 @@ SkHerreria=20
 SND1=284
 
 [OBJ1152]
-Name=Túnica Donante (Altos-M) (Modelo 1)
+Name=Tï¿½nica Donante (Altos-M) (Modelo 1)
 GrhIndex=5556
 ObjType=3
 NumRopaje=245
@@ -14848,18 +14848,18 @@ SND1=202
 SND2=203
 
 [OBJ1153]
-Name=¿Dónde entreno a nivel 18/20? Parate sobre este cartel para más info.
+Name=ï¿½Dï¿½nde entreno a nivel 18/20? Parate sobre este cartel para mï¿½s info.
 GrhIndex=500
 ObjType=36
 Agarrable=1
-Texto=A nivel 18, puedes aventurarte en los bosques de los alrededores de la ciudad, para encontrar lobos, hombres lobo, tortugas gigantes y demás. Otro buen lugar, son las catacumbas de las ciudades, ubicadas al este y oeste de Ullathorpe, y en Turgon hay otra entrada.|Es recomendable que revises las criaturas del mapa de la letra "Q" para ver cual criatura te queda mejor según tu nivel.||Criaturas recomendadas en nivel 18 a 25: Beholder, Lobos/Hombres Lobo, Arañas, Ogros, etc.||Para más info, ve al botón FAQS abajo del botón estadísticas.
+Texto=A nivel 18, puedes aventurarte en los bosques de los alrededores de la ciudad, para encontrar lobos, hombres lobo, tortugas gigantes y demï¿½s. Otro buen lugar, son las catacumbas de las ciudades, ubicadas al este y oeste de Ullathorpe, y en Turgon hay otra entrada.|Es recomendable que revises las criaturas del mapa de la letra "Q" para ver cual criatura te queda mejor segï¿½n tu nivel.||Criaturas recomendadas en nivel 18 a 25: Beholder, Lobos/Hombres Lobo, Araï¿½as, Ogros, etc.||Para mï¿½s info, ve al botï¿½n FAQS abajo del botï¿½n estadï¿½sticas.
 
 [OBJ1154]
-Name=¿Cómo me resucito? Parate sobre este cartel para más info.
+Name=ï¿½Cï¿½mo me resucito? Parate sobre este cartel para mï¿½s info.
 GrhIndex=500
 ObjType=36
 Agarrable=1
-Texto=¡Si estás aquí, probablemente has muerto!||Pero no te preocupes, el sacerdote que está en frente de tí, te podrá devolver a la vida si le haces doble clic en su cuerpo, o bien si le haces clic izquierdo y luego tipeas el comando: /RESUCITAR. || || Para poder subir la energía, debes equiparte los objetos. Selecciona con clic la vestimenta, y presiona la letra "E" (de equipar) y listo.
+Texto=ï¿½Si estï¿½s aquï¿½, probablemente has muerto!||Pero no te preocupes, el sacerdote que estï¿½ en frente de tï¿½, te podrï¿½ devolver a la vida si le haces doble clic en su cuerpo, o bien si le haces clic izquierdo y luego tipeas el comando: /RESUCITAR. || || Para poder subir la energï¿½a, debes equiparte los objetos. Selecciona con clic la vestimenta, y presiona la letra "E" (de equipar) y listo.
 
 [OBJ1155]
 Name=Copa de Hierro
@@ -14899,13 +14899,13 @@ ObjType=29
 Agarrable=0
 
 [OBJ1202]
-Name=Muestra de Veneno de Gran Araña Pollito Gigante (Quest)
+Name=Muestra de Veneno de Gran Araï¿½a Pollito Gigante (Quest)
 GrhIndex=39
 ObjType=29
 Agarrable=0
 
 [OBJ1203]
-Name=Poción Especial (Quest)
+Name=Pociï¿½n Especial (Quest)
 GrhIndex=579
 ObjType=29
 Agarrable=0
@@ -14917,7 +14917,7 @@ ObjType=29
 Agarrable=0
 
 [OBJ1205]
-Name=Leña Mágica (Quest)
+Name=Leï¿½a Mï¿½gica (Quest)
 GrhIndex=550
 ObjType=29
 Agarrable=0
@@ -14953,25 +14953,25 @@ ObjType=29
 Agarrable=0
 
 [OBJ1211] 'Decoracion
-Name=Arbol Mágico
+Name=Arbol Mï¿½gico
 GrhIndex=18478
 ObjType=29
 Agarrable=1
 
 [OBJ1212] 'Decoracion
-Name=Arbol Mágico
+Name=Arbol Mï¿½gico
 GrhIndex=18479
 ObjType=29
 Agarrable=1
 
 [OBJ1213] 'Decoracion
-Name=Arbol Mágico
+Name=Arbol Mï¿½gico
 GrhIndex=18480
 ObjType=29
 Agarrable=1
 
 [OBJ1214] 'Decoracion
-Name=Arbol Mágico
+Name=Arbol Mï¿½gico
 GrhIndex=18481
 ObjType=29
 Agarrable=1
@@ -14983,7 +14983,7 @@ ObjType=29
 Agarrable=0
 
 [OBJ1216]
-Name=Túnica Donante (Altos) (Modelo 2)
+Name=Tï¿½nica Donante (Altos) (Modelo 2)
 GrhIndex=20164
 ObjType=3
 NumRopaje=495
@@ -14997,7 +14997,7 @@ SND1=202
 SND2=203
 
 [OBJ1217]
-Name=Túnica Donante (E/G) (Modelo 3)
+Name=Tï¿½nica Donante (E/G) (Modelo 3)
 GrhIndex=20191
 ObjType=3
 NumRopaje=496
@@ -15012,13 +15012,13 @@ SND1=202
 SND2=203
 
 [OBJ1218]
-Name=Última Lágrima de una Sirena
+Name=ï¿½ltima Lï¿½grima de una Sirena
 GrhIndex=1999
 ObjType=29
 Agarrable=0
 
 [OBJ1219]
-Name=Amuleto de Dragón de Agua
+Name=Amuleto de Dragï¿½n de Agua
 GrhIndex=2341
 ObjType=29
 Agarrable=0
@@ -15030,7 +15030,7 @@ ObjType=29
 Agarrable=0
 
 [OBJ1221]
-Name=Últimos Conjuros del Mundo
+Name=ï¿½ltimos Conjuros del Mundo
 GrhIndex=2640
 ObjType=29
 Agarrable=0
@@ -15084,7 +15084,7 @@ ObjType=29
 Agarrable=0
 
 [OBJ1229]
-Name=Hoz Mágica
+Name=Hoz Mï¿½gica
 GrhIndex=4909
 ObjType=29
 Agarrable=0
@@ -15104,7 +15104,7 @@ Agarrable=0
 Crucial=1
 
 [OBJ1232]
-Name=Poción Negra
+Name=Pociï¿½n Negra
 GrhIndex=5357
 ObjType=29
 Agarrable=0
@@ -15147,7 +15147,7 @@ ObjType=29
 Agarrable=0
 
 [OBJ1239]
-Name=Amuleto de Faerûn
+Name=Amuleto de Faerï¿½n
 GrhIndex=20891
 ObjType=29
 Agarrable=0
@@ -15198,7 +15198,7 @@ Donante=1
 Log=1
 
 [OBJ1245]
-Name=Túnica Donante (Altos) (Modelo 3)
+Name=Tï¿½nica Donante (Altos) (Modelo 3)
 GrhIndex=12860
 ObjType=3
 NumRopaje=241
@@ -15212,7 +15212,7 @@ SND1=202
 SND2=203
 
 [OBJ1246]
-Name=Túnica Donante (Altos-M) (modelo 2)
+Name=Tï¿½nica Donante (Altos-M) (modelo 2)
 GrhIndex=9910
 ObjType=3
 NumRopaje=233
@@ -15227,7 +15227,7 @@ SND1=202
 SND2=203
 
 [OBJ1247]
-Name=Poción de Remover Parálisis
+Name=Pociï¿½n de Remover Parï¿½lisis
 GrhIndex=36
 ObjType=11
 Agarrable=0
@@ -15246,7 +15246,7 @@ CP6=BARDO
 CP7=DRUIDA
 
 [OBJ1248]
-Name=Túnica Donante (E/G) (Modelo 4)
+Name=Tï¿½nica Donante (E/G) (Modelo 4)
 GrhIndex=12887
 ObjType=3
 NumRopaje=242
@@ -15261,7 +15261,7 @@ SND1=202
 SND2=203
 
 [OBJ1249]
-Name=Túnica Donante (Altos) (Modelo 4)
+Name=Tï¿½nica Donante (Altos) (Modelo 4)
 GrhIndex=14052
 ObjType=3
 NumRopaje=256
@@ -15278,7 +15278,7 @@ SND1=202
 SND2=203
 
 [OBJ1250]
-Name=Túnica Donante (Altos) (Modelo 5)
+Name=Tï¿½nica Donante (Altos) (Modelo 5)
 GrhIndex=20137
 ObjType=3
 NumRopaje=494
@@ -15295,7 +15295,7 @@ SND1=202
 SND2=203
 
 [OBJ1251]
-Name=Túnica Mejor Donante 2011 (Altos)
+Name=Tï¿½nica Mejor Donante 2011 (Altos)
 GrhIndex=14079
 ObjType=3
 NumRopaje=257
@@ -15484,7 +15484,7 @@ ObjType=20
 Agarrable=1
 
 [OBJ1280]
-Name=Túnica Donante (Altos-M) (Modelo 6)
+Name=Tï¿½nica Donante (Altos-M) (Modelo 6)
 GrhIndex=3076
 ObjType=3
 NumRopaje=193
@@ -15499,7 +15499,7 @@ SND1=202
 SND2=203
 
 [OBJ1281]
-Name=Túnica Donante (Altos) (Modelo 6)
+Name=Tï¿½nica Donante (Altos) (Modelo 6)
 GrhIndex=14223
 ObjType=3
 NumRopaje=262
@@ -15513,7 +15513,7 @@ SND1=202
 SND2=203
 
 [OBJ1282]
-Name=Túnica Donante (E/G) (Modelo 6)
+Name=Tï¿½nica Donante (E/G) (Modelo 6)
 GrhIndex=16788
 ObjType=3
 NumRopaje=357
@@ -15528,7 +15528,7 @@ SND1=202
 SND2=203
 
 [OBJ1283]
-Name=Túnica Mejor Donante 2018
+Name=Tï¿½nica Mejor Donante 2018
 GrhIndex=20056
 ObjType=3
 NumRopaje=491
@@ -15545,7 +15545,7 @@ SND1=202
 SND2=203
 
 [OBJ1284]
-Name=Túnica Mejor Donante 2012
+Name=Tï¿½nica Mejor Donante 2012
 GrhIndex=20326
 ObjType=3
 NumRopaje=500
@@ -15559,7 +15559,7 @@ SND1=202
 SND2=203
 
 [OBJ1285]
-Name=Corona Campeón de Clanes
+Name=Corona Campeï¿½n de Clanes
 GrhIndex=22969
 ObjType=17
 NumRopaje=2
@@ -15574,7 +15574,7 @@ Valor=60000
 Donante=0
 
 [OBJ1286]
-Name=Túnica Campeón de Magos
+Name=Tï¿½nica Campeï¿½n de Magos
 GrhIndex=22888
 ObjType=3
 NumRopaje=506
@@ -15598,7 +15598,7 @@ SND1=202
 SND2=203
 
 [OBJ1287]
-Name=Túnica Campeón de Magos (Mujer)
+Name=Tï¿½nica Campeï¿½n de Magos (Mujer)
 GrhIndex=22915
 ObjType=3
 NumRopaje=507
@@ -15624,7 +15624,7 @@ SND1=202
 SND2=203
 
 [OBJ1288]
-Name=Túnica Donante (E/G) (Modelo 7)
+Name=Tï¿½nica Donante (E/G) (Modelo 7)
 GrhIndex=22942
 ObjType=3
 NumRopaje=508
@@ -15684,7 +15684,7 @@ SND2=208
 SND3=232
 
 [OBJ1291] 
-Name=Poción Violeta (Newbie)
+Name=Pociï¿½n Violeta (Newbie)
 GrhIndex=601
 ObjType=11
 TipoPocion=5
@@ -15892,7 +15892,7 @@ Donante=1
 NoSeCae=1
 
 [OBJ1307]
-Name=Descarga Eléctrica
+Name=Descarga Elï¿½ctrica
 GrhIndex=27486
 ObjType=24
 Valor=350
@@ -16174,7 +16174,7 @@ SND1=241
 SND2=240
 
 [OBJ1319]
-Name=Armadura de Paladín Donante Caos
+Name=Armadura de Paladï¿½n Donante Caos
 GrhIndex=22602
 NumRopaje=465
 ObjType=3
@@ -16204,7 +16204,7 @@ SND1=241
 SND2=240
 
 [OBJ1320]
-Name=Armadura de Paladín Donante Caos (E/G)
+Name=Armadura de Paladï¿½n Donante Caos (E/G)
 GrhIndex=22629
 NumRopaje=466
 ObjType=3
@@ -16235,7 +16235,7 @@ SND1=241
 SND2=240
 
 [OBJ1321]
-Name=Túnica de Druida Donante Caos
+Name=Tï¿½nica de Druida Donante Caos
 GrhIndex=22656
 NumRopaje=467
 ObjType=3
@@ -16265,7 +16265,7 @@ SND2=203
 LOG=0
 
 [OBJ1322]
-Name=Túnica de Druida Donante Caos (E/G)
+Name=Tï¿½nica de Druida Donante Caos (E/G)
 GrhIndex=22683
 NumRopaje=468
 ObjType=3
@@ -16357,7 +16357,7 @@ SND1=241
 SND2=240
 
 [OBJ1325]
-Name=Armadura de Ladrón Donante Caos
+Name=Armadura de Ladrï¿½n Donante Caos
 GrhIndex=22764
 NumRopaje=471
 ObjType=3
@@ -16387,7 +16387,7 @@ SND1=241
 SND2=240
 
 [OBJ1326]
-Name=Armadura de Ladrón Donante Caos (E/G)
+Name=Armadura de Ladrï¿½n Donante Caos (E/G)
 GrhIndex=21342
 NumRopaje=472
 ObjType=3
@@ -16418,7 +16418,7 @@ SND1=241
 SND2=240
 
 [OBJ1327] 'Desde aca hay que correjir los CP (about)
-Name=Túnica de Mago Donante Caos
+Name=Tï¿½nica de Mago Donante Caos
 GrhIndex=21369
 NumRopaje=473
 ObjType=3
@@ -16448,7 +16448,7 @@ SND1=202
 SND2=203
 
 [OBJ1328]
-Name=Túnica de Mago Donante Caos (E/G)
+Name=Tï¿½nica de Mago Donante Caos (E/G)
 GrhIndex=21396
 NumRopaje=474
 ObjType=3
@@ -16904,7 +16904,7 @@ SND1=241
 SND2=240
 
 [OBJ1343]
-Name=Túnica de Druida Donante Real
+Name=Tï¿½nica de Druida Donante Real
 GrhIndex=22062
 NumRopaje=445
 ObjType=3
@@ -16934,7 +16934,7 @@ SND1=202
 SND2=203
 
 [OBJ1344]
-Name=Túnica de Druida Donante Real (E/G)
+Name=Tï¿½nica de Druida Donante Real (E/G)
 GrhIndex=22089
 NumRopaje=446
 ObjType=3
@@ -17026,7 +17026,7 @@ SND1=241
 SND2=240
 
 [OBJ1347]
-Name=Armadura de Ladrón Donante Real
+Name=Armadura de Ladrï¿½n Donante Real
 GrhIndex=22170
 NumRopaje=449
 ObjType=3
@@ -17056,7 +17056,7 @@ SND1=241
 SND2=240
 
 [OBJ1348]
-Name=Armadura de Ladrón Donante Real (E/G)
+Name=Armadura de Ladrï¿½n Donante Real (E/G)
 GrhIndex=22197
 NumRopaje=450
 ObjType=3
@@ -17087,7 +17087,7 @@ SND1=241
 SND2=240
 
 [OBJ1349]
-Name=Túnica de Mago Donante Real
+Name=Tï¿½nica de Mago Donante Real
 GrhIndex=22224
 NumRopaje=451
 ObjType=3
@@ -17117,7 +17117,7 @@ SND1=202
 SND2=203
 
 [OBJ1350]
-Name=Túnica de Mago Donante Real (E/G)
+Name=Tï¿½nica de Mago Donante Real (E/G)
 GrhIndex=22251
 NumRopaje=452
 ObjType=3
@@ -17148,7 +17148,7 @@ SND1=202
 SND2=203
 
 [OBJ1351]
-Name=Armadura de Paladín Donante Real
+Name=Armadura de Paladï¿½n Donante Real
 GrhIndex=22116
 NumRopaje=447
 ObjType=3
@@ -17178,7 +17178,7 @@ SND1=241
 SND2=240
 
 [OBJ1352]
-Name=Armadura de Paladín Donante Real (E/G)
+Name=Armadura de Paladï¿½n Donante Real (E/G)
 GrhIndex=22143
 NumRopaje=448
 ObjType=3
@@ -17360,11 +17360,11 @@ PasajePosY=282
 Crucial=1
 
 [OBJ1365]
-Name=Entrada al sector no mágico de Dungeon Lava.
+Name=Entrada al sector no mï¿½gico de Dungeon Lava.
 GrhIndex=500
 ObjType=36
 Agarrable=1
-Texto=Estas a punto de ingresar en el sector no mágico del Dungeon Lava, que queda unos pocos pasos hacia el sur, en donde se enuentra justamente la entrada.|Ten mucho cuidado, ya que las clases mágicas, no son bienvenidas y estarán desprotegidas de sus artes arcanas.||Recomendación: Si eres mayor a nivel 35 busca dos antorchas bastante juntas, que te llevarán por un pasaje secreto hacia un sector secreto del dungeon, con criaturas realmente más poderosas.
+Texto=Estas a punto de ingresar en el sector no mï¿½gico del Dungeon Lava, que queda unos pocos pasos hacia el sur, en donde se enuentra justamente la entrada.|Ten mucho cuidado, ya que las clases mï¿½gicas, no son bienvenidas y estarï¿½n desprotegidas de sus artes arcanas.||Recomendaciï¿½n: Si eres mayor a nivel 35 busca dos antorchas bastante juntas, que te llevarï¿½n por un pasaje secreto hacia un sector secreto del dungeon, con criaturas realmente mï¿½s poderosas.
 
 [OBJ1366]
 Name=Pasaje a Dungeon Lava
@@ -17380,7 +17380,7 @@ Crucial=1
 Name=Estandarte Legionario
 GrhIndex=12708
 ObjType=8
-Texto=Aquí prevalecerá el mal en todas sus formas. ¡Huye mientras puedas!
+Texto=Aquï¿½ prevalecerï¿½ el mal en todas sus formas. ï¿½Huye mientras puedas!
 
 [OBJ1368]
 Name=Invocar Elemental de Agua
@@ -17391,7 +17391,7 @@ Crucial=1
 HechizoIndex=27
 
 [OBJ1369]
-Name=Flecha Eléctrica
+Name=Flecha Elï¿½ctrica
 GrhIndex=27538
 ObjType=24
 Agarrable=0
@@ -17400,7 +17400,7 @@ Crucial=1
 HechizoIndex=7
 
 [OBJ1370]
-Name=Misil Mágico
+Name=Misil Mï¿½gico
 GrhIndex=27527
 ObjType=24
 Agarrable=0
@@ -17418,7 +17418,7 @@ Crucial=1
 HechizoIndex=9
 
 [OBJ1372]
-Name=Remover Parálisis
+Name=Remover Parï¿½lisis
 GrhIndex=27532
 ObjType=24
 Agarrable=0
@@ -17427,7 +17427,7 @@ Crucial=1
 HechizoIndex=10
 
 [OBJ1373]
-Name=Invocación de Ultratumba
+Name=Invocaciï¿½n de Ultratumba
 GrhIndex=27521
 ObjType=24
 Agarrable=0
@@ -17436,7 +17436,7 @@ Crucial=1
 HechizoIndex=33
 
 [OBJ1374]
-Name=Terrible Hambre de Igôr
+Name=Terrible Hambre de Igï¿½r
 GrhIndex=27534
 ObjType=24
 Agarrable=0
@@ -17462,7 +17462,7 @@ Crucial=1
 HechizoIndex=46
 
 [OBJ1377]
-Name=Descarga Eléctrica
+Name=Descarga Elï¿½ctrica
 GrhIndex=27486
 ObjType=24
 Valor=400000
@@ -17504,7 +17504,7 @@ HechizoIndex=44
 Donante=1
 
 [OBJ1382]
-Name=Túnica Donante (Altos-M) (Modelo 7)
+Name=Tï¿½nica Donante (Altos-M) (Modelo 7)
 GrhIndex=5955
 ObjType=3
 NumRopaje=66
@@ -17519,7 +17519,7 @@ SND1=202
 SND2=203
 
 [OBJ1383]
-Name=Túnica Donante (Altos-M) (Modelo 8)
+Name=Tï¿½nica Donante (Altos-M) (Modelo 8)
 GrhIndex=6771
 ObjType=3
 NumRopaje=67
@@ -17534,7 +17534,7 @@ SND1=202
 SND2=203
 
 [OBJ1384]
-Name=Pasaje a Gran Pirámide.
+Name=Pasaje a Gran Pirï¿½mide.
 GrhIndex=609
 ObjType=35
 Valor=10000
@@ -17544,43 +17544,43 @@ PasajePosY=557
 Crucial=1
 
 [OBJ1385]
-Name=Regalos Navideños
+Name=Regalos Navideï¿½os
 GrhIndex=23311
 ObjType=12
 Agarrable=2
 
 [OBJ1386]
-Name=Regalos Navideños
+Name=Regalos Navideï¿½os
 GrhIndex=23312
 ObjType=12
 Agarrable=2
 
 [OBJ1387]
-Name=Regalos Navideños
+Name=Regalos Navideï¿½os
 GrhIndex=23313
 ObjType=12
 Agarrable=2
 
 [OBJ1388]
-Name=Muñecode Nieve
+Name=Muï¿½ecode Nieve
 GrhIndex=23314
 ObjType=12
 Agarrable=2
 
 [OBJ1389]
-Name=Muñecode Nieve 2
+Name=Muï¿½ecode Nieve 2
 GrhIndex=23315
 ObjType=12
 Agarrable=2
 
 [OBJ1390]
-Name=Decoración Navideña
+Name=Decoraciï¿½n Navideï¿½a
 GrhIndex=23316
 ObjType=12
 Agarrable=2
 
 [OBJ1391]
-Name=Decoración Navideña
+Name=Decoraciï¿½n Navideï¿½a
 GrhIndex=23316
 ObjType=12
 Agarrable=2
@@ -17593,7 +17593,7 @@ Agarrable=0
 MinHAM=10
 Valor=2
 Crucial=1
-'Name=Sombrero Navideño
+'Name=Sombrero Navideï¿½o
 'GrhIndex=23318
 'ObjType=17
 'NumRopaje=17
@@ -17621,31 +17621,31 @@ DefensaMagicaMin=5
 DefensaMagicaMax=5
 
 [OBJ1394]
-Name=Árbol Navideño
+Name=ï¿½rbol Navideï¿½o
 GrhIndex=23566
 ObjType=12
 Agarrable=2
 
 [OBJ1395]
-Name=Árbol Navideño
+Name=ï¿½rbol Navideï¿½o
 GrhIndex=23567
 ObjType=12
 Agarrable=2
 
 [OBJ1396]
-Name=Árbol Navideño
+Name=ï¿½rbol Navideï¿½o
 GrhIndex=23568
 ObjType=12
 Agarrable=2
 
 [OBJ1397]
-Name=Árbol Navideño
+Name=ï¿½rbol Navideï¿½o
 GrhIndex=23569
 ObjType=12
 Agarrable=2
 
 [OBJ1398]
-Name=Túnica Consejo Mercenario (E/G)
+Name=Tï¿½nica Consejo Mercenario (E/G)
 GrhIndex=20299
 ObjType=3
 NumRopaje=499
@@ -17659,7 +17659,7 @@ SND1=202
 SND2=203
 
 [OBJ1399]
-Name=Túnica Consejo Mercenario (Altos)
+Name=Tï¿½nica Consejo Mercenario (Altos)
 GrhIndex=20326
 ObjType=3
 NumRopaje=500
@@ -17677,7 +17677,7 @@ GrhIndex=27283
 VGrande=466
 ObjType=24
 Agarrable=1
-Texto=Eterno druida amado por todos amado de éstas tierras, persona invaluable de BenderAO.
+Texto=Eterno druida amado por todos amado de ï¿½stas tierras, persona invaluable de BenderAO.
 
 [OBJ1401]
 Name=Anillo Velocidad Prueba
@@ -17723,7 +17723,7 @@ SND3=179
 GIVENEXP=1
 
 [OBJ1403]
-Name=Anillo de Velocidad Rápida
+Name=Anillo de Velocidad Rï¿½pida
 GrhIndex=4903
 ObjType=37
 Agarrable=0
@@ -17858,7 +17858,7 @@ LINGP=50
 MADERA=9500
 MAXHIT=1
 MINHIT=1
-NAME=Báculo Engarzado (Evento)
+NAME=Bï¿½culo Engarzado (Evento)
 OBJTYPE=2
 SKCARPINTERIA=85
 SKHERRERIA=85
@@ -17915,7 +17915,7 @@ GRHINDEX=1523
 MADERA=7000
 MAXHIT=1
 MINHIT=1
-NAME=Laúd Mágico (Evento Semanal)
+NAME=Laï¿½d Mï¿½gico (Evento Semanal)
 OBJTYPE=26
 SKCARPINTERIA=100
 SND1=40
@@ -17953,7 +17953,7 @@ NOSECAE=1
 [OBJ1161]
 AGARRABLE=0
 ANIM=28
-APUÑALA=1
+APUï¿½ALA=1
 CP1=DRUIDA
 CP2=MAGO
 CP3=PALADIN
@@ -18140,7 +18140,7 @@ CP8=BANDIDO
 CP9=GUERRERO
 GRHINDEX=1522
 MAXHIT=1
-NAME=Flauta Mágica (Eventos Semanales)
+NAME=Flauta Mï¿½gica (Eventos Semanales)
 OBJTYPE=26
 SND1=152
 SND2=152
@@ -18152,7 +18152,7 @@ NOSECAE=1
 [OBJ1168]
 AGARRABLE=2
 ANIM=44
-APUÑALA=1
+APUï¿½ALA=1
 CP1=GUERRERO
 CP10=TRABAJADOR
 CP11=ASESINO
@@ -18176,7 +18176,7 @@ VALOR=0
 [OBJ1169]
 AGARRABLE=2
 ANIM=15
-APUÑALA=1
+APUï¿½ALA=1
 CP1=GUERRERO
 CP10=TRABAJADOR
 CP11=ASESINO
@@ -18200,7 +18200,7 @@ VALOR=0
 [OBJ1170]
 AGARRABLE=2
 ANIM=15
-APUÑALA=1
+APUï¿½ALA=1
 CP1=GUERRERO
 CP10=TRABAJADOR
 CP11=ASESINO
@@ -18224,7 +18224,7 @@ VALOR=0
 [OBJ1171]
 AGARRABLE=2
 ANIM=15
-APUÑALA=1
+APUï¿½ALA=1
 CP1=GUERRERO
 CP10=TRABAJADOR
 CP11=ASESINO
@@ -18356,7 +18356,7 @@ LINGO=5
 LINGP=20
 MAXDEF=35
 MINDEF=30
-NAME=Túnica Legendaria E/G
+NAME=Tï¿½nica Legendaria E/G
 NUMROPAJE=533
 OBJTYPE=3
 SKHERRERIA=70
@@ -18507,7 +18507,7 @@ CRUCIAL=1
 GRHINDEX=14304
 MAXDEF=25
 MINDEF=25
-NAME=Túnica de Hechicero Oscuro
+NAME=Tï¿½nica de Hechicero Oscuro
 NUMROPAJE=265
 OBJTYPE=3
 SND1=202
@@ -18583,7 +18583,7 @@ CRUCIAL=1
 GRHINDEX=24233
 MAXDEF=12
 MINDEF=6
-NAME=Manto de Sacerdote Demoníaco (E/G)
+NAME=Manto de Sacerdote Demonï¿½aco (E/G)
 NUMROPAJE=549
 OBJTYPE=3
 VALOR=2900
@@ -18655,7 +18655,7 @@ CRUCIAL=1
 GRHINDEX=24368
 MAXDEF=14
 MINDEF=7
-NAME=Túnica de Mago del Imperio (E/G)
+NAME=Tï¿½nica de Mago del Imperio (E/G)
 NUMROPAJE=554
 OBJTYPE=3
 REAL=1
@@ -18668,7 +18668,7 @@ AGARRABLE=2
 GRHINDEX=25795
 MAXDEF=0
 MINDEF=0
-NAME=Túnica de Rey Oscura
+NAME=Tï¿½nica de Rey Oscura
 NOSECAE=0
 NUMROPAJE=601
 OBJTYPE=3
@@ -18693,7 +18693,7 @@ GRHINDEX=25006
 LOG=1
 MAXDEF=0
 MINDEF=0
-NAME=Túnica de Senescal Benderiano
+NAME=Tï¿½nica de Senescal Benderiano
 NOSECAE=0
 NUMROPAJE=571
 OBJTYPE=3
@@ -18707,7 +18707,7 @@ GRHINDEX=25876
 LOG=0
 MAXDEF=20
 MINDEF=20
-NAME=Casco de Teutón
+NAME=Casco de Teutï¿½n
 NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
@@ -18739,7 +18739,7 @@ VALOR=0
 [OBJ1407]
 AGARRABLE=0
 ANIM=45
-APUÑALA=1
+APUï¿½ALA=1
 CP1=PIRATA
 CP10=DRUIDA
 CP2=MAGO
@@ -19304,7 +19304,7 @@ ANIM=46
 GRHINDEX=26950
 MAXHIT=1
 MINHIT=1
-NAME=Báculo MIO
+NAME=Bï¿½culo MIO
 OBJTYPE=2
 STAFFDAMAGEBONUS=40
 STAFFPOWER=2
@@ -19314,7 +19314,7 @@ GRHINDEX=27624
 LOG=1
 MAXDEF=60
 MINDEF=60
-NAME=Armadura de Dragón Alada (Prohibido Crear)
+NAME=Armadura de Dragï¿½n Alada (Prohibido Crear)
 NOSECAE=1
 NUMROPAJE=636
 OBJTYPE=3
@@ -19376,7 +19376,7 @@ GRHINDEX=26538
 LOG=1
 MAXDEF=28
 MINDEF=28
-NAME=Túnica de Soberano (E/G)
+NAME=Tï¿½nica de Soberano (E/G)
 NOSECAE=1
 NUMROPAJE=627
 OBJTYPE=3
@@ -19400,7 +19400,7 @@ GRHINDEX=26142
 LOG=1
 MAXDEF=28
 MINDEF=28
-NAME=Túnica de Soberano (Altos)
+NAME=Tï¿½nica de Soberano (Altos)
 NOSECAE=1
 NUMROPAJE=613
 OBJTYPE=3
@@ -19455,7 +19455,7 @@ LOG=1
 MAXDEF=30
 MINDEF=30
 MUJER=0
-NAME=Túnica Siniestra (Altos)
+NAME=Tï¿½nica Siniestra (Altos)
 NOSECAE=1
 NUMROPAJE=599
 OBJTYPE=3
@@ -19487,7 +19487,7 @@ GRHINDEX=20407
 LOG=1
 MAXDEF=28
 MINDEF=28
-NAME=Túnica de Hechicero Avanzado (E/G)
+NAME=Tï¿½nica de Hechicero Avanzado (E/G)
 NOSECAE=1
 NUMROPAJE=559
 OBJTYPE=3
@@ -19510,7 +19510,7 @@ GRHINDEX=27363
 LOG=1
 MAXDEF=28
 MINDEF=28
-NAME=Túnica de Hechicero Avanzado (Altos)
+NAME=Tï¿½nica de Hechicero Avanzado (Altos)
 NOSECAE=1
 NUMROPAJE=634
 OBJTYPE=3
@@ -19538,7 +19538,7 @@ VALOR=35000
 [OBJ1456]
 GRHINDEX=27488
 HECHIZOINDEX=68
-NAME=Extenuación
+NAME=Extenuaciï¿½n
 OBJTYPE=24
 VALOR=35000
 [OBJ1457]
@@ -19571,7 +19571,7 @@ LOG=1
 MAXDEF=30
 MINDEF=30
 MUJER=0
-NAME=Túnica Siniestra
+NAME=Tï¿½nica Siniestra
 NOSECAE=1
 NUMROPAJE=599
 OBJTYPE=3

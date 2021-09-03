@@ -1,4 +1,6 @@
 const fs = require("fs");
+const { parse } = require("path");
+const { stringify } = require("querystring");
 
 const readAFile = (pathing, encoding) => {
   try {
@@ -68,6 +70,19 @@ const accountKeys = (removedEmpty) => {
   }
   return container;
 };
+
+
+
+const propertyUncommenter = (parsedfile) => {
+  const regex = /.*(?=\')/
+  parsedfile.forEach(element => {
+      for (const key in element) {
+        if(/\'/.test(element[key]))
+        element[key] = element[key].match(regex)[0]+'\r'
+      }
+  });
+  }
+
 /*
 function s2ab(s) {
   var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
@@ -80,10 +95,10 @@ function s2ab(s) {
 const dothings = () => {
   const fileContent = readAFile("./OBJ.dat", "utf-8");
   const parsedfile = parser(fileContent);
-  const parsedFileWithoutBlanks = propertyDeleter(parsedfile);
-  const excelColumns = accountKeys(parsedFileWithoutBlanks);
-  fs.writeFileSync("OBJ.txt", JSON.stringify(parsedFileWithoutBlanks));
-  //printer(excelColumns)
+  const parsedFileWithoutBlanks = propertyDeleter(parsedfile)
+  propertyUncommenter(parsedFileWithoutBlanks);
+  const toPrint = JSON.stringify(parsedFileWithoutBlanks)
+  fs.writeFileSync("OBJ.txt", toPrint);
 };
 
 dothings();
