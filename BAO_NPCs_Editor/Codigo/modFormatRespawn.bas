@@ -63,6 +63,7 @@ Public Enum eHeading
     West = 4
 End Enum
 
+'El formato que usa el Cliente de Bender para mostrar los npcs en el MAPA de la "Q" (Importante diferenciarlos, porque no son los mismos, son 2 archivos diferentes.)
 Public Sub LoadFormatRespawn()
 
 Dim nFile                       As Integer
@@ -119,6 +120,7 @@ Dim j                           As Long
 
 End Sub
 
+'El formato que usa el Cliente de Bender para mostrar los npcs en el MAPA de la "Q" (Importante diferenciarlos, porque no son los mismos, son 2 archivos diferentes.)
 Public Sub SaveFormatRespawn()
 
 Dim nFile                       As Integer

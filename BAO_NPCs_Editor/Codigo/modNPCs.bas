@@ -345,18 +345,36 @@ Dim i                           As Long
         Put #nFile, , NPCRespawnCount
         For i = 0 To NPCRespawnCount - 1
             With NPCRespawn(i) 'NPCRespawn2(i)
-                Put #nFile, , .AreaX
-                Put #nFile, , .AreaY
-                Put #nFile, , .Count
-                Put #nFile, , .ID
-                Put #nFile, , .Pos
-                Put #nFile, , .RespawnTime
-                Put #nFile, , .Nivel
-                Put #nFile, , .FactorMulExp
-                Put #nFile, , .MinHour
-                Put #nFile, , .MaxHour
-                Put #nFile, , .WithCountUsers
+                Put #nFile, , .AreaX        '1
+                Put #nFile, , .AreaY        '2
+                Put #nFile, , .Count        '3
+                Put #nFile, , .ID           '4
+                Put #nFile, , .Pos          '5
+                Put #nFile, , .RespawnTime  '6
+                Put #nFile, , .Nivel        '7
+                Put #nFile, , .FactorMulExp '8
+                Put #nFile, , .MinHour      '9
+                Put #nFile, , .MaxHour      '10
+                Put #nFile, , .WithCountUsers '11
                 
+                If .ID > 0 Then
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "INIT", "NPCRespawnCount", Val(NPCRespawnCount))  '1
+                
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Name", NpcList(.ID).Name)   '0
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "AreaX", Val(.AreaX))   '1
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "AreaY", Val(.AreaY))    '2
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Count", Val(.Count))    '3
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "ID", Val(.ID))               '4
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_MAP", Val(.Pos.Map))     '5
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_X", Val(.Pos.X))  '6
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_Y", Val(.Pos.Y))  '7
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Respawn_Time", .RespawnTime)  '8
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Nivel", Val(.Nivel))  '9
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Factor_Experiencia", .FactorMulExp)  '10
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Min_Hour", .MinHour)  '11
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Max_Hour", .MaxHour)  '12
+                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Count_Users", Val(.WithCountUsers))  '13
+                End If
             End With
         Next i
     Close #nFile

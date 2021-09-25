@@ -6,6 +6,13 @@ Public Declare Function recv Lib "wSock32.dll" (ByVal S As Long, ByRef buf As An
 Public GetVarBuf As String
 Public Const GetVarBufTam As Long = 3000
 
+Private Declare Function writeprivateprofilestring Lib "kernel32" Alias "WritePrivateProfileStringA" (ByVal lpApplicationname As String, ByVal lpKeyname As Any, ByVal lpString As String, ByVal lpFileName As String) As Long
+
+Public Sub WriteVar(ByVal File As String, ByVal Main As String, ByVal var As String, ByVal Value As String)
+    writeprivateprofilestring Main, var, Value, File
+End Sub
+
+
 Public Sub IniciarHarcodeo()
     GetVarBuf = String(GetVarBufTam, 0)
 End Sub
