@@ -146,38 +146,38 @@ Dim surfaceIndex                As Long
     'Set up the list at a standard value big enough to prevent using ReDim Preserve constantly (which is slow)
     On Error GoTo LoadSurfaces_Error
 
-10  ReDim surfaceList(DEFAULT_LIST_SIZE) As SURFACE_ENTRY_STATIC
+    ReDim surfaceList(DEFAULT_LIST_SIZE) As SURFACE_ENTRY_STATIC
 
-20  FileName = Dir$(GrhPath & "*.bmp", vbArchive)
+    FileName = Dir$(GrhPath & "*.bmp", vbArchive)
 
-30  While LenB(FileName) <> 0  ' GS
+    While LenB(FileName) <> 0  ' GS
         'Get the surface index (numeric part of the number) - NEVER use Val() here or the error won't be raised!!! - Don't use IsNumeric or hexa strings will be accepted
-40      surfaceIndex = CLng(Left$(FileName, Len(FileName) - 4))
+        surfaceIndex = CLng(Left$(FileName, Len(FileName) - 4))
 
-50      If err.Number = 13 Then
+        If err.Number = 13 Then
             'Type mysmatch - the name of the file isn't numneric, therefore it isn't a surface
-60          err.Clear
-70      Else
+            err.Clear
+        Else
             'Increase surface count and resize list if needed
-80          surfaceCount = surfaceCount + 1
-90          If surfaceCount > DEFAULT_LIST_SIZE + 1 Then
-100             ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
-110         End If
+            surfaceCount = surfaceCount + 1
+            If surfaceCount > DEFAULT_LIST_SIZE + 1 Then
+                ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
+            End If
 
-120         Call LoadSurface(GrhPath, surfaceIndex, surfaceCount - 1)
-130     End If
+            Call LoadSurface(GrhPath, surfaceIndex, surfaceCount - 1)
+        End If
 
         'Get next .bmp file
-140     FileName = Dir$()
-150 Wend
+        FileName = Dir$()
+    Wend
 
     'Trim the list if needed
-160 If surfaceCount <> UBound(surfaceList) + 1 Then
-170     ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
-180 End If
+    If surfaceCount <> UBound(surfaceList) + 1 Then
+        ReDim Preserve surfaceList(surfaceCount - 1) As SURFACE_ENTRY_STATIC
+    End If
 
     'Sort the list
-190 Call SortSurfaces(0, surfaceCount - 1)
+    Call SortSurfaces(0, surfaceCount - 1)
 
     On Error GoTo 0
     Exit Sub

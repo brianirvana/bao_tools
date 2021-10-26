@@ -147,30 +147,30 @@ Sub MakeChar(CharIndex As Integer, Body As Integer, Head As Integer, Heading As 
 'Update LastChar
     On Error GoTo MakeChar_Error
 
-10  If CharIndex > LastChar Then LastChar = CharIndex
-20  NumChars = NumChars + 1
+    If CharIndex > LastChar Then LastChar = CharIndex
+    NumChars = NumChars + 1
 
     'Update head, body, ect.
-30  CharList(CharIndex).Body = BodyData(Body)
-40  CharList(CharIndex).Head = HeadData(Head)
-50  CharList(CharIndex).Heading = Heading
+    CharList(CharIndex).Body = BodyData(Body)
+    CharList(CharIndex).Head = HeadData(Head)
+    CharList(CharIndex).Heading = Heading
 
     'Reset moving stats
-60  CharList(CharIndex).Moving = 0
-70  CharList(CharIndex).MoveOffset.X = 0
-80  CharList(CharIndex).MoveOffset.Y = 0
+    CharList(CharIndex).Moving = 0
+    CharList(CharIndex).MoveOffset.X = 0
+    CharList(CharIndex).MoveOffset.Y = 0
 
     'Update position
-90  CharList(CharIndex).Pos.X = X
-100 CharList(CharIndex).Pos.Y = Y
+    CharList(CharIndex).Pos.X = X
+    CharList(CharIndex).Pos.Y = Y
 
     'Make active
-110 CharList(CharIndex).Active = 1
+    CharList(CharIndex).Active = 1
 
     'Plot on map
-120 MapData(X, Y).CharIndex = CharIndex
+    MapData(X, Y).CharIndex = CharIndex
 
-130 bRefreshRadar = True       ' GS
+    bRefreshRadar = True       ' GS
 
     On Error GoTo 0
     Exit Sub
@@ -574,8 +574,6 @@ Sub DrawBackBufferSurface()
 End Sub
 
 
-
-
 Sub DrawGrhtoHdc(hwnd As Long, hdc As Long, Grh As Integer, SourceRect As RECT, destRect As RECT)
 '*************************************************
 'Author: Unkwown
@@ -584,12 +582,12 @@ Sub DrawGrhtoHdc(hwnd As Long, hdc As Long, Grh As Integer, SourceRect As RECT, 
 
     On Error GoTo DrawGrhtoHdc_Error
 
-10  If Grh <= 0 Then Exit Sub
+    If Grh <= 0 Then Exit Sub
     Dim aux                     As Integer
-20  aux = GrhData(Grh).FileNum
-30  If aux = 0 Then Exit Sub
-40  SecundaryClipper.SetHWnd hwnd
-50  SurfaceDB.Surface(aux).BltToDC hdc, SourceRect, destRect
+    aux = GrhData(Grh).FileNum
+    If aux = 0 Then Exit Sub
+    SecundaryClipper.SetHWnd hwnd
+    SurfaceDB.Surface(aux).BltToDC hdc, SourceRect, destRect
 
     On Error GoTo 0
     Exit Sub
@@ -630,69 +628,90 @@ Dim Y                           As Integer
             MapData(X + DeSeleccionOX, Y + DeSeleccionOY) = DeSeleccionMap(X, Y)
         Next
     Next
+    
 End Sub
+
 Public Sub PegarSeleccion()    '(mx As Integer, my As Integer)
 '*************************************************
 'Author: Loopzer
 'Last modified: 21/11/07
 '*************************************************
+
 'podria usar copy mem , pero por las dudas no XD
+
+Dim X                           As Integer
+Dim Y                           As Integer
 Static UltimoX                  As Integer
 Static UltimoY                  As Integer
+
     If UltimoX = SobreX And UltimoY = SobreY Then Exit Sub
+    
     UltimoX = SobreX
     UltimoY = SobreY
-    Dim X                       As Integer
-    Dim Y                       As Integer
     DeSeleccionAncho = SeleccionAncho
     DeSeleccionAlto = SeleccionAlto
     DeSeleccionOX = SobreX
     DeSeleccionOY = SobreY
+    
     ReDim DeSeleccionMap(DeSeleccionAncho, DeSeleccionAlto) As MapBlock
 
     For X = 0 To DeSeleccionAncho - 1
         For Y = 0 To DeSeleccionAlto - 1
             DeSeleccionMap(X, Y) = MapData(X + SobreX, Y + SobreY)
-        Next
-    Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
             MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
         Next
     Next
+    
+'    For X = 0 To SeleccionAncho - 1
+'        For Y = 0 To SeleccionAlto - 1
+'            MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
+'        Next
+'    Next
+    
     Seleccionando = False
+    
 End Sub
+
 Public Sub PegarSeleccionAbajo()    '(mx As Integer, my As Integer)
+
 '*************************************************
 'Author: Loopzer
 'Last modified: 21/11/07
 '*************************************************
 'podria usar copy mem , pero por las dudas no XD
+
+Dim X                           As Integer
+Dim Y                           As Integer
 Static UltimoX                  As Integer
 Static UltimoY                  As Integer
+    
     If UltimoX = SobreX And UltimoY = SobreY Then Exit Sub
+    
     UltimoX = SobreX
     UltimoY = SobreY
-    Dim X                       As Integer
-    Dim Y                       As Integer
     DeSeleccionAncho = SeleccionAncho
     DeSeleccionAlto = SeleccionAlto
     DeSeleccionOX = SobreX
     DeSeleccionOY = SobreY
     SobreY = SobreY - 20
+    
     ReDim DeSeleccionMap(DeSeleccionAncho, DeSeleccionAlto) As MapBlock
 
     For X = 0 To DeSeleccionAncho - 1
         For Y = 0 To DeSeleccionAlto - 1
             DeSeleccionMap(X, Y) = MapData(X + SobreX, Y + SobreY)
-        Next
-    Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
             MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
         Next
     Next
+    
+'    For X = 0 To SeleccionAncho - 1
+'        For Y = 0 To SeleccionAlto - 1
+'            MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
+'        Next
+'    Next
+    
     Seleccionando = False
+    
 End Sub
 
 Public Sub PegarSeleccionDerecha()    '(mx As Integer, my As Integer)
@@ -701,32 +720,40 @@ Public Sub PegarSeleccionDerecha()    '(mx As Integer, my As Integer)
 'Last modified: 21/11/07
 '*************************************************
 'podria usar copy mem , pero por las dudas no XD
+
+Dim X                           As Integer
+Dim Y                           As Integer
 Static UltimoX                  As Integer
 Static UltimoY                  As Integer
+
     If UltimoX = SobreX And UltimoY = SobreY Then Exit Sub
+    
     UltimoX = SobreX
     UltimoY = SobreY
-    Dim X                       As Integer
-    Dim Y                       As Integer
     DeSeleccionAncho = SeleccionAncho
     DeSeleccionAlto = SeleccionAlto
     DeSeleccionOX = SobreX
     DeSeleccionOY = SobreY
     SobreX = SobreX - 26
     'SobreY = SobreY - 10
+    
     ReDim DeSeleccionMap(DeSeleccionAncho, DeSeleccionAlto) As MapBlock
 
     For X = 0 To DeSeleccionAncho - 1
         For Y = 0 To DeSeleccionAlto - 1
             DeSeleccionMap(X, Y) = MapData(X + SobreX, Y + SobreY)
-        Next
-    Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
             MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
         Next
     Next
+    
+'    For X = 0 To SeleccionAncho - 1
+'        For Y = 0 To SeleccionAlto - 1
+'            MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
+'        Next
+'    Next
+    
     Seleccionando = False
+    
 End Sub
 Public Sub PegarSeleccionIzquierda()    '(mx As Integer, my As Integer)
 '*************************************************
@@ -761,38 +788,48 @@ Static UltimoY                  As Integer
     Next
     Seleccionando = False
 End Sub
+
 Public Sub PegarSeleccionDerechaAbajo()    '(mx As Integer, my As Integer)
 '*************************************************
 'Author: Loopzer
 'Last modified: 21/11/07
 '*************************************************
 'podria usar copy mem , pero por las dudas no XD
+
+Dim X                           As Integer
+Dim Y                           As Integer
 Static UltimoX                  As Integer
 Static UltimoY                  As Integer
+
     If UltimoX = SobreX And UltimoY = SobreY Then Exit Sub
+    
     UltimoX = SobreX
     UltimoY = SobreY
-    Dim X                       As Integer
-    Dim Y                       As Integer
+
     DeSeleccionAncho = SeleccionAncho
     DeSeleccionAlto = SeleccionAlto
     DeSeleccionOX = SobreX
     DeSeleccionOY = SobreY
     SobreX = SobreX - 26
     SobreY = SobreY - 20
+    
     ReDim DeSeleccionMap(DeSeleccionAncho, DeSeleccionAlto) As MapBlock
 
     For X = 0 To DeSeleccionAncho - 1
         For Y = 0 To DeSeleccionAlto - 1
             DeSeleccionMap(X, Y) = MapData(X + SobreX, Y + SobreY)
-        Next
-    Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
             MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
         Next
     Next
+
+    '    For X = 0 To SeleccionAncho - 1
+    '        For Y = 0 To SeleccionAlto - 1
+    '            MapData(X + SobreX, Y + SobreY) = SeleccionMap(X, Y)
+    '        Next
+    '    Next
+
     Seleccionando = False
+
 End Sub
 Public Sub AccionSeleccion()
 '*************************************************
@@ -813,15 +850,18 @@ Dim Y                           As Integer
         For Y = 0 To SeleccionAlto - 1
             If Y + SeleccionIY < YMaxMapSize And X + SeleccionIX < XMaxMapSize Then
                 DeSeleccionMap(X, Y) = MapData(X + SeleccionIX, Y + SeleccionIY)
+                ClickEdit vbLeftButton, SeleccionIX + X, SeleccionIY + Y
             End If
         Next
     Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
-            ClickEdit vbLeftButton, SeleccionIX + X, SeleccionIY + Y
-        Next
-    Next
+    
+'    For X = 0 To SeleccionAncho - 1
+'        For Y = 0 To SeleccionAlto - 1
+'            ClickEdit vbLeftButton, SeleccionIX + X, SeleccionIY + Y
+'        Next
+'    Next
     Seleccionando = False
+    
 End Sub
 
 Public Sub BlockearSeleccion()
@@ -839,13 +879,10 @@ Dim Y                           As Integer
     DeSeleccionOY = SeleccionIY
     ReDim DeSeleccionMap(DeSeleccionAncho, DeSeleccionAlto) As MapBlock
 
+    '[/About]
     For X = 0 To SeleccionAncho - 1
         For Y = 0 To SeleccionAlto - 1
             DeSeleccionMap(X, Y) = MapData(X + SeleccionIX, Y + SeleccionIY)
-        Next
-    Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
             If MapData(X + SeleccionIX, Y + SeleccionIY).Blocked = 1 Then
                 MapData(X + SeleccionIX, Y + SeleccionIY).Blocked = 0
             Else
@@ -853,6 +890,16 @@ Dim Y                           As Integer
             End If
         Next
     Next
+    
+'    For X = 0 To SeleccionAncho - 1
+'        For Y = 0 To SeleccionAlto - 1
+'            If MapData(X + SeleccionIX, Y + SeleccionIY).Blocked = 1 Then
+'                MapData(X + SeleccionIX, Y + SeleccionIY).Blocked = 0
+'            Else
+'                MapData(X + SeleccionIX, Y + SeleccionIY).Blocked = 1
+'            End If
+'        Next
+'    Next
     Seleccionando = False
 End Sub
 Public Sub CortarSeleccion()
@@ -873,13 +920,16 @@ Public Sub CortarSeleccion()
     For X = 0 To SeleccionAncho - 1
         For Y = 0 To SeleccionAlto - 1
             DeSeleccionMap(X, Y) = MapData(X + SeleccionIX, Y + SeleccionIY)
-        Next
-    Next
-    For X = 0 To SeleccionAncho - 1
-        For Y = 0 To SeleccionAlto - 1
             MapData(X + SeleccionIX, Y + SeleccionIY) = Vacio
         Next
     Next
+    
+'    For X = 0 To SeleccionAncho - 1
+'        For Y = 0 To SeleccionAlto - 1
+'            MapData(X + SeleccionIX, Y + SeleccionIY) = Vacio
+'        Next
+'    Next
+
     Seleccionando = False
 End Sub
 Public Sub CopiarSeleccion()

@@ -226,68 +226,68 @@ Dim lJPGWidth As Long, lJPGHeight As Long
 
     On Error GoTo LoadJPG_Error
 
-10  lR = ijlInit(tJ)
-20  If lR = IJL_OK Then
+    lR = ijlInit(tJ)
+    If lR = IJL_OK Then
 
         ' Write the filename to the jcprops.JPGFile member:
-30      bFile = StrConv(sFile, vbFromUnicode)
-40      ReDim Preserve bFile(0 To UBound(bFile) + 1) As Byte
-50      bFile(UBound(bFile)) = 0
-60      LPTR = VarPtr(bFile(0))
-70      CopyMemory tJ.JPGFile, LPTR, 4
+        bFile = StrConv(sFile, vbFromUnicode)
+        ReDim Preserve bFile(0 To UBound(bFile) + 1) As Byte
+        bFile(UBound(bFile)) = 0
+        LPTR = VarPtr(bFile(0))
+        CopyMemory tJ.JPGFile, LPTR, 4
 
         ' Read the JPEG file parameters:
-80      lR = ijlRead(tJ, IJL_JFILE_READPARAMS)
-90      If lR <> IJL_OK Then
+        lR = ijlRead(tJ, IJL_JFILE_READPARAMS)
+        If lR <> IJL_OK Then
             ' Throw error
-100         MsgBox "Failed to read JPG", vbExclamation
-110     Else
+            MsgBox "Failed to read JPG", vbExclamation
+        Else
             ' set JPG color
-120         If tJ.JPGChannels = 1 Then
-130             tJ.JPGColor = 4&    ' IJL_G
-140         Else
-150             tJ.JPGColor = 3&    ' IJL_YCBCR
-160         End If
+            If tJ.JPGChannels = 1 Then
+                tJ.JPGColor = 4&    ' IJL_G
+            Else
+                tJ.JPGColor = 3&    ' IJL_YCBCR
+            End If
 
             ' Get the JPGWidth ...
-170         lJPGWidth = tJ.JPGWidth
+            lJPGWidth = tJ.JPGWidth
             ' .. & JPGHeight member values:
-180         lJPGHeight = tJ.JPGHeight
+            lJPGHeight = tJ.JPGHeight
 
             ' Create a buffer of sufficient size to hold the image:
-190         If cDib.Create(lJPGWidth, lJPGHeight) Then
+            If cDib.Create(lJPGWidth, lJPGHeight) Then
                 ' Store DIBWidth:
-200             tJ.DIBWidth = lJPGWidth
+                tJ.DIBWidth = lJPGWidth
                 ' Very important: tell IJL how many bytes extra there
                 ' are on each DIB scan line to pad to 32 bit boundaries:
-210             tJ.DIBPadBytes = cDib.BytesPerScanLine - lJPGWidth * 3
+                tJ.DIBPadBytes = cDib.BytesPerScanLine - lJPGWidth * 3
                 ' Store DIBHeight:
-220             tJ.DIBHeight = -lJPGHeight
+                tJ.DIBHeight = -lJPGHeight
                 ' Store Channels:
-230             tJ.DIBChannels = 3&
+                tJ.DIBChannels = 3&
                 ' Store DIBBytes (pointer to uncompressed JPG data):
-240             tJ.DIBBytes = cDib.DIBSectionBitsPtr
+                tJ.DIBBytes = cDib.DIBSectionBitsPtr
 
                 ' Now decompress the JPG into the DIBSection:
-250             lR = ijlRead(tJ, IJL_JFILE_READWHOLEIMAGE)
-260             If lR = IJL_OK Then
+                lR = ijlRead(tJ, IJL_JFILE_READWHOLEIMAGE)
+                If lR = IJL_OK Then
                     ' That's it!  cDib now contains the uncompressed JPG.
-270                 LoadJPG = True
-280             Else
+                    LoadJPG = True
+                Else
                     ' Throw error:
-290                 MsgBox "Cannot read Image Data from file.", vbExclamation
-300             End If
-310         Else
+                    MsgBox "Cannot read Image Data from file.", vbExclamation
+                End If
+            Else
                 ' failed to create the DIB...
-320         End If
-330     End If
+            End If
+        End If
 
         ' Ensure we have freed memory:
-340     ijlFree tJ
-350 Else
+        ijlFree tJ
+    Else
         ' Throw error:
-360     MsgBox "Failed to initialise the IJL library: " & lR, vbExclamation
-370 End If
+        MsgBox "Failed to initialise the IJL library: " & lR, vbExclamation
+    End If
 
 
     On Error GoTo 0
@@ -308,65 +308,65 @@ Dim lJPGWidth As Long, lJPGHeight As Long
 
     On Error GoTo LoadJPGFromPtr_Error
 
-10  lR = ijlInit(tJ)
-20  If lR = IJL_OK Then
+    lR = ijlInit(tJ)
+    If lR = IJL_OK Then
 
         ' set JPEG buffer
-30      tJ.JPGBytes = LPTR
-40      tJ.JPGSizeBytes = lSize
+        tJ.JPGBytes = LPTR
+        tJ.JPGSizeBytes = lSize
 
         ' Read the JPEG parameters:
-50      lR = ijlRead(tJ, IJL_JBUFF_READPARAMS)
-60      If lR <> IJL_OK Then
+        lR = ijlRead(tJ, IJL_JBUFF_READPARAMS)
+        If lR <> IJL_OK Then
             ' Throw error
-70          MsgBox "Failed to read JPG", vbExclamation
-80      Else
+            MsgBox "Failed to read JPG", vbExclamation
+        Else
             ' set JPG color
-90          If tJ.JPGChannels = 1 Then
-100             tJ.JPGColor = 4&    ' IJL_G
-110         Else
-120             tJ.JPGColor = 3&    ' IJL_YCBCR
-130         End If
+            If tJ.JPGChannels = 1 Then
+                tJ.JPGColor = 4&    ' IJL_G
+            Else
+                tJ.JPGColor = 3&    ' IJL_YCBCR
+            End If
 
             ' Get the JPGWidth ...
-140         lJPGWidth = tJ.JPGWidth
+            lJPGWidth = tJ.JPGWidth
             ' .. & JPGHeight member values:
-150         lJPGHeight = tJ.JPGHeight
+            lJPGHeight = tJ.JPGHeight
 
             ' Create a buffer of sufficient size to hold the image:
-160         If cDib.Create(lJPGWidth, lJPGHeight) Then
+            If cDib.Create(lJPGWidth, lJPGHeight) Then
                 ' Store DIBWidth:
-170             tJ.DIBWidth = lJPGWidth
+                tJ.DIBWidth = lJPGWidth
                 ' Very important: tell IJL how many bytes extra there
                 ' are on each DIB scan line to pad to 32 bit boundaries:
-180             tJ.DIBPadBytes = cDib.BytesPerScanLine - lJPGWidth * 3
+                tJ.DIBPadBytes = cDib.BytesPerScanLine - lJPGWidth * 3
                 ' Store DIBHeight:
-190             tJ.DIBHeight = -lJPGHeight
+                tJ.DIBHeight = -lJPGHeight
                 ' Store Channels:
-200             tJ.DIBChannels = 3&
+                tJ.DIBChannels = 3&
                 ' Store DIBBytes (pointer to uncompressed JPG data):
-210             tJ.DIBBytes = cDib.DIBSectionBitsPtr
+                tJ.DIBBytes = cDib.DIBSectionBitsPtr
 
                 ' Now decompress the JPG into the DIBSection:
-220             lR = ijlRead(tJ, IJL_JBUFF_READWHOLEIMAGE)
-230             If lR = IJL_OK Then
+                lR = ijlRead(tJ, IJL_JBUFF_READWHOLEIMAGE)
+                If lR = IJL_OK Then
                     ' That's it!  cDib now contains the uncompressed JPG.
-240                 LoadJPGFromPtr = True
-250             Else
+                    LoadJPGFromPtr = True
+                Else
                     ' Throw error:
-260                 MsgBox "Cannot read Image Data from file.", vbExclamation
-270             End If
-280         Else
+                    MsgBox "Cannot read Image Data from file.", vbExclamation
+                End If
+            Else
                 ' failed to create the DIB...
-290         End If
-300     End If
+            End If
+        End If
 
         ' Ensure we have freed memory:
-310     ijlFree tJ
-320 Else
+        ijlFree tJ
+    Else
         ' Throw error:
-330     MsgBox "Failed to initialise the IJL library: " & lR, vbExclamation
-340 End If
+        MsgBox "Failed to initialise the IJL library: " & lR, vbExclamation
+    End If
 
     On Error GoTo 0
     Exit Function
@@ -484,55 +484,55 @@ Dim b                           As Boolean
 
     On Error GoTo SaveJPGToPtr_Error
 
-10  hFile = -1
+    hFile = -1
 
-20  lR = ijlInit(tJ)
-30  If lR = IJL_OK Then
+    lR = ijlInit(tJ)
+    If lR = IJL_OK Then
 
         ' Set up the DIB information:
         ' Store DIBWidth:
-40      tJ.DIBWidth = cDib.Width
+        tJ.DIBWidth = cDib.Width
         ' Store DIBHeight:
-50      tJ.DIBHeight = -cDib.Height
+        tJ.DIBHeight = -cDib.Height
         ' Store DIBBytes (pointer to uncompressed JPG data):
-60      tJ.DIBBytes = cDib.DIBSectionBitsPtr
+        tJ.DIBBytes = cDib.DIBSectionBitsPtr
         ' Very important: tell IJL how many bytes extra there
         ' are on each DIB scan line to pad to 32 bit boundaries:
-70      tJ.DIBPadBytes = cDib.BytesPerScanLine - cDib.Width * 3
+        tJ.DIBPadBytes = cDib.BytesPerScanLine - cDib.Width * 3
 
         ' Set up the JPEG information:
         ' Store JPGWidth:
-80      tJ.JPGWidth = cDib.Width
+        tJ.JPGWidth = cDib.Width
         ' .. & JPGHeight member values:
-90      tJ.JPGHeight = cDib.Height
+        tJ.JPGHeight = cDib.Height
         ' Set the quality/compression to save:
-100     tJ.jquality = lQuality
+        tJ.jquality = lQuality
         ' set JPEG buffer
-110     tJ.JPGBytes = LPTR
-120     tJ.JPGSizeBytes = lBufSize
+        tJ.JPGBytes = LPTR
+        tJ.JPGSizeBytes = lBufSize
 
         ' Write the image:
-130     lR = ijlWrite(tJ, IJL_JBUFF_WRITEWHOLEIMAGE)
+        lR = ijlWrite(tJ, IJL_JBUFF_WRITEWHOLEIMAGE)
 
         ' Check for success:
-140     If lR = IJL_OK Then
+        If lR = IJL_OK Then
 
-150         lBufSize = tJ.JPGSizeBytes
+            lBufSize = tJ.JPGSizeBytes
 
             ' Success:
-160         SaveJPGToPtr = True
+            SaveJPGToPtr = True
 
-170     Else
+        Else
             ' Throw error
-180         err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to save to JPG " & lR, vbExclamation
-190     End If
+            err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to save to JPG " & lR, vbExclamation
+        End If
 
         ' Ensure we have freed memory:
-200     ijlFree tJ
-210 Else
+        ijlFree tJ
+    Else
         ' Throw error:
-220     err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to initialise the IJL library: " & lR
-230 End If
+        err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to initialise the IJL library: " & lR
+    End If
 
 
     On Error GoTo 0
@@ -545,13 +545,13 @@ SaveJPGToPtr_Error:
 End Function
 Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
 
-10  On Error GoTo RenderToPicture_Error
+    On Error GoTo RenderToPicture_Error
 
-20  If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
-30  If YMinMapSize2 = 0 Then YMinMapSize2 = YMinMapSize
+    If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
+    If YMinMapSize2 = 0 Then YMinMapSize2 = YMinMapSize
 
-40  If XMaxMapSize2 = 0 Then XMaxMapSize2 = XMaxMapSize
-50  If YMaxMapsize2 = 0 Then YMaxMapsize2 = YMaxMapSize
+    If XMaxMapSize2 = 0 Then XMaxMapSize2 = XMaxMapSize
+    If YMaxMapsize2 = 0 Then YMaxMapsize2 = YMaxMapSize
 
     '*************************************************
     'Author: Salvito
@@ -579,302 +579,301 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
     Dim TSurfaceDesc            As DDSURFACEDESC2
 
 
-60  frmRenderer.Show vbModeless, frmMain
+    frmRenderer.Show vbModeless, frmMain
 
-70  With TempRect
-80      .Bottom = 3200
-90      .Right = 3200
-100     .Left = 0
-110     .Top = 0
-120 End With
+    With TempRect
+        .Bottom = 3200
+        .Right = 3200
+        .Left = 0
+        .Top = 0
+    End With
 
-130 With TSurfaceDesc
-140     .lFlags = DDSD_CAPS Or DDSD_HEIGHT Or DDSD_WIDTH
-150     If ClientSetup.bUseVideo Then
-160         .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN
-170     Else
-180         .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN Or DDSCAPS_SYSTEMMEMORY
-190     End If
-200     .lHeight = 3325
-210     .lWidth = 3325
-220 End With
+    With TSurfaceDesc
+        .lFlags = DDSD_CAPS Or DDSD_HEIGHT Or DDSD_WIDTH
+        If ClientSetup.bUseVideo Then
+            .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN
+        Else
+            .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN Or DDSCAPS_SYSTEMMEMORY
+        End If
+        .lHeight = 3325
+        .lWidth = 3325
+    End With
 
     ' Create surface
-230 Set BMPSurface = DirectDraw.CreateSurface(TSurfaceDesc)
+    Set BMPSurface = DirectDraw.CreateSurface(TSurfaceDesc)
 
-240 BMPSurface.BltColorFill r, 0    'Solucion a algunos temas molestos :P
+    BMPSurface.BltColorFill r, 0    'Solucion a algunos temas molestos :P
 
-250 If Val(frmMain.cCapas.Text) >= 1 And (frmMain.cCapas.Text) <= 4 Then
-260     bCapa = Val(frmMain.cCapas.Text)
-270 Else
-280     bCapa = 1
-290 End If
-300 ScreenY = 0
-310 For Y = YMinMapSize2 To YMaxMapsize2
-320     frmRenderer.Caption = "Renderizando Primera Capa... " & Round(Y / (YMaxMapsize2 / 100)) & "%"
-330     DoEvents
-340     ScreenX = 0
-350     For X = XMinMapSize2 To XMaxMapSize2
-360         If InMapBounds(X, Y) Then
-370             If X > XMaxMapSize2 Or Y < YMinMapSize2 Then Exit For    ' 30/05/2006
+    If Val(frmMain.cCapas.Text) >= 1 And (frmMain.cCapas.Text) <= 4 Then
+        bCapa = Val(frmMain.cCapas.Text)
+    Else
+        bCapa = 1
+    End If
+    ScreenY = 0
+    For Y = YMinMapSize2 To YMaxMapsize2
+        frmRenderer.Caption = "Renderizando Primera Capa... " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+        'DoEvents
+        ScreenX = 0
+        For X = XMinMapSize2 To XMaxMapSize2
+            If InMapBounds(X, Y) Then
+                If X > XMaxMapSize2 Or Y < YMinMapSize2 Then Exit For    ' 30/05/2006
                 'Layer 1 **********************************
-380             If SobreX = X And SobreY = Y Then
+                If SobreX = X And SobreY = Y Then
                     ' Pone Grh !
-390                 Sobre = -1
-400                 If frmMain.cSeleccionarSuperficie.Value = True Then
-410                     Sobre = MapData(X, Y).Graphic(bCapa).GrhIndex
-420                     If frmConfigSup.MOSAICO.Value = vbChecked Then
+                    Sobre = -1
+                    If frmMain.cSeleccionarSuperficie.Value = True Then
+                        Sobre = MapData(X, Y).Graphic(bCapa).GrhIndex
+                        If frmConfigSup.MOSAICO.Value = vbChecked Then
                             Dim aux As Integer
                             Dim dy As Integer
                             Dim dX As Integer
-430                         If frmConfigSup.DespMosaic.Value = vbChecked Then
-440                             dy = Val(frmConfigSup.DMLargo.Text)
-450                             dX = Val(frmConfigSup.DMAncho.Text)
-460                         Else
-470                             dy = 0
-480                             dX = 0
-490                         End If
-500                         If frmMain.mnuAutoCompletarSuperficies.Checked = False Then
-510                             aux = Val(frmMain.cGrh.Text) + _
+                            If frmConfigSup.DespMosaic.Value = vbChecked Then
+                                dy = Val(frmConfigSup.DMLargo.Text)
+                                dX = Val(frmConfigSup.DMAncho.Text)
+                            Else
+                                dy = 0
+                                dX = 0
+                            End If
+                            If frmMain.mnuAutoCompletarSuperficies.Checked = False Then
+                                aux = Val(frmMain.cGrh.Text) + _
                                       (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
-520                             If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
-530                                 MapData(X, Y).Graphic(bCapa).GrhIndex = aux
-540                                 InitGrh MapData(X, Y).Graphic(bCapa), aux
-550                             End If
-560                         Else
-570                             aux = Val(frmMain.cGrh.Text) + _
+                                If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
+                                    MapData(X, Y).Graphic(bCapa).GrhIndex = aux
+                                    InitGrh MapData(X, Y).Graphic(bCapa), aux
+                                End If
+                            Else
+                                aux = Val(frmMain.cGrh.Text) + _
                                       (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
-580                             If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
-590                                 MapData(X, Y).Graphic(bCapa).GrhIndex = aux
-600                                 InitGrh MapData(X, Y).Graphic(bCapa), aux
-610                             End If
-620                         End If
-630                     Else
-640                         If MapData(X, Y).Graphic(bCapa).GrhIndex <> Val(frmMain.cGrh.Text) Then
-650                             MapData(X, Y).Graphic(bCapa).GrhIndex = Val(frmMain.cGrh.Text)
-660                             InitGrh MapData(X, Y).Graphic(bCapa), Val(frmMain.cGrh.Text)
-670                         End If
-680                     End If
-690                 End If
-700             Else
-710                 Sobre = -1
-720             End If
-730             With MapData(X, Y).Graphic(1)
-740                 If (.GrhIndex <> 0) Then
-750                     If (.Started = 1) Then
-760                         If (.SpeedCounter > 0) Then
-770                             .SpeedCounter = .SpeedCounter - 1
-780                             If (.SpeedCounter = 0) Then
-790                                 .SpeedCounter = GrhData(.GrhIndex).Speed
-800                                 .FrameCounter = .FrameCounter + 1
-810                                 If (.FrameCounter > GrhData(.GrhIndex).NumFrames) Then _
+                                If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
+                                    MapData(X, Y).Graphic(bCapa).GrhIndex = aux
+                                    InitGrh MapData(X, Y).Graphic(bCapa), aux
+                                End If
+                            End If
+                        Else
+                            If MapData(X, Y).Graphic(bCapa).GrhIndex <> Val(frmMain.cGrh.Text) Then
+                                MapData(X, Y).Graphic(bCapa).GrhIndex = Val(frmMain.cGrh.Text)
+                                InitGrh MapData(X, Y).Graphic(bCapa), Val(frmMain.cGrh.Text)
+                            End If
+                        End If
+                    End If
+                Else
+                    Sobre = -1
+                End If
+                With MapData(X, Y).Graphic(1)
+                    If (.GrhIndex <> 0) Then
+                        If (.Started = 1) Then
+                            If (.SpeedCounter > 0) Then
+                                .SpeedCounter = .SpeedCounter - 1
+                                If (.SpeedCounter = 0) Then
+                                    .SpeedCounter = GrhData(.GrhIndex).Speed
+                                    .FrameCounter = .FrameCounter + 1
+                                    If (.FrameCounter > GrhData(.GrhIndex).NumFrames) Then _
                                        .FrameCounter = 1
-820                             End If
-830                         End If
-840                     End If
+                                End If
+                            End If
+                        End If
                         'Figure out what frame to draw (always 1 if not animated)
-850                     iGrhIndex = GrhData(.GrhIndex).Frames(.FrameCounter)
-860                 End If
-870             End With
-880             If iGrhIndex <> 0 Then
-890                 rSourceRect.Left = GrhData(iGrhIndex).sX
-900                 rSourceRect.Top = GrhData(iGrhIndex).sY
-910                 rSourceRect.Right = rSourceRect.Left + GrhData(iGrhIndex).pixelWidth
-920                 rSourceRect.Bottom = rSourceRect.Top + GrhData(iGrhIndex).pixelHeight
+                        iGrhIndex = GrhData(.GrhIndex).Frames(.FrameCounter)
+                    End If
+                End With
+                If iGrhIndex <> 0 Then
+                    rSourceRect.Left = GrhData(iGrhIndex).sX
+                    rSourceRect.Top = GrhData(iGrhIndex).sY
+                    rSourceRect.Right = rSourceRect.Left + GrhData(iGrhIndex).pixelWidth
+                    rSourceRect.Bottom = rSourceRect.Top + GrhData(iGrhIndex).pixelHeight
                     'El width fue hardcodeado para speed!
-930                 Call BMPSurface.BltFast( _
+                    Call BMPSurface.BltFast( _
                          ((32 * ScreenX) - 32) + 0, _
                          ((32 * ScreenY) - 32) + 0, _
                          SurfaceDB.Surface(GrhData(iGrhIndex).FileNum), _
                          rSourceRect, _
                          DDBLTFAST_WAIT)
-940             End If
+                End If
                 'Layer 2 **********************************
-950             If MapData(X, Y).Graphic(2).GrhIndex <> 0 And (frmMain.mnuVerCapa2.Checked = True) Then
-960                 Call DDrawTransGrhtoSurface( _
+                If MapData(X, Y).Graphic(2).GrhIndex <> 0 And (frmMain.mnuVerCapa2.Checked = True) Then
+                    Call DDrawTransGrhtoSurface( _
                          BMPSurface, _
                          MapData(X, Y).Graphic(2), _
                          ((32 * ScreenX) - 32) + 0, _
                          ((32 * ScreenY) - 32) + 0, _
                          1, _
                          1)
-970             End If
-980             If Sobre >= 0 Then
-990                 If MapData(X, Y).Graphic(bCapa).GrhIndex <> Sobre Then
-1000                    MapData(X, Y).Graphic(bCapa).GrhIndex = Sobre
-1010                    InitGrh MapData(X, Y).Graphic(bCapa), Sobre
-1020                End If
-1030            End If
-1040        End If
-1050        ScreenX = ScreenX + 1
-1060    Next X
-1070    ScreenY = ScreenY + 1
-1080    If Y > YMaxMapsize2 Then Exit For
-1090 Next Y
-1100 ScreenY = 0
-1110 For Y = YMinMapSize2 To YMaxMapsize2
-1120    ScreenX = 0
-1130    frmRenderer.Caption = "Renderizando Segunda Capa... " & Round(Y / (YMaxMapsize2 / 100)) & "%"
-1140    DoEvents
-1150    For X = XMinMapSize2 To XMaxMapSize2
-1160        If InMapBounds(X, Y) Then
-1170            If X > XMaxMapSize2 Or X < XMinMapSize2 - 4 Then Exit For    ' 30/05/2006
-1180            iPPx = ((32 * ScreenX) - 32) + 0
-1190            iPPy = ((32 * ScreenY) - 32) + 0
+                End If
+                If Sobre >= 0 Then
+                    If MapData(X, Y).Graphic(bCapa).GrhIndex <> Sobre Then
+                        MapData(X, Y).Graphic(bCapa).GrhIndex = Sobre
+                        InitGrh MapData(X, Y).Graphic(bCapa), Sobre
+                    End If
+                End If
+            End If
+            ScreenX = ScreenX + 1
+        Next X
+        ScreenY = ScreenY + 1
+        If Y > YMaxMapsize2 Then Exit For
+    Next Y
+    ScreenY = 0
+    For Y = YMinMapSize2 To YMaxMapsize2
+        ScreenX = 0
+        frmRenderer.Caption = "Renderizando Segunda Capa... " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+        'DoEvents
+        For X = XMinMapSize2 To XMaxMapSize2
+            If InMapBounds(X, Y) Then
+                If X > XMaxMapSize2 Or X < XMinMapSize2 - 4 Then Exit For    ' 30/05/2006
+                iPPx = ((32 * ScreenX) - 32) + 0
+                iPPy = ((32 * ScreenY) - 32) + 0
                 'Object Layer **********************************
-1200            If MapData(X, Y).OBJInfo.objindex <> 0 And frmMain.mnuVerObjetos.Checked = True Then
-1210                Call DDrawTransGrhtoSurface( _
+                If MapData(X, Y).OBJInfo.objindex <> 0 And frmMain.mnuVerObjetos.Checked = True Then
+                    Call DDrawTransGrhtoSurface( _
                          BMPSurface, _
                          MapData(X, Y).ObjGrh, _
                          iPPx, iPPy, 1, 1)
-1220            End If
+                End If
 
                 'Char layer **********************************
-1230            If MapData(X, Y).CharIndex <> 0 And frmMain.mnuVerNPCs.Checked = True Then
+                If MapData(X, Y).CharIndex <> 0 And frmMain.mnuVerNPCs.Checked = True Then
 
-1240                TempChar = CharList(MapData(X, Y).CharIndex)
+                    TempChar = CharList(MapData(X, Y).CharIndex)
 
 
                     'Dibuja solamente players
-1250                If TempChar.Head.Head(TempChar.Heading).GrhIndex <> 0 Then
+                    If TempChar.Head.Head(TempChar.Heading).GrhIndex <> 0 Then
                         'Draw Body
-1260                    Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
+                        Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
                         'Draw Head
-1270                    Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Head.Head(TempChar.Heading), (PixelPos(ScreenX) + 0) + TempChar.Body.HeadOffset.X, PixelPos(ScreenY) + 0 + TempChar.Body.HeadOffset.Y, 1, 0)
-1280                Else: Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
-1290                End If
-1300            End If
+                        Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Head.Head(TempChar.Heading), (PixelPos(ScreenX) + 0) + TempChar.Body.HeadOffset.X, PixelPos(ScreenY) + 0 + TempChar.Body.HeadOffset.Y, 1, 0)
+                    Else: Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
+                    End If
+                End If
                 'Layer 3 *****************************************
-1310            If MapData(X, Y).Graphic(3).GrhIndex <> 0 And (frmMain.mnuVerCapa3.Checked = True) Then
+                If MapData(X, Y).Graphic(3).GrhIndex <> 0 And (frmMain.mnuVerCapa3.Checked = True) Then
                     'Draw
-1320                Call DDrawTransGrhtoSurface( _
+                    Call DDrawTransGrhtoSurface( _
                          BMPSurface, _
                          MapData(X, Y).Graphic(3), _
                          ((32 * ScreenX) - 32) + 0, _
                          ((32 * ScreenY) - 32) + 0, _
                          1, 1)
-1330            End If
-1340        End If
-1350        ScreenX = ScreenX + 1
-1360    Next X
-1370    ScreenY = ScreenY + 1
-1380 Next Y
+                End If
+            End If
+            ScreenX = ScreenX + 1
+        Next X
+        ScreenY = ScreenY + 1
+    Next Y
     'Tiles blokeadas, techos, triggers
-1390 ScreenY = 0
-1400 For Y = YMinMapSize2 To YMaxMapsize2
-1410    ScreenX = 0
-1420    frmRenderer.Caption = "Renderizando Extras... " & Round(Y / (YMaxMapsize2 / 100)) & "%"
-1430    DoEvents
-1440    For X = YMinMapSize2 To XMaxMapSize2
-1450        If X < XMaxMapSize2 + 1 And X > XMinMapSize2 - 1 And Y < YMaxMapsize2 + 1 And Y > YMinMapSize2 + 1 Then    ' 30/05/2006
-1460            If MapData(X, Y).Graphic(4).GrhIndex <> 0 _
+    ScreenY = 0
+    For Y = YMinMapSize2 To YMaxMapsize2
+        ScreenX = 0
+        frmRenderer.Caption = "Renderizando Extras... " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+        'DoEvents
+        For X = YMinMapSize2 To XMaxMapSize2
+            If X < XMaxMapSize2 + 1 And X > XMinMapSize2 - 1 And Y < YMaxMapsize2 + 1 And Y > YMinMapSize2 + 1 Then    ' 30/05/2006
+                If MapData(X, Y).Graphic(4).GrhIndex <> 0 _
                    And (frmMain.mnuVerCapa4.Checked = True) Then
                     'Draw
-1470                Call DDrawTransGrhtoSurface( _
+                    Call DDrawTransGrhtoSurface( _
                          BMPSurface, _
                          MapData(X, Y).Graphic(4), _
                          ((32 * ScreenX) - 32) + 0, _
                          ((32 * ScreenY) - 32) + 0, _
                          1, 1)
-1480            End If
-1490            If MapData(X, Y).TileExit.Map <> 0 And frmMain.mnuVerTranslados.Checked = True Then
-1500                Grh.GrhIndex = 3
-1510                Grh.FrameCounter = 1
-1520                Grh.Started = 0
-1530                Call DDrawTransGrhtoSurface( _
+                End If
+                If MapData(X, Y).TileExit.Map <> 0 And frmMain.mnuVerTranslados.Checked = True Then
+                    Grh.GrhIndex = 3
+                    Grh.FrameCounter = 1
+                    Grh.Started = 0
+                    Call DDrawTransGrhtoSurface( _
                          BMPSurface, _
                          Grh, _
                          ((32 * ScreenX) - 32) + 0, _
                          ((32 * ScreenY) - 32) + 0, _
                          1, 1)
-1540            End If
+                End If
                 'Show blocked tiles
-1550            If frmMain.cVerBloqueos.Value = True And MapData(X, Y).Blocked = 1 Then
-1560                BMPSurface.SetFillColor vbRed
-1570                Call BMPSurface.DrawBox( _
+                If frmMain.cVerBloqueos.Value = True And MapData(X, Y).Blocked = 1 Then
+                    BMPSurface.SetFillColor vbRed
+                    Call BMPSurface.DrawBox( _
                          (((32 * ScreenX) - 32) + 0) + 16, _
                          (((32 * ScreenY) - 32) + 0) + 16, _
                          (((32 * ScreenX) - 32) + 0 + 5) + 16, _
                          (((32 * ScreenY) - 32) + 0 + 5) + 16)
-1580            End If
-1590            If frmMain.cVerTriggers.Value = True Then
-1600                Call DrawText(PixelPos(ScreenX), PixelPos(ScreenY), str(MapData(X, Y).Trigger), vbRed)
-1610            End If
-1620        End If
-1630        ScreenX = ScreenX + 1
-1640    Next X
-1650    ScreenY = ScreenY + 1
-1660 Next Y
+                End If
+                If frmMain.cVerTriggers.Value = True Then
+                    Call DrawText(PixelPos(ScreenX), PixelPos(ScreenY), str(MapData(X, Y).Trigger), vbRed)
+                End If
+            End If
+            ScreenX = ScreenX + 1
+        Next X
+        ScreenY = ScreenY + 1
+    Next Y
 
-1670 frmRenderer.Caption = "Dibujando Render... 0%"
-1680 DoEvents
-1690 frmRenderer.Picture1.AutoRedraw = True
-1700 frmRenderer.Picture1.Width = 32 * 99    '* 12
-1710 frmRenderer.Picture1.Height = 32 * 99    ' * 12
-
+    frmRenderer.Caption = "Dibujando Render... 0%"
+    'DoEvents
+    frmRenderer.Picture1.AutoRedraw = True
+    frmRenderer.Picture1.Width = 32 * 99    '* 12
+    frmRenderer.Picture1.Height = 32 * 99    ' * 12
 
 
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     '''''''''''Dibujo el Surface en una StdPicture''''''''''
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-1720 BMPSurface.BltToDC frmRenderer.Picture1.hdc, TempRect, TempRect
-1730 frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
+    BMPSurface.BltToDC frmRenderer.Picture1.hdc, TempRect, TempRect
+    frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-1740 frmRenderer.Caption = "Dibujando Render... 99%"
-1750 DoEvents
+    frmRenderer.Caption = "Dibujando Render... 99%"
+    'DoEvents
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     'Esto para achicar la imagen, ALTO bardo, jajajaja''''''
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-1760 If Ratio > 1 Then
-1770    frmRenderer.Smallpic.Picture = frmRenderer.Picture1.Picture
-1780    frmRenderer.Smallpic.Width = frmRenderer.Picture1.Width \ Ratio
-1790    frmRenderer.Smallpic.Height = frmRenderer.Picture1.Height \ Ratio
+    If Ratio > 1 Then
+        frmRenderer.Smallpic.Picture = frmRenderer.Picture1.Picture
+        frmRenderer.Smallpic.Width = frmRenderer.Picture1.Width \ Ratio
+        frmRenderer.Smallpic.Height = frmRenderer.Picture1.Height \ Ratio
 
 
 
-1800    frmRenderer.Picture1.Height = frmRenderer.Smallpic.Height
-1810    frmRenderer.Picture1.Width = frmRenderer.Smallpic.Width
-1820    frmRenderer.Picture1.Cls
-1830    frmRenderer.Picture1.PaintPicture frmRenderer.Smallpic.Picture, 0, 0, frmRenderer.Picture1.Width, frmRenderer.Picture1.Height
-1840    frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
-1850 End If
+        frmRenderer.Picture1.Height = frmRenderer.Smallpic.Height
+        frmRenderer.Picture1.Width = frmRenderer.Smallpic.Width
+        frmRenderer.Picture1.Cls
+        frmRenderer.Picture1.PaintPicture frmRenderer.Smallpic.Picture, 0, 0, frmRenderer.Picture1.Width, frmRenderer.Picture1.Height
+        frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
+    End If
     '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     '''''''''''''''''''Guardo la imagen'''''''''''''''''''''
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-1860 If RenderToBMP Then
-1870    SavePicture frmRenderer.Picture1.Picture, App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
-1880    Debug.Print NameMap & " - " & err.Description
-1890    err.Clear
-1900 Else
-1910    Set C = New cDIBSection
-1920    C.CreateFromPicture frmRenderer.Picture1.Picture
-1930    Call SaveJPG(C, App.Path & "\" & MapInfo(CurMap).Name & ".jpg")
-1940    Set C = Nothing
-1950 End If
-1960 frmRenderer.Caption = "100% :D"
+    If RenderToBMP Then
+        SavePicture frmRenderer.Picture1.Picture, App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
+        Debug.Print NameMap & " - " & err.Description
+        err.Clear
+    Else
+        Set C = New cDIBSection
+        C.CreateFromPicture frmRenderer.Picture1.Picture
+        Call SaveJPG(C, App.Path & "\" & MapInfo(CurMap).Name & ".jpg")
+        Set C = Nothing
+    End If
+    frmRenderer.Caption = "100% :D"
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
     'Unload frmRenderer
-1970 Set BMPSurface = Nothing
+    Set BMPSurface = Nothing
     Unload frmRenderer
-1980 Exit Sub
+    Exit Sub
 
 Error:
-1990 Unload frmRenderer
-2000 Set BMPSurface = Nothing
-2010 Set C = Nothing
-2020 MsgBox err.Description & "-" & err.Number
+    Unload frmRenderer
+    Set BMPSurface = Nothing
+    Set C = Nothing
+    MsgBox err.Description & "-" & err.Number
 
-2030 On Error GoTo 0
-2040 Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 RenderToPicture_Error:
 
-2050 Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento RenderToPicture de Módulo modRenderer línea: " & Erl())
+    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento RenderToPicture de Módulo modRenderer línea: " & Erl())
 End Sub
 'Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
 '
