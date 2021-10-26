@@ -27,9 +27,9 @@ Attribute VB_Name = "modDirectDraw"
 ' @version 0.0.20
 ' @date 20061015
 
-Public Const INFINITE_LOOPS     As Integer = -1
-
 Option Explicit
+
+Public Const INFINITE_LOOPS     As Integer = -1
 
 Function LoadWavetoDSBuffer(DS As DirectSound, DSB As DirectSoundBuffer, sFile As String) As Boolean
 '*************************************************

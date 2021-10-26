@@ -1,6 +1,6 @@
 frmMain = 100, 100, 1377, 763, , 25, 25, 1181, 491, C
 modGeneral = 150, 150, 1427, 813, 
-modDeclaraciones = 300, 300, 695, 948, 
+modDeclaraciones = 300, 300, 695, 948, Z
 modDirectDraw = 175, 175, 1452, 838, 
 frmGrafico = 0, 0, 0, 0, C, 125, 125, 1227, 573, C
 frmCargando = 0, 0, 0, 0, C, 150, 150, 1252, 598, C
@@ -16,6 +16,7 @@ modMapIO = 50, 50, 1206, 516,
 frmMapInfo = 225, 225, 620, 873, , 50, 50, 1152, 498, C
 frmAutoGuardarMapa = 0, 0, 0, 0, C, 75, 75, 1177, 523, C
 modEdicion = 250, 250, 645, 898, 
+lvButtons_H = 0, 0, 0, 0, C, 0, 0, 0, 0, C
 modIndices = 125, 125, 363, 772, 
 modLvTimer = 0, 0, 0, 0, C
 clsIniReader = 100, 100, 1127, 685, 
