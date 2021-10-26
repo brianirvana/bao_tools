@@ -551,24 +551,16 @@ Begin VB.Form frmMain
          TabIndex        =   107
          Top             =   360
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         Image           =   "frmMain.frx":628A
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":628A
+         mode            =   0
+         value           =   0
+         image           =   "frmMain.frx":62B2
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -577,24 +569,16 @@ Begin VB.Form frmMain
          TabIndex        =   108
          Top             =   360
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         Image           =   "frmMain.frx":6EDC
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":6F04
+         mode            =   0
+         value           =   0
+         image           =   "frmMain.frx":6F2C
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -603,24 +587,16 @@ Begin VB.Form frmMain
          TabIndex        =   109
          Top             =   360
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         Image           =   "frmMain.frx":7B2E
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":7B7E
+         mode            =   0
+         value           =   0
+         image           =   "frmMain.frx":7BA6
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -629,24 +605,16 @@ Begin VB.Form frmMain
          TabIndex        =   110
          Top             =   360
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         Image           =   "frmMain.frx":8780
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":87F8
+         mode            =   0
+         value           =   0
+         image           =   "frmMain.frx":8820
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -655,24 +623,16 @@ Begin VB.Form frmMain
          TabIndex        =   111
          Top             =   840
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         Caption         =   "1"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         caption         =   "1"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":9472
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -681,24 +641,16 @@ Begin VB.Form frmMain
          TabIndex        =   112
          Top             =   840
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         Caption         =   "2"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         caption         =   "2"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":949A
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -707,24 +659,16 @@ Begin VB.Form frmMain
          TabIndex        =   113
          Top             =   840
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         Caption         =   "3"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         caption         =   "3"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":94C2
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H LvBOpcion 
          Height          =   375
@@ -733,24 +677,16 @@ Begin VB.Form frmMain
          TabIndex        =   114
          Top             =   840
          Width           =   375
-         _ExtentX        =   661
-         _ExtentY        =   661
-         Caption         =   "4"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Tahoma"
-            Size            =   9.75
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   661
+         _extenty        =   661
+         caption         =   "4"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":94EA
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
    End
    Begin VB.CommandButton cmdDM 
@@ -766,7 +702,7 @@ Begin VB.Form frmMain
       Height          =   240
       Index           =   0
       Left            =   14400
-      Picture         =   "frmMain.frx":93D2
+      Picture         =   "frmMain.frx":9512
       Style           =   1  'Graphical
       TabIndex        =   105
       Top             =   240
@@ -785,7 +721,7 @@ Begin VB.Form frmMain
       Height          =   240
       Index           =   1
       Left            =   14160
-      Picture         =   "frmMain.frx":96C4
+      Picture         =   "frmMain.frx":9804
       Style           =   1  'Graphical
       TabIndex        =   104
       Top             =   480
@@ -804,7 +740,7 @@ Begin VB.Form frmMain
       Height          =   240
       Index           =   2
       Left            =   14640
-      Picture         =   "frmMain.frx":99B4
+      Picture         =   "frmMain.frx":9AF4
       Style           =   1  'Graphical
       TabIndex        =   103
       Top             =   480
@@ -823,7 +759,7 @@ Begin VB.Form frmMain
       Height          =   240
       Index           =   3
       Left            =   14400
-      Picture         =   "frmMain.frx":9CA3
+      Picture         =   "frmMain.frx":9DE3
       Style           =   1  'Graphical
       TabIndex        =   102
       Top             =   720
@@ -926,30 +862,22 @@ Begin VB.Form frmMain
       TabIndex        =   47
       Top             =   30
       Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   1826
-      Caption         =   "Tri&gger's (F12)"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   1
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      LockHover       =   1
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      CustomClick     =   1
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":9F8A
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   3201
+      _extenty        =   1826
+      caption         =   "Tri&gger's (F12)"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   1
+      cgradient       =   8421631
+      font            =   "frmMain.frx":A0CA
+      mode            =   1
+      value           =   0
+      customclick     =   1
+      image           =   "frmMain.frx":A0EE
+      imgsize         =   24
+      imgalign        =   5
+      cback           =   -2147483633
+      lockhover       =   1
    End
    Begin WorldEditor.lvButtons_H SelectPanel 
       Height          =   1035
@@ -958,30 +886,22 @@ Begin VB.Form frmMain
       TabIndex        =   46
       Top             =   30
       Width           =   2565
-      _ExtentX        =   4524
-      _ExtentY        =   1826
-      Caption         =   "&Objetos (F11)"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   3
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      LockHover       =   1
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      CustomClick     =   1
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":A550
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   4524
+      _extenty        =   1826
+      caption         =   "&Objetos (F11)"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   3
+      cgradient       =   8421631
+      font            =   "frmMain.frx":A6B4
+      mode            =   1
+      value           =   0
+      customclick     =   1
+      image           =   "frmMain.frx":A6D8
+      imgsize         =   24
+      imgalign        =   5
+      cback           =   -2147483633
+      lockhover       =   1
    End
    Begin WorldEditor.lvButtons_H SelectPanel 
       Height          =   1035
@@ -990,30 +910,22 @@ Begin VB.Form frmMain
       TabIndex        =   45
       Top             =   30
       Width           =   2415
-      _ExtentX        =   4260
-      _ExtentY        =   1826
-      Caption         =   "&NPC's (F8)"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   3
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      LockHover       =   1
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      CustomClick     =   1
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":AA51
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   4260
+      _extenty        =   1826
+      caption         =   "&NPC's (F8)"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   3
+      cgradient       =   8421631
+      font            =   "frmMain.frx":ABDA
+      mode            =   1
+      value           =   0
+      customclick     =   1
+      image           =   "frmMain.frx":ABFE
+      imgsize         =   24
+      imgalign        =   5
+      cback           =   -2147483633
+      lockhover       =   1
    End
    Begin WorldEditor.lvButtons_H SelectPanel 
       Height          =   1035
@@ -1022,30 +934,22 @@ Begin VB.Form frmMain
       TabIndex        =   44
       Top             =   30
       Width           =   2565
-      _ExtentX        =   4524
-      _ExtentY        =   1826
-      Caption         =   "&Bloqueos (F7)"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   3
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      LockHover       =   1
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      CustomClick     =   1
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":AE05
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   4524
+      _extenty        =   1826
+      caption         =   "&Bloqueos (F7)"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   3
+      cgradient       =   8421631
+      font            =   "frmMain.frx":AFB4
+      mode            =   1
+      value           =   0
+      customclick     =   1
+      image           =   "frmMain.frx":AFE0
+      imgsize         =   24
+      imgalign        =   5
+      cback           =   -2147483633
+      lockhover       =   1
    End
    Begin WorldEditor.lvButtons_H SelectPanel 
       Height          =   1035
@@ -1054,29 +958,21 @@ Begin VB.Form frmMain
       TabIndex        =   43
       Top             =   30
       Width           =   2565
-      _ExtentX        =   4524
-      _ExtentY        =   1826
-      Caption         =   "&Translados (F6)"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   3
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      LockHover       =   1
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":B186
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   4524
+      _extenty        =   1826
+      caption         =   "&Translados (F6)"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   3
+      cgradient       =   8421631
+      font            =   "frmMain.frx":B362
+      mode            =   1
+      value           =   0
+      image           =   "frmMain.frx":B386
+      imgsize         =   24
+      imgalign        =   5
+      cback           =   -2147483633
+      lockhover       =   1
    End
    Begin WorldEditor.lvButtons_H SelectPanel 
       Height          =   1035
@@ -1085,30 +981,22 @@ Begin VB.Form frmMain
       TabIndex        =   42
       Top             =   30
       Width           =   1815
-      _ExtentX        =   3201
-      _ExtentY        =   1826
-      Caption         =   "&Superficie (F5)"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   2
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      cFore           =   0
-      cFHover         =   0
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":E7E6
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   3201
+      _extenty        =   1826
+      caption         =   "&Superficie (F5)"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   2
+      cgradient       =   8421631
+      cfore           =   0
+      font            =   "frmMain.frx":E9E8
+      mode            =   1
+      value           =   0
+      image           =   "frmMain.frx":EA0C
+      imgsize         =   24
+      imgalign        =   5
+      cfhover         =   0
+      cback           =   -2147483633
    End
    Begin WorldEditor.lvButtons_H cmdQuitarFunciones 
       Height          =   435
@@ -1117,24 +1005,16 @@ Begin VB.Form frmMain
       ToolTipText     =   "Quitar Todas las Funciones Activadas"
       Top             =   1320
       Width           =   2655
-      _ExtentX        =   4683
-      _ExtentY        =   767
-      Caption         =   "&Quitar Funciones (F4)"
-      CapAlign        =   2
-      BackStyle       =   2
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "MS Sans Serif"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      cGradient       =   0
-      Mode            =   0
-      Value           =   0   'False
-      cBack           =   12632319
+      _extentx        =   4683
+      _extenty        =   767
+      caption         =   "&Quitar Funciones (F4)"
+      capalign        =   2
+      backstyle       =   2
+      cgradient       =   0
+      font            =   "frmMain.frx":11F52
+      mode            =   0
+      value           =   0
+      cback           =   12632319
    End
    Begin VB.Timer TimAutoGuardarMapa 
       Enabled         =   0   'False
@@ -1164,7 +1044,7 @@ Begin VB.Form frmMain
       ScrollBars      =   2  'Vertical
       TabIndex        =   9
       TabStop         =   0   'False
-      Text            =   "frmMain.frx":11D2C
+      Text            =   "frmMain.frx":11F7E
       Top             =   6240
       Width           =   4320
    End
@@ -1175,7 +1055,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H80000008&
       Height          =   4395
       Left            =   120
-      Picture         =   "frmMain.frx":11D6C
+      Picture         =   "frmMain.frx":11FBE
       ScaleHeight     =   4365
       ScaleWidth      =   4365
       TabIndex        =   8
@@ -1255,24 +1135,16 @@ Begin VB.Form frmMain
          Top             =   1320
          Visible         =   0   'False
          Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   661
-         Caption         =   "&Insertar Translado"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   6800
+         _extenty        =   661
+         caption         =   "&Insertar Translado"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24622
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cInsertarTransOBJ 
          Height          =   375
@@ -1281,24 +1153,16 @@ Begin VB.Form frmMain
          Top             =   1680
          Visible         =   0   'False
          Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   661
-         Caption         =   "Colocar automaticamente &Objeto"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   6800
+         _extenty        =   661
+         caption         =   "Colocar automaticamente &Objeto"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24646
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cUnionManual 
          Height          =   375
@@ -1307,24 +1171,16 @@ Begin VB.Form frmMain
          Top             =   2160
          Visible         =   0   'False
          Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   661
-         Caption         =   "&Union con Mapa Adyacente (manual)"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   6800
+         _extenty        =   661
+         caption         =   "&Union con Mapa Adyacente (manual)"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2466A
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cUnionAuto 
          Height          =   375
@@ -1333,24 +1189,16 @@ Begin VB.Form frmMain
          Top             =   2520
          Visible         =   0   'False
          Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   661
-         Caption         =   "Union con Mapas &Adyacentes (auto)"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   6800
+         _extenty        =   661
+         caption         =   "Union con Mapas &Adyacentes (auto)"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2468E
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cQuitarTrans 
          Height          =   375
@@ -1359,24 +1207,16 @@ Begin VB.Form frmMain
          Top             =   3000
          Visible         =   0   'False
          Width           =   3855
-         _ExtentX        =   6800
-         _ExtentY        =   661
-         Caption         =   "&Quitar Translados"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   6800
+         _extenty        =   661
+         caption         =   "&Quitar Translados"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":246B2
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin VB.ComboBox cCapas 
          Appearance      =   0  'Flat
@@ -1392,9 +1232,9 @@ Begin VB.Form frmMain
          EndProperty
          ForeColor       =   &H80000014&
          Height          =   330
-         ItemData        =   "frmMain.frx":243D0
+         ItemData        =   "frmMain.frx":246D6
          Left            =   1080
-         List            =   "frmMain.frx":243E0
+         List            =   "frmMain.frx":246E6
          TabIndex        =   1
          TabStop         =   0   'False
          Text            =   "1"
@@ -1457,9 +1297,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   0
-         ItemData        =   "frmMain.frx":243F0
+         ItemData        =   "frmMain.frx":246F6
          Left            =   120
-         List            =   "frmMain.frx":243F2
+         List            =   "frmMain.frx":246F8
          Sorted          =   -1  'True
          TabIndex        =   71
          Tag             =   "-1"
@@ -1474,24 +1314,16 @@ Begin VB.Form frmMain
          Top             =   3840
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "Quitar en &Capas 2 y 3"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "Quitar en &Capas 2 y 3"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":246FA
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cQuitarEnEstaCapa 
          Height          =   375
@@ -1500,24 +1332,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "&Quitar en esta Capa"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "&Quitar en esta Capa"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2471E
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cSeleccionarSuperficie 
          Height          =   735
@@ -1526,24 +1350,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1815
-         _ExtentX        =   3201
-         _ExtentY        =   1296
-         Caption         =   "&Insertar Superficie"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3201
+         _extenty        =   1296
+         caption         =   "&Insertar Superficie"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24742
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin VB.ComboBox cNumFunc 
          Appearance      =   0  'Flat
@@ -1560,9 +1376,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   2
-         ItemData        =   "frmMain.frx":243F4
+         ItemData        =   "frmMain.frx":24766
          Left            =   3360
-         List            =   "frmMain.frx":243F6
+         List            =   "frmMain.frx":24768
          TabIndex        =   67
          Text            =   "1"
          Top             =   3120
@@ -1584,9 +1400,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   2
-         ItemData        =   "frmMain.frx":243F8
+         ItemData        =   "frmMain.frx":2476A
          Left            =   840
-         List            =   "frmMain.frx":243FA
+         List            =   "frmMain.frx":2476C
          TabIndex        =   0
          Text            =   "1"
          Top             =   3120
@@ -1607,9 +1423,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   3
-         ItemData        =   "frmMain.frx":243FC
+         ItemData        =   "frmMain.frx":2476E
          Left            =   120
-         List            =   "frmMain.frx":243FE
+         List            =   "frmMain.frx":24770
          TabIndex        =   66
          Tag             =   "-1"
          Top             =   120
@@ -1651,9 +1467,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   0
-         ItemData        =   "frmMain.frx":24400
+         ItemData        =   "frmMain.frx":24772
          Left            =   840
-         List            =   "frmMain.frx":24402
+         List            =   "frmMain.frx":24774
          TabIndex        =   58
          Text            =   "1"
          Top             =   3120
@@ -1675,9 +1491,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   0
-         ItemData        =   "frmMain.frx":24404
+         ItemData        =   "frmMain.frx":24776
          Left            =   3360
-         List            =   "frmMain.frx":24406
+         List            =   "frmMain.frx":24778
          TabIndex        =   57
          Text            =   "1"
          Top             =   3120
@@ -1718,9 +1534,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   1
-         ItemData        =   "frmMain.frx":24408
+         ItemData        =   "frmMain.frx":2477A
          Left            =   120
-         List            =   "frmMain.frx":2440A
+         List            =   "frmMain.frx":2477C
          TabIndex        =   55
          Tag             =   "-1"
          Top             =   120
@@ -1741,9 +1557,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   3210
          Index           =   4
-         ItemData        =   "frmMain.frx":2440C
+         ItemData        =   "frmMain.frx":2477E
          Left            =   120
-         List            =   "frmMain.frx":2440E
+         List            =   "frmMain.frx":24780
          TabIndex        =   54
          Tag             =   "-1"
          Top             =   120
@@ -1811,24 +1627,16 @@ Begin VB.Form frmMain
          Top             =   3840
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "&Quitar Trigger's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "&Quitar Trigger's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24782
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cVerTriggers 
          Height          =   375
@@ -1837,24 +1645,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "&Mostrar Trigger's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "&Mostrar Trigger's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":247A6
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cInsertarTrigger 
          Height          =   735
@@ -1863,24 +1663,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1815
-         _ExtentX        =   3201
-         _ExtentY        =   1296
-         Caption         =   "&Insertar Trigger"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3201
+         _extenty        =   1296
+         caption         =   "&Insertar Trigger"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":247CA
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cAgregarFuncalAzar 
          Height          =   375
@@ -1890,24 +1682,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "Insetar NPC's al &Azar"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "Insetar NPC's al &Azar"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":247EE
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cQuitarFunc 
          Height          =   375
@@ -1917,24 +1701,16 @@ Begin VB.Form frmMain
          Top             =   3840
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "&Quitar NPC's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "&Quitar NPC's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24812
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cInsertarFunc 
          Height          =   735
@@ -1944,24 +1720,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1815
-         _ExtentX        =   3201
-         _ExtentY        =   1296
-         Caption         =   "&Insertar NPC's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3201
+         _extenty        =   1296
+         caption         =   "&Insertar NPC's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24836
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cVerBloqueos 
          Height          =   495
@@ -1970,24 +1738,16 @@ Begin VB.Form frmMain
          Top             =   120
          Visible         =   0   'False
          Width           =   4095
-         _ExtentX        =   7223
-         _ExtentY        =   873
-         Caption         =   "&Mostrar Bloqueos"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   7223
+         _extenty        =   873
+         caption         =   "&Mostrar Bloqueos"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2485A
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cInsertarBloqueo 
          Height          =   735
@@ -1996,24 +1756,16 @@ Begin VB.Form frmMain
          Top             =   720
          Visible         =   0   'False
          Width           =   4095
-         _ExtentX        =   7223
-         _ExtentY        =   1296
-         Caption         =   "&Insertar Bloqueos"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   7223
+         _extenty        =   1296
+         caption         =   "&Insertar Bloqueos"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2487E
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cQuitarBloqueo 
          Height          =   735
@@ -2022,24 +1774,16 @@ Begin VB.Form frmMain
          Top             =   1560
          Visible         =   0   'False
          Width           =   4095
-         _ExtentX        =   7223
-         _ExtentY        =   1296
-         Caption         =   "&Quitar Bloqueos"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   7223
+         _extenty        =   1296
+         caption         =   "&Quitar Bloqueos"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":248A2
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cAgregarFuncalAzar 
          Height          =   375
@@ -2049,24 +1793,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "Insetar OBJ's al &Azar"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "Insetar OBJ's al &Azar"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":248C6
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cQuitarFunc 
          Height          =   375
@@ -2076,24 +1812,16 @@ Begin VB.Form frmMain
          Top             =   3840
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "&Quitar OBJ's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "&Quitar OBJ's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":248EA
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cInsertarFunc 
          Height          =   735
@@ -2103,24 +1831,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1815
-         _ExtentX        =   3201
-         _ExtentY        =   1296
-         Caption         =   "&Insertar Objetos"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3201
+         _extenty        =   1296
+         caption         =   "&Insertar Objetos"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2490E
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cInsertarFunc 
          Height          =   735
@@ -2130,24 +1850,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1815
-         _ExtentX        =   3201
-         _ExtentY        =   1296
-         Caption         =   "&Insertar NPC's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3201
+         _extenty        =   1296
+         caption         =   "&Insertar NPC's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24932
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cQuitarFunc 
          Height          =   375
@@ -2157,24 +1869,16 @@ Begin VB.Form frmMain
          Top             =   3840
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "&Quitar NPC's"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   1
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "&Quitar NPC's"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":24956
+         mode            =   1
+         value           =   0
+         cback           =   -2147483633
       End
       Begin WorldEditor.lvButtons_H cAgregarFuncalAzar 
          Height          =   375
@@ -2184,24 +1888,16 @@ Begin VB.Form frmMain
          Top             =   3480
          Visible         =   0   'False
          Width           =   1935
-         _ExtentX        =   3836
-         _ExtentY        =   661
-         Caption         =   "Insetar NPC's al &Azar"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   3836
+         _extenty        =   661
+         caption         =   "Insetar NPC's al &Azar"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":2497A
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin VB.ComboBox cCantFunc 
          Appearance      =   0  'Flat
@@ -2218,9 +1914,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   1
-         ItemData        =   "frmMain.frx":24410
+         ItemData        =   "frmMain.frx":2499E
          Left            =   840
-         List            =   "frmMain.frx":24412
+         List            =   "frmMain.frx":249A0
          TabIndex        =   77
          Text            =   "1"
          Top             =   3120
@@ -2261,9 +1957,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   2580
          Index           =   2
-         ItemData        =   "frmMain.frx":24414
+         ItemData        =   "frmMain.frx":249A2
          Left            =   120
-         List            =   "frmMain.frx":24416
+         List            =   "frmMain.frx":249A4
          TabIndex        =   79
          Tag             =   "-1"
          Top             =   120
@@ -2285,9 +1981,9 @@ Begin VB.Form frmMain
          ForeColor       =   &H80000014&
          Height          =   330
          Index           =   1
-         ItemData        =   "frmMain.frx":24418
+         ItemData        =   "frmMain.frx":249A6
          Left            =   3360
-         List            =   "frmMain.frx":2441A
+         List            =   "frmMain.frx":249A8
          TabIndex        =   80
          Text            =   "500"
          Top             =   3120
@@ -2673,24 +2369,16 @@ Begin VB.Form frmMain
          TabIndex        =   95
          Top             =   600
          Width           =   3015
-         _ExtentX        =   5318
-         _ExtentY        =   661
-         Caption         =   "&Información del Mapa"
-         CapAlign        =   2
-         BackStyle       =   2
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Arial"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         cGradient       =   0
-         Mode            =   0
-         Value           =   0   'False
-         cBack           =   -2147483633
+         _extentx        =   5318
+         _extenty        =   661
+         caption         =   "&Información del Mapa"
+         capalign        =   2
+         backstyle       =   2
+         cgradient       =   0
+         font            =   "frmMain.frx":249AA
+         mode            =   0
+         value           =   0
+         cback           =   -2147483633
       End
       Begin VB.Label lblMapVersion 
          AutoSize        =   -1  'True
@@ -2825,30 +2513,22 @@ Begin VB.Form frmMain
       Top             =   240
       Visible         =   0   'False
       Width           =   900
-      _ExtentX        =   1588
-      _ExtentY        =   1191
-      Caption         =   "none"
-      CapAlign        =   2
-      BackStyle       =   2
-      Shape           =   3
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Arial"
-         Size            =   8.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      LockHover       =   1
-      cGradient       =   8421631
-      Mode            =   1
-      Value           =   0   'False
-      CustomClick     =   1
-      ImgAlign        =   5
-      Image           =   "frmMain.frx":2441C
-      ImgSize         =   24
-      cBack           =   -2147483633
+      _extentx        =   1588
+      _extenty        =   1191
+      caption         =   "none"
+      capalign        =   2
+      backstyle       =   2
+      shape           =   3
+      cgradient       =   8421631
+      font            =   "frmMain.frx":249CE
+      mode            =   1
+      value           =   0
+      customclick     =   1
+      image           =   "frmMain.frx":249F2
+      imgsize         =   24
+      imgalign        =   5
+      cback           =   -2147483633
+      lockhover       =   1
    End
    Begin VB.Line Separacion1 
       BorderColor     =   &H00FFFFFF&
@@ -3213,17 +2893,8 @@ Begin VB.Form frmMain
       Begin VB.Menu mnuArchivoLine5 
          Caption         =   "-"
       End
-      Begin VB.Menu mnuGuardarcomoBMP 
-         Caption         =   "Guardar Render en &BMP"
-      End
-      Begin VB.Menu mnuGuardarcomoJPG 
-         Caption         =   "Guardar Render en &JPG"
-      End
       Begin VB.Menu mnuGuardarTodo 
-         Caption         =   "Guardar todos los mapas"
-      End
-      Begin VB.Menu mnuAdherirMundo 
-         Caption         =   "Adherir Mundo :$"
+         Caption         =   "Renderizar Mapa Actual"
       End
       Begin VB.Menu mnuArchivoLine7 
          Caption         =   "-"
@@ -4554,9 +4225,9 @@ Private Sub mnuAdherir_Click()
 ErrHandler:
 End Sub
 
-Private Sub mnuAdherirMundo_Click()
-    RenderToPicture 2, True, XMinMapSize, YMinMapSize, XMaxMapSize, YMaxMapSize, "Test"
-End Sub
+'Private Sub mnuAdherirMundo_Click()
+'    RenderToPicture 2, True, XMinMapSize, YMinMapSize, XMaxMapSize, YMaxMapSize, "Test"
+'End Sub
 
 Private Sub mnuAutoCapturarTranslados_Click()
 '*************************************************
@@ -4709,31 +4380,31 @@ Private Sub mnuGRHaBMP_Click()
     frmGRHaBMP.Show
 End Sub
 
-Private Sub mnuGuardarcomoBMP_Click()
-'*************************************************
-'Author: Salvito
-'Last modified: 01/05/2008 - ^[GS]^
-'*************************************************
-Dim Ratio                       As Single
-    Ratio = CSng(Val(InputBox("En que escala queres Renderizar? Entre 1 y 100.", "Elegi Escala", "1")))
-    If Ratio < 1 Then Ratio = 1
-    If Ratio >= 1 And Ratio <= 100 Then
-        RenderToPicture Ratio, True
-    End If
-End Sub
+'Private Sub mnuGuardarcomoBMP_Click()
+''*************************************************
+''Author: Salvito
+''Last modified: 01/05/2008 - ^[GS]^
+''*************************************************
+'Dim Ratio                       As Single
+'    Ratio = CSng(Val(InputBox("En que escala queres Renderizar? Entre 1 y 100.", "Elegi Escala", "1")))
+'    If Ratio < 1 Then Ratio = 1
+'    If Ratio >= 1 And Ratio <= 100 Then
+'        RenderToPicture Ratio, True
+'    End If
+'End Sub
 
-Private Sub mnuGuardarcomoJPG_Click()
-'*************************************************
-'Author: Salvito
-'Last modified: 01/05/2008 - ^[GS]^
-'*************************************************
-Dim Ratio                       As Single
-    Ratio = CSng(Val(InputBox("En que escala queres Renderizar? Entre 1 y 20.", "Elegi Escala", "1")))
-    If Ratio < 1 Then Ratio = 1
-    If Ratio >= 1 And Ratio <= 20 Then
-        RenderToPicture Ratio, False
-    End If
-End Sub
+'Private Sub mnuGuardarcomoJPG_Click()
+''*************************************************
+''Author: Salvito
+''Last modified: 01/05/2008 - ^[GS]^
+''*************************************************
+'Dim Ratio                       As Single
+'    Ratio = CSng(Val(InputBox("En que escala queres Renderizar? Entre 1 y 20.", "Elegi Escala", "1")))
+'    If Ratio < 1 Then Ratio = 1
+'    If Ratio >= 1 And Ratio <= 20 Then
+'        RenderToPicture Ratio, False
+'    End If
+'End Sub
 
 Private Sub mnuGuardarMapa_Click()
 '*************************************************
