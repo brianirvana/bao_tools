@@ -1002,161 +1002,163 @@ Dim TempChar                    As Char
 Dim r                           As RECT
 Dim rSourceRect                 As RECT    'Usado en el Layer 1
 
-10  On Error GoTo RenderScreen_Error
+    On Error GoTo RenderScreen_Error
 
-20  BackBufferSurface.BltColorFill r, 0    'Solucion a algunos temas molestos :P
-30  MinY = (TileY - (WindowTileHeight \ 2)) - TileBufferSize
-40  MaxY = (TileY + (WindowTileHeight \ 2)) + TileBufferSize
-50  MinX = (TileX - (WindowTileWidth \ 2)) - TileBufferSize
-60  MaxX = (TileX + (WindowTileWidth \ 2)) + TileBufferSize
+    BackBufferSurface.BltColorFill r, 0    'Solucion a algunos temas molestos :P
+    MinY = (TileY - (WindowTileHeight \ 2)) - TileBufferSize
+    MaxY = (TileY + (WindowTileHeight \ 2)) + TileBufferSize
+    MinX = (TileX - (WindowTileWidth \ 2)) - TileBufferSize
+    MaxX = (TileX + (WindowTileWidth \ 2)) + TileBufferSize
 
     ' 31/05/2006 - GS, control de Capas
-70  If Val(frmMain.cCapas.Text) >= 1 And (frmMain.cCapas.Text) <= 4 Then
-80      bCapa = Val(frmMain.cCapas.Text)
-90  Else
-100     bCapa = 1
-110 End If
+    If Val(frmMain.cCapas.Text) >= 1 And (frmMain.cCapas.Text) <= 4 Then
+        bCapa = Val(frmMain.cCapas.Text)
+    Else
+        bCapa = 1
+    End If
 
-120 GenerarVista               'Loopzer
-130 ScreenY = 8
+    GenerarVista               'Loopzer
+    ScreenY = 8
 
-140 For Y = (MinY + 8) To (MaxY - 8)
-150     ScreenX = 8
-160     For X = (MinX + 8) To (MaxX - 8)
-170         If InMapBounds(X, Y) Then
-180             If X > XMaxMapSize Or Y < 1 Then Exit For    ' 30/05/2006
+    For Y = (MinY + 8) To (MaxY - 8)
+        ScreenX = 8
+        For X = (MinX + 8) To (MaxX - 8)
+            If InMapBounds(X, Y) Then
+                If X > XMaxMapSize Or Y < 1 Then Exit For    ' 30/05/2006
 
                 'Layer 1 **********************************
-190             With MapData(X, Y)
+                With MapData(X, Y)
 
-200                 If SobreX = X And SobreY = Y Then
+                    If SobreX = X And SobreY = Y Then
                         ' Pone Grh !
-210                     Sobre = -1
-220                     If frmMain.cSeleccionarSuperficie.Value = True Then
-230                         Sobre = .Graphic(bCapa).GrhIndex
-240                         If frmConfigSup.MOSAICO.Value = vbChecked Then
-250                             If frmConfigSup.DespMosaic.Value = vbChecked Then
-260                                 dy = Val(frmConfigSup.DMLargo.Text)
-270                                 dX = Val(frmConfigSup.DMAncho.Text)
-280                             Else
-290                                 dy = 0
-300                                 dX = 0
-310                             End If
+                        Sobre = -1
+                        If frmMain.cSeleccionarSuperficie.Value = True Then
+                            Sobre = .Graphic(bCapa).GrhIndex
+                            If frmConfigSup.MOSAICO.Value = vbChecked Then
+                                If frmConfigSup.DespMosaic.Value = vbChecked Then
+                                    dy = Val(frmConfigSup.DMLargo.Text)
+                                    dX = Val(frmConfigSup.DMAncho.Text)
+                                Else
+                                    dy = 0
+                                    dX = 0
+                                End If
 
-320                             If frmMain.mnuAutoCompletarSuperficies.Checked = False Then
-330                                 aux = Val(frmMain.cGrh.Text) + _
+                                If frmMain.mnuAutoCompletarSuperficies.Checked = False Then
+                                    aux = Val(frmMain.cGrh.Text) + _
                                           (((Y + dy) Mod Val(frmConfigSup.mLargo.Text)) * Val(frmConfigSup.mAncho.Text)) + ((X + dX) Mod Val(frmConfigSup.mAncho.Text))
-340                                 If .Graphic(bCapa).GrhIndex <> aux Then
-350                                     .Graphic(bCapa).GrhIndex = aux
-360                                     InitGrh .Graphic(bCapa), aux
-370                                 End If
-380                             Else
-390                                 aux = Val(frmMain.cGrh.Text) + _
+                                    If .Graphic(bCapa).GrhIndex <> aux Then
+                                        .Graphic(bCapa).GrhIndex = aux
+                                        InitGrh .Graphic(bCapa), aux
+                                    End If
+                                Else
+                                    aux = Val(frmMain.cGrh.Text) + _
                                           (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
-400                                 If .Graphic(bCapa).GrhIndex <> aux Then
-410                                     .Graphic(bCapa).GrhIndex = aux
-420                                     InitGrh .Graphic(bCapa), aux
-430                                 End If
-440                             End If
-450                         Else
-460                             If .Graphic(bCapa).GrhIndex <> Val(frmMain.cGrh.Text) Then
-470                                 .Graphic(bCapa).GrhIndex = Val(frmMain.cGrh.Text)
-480                                 InitGrh .Graphic(bCapa), Val(frmMain.cGrh.Text)
-490                             End If
-500                         End If
-510                     End If
-520                 Else
-530                     Sobre = -1
-540                 End If
-550             End With
+                                    If .Graphic(bCapa).GrhIndex <> aux Then
+                                        .Graphic(bCapa).GrhIndex = aux
+                                        InitGrh .Graphic(bCapa), aux
+                                    End If
+                                End If
+                            Else
+                                If .Graphic(bCapa).GrhIndex <> Val(frmMain.cGrh.Text) Then
+                                    .Graphic(bCapa).GrhIndex = Val(frmMain.cGrh.Text)
+                                    InitGrh .Graphic(bCapa), Val(frmMain.cGrh.Text)
+                                End If
+                            End If
+                        End If
+                    Else
+                        Sobre = -1
+                    End If
+                End With
 
-560             If VerCapa1 Then
+                If VerCapa1 Then
 
-570                 With MapData(X, Y).Graphic(1)
-580                     If (.GrhIndex <> 0) Then
-590                         If (.Started = 1) Then
-600                             If (.SpeedCounter > 0) Then
-610                                 .SpeedCounter = .SpeedCounter - 1
-620                                 If (.SpeedCounter = 0) Then
-630                                     .SpeedCounter = GrhData(.GrhIndex).Speed
-640                                     .FrameCounter = .FrameCounter + 1
-650                                     If (.FrameCounter > GrhData(.GrhIndex).NumFrames) Then _
+                    With MapData(X, Y).Graphic(1)
+                        If (.GrhIndex <> 0) Then
+                            If (.Started = 1) Then
+                                If (.SpeedCounter > 0) Then
+                                    .SpeedCounter = .SpeedCounter - 1
+                                    If (.SpeedCounter = 0) Then
+                                        .SpeedCounter = GrhData(.GrhIndex).Speed
+                                        .FrameCounter = .FrameCounter + 1
+                                        If (.FrameCounter > GrhData(.GrhIndex).NumFrames) Then _
                                            .FrameCounter = 1
-660                                 End If
-670                             End If
-680                         End If
+                                    End If
+                                End If
+                            End If
                             'Figure out what frame to draw (always 1 if not animated)
-690                         iGrhIndex = GrhData(.GrhIndex).Frames(.FrameCounter)
-700                     End If
-710                 End With
-720                 If iGrhIndex <> 0 Then
-730                     rSourceRect.Left = GrhData(iGrhIndex).sX
-740                     rSourceRect.Top = GrhData(iGrhIndex).sY
-750                     rSourceRect.Right = rSourceRect.Left + GrhData(iGrhIndex).pixelWidth
-760                     rSourceRect.Bottom = rSourceRect.Top + GrhData(iGrhIndex).pixelHeight
+                            iGrhIndex = GrhData(.GrhIndex).Frames(.FrameCounter)
+                        End If
+                    End With
+                    If iGrhIndex <> 0 Then
+                        rSourceRect.Left = GrhData(iGrhIndex).sX
+                        rSourceRect.Top = GrhData(iGrhIndex).sY
+                        rSourceRect.Right = rSourceRect.Left + GrhData(iGrhIndex).pixelWidth
+                        rSourceRect.Bottom = rSourceRect.Top + GrhData(iGrhIndex).pixelHeight
                         'El width fue hardcodeado para speed!
-770                     Call BackBufferSurface.BltFast( _
+                        Call BackBufferSurface.BltFast( _
                              ((32 * ScreenX) - 32) + PixelOffsetX, _
                              ((32 * ScreenY) - 32) + PixelOffsetY, _
                              SurfaceDB.Surface(GrhData(iGrhIndex).FileNum), _
                              rSourceRect, _
                              DDBLTFAST_WAIT)
-780                 End If
-790             End If
-                'Layer 2 **********************************
-800             If MapData(X, Y).Graphic(2).GrhIndex <> 0 And VerCapa2 Then
-810                 Call DDrawTransGrhtoSurface(BackBufferSurface, MapData(X, Y).Graphic(2), ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
-820             End If
-830             If Sobre >= 0 Then
-840                 If MapData(X, Y).Graphic(bCapa).GrhIndex <> Sobre Then
-850                     MapData(X, Y).Graphic(bCapa).GrhIndex = Sobre
-860                     InitGrh MapData(X, Y).Graphic(bCapa), Sobre
-870                 End If
-880             End If
-890         End If
-900         ScreenX = ScreenX + 1
-910     Next X
-920     ScreenY = ScreenY + 1
-930     If Y > YMaxMapSize Then Exit For
-940 Next Y
-950 ScreenY = 8
-960 For Y = (MinY + 8) To (MaxY - 1)    '- 8+ 8
-970     ScreenX = 5
-980     For X = (MinX + 5) To (MaxX - 5)    '- 8 + 8
-990         If InMapBounds(X, Y) Then
-1000            If X > XMaxMapSize Or X < -3 Then Exit For    ' 30/05/2006
+                    End If
+                End If
 
-1010            iPPx = ((32 * ScreenX) - 32) + PixelOffsetX
-1020            iPPy = ((32 * ScreenY) - 32) + PixelOffsetY
+                'Layer 2 **********************************
+                If MapData(X, Y).Graphic(2).GrhIndex <> 0 And VerCapa2 Then
+                    Call DDrawTransGrhtoSurface(BackBufferSurface, MapData(X, Y).Graphic(2), ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
+                End If
+
+                If Sobre >= 0 Then
+                    If MapData(X, Y).Graphic(bCapa).GrhIndex <> Sobre Then
+                        MapData(X, Y).Graphic(bCapa).GrhIndex = Sobre
+                        InitGrh MapData(X, Y).Graphic(bCapa), Sobre
+                    End If
+                End If
+            End If
+            ScreenX = ScreenX + 1
+        Next X
+        ScreenY = ScreenY + 1
+        If Y > YMaxMapSize Then Exit For
+    Next Y
+    ScreenY = 8
+    For Y = (MinY + 8) To (MaxY - 1)    '- 8+ 8
+        ScreenX = 5
+        For X = (MinX + 5) To (MaxX - 5)    '- 8 + 8
+            If InMapBounds(X, Y) Then
+                If X > XMaxMapSize Or X < -3 Then Exit For    ' 30/05/2006
+
+                iPPx = ((32 * ScreenX) - 32) + PixelOffsetX
+                iPPy = ((32 * ScreenY) - 32) + PixelOffsetY
                 'Object Layer **********************************
-1030            If MapData(X, Y).OBJInfo.objindex <> 0 And VerObjetos Then
-1040                Call DDrawTransGrhtoSurface( _
+                If MapData(X, Y).OBJInfo.objindex <> 0 And VerObjetos Then
+                    Call DDrawTransGrhtoSurface( _
                          BackBufferSurface, _
                          MapData(X, Y).ObjGrh, _
                          iPPx, iPPy, 1, 1)
-1050            End If
+                End If
 
                 'Char layer **********************************
-1060            If MapData(X, Y).CharIndex <> 0 And VerNpcs Then
+                If MapData(X, Y).CharIndex <> 0 And VerNpcs Then
 
-1070                TempChar = CharList(MapData(X, Y).CharIndex)
+                    TempChar = CharList(MapData(X, Y).CharIndex)
 
-1080                PixelOffsetXTemp = PixelOffsetX
-1090                PixelOffsetYTemp = PixelOffsetY
+                    PixelOffsetXTemp = PixelOffsetX
+                    PixelOffsetYTemp = PixelOffsetY
 
                     'Dibuja solamente players
-1100                If TempChar.Head.Head(TempChar.Heading).GrhIndex <> 0 Then
+                    If TempChar.Head.Head(TempChar.Heading).GrhIndex <> 0 Then
                         'Draw Body
-1110                    Call DDrawTransGrhtoSurface(BackBufferSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + PixelOffsetXTemp), PixelPos(ScreenY) + PixelOffsetYTemp, 1, 1)
+                        Call DDrawTransGrhtoSurface(BackBufferSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + PixelOffsetXTemp), PixelPos(ScreenY) + PixelOffsetYTemp, 1, 1)
                         'Draw Head
-1120                    Call DDrawTransGrhtoSurface(BackBufferSurface, TempChar.Head.Head(TempChar.Heading), (PixelPos(ScreenX) + PixelOffsetXTemp) + TempChar.Body.HeadOffset.X, PixelPos(ScreenY) + PixelOffsetYTemp + TempChar.Body.HeadOffset.Y, 1, 0)
-1130                Else
-1140                    Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, (PixelPos(ScreenX) + PixelOffsetXTemp), PixelPos(ScreenY) + PixelOffsetYTemp, 1, 1)
-1150                End If
+                        Call DDrawTransGrhtoSurface(BackBufferSurface, TempChar.Head.Head(TempChar.Heading), (PixelPos(ScreenX) + PixelOffsetXTemp) + TempChar.Body.HeadOffset.X, PixelPos(ScreenY) + PixelOffsetYTemp + TempChar.Body.HeadOffset.Y, 1, 0)
+                    Else
+                        Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, (PixelPos(ScreenX) + PixelOffsetXTemp), PixelPos(ScreenY) + PixelOffsetYTemp, 1, 1)
+                    End If
 
-1160            End If
+                End If
                 'Layer 3 *****************************************
-1170            If MapData(X, Y).Graphic(3).GrhIndex <> 0 And VerCapa3 Then
+                If MapData(X, Y).Graphic(3).GrhIndex <> 0 And VerCapa3 Then
                     'Draw
                     'Call DDrawTransGrhtoSurface( _
                      BackBufferSurface, _
@@ -1164,84 +1166,84 @@ Dim rSourceRect                 As RECT    'Usado en el Layer 1
                      ((32 * ScreenX) - 32) + PixelOffsetX, _
                      ((32 * ScreenY) - 32) + PixelOffsetY, _
                      1, 1)
-1180                Call DDrawTransGrhtoSurface( _
+                    Call DDrawTransGrhtoSurface( _
                          BackBufferSurface, _
                          MapData(X, Y).Graphic(3), _
                          iPPx, _
                          iPPy, _
                          1, 1)
-1190            End If
-1200        End If
-1210        ScreenX = ScreenX + 1
-1220    Next X
-1230    ScreenY = ScreenY + 1
-1240 Next Y
+                End If
+            End If
+            ScreenX = ScreenX + 1
+        Next X
+        ScreenY = ScreenY + 1
+    Next Y
 
     'Tiles blokeadas, techos, triggers , seleccion
-1250 ScreenY = 5
-1260 For Y = (MinY + 5) To (MaxY - 1)
-1270    ScreenX = 5
-1280    For X = (MinX + 5) To (MaxX)
-1290        If X < XMaxMapSize + 1 And X > XMinMapSize - 1 And Y < YMaxMapSize + 1 And Y > YMinMapSize + 1 Then    ' 30/05/2006
-1300            iPPx = ((32 * ScreenX) - 32) + PixelOffsetX
-1310            iPPy = ((32 * ScreenY) - 32) + PixelOffsetY
-1320            If MapData(X, Y).Graphic(4).GrhIndex <> 0 And (frmMain.mnuVerCapa4.Checked = True) Then
+    ScreenY = 5
+    For Y = (MinY + 5) To (MaxY - 1)
+        ScreenX = 5
+        For X = (MinX + 5) To (MaxX)
+            If X < XMaxMapSize + 1 And X > XMinMapSize - 1 And Y < YMaxMapSize + 1 And Y > YMinMapSize + 1 Then    ' 30/05/2006
+                iPPx = ((32 * ScreenX) - 32) + PixelOffsetX
+                iPPy = ((32 * ScreenY) - 32) + PixelOffsetY
+                If MapData(X, Y).Graphic(4).GrhIndex <> 0 And (frmMain.mnuVerCapa4.Checked = True) Then
                     'Draw
-1330                Call DDrawTransGrhtoSurface(BackBufferSurface, MapData(X, Y).Graphic(4), iPPx, iPPy, 1, 1)
-1340            End If
+                    Call DDrawTransGrhtoSurface(BackBufferSurface, MapData(X, Y).Graphic(4), iPPx, iPPy, 1, 1)
+                End If
 
-1350            If MapData(X, Y).TileExit.Map <> 0 And VerTranslados Then
-1360                Grh.GrhIndex = 3
-1370                Grh.FrameCounter = 1
-1380                Grh.Started = 0
-1390                Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, iPPx, iPPy, 1, 1)
-1400            End If
+                If MapData(X, Y).TileExit.Map <> 0 And VerTranslados Then
+                    Grh.GrhIndex = 3
+                    Grh.FrameCounter = 1
+                    Grh.Started = 0
+                    Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, iPPx, iPPy, 1, 1)
+                End If
                 'Show blocked tiles
-1410            If VerBlockeados And MapData(X, Y).Blocked = 1 Then
-1420                Grh.GrhIndex = 270
-1430                Grh.FrameCounter = 1
-1440                Grh.Started = 0
-1450                Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
-1460            End If
+                If VerBlockeados And MapData(X, Y).Blocked = 1 Then
+                    Grh.GrhIndex = 270
+                    Grh.FrameCounter = 1
+                    Grh.Started = 0
+                    Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
+                End If
 
-1470            If VerGrilla Then
+                If VerGrilla Then
                     ' Grilla 24/11/2008 by GS
                     'BackBufferSurface.SetForeColor vbRed
                     'BackBufferSurface.DrawLine ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, iPPx, iPPy + 32
                     'BackBufferSurface.DrawLine ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, iPPx + 32, iPPy
-1480                Grh.GrhIndex = 2
-1490                Grh.FrameCounter = 1
-1500                Grh.Started = 0
-1510                Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
-1520            End If
+                    Grh.GrhIndex = 2
+                    Grh.FrameCounter = 1
+                    Grh.Started = 0
+                    Call DDrawTransGrhtoSurface(BackBufferSurface, Grh, ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
+                End If
 
-1530            If VerTriggers And str(MapData(X, Y).Trigger) > 0 Then
-1540                Call DrawText(PixelPos(ScreenX), PixelPos(ScreenY), str(MapData(X, Y).Trigger), vbGreen)
-1550            End If
+                If VerTriggers And str(MapData(X, Y).Trigger) > 0 Then
+                    Call DrawText(PixelPos(ScreenX), PixelPos(ScreenY), str(MapData(X, Y).Trigger), vbGreen)
+                End If
 
-1560            If Seleccionando Then
+                If Seleccionando Then
                     'If ScreenX >= SeleccionIX And ScreenX <= SeleccionFX And ScreenY >= SeleccionIY And ScreenY <= SeleccionFY Then
-1570                If X >= SeleccionIX And Y >= SeleccionIY Then
-1580                    If X <= SeleccionFX And Y <= SeleccionFY Then
-1590                        BackBufferSurface.SetForeColor vbGreen
-1600                        BackBufferSurface.SetFillStyle 1
-1610                        BackBufferSurface.DrawBox iPPx, iPPy, iPPx + 32, iPPy + 32
-1620                    End If
-1630                End If
-1640            End If
+                    If X >= SeleccionIX And Y >= SeleccionIY Then
+                        If X <= SeleccionFX And Y <= SeleccionFY Then
+                            BackBufferSurface.SetForeColor vbGreen
+                            BackBufferSurface.SetFillStyle 1
+                            BackBufferSurface.DrawBox iPPx, iPPy, iPPx + 32, iPPy + 32
+                        End If
+                    End If
+                End If
 
-1650        End If
-1660        ScreenX = ScreenX + 1
-1670    Next X
-1680    ScreenY = ScreenY + 1
-1690 Next Y
+            End If
+            ScreenX = ScreenX + 1
+        Next X
+        ScreenY = ScreenY + 1
+    Next Y
 
-1700 On Error GoTo 0
-1710 Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 RenderScreen_Error:
 
-1720 Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento RenderScreen de Módulo modDirectDraw línea: " & Erl())
+    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento RenderScreen de Módulo modDirectDraw línea: " & Erl())
 
 End Sub
 
