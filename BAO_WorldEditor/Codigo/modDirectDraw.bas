@@ -419,7 +419,7 @@ Function LegalPos(X As Integer, Y As Integer) As Boolean
         Exit Function
     End If
 
-    If X > XMaxMapSize Or X < XMinMapSize Or Y > YMaxMapSize Or Y < YMaxMapSize Then
+    If (X > XMaxMapSize) Or (X < XMinMapSize) Or (Y > YMaxMapSize) Or (Y < YMinMapSize) Then
         LegalPos = False
         Exit Function
     End If
