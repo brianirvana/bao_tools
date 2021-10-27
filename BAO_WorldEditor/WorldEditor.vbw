@@ -1,5 +1,5 @@
 frmMain = 100, 100, 1377, 763, , 25, 25, 1181, 491, C
-modGeneral = 150, 150, 1427, 813, C
+modGeneral = 150, 150, 1427, 813, 
 modDeclaraciones = 300, 300, 695, 948, 
 modDirectDraw = 175, 175, 1452, 838, Z
 frmGrafico = 0, 0, 0, 0, C, 125, 125, 1227, 573, C
