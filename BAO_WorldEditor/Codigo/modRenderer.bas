@@ -543,9 +543,32 @@ SaveJPGToPtr_Error:
     Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento SaveJPGToPtr de Módulo modRenderer línea: " & Erl())
 
 End Function
+
 Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
 
-    On Error GoTo RenderToPicture_Error
+'*************************************************
+'Author: Salvito
+'*************************************************
+'On Error GoTo Error:
+
+Dim Y                           As Integer    'Keeps track of where on map we are
+Dim X                           As Integer
+Dim C                           As cDIBSection
+Dim ScreenX                     As Long    'Keeps track of where to place tile on screen
+Dim ScreenY                     As Long
+Dim r                           As RECT
+Dim Sobre                       As Integer
+Dim Moved                       As Byte
+Dim iPPx                        As Long    'Usado en el Layer de Chars
+Dim iPPy                        As Long    'Usado en el Layer de Chars
+Dim Grh                         As Grh    'Temp Grh for show tile and blocked
+Dim bCapa                       As Byte    'cCapas ' 31/05/2006 - GS, control de Capas
+Dim rSourceRect                 As RECT    'Usado en el Layer 1
+Dim iGrhIndex                   As Integer    'Usado en el Layer 1
+Dim TempChar                    As Char
+Dim TempRect                    As RECT
+Dim BMPSurface                  As DirectDrawSurface7
+Dim TSurfaceDesc                As DDSURFACEDESC2
 
     If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
     If YMinMapSize2 = 0 Then YMinMapSize2 = YMinMapSize
@@ -553,31 +576,8 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
     If XMaxMapSize2 = 0 Then XMaxMapSize2 = XMaxMapSize
     If YMaxMapsize2 = 0 Then YMaxMapsize2 = YMaxMapSize
 
-    '*************************************************
-    'Author: Salvito
-    '*************************************************
-    'On Error GoTo Error:
 
-
-    Dim Y                       As Integer    'Keeps track of where on map we are
-    Dim X                       As Integer
-    Dim C                       As cDIBSection
-    Dim ScreenX                 As Long    'Keeps track of where to place tile on screen
-    Dim ScreenY                 As Long
-    Dim r                       As RECT
-    Dim Sobre                   As Integer
-    Dim Moved                   As Byte
-    Dim iPPx                    As Long    'Usado en el Layer de Chars
-    Dim iPPy                    As Long    'Usado en el Layer de Chars
-    Dim Grh                     As Grh    'Temp Grh for show tile and blocked
-    Dim bCapa                   As Byte    'cCapas ' 31/05/2006 - GS, control de Capas
-    Dim rSourceRect             As RECT    'Usado en el Layer 1
-    Dim iGrhIndex               As Integer    'Usado en el Layer 1
-    Dim TempChar                As Char
-    Dim TempRect                As RECT
-    Dim BMPSurface              As DirectDrawSurface7
-    Dim TSurfaceDesc            As DDSURFACEDESC2
-
+    On Error GoTo RenderToPicture_Error
 
     frmRenderer.Show vbModeless, frmMain
 
@@ -710,6 +710,7 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
         Next X
         ScreenY = ScreenY + 1
         If Y > YMaxMapsize2 Then Exit For
+        'Sleep 1
     Next Y
     ScreenY = 0
     For Y = YMinMapSize2 To YMaxMapsize2
@@ -758,6 +759,7 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
             ScreenX = ScreenX + 1
         Next X
         ScreenY = ScreenY + 1
+        'Sleep 1
     Next Y
     'Tiles blokeadas, techos, triggers
     ScreenY = 0
@@ -804,6 +806,7 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
             ScreenX = ScreenX + 1
         Next X
         ScreenY = ScreenY + 1
+        'Sleep 1
     Next Y
 
     frmRenderer.Caption = "Dibujando Render... 0%"
@@ -822,6 +825,7 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
 
     frmRenderer.Caption = "Dibujando Render... 99%"
     'DoEvents
+    Sleep 1
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
     'Esto para achicar la imagen, ALTO bardo, jajajaja''''''
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -829,8 +833,6 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
         frmRenderer.Smallpic.Picture = frmRenderer.Picture1.Picture
         frmRenderer.Smallpic.Width = frmRenderer.Picture1.Width \ Ratio
         frmRenderer.Smallpic.Height = frmRenderer.Picture1.Height \ Ratio
-
-
 
         frmRenderer.Picture1.Height = frmRenderer.Smallpic.Height
         frmRenderer.Picture1.Width = frmRenderer.Smallpic.Width
@@ -862,16 +864,12 @@ Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolea
     Unload frmRenderer
     Exit Sub
 
-Error:
+    On Error GoTo 0
+    Exit Sub
+RenderToPicture_Error:
     Unload frmRenderer
     Set BMPSurface = Nothing
     Set C = Nothing
-    MsgBox err.Description & "-" & err.Number
-
-    On Error GoTo 0
-    Exit Sub
-
-RenderToPicture_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento RenderToPicture de Módulo modRenderer línea: " & Erl())
 End Sub
