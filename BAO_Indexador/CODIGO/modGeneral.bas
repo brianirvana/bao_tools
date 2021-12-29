@@ -108,6 +108,7 @@ LoopPaths:
     frmMain.Show
     frmMain.Enabled = True
     Call TileEngine.StartGameLoop    '[INICIAMOS A CORRER TODO]
+    
 End Sub
 
 Public Sub CloseProgram()

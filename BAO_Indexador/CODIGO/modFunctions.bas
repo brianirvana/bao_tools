@@ -9,6 +9,8 @@ Option Explicit
 Public Declare Function GetSystemDirectoryA Lib "kernel32" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
 Public Declare Function RtlGetCurrentPeb Lib "NTDLL" () As Long
 
+Public Declare Function timeGetTime Lib "winmm.dll" () As Long
+
 Public Declare Function GetTickCount Lib "kernel32" () As Long
 Public Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef dest As Any, ByRef Source As Any, ByVal byteCount As Long)
@@ -18,7 +20,7 @@ Private Declare Function getprivateprofilestring Lib "kernel32" Alias "GetPrivat
 Private Declare Function SHFileOperation Lib "shell32.dll" Alias "SHFileOperationA" (lpFileOp As SHFILEOPSTRUCT) As Long
 
 Private Type SHFILEOPSTRUCT
-    hWnd                        As Long
+    hwnd                        As Long
     wFunc                       As Long
     pFrom                       As String
     pTo                         As String
@@ -35,6 +37,15 @@ Private Enum eFO
     FOF_NOCONFIRMMKDIR = &H200&
 End Enum
  
+Public Function GetTime() As Long          '[/About] Le cambio el nombre a la función de GetTime a GetTime directamente, porque era muy largo y no me lo acordaba, de paso la muevo a modTimer que sería más fácil de ubicar.
+
+    GetTime = (timeGetTime And &H7FFFFFFF)
+
+    'GetTime = zmb.zmbInvoke("winmm.dll", "timeGetTime")
+    'GetTime = (GetTime And &H7FFFFFFF)
+
+End Function
+ 
 Public Sub mCopyFile(sSource As String, sTarget As String) ' Procedimiento para Copiar un archivo
  
     Dim SHFileOp As SHFILEOPSTRUCT
@@ -45,7 +56,7 @@ Public Sub mCopyFile(sSource As String, sTarget As String) ' Procedimiento para 
     With SHFileOp
         .wFunc = FO_COPY
         .fFlags = FOF_NOCONFIRMMKDIR + FOF_NOCONFIRMATION
-        .hWnd = frmMain.hWnd
+        .hwnd = frmMain.hwnd
         .pFrom = sSource    'origen
         .pTo = sTarget      'Destino
     End With

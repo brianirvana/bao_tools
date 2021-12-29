@@ -402,10 +402,11 @@ Private Function GameLoop()
         Dim Info As String
         Info = "Escala: " & Round(Escala * 100) & "%" & vbCrLf
         Info = Info & "Mouse Graphic: X" & Round((RenderMouseX - GraphicX) / Escala) & " Y" & Round((RenderMouseY - GraphicY) / Escala) & vbCrLf
-        'Info = Info & "Mouse State: " & MousePress & vbCrLf
+        Info = Info & "Mouse State: " & MousePress & vbCrLf
         Info = Info & "Mouse Pos: " & System.CursorX & "-" & System.CursorY & vbCrLf
         Info = Info & "Object Pos: " & "Object Pos: " & GraphicX & "-" & GraphicY
         Call GameEngine.Draw_Text_MultiLine(Info, 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
+        
         'Call GameEngine.Draw_Text("Escala: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
         'Call GameEngine.Draw_Text("Mouse Graphic: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
         'Call GameEngine.Draw_Text("Mouse State: " & MousePress, 0, frmMain.renderer.ScaleHeight - 30, D3DColorRGBA(255, 0, 0, 255))
@@ -443,13 +444,14 @@ Private Function GameLoop()
         
         Call GameEngine.DrawFPS(frmMain.renderer.ScaleWidth - 75, 0)
         
-        While (GetTickCount - fpsLastCheck) \ 10 < FramesPerSecCounter
+        While (GetTime - fpsLastCheck) \ 10 < FramesPerSecCounter
+            'DoEvents
             Sleep 5
         Wend
-        If fpsLastCheck + 1000 < GetTickCount Then
+        If fpsLastCheck + 1000 < GetTime Then
             FPS = FramesPerSecCounter
             FramesPerSecCounter = 1
-            fpsLastCheck = GetTickCount
+            fpsLastCheck = GetTime
         Else
             FramesPerSecCounter = FramesPerSecCounter + 1
         End If
@@ -458,8 +460,10 @@ Private Function GameLoop()
 
     Call GameEngine.End_Scene '<-- Esto indica que termina la escena y dibuja todo lo que se renderizo
 End Function
+
 'Iniciamos el loop infinito
 Public Sub StartGameLoop()
+
     LoopRunning = True
     
     'Loop infinito
@@ -544,12 +548,12 @@ End Sub
 Public Sub MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
     Static DoubleClick As Long
     If Button = 2 And MouseButtons(1) = False Then
-        Debug.Print "Click derecho -> " & GetTickCount - DoubleClick
-        If GetTickCount - DoubleClick < 200 Then
+        Debug.Print "Click derecho -> " & GetTime - DoubleClick
+        If GetTime - DoubleClick < 200 Then
             GraphicX = 0
             GraphicY = 0
         End If
-        DoubleClick = GetTickCount()
+        DoubleClick = GetTime()
     End If
 
     MouseButtons(Button) = False

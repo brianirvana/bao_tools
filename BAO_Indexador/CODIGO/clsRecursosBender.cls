@@ -14,8 +14,10 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Public Sub Initialize()
+    
     On Error GoTo err:
 Dim Paths(6)                    As String
+    
     Paths(0) = "Graficos.ind"
     Paths(1) = "Cabezas.ind"
     Paths(2) = "Personajes.ind"
@@ -25,6 +27,7 @@ Dim Paths(6)                    As String
     Paths(6) = "Fxs.ind"
     DoEvents
     frmCargando.lblLoading.Caption = "Cargando LoadGrhData..."
+
 1   Call LoadGrhData(AppInit & "\" & Paths(0))
     'Sleep 100: DoEvents
 
@@ -62,6 +65,7 @@ err:
     Dim Index                   As Integer
     Index = Erl() - 1
     MsgBox "No se ha podido cargar correctamente el archivo " & Paths(Index)
+    
 End Sub
 
 Public Sub Index_To_Expo()
@@ -701,8 +705,10 @@ Private Sub InitGrh(ByRef Grh As Grh, ByVal GrhIndex As Integer, Optional ByVal 
         End If
     Else
         'Make sure the graphic can be started
-        If GrhData(Grh.GrhIndex).NumFrames = 1 Then Started = 0
-        Grh.Started = Started
+        If Grh.GrhIndex <= UBound(GrhData) Then
+            If GrhData(Grh.GrhIndex).NumFrames = 1 Then Started = 0
+            Grh.Started = Started
+        End If
     End If
 
 
@@ -713,5 +719,7 @@ Private Sub InitGrh(ByRef Grh As Grh, ByVal GrhIndex As Integer, Optional ByVal 
     End If
 
     Grh.FrameCounter = 1
-    Grh.speed = GrhData(Grh.GrhIndex).speed
+    If Grh.GrhIndex <= UBound(GrhData) Then
+        Grh.speed = GrhData(Grh.GrhIndex).speed
+    End If
 End Sub
