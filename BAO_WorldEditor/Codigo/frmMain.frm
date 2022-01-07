@@ -4014,15 +4014,16 @@ Private Sub cNumFunc_LostFocus(index As Integer)
 
     On Error GoTo cNumFunc_LostFocus_Error
 
-10  If index = 0 Then
-20      If frmMain.cNumFunc(index).Text > 499 Or frmMain.cNumFunc(index).Text < 1 Then
-30          frmMain.cNumFunc(index).Text = 1
-40      End If
-50  ElseIf index = 1 Then
-60      If frmMain.cNumFunc(index).Text < 500 Or frmMain.cNumFunc(index).Text > 32000 Then
-70          frmMain.cNumFunc(index).Text = 500
-80      End If
-90  ElseIf index = 2 Then
+'10  If index = 0 Then
+'20      If frmMain.cNumFunc(index).Text > 499 Or frmMain.cNumFunc(index).Text < 1 Then
+'30          frmMain.cNumFunc(index).Text = 1
+'40      End If
+'50  ElseIf index = 1 Then
+'60      If frmMain.cNumFunc(index).Text < 500 Or frmMain.cNumFunc(index).Text > 32000 Then
+'70          frmMain.cNumFunc(index).Text = 500
+'80      End If
+
+90  If index = 2 Then
 100     If frmMain.cNumFunc(index).Text < 1 Or frmMain.cNumFunc(index).Text > 32000 Then
 110         frmMain.cNumFunc(index).Text = 1
 120     End If
@@ -5425,7 +5426,9 @@ Private Sub picRadar_MouseDown(Button As Integer, Shift As Integer, X As Single,
 
     'frmMain.picRadar.Picture = LoadPicture(App.Path & "\GRAFICOS\MiniMapa" & Dialog.FileName & ".jpg")
 21  If StrComp(Dialog.FileName, vbNullString) <> 0 Then
-22      frmMain.picRadar.Picture = LoadPicture(Dialog.FileName & ".jpg")
+        If FileExist(Dialog.FileName & ".jpg", vbArchive) Then
+22          frmMain.picRadar.Picture = LoadPicture(Dialog.FileName & ".jpg")
+        End If
 23  End If
     'frmMain.ImageMap.Picture = App.Path & "\GRAFICOS\MiniMapa1.bmp"
 40  bRefreshRadar = True
@@ -5436,6 +5439,7 @@ Private Sub picRadar_MouseDown(Button As Integer, Shift As Integer, X As Single,
 picRadar_MouseDown_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento picRadar_MouseDown de Formulario frmMain línea: " & Erl())
+    
 End Sub
 
 Private Sub picRadar_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)

@@ -830,6 +830,7 @@ Dim Heading                     As Byte
                 frmMain.StatTxt.Text = frmMain.StatTxt.Text & " (NPC-Hostil: " & MapData(tX, tY).NPCIndex & " - " & NpcData(MapData(tX, tY).NPCIndex).Name & ")"
             Else
                 frmMain.StatTxt.Text = frmMain.StatTxt.Text & " (NPC: " & MapData(tX, tY).NPCIndex & " - " & NpcData(MapData(tX, tY).NPCIndex).Name & ")"
+                frmMain.cNumFunc(0).Text = MapData(tX, tY).NPCIndex
             End If
         End If
 
