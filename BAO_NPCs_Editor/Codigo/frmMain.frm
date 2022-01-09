@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form frmMain 
-   Caption         =   "Form1"
+   Caption         =   "BenderAO - NPC Editor."
    ClientHeight    =   12765
    ClientLeft      =   120
    ClientTop       =   450
@@ -207,6 +207,14 @@ Begin VB.Form frmMain
       TabIndex        =   0
       Top             =   0
       Width           =   3255
+      Begin VB.CommandButton cmdCopyRespawn 
+         Caption         =   "Add Copy Respawn"
+         Height          =   495
+         Left            =   120
+         TabIndex        =   49
+         Top             =   8040
+         Width           =   975
+      End
       Begin VB.CommandButton cmdUpdateOrder 
          Caption         =   "Update"
          Height          =   255
@@ -531,11 +539,14 @@ Public SelectedRespawnIndex     As Integer
 
 Private Sub Area_DblClick()
     txtPos.Text = NumMapa & "-" & MouseX & "-" & MouseY
+    
 End Sub
 
 Private Sub Area_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+
     MouseX = X
     MouseY = Y
+    
     If Button = 1 Then
         If InClick = False Then
             Call GetCursorPos(ClickPos)
@@ -554,6 +565,7 @@ Private Sub Area_MouseMove(Button As Integer, Shift As Integer, X As Single, Y A
         Debug.Print "Falsee Pos: " & X & "-" & Y
         InClick = False
     End If
+    
 End Sub
 
 Private Sub cmdAgregar_Click()
@@ -598,6 +610,36 @@ VolverHacer:
     Else
         MsgBox "No se ha encontrado un NPC que tenga un item similar al que usted escribio."
     End If
+End Sub
+
+Private Sub cmdCopyRespawn_Click()
+
+'FALTA TERMINAR!
+    NPCRespawnCount = NPCRespawnCount + 1
+    ReDim Preserve NPCRespawn(NPCRespawnCount)
+
+    With NPCRespawn(NPCRespawnCount - 1)
+    
+        'iIDNpcSelected = NpcIndex
+        'NpcIndex = .ID
+        .ID = NPCRespawn(iIDNpcSelected).ID  'Val(txtNumero.Text)
+        lstNPCs.AddItem NpcList(.ID).Name & "-" & NPCRespawn(iIDNpcSelected).ID & "-" & lstNPCs.ListCount  'Val(txtNumero.Text) & "-" & lstNPCs.ListCount
+        .Pos.Map = NPCRespawn(iIDNpcSelected).Pos.Map 'ReadField(1, txtPos.Text, 45)
+        .Pos.X = NPCRespawn(iIDNpcSelected).Pos.X  ' ReadField(2, txtPos.Text, 45)
+        .Pos.Y = NPCRespawn(iIDNpcSelected).Pos.Y 'ReadField(3, txtPos.Text, 45)
+        .AreaX = NPCRespawn(iIDNpcSelected).AreaX ' txtAreaX.Text
+        .AreaY = NPCRespawn(iIDNpcSelected).AreaY ' txtAreaY.Text
+        .Nivel = NPCRespawn(iIDNpcSelected).Nivel ' txtNPCLvl.Text
+        .FactorMulExp = NPCRespawn(iIDNpcSelected).FactorMulExp 'txtFactor.Text
+        .MinHour = NPCRespawn(iIDNpcSelected).MinHour 'txtMinHour.Text
+        .MaxHour = NPCRespawn(iIDNpcSelected).MaxHour 'txtMaxHour.Text
+        .WithCountUsers = NPCRespawn(iIDNpcSelected).WithCountUsers 'txtCountUsersRespawn.Text
+        .RespawnTime = NPCRespawn(iIDNpcSelected).RespawnTime  'txtRespawnTime.Text
+        .Count = NPCRespawn(iIDNpcSelected).Count 'txtCantidad.Text
+        .Order = NPCRespawnCount
+        
+    End With
+    
 End Sub
 
 Private Sub cmdGuardar_Click()
@@ -778,27 +820,31 @@ Dim NpcIndex                    As Integer
 Dim RespawnIndex                As Integer
 Dim NPCName                     As String
 
+    On Error GoTo lstNPCs_Click_Error:
+
     frmMain.Caption = "Cargando..."
     lstNPCs.Enabled = False
     'DoEvents
 
     If lstNPCs.ListIndex = -1 Then Exit Sub
+    
     RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
     txtRespawnOrder.Text = RespawnIndex
     'Call FindNpcByName(lstNPCs.List(RespawnIndex))
     
     With NPCRespawn(RespawnIndex)
-        iIDNpcSelected = NpcIndex
+        iIDNpcSelected = RespawnIndex ' NpcIndex
         NpcIndex = .ID
         
         SelectedRespawnIndex = RespawnIndex
         Call updateArea(RespawnIndex)
         
-        If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 3 Then
+         If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 3 Then
             Area.Picture = cachePictures(.Pos.Map)
             NumMapa = .Pos.Map
         Else
             'MsgBox "Mapa inválido"
+            Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
         End If
 
         txtNumero.Text = .ID
@@ -831,6 +877,10 @@ Dim NPCName                     As String
     lstNPCs.SetFocus
     frmMain.Caption = "NPC Seleccionado: " & NPCName
     tmpOrder = Val(txtRespawnOrder.Text)
+
+lstNPCs_Click_Error:
+    Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
+    lstNPCs.Enabled = True
 
 End Sub
 
@@ -1071,6 +1121,9 @@ Private Sub txtNumero_Change()
     End If
     
     NPCRespawn(SelectedRespawnIndex).ID = NpcIndex
+    cmdGuardar.Enabled = True
+    
+    If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
     cmdGuardar.Enabled = True
     
 End Sub
