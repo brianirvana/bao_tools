@@ -94,6 +94,15 @@ Dim Line                        As String
         Next i
 
     Close #nfile
+    
+    Open AppExpo & "\GraficosParsed.ini" For Output As #nfile
+        Print #nfile, "[GRAFICOS]"
+        
+        For i = 1 To grhCount
+            Print #nfile, i & "=" & ReadField(2, ProcessGraphicBinToLine(i), Asc("."))
+        Next i
+
+    Close #nfile
 
     frmMain.Caption = FrmMainCaption & " - Listo!"
     'Sleep 500

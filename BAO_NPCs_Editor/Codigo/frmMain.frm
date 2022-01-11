@@ -157,14 +157,14 @@ Begin VB.Form frmMain
       Top             =   0
    End
    Begin VB.PictureBox picMain 
-      Height          =   13620
+      Height          =   14940
       Left            =   3480
-      ScaleHeight     =   904
+      ScaleHeight     =   992
       ScaleMode       =   3  'Pixel
-      ScaleWidth      =   1032
+      ScaleWidth      =   1400
       TabIndex        =   2
       Top             =   0
-      Width           =   15540
+      Width           =   21060
       Begin VB.PictureBox Area 
          Appearance      =   0  'Flat
          BackColor       =   &H00000000&
@@ -349,6 +349,13 @@ Begin VB.Form frmMain
          TabIndex        =   1
          Top             =   720
          Width           =   3015
+      End
+      Begin VB.Label lblHP 
+         Height          =   255
+         Left            =   1080
+         TabIndex        =   50
+         Top             =   7560
+         Width           =   1935
       End
       Begin VB.Label lblInfo 
          Alignment       =   1  'Right Justify
@@ -870,6 +877,8 @@ Dim NPCName                     As String
             txtExp.Text = ""
             NPCName = "NONE"
         End If
+        
+        lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
 
     End With
     
@@ -1153,6 +1162,9 @@ Private Sub txtPos_Change()
     txtPos.Text = Map & "-" & X & "-" & Y
     
     NoProcess = False
+    cmdGuardar.Enabled = True
+    
+    If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
     cmdGuardar.Enabled = True
     
 End Sub
