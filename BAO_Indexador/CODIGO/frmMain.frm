@@ -13,6 +13,32 @@ Begin VB.Form frmMain
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   627
    StartUpPosition =   2  'CenterScreen
+   Begin VB.TextBox txtAnimacionHasta 
+      BackColor       =   &H00000000&
+      ForeColor       =   &H00FFFFFF&
+      Height          =   285
+      Left            =   7800
+      TabIndex        =   54
+      Top             =   1320
+      Width           =   855
+   End
+   Begin VB.CommandButton cmdCrearAnimacion 
+      Caption         =   "Crear Animacion"
+      Height          =   255
+      Left            =   6840
+      TabIndex        =   53
+      Top             =   960
+      Width           =   1575
+   End
+   Begin VB.TextBox txtAnimacionDesde 
+      BackColor       =   &H00000000&
+      ForeColor       =   &H00FFFFFF&
+      Height          =   285
+      Left            =   6600
+      TabIndex        =   52
+      Top             =   1320
+      Width           =   855
+   End
    Begin VB.TextBox txtFiltro 
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
@@ -1183,6 +1209,38 @@ Static NoProcess                As Boolean
     End If
 
     LastIndex = cmbTipo.ListIndex
+End Sub
+
+Private Sub cmdCrearAnimacion_Click()
+
+Dim i                           As Byte
+Dim tCount                      As Long
+Dim tLastCount                  As Long
+Dim sStr                        As String
+
+    If Val(txtAnimacionDesde.Text) > 0 And Val(txtAnimacionHasta.Text) > 0 Then
+        tCount = Val(txtAnimacionHasta.Text) - Val(txtAnimacionDesde.Text)
+        'Valor absoluto.
+        tCount = Abs(tCount)
+        tLastCount = tCount
+        For i = 1 To tCount
+            If Len(sStr) = 0 Then
+                sStr = tCount & "." & Val(txtAnimacionDesde.Text)
+            Else
+                sStr = sStr & "." & Val(txtAnimacionDesde.Text) + tLastCount
+            End If
+            tLastCount = tLastCount + 1
+            
+            If i = tCount Then
+                sStr = sStr & "." & "333,3333"
+            End If
+        Next i
+        
+        txtGrh.Text = sStr
+    Else
+        MsgBox "Debe completar Animación desde (y el número de índice de la lista) y Animación Hasta"
+    End If
+
 End Sub
 
 Private Sub cmdLiberar_Click()

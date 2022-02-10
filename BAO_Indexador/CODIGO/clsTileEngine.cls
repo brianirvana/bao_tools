@@ -473,6 +473,7 @@ Public Sub StartGameLoop()
         Call GameLoop
         
         'Esperamos a que todo se renderize (negrada necesaria :/)
+        
         DoEvents
     Loop
 End Sub
