@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmMain 
    BackColor       =   &H00C0C0C0&
    Caption         =   "tX"
@@ -1614,8 +1614,22 @@ End Sub
 
 Private Sub txtFiltro_Change()
     
-    If Val(txtFiltro) > 0 And (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
-        lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
+    If Len(txtFiltro.Text) > 0 Then
+        If IsNumeric(txtFiltro.Text) Then
+            If (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
+                lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
+            End If
+        Else
+            Dim i As Long
+            
+            For i = 1 To lstGraphics.ListCount - 1
+                If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
+                    lstGraphics.Selected(i) = True
+                    Exit For
+                End If
+                
+            Next i
+        End If
     End If
     
 End Sub
