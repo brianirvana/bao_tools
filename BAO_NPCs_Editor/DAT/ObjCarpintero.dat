@@ -1,5 +1,5 @@
 [INIT]
-NumObjs=30
+NumObjs=31
 
 [OBJ1] 'Flecha
 Index=480
@@ -90,3 +90,6 @@ Index=791
 
 [OBJ30] 'Antorcha
 Index=717
+
+[OBJ31] 'Báculo engarzado
+Index=660

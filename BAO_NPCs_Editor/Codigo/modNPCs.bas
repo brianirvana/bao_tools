@@ -137,10 +137,10 @@ Public Type NPCFlags
 End Type
 
 Public Type NPCObj
-    ObjIndex                        As Integer
+    ObjIndex                    As Integer
     Amount                      As Integer
     Equipped                    As Byte
-    ProbTirar                   As Byte
+    ProbTirar                   As Single
 End Type
 
 Public Type UserObj
@@ -311,6 +311,7 @@ Public Type tNPCRespawn
     MinHour                     As Byte
     MaxHour                     As Byte
     WithCountUsers              As Byte '@ NUEVO!
+    CountsActiveNpcs            As Integer
 End Type
 
 Public Type tNPCRespawn2
@@ -393,6 +394,7 @@ Public Sub LoadNPCs()
     For i = 0 To NPCRespawnCount - 1
         If NPCRespawn(i).ID Then
             Call OpenNPC(NPCRespawn(i).ID)
+            Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
             frmMain.lstNPCs.AddItem NpcList(NPCRespawn(i).ID).Name & "-" & NPCRespawn(i).ID & "-" & i
             'Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
         Else

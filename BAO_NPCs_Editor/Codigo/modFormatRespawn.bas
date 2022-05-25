@@ -240,7 +240,7 @@ Dim k                           As Long
                     If Len(FormatRespawn(j).Drop) Then
                         FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
                     End If
-                    FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Drop.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Drop.Object(k).ObjIndex) & " (" & NpcList(.ID).Drop.Object(k).ProbTirar & "%)"
+                    FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Drop.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Drop.Object(k).ObjIndex) & " (" & CStr(NpcList(.ID).Drop.Object(k).ProbTirar / 10) & "%)"
                 Next k
                 
                 If Len(FormatRespawn(j).Drop) = 0 Then
