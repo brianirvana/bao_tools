@@ -90,17 +90,21 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Private Sub Command1_Click()
+
 Dim StartX                      As Integer
 Dim StartY                      As Integer
+Dim X                           As Integer
+Dim Y                           As Integer
+Dim Num                         As Integer
+Dim MaxX                        As Long
+Dim MaxY                        As Long
+
     StartX = Dis(0).Left
     StartY = Dis(0).Top
-    Dim MaxX                    As Long
-    Dim MaxY                    As Long
+
     MaxX = Text1.Text
     MaxY = Text2.Text
-    Dim X                       As Integer
-    Dim Y                       As Integer
-    Dim Num                     As Integer
+
     If Dis.Count - 1 <> 0 Then
         For Num = 1 To Dis.Count - 1
             If LabelExist(Num) Then
@@ -108,12 +112,15 @@ Dim StartY                      As Integer
             End If
         Next Num
     End If
+    
     For X = 0 To MaxX
         For Y = 0 To MaxY
             If Num <> 0 Then
+            
                 If Not LabelExist(Num) Then
                     Load Dis(Num)
                 End If
+                
                 With Dis(Num)
                     .Visible = True
                     .Width = 32
@@ -128,19 +135,23 @@ Dim StartY                      As Integer
                     .DataField = X & "-" & Y
                 End With
             End If
+            
             Num = Num + 1
         Next Y
     Next X
+    
     If Dis(Num - 1).Left + 42 < Command2.Left + Command2.Width Then
         frmDiseñarMundo.Width = (Command2.Left + Command2.Width + 10) * Screen.TwipsPerPixelX
-        Debug.Print (Command2.Left + Command2.Width + 10) * Screen.TwipsPerPixelX
+        'Debug.Print (Command2.Left + Command2.Width + 10) * Screen.TwipsPerPixelX
     Else
         frmDiseñarMundo.Width = (Dis(Num - 1).Left + 42) * Screen.TwipsPerPixelX
     End If
     frmDiseñarMundo.Height = (Dis(Num - 1).Top + 69) * Screen.TwipsPerPixelY
 
 End Sub
+
 Private Function LabelExist(ByVal Num As Integer) As Boolean
+    
     On Error GoTo err:
     Dis(Num).Caption = ""
     LabelExist = True
@@ -150,21 +161,29 @@ err:
 End Function
 
 Private Sub Command2_Click()
+
+Dim nfile                   As Integer
+Dim Tamaño                  As Position
+Dim i                       As Integer
+Dim Escala                  As Single
+    
     frmDibujarMapa.Show
-    Dim nfile                   As Integer
+    
     nfile = FreeFile
-    Dim Tamaño                  As Position
     Tamaño.X = Text1.Text
     Tamaño.Y = Text2.Text
+    
     Open App.Path & "\Maps.maps" For Binary As #nfile
-    Put #nfile, , Tamaño
-    Put #nfile, , Mapas
+        Put #nfile, , Tamaño
+        Put #nfile, , Mapas
     Close #nfile
+    
     On Error GoTo err:
-    Dim i                       As Integer
-    Dim Escala                  As Single
+
     Escala = CSng(InputBox("¿Escala de dibujo (mas de 5 si o si)"))
+    
     'If Escala <= 5 Then MsgBox "¡Mas de 5 bldo!": Exit Sub
+    
     For i = 1 To 121
         'If Mapas(i).X <> 0 And Mapas(i).Y <> 0 Then
         MapaActual = i
@@ -175,6 +194,7 @@ Private Sub Command2_Click()
         frmDiseñarMundo.Caption = "Mapa " & i
         'End If
     Next i
+    
     Call frmDibujarMapa.DrawMundo(95 * 32 / Escala, 95 * 32 / Escala)
     Exit Sub
 err:
@@ -182,15 +202,19 @@ err:
 End Sub
 
 Private Sub Dis_Click(index As Integer)
+
 'On Error GoTo err:
     Dis(index).Caption = InputBox("¿Que numero de mapa desea?")
+    
     If Dis(index).Caption = vbNullString Then Exit Sub
+    
     If index <> 0 Then
         Debug.Print index
         Mapas(Dis(index).Caption).X = ReadField(1, Dis(index).DataField, Asc("-"))
         Mapas(Dis(index).Caption).Y = ReadField(2, Dis(index).DataField, Asc("-"))
         Mapas(Dis(index).Caption).index = index
     End If
+    
     Exit Sub
 err:
     Dis(index).Caption = ""
@@ -198,6 +222,7 @@ err:
 End Sub
 
 Private Sub Form_Load()
+
 'Dim nfile As Integer
 'Dim Tamaño As Position
 'nfile = FreeFile
@@ -216,4 +241,5 @@ Private Sub Form_Load()
 '        Dis(Mapas(i).index).Caption = i
 '    End If
 'Next i
+
 End Sub

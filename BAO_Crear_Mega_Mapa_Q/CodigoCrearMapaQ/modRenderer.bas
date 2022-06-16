@@ -295,7 +295,7 @@ Dim lJPGWidth As Long, lJPGHeight As Long
 
 LoadJPG_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento LoadJPG de Módulo modRenderer línea: " & Erl())
+    Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") en procedimiento LoadJPG de Módulo modRenderer línea: " & Erl())
 
 End Function
 
@@ -373,7 +373,7 @@ Dim lJPGWidth As Long, lJPGHeight As Long
 
 LoadJPGFromPtr_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento LoadJPGFromPtr de Módulo modRenderer línea: " & Erl())
+    Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") en procedimiento LoadJPGFromPtr de Módulo modRenderer línea: " & Erl())
 
 End Function
 
@@ -454,14 +454,14 @@ Dim lFileSize                   As Long
 
         Else
             ' Throw error
-            err.Raise 26001, "No se pudo Guarrdar el JPG" & lR, vbExclamation
+            Err.Raise 26001, "No se pudo Guarrdar el JPG" & lR, vbExclamation
         End If
 
         ' Ensure we have freed memory:
         ijlFree tJ
     Else
         ' Throw error:
-        err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "No se pudo inicializar la Libreria " & lR
+        Err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "No se pudo inicializar la Libreria " & lR
     End If
 
 
@@ -524,14 +524,14 @@ Dim b                           As Boolean
 
         Else
             ' Throw error
-            err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to save to JPG " & lR, vbExclamation
+            Err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to save to JPG " & lR, vbExclamation
         End If
 
         ' Ensure we have freed memory:
         ijlFree tJ
     Else
         ' Throw error:
-        err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to initialise the IJL library: " & lR
+        Err.Raise 26001, App.EXEName & ".mIntelJPEGLibrary", "Failed to initialise the IJL library: " & lR
     End If
 
 
@@ -540,311 +540,311 @@ Dim b                           As Boolean
 
 SaveJPGToPtr_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento SaveJPGToPtr de Módulo modRenderer línea: " & Erl())
+    Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") en procedimiento SaveJPGToPtr de Módulo modRenderer línea: " & Erl())
 
 End Function
 
-Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
-
-'*************************************************
-'Author: Salvito
-'*************************************************
-'On Error GoTo Error:
-
-Dim Y                           As Integer    'Keeps track of where on map we are
-Dim X                           As Integer
-Dim C                           As cDIBSection
-Dim ScreenX                     As Long    'Keeps track of where to place tile on screen
-Dim ScreenY                     As Long
-Dim r                           As RECT
-Dim Sobre                       As Integer
-Dim Moved                       As Byte
-Dim iPPx                        As Long    'Usado en el Layer de Chars
-Dim iPPy                        As Long    'Usado en el Layer de Chars
-Dim Grh                         As Grh    'Temp Grh for show tile and blocked
-Dim bCapa                       As Byte    'cCapas ' 31/05/2006 - GS, control de Capas
-Dim rSourceRect                 As RECT    'Usado en el Layer 1
-Dim iGrhIndex                   As Integer    'Usado en el Layer 1
-Dim TempChar                    As Char
-Dim TempRect                    As RECT
-Dim BMPSurface                  As DirectDrawSurface7
-Dim TSurfaceDesc                As DDSURFACEDESC2
-
-    If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
-    If YMinMapSize2 = 0 Then YMinMapSize2 = YMinMapSize
-
-    If XMaxMapSize2 = 0 Then XMaxMapSize2 = XMaxMapSize
-    If YMaxMapsize2 = 0 Then YMaxMapsize2 = YMaxMapSize
-
-
-    On Error GoTo RenderToPicture_Error
-
-    frmRenderer.Show vbModeless, frmMain
-
-    With TempRect
-        .Bottom = 3200
-        .Right = 3200
-        .Left = 0
-        .Top = 0
-    End With
-
-    With TSurfaceDesc
-        .lFlags = DDSD_CAPS Or DDSD_HEIGHT Or DDSD_WIDTH
-        If ClientSetup.bUseVideo Then
-            .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN
-        Else
-            .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN Or DDSCAPS_SYSTEMMEMORY
-        End If
-        .lHeight = 3325
-        .lWidth = 3325
-    End With
-
-    ' Create surface
-    Set BMPSurface = DirectDraw.CreateSurface(TSurfaceDesc)
-
-    BMPSurface.BltColorFill r, 0    'Solucion a algunos temas molestos :P
-
-    If Val(frmMain.cCapas.Text) >= 1 And (frmMain.cCapas.Text) <= 4 Then
-        bCapa = Val(frmMain.cCapas.Text)
-    Else
-        bCapa = 1
-    End If
-    ScreenY = 0
-    For Y = YMinMapSize2 To YMaxMapsize2
-        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
-        'DoEvents
-        ScreenX = 0
-        For X = XMinMapSize2 To XMaxMapSize2
-            If InMapBounds(X, Y) Then
-                If X > XMaxMapSize2 Or Y < YMinMapSize2 Then Exit For    ' 30/05/2006
-                'Layer 1 **********************************
-                If SobreX = X And SobreY = Y Then
-                    ' Pone Grh !
-                    Sobre = -1
-                    If frmMain.cSeleccionarSuperficie.Value = True Then
-                        Sobre = MapData(X, Y).Graphic(bCapa).GrhIndex
-                        If frmConfigSup.MOSAICO.Value = vbChecked Then
-                            Dim aux As Integer
-                            Dim dy As Integer
-                            Dim dX As Integer
-                            
-                            If frmConfigSup.DespMosaic.Value = vbChecked Then
-                                dy = Val(frmConfigSup.DMLargo.Text)
-                                dX = Val(frmConfigSup.DMAncho.Text)
-                            Else
-                                dy = 0
-                                dX = 0
-                            End If
-                            
-                            If frmMain.mnuAutoCompletarSuperficies.Checked = False Then
-                                aux = Val(frmMain.cGrh.Text) + (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
-                                If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
-                                    MapData(X, Y).Graphic(bCapa).GrhIndex = aux
-                                    InitGrh MapData(X, Y).Graphic(bCapa), aux
-                                End If
-                            Else
-                                aux = Val(frmMain.cGrh.Text) + (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
-                                If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
-                                    MapData(X, Y).Graphic(bCapa).GrhIndex = aux
-                                    InitGrh MapData(X, Y).Graphic(bCapa), aux
-                                End If
-                            End If
-                        Else
-                            If MapData(X, Y).Graphic(bCapa).GrhIndex <> Val(frmMain.cGrh.Text) Then
-                                MapData(X, Y).Graphic(bCapa).GrhIndex = Val(frmMain.cGrh.Text)
-                                InitGrh MapData(X, Y).Graphic(bCapa), Val(frmMain.cGrh.Text)
-                            End If
-                        End If
-                    End If
-                Else
-                    Sobre = -1
-                End If
-                With MapData(X, Y).Graphic(1)
-                    If (.GrhIndex <> 0) Then
-                        If (.Started = 1) Then
-                            If (.SpeedCounter > 0) Then
-                                .SpeedCounter = .SpeedCounter - 1
-                                If (.SpeedCounter = 0) Then
-                                    .SpeedCounter = GrhData(.GrhIndex).Speed
-                                    .FrameCounter = .FrameCounter + 1
-                                    If (.FrameCounter > GrhData(.GrhIndex).NumFrames) Then .FrameCounter = 1
-                                End If
-                            End If
-                        End If
-                        'Figure out what frame to draw (always 1 if not animated)
-                        iGrhIndex = GrhData(.GrhIndex).Frames(.FrameCounter)
-                    End If
-                End With
-                
-                If iGrhIndex <> 0 Then
-                    rSourceRect.Left = GrhData(iGrhIndex).sX
-                    rSourceRect.Top = GrhData(iGrhIndex).sY
-                    rSourceRect.Right = rSourceRect.Left + GrhData(iGrhIndex).pixelWidth
-                    rSourceRect.Bottom = rSourceRect.Top + GrhData(iGrhIndex).pixelHeight
-                    'El width fue hardcodeado para speed!
-                    Call BMPSurface.BltFast(((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, SurfaceDB.Surface(GrhData(iGrhIndex).FileNum), rSourceRect, DDBLTFAST_WAIT)
-                End If
-                'Layer 2 **********************************
-                If MapData(X, Y).Graphic(2).GrhIndex <> 0 And (frmMain.mnuVerCapa2.Checked = True) Then
-                    Call DDrawTransGrhtoSurface(BMPSurface, MapData(X, Y).Graphic(2), ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
-                End If
-                If Sobre >= 0 Then
-                    If MapData(X, Y).Graphic(bCapa).GrhIndex <> Sobre Then
-                        MapData(X, Y).Graphic(bCapa).GrhIndex = Sobre
-                        InitGrh MapData(X, Y).Graphic(bCapa), Sobre
-                    End If
-                End If
-            End If
-            ScreenX = ScreenX + 1
-        Next X
-        ScreenY = ScreenY + 1
-        If Y > YMaxMapsize2 Then Exit For
-        'Sleep 1
-    Next Y
-    ScreenY = 0
-    For Y = YMinMapSize2 To YMaxMapsize2
-        ScreenX = 0
-        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
-        'DoEvents
-        For X = XMinMapSize2 To XMaxMapSize2
-            If InMapBounds(X, Y) Then
-            
-                If X > XMaxMapSize2 Or X < XMinMapSize2 - 4 Then Exit For    ' 30/05/2006
-                iPPx = ((32 * ScreenX) - 32) + 0
-                iPPy = ((32 * ScreenY) - 32) + 0
-                
-                'Object Layer **********************************
-                'If MapData(X, Y).OBJInfo.objindex <> 0 And frmMain.mnuVerObjetos.Checked = True Then
-                '    Call DDrawTransGrhtoSurface( _
-                         BMPSurface, _
-                         MapData(X, Y).ObjGrh, _
-                         iPPx, iPPy, 1, 1)
-                'End If
-
-                'Char layer **********************************
-'                If MapData(X, Y).CharIndex <> 0 And frmMain.mnuVerNPCs.Checked = True Then
+'Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
 '
-'                    TempChar = CharList(MapData(X, Y).CharIndex)
+''*************************************************
+''Author: Salvito
+''*************************************************
+''On Error GoTo Error:
+'
+'Dim Y                           As Integer    'Keeps track of where on map we are
+'Dim X                           As Integer
+'Dim C                           As cDIBSection
+'Dim ScreenX                     As Long    'Keeps track of where to place tile on screen
+'Dim ScreenY                     As Long
+'Dim r                           As RECT
+'Dim Sobre                       As Integer
+'Dim Moved                       As Byte
+'Dim iPPx                        As Long    'Usado en el Layer de Chars
+'Dim iPPy                        As Long    'Usado en el Layer de Chars
+'Dim Grh                         As Grh    'Temp Grh for show tile and blocked
+'Dim bCapa                       As Byte    'cCapas ' 31/05/2006 - GS, control de Capas
+'Dim rSourceRect                 As RECT    'Usado en el Layer 1
+'Dim iGrhIndex                   As Integer    'Usado en el Layer 1
+'Dim TempChar                    As Char
+'Dim TempRect                    As RECT
+'Dim BMPSurface                  As DirectDrawSurface7
+'Dim TSurfaceDesc                As DDSURFACEDESC2
+'
+'    If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
+'    If YMinMapSize2 = 0 Then YMinMapSize2 = YMinMapSize
+'
+'    If XMaxMapSize2 = 0 Then XMaxMapSize2 = XMaxMapSize
+'    If YMaxMapsize2 = 0 Then YMaxMapsize2 = YMaxMapSize
 '
 '
-'                    'Dibuja solamente players
-'                    If TempChar.Head.Head(TempChar.Heading).GrhIndex <> 0 Then
-'                        'Draw Body
-'                        Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
-'                        'Draw Head
-'                        Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Head.Head(TempChar.Heading), (PixelPos(ScreenX) + 0) + TempChar.Body.HeadOffset.X, PixelPos(ScreenY) + 0 + TempChar.Body.HeadOffset.Y, 1, 0)
-'                    Else: Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
+'    On Error GoTo RenderToPicture_Error
+'
+'    frmRenderer.Show vbModeless, frmMain
+'
+'    With TempRect
+'        .Bottom = 3200
+'        .Right = 3200
+'        .Left = 0
+'        .Top = 0
+'    End With
+'
+'    With TSurfaceDesc
+'        .lFlags = DDSD_CAPS Or DDSD_HEIGHT Or DDSD_WIDTH
+'        If ClientSetup.bUseVideo Then
+'            .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN
+'        Else
+'            .ddsCaps.lCaps = DDSCAPS_OFFSCREENPLAIN Or DDSCAPS_SYSTEMMEMORY
+'        End If
+'        .lHeight = 3325
+'        .lWidth = 3325
+'    End With
+'
+'    ' Create surface
+'    Set BMPSurface = DirectDraw.CreateSurface(TSurfaceDesc)
+'
+'    BMPSurface.BltColorFill r, 0    'Solucion a algunos temas molestos :P
+'
+'    If Val(frmMain.cCapas.Text) >= 1 And (frmMain.cCapas.Text) <= 4 Then
+'        bCapa = Val(frmMain.cCapas.Text)
+'    Else
+'        bCapa = 1
+'    End If
+'    ScreenY = 0
+'    For Y = YMinMapSize2 To YMaxMapsize2
+'        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+'        'DoEvents
+'        ScreenX = 0
+'        For X = XMinMapSize2 To XMaxMapSize2
+'            If InMapBounds(X, Y) Then
+'                If X > XMaxMapSize2 Or Y < YMinMapSize2 Then Exit For    ' 30/05/2006
+'                'Layer 1 **********************************
+'                If SobreX = X And SobreY = Y Then
+'                    ' Pone Grh !
+'                    Sobre = -1
+'                    If frmMain.cSeleccionarSuperficie.Value = True Then
+'                        Sobre = MapData(X, Y).Graphic(bCapa).GrhIndex
+'                        If frmConfigSup.MOSAICO.Value = vbChecked Then
+'                            Dim aux As Integer
+'                            Dim dy As Integer
+'                            Dim dX As Integer
+'
+'                            If frmConfigSup.DespMosaic.Value = vbChecked Then
+'                                dy = Val(frmConfigSup.DMLargo.Text)
+'                                dX = Val(frmConfigSup.DMAncho.Text)
+'                            Else
+'                                dy = 0
+'                                dX = 0
+'                            End If
+'
+'                            If frmMain.mnuAutoCompletarSuperficies.Checked = False Then
+'                                aux = Val(frmMain.cGrh.Text) + (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
+'                                If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
+'                                    MapData(X, Y).Graphic(bCapa).GrhIndex = aux
+'                                    InitGrh MapData(X, Y).Graphic(bCapa), aux
+'                                End If
+'                            Else
+'                                aux = Val(frmMain.cGrh.Text) + (((Y + dy) Mod frmConfigSup.mLargo.Text) * frmConfigSup.mAncho.Text) + ((X + dX) Mod frmConfigSup.mAncho.Text)
+'                                If MapData(X, Y).Graphic(bCapa).GrhIndex <> aux Then
+'                                    MapData(X, Y).Graphic(bCapa).GrhIndex = aux
+'                                    InitGrh MapData(X, Y).Graphic(bCapa), aux
+'                                End If
+'                            End If
+'                        Else
+'                            If MapData(X, Y).Graphic(bCapa).GrhIndex <> Val(frmMain.cGrh.Text) Then
+'                                MapData(X, Y).Graphic(bCapa).GrhIndex = Val(frmMain.cGrh.Text)
+'                                InitGrh MapData(X, Y).Graphic(bCapa), Val(frmMain.cGrh.Text)
+'                            End If
+'                        End If
+'                    End If
+'                Else
+'                    Sobre = -1
+'                End If
+'                With MapData(X, Y).Graphic(1)
+'                    If (.GrhIndex <> 0) Then
+'                        If (.Started = 1) Then
+'                            If (.SpeedCounter > 0) Then
+'                                .SpeedCounter = .SpeedCounter - 1
+'                                If (.SpeedCounter = 0) Then
+'                                    .SpeedCounter = GrhData(.GrhIndex).Speed
+'                                    .FrameCounter = .FrameCounter + 1
+'                                    If (.FrameCounter > GrhData(.GrhIndex).NumFrames) Then .FrameCounter = 1
+'                                End If
+'                            End If
+'                        End If
+'                        'Figure out what frame to draw (always 1 if not animated)
+'                        iGrhIndex = GrhData(.GrhIndex).Frames(.FrameCounter)
+'                    End If
+'                End With
+'
+'                If iGrhIndex <> 0 Then
+'                    rSourceRect.Left = GrhData(iGrhIndex).sX
+'                    rSourceRect.Top = GrhData(iGrhIndex).sY
+'                    rSourceRect.Right = rSourceRect.Left + GrhData(iGrhIndex).pixelWidth
+'                    rSourceRect.Bottom = rSourceRect.Top + GrhData(iGrhIndex).pixelHeight
+'                    'El width fue hardcodeado para speed!
+'                    Call BMPSurface.BltFast(((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, SurfaceDB.Surface(GrhData(iGrhIndex).FileNum), rSourceRect, DDBLTFAST_WAIT)
+'                End If
+'                'Layer 2 **********************************
+'                If MapData(X, Y).Graphic(2).GrhIndex <> 0 And (frmMain.mnuVerCapa2.Checked = True) Then
+'                    Call DDrawTransGrhtoSurface(BMPSurface, MapData(X, Y).Graphic(2), ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
+'                End If
+'                If Sobre >= 0 Then
+'                    If MapData(X, Y).Graphic(bCapa).GrhIndex <> Sobre Then
+'                        MapData(X, Y).Graphic(bCapa).GrhIndex = Sobre
+'                        InitGrh MapData(X, Y).Graphic(bCapa), Sobre
 '                    End If
 '                End If
-                'Layer 3 *****************************************
-                If MapData(X, Y).Graphic(3).GrhIndex <> 0 And (frmMain.mnuVerCapa3.Checked = True) Then
-                    'Draw
-                    Call DDrawTransGrhtoSurface(BMPSurface, MapData(X, Y).Graphic(3), ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
-                End If
-            End If
-            ScreenX = ScreenX + 1
-        Next X
-        ScreenY = ScreenY + 1
-        'Sleep 1
-    Next Y
-    'Tiles blokeadas, techos, triggers
-    ScreenY = 0
-    For Y = YMinMapSize2 To YMaxMapsize2
-        ScreenX = 0
-        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
-        'DoEvents
-        For X = YMinMapSize2 To XMaxMapSize2
-            If X < XMaxMapSize2 + 1 And X > XMinMapSize2 - 1 And Y < YMaxMapsize2 + 1 And Y > YMinMapSize2 + 1 Then    ' 30/05/2006
-                If MapData(X, Y).Graphic(4).GrhIndex <> 0 And (frmMain.mnuVerCapa4.Checked = True) Then
-                    'Draw
-                    Call DDrawTransGrhtoSurface(BMPSurface, MapData(X, Y).Graphic(4), ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
-                End If
-                If MapData(X, Y).TileExit.Map <> 0 And frmMain.mnuVerTranslados.Checked = True Then
-                    Grh.GrhIndex = 3
-                    Grh.FrameCounter = 1
-                    Grh.Started = 0
-                    Call DDrawTransGrhtoSurface(BMPSurface, Grh, ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
-                End If
-                'Show blocked tiles
-                If frmMain.cVerBloqueos.Value = True And MapData(X, Y).Blocked = 1 Then
-                    BMPSurface.SetFillColor vbRed
-                    Call BMPSurface.DrawBox((((32 * ScreenX) - 32) + 0) + 16, (((32 * ScreenY) - 32) + 0) + 16, (((32 * ScreenX) - 32) + 0 + 5) + 16, (((32 * ScreenY) - 32) + 0 + 5) + 16)
-                End If
-                If frmMain.cVerTriggers.Value = True Then
-                    Call DrawText(PixelPos(ScreenX), PixelPos(ScreenY), str(MapData(X, Y).Trigger), vbRed)
-                End If
-            End If
-            ScreenX = ScreenX + 1
-        Next X
-        ScreenY = ScreenY + 1
-        'Sleep 1
-    Next Y
-
-    frmRenderer.Caption = "Dibujando Render... 0%"
-    'DoEvents
-    frmRenderer.Picture1.AutoRedraw = True
-    frmRenderer.Picture1.Width = 32 * 99    '* 12
-    frmRenderer.Picture1.Height = 32 * 99    ' * 12
-
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    '''''''''''Dibujo el Surface en una StdPicture''''''''''
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    BMPSurface.BltToDC frmRenderer.Picture1.hdc, TempRect, TempRect
-    frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-    frmRenderer.Caption = "Dibujando Render... 99%"
-    'DoEvents
-    Sleep 1
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    'Esto para achicar la imagen, ALTO bardo, jajajaja''''''
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    
-    If Ratio > 1 Then
-        frmRenderer.Smallpic.Picture = frmRenderer.Picture1.Picture
-        frmRenderer.Smallpic.Width = frmRenderer.Picture1.Width \ Ratio
-        frmRenderer.Smallpic.Height = frmRenderer.Picture1.Height \ Ratio
-
-        frmRenderer.Picture1.Height = frmRenderer.Smallpic.Height
-        frmRenderer.Picture1.Width = frmRenderer.Smallpic.Width
-        frmRenderer.Picture1.Cls
-        frmRenderer.Picture1.PaintPicture frmRenderer.Smallpic.Picture, 0, 0, frmRenderer.Picture1.Width, frmRenderer.Picture1.Height
-        frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
-    End If
-    
-    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-    '''''''''''''''''''Guardo la imagen'''''''''''''''''''''
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-    If RenderToBMP Then
-        SavePicture frmRenderer.Picture1.Picture, App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
-        Debug.Print NameMap & " - " & err.Description
-        err.Clear
-    Else
-        Set C = New cDIBSection
-        C.CreateFromPicture frmRenderer.Picture1.Picture
-        Call SaveJPG(C, App.Path & "\" & MapInfo(CurMap).Name & ".jpg")
-        Set C = Nothing
-    End If
-    
-    frmRenderer.Caption = "100% :D"
-    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-    'Unload frmRenderer
-    Set BMPSurface = Nothing
-    Unload frmRenderer
-    Exit Sub
-
-    On Error GoTo 0
-    Exit Sub
-RenderToPicture_Error:
-    Unload frmRenderer
-    Set BMPSurface = Nothing
-    Set C = Nothing
-
-    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento RenderToPicture de Módulo modRenderer línea: " & Erl())
-End Sub
+'            End If
+'            ScreenX = ScreenX + 1
+'        Next X
+'        ScreenY = ScreenY + 1
+'        If Y > YMaxMapsize2 Then Exit For
+'        'Sleep 1
+'    Next Y
+'    ScreenY = 0
+'    For Y = YMinMapSize2 To YMaxMapsize2
+'        ScreenX = 0
+'        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+'        'DoEvents
+'        For X = XMinMapSize2 To XMaxMapSize2
+'            If InMapBounds(X, Y) Then
+'
+'                If X > XMaxMapSize2 Or X < XMinMapSize2 - 4 Then Exit For    ' 30/05/2006
+'                iPPx = ((32 * ScreenX) - 32) + 0
+'                iPPy = ((32 * ScreenY) - 32) + 0
+'
+'                'Object Layer **********************************
+'                'If MapData(X, Y).OBJInfo.objindex <> 0 And frmMain.mnuVerObjetos.Checked = True Then
+'                '    Call DDrawTransGrhtoSurface( _
+'                         BMPSurface, _
+'                         MapData(X, Y).ObjGrh, _
+'                         iPPx, iPPy, 1, 1)
+'                'End If
+'
+'                'Char layer **********************************
+''                If MapData(X, Y).CharIndex <> 0 And frmMain.mnuVerNPCs.Checked = True Then
+''
+''                    TempChar = CharList(MapData(X, Y).CharIndex)
+''
+''
+''                    'Dibuja solamente players
+''                    If TempChar.Head.Head(TempChar.Heading).GrhIndex <> 0 Then
+''                        'Draw Body
+''                        Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
+''                        'Draw Head
+''                        Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Head.Head(TempChar.Heading), (PixelPos(ScreenX) + 0) + TempChar.Body.HeadOffset.X, PixelPos(ScreenY) + 0 + TempChar.Body.HeadOffset.Y, 1, 0)
+''                    Else: Call DDrawTransGrhtoSurface(BMPSurface, TempChar.Body.Walk(TempChar.Heading), (PixelPos(ScreenX) + 0), PixelPos(ScreenY) + 0, 1, 1)
+''                    End If
+''                End If
+'                'Layer 3 *****************************************
+'                If MapData(X, Y).Graphic(3).GrhIndex <> 0 And (frmMain.mnuVerCapa3.Checked = True) Then
+'                    'Draw
+'                    Call DDrawTransGrhtoSurface(BMPSurface, MapData(X, Y).Graphic(3), ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
+'                End If
+'            End If
+'            ScreenX = ScreenX + 1
+'        Next X
+'        ScreenY = ScreenY + 1
+'        'Sleep 1
+'    Next Y
+'    'Tiles blokeadas, techos, triggers
+'    ScreenY = 0
+'    For Y = YMinMapSize2 To YMaxMapsize2
+'        ScreenX = 0
+'        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+'        'DoEvents
+'        For X = YMinMapSize2 To XMaxMapSize2
+'            If X < XMaxMapSize2 + 1 And X > XMinMapSize2 - 1 And Y < YMaxMapsize2 + 1 And Y > YMinMapSize2 + 1 Then    ' 30/05/2006
+'                If MapData(X, Y).Graphic(4).GrhIndex <> 0 And (frmMain.mnuVerCapa4.Checked = True) Then
+'                    'Draw
+'                    Call DDrawTransGrhtoSurface(BMPSurface, MapData(X, Y).Graphic(4), ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
+'                End If
+'                If MapData(X, Y).TileExit.Map <> 0 And frmMain.mnuVerTranslados.Checked = True Then
+'                    Grh.GrhIndex = 3
+'                    Grh.FrameCounter = 1
+'                    Grh.Started = 0
+'                    Call DDrawTransGrhtoSurface(BMPSurface, Grh, ((32 * ScreenX) - 32) + 0, ((32 * ScreenY) - 32) + 0, 1, 1)
+'                End If
+'                'Show blocked tiles
+'                If frmMain.cVerBloqueos.Value = True And MapData(X, Y).Blocked = 1 Then
+'                    BMPSurface.SetFillColor vbRed
+'                    Call BMPSurface.DrawBox((((32 * ScreenX) - 32) + 0) + 16, (((32 * ScreenY) - 32) + 0) + 16, (((32 * ScreenX) - 32) + 0 + 5) + 16, (((32 * ScreenY) - 32) + 0 + 5) + 16)
+'                End If
+'                If frmMain.cVerTriggers.Value = True Then
+'                    Call DrawText(PixelPos(ScreenX), PixelPos(ScreenY), Str(MapData(X, Y).Trigger), vbRed)
+'                End If
+'            End If
+'            ScreenX = ScreenX + 1
+'        Next X
+'        ScreenY = ScreenY + 1
+'        'Sleep 1
+'    Next Y
+'
+'    frmRenderer.Caption = "Dibujando Render... 0%"
+'    'DoEvents
+'    frmRenderer.Picture1.AutoRedraw = True
+'    frmRenderer.Picture1.Width = 32 * 99    '* 12
+'    frmRenderer.Picture1.Height = 32 * 99    ' * 12
+'
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'    '''''''''''Dibujo el Surface en una StdPicture''''''''''
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'    BMPSurface.BltToDC frmRenderer.Picture1.hdc, TempRect, TempRect
+'    frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'    frmRenderer.Caption = "Dibujando Render... 99%"
+'    'DoEvents
+'    Sleep 1
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'    'Esto para achicar la imagen, ALTO bardo, jajajaja''''''
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'    If Ratio > 1 Then
+'        frmRenderer.Smallpic.Picture = frmRenderer.Picture1.Picture
+'        frmRenderer.Smallpic.Width = frmRenderer.Picture1.Width \ Ratio
+'        frmRenderer.Smallpic.Height = frmRenderer.Picture1.Height \ Ratio
+'
+'        frmRenderer.Picture1.Height = frmRenderer.Smallpic.Height
+'        frmRenderer.Picture1.Width = frmRenderer.Smallpic.Width
+'        frmRenderer.Picture1.Cls
+'        frmRenderer.Picture1.PaintPicture frmRenderer.Smallpic.Picture, 0, 0, frmRenderer.Picture1.Width, frmRenderer.Picture1.Height
+'        frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
+'    End If
+'
+'    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'    '''''''''''''''''''Guardo la imagen'''''''''''''''''''''
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'    If RenderToBMP Then
+'        SavePicture frmRenderer.Picture1.Picture, App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
+'        Debug.Print NameMap & " - " & Err.Description
+'        Err.Clear
+'    Else
+'        Set C = New cDIBSection
+'        C.CreateFromPicture frmRenderer.Picture1.Picture
+'        Call SaveJPG(C, App.Path & "\" & MapInfo(CurMap).Name & ".jpg")
+'        Set C = Nothing
+'    End If
+'
+'    frmRenderer.Caption = "100% :D"
+'    ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'
+'    'Unload frmRenderer
+'    Set BMPSurface = Nothing
+'    Unload frmRenderer
+'    Exit Sub
+'
+'    On Error GoTo 0
+'    Exit Sub
+'RenderToPicture_Error:
+'    Unload frmRenderer
+'    Set BMPSurface = Nothing
+'    Set C = Nothing
+'
+'    Call LogError("Error " & Err.Number & " (" & Err.Description & ") en procedimiento RenderToPicture de Módulo modRenderer línea: " & Erl())
+'End Sub
 'Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
 '
 'If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
@@ -1171,3 +1171,5 @@ End Sub
 'MsgBox err.Description & "-" & err.Number
 'End Sub
 '
+
+

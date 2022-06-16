@@ -220,6 +220,7 @@ bGradientColor                  As Long    ' Gradient color to use
     bValue                      As Boolean
     bCustomClick                As CustomCickConstants
 End Type
+
 Private Type ImageProperties
 Image                           As StdPicture    ' button image
     TransImage                      As Long
