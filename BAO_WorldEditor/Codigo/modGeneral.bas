@@ -513,15 +513,15 @@ Dim Chkflag                     As Integer
 140 frmCargando.verX = "v" & App.Major & "." & App.Minor & "." & App.Revision
 150 frmCargando.Show
 160 frmCargando.SetFocus
-    '170 DoEvents
+     DoEvents
 170 frmCargando.X.Caption = "Iniciando DirectSound..."
 180 IniciarDirectSound
-    '200 DoEvents
+     DoEvents
 190 frmCargando.X.Caption = "Cargando Indice de Superficies..."
 200 modIndices.CargarIndicesSuperficie
-    '230 DoEvents
+     DoEvents
 210 frmCargando.X.Caption = "Indexando Cargado de Imagenes..."
-    '250 DoEvents
+     DoEvents
 
     'If FileExist(DirIndex & "AO.dat", vbArchive) Then
     '    Call LoadClientSetup
@@ -549,27 +549,27 @@ Dim Chkflag                     As Integer
 300     frmCargando.L(0).Visible = True
 310     frmCargando.X.Caption = "Cargando Cuerpos..."
 320     modIndices.CargarIndicesDeCuerpos
-        '370     DoEvents
+        DoEvents
 330     frmCargando.P2.Visible = True
 340     frmCargando.L(1).Visible = True
 350     frmCargando.X.Caption = "Cargando Cabezas..."
 360     modIndices.CargarIndicesDeCabezas
-        '420     DoEvents
+           DoEvents
 370     frmCargando.P3.Visible = True
 380     frmCargando.L(2).Visible = True
 390     frmCargando.X.Caption = "Cargando NPC's..."
 400     modIndices.CargarIndicesNPC
-        '470     DoEvents
+            DoEvents
 410     frmCargando.P4.Visible = True
 420     frmCargando.L(3).Visible = True
 430     frmCargando.X.Caption = "Cargando Objetos..."
 440     modIndices.CargarIndicesOBJ
-        '520     DoEvents
+             DoEvents
 450     frmCargando.P5.Visible = True
 460     frmCargando.L(4).Visible = True
 470     frmCargando.X.Caption = "Cargando Triggers..."
 480     modIndices.CargarIndicesTriggers
-        '570     DoEvents
+             DoEvents
 490     frmCargando.P6.Visible = True
 500     frmCargando.L(5).Visible = True
 510     DoEvents
@@ -577,7 +577,7 @@ Dim Chkflag                     As Integer
 
 530 frmCargando.SetFocus
 540 frmCargando.X.Caption = "Iniciando Ventana de Edición..."
-    '640 DoEvents
+     DoEvents
 
 550 If LenB(Dir(App.Path & "\manual\index.html", vbArchive)) = 0 Then
 560     frmMain.mnuManual.Enabled = False
@@ -587,7 +587,7 @@ Dim Chkflag                     As Integer
 590 frmCargando.Hide
 600 frmMain.Show
 610 modMapIO.NuevoMapa
-    '720 DoEvents
+     DoEvents
 
 620 With MainDestRect
 630     .Left = (TilePixelWidth * TileBufferSize) - TilePixelWidth
@@ -662,7 +662,7 @@ Dim Chkflag                     As Integer
 1210    If frmMain.PreviewGrh.Visible = True Then
 1220        Call modPaneles.VistaPreviaDeSup
 1230    End If
-1240    Sleep 0&
+1240    Sleep 1
 1250    DoEvents
 1260 Loop
 

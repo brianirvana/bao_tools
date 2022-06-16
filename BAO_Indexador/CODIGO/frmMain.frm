@@ -6,13 +6,169 @@ Begin VB.Form frmMain
    ClientHeight    =   7425
    ClientLeft      =   120
    ClientTop       =   750
-   ClientWidth     =   9405
+   ClientWidth     =   15255
    Enabled         =   0   'False
    LinkTopic       =   "Form1"
    ScaleHeight     =   495
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   627
+   ScaleWidth      =   1017
    StartUpPosition =   2  'CenterScreen
+   Begin VB.Frame frmCrearTexturaPiso 
+      Caption         =   "Crear Textura/Piso"
+      Height          =   1695
+      Left            =   9840
+      TabIndex        =   55
+      Top             =   360
+      Width           =   3735
+      Begin VB.TextBox txtTextureFrom 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   240
+         TabIndex        =   66
+         Top             =   670
+         Width           =   855
+      End
+      Begin VB.TextBox txtTextureTo 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   1320
+         TabIndex        =   65
+         Top             =   670
+         Width           =   855
+      End
+      Begin VB.TextBox txtTextureWidth 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   240
+         TabIndex        =   62
+         Top             =   1200
+         Width           =   855
+      End
+      Begin VB.TextBox txtTextureHeigth 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   1320
+         TabIndex        =   61
+         Top             =   1200
+         Width           =   855
+      End
+      Begin VB.TextBox txtPngNum 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   2520
+         TabIndex        =   59
+         Top             =   670
+         Width           =   855
+      End
+      Begin VB.CommandButton cmdMadeTexture 
+         Caption         =   "Crear Textura"
+         Height          =   255
+         Left            =   2400
+         TabIndex        =   58
+         Top             =   1200
+         Width           =   1095
+      End
+      Begin VB.Label Label12 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Alto:"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         Left            =   1200
+         TabIndex        =   64
+         Top             =   960
+         Width           =   975
+      End
+      Begin VB.Label Label11 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Ancho"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   120
+         TabIndex        =   63
+         Top             =   960
+         Width           =   1095
+      End
+      Begin VB.Label Label10 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "PNG:"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   2400
+         TabIndex        =   60
+         Top             =   360
+         Width           =   975
+      End
+      Begin VB.Label Label9 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Index hasta:"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         Left            =   1200
+         TabIndex        =   57
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.Label Label8 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Index desde"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   495
+         Left            =   120
+         TabIndex        =   56
+         Top             =   240
+         Width           =   975
+      End
+   End
    Begin VB.TextBox txtAnimacionHasta 
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
@@ -1262,6 +1418,43 @@ Dim Message                     As String
     MsgBox Message
 End Sub
 
+Private Sub cmdMadeTexture_Click()
+
+Dim i                           As Integer
+Dim tCount                      As Integer
+
+    If Val(txtTextureFrom.Text) = 0 Then
+        MsgBox "Ingrese un valor DESDE"
+        Exit Sub
+    End If
+
+    If Val(txtTextureFrom.Text) = 0 Then
+        MsgBox "Ingrese un valor HASTA"
+        Exit Sub
+    End If
+    
+    If Val(txtPngNum.Text) = 0 Then
+        MsgBox "Ingrese un número de PNG (de la carpeta /GRAFICOS/"
+        Exit Sub
+    End If
+    
+    If Val(txtTextureWidth.Text) = 0 Then
+        MsgBox "Ingrese un valor de Ancho"
+        Exit Sub
+    End If
+
+    If Val(txtTextureHeigth.Text) = 0 Then
+        MsgBox "Ingrese un valor de Alto"
+        Exit Sub
+    End If
+    
+    For i = Val(txtTextureFrom.Text) To Val(txtTextureTo.Text)
+        txtGrh.Text = 1
+    
+    Next i
+    
+End Sub
+
 Public Sub Escala_Scroll()
     If Not (TileEngine Is Nothing) Then
         TileEngine.Escala = Escala.Value / 3
@@ -1326,13 +1519,21 @@ Private Sub lblResetTip_Click()
 End Sub
 
 Private Sub lblSave_Click()
+
 Dim Line                        As String
-    Line = ProcessGraphicBinToLine(lstGraphics.ListIndex + 1)
-    Line = ReadField(2, Line, Asc("="))
-    SaveLine(lstGraphics.ListIndex + 1) = Line
-    Call WriteVar(AppExpo & "\Graficos.ini", "GRAFICOS", "Grh" & lstGraphics.ListIndex + 1, txtGrh.Text)
-    lblReset.BackColor = &H8000000F
-    lblSave.BackColor = &H8000000F
+
+    If lstGraphics.ListIndex > 0 Then
+        Line = ProcessGraphicBinToLine(lstGraphics.ListIndex + 1)
+        
+        Line = ReadField(2, Line, Asc("="))
+        SaveLine(lstGraphics.ListIndex + 1) = Line
+        
+        Call WriteVar(AppExpo & "\Graficos.ini", "GRAFICOS", "Grh" & lstGraphics.ListIndex + 1, txtGrh.Text)
+        
+        lblReset.BackColor = &H8000000F
+        lblSave.BackColor = &H8000000F
+    End If
+    
 End Sub
 
 Public Sub ProcessLine(ByVal Index As Integer)
@@ -1639,7 +1840,9 @@ Private Sub txtGrh_Change()
 Dim i                           As Long
 
  On Error GoTo txtGrh_Change_Error
-
+    
+    If lstGraphics.ListIndex < 1 Then Exit Sub
+    
     For i = 0 To numSelectIndexs - 1
 
         If StrComp(txtGrh.Text, SaveLine(SelectIndexs(i))) <> 0 Then

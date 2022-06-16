@@ -177,6 +177,8 @@ Dim Frame                       As Long
 Dim handle                      As Integer
 Dim fileVersion                 As Long
 
+Dim lastNum                 As Integer
+
     'Open files
     handle = FreeFile()
     Open Path For Binary Access Read As handle
@@ -253,9 +255,32 @@ Dim fileVersion                 As Long
                         isError = True
                         Call AddText(TempError, "TileHeight")
                     End If
+                    
+'                    If lastNum <> .FileNum Then
+'                        If FileExist(UCase$(AppGraficos & "\" & .FileNum & ".PNG"), vbArchive) Then
+'                            FileCopy AppGraficos & "\" & CStr(.FileNum) & ".png", AppGraficos & "\VERDADEROS\" & .FileNum & ".png"
+'                            lastNum = .FileNum
+'                        End If
+'                    End If
+                    
                 Else
+                
                     'Read in normal GRH data
                     Get handle, , .FileNum
+                    
+                     'ESTO SIRVE PARA REVISAR GRAFICOS EN DESUSO!
+                     
+'                    If Not FileExist(AppGraficos & "\VERDADEROS", vbDirectory) Then
+'                        MkDir AppGraficos & "\VERDADEROS"
+'                    End If
+
+'                    If lastNum <> .FileNum Then
+'                        If FileExist(UCase$(AppGraficos & "\" & .FileNum & ".PNG"), vbArchive) Then
+'                            FileCopy AppGraficos & "\" & CStr(.FileNum) & ".png", AppGraficos & "\VERDADEROS\" & .FileNum & ".png"
+'                            lastNum = .FileNum
+'                        End If
+'                    End If
+                    
                     If .FileNum <= 0 Then
                         .FileNum = 1
                         isError = True

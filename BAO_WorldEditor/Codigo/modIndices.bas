@@ -243,9 +243,26 @@ Public Sub CargarIndicesSuperficie()
 
     Dim Leer                    As New clsIniReader
     Dim i                       As Integer
+    
+    Set Leer = New clsIniReader
+    
+    If FileExist(IniPath & "GrhIndex\indices.ini", vbArchive) Then
+        Leer.Initialize IniPath & "GrhIndex\indices.ini"
+        MaxSup = Val(Leer.GetValue("INIT", "Referencias"))
+        If MaxSup = 0 Then
+            MaxSup = Val(GetVar(IniPath & "GrhIndex\indices.ini", "INIT", "Referencias"))
+        End If
+    Else
+    
+        MsgBox "Falta el archivo 'GrhIndex\indices.ini'", vbCritical
+        End
+    End If
 
-    Leer.Initialize IniPath & "GrhIndex\indices.ini"
-    MaxSup = Leer.GetValue("INIT", "Referencias")
+    If MaxSup = 0 Then
+        MsgBox "Fallo la lectura del archivo 'GrhIndex\indices.ini'. No hay índices (REFERENCIAS=0)", vbCritical
+        End
+    End If
+    
     ReDim SupData(MaxSup) As SupData
     frmMain.lListado(0).Clear
 

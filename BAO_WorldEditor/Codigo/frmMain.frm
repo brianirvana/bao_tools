@@ -849,12 +849,14 @@ Begin VB.Form frmMain
       Width           =   240
    End
    Begin VB.PictureBox picRadar 
-      BackColor       =   &H00008000&
+      Appearance      =   0  'Flat
+      BackColor       =   &H0080FF80&
       BorderStyle     =   0  'None
+      ForeColor       =   &H80000008&
       Height          =   1590
       Left            =   120
       ScaleHeight     =   106
-      ScaleMode       =   3  'Pixel
+      ScaleMode       =   0  'User
       ScaleWidth      =   107
       TabIndex        =   96
       Top             =   120
@@ -5409,38 +5411,88 @@ Private Sub Option3_Click()
 End Sub
 
 Private Sub picRadar_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
-'*************************************************
-'Author: ^[GS]^
-'Last modified: 29/05/06
-'*************************************************
-'If X < 11 Then X = 11
-'If X > 89 Then X = 89
-'If Y < 10 Then Y = 10
-'If Y > 92 Then Y = 92
-    On Error GoTo picRadar_MouseDown_Error
 
-10  UserPos.X = X * 12#
-20  UserPos.Y = Y * 12
+Dim sTmpName                    As String
+Dim tTrans                      As WorldPos
 
-    Dim tTrans                  As WorldPos
+    '*************************************************
+    'Author: ^[GS]^
+    'Last modified: 29/05/06
+    '*************************************************
 
-    'frmMain.picRadar.Picture = LoadPicture(App.Path & "\GRAFICOS\MiniMapa" & Dialog.FileName & ".jpg")
-21  If StrComp(Dialog.FileName, vbNullString) <> 0 Then
-        If FileExist(Dialog.FileName & ".jpg", vbArchive) Then
-22          frmMain.picRadar.Picture = LoadPicture(Dialog.FileName & ".jpg")
-        End If
-23  End If
+    'If X < 11 Then X = 11
+    'If X > 89 Then X = 89
+    'If Y < 10 Then Y = 10
+    'If Y > 92 Then Y = 92
+10  On Error GoTo picRadar_MouseDown_Error
+
+20  UserPos.X = X * 12#
+30  UserPos.Y = Y * 12
+
+40  sTmpName = Dialog.FileName
+50  If Len(sTmpName) > 0 Then
+60      sTmpName = ReadField(1, sTmpName, Asc("."))
+
+70      If InStrB(1, sTmpName, "/") > 0 Then
+80          sTmpName = ReadField(FieldCount(sTmpName, Asc("/")), sTmpName, Asc("/"))
+90      ElseIf InStrB(1, sTmpName, "\") > 0 Then
+100         sTmpName = ReadField(FieldCount(sTmpName, Asc("\")), sTmpName, Asc("\"))
+110     End If
+
+120     sTmpName = App.Path & "\ImagenesMundoBAO\" & "Mini" & sTmpName & ".jpg"
+
+130     If FileExist(sTmpName, vbArchive) Then
+140         frmMain.picRadar.Picture = LoadPicture(sTmpName)
+150     End If
+160 End If
+
     'frmMain.ImageMap.Picture = App.Path & "\GRAFICOS\MiniMapa1.bmp"
-40  bRefreshRadar = True
+170 bRefreshRadar = True
 
-    On Error GoTo 0
-    Exit Sub
+180 On Error GoTo 0
+190 Exit Sub
 
 picRadar_MouseDown_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento picRadar_MouseDown de Formulario frmMain línea: " & Erl())
-    
+200 Call LogError("Error " & err.Number & " (" & err.Description & ") en procedimiento picRadar_MouseDown de Formulario frmMain línea: " & Erl())
+
 End Sub
+
+Function FieldCount(ByRef Text As String, ByVal SepASCII As Byte) As Long
+'*****************************************************************
+'Gets the number of fields in a delimited string
+'Author: Juan Martín Sotuyo Dodero (Maraxus)
+'Last Modify Date: 14/05/2014
+'Agrego la función desde el cliente, para el sistema de quest de xpproces09 [/About]
+'*****************************************************************
+
+Dim Count                       As Long
+Dim curPos                      As Long
+Dim delimiter                   As String * 1
+
+    If LenB(Text) = 0 Then Exit Function
+
+    delimiter = Chr$(SepASCII)
+
+    curPos = 0
+    Count = 1
+    
+    Do
+        curPos = InStr(curPos + 1, Text, delimiter, vbTextCompare)
+        If curPos > 0 Then
+            Count = Count + 1
+        End If
+    Loop While curPos <> 0
+
+'40      Do
+'50
+'60          curPos = InStr(Count, Text, SepASCII, vbTextCompare) + 1
+'            Count = Count + 1
+'80      Loop While curPos <> 1
+
+    FieldCount = Count
+
+End Function
 
 Private Sub picRadar_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 '*************************************************

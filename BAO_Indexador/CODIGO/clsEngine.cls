@@ -70,11 +70,11 @@ End Function
 
 Public Function Draw_Text_MultiLine(ByRef Text As String, X As Single, Y As Single, Color As Long)
     Dim lines() As String
-    Dim Max As Integer
+    Dim max As Integer
     Dim i As Integer
     lines = Split(Text, vbCrLf)
-    Max = UBound(lines)
-    For i = 0 To Max
+    max = UBound(lines)
+    For i = 0 To max
         RenderText.Render_String lines(i), X + 0, Y + i * 8, 8, 8, Color 'ES DEMASIADO LOCO, LE TUBE QUE PONER X+0 PORQUE NO ENTIENDO PORQUE SE VAN CAMBIANDO LOS VALORES :|
     Next i
 End Function
