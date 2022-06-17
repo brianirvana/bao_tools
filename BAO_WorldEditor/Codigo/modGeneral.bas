@@ -505,7 +505,7 @@ Dim Chkflag                     As Integer
 
 90  CambioDeVideo
 
-100 ReDim MapInfo(0 To 3)
+100 ReDim MapInfo(1 To 4)
 110 Call CargarMapIni
 120 Call IniciarCabecera(GameHeader)
 
@@ -586,6 +586,7 @@ Dim Chkflag                     As Integer
 
 590 frmCargando.Hide
 600 frmMain.Show
+
 610 modMapIO.NuevoMapa
      DoEvents
 

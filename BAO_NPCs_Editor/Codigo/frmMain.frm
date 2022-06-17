@@ -518,7 +518,7 @@ Option Explicit
 
 Private tmpOrder As Integer
 
-Private cachePictures(1 To 3) As IPictureDisp
+Private cachePictures(1 To 4) As IPictureDisp
 
 Private Type POINTAPI
     X                           As Long
@@ -735,9 +735,10 @@ End Sub
 
 Private Sub Form_Load()
     
-    Set cachePictures(1) = LoadPicture(App.Path & "\MiniMapa1.jpg")
-    Set cachePictures(2) = LoadPicture(App.Path & "\MiniMapa2.jpg")
-    Set cachePictures(3) = LoadPicture(App.Path & "\MiniMapa3.jpg")
+    Set cachePictures(1) = LoadPicture(App.Path & "\MAPS\MiniMapa1.jpg")
+    Set cachePictures(2) = LoadPicture(App.Path & "\MAPS\MiniMapa2.jpg")
+    Set cachePictures(3) = LoadPicture(App.Path & "\MAPS\MiniMapa3.jpg")
+    Set cachePictures(4) = LoadPicture(App.Path & "\MAPS\MiniMapa4.jpg")
     frmMain.Caption = "V" & App.Major & "." & App.Minor & "." & App.Revision
 End Sub
 '
@@ -846,7 +847,7 @@ Dim NPCName                     As String
         SelectedRespawnIndex = RespawnIndex
         Call updateArea(RespawnIndex)
         
-         If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 3 Then
+         If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
             Area.Picture = cachePictures(.Pos.Map)
             NumMapa = .Pos.Map
         Else

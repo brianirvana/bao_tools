@@ -397,6 +397,15 @@ Public Sub LoadNPCs()
             Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
             frmMain.lstNPCs.AddItem NpcList(NPCRespawn(i).ID).Name & "-" & NPCRespawn(i).ID & "-" & i
             'Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
+            
+            'If NPCRespawn(i).Pos.X >= 12 And NPCRespawn(i).Pos.X <= 503 And NPCRespawn(i).Pos.Y >= 8 And NPCRespawn(i).Pos.Y <= 225 Then
+'                If NPCRespawn(i).Pos.Map = 4 Then
+'                    'NPCRespawn(i).Pos.Map = 4
+'                    NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X + 286
+'                    NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y + 477
+'                End If
+            'End If
+            
         Else
             frmMain.lstNPCs.AddItem "(NONE)-0-" & i
         End If

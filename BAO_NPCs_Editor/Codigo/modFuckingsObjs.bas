@@ -4,8 +4,10 @@ Option Explicit
 Public FuckingObjData() As String
 
 Sub LoadFuckingsObjects()
+
     Dim i As Long
     Dim Max As Long
+    
     Dim LeerFuckingsObjs As clsIniReader
     Set LeerFuckingsObjs = New clsIniReader
     Call LeerFuckingsObjs.Initialize(DatPath & "OBJ.dat")

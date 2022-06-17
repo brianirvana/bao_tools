@@ -225,6 +225,8 @@ Dim X                           As Integer
 290     Next X
 300 Next Y
 
+    If CurMap = 0 Then CurMap = 1
+
 310 MapInfo(CurMap).MapVersion = 0
 320 MapInfo(CurMap).Name = ""
 330 'MapInfo.Music = 0
@@ -1018,6 +1020,7 @@ Dim tMap                        As String
 880 On Error GoTo 0
 CargarMapa_Error:
 890 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure CargarMapa of Módulo ES in line " & Erl() & " Mapa: " & MAPFl & ".map")
+
 End Sub
 
 Public Sub LoadMapa(ByVal Map As String)

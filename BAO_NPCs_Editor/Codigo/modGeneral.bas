@@ -2,23 +2,21 @@ Attribute VB_Name = "modGeneral"
 Option Explicit
 
 Public Declare Function GetTickCount Lib "kernel32" () As Long
+Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (ByRef destination As Any, ByRef source As Any, ByVal Length As Long)
 
-Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" ( _
-                                    ByRef destination As Any, _
-                                    ByRef source As Any, _
-                                    ByVal Length As Long)
+Public Const NumMaps            As Integer = 4
 
-Public Const NumMaps As Integer = 3
+Public Const XWindow            As Byte = 17
+Public Const YWindow            As Byte = 13
 
-Public Const XWindow As Byte = 17
-Public Const YWindow As Byte = 13
-
-Public MinXBorder As Integer
-Public MaxXBorder As Integer
-Public MinYBorder As Integer
-Public MaxYBorder As Integer
+Public MinXBorder               As Integer
+Public MaxXBorder               As Integer
+Public MinYBorder               As Integer
+Public MaxYBorder               As Integer
 
 Public MapData(1 To NumMaps, XMinMapSize To XMaxMapSize, YMinMapSize To YMaxMapSize) As tMap
+
+Public Debuggin                 As Boolean
 
 
 Function InMapaArea(ByVal Map As Integer, ByVal X As Integer, ByVal Y As Integer)
@@ -42,6 +40,10 @@ End Function
 
 Sub Main()
 
+    If UCase$(App.EXEName) = "NPCEDITOR" Then
+        Debuggin = True
+    End If
+
     frmMain.Show
     MinXBorder = XMinMapSize + (XWindow \ 2)
     MaxXBorder = XMaxMapSize - (XWindow \ 2)
@@ -54,7 +56,18 @@ Sub Main()
 '    Call InitAreas
        
     ExpMul = Val(GetVar(App.Path & "\DAT\Server.ini", "MAIN_BALANCE", "EXPX"))
-    DatPath = App.Path & "\DAT\"
+    
+    If Debuggin Then
+        DatPath = App.Path & "\..\..\bao_server\DAT\"
+    Else
+        DatPath = App.Path & "\DAT\"
+    End If
+    
+    If Not FileExist(DatPath & "Respawn.dat", vbArchive) Then
+        MsgBox "No existe: " & DatPath & "Respawn.dat"
+        Exit Sub
+    End If
+    
     'DatPath = "E:\BENDER\BenderBox\GitBender\bao_v3\Server\DAT\"
 
     Call LoadFuckingsObjects
