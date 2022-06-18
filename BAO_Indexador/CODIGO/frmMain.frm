@@ -681,21 +681,21 @@ Begin VB.Form frmMain
    End
    Begin VB.Label Label7 
       BackColor       =   &H00C0C0C0&
-      Caption         =   "Filtrar:"
+      Caption         =   "Filtrar: (por num o Nulo)"
       BeginProperty Font 
-         Name            =   "MS Sans Serif"
-         Size            =   9.75
+         Name            =   "Calibri"
+         Size            =   8.25
          Charset         =   0
          Weight          =   700
          Underline       =   0   'False
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Height          =   255
-      Left            =   960
+      Height          =   375
+      Left            =   360
       TabIndex        =   51
       Top             =   120
-      Width           =   855
+      Width           =   1935
    End
    Begin VB.Label lblNumFrames 
       Alignment       =   2  'Center
@@ -1824,12 +1824,37 @@ Private Sub txtFiltro_Change()
             Dim i As Long
             
             For i = 1 To lstGraphics.ListCount - 1
-                If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
+                If InStrB(1, i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) > 0 Then
+                'If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
                     lstGraphics.Selected(i) = True
                     Exit For
                 End If
-                
             Next i
+        End If
+    End If
+    
+End Sub
+
+Private Sub txtFiltro_KeyUp(KeyCode As Integer, Shift As Integer)
+
+    If KeyCode = 13 Then
+    
+        If Len(txtFiltro.Text) > 0 Then
+            If IsNumeric(txtFiltro.Text) Then
+                If (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
+                    lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
+                End If
+            Else
+                Dim i As Long
+                
+                For i = lstGraphics.ListIndex + 1 To lstGraphics.ListCount - 1
+                    If InStrB(1, lstGraphics.List(i), UCase$(txtFiltro.Text), vbBinaryCompare) > 0 Then
+                    'If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
+                        lstGraphics.Selected(i) = True
+                        Exit For
+                    End If
+                Next i
+            End If
         End If
     End If
     

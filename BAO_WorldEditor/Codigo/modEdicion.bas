@@ -836,7 +836,7 @@ Dim Heading                     As Byte
 
         ' OBJs
         If MapData(tX, tY).OBJInfo.objindex > 0 Then
-            frmMain.StatTxt.Text = frmMain.StatTxt.Text & " (Obj: " & MapData(tX, tY).OBJInfo.objindex & " - " & ObjData(MapData(tX, tY).OBJInfo.objindex).Name & " - Cant.:" & MapData(tX, tY).OBJInfo.Amount & ")"
+            frmMain.StatTxt.Text = frmMain.StatTxt.Text & " (Obj: " & MapData(tX, tY).OBJInfo.objindex & " - " & ObjData(MapData(tX, tY).OBJInfo.objindex).Name & " - Cant.:" & MapData(tX, tY).OBJInfo.Amount & ") GrhIndex Del OBJ: " & ObjData(MapData(tX, tY).OBJInfo.objindex).GrhIndex
         End If
 
         ' Capas

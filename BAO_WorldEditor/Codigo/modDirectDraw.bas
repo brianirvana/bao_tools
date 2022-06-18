@@ -1106,6 +1106,7 @@ Dim rSourceRect                 As RECT    'Usado en el Layer 1
 
                 'Layer 2 **********************************
                 If MapData(X, Y).Graphic(2).GrhIndex <> 0 And VerCapa2 Then
+                    'If MapData(X, Y).Graphic(2).GrhIndex = 7201 Then Stop
                     Call DDrawTransGrhtoSurface(BackBufferSurface, MapData(X, Y).Graphic(2), ((32 * ScreenX) - 32) + PixelOffsetX, ((32 * ScreenY) - 32) + PixelOffsetY, 1, 1)
                 End If
 

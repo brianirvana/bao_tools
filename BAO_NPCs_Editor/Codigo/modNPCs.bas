@@ -396,16 +396,15 @@ Public Sub LoadNPCs()
             Call OpenNPC(NPCRespawn(i).ID)
             Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
             frmMain.lstNPCs.AddItem NpcList(NPCRespawn(i).ID).Name & "-" & NPCRespawn(i).ID & "-" & i
+            
+            'Esto sirve para reacomodar todos los respawns de un área de forma automática, cuando se reubica un mapa en otro lugar físico del mapa.map
             'Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
-            
-            'If NPCRespawn(i).Pos.X >= 12 And NPCRespawn(i).Pos.X <= 503 And NPCRespawn(i).Pos.Y >= 8 And NPCRespawn(i).Pos.Y <= 225 Then
-'                If NPCRespawn(i).Pos.Map = 4 Then
-'                    'NPCRespawn(i).Pos.Map = 4
-'                    NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X + 286
-'                    NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y + 477
+'            If NPCRespawn(i).Pos.Map = 2 Then
+'                If NPCRespawn(i).Pos.X >= 657 And NPCRespawn(i).Pos.X <= 827 And NPCRespawn(i).Pos.Y >= 140 And NPCRespawn(i).Pos.Y <= 271 Then
+'                    NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X - 200
+'                    NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y - 102
 '                End If
-            'End If
-            
+'            End If
         Else
             frmMain.lstNPCs.AddItem "(NONE)-0-" & i
         End If
