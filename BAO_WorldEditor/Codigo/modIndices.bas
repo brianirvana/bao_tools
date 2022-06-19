@@ -472,10 +472,13 @@ Public Sub CargarIndicesNPC()
 80  NumNPCs = Val(Leer.GetValue("INIT", "NumNPCs"))
     'Call Leer.Initialize(DirDats & "\NPCs-HOSTILES.dat")
     'NumNPCsHOST = Val(Leer.GetValue("INIT", "NumNPCs"))
-90  ReDim NpcData(1000) As NpcData
+    
+90  ReDim NpcData(NumNPCs) As NpcData
+
 100 Trabajando = "Dats\NPCs.dat"
 
 110 For NPC = 1 To NumNPCs
+
 120     NpcData(NPC).Name = Leer.GetValue("NPC" & NPC, "Name")
 
 130     NpcData(NPC).Body = Val(Leer.GetValue("NPC" & NPC, "Body"))
