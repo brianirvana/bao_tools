@@ -544,7 +544,7 @@ SaveJPGToPtr_Error:
 
 End Function
 
-Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa")
+Sub RenderToPicture(Optional Ratio As Single = 1, Optional RenderToBMP As Boolean = False, Optional XMinMapSize2 As Integer, Optional YMinMapSize2 As Integer, Optional XMaxMapSize2 As Integer, Optional YMaxMapsize2 As Integer, Optional NameMap As String = "Mapa", Optional ByVal sPath As String = "")
 
 '*************************************************
 'Author: Salvito
@@ -569,6 +569,9 @@ Dim TempChar                    As Char
 Dim TempRect                    As RECT
 Dim BMPSurface                  As DirectDrawSurface7
 Dim TSurfaceDesc                As DDSURFACEDESC2
+Dim aux                         As Integer
+Dim dy                          As Integer
+Dim dX                          As Integer
 
     If XMinMapSize2 = 0 Then XMinMapSize2 = XMinMapSize
     If YMinMapSize2 = 0 Then YMinMapSize2 = YMinMapSize
@@ -624,9 +627,6 @@ Dim TSurfaceDesc                As DDSURFACEDESC2
                     If frmMain.cSeleccionarSuperficie.Value = True Then
                         Sobre = MapData(X, Y).Graphic(bCapa).GrhIndex
                         If frmConfigSup.MOSAICO.Value = vbChecked Then
-                            Dim aux As Integer
-                            Dim dy As Integer
-                            Dim dX As Integer
                             
                             If frmConfigSup.DespMosaic.Value = vbChecked Then
                                 dy = Val(frmConfigSup.DMLargo.Text)
@@ -699,7 +699,7 @@ Dim TSurfaceDesc                As DDSURFACEDESC2
         Next X
         ScreenY = ScreenY + 1
         If Y > YMaxMapsize2 Then Exit For
-        'Sleep 1
+        Sleep 1
     Next Y
     ScreenY = 0
     For Y = YMinMapSize2 To YMaxMapsize2
@@ -745,7 +745,7 @@ Dim TSurfaceDesc                As DDSURFACEDESC2
             ScreenX = ScreenX + 1
         Next X
         ScreenY = ScreenY + 1
-        'Sleep 1
+        Sleep 1
     Next Y
     'Tiles blokeadas, techos, triggers
     ScreenY = 0
@@ -777,7 +777,7 @@ Dim TSurfaceDesc                As DDSURFACEDESC2
             ScreenX = ScreenX + 1
         Next X
         ScreenY = ScreenY + 1
-        'Sleep 1
+        Sleep 1
     Next Y
 
     frmRenderer.Caption = "Dibujando Render... 0%"
@@ -818,13 +818,13 @@ Dim TSurfaceDesc                As DDSURFACEDESC2
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
     If RenderToBMP Then
-        SavePicture frmRenderer.Picture1.Picture, App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
+        SavePicture frmRenderer.Picture1.Picture, sPath & NameMap & ".bmp" 'App.Path & "\ImagenesMundoBAO\" & NameMap & ".bmp"
         Debug.Print NameMap & " - " & err.Description
         err.Clear
     Else
         Set C = New cDIBSection
         C.CreateFromPicture frmRenderer.Picture1.Picture
-        Call SaveJPG(C, App.Path & "\" & MapInfo(CurMap).Name & ".jpg")
+        Call SaveJPG(C, sPath & NameMap & ".jpg") ' App.Path & "\" & MapInfo(CurMap).Name & ".jpg")
         Set C = Nothing
     End If
     

@@ -399,12 +399,21 @@ Public Sub LoadNPCs()
             
             'Esto sirve para reacomodar todos los respawns de un área de forma automática, cuando se reubica un mapa en otro lugar físico del mapa.map
             'Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
-'            If NPCRespawn(i).Pos.Map = 2 Then
-'                If NPCRespawn(i).Pos.X >= 657 And NPCRespawn(i).Pos.X <= 827 And NPCRespawn(i).Pos.Y >= 140 And NPCRespawn(i).Pos.Y <= 271 Then
-'                    NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X - 200
-'                    NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y - 102
-'                End If
-'            End If
+            
+            If NPCRespawn(i).Pos.Map = 2 Then
+                'BRIAN: NUNCA COMENTAR ESTA LINEA SI VAS A DESCOMENTAR LO DE ABAJO BRIAN!
+                If Not Debuggin Then
+                    MsgBox "SACAR ESTO URGENTE."
+                    End
+                End If
+                
+                If NPCRespawn(i).Pos.X >= 849 And NPCRespawn(i).Pos.X <= 1073 And NPCRespawn(i).Pos.Y >= 110 And NPCRespawn(i).Pos.Y <= 193 Then
+                    'NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X - 200
+                    'NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y - 484
+                    Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
+                End If
+            End If
+            
         Else
             frmMain.lstNPCs.AddItem "(NONE)-0-" & i
         End If

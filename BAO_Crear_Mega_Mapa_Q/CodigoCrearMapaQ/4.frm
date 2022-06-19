@@ -10,6 +10,28 @@ Begin VB.Form frmMain
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   767
    StartUpPosition =   3  'Windows Default
+   Begin VB.PictureBox TestPicture4 
+      AutoRedraw      =   -1  'True
+      Height          =   1695
+      Left            =   0
+      ScaleHeight     =   109
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   109
+      TabIndex        =   6
+      Top             =   0
+      Width           =   1695
+   End
+   Begin VB.PictureBox TestPicture3 
+      AutoRedraw      =   -1  'True
+      Height          =   1695
+      Left            =   1560
+      ScaleHeight     =   109
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   109
+      TabIndex        =   5
+      Top             =   4080
+      Width           =   1695
+   End
    Begin VB.PictureBox TestPicture2 
       AutoRedraw      =   -1  'True
       Height          =   1695
@@ -26,9 +48,9 @@ Begin VB.Form frmMain
       AutoSize        =   -1  'True
       Height          =   975
       Left            =   3240
-      ScaleHeight     =   107
-      ScaleMode       =   0  'User
-      ScaleWidth      =   107
+      ScaleHeight     =   61
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   77
       TabIndex        =   3
       Top             =   2160
       Visible         =   0   'False
@@ -39,9 +61,9 @@ Begin VB.Form frmMain
       AutoSize        =   -1  'True
       Height          =   975
       Left            =   3240
-      ScaleHeight     =   107
-      ScaleMode       =   0  'User
-      ScaleWidth      =   107
+      ScaleHeight     =   61
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   77
       TabIndex        =   2
       Top             =   1080
       Visible         =   0   'False
@@ -71,111 +93,103 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub cmdCreateMap_Click()
+Option Explicit
 
-Dim Ruta                        As String
+Sub CreateMap(ByVal sPath As String)
+
 Dim X                           As Long
 Dim Y                           As Long
 Dim i                           As Long
-Dim Escala                      As Integer
-Dim EscalaMiniMapa              As Integer
+Dim Escala                      As Integer    'Para armar bien los PSD del mapa del cliente. (1892)
+Dim EscalaMiniMapa              As Single    'Del cliente
+Dim EscalaMapaQ                 As Single    'Del cliente
+Dim EscalaMiniMapaWE            As Integer    'Del WorldEditor
 Dim C                           As cDIBSection
 
-10  On Error GoTo cmdCreateMap_Click_Error
 
-20  If bMap = 0 Then bMap = 1
+ On Error GoTo CreateMap_Error
 
-30  Escala = 10
-40  EscalaMiniMapa = 178
+    If bMap = 0 Then bMap = 1
+
+    Escala = 10
+    EscalaMiniMapa = 15.8
+    EscalaMiniMapaWE = 178
+    EscalaMapaQ = 33.3
+    
     'TEST:
-50  If Debuggin Then
-60      Ruta = App.Path & "\..\BAO_WorldEditor\ImagenesMundoBAO\"
-70  Else
-80      Ruta = App.Path & "\ImagenesMundoBAO\"
-90  End If
+    If Debuggin Then
+        sPath = App.Path & "\..\BAO_WorldEditor\ImagenesMundoBAO\"
+        Stop
+    End If
 
-100 TestPicture.Width = 1580 / Escala * 12
-110 TestPicture.Height = 1580 / Escala * 12
+    TestPicture.Width = 1580 / Escala * 12
+    TestPicture.Height = 1580 / Escala * 12
 
-120 If Not FileExist(Ruta & 1 & ".bmp", vbArchive) And Not FileExist(Ruta & 144 & ".bmp", vbArchive) Then
-130     MsgBox "No se encontraron las vistas previas (imagenes de desgloce del mapa). Deben generarse primero desde el WorldEditor. " & vbNewLine & "No se puede continuar."
-140     End
-150 End If
+    TestPicture3.Width = 1580 / EscalaMiniMapa * 12
+    TestPicture3.Height = 1580 / EscalaMiniMapa * 12
 
-160 For X = 0 To 11
-170     For Y = 0 To 11
-180         If i < 145 Then
-190             i = i + 1
-200             frmMain.Caption = i & "/144"
-                'Debug.Print "Ruta: " & Ruta
-210             Temporal.Picture = LoadPicture(Ruta & i & ".bmp")
+    TestPicture4.Width = 1580 / EscalaMapaQ * 12
+    TestPicture4.Height = 1580 / EscalaMapaQ * 12
+
+    If Not FileExist(sPath & 1 & ".bmp", vbArchive) And Not FileExist(sPath & 144 & ".bmp", vbArchive) Then
+        MsgBox "No se encontraron las vistas previas (imagenes de desgloce del mapa). Deben generarse primero desde el WorldEditor. " & vbNewLine & "No se puede continuar."
+        End
+    End If
+
+    For X = 0 To 11
+        For Y = 0 To 11
+            If i < 145 Then
+                i = i + 1
+                frmMain.Caption = i & "/144"
+                Temporal.Picture = LoadPicture(sPath & i & ".bmp")
                 'Temporal.Width = 1580 / Escala
                 'Temporal.Height = 1580 / Escala
-220             Call TestPicture.PaintPicture(Temporal, X * 1580 / Escala, Y * 1580 / Escala, 1580 / Escala, 1580 / Escala)
+                Call TestPicture.PaintPicture(Temporal, X * 1580 / Escala, Y * 1580 / Escala, 1580 / Escala, 1580 / Escala)
 
-230             Temporal2.Picture = LoadPicture(Ruta & i & ".bmp")
-240             Call TestPicture2.PaintPicture(Temporal2, X * 1580 / EscalaMiniMapa, Y * 1580 / EscalaMiniMapa, 1580 / EscalaMiniMapa, 1580 / EscalaMiniMapa)
+                'Temporal2.Picture = LoadPicture(Ruta & i & ".bmp")
+                Call TestPicture2.PaintPicture(Temporal, X * 1580 / EscalaMiniMapaWE, Y * 1580 / EscalaMiniMapaWE, 1580 / EscalaMiniMapaWE, 1580 / EscalaMiniMapaWE)
 
-250             If Not Debuggin Then
-260                 Kill Ruta & i & ".bmp"
-270             End If
+                'Temporal2.Picture = LoadPicture(Ruta & i & ".bmp")
+                Call TestPicture4.PaintPicture(Temporal, X * 1580 / EscalaMapaQ, Y * 1580 / EscalaMapaQ, 1580 / EscalaMapaQ, 1580 / EscalaMapaQ)
 
-280         End If
-290     Next Y
-300 Next X
+                If Not Debuggin Then
+                    Kill sPath & i & ".bmp"
+                End If
 
-310 SavePicture TestPicture.Image, Ruta & "Mapa" & bMap & ".bmp"
+            End If
+        Next Y
+    Next X
 
-    '260 Escala = 178               '107 pixeles de ancho x 107 pixles de alto (Para el minimapa del WE)
-    '270 i = 0
-    '
-    '280 TestPicture.Width = 1580 / Escala * 12
-    '290 TestPicture.Height = 1580 / Escala * 12
-    '300 TestPicture.Refresh
-    '310 frmMain.Caption = "CREANDO MINIMAPA"
-    '
-    '    'CREAR MINIMAPA PARA EL WE
-    '320 For X = 0 To 11
-    '330     For Y = 0 To 11
-    '340         If i < 145 Then
-    '350             i = i + 1
-    '360             frmMain.Caption = i & "/144"
-    '370             Temporal2.Picture = LoadPicture(Ruta & i & ".bmp")
-    '380             Call TestPicture2.PaintPicture(Temporal2, X * 1580 / Escala, Y * 1580 / Escala, 1580 / Escala, 1580 / Escala)
-    '390             DoEvents
-    '400         End If
-    '410     Next Y
-    '420 Next X
+    SavePicture TestPicture.Image, sPath & "MapaToPSD" & bMap & ".bmp"
+    SavePicture TestPicture2.Image, sPath & "MiniMapaWe" & bMap & ".jpg"
+    SavePicture TestPicture4.Image, sPath & "Mapa" & bMap & ".jpg"
 
-320 SavePicture TestPicture2.Image, Ruta & "MiniMapa" & bMap & ".jpg"
+    MsgBox "Mapa " & bMap & " creado correctamnete en: " & sPath
 
-    '430 Set C = New cDIBSection
-    '440 C.CreateFromPicture frmMain.Picture
-    '450 Call SaveJPG(C, Ruta & "\MiniMap" & bMap & ".jpg")
-    '460 Set C = Nothing
+    End
 
-    '440 If Not Debuggin Then
-    '450     For i = 1 To 144
-    '460         If FileExist(Ruta & i & ".bmp", vbArchive) Then
-    '470             Kill Ruta & i & ".bmp"
-    '480         End If
-    '490     Next i
-    '500 End If
+ On Error GoTo 0
+ Exit Sub
 
-330 MsgBox "Mapa " & bMap & " creado correctamnete."
+CreateMap_Error:
 
-340 End
-
-350 On Error GoTo 0
-360 Exit Sub
-
-cmdCreateMap_Click_Error:
-
-370 MsgBox ("Error en " & App.EXEName & ".exe " & Err.Number & " (" & Err.Description & ") procedimiento cmdCreateMap_Click Formulario frmMain línea: " & Erl())
+ Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento CreateMap Formulario frmMain línea: " & Erl())
 
 End Sub
 
-Public Sub Click()
-    Call cmdCreateMap_Click
+Private Sub cmdCreateMap_Click()
+
+    'Call CreateMap
+    On Error GoTo 0
+    Exit Sub
+
+cmdCreateMap_Click_Error:
+
+    MsgBox ("Error en " & App.EXEName & ".exe " & Err.Number & " (" & Err.Description & ") procedimiento cmdCreateMap_Click Formulario frmMain línea: " & Erl())
+
+End Sub
+
+Public Sub Click(ByVal sPath As String)
+    Call CreateMap(sPath)
 End Sub
 

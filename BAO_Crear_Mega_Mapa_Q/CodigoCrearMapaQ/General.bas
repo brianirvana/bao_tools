@@ -80,6 +80,7 @@ Public Debuggin                 As Boolean
 Sub Main()
 
 Dim sInput                      As String
+Dim sPath                       As String
 
 10  On Error GoTo Main_Error
 
@@ -88,20 +89,57 @@ Dim sInput                      As String
 40  End If
 
 50  sInput = Command$
-60  bMap = Val(sInput)         'Mapa actual.
 
-70  frmMain.Show
+60  bMap = Val(ReadField(1, sInput, 45))    'Mapa actual.
+70  sPath = ReadField(2, sInput, 45)    'Ruta Mapa actual.
 
-80  Call frmMain.Click
+80  frmMain.Show
 
-90  On Error GoTo 0
-100 Exit Sub
+90  Call frmMain.Click(sPath)
+
+100 On Error GoTo 0
+110 Exit Sub
 
 Main_Error:
 
-110 MsgBox ("Error " & Err.Number & " (" & Err.Description & ") procedimiento Main Módulo General línea: " & Erl())
+120 MsgBox ("Error " & Err.Number & " (" & Err.Description & ") procedimiento Main Módulo General línea: " & Erl())
 
 End Sub
+
+Public Function ReadField(Pos As Integer, Text As String, SepASCII As Integer) As String
+'*************************************************
+'Author: Unkwown
+'Last modified: 20/05/06
+'*************************************************
+Dim i                           As Integer
+Dim LastPos                     As Integer
+Dim CurChar                     As String * 1
+Dim FieldNum                    As Integer
+Dim Seperator                   As String
+
+    Seperator = Chr(SepASCII)
+    LastPos = 0
+    FieldNum = 0
+
+    For i = 1 To Len(Text)
+        CurChar = Mid(Text, i, 1)
+        If CurChar = Seperator Then
+            FieldNum = FieldNum + 1
+            If FieldNum = Pos Then
+                ReadField = Mid(Text, LastPos + 1, (InStr(LastPos + 1, Text, Seperator, vbTextCompare) - 1) - (LastPos))
+                Exit Function
+            End If
+            LastPos = i
+        End If
+    Next i
+    FieldNum = FieldNum + 1
+
+    If FieldNum = Pos Then
+        ReadField = Mid(Text, LastPos + 1)
+    End If
+
+End Function
+
 
 Function FileExist(ByVal File As String, ByVal FileType As VbFileAttribute) As Boolean
 
