@@ -1,6 +1,6 @@
 frmMain = 225, 225, 1089, 831, , 25, 25, 864, 632, C
 modAreas = 50, 50, 1447, 512, 
-modGeneral = 75, 75, 939, 681, 
+modGeneral = 75, 75, 939, 681, C
 modUsers = 0, 0, 0, 0, C
 modValores = 0, 0, 0, 0, C
 modNPCs = 125, 125, 989, 731, Z

@@ -3,74 +3,106 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmMain 
    BackColor       =   &H00C0C0C0&
    Caption         =   "tX"
-   ClientHeight    =   7425
+   ClientHeight    =   9750
    ClientLeft      =   120
    ClientTop       =   750
-   ClientWidth     =   15255
+   ClientWidth     =   14205
    Enabled         =   0   'False
    LinkTopic       =   "Form1"
-   ScaleHeight     =   495
+   ScaleHeight     =   650
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   1017
+   ScaleWidth      =   947
    StartUpPosition =   2  'CenterScreen
+   Begin VB.TextBox txtFiltroPNG 
+      Appearance      =   0  'Flat
+      BackColor       =   &H00000000&
+      ForeColor       =   &H00FFFFFF&
+      Height          =   285
+      Left            =   120
+      TabIndex        =   69
+      Top             =   840
+      Width           =   2415
+   End
    Begin VB.Frame frmCrearTexturaPiso 
       Caption         =   "Crear Textura/Piso"
-      Height          =   1695
+      Height          =   2055
       Left            =   9840
       TabIndex        =   55
       Top             =   360
       Width           =   3735
+      Begin VB.OptionButton Option1 
+         Caption         =   "Cabeza"
+         Height          =   255
+         Left            =   1440
+         TabIndex        =   68
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.OptionButton optTexture 
+         Caption         =   "Textura"
+         Height          =   255
+         Left            =   240
+         TabIndex        =   67
+         Top             =   240
+         Value           =   -1  'True
+         Width           =   975
+      End
       Begin VB.TextBox txtTextureFrom 
+         Appearance      =   0  'Flat
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   240
          TabIndex        =   66
-         Top             =   670
+         Top             =   1035
          Width           =   855
       End
       Begin VB.TextBox txtTextureTo 
+         Appearance      =   0  'Flat
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1320
          TabIndex        =   65
-         Top             =   670
+         Top             =   1035
          Width           =   855
       End
       Begin VB.TextBox txtTextureWidth 
+         Appearance      =   0  'Flat
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   240
          TabIndex        =   62
-         Top             =   1200
+         Top             =   1560
          Width           =   855
       End
       Begin VB.TextBox txtTextureHeigth 
+         Appearance      =   0  'Flat
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1320
          TabIndex        =   61
-         Top             =   1200
+         Top             =   1560
          Width           =   855
       End
       Begin VB.TextBox txtPngNum 
+         Appearance      =   0  'Flat
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   2520
          TabIndex        =   59
-         Top             =   670
+         Top             =   1035
          Width           =   855
       End
       Begin VB.CommandButton cmdMadeTexture 
-         Caption         =   "Crear Textura"
+         Caption         =   "Crear"
          Height          =   255
          Left            =   2400
          TabIndex        =   58
-         Top             =   1200
+         Top             =   1560
          Width           =   1095
       End
       Begin VB.Label Label12 
@@ -89,7 +121,7 @@ Begin VB.Form frmMain
          Height          =   495
          Left            =   1200
          TabIndex        =   64
-         Top             =   960
+         Top             =   1320
          Width           =   975
       End
       Begin VB.Label Label11 
@@ -108,7 +140,7 @@ Begin VB.Form frmMain
          Height          =   255
          Left            =   120
          TabIndex        =   63
-         Top             =   960
+         Top             =   1320
          Width           =   1095
       End
       Begin VB.Label Label10 
@@ -127,7 +159,7 @@ Begin VB.Form frmMain
          Height          =   255
          Left            =   2400
          TabIndex        =   60
-         Top             =   360
+         Top             =   720
          Width           =   975
       End
       Begin VB.Label Label9 
@@ -146,7 +178,7 @@ Begin VB.Form frmMain
          Height          =   495
          Left            =   1200
          TabIndex        =   57
-         Top             =   240
+         Top             =   600
          Width           =   975
       End
       Begin VB.Label Label8 
@@ -165,11 +197,12 @@ Begin VB.Form frmMain
          Height          =   495
          Left            =   120
          TabIndex        =   56
-         Top             =   240
+         Top             =   600
          Width           =   975
       End
    End
    Begin VB.TextBox txtAnimacionHasta 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -187,6 +220,7 @@ Begin VB.Form frmMain
       Width           =   1575
    End
    Begin VB.TextBox txtAnimacionDesde 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -196,6 +230,7 @@ Begin VB.Form frmMain
       Width           =   855
    End
    Begin VB.TextBox txtFiltro 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -205,6 +240,7 @@ Begin VB.Form frmMain
       Width           =   2415
    End
    Begin VB.TextBox txtNumFrames 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -214,6 +250,7 @@ Begin VB.Form frmMain
       Width           =   615
    End
    Begin VB.TextBox txtVelocity 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -223,6 +260,7 @@ Begin VB.Form frmMain
       Width           =   855
    End
    Begin VB.TextBox txtYTo 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -232,6 +270,7 @@ Begin VB.Form frmMain
       Width           =   615
    End
    Begin VB.TextBox txtXTo 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -241,6 +280,7 @@ Begin VB.Form frmMain
       Width           =   615
    End
    Begin VB.TextBox txtYFrom 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -250,6 +290,7 @@ Begin VB.Form frmMain
       Width           =   615
    End
    Begin VB.TextBox txtXFrom 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -259,6 +300,7 @@ Begin VB.Form frmMain
       Width           =   615
    End
    Begin VB.TextBox txtNumPNG 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -268,7 +310,8 @@ Begin VB.Form frmMain
       Width           =   855
    End
    Begin VB.CheckBox chkTamano 
-      BackColor       =   &H00C0C0C0&
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
       Caption         =   "Mostrar Tamaños"
       BeginProperty Font 
          Name            =   "Verdana"
@@ -279,6 +322,7 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H80000008&
       Height          =   255
       Left            =   2640
       TabIndex        =   11
@@ -294,7 +338,8 @@ Begin VB.Form frmMain
       Width           =   855
    End
    Begin VB.CheckBox chkEncuadrarGrafico 
-      BackColor       =   &H00C0C0C0&
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
       Caption         =   "Encuadrar Grafico"
       BeginProperty Font 
          Name            =   "Verdana"
@@ -305,6 +350,7 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H80000008&
       Height          =   255
       Left            =   2640
       TabIndex        =   8
@@ -312,6 +358,7 @@ Begin VB.Form frmMain
       Width           =   2655
    End
    Begin VB.TextBox txtGrh 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00FFFFFF&
       Height          =   285
@@ -321,7 +368,8 @@ Begin VB.Form frmMain
       Width           =   4335
    End
    Begin VB.CheckBox chkEncuadrarGrh 
-      BackColor       =   &H00C0C0C0&
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
       Caption         =   "Encuadrar Grh"
       BeginProperty Font 
          Name            =   "Verdana"
@@ -332,6 +380,7 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H80000008&
       Height          =   255
       Left            =   2640
       TabIndex        =   3
@@ -342,14 +391,14 @@ Begin VB.Form frmMain
       BackColor       =   &H00808080&
       BorderStyle     =   0  'None
       FillColor       =   &H00808080&
-      Height          =   4440
+      Height          =   6240
       Left            =   2640
-      ScaleHeight     =   296
+      ScaleHeight     =   416
       ScaleMode       =   3  'Pixel
-      ScaleWidth      =   438
+      ScaleWidth      =   734
       TabIndex        =   0
       Top             =   2880
-      Width           =   6570
+      Width           =   11010
    End
    Begin MSComctlLib.Slider Escala 
       Height          =   375
@@ -365,19 +414,20 @@ Begin VB.Form frmMain
       Value           =   3
    End
    Begin VB.ListBox lstGraphics 
+      Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H00E0E0E0&
-      Height          =   6495
+      Height          =   7440
       Left            =   120
       TabIndex        =   13
-      Top             =   720
+      Top             =   1200
       Width           =   2415
    End
    Begin VB.Frame Frame 
       Height          =   6375
       Left            =   120
       TabIndex        =   14
-      Top             =   720
+      Top             =   1440
       Visible         =   0   'False
       Width           =   2415
       Begin VB.TextBox txtEnum 
@@ -679,6 +729,24 @@ Begin VB.Form frmMain
          Width           =   930
       End
    End
+   Begin VB.Label Label13 
+      BackColor       =   &H00C0C0C0&
+      Caption         =   "Filtrar: (por num de PNG)"
+      BeginProperty Font 
+         Name            =   "Calibri"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   360
+      TabIndex        =   70
+      Top             =   630
+      Width           =   1935
+   End
    Begin VB.Label Label7 
       BackColor       =   &H00C0C0C0&
       Caption         =   "Filtrar: (por num o Nulo)"
@@ -890,6 +958,8 @@ Begin VB.Form frmMain
    End
    Begin VB.Label lblGrh 
       Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H80000005&
       BorderStyle     =   1  'Fixed Single
       BeginProperty Font 
          Name            =   "MS Sans Serif"
@@ -900,6 +970,7 @@ Begin VB.Form frmMain
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
+      ForeColor       =   &H80000008&
       Height          =   285
       Left            =   2640
       TabIndex        =   6
@@ -1420,15 +1491,20 @@ End Sub
 
 Private Sub cmdMadeTexture_Click()
 
+Dim X                           As Integer
+Dim Y                           As Integer
+Dim LastX                       As Integer
+Dim LastY                       As Integer
 Dim i                           As Integer
 Dim tCount                      As Integer
+Dim sTmpGrh                     As String
 
     If Val(txtTextureFrom.Text) = 0 Then
         MsgBox "Ingrese un valor DESDE"
         Exit Sub
     End If
 
-    If Val(txtTextureFrom.Text) = 0 Then
+    If Val(txtTextureTo.Text) = 0 Then
         MsgBox "Ingrese un valor HASTA"
         Exit Sub
     End If
@@ -1448,10 +1524,22 @@ Dim tCount                      As Integer
         Exit Sub
     End If
     
-    For i = Val(txtTextureFrom.Text) To Val(txtTextureTo.Text)
-        txtGrh.Text = 1
+    If optTexture.Value = True Then
     
-    Next i
+        If Val(txtTextureTo.Text) - Val(txtTextureFrom.Text) <> 16 Then
+            MsgBox "La cantidad de índices libres debe ser 16 (4 ancho x 4 alto)"
+            Exit Sub
+        End If
+        
+        For X = 1 To Val(txtTextureFrom.Text)   'For X = 0 To Val(txtTextureFrom.Text) - 1
+            For Y = 0 To Val(txtTextureTo.Text) - 1
+                'Ej: 1.5534.32.32.32.32
+                sTmpGrh = "1" & "-" & txtPngNum.Text & "-" & (32 * X) & "-" & (32 * Y) & "-" & "32" & "-" & "32" 'Ancho y alto
+                txtGrh.Text = sTmpGrh
+            Next Y
+        Next X
+    End If
+    
     
 End Sub
 
@@ -1695,6 +1783,46 @@ Private Sub SaveIndexs_Click()
     Call Resource.Save_Indexs
 End Sub
 
+Private Sub txtFiltroPNG_Change()
+
+    'Call searchPNG
+    
+End Sub
+
+Sub searchPNG()
+
+Dim i                           As Long
+Static LastIndex                As Long
+Dim sTmp                        As String
+
+
+    If Len(txtFiltroPNG.Text) > 0 Then
+        If IsNumeric(txtFiltroPNG.Text) Then
+        
+            If LastIndex <= lstGraphics.ListIndex + 1 And lstGraphics.ListIndex + 1 < lstGraphics.ListCount Then
+                LastIndex = lstGraphics.ListIndex + 1
+            Else
+                LastIndex = 1
+            End If
+            
+            For i = LastIndex To lstGraphics.ListCount - 1
+                If GrhData(i).FileNum > 0 And LastIndex <> i Then
+                    If GrhData(i).FileNum = Val(txtFiltroPNG.Text) Then
+                        lstGraphics.Selected(i - 1) = True
+                        LastIndex = i - 1
+                        Exit For
+                    End If
+                End If
+                LastIndex = i - 1
+            Next i
+        Else
+            MsgBox "Coloque el número únicamente, de .png en la carpeta GRAFICOS, sin la extensión .png"
+        End If
+    
+    End If
+    
+End Sub
+
 Private Sub txtEnum_Change()
     On Error GoTo err:
 
@@ -1858,6 +1986,12 @@ Private Sub txtFiltro_KeyUp(KeyCode As Integer, Shift As Integer)
         End If
     End If
     
+End Sub
+
+Private Sub txtFiltroPNG_KeyUp(KeyCode As Integer, Shift As Integer)
+    If KeyCode = 13 Then
+        Call searchPNG
+    End If
 End Sub
 
 Private Sub txtGrh_Change()

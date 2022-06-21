@@ -13,46 +13,46 @@ Begin VB.Form frmMain
    Begin VB.PictureBox TestPicture4 
       AutoRedraw      =   -1  'True
       Height          =   1695
-      Left            =   0
+      Left            =   5280
       ScaleHeight     =   109
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   109
-      TabIndex        =   6
-      Top             =   0
+      TabIndex        =   5
+      Top             =   120
       Width           =   1695
    End
    Begin VB.PictureBox TestPicture3 
+      AutoRedraw      =   -1  'True
+      Height          =   1695
+      Left            =   3480
+      ScaleHeight     =   109
+      ScaleMode       =   3  'Pixel
+      ScaleWidth      =   109
+      TabIndex        =   4
+      Top             =   120
+      Width           =   1695
+   End
+   Begin VB.PictureBox TestPicture2 
       AutoRedraw      =   -1  'True
       Height          =   1695
       Left            =   1560
       ScaleHeight     =   109
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   109
-      TabIndex        =   5
-      Top             =   4080
-      Width           =   1695
-   End
-   Begin VB.PictureBox TestPicture2 
-      AutoRedraw      =   -1  'True
-      Height          =   1695
-      Left            =   1440
-      ScaleHeight     =   109
-      ScaleMode       =   3  'Pixel
-      ScaleWidth      =   109
-      TabIndex        =   4
-      Top             =   2280
+      TabIndex        =   3
+      Top             =   120
       Width           =   1695
    End
    Begin VB.PictureBox Temporal2 
       AutoRedraw      =   -1  'True
       AutoSize        =   -1  'True
       Height          =   975
-      Left            =   3240
+      Left            =   3360
       ScaleHeight     =   61
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   77
-      TabIndex        =   3
-      Top             =   2160
+      TabIndex        =   2
+      Top             =   3840
       Visible         =   0   'False
       Width           =   1215
    End
@@ -60,31 +60,24 @@ Begin VB.Form frmMain
       AutoRedraw      =   -1  'True
       AutoSize        =   -1  'True
       Height          =   975
-      Left            =   3240
+      Left            =   240
       ScaleHeight     =   61
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   77
-      TabIndex        =   2
-      Top             =   1080
+      TabIndex        =   1
+      Top             =   3840
       Visible         =   0   'False
       Width           =   1215
-   End
-   Begin VB.CommandButton cmdCreateMap 
-      Height          =   495
-      Left            =   5520
-      TabIndex        =   1
-      Top             =   6240
-      Width           =   1815
    End
    Begin VB.PictureBox TestPicture 
       AutoRedraw      =   -1  'True
       Height          =   855
-      Left            =   1680
+      Left            =   120
       ScaleHeight     =   53
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   77
       TabIndex        =   0
-      Top             =   1320
+      Top             =   120
       Width           =   1215
    End
 End
@@ -114,7 +107,7 @@ Dim C                           As cDIBSection
     Escala = 10
     EscalaMiniMapa = 15.8
     EscalaMiniMapaWE = 178
-    EscalaMapaQ = 33.3
+    EscalaMapaQ = 33.35
     
     'TEST:
     If Debuggin Then

@@ -879,8 +879,10 @@ Dim NPCName                     As String
             NPCName = "NONE"
         End If
         
-        lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
-
+        If .ID > 0 Then
+            lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
+        End If
+        
     End With
     
     lstNPCs.Enabled = True

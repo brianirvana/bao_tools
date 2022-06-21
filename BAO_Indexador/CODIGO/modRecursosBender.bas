@@ -297,8 +297,10 @@ ProcessGraphicLineToBin_Error:
 End Sub
 
 Public Function ProcessGraphicBinToLine(ByVal i As Integer) As String
+
 Dim J                           As Long
 Dim Line                        As String
+
     With GrhData(i)
         If .NumFrames > 0 Then
             Line = "Grh" & i & "=" & .NumFrames
@@ -351,7 +353,9 @@ Dim Line                        As String
             End If
         End If
     End With
+    
     ProcessGraphicBinToLine = Line
+    
 End Function
 
 Private Function GetValueExpo(sValue As String, Pos As Integer) As Single

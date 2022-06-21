@@ -78,12 +78,15 @@ Public Function Draw_Text_MultiLine(ByRef Text As String, X As Single, Y As Sing
         RenderText.Render_String lines(i), X + 0, Y + i * 8, 8, 8, Color 'ES DEMASIADO LOCO, LE TUBE QUE PONER X+0 PORQUE NO ENTIENDO PORQUE SE VAN CAMBIANDO LOS VALORES :|
     Next i
 End Function
+
 Public Function Draw_Text(ByRef Text As String, X As Single, Y As Single, Color As Long)
     RenderText.Render_String Text, X, Y, 8, 8, Color
 End Function
+
 Public Function DisplayFPS(ByRef Active As Boolean)
     EngineLibrary.DisplayFPS = Active
 End Function
+
 Public Function DrawFPS(Optional ByVal X As Single = 0, Optional ByVal Y As Single = 0, Optional ByVal Color As Long = &HFFFFFFFF)
     If EngineLibrary.FPS Then
         Call Draw_Text("FPS: " & EngineLibrary.FPS, X, Y, Color)
@@ -91,6 +94,7 @@ Public Function DrawFPS(Optional ByVal X As Single = 0, Optional ByVal Y As Sing
         Call Draw_Text("Loading..", X, Y, Color)
     End If
 End Function
+
 'Public Sub LoadAnimation(TexNum As Long, GrhIndex As Integer, NumFrames As Integer, Width As Long, Height As Long)
 '    Set SD = Nothing
 '    Set SD = New Sprite
@@ -106,6 +110,7 @@ End Function
 '    Next i
 '    SD.Update_Size Width, Height
 'End Sub
+
 Public Sub DrawGraphic(ByRef SP As Sprite, X As Single, Y As Single, Escala As Single)
 
     'Call GameTexture.TexFactory.Draw_Texture(TexNum, X, Y, Width, Height, , , , , , , , , Escala, Escala)

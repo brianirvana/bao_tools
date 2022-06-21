@@ -143,6 +143,9 @@ Dim i                           As Long
     'CopyMemory GrhData(1), GrhTemp(1), NumberBytes
     frmCargando.lblLoading.Caption = "Guardando GrhData..."
     Call SaveGrhData(AppInit & "\Graficos.ind")
+    
+    FileCopy AppInit & "\Graficos.ind", App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind"
+    
     frmCargando.lblLoading.Caption = "Listo!"
     Call LoadResourceInterface
     frmCargando.lblLoading.Caption = "Listo!"
