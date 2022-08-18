@@ -1,18 +1,26 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.ocx"
 Begin VB.Form frmMain 
    BackColor       =   &H00C0C0C0&
    Caption         =   "tX"
    ClientHeight    =   9750
    ClientLeft      =   120
    ClientTop       =   750
-   ClientWidth     =   14205
+   ClientWidth     =   18510
    Enabled         =   0   'False
    LinkTopic       =   "Form1"
    ScaleHeight     =   650
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   947
+   ScaleWidth      =   1234
    StartUpPosition =   2  'CenterScreen
+   Begin VB.CommandButton cmdCopyBodiesPNGtoFolder 
+      Caption         =   "Copy Bodies PNG to folder"
+      Height          =   255
+      Left            =   14520
+      TabIndex        =   71
+      Top             =   960
+      Width           =   2295
+   End
    Begin VB.TextBox txtFiltroPNG 
       Appearance      =   0  'Flat
       BackColor       =   &H00000000&
@@ -1438,6 +1446,25 @@ Static NoProcess                As Boolean
     LastIndex = cmbTipo.ListIndex
 End Sub
 
+Private Sub cmdCopyBodiesPNGtoFolder_Click()
+
+Dim i                           As Long
+Dim lastNum                     As Long
+Dim strTemp                     As String
+
+
+    For i = 1 To UBound(BodyData)
+    
+        strTemp = BodyData(i).Walk(1).GrhIndex
+        
+        If GrhData(BodyData(i).Walk(1).GrhIndex).FileNum > 0 And lastNum <> GrhData(BodyData(i).Walk(1).GrhIndex).FileNum Then
+            Debug.Print "strTemp: " & strTemp & " File PNG: " & GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
+            lastNum = GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
+        End If
+    Next i
+
+End Sub
+
 Private Sub cmdCrearAnimacion_Click()
 
 Dim i                           As Byte
@@ -1583,7 +1610,7 @@ End Sub
 
 Private Sub lblOption_Click(Index As Integer)
 Dim i                           As Long
-    For i = lblOption.LBound To lblOption.UBound
+    For i = lblOption.LBound To lblOption.ubound
         lblOption(i).BackColor = &H8000000F
     Next i
     lblOption(Index).BackColor = vbRed
