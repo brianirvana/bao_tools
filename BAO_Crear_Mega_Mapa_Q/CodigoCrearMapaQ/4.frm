@@ -111,8 +111,8 @@ Dim C                           As cDIBSection
     
     'TEST:
     If Debuggin Then
-        sPath = App.Path & "\..\BAO_WorldEditor\ImagenesMundoBAO\"
-        Stop
+        'sPath = App.Path & "\..\BAO_WorldEditor\ImagenesMundoBAO\"
+        'Stop
     End If
 
     TestPicture.Width = 1580 / Escala * 12
@@ -125,7 +125,7 @@ Dim C                           As cDIBSection
     TestPicture4.Height = 1580 / EscalaMapaQ * 12
 
     If Not FileExist(sPath & 1 & ".bmp", vbArchive) And Not FileExist(sPath & 144 & ".bmp", vbArchive) Then
-        MsgBox "No se encontraron las vistas previas (imagenes de desgloce del mapa). Deben generarse primero desde el WorldEditor. " & vbNewLine & "No se puede continuar."
+        MsgBox "No se encontraron las vistas previas (imagenes de desgloce del mapa). " & vbNewLine & " Deben generarse primero desde el WorldEditor. " & vbNewLine & "No se puede continuar."
         End
     End If
 

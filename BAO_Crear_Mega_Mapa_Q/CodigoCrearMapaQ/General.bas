@@ -90,19 +90,24 @@ Dim sPath                       As String
 
 50  sInput = Command$
 
-60  bMap = Val(ReadField(1, sInput, 45))    'Mapa actual.
-70  sPath = ReadField(2, sInput, 45)    'Ruta Mapa actual.
+60  If Len(sInput) < 1 Then
+70      sInput = InputBox("¿Qué mapa está creando?")
+80      sInput = sInput & "-" & App.Path & "\..\..\bao_server\MAPS\"    'InputBox("¿Qué mapa está creando?")
+90  End If
 
-80  frmMain.Show
+100 bMap = Val(ReadField(1, sInput, 45))    'Mapa actual.
+110 sPath = ReadField(2, sInput, 45)    'Ruta Mapa actual.
 
-90  Call frmMain.Click(sPath)
+120 frmMain.Show
 
-100 On Error GoTo 0
-110 Exit Sub
+130 Call frmMain.Click(sPath)
+
+140 On Error GoTo 0
+150 Exit Sub
 
 Main_Error:
 
-120 MsgBox ("Error " & Err.Number & " (" & Err.Description & ") procedimiento Main Módulo General línea: " & Erl())
+160 MsgBox ("Error " & Err.Number & " (" & Err.Description & ") procedimiento Main Módulo General línea: " & Erl())
 
 End Sub
 

@@ -291,6 +291,7 @@ Attribute NPCRespawnCount.VB_VarUserMemId = 1073741829
 Public NPCRespawn()             As tNPCRespawn
 Attribute NPCRespawn.VB_VarUserMemId = 1073741830
 Public tmptNPCRespawn()         As tNPCRespawn
+Public EmptyNPCRespawn          As tNPCRespawn
 
 Public NPCRespawn2()            As tNPCRespawn2
 
@@ -339,10 +340,14 @@ Public Sub SaveNPCRespawn()
 
 Dim nFile                       As Integer
 Dim i                           As Long
+Dim SaveNPC                     As New clsIniReader
     
     nFile = FreeFile()
     
+    Call SaveNPC.Initialize(DatPath & "\NPCRespawn.ini")
+    
     Open DatPath & "\Respawn.dat" For Binary As #nFile
+    
         Put #nFile, , NPCRespawnCount
         For i = 0 To NPCRespawnCount - 1
             With NPCRespawn(i) 'NPCRespawn2(i)
@@ -359,22 +364,41 @@ Dim i                           As Long
                 Put #nFile, , .WithCountUsers '11
                 
                 If .ID > 0 Then
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "INIT", "NPCRespawnCount", Val(NPCRespawnCount))  '1
                 
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Name", NpcList(.ID).Name)   '0
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "AreaX", Val(.AreaX))   '1
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "AreaY", Val(.AreaY))    '2
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Count", Val(.Count))    '3
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "ID", Val(.ID))               '4
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_MAP", Val(.Pos.Map))     '5
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_X", Val(.Pos.X))  '6
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_Y", Val(.Pos.Y))  '7
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Respawn_Time", .RespawnTime)  '8
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Nivel", Val(.Nivel))  '9
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Factor_Experiencia", .FactorMulExp)  '10
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Min_Hour", .MinHour)  '11
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Max_Hour", .MaxHour)  '12
-                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Count_Users", Val(.WithCountUsers))  '13
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "INIT", "NPCRespawnCount", Val(NPCRespawnCount))  '1
+'
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Name", NpcList(.ID).Name)   '0
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "AreaX", Val(.AreaX))   '1
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "AreaY", Val(.AreaY))    '2
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Count", Val(.Count))    '3
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "ID", Val(.ID))               '4
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_MAP", Val(.Pos.Map))     '5
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_X", Val(.Pos.X))  '6
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "POS_Y", Val(.Pos.Y))  '7
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Respawn_Time", .RespawnTime)  '8
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Nivel", Val(.Nivel))  '9
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Factor_Experiencia", .FactorMulExp)  '10
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Min_Hour", .MinHour)  '11
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Max_Hour", .MaxHour)  '12
+'                    Call WriteVar(DatPath & "\NPCRespawn.ini", "RESPAWN" & i + 1, "Count_Users", Val(.WithCountUsers))  '13
+
+                    Call SaveNPC.ChangeValue("INIT", "NPCRespawnCount", Val(NPCRespawnCount))   '1
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Name", NpcList(.ID).Name)    '0
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "AreaX", Val(.AreaX))    '1
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "AreaY", Val(.AreaY))     '2
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Count", Val(.Count))     '3
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "ID", Val(.ID))                '4
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "POS_MAP", Val(.Pos.Map))      '5
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "POS_X", Val(.Pos.X))   '6
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "POS_Y", Val(.Pos.Y))   '7
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Respawn_Time", .RespawnTime)   '8
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Nivel", Val(.Nivel))   '9
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Factor_Experiencia", .FactorMulExp)   '10
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Min_Hour", .MinHour)   '11
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Max_Hour", .MaxHour)   '12
+                    Call SaveNPC.ChangeValue("RESPAWN" & i + 1, "Count_Users", Val(.WithCountUsers))   '13
+                
+                    Call SaveNPC.DumpFile(DatPath & "\NPCRespawn.ini")
                 End If
             End With
         Next i
@@ -400,19 +424,19 @@ Public Sub LoadNPCs()
             'Esto sirve para reacomodar todos los respawns de un área de forma automática, cuando se reubica un mapa en otro lugar físico del mapa.map
             'Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
             
-            If NPCRespawn(i).Pos.Map = 2 Then
-                'BRIAN: NUNCA COMENTAR ESTA LINEA SI VAS A DESCOMENTAR LO DE ABAJO BRIAN!
-                If Not Debuggin Then
-                    MsgBox "SACAR ESTO URGENTE."
-                    End
-                End If
-                
-                If NPCRespawn(i).Pos.X >= 849 And NPCRespawn(i).Pos.X <= 1073 And NPCRespawn(i).Pos.Y >= 110 And NPCRespawn(i).Pos.Y <= 193 Then
-                    'NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X - 200
-                    'NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y - 484
-                    Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
-                End If
-            End If
+'            If NPCRespawn(i).Pos.Map = 2 Then
+'                'BRIAN: NUNCA COMENTAR ESTA LINEA SI VAS A DESCOMENTAR LO DE ABAJO BRIAN!
+'                If Not Debuggin Then
+'                    MsgBox "SACAR ESTO URGENTE."
+'                    End
+'                End If
+'
+'                If NPCRespawn(i).Pos.X >= 849 And NPCRespawn(i).Pos.X <= 1073 And NPCRespawn(i).Pos.Y >= 110 And NPCRespawn(i).Pos.Y <= 193 Then
+'                    'NPCRespawn(i).Pos.X = NPCRespawn(i).Pos.X - 200
+'                    'NPCRespawn(i).Pos.Y = NPCRespawn(i).Pos.Y - 484
+'                    Debug.Print "Clic en LoadNPCs: " & NpcList(NPCRespawn(i).ID).Name
+'                End If
+'            End If
             
         Else
             frmMain.lstNPCs.AddItem "(NONE)-0-" & i

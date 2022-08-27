@@ -671,37 +671,61 @@ End Sub
 
 Private Sub cmdUpdateOrder_Click()
 
-Dim bFirstFound                 As Boolean
-Dim i                           As Integer
-Dim tmpNewOrder                 As Integer
+      Dim bFirstFound                 As Boolean
+      Dim i                           As Integer
+      Dim tmpNewOrder                 As Integer
+      Static LastIndex                As Long
 
-    tmpNewOrder = Val(txtRespawnOrder.Text)
-    tmptNPCRespawn = NPCRespawn
-    bFirstFound = False
+          
+ On Error GoTo cmdUpdateOrder_Click_Error
 
-    If tmpNewOrder > UBound(NPCRespawn) Then
-        MsgBox "El nuevo órden del npc no puede ser mayor al número de respawns totales existentes: " & UBound(NPCRespawn)
-        Exit Sub
-    End If
-    
-    For i = 0 To UBound(NPCRespawn)
-        '¿Existe y no soy el que está modificado?
-        If NPCRespawn(i).Order = tmpNewOrder And i <> tmpOrder Then
-            NPCRespawn(i) = tmptNPCRespawn(tmpOrder)
-            If bFirstFound Then
-                Call SaveNPCRespawn
-                Call lstNPCs.Clear
-                Call LoadNPCs
-                Exit Sub
-            End If
-        Else
-            If Not bFirstFound Then
-                NPCRespawn(tmpOrder) = tmptNPCRespawn(tmpNewOrder)
-                bFirstFound = True
-            End If
-        End If
-    Next i
-    
+10        LastIndex = lstNPCs.ListIndex
+
+20        tmpNewOrder = Val(txtRespawnOrder.Text)
+30        tmptNPCRespawn = NPCRespawn
+40        bFirstFound = False
+
+50        If tmpNewOrder > UBound(NPCRespawn) Then
+60            MsgBox "El nuevo órden del npc no puede ser mayor al número de respawns totales existentes: " & UBound(NPCRespawn)
+70            Exit Sub
+80        End If
+          
+90        For i = 0 To UBound(NPCRespawn)
+              '¿Existe y no soy el que está modificado?
+100           If NPCRespawn(i).Order = tmpNewOrder And i <> tmpOrder Then
+
+110               NPCRespawn(i) = tmptNPCRespawn(tmpOrder)
+                  'NPCRespawn(i).Order = tmpOrder
+                  
+120               If bFirstFound Then
+130                   Call SaveNPCRespawn
+140                   Call lstNPCs.Clear
+150                   Call LoadNPCs
+'                        DoEvents
+'                      lstNPCs.Refresh
+'160                   DoEvents
+                
+170                   lstNPCs.ListIndex = tmpNewOrder
+180                   Exit Sub
+190               End If
+200           Else
+210               If Not bFirstFound Then
+220                   NPCRespawn(tmpOrder) = tmptNPCRespawn(tmpNewOrder) 'Ej tmpNewOrder = 5 (tmptNPCRespawn(5).Orden)
+230                   bFirstFound = True
+240               End If
+250           End If
+260       Next i
+          
+270       DoEvents
+280       lstNPCs.ListIndex = tmpOrder
+
+ On Error GoTo 0
+ Exit Sub
+
+cmdUpdateOrder_Click_Error:
+
+ Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento cmdUpdateOrder_Click Formulario frmMain línea: " & Erl())
+          
 End Sub
 
 Private Sub ComboNPCS_Click()

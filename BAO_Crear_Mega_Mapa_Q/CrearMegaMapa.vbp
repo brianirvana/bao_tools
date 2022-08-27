@@ -8,6 +8,7 @@ Class=clsCBFolder; CodigoCrearMapaQ\clsCBFolder.cls
 IconForm="frmMain"
 Startup="Sub Main"
 HelpFile=""
+Title="CrearMegaMapa"
 ExeName32="Crear Mega Mapa.exe"
 Command32=""
 Name="CrearMapaQ"
