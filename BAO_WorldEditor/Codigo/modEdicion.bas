@@ -862,7 +862,73 @@ Dim Heading                     As Byte
             frmMain.StatTxt.Text = Right(frmMain.StatTxt.Text, 3000)
         End If
         frmMain.StatTxt.SelStart = Len(frmMain.StatTxt.Text)
+        
+        '[/About]
+        If frmMain.cSeleccionarSuperficie.Value Then
+            If Val(frmMain.cCapas.Text) = 1 Then
+                If MapData(tX, tY).Graphic(1).GrhIndex <> 1 Then
+                    modEdicion.Deshacer_Add "Quitar Capa 1"    ' Hago deshacer
+                    MapInfo(CurMap).Changed = 1    'Set changed flag
+                    MapData(tX, tY).Graphic(1).GrhIndex = 1
+                    Exit Sub
+                End If
+            ElseIf MapData(tX, tY).Graphic(Val(frmMain.cCapas.Text)).GrhIndex <> 0 Then
+                modEdicion.Deshacer_Add "Quitar Capa " & frmMain.cCapas.Text    ' Hago deshacer
+                MapInfo(CurMap).Changed = 1    'Set changed flag
+                MapData(tX, tY).Graphic(Val(frmMain.cCapas.Text)).GrhIndex = 0
+                Exit Sub
+            End If
+        End If
+        
+        '************** Place blocked tile
+        If frmMain.cInsertarBloqueo.Value Then
+            If MapData(tX, tY).Blocked <> 0 Then
+                modEdicion.Deshacer_Add "Quitar Bloqueo"    ' Hago deshacer
+                MapInfo(CurMap).Changed = 1    'Set changed flag
+                MapData(tX, tY).Blocked = 0
+            End If
+        End If
 
+        If frmMain.cInsertarTrans.Value Then
+            modEdicion.Deshacer_Add "Quitar Translado"    ' Hago deshacer
+            MapInfo(CurMap).Changed = 1    'Set changed flag
+            MapData(tX, tY).TileExit.Map = 0
+            MapData(tX, tY).TileExit.X = 0
+            MapData(tX, tY).TileExit.Y = 0
+        End If
+
+
+        '************** Place NPC
+        If frmMain.cInsertarFunc(0).Value Or frmMain.cInsertarFunc(1).Value Then
+            'If frmMain.chkNoHostiles.Value = vbChecked Then    '[/About] 19-12-12
+            If MapData(tX, tY).NPCIndex > 0 Then
+                modEdicion.Deshacer_Add "Quitar NPC"    ' Hago deshacer
+                MapInfo(CurMap).Changed = 1    'Set changed flag
+                MapData(tX, tY).NPCIndex = 0
+                Call EraseChar(MapData(tX, tY).CharIndex)
+            End If
+        End If
+        
+        If frmMain.cInsertarFunc(2).Value Then     ' Insertar Objeto
+            If MapData(tX, tY).OBJInfo.objindex <> 0 Or MapData(tX, tY).OBJInfo.Amount <> 0 Then
+                modEdicion.Deshacer_Add "Quitar Objeto"    ' Hago deshacer
+                MapInfo(CurMap).Changed = 1    'Set changed flag
+                If MapData(tX, tY).Graphic(3).GrhIndex = MapData(tX, tY).ObjGrh.GrhIndex Then MapData(tX, tY).Graphic(3).GrhIndex = 0
+                MapData(tX, tY).ObjGrh.GrhIndex = 0
+                MapData(tX, tY).OBJInfo.objindex = 0
+                MapData(tX, tY).OBJInfo.Amount = 0
+            End If
+        End If
+        
+        ' ***************** Control de Funcion de Triggers *****************
+        If frmMain.cInsertarTrigger.Value = True Then    ' Insertar Trigger
+            If MapData(tX, tY).Trigger <> 0 Then
+                modEdicion.Deshacer_Add "Quitar Trigger"    ' Hago deshacer
+                MapInfo(CurMap).Changed = 1    'Set changed flag
+                MapData(tX, tY).Trigger = 0
+            End If
+        End If
+        
         Exit Sub
     End If
 
@@ -957,6 +1023,7 @@ Dim Heading                     As Byte
             End If
 
         End If
+        
         '************** Place blocked tile
         If frmMain.cInsertarBloqueo.Value = True Then
             If MapData(tX, tY).Blocked <> 1 Then
