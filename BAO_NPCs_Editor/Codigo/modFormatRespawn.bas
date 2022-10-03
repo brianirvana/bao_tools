@@ -140,6 +140,10 @@ Dim tExp                        As Long
                 'tExp = tExp + Round(tExp * ExpMul, 0)
                 '.Experiencia = tExp
                 
+'                If InStrB(1, .Nombre, "Roja") > 0 Then
+'                    Stop
+'                End If
+                
                 Put #nFile, , .AreaX
                 Put #nFile, , .AreaY
                 Put #nFile, , .ID

@@ -735,6 +735,7 @@ Public Sub OrganizarNPC(ByVal Tipo As Byte)
         TempNPCRespawnCount = TempNPCRespawnCount + 1
     Next i
 End Sub
+
 Private Function CalculateNPC(ByVal Tipo As Byte, ByVal NpcIndex As Integer) As Single
     Select Case Tipo
         Case 0 'Nivel
