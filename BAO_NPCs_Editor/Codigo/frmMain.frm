@@ -650,11 +650,20 @@ Private Sub cmdCopyRespawn_Click()
 End Sub
 
 Private Sub cmdGuardar_Click()
-    
-    Call lstNPCs_Click
-    Call SaveNPCRespawn
-    cmdGuardar.Enabled = False
-    
+          
+ On Error GoTo cmdGuardar_Click_Error
+
+10        Call lstNPCs_Click
+20        Call SaveNPCRespawn
+30        cmdGuardar.Enabled = False
+
+ On Error GoTo 0
+ Exit Sub
+
+cmdGuardar_Click_Error:
+
+ Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento cmdGuardar_Click Formulario frmMain línea: " & Erl())
+          
 End Sub
 
 Private Sub cmdListar_Click()
@@ -848,75 +857,81 @@ End Sub
 
 Private Sub lstNPCs_Click()
 
-Dim NpcIndex                    As Integer
-Dim RespawnIndex                As Integer
-Dim NPCName                     As String
+      Dim NpcIndex                    As Integer
+      Dim RespawnIndex                As Integer
+      Dim NPCName                     As String
+
+ On Error GoTo lstNPCs_Click_Error
 
     On Error GoTo lstNPCs_Click_Error:
 
-    frmMain.Caption = "Cargando..."
-    lstNPCs.Enabled = False
-    'DoEvents
+10        frmMain.Caption = "Cargando..."
+20        lstNPCs.Enabled = False
+          'DoEvents
 
-    If lstNPCs.ListIndex = -1 Then Exit Sub
-    
-    RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
-    txtRespawnOrder.Text = RespawnIndex
-    'Call FindNpcByName(lstNPCs.List(RespawnIndex))
-    
-    With NPCRespawn(RespawnIndex)
-        iIDNpcSelected = RespawnIndex ' NpcIndex
-        NpcIndex = .ID
-        
-        SelectedRespawnIndex = RespawnIndex
-        Call updateArea(RespawnIndex)
-        
-         If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
-            Area.Picture = cachePictures(.Pos.Map)
-            NumMapa = .Pos.Map
-        Else
-            'MsgBox "Mapa inválido"
-            Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
-        End If
+30        If lstNPCs.ListIndex = -1 Then Exit Sub
+          
+40        RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
+50        txtRespawnOrder.Text = RespawnIndex
+          'Call FindNpcByName(lstNPCs.List(RespawnIndex))
+          
+60        With NPCRespawn(RespawnIndex)
+70            iIDNpcSelected = RespawnIndex ' NpcIndex
+80            NpcIndex = .ID
+              
+90            SelectedRespawnIndex = RespawnIndex
+100           Call updateArea(RespawnIndex)
+              
+110            If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
+120               Area.Picture = cachePictures(.Pos.Map)
+130               NumMapa = .Pos.Map
+140           Else
+                  'MsgBox "Mapa inválido"
+150               Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
+160           End If
 
-        txtNumero.Text = .ID
-        txtPos.Text = .Pos.Map & "-" & .Pos.X & "-" & .Pos.Y
-        txtRespawnTime.Text = .RespawnTime
-        txtCantidad.Text = .Count
-        txtAreaX.Text = .AreaX
-        txtAreaY.Text = .AreaY
-        txtNPCLvl.Text = .Nivel
-        txtFactor.Text = .FactorMulExp
-        
-        txtMinHour.Text = .MinHour
-        txtMaxHour.Text = .MaxHour
-        txtCountUsersRespawn.Text = .WithCountUsers
+170           txtNumero.Text = .ID
+180           txtPos.Text = .Pos.Map & "-" & .Pos.X & "-" & .Pos.Y
+190           txtRespawnTime.Text = .RespawnTime
+200           txtCantidad.Text = .Count
+210           txtAreaX.Text = .AreaX
+220           txtAreaY.Text = .AreaY
+230           txtNPCLvl.Text = .Nivel
+240           txtFactor.Text = .FactorMulExp
+              
+250           txtMinHour.Text = .MinHour
+260           txtMaxHour.Text = .MaxHour
+270           txtCountUsersRespawn.Text = .WithCountUsers
 
-        If .ID > 0 Then
-            Dim tExp As Double
-            tExp = ((NpcList(.ID).STATS.MaxHP * 2) * .FactorMulExp)
-            tExp = tExp + (tExp * ExpMul)
-            txtExp.Text = Round(tExp, 0)
-            NPCName = NpcList(.ID).Name
-        Else
-            txtExp.Text = ""
-            NPCName = "NONE"
-        End If
-        
-        If .ID > 0 Then
-            lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
-        End If
-        
-    End With
-    
-    lstNPCs.Enabled = True
-    lstNPCs.SetFocus
-    frmMain.Caption = "NPC Seleccionado: " & NPCName
-    tmpOrder = Val(txtRespawnOrder.Text)
+280           If .ID > 0 Then
+                  Dim tExp As Double
+290               tExp = ((NpcList(.ID).STATS.MaxHP * 2) * .FactorMulExp)
+300               tExp = tExp + (tExp * ExpMul)
+310               txtExp.Text = Round(tExp, 0)
+320               NPCName = NpcList(.ID).Name
+330           Else
+340               txtExp.Text = ""
+350               NPCName = "NONE"
+360           End If
+              
+370           If .ID > 0 Then
+380               lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
+390           End If
+              
+400       End With
+          
+410       lstNPCs.Enabled = True
+420       lstNPCs.SetFocus
+430       frmMain.Caption = "NPC Seleccionado: " & NPCName
+440       tmpOrder = Val(txtRespawnOrder.Text)
 
+
+ On Error GoTo 0
+ Exit Sub
 lstNPCs_Click_Error:
-    Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
-    lstNPCs.Enabled = True
+450       Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
+460       lstNPCs.Enabled = True
+          Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento lstNPCs_Click Formulario frmMain línea: " & Erl())
 
 End Sub
 
