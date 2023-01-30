@@ -25,7 +25,7 @@ Camino1_Pos3=ULLATHORPE
 
 [SECTOR2]
 Name=Turgon
-Ciudad=1
+Ciudad=2
 
 Camino1_Pos1=TURGON
 Camino1_Pos2=1-476-820
@@ -33,9 +33,9 @@ Camino1_Pos3=TURGON
 
 [SECTOR3]
 Name=Angrod
-Ciudad=1
+Ciudad=3
 
-MaxBots=15
+MaxBots=50
 
 Camino1_Pos1=ANGROD
 Camino1_Pos2=1-627-410
@@ -44,7 +44,7 @@ Camino1_Pos3=ANGROD
 
 [SECTOR4]
 Name=Harrogath
-Ciudad=1
+Ciudad=4
 
 Camino1_Pos1=HARROGATH
 Camino1_Pos2=1-813-584
@@ -52,7 +52,7 @@ Camino1_Pos3=HARROGATH
 
 [SECTOR5]
 Name=Murus
-Ciudad=1
+Ciudad=5
 
 Camino1_Pos1=MURUS
 Camino1_Pos2=1-737-687
@@ -60,25 +60,24 @@ Camino1_Pos3=MURUS
 
 [SECTOR6]
 Name=Atlantis
-Ciudad=1
+Ciudad=6
 
 Camino1_Pos1=ATLANTIS
-Camino1_Pos2=2-813-424
+Camino1_Pos2=2-819-410
 Camino1_Pos3=ATLANTIS
 
 [SECTOR7]
 Name=Newbie Dungeon
-Ciudad=1
-
-MaxBots=15
+Ciudad=7
+MaxBots=50
 
 Camino1_Pos1=NEWBIEDUNGEON
-Camino1_Pos2=2-259-123
+Camino1_Pos2=4-545-600
 Camino1_Pos3=NEWBIEDUNGEON
 
-' # Exploracion de entrenamiento 1 a 17 ########################################################################
+' # Exploracion de entrenamiento 1 a 15########################################################################
 
-[SECTOR8] ' Exploracion Newbie Dungeon 1 a 17
+[SECTOR8] ' Exploracion Newbie Dungeon 1 a 15
 MinLvl=1
 MaxLvl=14
 Name=Exploracion Newbie Dungeon
@@ -96,7 +95,11 @@ Camino3_Pos1=NEWBIEDUNGEON
 Camino3_Pos2=NEWBIE_DUNGEON_3
 Camino3_Pos3=NEWBIEDUNGEON
 
-' # Exploracion de entrenamiento 18 a 21 ########################################################################
+Camino4_Pos1=NEWBIEDUNGEON
+Camino4_Pos2=NEWBIE_DUNGEON_4
+Camino4_Pos3=NEWBIEDUNGEON
+
+' # Exploracion de entrenamiento 15 a 21 ########################################################################
 
 ' Exploracion Ciudades 18 a 20
 [SECTOR9]
@@ -301,11 +304,11 @@ Camino3_Pos1=MURUS
 Camino3_Pos2=MARABEL_2
 Camino3_Pos3=MURUS
 
-' # Exploracion Entrenamiento 28 a 33 ########################################################################
+' # Exploracion Entrenamiento 25 a 33 ########################################################################
 [SECTOR21]
 Name=Exploracion Ullathorpe
 Hogar=1 ' Ullathorpe
-MinLvl=28
+MinLvl=25
 MaxLvl=33
 Navega=1
 
@@ -332,12 +335,12 @@ Camino5_Pos3=ULLATHORPE
 [SECTOR22]
 Name=Exploracion Turgon
 Hogar=2 ' Turgon
-MinLvl=28
+MinLvl=25
 MaxLvl=33
 Navega=1
 
 Camino1_Pos1=TURGON
-Camino1_Pos2=PIRAMIDE_1
+Camino1_Pos2=PIRAMIDE_2
 Camino1_Pos3=TURGON
 
 Camino2_Pos1=TURGON
@@ -363,7 +366,7 @@ Camino6_Pos3=TURGON
 [SECTOR23]
 Name=Exploracion Angrod
 Hogar=3 ' Angrod
-MinLvl=28
+MinLvl=25
 MaxLvl=33
 Navega=1
 
@@ -394,12 +397,12 @@ Camino6_Pos3=ANGROD
 [SECTOR24]
 Name=Exploracion Murus
 Hogar=5 ' Murus
-MinLvl=28
+MinLvl=25
 MaxLvl=33
 Navega=1
 
 Camino1_Pos1=ULLATHORPE
-Camino1_Pos2=PIRAMIDE_1
+Camino1_Pos2=PIRAMIDE_2
 Camino1_Pos3=ULLATHORPE
 
 Camino2_Pos1=ULLATHORPE
@@ -509,7 +512,6 @@ Camino1_Pos3=MURUS
 Camino2_Pos1=MURUS
 Camino2_Pos2=LEVIATANES
 Camino2_Pos3=MURUS
-
 
 ' # Exploracion Entrenamiento +40 a 44 ########################################################################
 [SECTOR29]
@@ -701,85 +703,75 @@ Camino2_Pos3=LAVA_1
 Camino2_Pos4=ANGROD
 
 [NEWBIE_DUNGEON_1]
-Pos1=2-294-122
-Pos2=2-348-133
-Pos3=2-380-130
-Pos4=2-375-102
-Pos5=2-396-102
-Pos6=2-395-155
-Pos7=2-418-144
-Pos8=2-437-149
-Pos9=2-434-105
-Pos10=2-418-112
-Pos11=2-433-126
-Pos12=2-463-120
-Pos13=2-481-105
-Pos14=2-485-129
-Pos15=2-476-139
-Pos16=2-467-149
-Pos17=2-479-153
-Pos18=2-478-120
-Pos19=2-390-121
-Pos20=2-364-128
-Pos21=2-358-122
-Pos22=2-367-123
-Pos23=2-344-124
-Pos24=2-339-130
-Pos25=2-339-132
+Pos1=4-580-599
+Pos2=4-647-607
+Pos3=4-659-608
+Pos4=4-670-603
+Pos5=4-672-584
+Pos6=4-663-585
+Pos7=4-675-577
+Pos8=4-668-633
+Pos9=4-712-597
+Pos10=4-721-616
+Pos11=4-720-589
+Pos12=4-765-584
+Pos13=4-782-596
+Pos14=4-765-617
+Pos15=4-760-627
+Pos16=4-644-600
+Pos17=4-630-611
+Pos18=4-634-611
 
 [NEWBIE_DUNGEON_2]
-Pos1=2-220-122
-Pos2=2-28-133
-Pos3=2-42-130
-Pos4=2-65-155
-Pos5=2-89-155
-Pos6=2-75-102
-Pos7=2-59-104
-Pos8=2-69-116
-Pos9=2-68-131
-Pos10=2-112-122
-Pos11=2-113-102
-Pos12=2-112-143
-Pos13=2-140-121
-Pos14=2-48-129
-Pos15=2-170-152
-Pos16=2-151-142
-Pos17=2-152-127
-Pos18=2-173-108
-Pos19=2-173-121
-Pos20=2-153-128
-Pos21=2-163-122
-Pos22=2-136-123
-Pos23=2-174-124
-Pos24=2-133-130
-Pos25=2-19-132
+Pos2=4-328-608
+Pos1=4-506-599
+Pos3=4-348-579
+Pos4=4-352-609
+Pos5=4-354-630
+Pos6=4-401-583
+Pos7=4-402-604
+Pos8=4-401-622
+Pos9=4-445-627
+Pos10=4-455-609
+Pos11=4-453-587
+Pos12=4-453-609
+Pos13=4-333-601
+Pos14=4-325-604
+Pos15=4-310-611
 
 [NEWBIE_DUNGEON_3]
-Pos1=2-263-101
-Pos2=2-188-49
-Pos3=2-211-47
-Pos4=2-225-40
-Pos5=2-236-75
-Pos6=2-220-71
-Pos7=2-214-16
-Pos8=2-236-18
-Pos9=2-264-25
-Pos10=2-265-50
-Pos11=2-285-67
-Pos12=2-285-25
-Pos13=2-324-30
-Pos14=2-313-50
-Pos15=2-331-69
-Pos16=2-337-50
-Pos17=2-317-48
-Pos18=2-280-52
-Pos19=2-250-50
-Pos20=2-220-60
-Pos21=2-204-40
-Pos22=2-194-40
-Pos23=2-184-49
-Pos24=2-195-53
-Pos25=2-179-48
+Pos2=4-515-495
+Pos1=4-541-578
+Pos3=4-514-548
+Pos4=4-560-501
+Pos5=4-552-538
+Pos6=4-576-530
+Pos7=4-614-497
+Pos8=4-609-523
+Pos9=4-605-541
+Pos10=4-493-517
+Pos11=4-484-515
+Pos12=4-470-526
+Pos13=4-474-527
+Pos14=4-325-604
+Pos15=4-310-611
+
+[NEWBIE_DUNGEON_4]
+Pos1=4-541-620
+Pos2=4-517-700
+Pos3=4-511-652
+Pos4=4-504-677
+Pos5=4-578-656
+Pos6=4-549-667
+Pos7=4-559-689
+Pos8=4-617-701
+Pos9=4-605-680
+Pos10=4-621-655
+Pos11=4-599-666
+Pos12=4-495-680
+Pos13=4-486-672
+Pos14=4-470-681
+Pos15=4-474-682
 
 [ALREDEDORES_ULLATHORPE_1]
 Pos1=1-512-499
@@ -920,7 +912,7 @@ Pos12=1-593-231
 Pos13=1-561-260
 
 [CATAS_ENTRADA_ESTE]
-Pos1=1-616-539
+Pos1=1-614-539
 Pos2=2-451-546
 Pos3=2-436-546
 Pos4=2-446-557
@@ -933,7 +925,7 @@ Pos10=2-422-618
 Pos11=2-442-609
 Pos12=2-448-609
 Pos13=2-477-642
-Pos14=2-477-666
+Pos14=2-478-666
 
 [CATAS_ENTRADA_OESTE]
 Pos1=1-480-546
@@ -1010,23 +1002,40 @@ Pos13=2-387-477
 Pos14=2-388-496
 Pos15=2-379-567
 
+[PIRAMIDE_2] ' 30-35
+Pos1=1-379-565
+Pos2=2-362-555
+Pos3=2-405-550
+Pos4=2-405-537
+Pos5=2-360-518
+Pos6=2-366-504
+Pos7=2-352-475
+Pos8=2-352-475
+Pos9=2-325-443
+Pos10=2-351-443
+Pos11=2-325-474
+Pos12=2-337-460
+Pos13=2-332-464
+Pos14=2-379-567
+
 [ALREDEDORES_HARROGATH] ' 32-35
-Pos1=1-737-596
-Pos2=1-766-594
-Pos3=1-765-567
-Pos4=1-749-562
-Pos5=1-765-537
-Pos6=1-770-521
-Pos7=1-759-501
-Pos8=1-743-484
-Pos9=1-741-472
-Pos10=1-770-487
-Pos11=1-782-525
-Pos12=1-872-556
-Pos13=1-855-611
-Pos14=1-806-621
-Pos15=1-786-621
-Pos16=1-752-602
+Pos1=1-734-64
+Pos2=1-720-76
+Pos3=1-722-105
+Pos4=1-702-134
+Pos5=1-728-131
+Pos6=1-766-143
+Pos7=1-800-133
+Pos8=1-799-104
+Pos9=1-801-92
+Pos10=1-801-77
+Pos11=1-796-64
+Pos12=1-783-66
+Pos13=1-721-91
+Pos14=1-746-108
+Pos15=1-770-118
+Pos16=1-781-115
+Pos17=1-787-118
 
 [VERILL_1]
 Pos1=1-839-455
@@ -1043,22 +1052,37 @@ Pos11=2-854-518
 Pos12=2-806-566
 
 [CEMENTERIO]
-Pos1=1-1140-453
-Pos2=2-1088-399
-Pos3=2-1157-408
-Pos4=2-1155-372
-Pos5=2-1071-379
+Pos1=1-264-846
+Pos2=1-263-875
+Pos3=1-275-900
+Pos4=1-289-906
+Pos5=1-315-903
+Pos6=1-297-865
+Pos7=1-304-847
+Pos8=1-291-856
 
 [LAVA_1]
-Pos1=1-1132-536
-Pos2=2-1024-523
-Pos3=2-1035-499
-Pos4=2-1040-508
-Pos5=2-1030-553
-Pos6=2-1005-578
-Pos7=2-1073-534
+Pos1=1-1132-79
+Pos2=2-1060-48
+Pos3=2-1051-36
+Pos4=2-1037-16
+Pos5=2-1061-16
+Pos6=2-1048-24
+Pos7=2-1030-50
+Pos8=2-1022-70
+Pos9=2-1002-53
+Pos10=2-1046-112
+Pos11=2-995-129
+Pos12=2-1023-137
+Pos13=2-988-166
+Pos14=2-1014-181
+Pos15=2-1002-200
+Pos16=2-1046-188
+Pos17=2-1046-160
+Pos18=2-1030-159
+Pos19=2-1073-56
 
-[ISLA_CIRQUE]
+[ISLA_CIRCE]
 Pos1=1-743-487
 Pos2=2-789-564
 Pos3=2-660-528
@@ -1081,14 +1105,24 @@ Pos5=2-388-496
 Pos6=2-379-567
 
 [ALREDEDORES_LAVA] ' 30-35
-Pos1=1-1091-530
-Pos2=1-1104-531
-Pos3=1-1136-503
-Pos4=1-1105-549
-Pos5=1-1072-562
-Pos6=1-1085-551
-Pos7=1-1106-504
-Pos8=1-1104-549
+Pos1=1-1097-82
+Pos2=1-1097-131
+Pos3=1-1085-109
+Pos4=1-1068-95
+Pos5=1-1071-110
+Pos6=1-1121-125
+Pos7=1-1129-111
+Pos8=1-1124-101
+Pos9=1-1110-94
+Pos10=1-1098-34
+Pos11=1-1130-65
+Pos12=1-1129-51
+Pos13=1-1110-69
+Pos14=1-1110-50
+Pos15=1-1077-36
+Pos16=1-1068-51
+Pos17=1-1068-68
+Pos18=1-1085-66
 
 [BOSQUES_ENTS] ' 28-34
 Pos1=1-338-393
@@ -1099,17 +1133,18 @@ Pos5=1-325-439
 Pos6=1-410-382
 
 [LEVIATANES]
-Pos1=1-887-491
-Pos2=1-989-504
+Pos1=1-887-505
+Pos2=1-989-515
 Pos3=1-924-584
 Pos4=1-1006-578
 Pos5=1-949-544
 
 [HELADO]
-Pos1=1-568-153
-Pos2=2-770-246
-Pos3=2-742-231
-Pos4=2-744-187
-Pos5=2-814-191
-Pos6=2-775-169
-Pos7=2-770-269
+Pos1=1-566-167
+Pos2=2-544-139
+Pos3=2-541-126
+Pos4=2-566-65
+Pos5=2-599-90
+Pos6=2-613-111
+Pos7=2-591-106
+Pos8=2-570-165

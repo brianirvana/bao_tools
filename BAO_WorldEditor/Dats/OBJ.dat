@@ -41,8 +41,6 @@
 ' 40 HACHA LEÑADOR
 ' 41 CAÑA PESCA / RED PESCA
 
-
-
 'Name=Árbol  
 'GrhIndex=7000
 'GrhIndex=7001
@@ -67,7 +65,7 @@ numero de OBJs libres (cuando se pueda hay que utilizarlos)
 'aca va el numero de OBJ mas alto, NO la cantidad de OBJs.
 'esto sirve para que los GMS puedan ver la lista completa de items para crear en una ventanita.
 
-NumOBJs=1500
+NumOBJs=1697
 
 [OBJ1]
 Name=Manzana Roja
@@ -94,7 +92,7 @@ CP3=LADRON
 CP4=BARDO
 CP5=PIRATA
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ3]
 Name=Hacha
@@ -113,7 +111,7 @@ CP4=BARDO
 CP5=CLERIGO
 CP6=ASESINO
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ4]
 Name=Piel de Tigre
@@ -175,19 +173,28 @@ CP6=ASESINO
 [OBJ10]
 Name=Cofre Abierto
 GrhIndex=502
-ObjType=6
-Agarrable=1
+ObjType=38
+Agarrable=0
 Abierta=0
 Llave=0
 IndexAbierta=10
 IndexCerrada=11
 IndexCerradaLlave=11
+NRODROP=7
+UniqueDrop=1
+Drop1=37-250-3 'azules
+Drop2=38-250-2 'rojas
+Drop3=659-1-1 'Bastón nudoso
+Drop4=662-1-1 'Sombrero Mágico
+Drop5=129-1-1 'dos filos
+Drop6=540-1-1 'Flauta comun
+Drop7=469-1-1 'laud comun
 
 [OBJ11]
 Name=Cofre Cerrado
 GrhIndex=503
-ObjType=6
-Agarrable=1
+ObjType=38
+Agarrable=0
 Abierta=1
 Llave=0
 IndexAbierta=10
@@ -278,10 +285,6 @@ CP4=BARDO
 CP5=CLERIGO
 CP6=ASESINO
 CP7=TRABAJADOR
-LingH=16
-LingP=0
-LingO=0
-SkHerreria=20
 
 [OBJ20]
 Name=Lápida
@@ -389,7 +392,7 @@ SND2=240
 SND1=241
 SND2=240
 Bot_MinLvl=10
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ31]
 Name=Vestimentas Comunes
@@ -405,7 +408,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ32]
 Name=Vestimentas Comunes
@@ -421,7 +424,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ33]
 Name=Cartel Sastre
@@ -451,7 +454,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=1
-Bot_MaxLvl=5
+Bot_MaxLvl=70
 
 [OBJ36]
 Name=Poción Amarilla
@@ -1256,7 +1259,7 @@ LingO=0
 Fundible=1
 SkHerreria=45
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ124]
 Name=Katana
@@ -1280,7 +1283,7 @@ LingO=0
 Fundible=1
 SkHerreria=30
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ125]
 Name=Sable
@@ -1302,7 +1305,7 @@ LingO=0
 Fundible=1
 SkHerreria=15
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ126]
 Name=Hacha Larga de Guerra
@@ -1325,11 +1328,11 @@ LingP=0
 LingO=0
 Fundible=1
 SkHerreria=50
-Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MinLvl=15
+Bot_MaxLvl=70
 
 [OBJ127]
-Name=Hacha de Leñador
+Name=Hacha de Leñador de Bronce
 GrhIndex=565
 ObjType=40
 Agarrable=0
@@ -1364,7 +1367,7 @@ SkHerreria=25
 Fundible=1
 SND1=37
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ129]
 Name=Hacha de Guerra Dos Filos
@@ -1375,7 +1378,7 @@ Anim=23
 MinHit=9
 MaxHit=20
 Valor=10000
-ValorPlata=20
+ValorPlata=0
 CP1=MAGO
 CP2=DRUIDA
 CP3=LADRON
@@ -1395,7 +1398,7 @@ SND1=25
 SND2=136
 SND3=248
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ130]
 Name=Escudo de Plata
@@ -1420,7 +1423,7 @@ LingO=0
 SkHerreria=50
 Fundible=1
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LOG=1
 SND1=37
 
@@ -1447,7 +1450,7 @@ LingO=0
 SkHerreria=50
 Fundible=1
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LOG=1
 CP7=CAZADOR
 
@@ -1466,7 +1469,7 @@ Crucial=0
 CP1=MAGO
 CP2=DRUIDA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 CP3=CAZADOR
 LINGH=10
 SKHERRERIA=30
@@ -1717,7 +1720,7 @@ LingO=0
 Fundible=1
 SkHerreria=50
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 SND1=25
 SND2=136
 SND3=248
@@ -1835,7 +1838,7 @@ Valor=50
 Crucial=1
 SND1=202
 SND2=203
-BOT_MAXLVL=5
+Bot_MaxLvl=70
 BOT_MINLVL=1
 
 '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -2014,15 +2017,19 @@ IndexCerrada=185
 IndexCerradaLlave=186
 
 [OBJ187]
-Name=Piquete de Minero
+Name=Pico de Hierro
 GrhIndex=608
 ObjType=39
 Agarrable=0
 Anim=35
-MinHit=2
-MaxHit=3
-Valor=300
+MinHit=5
+MaxHit=6
+Valor=2000
 Crucial=1
+SKHERRERIA=50
+LINGO=0
+LINGH=25
+LINGP=0
 
 [OBJ188]
 Name=Yacimiento de Hierro
@@ -2060,6 +2067,7 @@ Agarrable=0
 Lingoteindex=386
 Valor=15
 Log=1
+MINSKILL=25
 
 [OBJ193]
 Name=Minerales de Plata (20 necesarios)
@@ -2068,7 +2076,7 @@ ObjType=23
 Agarrable=0
 Lingoteindex=387
 Valor=25
-MinSkill=30
+MinSkill=75
 LOG=1
 
 [OBJ194]
@@ -2078,7 +2086,7 @@ ObjType=23
 Agarrable=0
 Lingoteindex=388
 Valor=50
-MinSkill=50
+MinSkill=100
 LOG=1
 
 [OBJ195]
@@ -2101,7 +2109,7 @@ CP8=TRABAJADOR
 SND1=241
 SND2=240
 Bot_MinLvl=30
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=200
 LingP=0
 LingO=0
@@ -2121,7 +2129,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ197]
 Name=Flecha Mágica
@@ -2468,7 +2476,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ238]
 Name=Túnica de Sacerdote
@@ -2483,7 +2491,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ239]
 Name=Túnica Roja
@@ -2498,7 +2506,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ240]
 Name=Ropa de Enano (E/G)
@@ -2512,7 +2520,7 @@ MinDef=0
 Valor=0
 Crucial=1
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ241] 'Puerta para negocio porque no tiene clave
 Name=Puerta de madera abierta
@@ -2554,7 +2562,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=CAZADOR
 Bot_MinLvl=30
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=200
 LingP=0
 LingO=0
@@ -3828,9 +3836,15 @@ CP8=BANDIDO
 CP9=CLERIGO
 CP10=LADRON
 CP11=TRABAJADOR
+<<<<<<< HEAD
+Bot_MinLvl=1
+Bot_MinLvl=55
+LingH=150
+=======
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=170
+>>>>>>> parent of e0aa72a (all bot minlvl 1 and maxlvl 50 also fixed cacerola and manto noble)
 LingP=0
 LingO=0
 SkHerreria=50
@@ -3849,7 +3863,7 @@ Valor=6000
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=0
 LingP=0
 LingO=0
@@ -3875,7 +3889,7 @@ CP2=DRUIDA
 CP3=BARDO
 CRUCIAL=1
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ360]
 Name=Armadura de Cazador
@@ -3901,7 +3915,7 @@ CP11=ASESINO
 SND1=241
 SND2=240
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ361]
 Name=Tormenta de Fuego
@@ -3952,7 +3966,7 @@ Valor=1960
 SND1=176
 SND2=177
 SND3=2
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Bot_MinLvl=15
 LingH=25
 LingP=0
@@ -3970,7 +3984,7 @@ MaxHit=7
 Apuñala=1
 Valor=1000
 CP1=GUERRERO
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Bot_MinLvl=25
 LingH=70
 LingP=0
@@ -4001,7 +4015,7 @@ CP5=CAZADOR
 CP6=LADRON
 CP7=BANDIDO
 CP8=GUERRERO
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Bot_MinLvl=30
 LingH=110
 LingP=0
@@ -4061,13 +4075,14 @@ CP8=GUERRERO
 CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
-PIELLOBO=100
-PIELOSO=50
-PIELOSOPOLAR=25
-PIELTIGRE=10
+PIELLOBO=25
+PIELOSO=12
+PIELOSOPOLAR=4
+PIELTIGRE=5
 Fundible=1
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+SkSastreria=90
 
 [OBJ371]
 Name=Tumba de Mherlyna
@@ -4210,7 +4225,7 @@ MinDef=2
 Valor=150
 Crucial=1
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ384]
 Name=Hacha de Leñador de Diamante
@@ -4218,8 +4233,8 @@ GrhIndex=603
 ObjType=40
 Agarrable=2
 Anim=29
-MinHit=20
-MaxHit=20
+MinHit=6
+MaxHit=8
 Valor=100
 ValorDonante=15000
 Donante=1
@@ -4288,7 +4303,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=TRABAJADOR
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=350
 LingP=0
 LingO=0
@@ -4314,7 +4329,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=TRABAJADOR
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=500
 LingP=0
 LingO=0
@@ -4341,7 +4356,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=TRABAJADOR
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=350
 LingP=0
 LingO=0
@@ -4368,7 +4383,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=TRABAJADOR
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=500
 LingP=0
 LingO=0
@@ -4424,7 +4439,7 @@ CP2=DRUIDA
 CP3=LADRON
 CP4=BARDO
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ399]
 Name=Cimitarra
@@ -4439,7 +4454,7 @@ CP1=MAGO
 CP2=DRUIDA
 CP3=LADRON
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=60
 LingP=0
 LingO=0
@@ -4499,7 +4514,7 @@ SND1=253
 SND2=136
 SND3=248
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ402]
 Name=Espada Mata Dragones Negra
@@ -4523,7 +4538,7 @@ SND1=25
 SND2=136
 SND3=248
 Bot_MinLvl=0
-Bot_MaxLvl=0
+Bot_MaxLvl=70
 
 [OBJ403]
 Name=Espada de Plata
@@ -4550,7 +4565,7 @@ LingO=50
 SkHerreria=100
 Fundible=1
 Bot_MinLvl=30
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LOG=1
 SND1=25
 SND2=136
@@ -4570,8 +4585,8 @@ Crucial=1
 CP1=MAGO
 CP2=DRUIDA
 SND1=284
-Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MinLvl=1
+Bot_MaxLvl=70
 
 [OBJ405]
 Name=Casco de Plata
@@ -5266,6 +5281,7 @@ GrhIndex=685
 ObjType=26
 Agarrable=0
 StaffPower=2
+StaffDamageBonus=1
 MinHit=1
 MaxHit=1
 Valor=8500
@@ -5284,8 +5300,8 @@ CP11=TRABAJADOR
 Madera=3200
 SkCarpinteria=100
 SND1=38
-SND2=38
-SND3=38
+SND2=39
+SND3=40
 
 [OBJ470]
 Name=Fuerza
@@ -5400,7 +5416,7 @@ CP2=DRUIDA
 SND1=208
 SND2=208
 SND3=232
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=20
 
 [OBJ479]
@@ -5414,15 +5430,19 @@ Municiones=1
 MinHit=4
 MaxHit=10
 Valor=3880
-Madera=500
 CP1=MAGO
 CP2=DRUIDA
 SND1=208
 SND2=208
 SND3=232
-Bot_MaxLvl=50
+<<<<<<< HEAD
+Bot_MinLvl=20
+Bot_MinLvl=1
+=======
+Bot_MaxLvl=70
 BOT_MINLVL=20
 SkCarpinteria=25
+>>>>>>> parent of e0aa72a (all bot minlvl 1 and maxlvl 50 also fixed cacerola and manto noble)
 
 [OBJ480]
 Name=Flecha
@@ -5541,13 +5561,12 @@ CP3=LADRON
 CP4=BARDO
 CP5=CLERIGO
 CP6=PIRATA
-CP7=ASESINO
 LingH=66
 LingP=0
 LingO=0
 SkHerreria=50
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ485]
 Name=Armadura Legendaria
@@ -5586,7 +5605,7 @@ MinDef=1
 Valor=75
 Crucial=1
 Bot_MinLvl=2
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ487]
 Name=Dama de las Tinieblas (H/E/EO-M)
@@ -5624,7 +5643,7 @@ MinDef=7
 Valor=1000
 Crucial=1
 Bot_MinLvl=10
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ489]
 Name=Armadura de Placas Azul
@@ -5641,8 +5660,8 @@ CP3=LADRON
 CP4=BARDO
 CP5=PIRATA
 CP6=ASESINO
-LingH=500
-LingP=200
+LingH=350
+LingP=0
 LingO=0
 SkHerreria=80
 Fundible=1
@@ -5682,11 +5701,6 @@ MinDef=9
 Valor=3010
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
-LingH=43
-LingP=0
-LingO=0
-SkHerreria=35
 SND1=241
 SND2=240
 
@@ -5706,8 +5720,8 @@ CP3=LADRON
 CP4=BARDO
 CP5=PIRATA
 CP6=ASESINO
-LingH=425
-LingP=200
+LingH=200
+LingP=0
 LingO=0
 SkHerreria=82
 Fundible=1
@@ -5760,7 +5774,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=CAZADOR
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=500
 LingP=50
 LingO=0
@@ -5785,7 +5799,7 @@ CP4=BARDO
 CP5=PIRATA
 CP6=ASESINO
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=475
 LingP=0
 LingO=0
@@ -5816,7 +5830,7 @@ CP1=MAGO
 CP2=DRUIDA
 CP3=BARDO
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ500]
 Name=Armadura Bruñida (E/G)
@@ -5836,7 +5850,7 @@ CP5=PIRATA
 CP6=ASESINO
 CP7=TRABAJADOR
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=500
 LingP=50
 LingO=0
@@ -5858,7 +5872,7 @@ Crucial=1
 CP1=MAGO
 CP2=PIRATA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ502]
 Name=Ropa de Campesino (E/G)
@@ -5874,7 +5888,7 @@ Crucial=1
 CP1=MAGO
 CP2=PIRATA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ503]
 Name=Trampa Visual (H/E/EO-M)
@@ -5890,9 +5904,14 @@ Crucial=1
 CP1=MAGO
 CP2=PIRATA
 CP3=ASESINO
-CP4=BARDO
+CP4=
 CP5=CAZADOR
 CP6=DRUIDA
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ504]
 Name=Atuendo Combinado (H/E/EO-M)
@@ -5907,7 +5926,12 @@ Valor=200
 Crucial=1
 CP1=PIRATA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+PIELLOBO=5
+PIELOSO=0
+PIELOSOPOLAR=0
+PIELTIGRE=0
+SkSastreria=25
 
 [OBJ505]
 Name=Atuendo Azul (H/E/EO-M)
@@ -5922,7 +5946,7 @@ Valor=200
 Crucial=1
 CP1=PIRATA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ506]
 Name=Atuendo Rosa (H/E/EO-M)
@@ -5937,7 +5961,7 @@ Valor=150
 Crucial=1
 CP1=PIRATA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ507]
 Name=Ropa Violeta (E/G)
@@ -5951,9 +5975,9 @@ MinDef=2
 Valor=200
 Crucial=1
 CP1=MAGO
-CP2=PIRATA
-Bot_MinLvl=15
-Bot_MaxLvl=50
+CP2=DRUIDA
+Bot_MinLvl=1
+Bot_MaxLvl=70
 
 [OBJ508]
 Name=Ropa Estuaria (H/E/EO-M)
@@ -5969,7 +5993,7 @@ Crucial=1
 CP1=MAGO
 CP2=PIRATA
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ509]
 Name=Túnica de Maga Oscura (H/E/EO-M)
@@ -6008,7 +6032,7 @@ MinDef=15
 Valor=6000
 Crucial=1
 Bot_MinLvl=20
-Bot_MaxLvl=0
+Bot_MaxLvl=70
 
 [OBJ511]
 Name=Vestido de Novia Sensual (H/E/EO-M)
@@ -6023,7 +6047,7 @@ MinDef=3
 Valor=700
 Crucial=1
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ512]
 Name=Vestido Calipso (E/G-M)
@@ -6038,7 +6062,7 @@ MinDef=6
 Valor=1000
 Crucial=1
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ513]
 Name=Vestido de Bruja (H/E/EO-M)
@@ -6053,7 +6077,7 @@ Valor=6000
 Crucial=1
 CP1=GUERRERO
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ514]
 Name=Vestido de Bruja Especial (H/E/EO-M)
@@ -6069,7 +6093,7 @@ Crucial=1
 CP1=GUERRERO
 CP2=MAGO
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ515]
 Name=Ropa Legendaria
@@ -6082,7 +6106,12 @@ MinDef=9
 Valor=3900
 Crucial=1
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+PIELLOBO=15
+PIELOSO=1
+PIELOSOPOLAR=1
+PIELTIGRE=1
+SkSastreria=50
 
 [OBJ516]
 Name=Túnica de Maga del Imperio (H/E/EO-M)
@@ -6173,7 +6202,12 @@ SND1=202
 SND2=203
 LOG=1
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ520]
 Name=Armadura de Teniente Real
@@ -6255,7 +6289,12 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ525]
 Name=Túnica Reforzada (E/G)
@@ -6271,7 +6310,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ526]
 Name=Túnica Reforzada de Mujer (E/G-M)
@@ -6288,7 +6327,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ527]
 Name=Ropa de Enana (E/G-M)
@@ -6304,7 +6343,7 @@ MinDef=0
 Valor=0
 Crucial=1
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ528]
 Name=Túnica Negra
@@ -6319,6 +6358,9 @@ Crucial=1
 CP1=GUERRERO
 SND1=202
 SND2=203
+PIELLOBO=8
+PIELOSO=4
+SkSastreria=4
 
 [OBJ529]
 Name=Armadura de Cuero (H/E/EO-M)
@@ -6336,7 +6378,7 @@ CP2=PIRATA
 SND1=241
 SND2=240
 Bot_MinLvl=10
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ530]
 Name=Inmovilizar
@@ -6443,6 +6485,7 @@ SND2=51
 SND3=51
 Madera=2000
 SkCarpinteria=50
+StaffDamageBonus=1
 
 [OBJ541]
 Name=Ceguera
@@ -6461,15 +6504,15 @@ Valor=50000
 HechizoIndex=31
 
 [OBJ543]
-Name=Red de Pesca de Diamante
+Name=Red de Pesca
 GrhIndex=844
 ObjType=2
 Agarrable=2
 Valor=5000
 ValorDonante=15000
 Donante=1
-MaxHit=20
-MinHit=20
+MaxHit=7
+MinHit=7
 LOG=1
 NoSeCae=1
 
@@ -6697,7 +6740,7 @@ MinHit=6
 MaxHit=8
 Apuñala=1
 Valor=4060
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Bot_MinLvl=30
 LingH=150
 LingP=10
@@ -6727,13 +6770,13 @@ ObjType=29
 Agarrable=1
 
 [OBJ561]
-Name=Piquete de Minero de Diamante
+Name=Pico de Minero de Diamante
 GrhIndex=6999
 ObjType=39
 Agarrable=2
 Anim=35
-MinHit=25000
-MaxHit=25000
+MinHit=6
+MaxHit=8
 Valor=100
 ValorDonante=15000
 Donante=1
@@ -6743,7 +6786,7 @@ TotalLife=300
 Life=0
 Destroy=1
 NoSeCae=1
-APUÑALA=1
+APUÑALA=0
 
 [OBJ562]
 Name=Poción Azul (Newbie)
@@ -6768,7 +6811,7 @@ TipoPocion=1
 MaxModificador=10
 MinModificador=5
 DuracionEfecto=120
-newbie=1
+Newbie=1
 NoSeCae=1
 Valor=10
 Crucial=1
@@ -7506,10 +7549,15 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 SND1=202
 SND2=203
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ615]]'2da Jerarq
 Name=Túnica de Archimago (E/G)
-GrhIndex=657
+GrhIndex=806
 ObjType=3
 NumRopaje=135
 Agarrable=0
@@ -7530,6 +7578,11 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 SND1=202
 SND2=203
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ616]]'2da Jerarq
 Name=Armadura de Guerrero Campeón
@@ -7637,27 +7690,15 @@ ObjType=10
 Agarrable=1
 
 [OBJ625]
-Name=Escudo AlejoLp
-GrhIndex=560
-ObjType=16
-NumRopaje=2
+Name=Pico de Bronce
+GrhIndex=608
+ObjType=39
 Agarrable=0
-Anim=1
-MaxDef=1
-MinDef=1
-Valor=1750000
-CP1=MAGO
-CP2=DRUIDA
-CP3=LADRON
-CP4=BARDO
-CP5=PIRATA
-CP6=ASESINO
-CP7=TRABAJADOR
-LingH=0
-LingP=0
-LingO=0
-SkHerreria=101
-SND1=255
+ANIM=35
+CRUCIAL=1
+MAXHIT=3
+MINHIT=2
+VALOR=300
 
 [OBJ626]
 Name=No ves nada interesante.
@@ -7712,10 +7753,6 @@ CP1=BARDO
 CP2=DRUIDA
 CP3=MAGO
 CP4=MAGO
-LingH=169
-LingP=0
-LingO=0
-SkHerreria=70
 SND1=241
 SND2=240
 
@@ -7813,10 +7850,6 @@ MinDef=44
 Valor=31830
 Crucial=1
 CP1=MAGO
-LingH=169
-LingP=0
-LingO=0
-SkHerreria=70
 SND1=241
 SND2=240
 CP2=DRUIDA
@@ -7935,7 +7968,7 @@ MinDef=1
 Valor=75
 Crucial=1
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ642]
 Name=Tumba de Calixto
@@ -8020,7 +8053,7 @@ CP11=TRABAJADOR
 SND1=241
 SND2=240
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ649]
 Name=Cartel
@@ -8041,7 +8074,7 @@ Valor=5000
 Nosecae=0
 LOG=1
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 SND1=202
 SND2=203
 
@@ -8126,7 +8159,7 @@ SND1=208
 SND2=208
 SND3=179
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ659]
 Name=Bastón Nudoso
@@ -8153,7 +8186,7 @@ CP11=TRABAJADOR
 SkCarpinteria=50
 Madera=4500
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ660]
 Name=Báculo Engarzado
@@ -8180,12 +8213,12 @@ CP11=TRABAJADOR
 SkCarpinteria=75
 Madera=10000
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Fundible=0
 SND1=208
 SND2=208
 SND3=179
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=44
 LOG=1
 
@@ -8213,8 +8246,8 @@ CP8=GUERRERO
 CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
-Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MinLvl=1
+Bot_MaxLvl=70
 
 [OBJ383]
 Name=Sombrero Mágico
@@ -8240,7 +8273,10 @@ CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+PIELLOBO=5
+PIELOSO=5
+SkSastreria=25
 
 [OBJ662]
 Name=Sombrero de Mago
@@ -8265,8 +8301,12 @@ CP8=GUERRERO
 CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=20
+PIELLOBO=10
+PIELOSO=5
+PIELTIGRE=3
+SkSastreria=25
 
 [OBJ663]
 Name=Arco Simple Reforzado
@@ -8287,10 +8327,15 @@ CP2=DRUIDA
 SND1=208
 SND2=208
 SND3=232
-Bot_MaxLvl=50
+<<<<<<< HEAD
+Bot_MinLvl=55
+Bot_MinLvl=1
+=======
+Bot_MaxLvl=70
 BOT_MINLVL=25
 Madera=350
 SkCarpinteria=10
+>>>>>>> parent of e0aa72a (all bot minlvl 1 and maxlvl 50 also fixed cacerola and manto noble)
 
 [OBJ664]
 Name=Arco Compuesto Reforzado
@@ -8310,7 +8355,7 @@ CP2=MAGO
 CP3=CLERIGO
 CP4=LADRON
 CP5=BARDO
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=25
 Madera=5000
 SkCarpinteria=50
@@ -8340,7 +8385,7 @@ CP7=BARDO
 CP8=TRABAJADOR
 Madera=7500
 SkCarpinteria=75
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=30
 SND1=208
 SND2=208
@@ -8370,7 +8415,7 @@ CP1=MAGO
 CP2=DRUIDA
 CP3=BARDO
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ668]
 Name=Armadura de Cuero (E/G)
@@ -8388,7 +8433,7 @@ CP2=PIRATA
 SND1=241
 SND2=240
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ669]
 Name=Ropa Real
@@ -8423,7 +8468,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ671]
 Name=Túnica de Monje Marron (E/G)
@@ -8439,7 +8484,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ672]
 Name=Armadura de Elite (E/G)
@@ -8460,7 +8505,7 @@ SkHerreria=50
 SND1=241
 SND2=240
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ673]
 Name=Mimetismo
@@ -8493,8 +8538,8 @@ SND2=203
 [OBJ676]
 Name=Vestimenta Imperial (E/G)
 GrhIndex=4925
-ObjType=3
 NumRopaje=175
+ObjType=3
 Agarrable=0
 Real=1
 RazaEnana=1
@@ -8578,8 +8623,7 @@ CP5=PIRATA
 CP6=BANDIDO
 CP7=MAGO
 CP8=LADRON
-CP9=DRUIDA
-CP10=TRABAJADOR
+CP9=TRABAJADOR
 SND1=241
 SND2=240
 
@@ -8905,8 +8949,8 @@ CP11=TRABAJADOR
 Madera=10000
 SkCarpinteria=100
 StaffDamageBonus=4
-SND1=40
-SND2=40
+SND1=38
+SND2=39
 SND3=40
 LOG=1
 
@@ -8924,7 +8968,7 @@ CP3=LADRON
 CP4=GUERRERO
 CP5=PIRATA
 CP6=BANDIDO
-LingH=20
+LingH=35
 LingP=0
 LingO=0
 SkHerreria=25
@@ -8949,8 +8993,8 @@ CP5=PIRATA
 CP6=BANDIDO
 CP7=TRABAJADOR
 CP8=CAZADOR
-LingH=30
-LingP=30
+LingH=50
+LingP=25
 LingO=0
 SkHerreria=50
 ModGold=110
@@ -8974,9 +9018,9 @@ CP6=BANDIDO
 CP7=CAZADOR
 CP8=PALADIN
 CP10=TRABAJADOR
-LingH=40
-LingP=40
-LingO=40
+LingH=50
+LingP=50
+LingO=50
 SkHerreria=75
 ModGold=115
 Fundible=1
@@ -9565,7 +9609,7 @@ Agarrable=1
 [OBJ779]
 Name=Mesa de Carpintero
 GrhIndex=1474
-ObjType=20
+ObjType=47
 Agarrable=1
 
 [OBJ780]
@@ -10064,8 +10108,8 @@ GrhIndex=609
 ObjType=35
 Valor=40000
 PasajeMapa=1
-PasajePosX=1045
-PasajePosY=543
+PasajePosX=1037
+PasajePosY=85
 Crucial=1
 
 [OBJ858]
@@ -10115,8 +10159,8 @@ MinDef=2
 Valor=1000
 CP1=MAGO
 Crucial=1
-Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MinLvl=1
+Bot_MaxLvl=70
 
 [OBJ864]
 Name=Casco de Lobo
@@ -10132,7 +10176,7 @@ Respawn=1
 Crucial=1
 CP1=MAGO
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ865]
 Name=Alforja
@@ -10164,6 +10208,9 @@ Valor=40
 Crucial=1
 SND1=202
 SND2=203
+PIELLOBO=2
+PIELOSO=0
+SkSastreria=10
 
 [OBJ868]
 Name=Tumba de Chatillon
@@ -10223,11 +10270,11 @@ CP7=GUERRERO
 CP8=CLERIGO
 CP9=TRABAJADOR
 SkHerreria=25
-LingH=25
+LingH=30
 LingP=0
 LingO=0
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ874]
 Name=Cuerno de llamado Armada
@@ -10276,7 +10323,12 @@ RazaEnana=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
+PIELLOBO=20
+PIELOSO=10
+PIELOSOPOLAR=5
+PIELTIGRE=4
+SkSastreria=50
 
 [OBJ878] 'enano mujer
 Name=Túnica de Gran Hechicera (E/G-M)
@@ -10293,7 +10345,7 @@ Mujer=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ879] 'humano mujer
 Name=Vestido Bordado de Gala (H/E/EO-M)
@@ -10341,8 +10393,8 @@ CP4=BARDO
 CP5=PIRATA
 CP6=ASESINO
 CP7=CAZADOR
-LingH=650
-LingP=200
+LingH=500
+LingP=50
 LingO=0
 SkHerreria=90
 Fundible=1
@@ -10489,7 +10541,7 @@ LingP=0
 LingO=0
 SkHerreria=65
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ890] 'humano
 Name=Armadura de Cuero de Oso Pardo (H/E/EO)
@@ -10508,7 +10560,7 @@ CP4=PALADIN
 SND1=241
 SND2=240
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ891] 'humano mujer
 Name=Armadura de Cuero de Oso Pardo (H/E/EO-M)
@@ -10528,7 +10580,7 @@ CP4=PALADIN
 SND1=241
 SND2=240
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ892] 'humano mujer
 Name=Coraza Compuesta Roja (H/E/EO-M)
@@ -10549,7 +10601,7 @@ LingP=0
 LingO=0
 SkHerreria=72
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ893] 'humano mujer
 Name=Anillas Con Manto Verde (H/E/EO-M)
@@ -10569,7 +10621,7 @@ LingP=0
 LingO=0
 SkHerreria=65
 Bot_MinLvl=18
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ894] 'humano mujer
 Name=Armadura de Cruzada (H/E/EO-M)
@@ -10597,7 +10649,7 @@ SkHerreria=72
 SND1=241
 SND2=240
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ895] 'gnomo
 Name=Armadura Legendaria (E/G)
@@ -10641,7 +10693,7 @@ CP1=BARDO
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ897] 'humano
 Name=Cota de Piquero (H/E/EO)
@@ -10660,7 +10712,7 @@ LingP=0
 LingO=0
 SkHerreria=65
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ898] 'humano Mujer
 Name=Armadura de Placas de Gala (H/E/EO-M)
@@ -10678,8 +10730,8 @@ CP4=BARDO
 CP5=CLERIGO
 CP6=PIRATA
 CP7=ASESINO
-LingH=600
-LingP=122
+LingH=500
+LingP=70
 LingO=0
 SkHerreria=85
 Fundible=1
@@ -10699,7 +10751,7 @@ Mujer=1
 CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
-LingH=175
+LingH=130
 LingP=0
 LingO=0
 SkHerreria=72
@@ -10734,7 +10786,7 @@ Mujer=1
 CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
-LingH=200
+LingH=160
 LingP=0
 LingO=0
 SkHerreria=70
@@ -10770,14 +10822,14 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 CP4=ASESINO
-LingH=320
+LingH=180
 LingP=0
 LingO=0
-SkHerreria=80
+SkHerreria=65
 SND1=241
 SND2=240
 Bot_MinLvl=28
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ904] 'humano mujer
 Name=Placas Combinadas (H/E/EO-M)
@@ -10837,10 +10889,10 @@ CP4=ASESINO
 CP5=BANDIDO
 CP6=BARDO
 CP7=DRUIDA
-LingH=300
-LingP=50
+LingH=320
+LingP=25
 LingO=0
-SkHerreria=100
+SkHerreria=75
 Fundible=1
 
 [OBJ907]
@@ -10910,7 +10962,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 Bot_MinLvl=2
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ910] 'gnomo
 Name=Atuendo de Gnomo (E/G)
@@ -10977,7 +11029,7 @@ Crucial=1
 Mujer=1
 RazaEnana=1
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ915] 'gnomo
 Name=Ropaje de Aldeano (E/G)
@@ -11167,7 +11219,7 @@ LingP=0
 LingO=0
 SkHerreria=15
 Bot_MinLvl=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ926] 'gnomo mujer
 Name=Hombreras de Amazona (E/G-M)
@@ -11182,7 +11234,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ927] 'gnomo
 Name=Alifafe de Lobo (E/G)
@@ -11269,7 +11321,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ932] 'gnomo
 Name=Sotana de Gran Hechicero (E/G)
@@ -11308,7 +11360,7 @@ LingP=0
 LingO=0
 SkHerreria=40
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ934] 'gnomo
 Name=Cotas Livianas (E/G)
@@ -11325,7 +11377,7 @@ CP1=MAGO
 CP2=DRUIDA
 CP3=BARDO
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ935] 'gnomo mujer
 Name=Cotas con Peto Compuesto (E/G-M)
@@ -11346,7 +11398,7 @@ LingP=0
 LingO=0
 SkHerreria=57
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ936] 'gnomo mujer 
 Name=Túnica de Gran Hechicera (E/G-M)
@@ -11381,7 +11433,7 @@ LingP=0
 LingO=0
 SkHerreria=65
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ938] 'gnomo mujer
 Name=Traje de Bruja (E/G-M)
@@ -11397,7 +11449,7 @@ Mujer=1
 RazaEnana=1
 CP1=GUERRERO
 Bot_MinLvl=18
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ939] 'gnomo
 Name=Túnica de Gala Roja (E/G)
@@ -11413,7 +11465,7 @@ RazaEnana=1
 SND1=202
 SND2=203
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ940] 'gnomo
 Name=Cota de Mallas Enteriza (E/G)
@@ -11428,7 +11480,7 @@ RazaEnana=1
 CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
-LingH=219
+LingH=165
 LingP=0
 LingO=0
 SkHerreria=75
@@ -11446,7 +11498,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ942] 'gnomo mujer
 Name=Vestido de Gala Turquesa (E/G-M)
@@ -11461,7 +11513,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ943] 'elfo
 Name=Sobrevesta Élfica (H/E/EO)
@@ -11657,7 +11709,7 @@ Crucial=1
 RazaEnana=1
 Mujer=1
 Bot_MinLvl=1
-Bot_MaxLvl=5
+Bot_MaxLvl=70
 
 [OBJ958] 'enano
 Name=Vestimenta Común (E/G)
@@ -11673,7 +11725,7 @@ RazaEnana=1
 SND1=202
 SND2=203
 Bot_MinLvl=1
-Bot_MaxLvl=5
+Bot_MaxLvl=70
 
 [OBJ959] 'enano
 Name=Ropa de Carpintero Enano (E/G)
@@ -11783,7 +11835,7 @@ Valor=400
 Crucial=1
 RazaEnana=1
 Bot_MinLvl=28
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ965] 'enano
 Name=Antigua Armadura Dorada (E/G)
@@ -11834,7 +11886,7 @@ Valor=2000
 Crucial=1
 RazaEnana=1
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ968] 'enano
 Name=Armadura Grabada Completa (E/G)
@@ -11856,7 +11908,7 @@ SkHerreria=47
 SND1=241
 SND2=240
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ969] 'enano
 Name=Túnica Dorada de Gala (E/G)
@@ -11872,7 +11924,7 @@ RazaEnana=1
 SND1=202
 SND2=203
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ970] 'enano
 Name=Armadura de Placas Livianas Thor (E/G)
@@ -11891,7 +11943,7 @@ CP3=DRUIDA
 SND1=241
 SND2=240
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ971] 'enano
 Name=Armadura Metal Oscuro (E/G)
@@ -11914,7 +11966,7 @@ SkHerreria=70
 SND1=241
 SND2=240
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ972] 'enano
 Name=Túnica de Mahal (E/G)
@@ -11953,7 +12005,7 @@ SkHerreria=70
 SND1=241
 SND2=240
 Bot_MinLvl=5
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ974] 'enano
 Name=Capa de Monje Cocida con Mithril (E/G)
@@ -11970,7 +12022,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ975] 'enano
 Name=Cota de Mallas Larga (E/G)
@@ -12003,8 +12055,8 @@ RazaEnana=1
 CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
-LingH=600
-LingP=100
+LingH=350
+LingP=0
 LingO=0
 SkHerreria=85
 Fundible=1
@@ -12025,7 +12077,7 @@ RazaDrow=1
 SND1=202
 SND2=203
 Bot_MinLvl=1
-Bot_MaxLvl=5
+Bot_MaxLvl=70
 
 [OBJ978] 'elfo oscuro
 Name=Harapos de la Cueva (EO)
@@ -12041,7 +12093,7 @@ RazaDrow=1
 SND1=202
 SND2=203
 Bot_MinLvl=1
-Bot_MaxLvl=5
+Bot_MaxLvl=70
 
 [OBJ979] 'elfo oscuro
 Name=Armadura Maghtere Roja (EO)
@@ -12061,42 +12113,38 @@ CP1=DRUIDA
 SND1=241
 SND2=240
 Bot_MinLvl=10
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ980] 'elfo oscuro
-Name=Armadura de Combate Liviana (EO)
+Name=Armadura de Combate Liviana
 GrhIndex=16706
-ObjType=3
+ObjType=48
 NumRopaje=344
 Agarrable=0
 MinDef=14
 MaxDef=20
 Valor=10000
-RazaDrow=1
 CP1=DRUIDA
 SND1=241
 SND2=240
 Bot_MinLvl=15
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
-[OBJ981] 'elfo oscuro
-Name=Piwafwi de Fuego (EO)
+[OBJ981] 
+Name=Skin Piwafwi de Fuego
 GrhIndex=17436
-ObjType=3
+ObjType=48
 NumRopaje=381
-Agarrable=0
-MinDef=16
-MaxDef=20
 Valor=11000
-Crucial=1
-RazaDrow=1
-Bot_MinLvl=15
-Bot_MaxLvl=50
+ValorDonante=2000
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
 
 [OBJ982] 'elfo oscuro
-Name=Armadura Melee de Explorador (EO)
+Name=Skin Armadura Melee de Explorador
 GrhIndex=17463
-ObjType=3
+ObjType=48
 NumRopaje=382
 Agarrable=0
 MinDef=18
@@ -12110,12 +12158,12 @@ CP3=DRUIDA
 SND1=241
 SND2=240
 Bot_MinLvl=28
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ983] 'elfo oscuro
 Name=Piwafwi Purpura del Silencio (EO-M)
 GrhIndex=17490
-ObjType=3
+ObjType=48
 NumRopaje=383
 Agarrable=0
 MinDef=20
@@ -12128,12 +12176,12 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ984] 'elfo oscuro
 Name=Piwafwi Alto Narbondel (EO)
 GrhIndex=17517
-ObjType=3
+ObjType=48
 NumRopaje=384
 Agarrable=0
 MinDef=20
@@ -12145,7 +12193,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ985] 'elfo oscuro mujer
 Name=Piwafwi Socere de Lloth (EO-M)
@@ -12163,7 +12211,7 @@ CP1=MAGO
 CP2=BARDO
 CP3=DRUIDA
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ986] 'Túnica de Druida
 Name=Túnica de Viajero
@@ -12178,7 +12226,7 @@ Crucial=1
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ987]
 Name=Estatua de Gengis
@@ -12274,8 +12322,8 @@ GrhIndex=20665
 ObjType=2
 Agarrable=0
 Anim=19
-MINHIT=5
-MAXHIT=13
+MINHIT=300
+MAXHIT=600
 Valor=1000
 Apuñala=0
 CP1=MAGO
@@ -12305,8 +12353,8 @@ AGARRABLE=0
 Anim=21
 Proyectil=1
 Municiones=1
-MINHIT=6
-MAXHIT=10
+MINHIT=300
+MAXHIT=600
 VALOR=3000
 CP1=PIRATA
 CP2=MAGO
@@ -12347,7 +12395,7 @@ CP7=BANDIDO
 CP8=GUERRERO
 CP9=BARDO
 CP10=DRUIDA
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Bot_MinLvl=30
 LingH=150
 LingP=100
@@ -12391,7 +12439,7 @@ LingO=75
 SkHerreria=100
 Fundible=1
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LOG=1
 SND1=25
 SND2=136
@@ -12422,7 +12470,7 @@ CP10=TRABAJADOR
 CP11=PIRATA
 Madera=11000
 SkCarpinteria=100
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=35
 SND1=208
 SND2=208
@@ -13098,7 +13146,7 @@ LingO=25
 SkHerreria=50
 Fundible=1
 Bot_MinLvl=40
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Fundible=1
 LOG=1
 SND1=255
@@ -13115,8 +13163,8 @@ GrhIndex=20863
 ObjType=2
 Agarrable=0
 Anim=25
-MINHIT=4
-MAXHIT=6
+MINHIT=250
+MAXHIT=300
 Valor=1000
 CP1=MAGO
 CP2=LADRON
@@ -13139,6 +13187,7 @@ Anim=10
 MaxDef=25
 MinDef=20
 NoSeCae=1
+SkHerreria=101
 BOT_MINLVL=1000
 
 [OBJ1064]
@@ -13150,6 +13199,7 @@ Agarrable=2
 Anim=11
 MaxDef=25
 MinDef=20
+SkHerreria=101
 NoSeCae=1
 BOT_MINLVL=1000
 
@@ -13233,7 +13283,7 @@ CP11=TRABAJADOR
 DefensaMagicaMin=10
 DefensaMagicaMax=13
 Bot_MinLvl=35
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 Fundible=1
 
 [OBJ1072]
@@ -13278,6 +13328,9 @@ MinDef=1
 Valor=0
 SND1=202
 SND2=203
+PIELLOBO=1
+PIELOSO=0
+SkSastreria=0
 
 [OBJ1075]
 Name=Item Borrado
@@ -13498,7 +13551,7 @@ LingO=0
 Fundible=1
 SkHerreria=35
 Bot_MinLvl=20
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 
 'Armaduras Segunda jerarquia CAOS
@@ -14012,7 +14065,7 @@ SND1=241
 SND2=240
 
 [OBJ1119]
-Name=Arapos Pirata 2da Jerarquía Caos
+Name=Harapos Pirata 2da Jerarquía Caos
 GrhIndex=21477
 NumRopaje=477
 ObjType=3
@@ -14037,7 +14090,7 @@ SND1=202
 SND2=203
 
 [OBJ1120]
-Name=Arapos Pirata 2da Jerarquía Caos (E/G)
+Name=Harapos Pirata 2da Jerarquía Caos (E/G)
 GrhIndex=21504
 NumRopaje=478
 ObjType=3
@@ -14573,7 +14626,7 @@ SND1=241
 SND2=240
 
 [OBJ1141]
-Name=Arapos Pirata 2da Jerarquía Real
+Name=Harapos Pirata 2da Jerarquía Real
 GrhIndex=22332
 NumRopaje=455
 ObjType=3
@@ -14598,7 +14651,7 @@ SND1=202
 SND2=203
 
 [OBJ1142]
-Name=Arapos Pirata 2da Jerarquía Real (E/G)
+Name=Harapos Pirata 2da Jerarquía Real (E/G)
 GrhIndex=22359
 NumRopaje=456
 ObjType=3
@@ -14644,9 +14697,15 @@ CP8=BANDIDO
 CP9=CLERIGO
 CP10=LADRON
 CP11=TRABAJADOR
+<<<<<<< HEAD
+Bot_MinLvl=1
+Bot_MinLvl=55
+LingH=150
+=======
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 LingH=170
+>>>>>>> parent of e0aa72a (all bot minlvl 1 and maxlvl 50 also fixed cacerola and manto noble)
 LingP=0
 LingO=0
 SkHerreria=50
@@ -14668,6 +14727,11 @@ SND1=202
 SND2=203
 LOG=1
 BOT_MINLVL=35
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ1145]
 Name=Túnica de Viajera (M)
@@ -14682,7 +14746,7 @@ Mujer=1
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ1146]
 Name=Reglas FutbolAO Parte 1
@@ -14720,7 +14784,7 @@ RazaEnana=1
 SND1=202
 SND2=203
 Bot_MinLvl=25
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ1150]
 Name=Escudo Liviano Real
@@ -14804,7 +14868,7 @@ ObjType=18
 Agarrable=0
 Valor=60000
 NoSeCae=1
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 
 [OBJ1157]
 Name=Horno
@@ -14821,67 +14885,67 @@ Agarrable=1
 'del 1200 al 1300 son items (QUEST)
 
 [OBJ1200]
-Name=Piel de Gran Oso Pardo (Quest)
+Name=Piel de Gran Oso Pardo (Misión)
 GrhIndex=699
 ObjType=29
 Agarrable=0
 
 [OBJ1201]
-Name=Amuleto de Piedras Verdes (Quest)
+Name=Amuleto de Piedras Verdes (Misión)
 GrhIndex=20891
 ObjType=29
 Agarrable=0
 
 [OBJ1202]
-Name=Muestra de Veneno de Gran Araña Pollito Gigante (Quest)
+Name=Muestra de Veneno de Gran Araña Pollito Gigante (Misión)
 GrhIndex=39
 ObjType=29
 Agarrable=0
 
 [OBJ1203]
-Name=Poción Especial (Quest)
+Name=Poción Especial (Misión)
 GrhIndex=579
 ObjType=29
 Agarrable=0
 
 [OBJ1204]
-Name=Gema Azul (Quest)
-GrhIndex=701
+Name=Gema de Resucitación
+GrhIndex=3716
 ObjType=29
 Agarrable=0
 
 [OBJ1205]
-Name=Leña Mágica (Quest)
+Name=Leña Mágica (Misión)
 GrhIndex=550
 ObjType=29
 Agarrable=0
 
 [OBJ1206]
-Name=Amuleto del Mago Lenus (Quest)
+Name=Amuleto del Mago Lenus (Misión)
 GrhIndex=20893
 ObjType=29
 Agarrable=0
 
 [OBJ1207]
-Name=Carta de Lenus (Quest)
+Name=Carta de Lenus (Misión)
 GrhIndex=609
 ObjType=29
 Agarrable=0
 
 [OBJ1208]
-Name=Baculo de Brujo (Quest)
-GrhIndex=715
+Name=Baculo de Brujo (Misión)
+GrhIndex=26778
 ObjType=29
 Agarrable=0
 
 [OBJ1209]
-Name=Ropa de Bandido (Quest)
+Name=Ropa de Bandido (Misión)
 GrhIndex=654
 ObjType=29
 Agarrable=0
 
 [OBJ1210]
-Name=Carta de Lenus (Quest)
+Name=Carta de Lenus (Misión)
 GrhIndex=609
 ObjType=29
 Agarrable=0
@@ -14911,7 +14975,7 @@ ObjType=29
 Agarrable=1
 
 [OBJ1215]
-Name=Pacman Point (Quest) (Item Sin Valor)
+Name=Pacman Point (Misión) (Item Sin Valor)
 GrhIndex=701
 ObjType=29
 Agarrable=0
@@ -14988,6 +15052,7 @@ Name=Libro de conjuros de Sonaur I
 GrhIndex=4546
 ObjType=29
 Agarrable=0
+NOSECAE=1
 
 [OBJ1225]
 Name=Armadura Klox
@@ -15033,7 +15098,7 @@ Agarrable=0
 Crucial=0
 
 [OBJ1231]
-Name=Piel de Serpiente Gigante
+Name=Capa de Invisibilidad (Misión)
 GrhIndex=4999
 ObjType=29
 Agarrable=0
@@ -15174,7 +15239,7 @@ TipoPocion=7
 ConsumeVida=80
 FX=30
 Sound=126
-Valor=1000
+Valor=100
 CP1=MAGO
 CP2=PALADIN
 CP3=CLERIGO
@@ -15586,32 +15651,19 @@ SND1=202
 SND2=203
 
 [OBJ1289]
-Name=Vara de Sernet (Quest)
-GrhIndex=715
-ObjType=2
-Agarrable=2
-Anim=6
-MinHit=5
-MaxHit=15
-StaffPower=6
-StaffDamageBonus=50
-Valor=0
-CP1=PIRATA
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=BARDO
-CP10=DRUIDA
-CP11=TRABAJADOR
-CP12=MAGO
-Log=1
-SND1=208
-SND2=208
-SND3=179
+Name=Pico de Acero
+GrhIndex=608
+ObjType=39
+Agarrable=0
+ANIM=35
+CRUCIAL=1
+MAXHIT=12
+MINHIT=12
+VALOR=7000
+SKHERRERIA=90
+LINGO=0
+LINGH=100
+LINGP=10
 
 [OBJ1290]
 Name=Arco Simple (Newbie)
@@ -15679,107 +15731,116 @@ Agarrable=1
 Texto=Este es un ejemplo de la ayuda|Utilizando la barra vertical se pueden realizar espacios.|||||Utilizandola muchas veces se pueden crear espacios mucho mas grandes ^^||Atte. MaTeO.
 
 [OBJ1294]
-Name=Amuleto Experiencia 25%
-Log=1
-Unico=2
-Agarrable=2
-TotalLife=60
-Life=0
-Destroy=1
 GrhIndex=20891
-ObjType=37
-DefensaMagicaMin=5
-DefensaMagicaMax=5
+Name=Amuleto Experiencia 5%
+Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
 Valor=2500
 ValorDonante=5000
-Log=1
-ModExp=125
-ModGOld=0
+DuracionEfecto=7200
+ModExp=5
+ModGold=5
+ModDrops=15
 NoSeCae=1
 Donante=1
 
 [OBJ1295]
-Name=Amuleto Experiencia 15%
-Log=1
-Unico=2
-Agarrable=2
-TotalLife=40
-Life=0
-Destroy=1
 GrhIndex=20890
-ObjType=37
-DefensaMagicaMin=0
-DefensaMagicaMax=1
-Valor=1800
-ValorDonante=5000
+Name=Amuleto Experiencia 10%
 Log=1
-ModExp=115
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=6500
+ModExp=10
+ModGold=0
 NoSeCae=1
 Donante=1
 
 [OBJ1296]
-Name=Amuleto Experiencia 10%
-Log=1
-Unico=2
-Agarrable=2
-TotalLife=60
-Life=0
-Destroy=1
 GrhIndex=20894
-ObjType=37
-DefensaMagicaMin=1
-DefensaMagicaMax=3
-Valor=900
-ValorDonante=5000
+Name=Amuleto Experiencia 15%
 Log=1
-ModExp=110
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=15
+ModGold=0
 NoSeCae=1
 Donante=1
 
 [OBJ1297]
-Name=Amuleto
-Log=1
-Agarrable=2
 GrhIndex=20892
-ObjType=37
-Valor=10000
+Name=Amuleto Experiencia 25%
 Log=1
-
-[OBJ1298]
-Name=Amuleto
-Log=1
-GrhIndex=20893
-ObjType=37
-Valor=15000
-Log=1
-
-[OBJ1299]
-Name=Amuleto Experiencia 20% y Oro 10%
-Log=1
-Unico=2
 Agarrable=2
-TotalLife=60
-Life=0
-Destroy=1
-GrhIndex=20890
-ObjType=37
-DefensaMagicaMin=3
-DefensaMagicaMax=10
-Valor=3000
+ObjType=11
+TipoPocion=8
+Valor=2500
 ValorDonante=5000
-Log=1
-ModExp=120
-ModGOld=115
+DuracionEfecto=5000
+ModExp=25
+ModGold=0
 NoSeCae=1
 Donante=1
+Bot_MinLvl=0
+Bot_MaxLvl=30
+
+[OBJ1298]
+GrhIndex=20893
+Name=Amuleto Experiencia 35%
+Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=35
+ModGold=0
+NoSeCae=1
+Donante=1
+Bot_MinLvl=0
+Bot_MaxLvl=29
+
+[OBJ1299]
+GrhIndex=20890
+Name=Amuleto Experiencia 35% y Oro 35%
+Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=35
+ModGold=35
+NoSeCae=1
+Donante=1
+Bot_MinLvl=0
+Bot_MaxLvl=25
 
 [OBJ1300]
-Name=Amuleto
-Log=1
 GrhIndex=20891
-ObjType=37
-Valor=40000
+Name=Amuleto Experiencia 35% y Oro 35%
 Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=35
+ModGold=35
+NoSeCae=1
+Donante=1
 
 [OBJ1301]
 Name=Amuleto
@@ -16492,7 +16553,7 @@ SND1=241
 SND2=240
 
 [OBJ1331]
-Name=Arapos Pirata Diamante Caos
+Name=Harapos Pirata Diamante Caos
 GrhIndex=21477
 NumRopaje=477
 ObjType=3
@@ -16522,7 +16583,7 @@ SND1=202
 SND2=203
 
 [OBJ1332]
-Name=Arapos Pirata Diamante Caos (E/G)
+Name=Harapos Pirata Diamante Caos (E/G)
 GrhIndex=21504
 NumRopaje=478
 ObjType=3
@@ -17175,7 +17236,7 @@ SND1=241
 SND2=240
 
 [OBJ1353]
-Name=Arapos Pirata Diamante Real
+Name=Harapos Pirata Diamante Real
 GrhIndex=22332
 NumRopaje=455
 ObjType=3
@@ -17205,7 +17266,7 @@ SND1=202
 SND2=203
 
 [OBJ1354]
-Name=Arapos Pirata Diamante Real (E/G)
+Name=Harapos Pirata Diamante Real (E/G)
 GrhIndex=22359
 NumRopaje=456
 ObjType=3
@@ -17282,8 +17343,8 @@ GrhIndex=609
 ObjType=35
 Valor=3
 PasajeMapa=1
-PasajePosX=848
-PasajePosY=570
+PasajePosX=823
+PasajePosY=105
 Crucial=1
 
 [OBJ1361]
@@ -17629,6 +17690,11 @@ Valor=60000
 NoSeCae=1
 SND1=202
 SND2=203
+PIELLOBO=42
+PIELOSO=21
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=0
 
 [OBJ1399]
 Name=Túnica Consejo Mercenario (Altos)
@@ -17642,6 +17708,11 @@ Valor=60000
 NoSeCae=1
 SND1=202
 SND2=203
+PIELLOBO=42
+PIELOSO=21
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=0
 
 [OBJ1400]
 Name=Estatua de Silla
@@ -17656,7 +17727,7 @@ Name=Anillo Velocidad Prueba
 GrhIndex=4903
 ObjType=37
 Agarrable=0
-Velocity=50
+Velocity=180
 Valor=0
 NoSeCae=1
 LOG=1
@@ -17687,7 +17758,7 @@ Valor=0
 NoSeCae=1
 Log=1
 
-[OBJ1500]
+[OBJ1499]
 AGARRABLE=0
 NAME=Libre 'Hacha de Guerra Dos Filos Evento.
 OBJTYPE=2
@@ -17698,11 +17769,11 @@ OBJTYPE=2
 AGARRABLE=0
 
 [OBJ1405]
-NAME=Hacha de Guerra Dos Filos
+NAME=NO USAR
 AGARRABLE=0
 ANIM=23
-Bot_MaxLvl=50
-BOT_MINLVL=40
+Bot_MaxLvl=100
+BOT_MINLVL=100
 CP1=MAGO
 CP2=DRUIDA
 CP3=LADRON
@@ -17714,14 +17785,10 @@ CP8=TRABAJADOR
 CP9=BANDIDO
 FUNDIBLE=1
 GRHINDEX=566
-LINGH=85
-LINGO=0
-LINGP=2
 LOG=1
 MAXHIT=20
 MINHIT=9 ' Antes 7
 OBJTYPE=2
-SKHERRERIA=86
 SND1=25
 SND2=136
 SND3=248
@@ -17729,7 +17796,7 @@ VALOR=5000
 CRUCIAL=0
 MAXDEF=0
 MINDEF=0
-NOSECAE=1
+NOSECAE=0
 NUMROPAJE=2
 
 
@@ -17783,13 +17850,33 @@ VALOR=0
 
 [OBJ1170]
 AGARRABLE=0
-NAME=Libre 'ex natos2
-OBJTYPE=2
+NAME=Hacha de Leñador de Hierro
+OBJTYPE=40
+ANIM=29
+CRUCIAL=1
+GRHINDEX=565
+MAXHIT=6
+MINHIT=4
+VALOR=2000
+SKHERRERIA=50
+LINGO=0
+LINGH=100
+LINGP=5
 
 [OBJ1171]
 AGARRABLE=0
-NAME=Libre 'ex natos3
-OBJTYPE=2
+NAME=Hacha de Leñador de Acero
+OBJTYPE=40
+ANIM=29
+CRUCIAL=1
+GRHINDEX=565
+MAXHIT=12
+MINHIT=8
+VALOR=7000
+SKHERRERIA=90
+LINGO=50
+LINGH=200
+LINGP=100
 
 [OBJ1173]
 ANIM=19
@@ -17799,11 +17886,11 @@ LOG=1
 MAXDEF=100
 MINDEF=100
 NAME=Casco de GM Legendario
+SkHerreria=101
 NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
 VALOR=0
-BOT_MINLVL=1000
 
 [OBJ1174]
 ANIM=22
@@ -17858,7 +17945,7 @@ CP3=DRUIDA
 
 [OBJ1172]
 AGARRABLE=0
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=75
 CP1=MAGO
 CP10=LADRON
@@ -17915,9 +18002,14 @@ NUMROPAJE=533
 OBJTYPE=3
 SND1=202
 SND2=203
-VALOR=7000
+VALOR=70000
 RAZAENANA=1
 BOT_MINLVL=35
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ1179]
 ANIM=19
@@ -17934,8 +18026,8 @@ VALOR=0
 
 [OBJ1180]
 AGARRABLE=0
-Bot_MaxLvl=50
-BOT_MINLVL=70
+Bot_MaxLvl=70
+BOT_MINLVL=50
 CP1=MAGO
 CP10=LADRON
 CP11=TRABAJADOR
@@ -17950,15 +18042,11 @@ CP9=CLERIGO
 CRUCIAL=0
 FUNDIBLE=1
 GRHINDEX=24179
-LINGH=500
-LINGO=50
-LINGP=200
 MAXDEF=42
 MINDEF=42
 NAME=Armadura Sigilosa
 NUMROPAJE=540
 OBJTYPE=3
-SKHERRERIA=100
 SND1=241
 SND2=240
 VALOR=80000
@@ -18027,8 +18115,9 @@ CP6=BARDO
 CP7=GUERRERO
 CP8=CLERIGO
 CP9=TRABAJADOR
-LINGH=50
-LINGP=20
+LINGH=80
+LINGP=40
+LINGH=5
 SKHERRERIA=100
 
 [OBJ1186]
@@ -18060,7 +18149,7 @@ SND3=248
 
 [OBJ1187]
 AGARRABLE=0
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=70
 CRUCIAL=0
 GRHINDEX=14304
@@ -18081,6 +18170,11 @@ CP5=ASESINO
 CP6=LADRON
 CP7=BANDIDO
 CP8=GUERRERO
+PIELLOBO=25
+PIELOSO=12
+PIELOSOPOLAR=6
+PIELTIGRE=5
+SkSastreria=75
 
 [OBJ1188]
 AGARRABLE=0
@@ -18100,10 +18194,10 @@ MUJER=1
 AGARRABLE=0
 CRUCIAL=0
 GRHINDEX=12779
+NUMROPAJE=238
 MAXDEF=5
 MINDEF=3
 NAME=Vestimenta Imperial Mujer
-NUMROPAJE=238
 OBJTYPE=3
 REAL=1
 SND1=202
@@ -18113,7 +18207,7 @@ MUJER=1
 
 [OBJ1190]
 AGARRABLE=0
-Bot_MaxLvl=50
+Bot_MaxLvl=70
 BOT_MINLVL=70
 CRUCIAL=0
 GRHINDEX=3689
@@ -18316,16 +18410,11 @@ CP7=BANDIDO
 CP8=GUERRERO
 CP9=BARDO
 ENVENENA=1
-FUNDIBLE=1
 GRHINDEX=25981
-LINGH=100
-LINGO=5
-LINGP=100
 MAXHIT=10
 MINHIT=7
 NAME=Daga Infernal
 OBJTYPE=2
-SKHERRERIA=0
 SND1=176
 SND2=177
 SND3=2
@@ -18583,16 +18672,18 @@ CP8=TRABAJADOR
 CRUCIAL=0
 FUNDIBLE=0
 GRHINDEX=26196
-LINGH=0
-LINGO=0
-LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Gea
+NAME=Túnica de Gea
 NUMROPAJE=615
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1423]
 CP1=MAGO
@@ -18611,11 +18702,16 @@ LINGO=0
 LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Gea (E/G)
+NAME=Túnica de Gea (E/G)
 NUMROPAJE=628
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1424]
 CP1=MAGO
@@ -18860,16 +18956,18 @@ CP8=TRABAJADOR
 CRUCIAL=0
 FUNDIBLE=0
 GRHINDEX=23963
-LINGH=0
-LINGO=0
-LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Trovador
+NAME=Túnica de Trovador
 NUMROPAJE=532
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1435]
 CP1=MAGO
@@ -18883,269 +18981,24 @@ CP8=TRABAJADOR
 CRUCIAL=0
 FUNDIBLE=0
 GRHINDEX=26377
-LINGH=0
-LINGO=0
-LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Trovador (E/G)
+NAME=Túnica de Trovador (E/G)
 NUMROPAJE=621
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1436]
-ANIM=46
-GRHINDEX=26950
-MAXHIT=17
-MINHIT=7
-NAME=Báculo MIO
-OBJTYPE=2
-STAFFDAMAGEBONUS=40
-STAFFPOWER=2
-LOG=1
-VALOR=5000
-VALORDONANTE=5000
-
-[OBJ1499]
-AGARRABLE=2
-GRHINDEX=27624
-LOG=1
-MAXDEF=60
-MINDEF=60
-NAME=Armadura de Dragón Alada (Prohibido Crear)
-NOSECAE=1
-NUMROPAJE=636
-OBJTYPE=3
-SND1=202
-SND2=203
-LOG=1
-VALOR=5000
-VALORDONANTE=5000
-
-[OBJ1498]
-GRHINDEX=24395
-LOG=1
-MAXDEF=35
-MINDEF=35
-NAME=Armadura Tenebrosa (E/G)
-NOSECAE=1
-NUMROPAJE=552
-OBJTYPE=3
-RAZAENANA=1
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-
-[OBJ1497]
-GRHINDEX=24952
-LOG=1
-MAXDEF=45
-MINDEF=40
-NAME=Armadura Avernal (E/G)
-NOSECAE=1
-NUMROPAJE=569
-OBJTYPE=3
-RAZAENANA=1
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-
-[OBJ1496]
-GRHINDEX=25849
-LOG=1
-MAXDEF=40
-MINDEF=40
-NAME=Armadura Avernal (Altos)
-NOSECAE=1
-NUMROPAJE=603
-OBJTYPE=3
-RAZAENANA=0
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-
-[OBJ1495]
-GRHINDEX=26538
-LOG=1
-MAXDEF=28
-MINDEF=28
-NAME=Túnica de Soberano (E/G)
-NOSECAE=1
-NUMROPAJE=627
-OBJTYPE=3
-RAZAENANA=1
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=PIRATA
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=TRABAJADOR
-
-[OBJ1494]
-GRHINDEX=26142
-LOG=1
-MAXDEF=28
-MINDEF=28
-NAME=Túnica de Soberano (Altos)
-NOSECAE=1
-NUMROPAJE=613
-OBJTYPE=3
-RAZAENANA=0
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=PIRATA
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-CP9=TRABAJADOR
-
-[OBJ1493]
-GRHINDEX=25438
-LOG=1
-MAXDEF=25
-MINDEF=25
-NAME=Vestido de Realeza (Mujer Altos)
-NOSECAE=1
-NUMROPAJE=587
-OBJTYPE=3
-MUJER=1
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-
-[OBJ1492]
-GRHINDEX=12914
-LOG=1
-MAXDEF=25
-MINDEF=25
-MUJER=1
-NAME=Vestido Escarlata (Mujer Altos)
-NOSECAE=1
-NUMROPAJE=597
-OBJTYPE=3
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-
-[OBJ1491]
-GRHINDEX=25741
-LOG=1
-MAXDEF=30
-MINDEF=30
-MUJER=0
-NAME=Túnica Siniestra (Altos)
-NOSECAE=1
-NUMROPAJE=599
-OBJTYPE=3
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP9=TRABAJADOR
-
-[OBJ1490]
-GRHINDEX=25195
-LOG=1
-MAXDEF=35
-MINDEF=35
-NAME=Placas de Gala Doradas (E/G)
-NOSECAE=1
-NUMROPAJE=578
-OBJTYPE=3
-RAZAENANA=1
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=MAGO
-CP2=BARDO
-CP3=DRUIDA
-[OBJ1489]
-GRHINDEX=20407
-LOG=1
-MAXDEF=28
-MINDEF=28
-NAME=Túnica de Hechicero Avanzado (E/G)
-NOSECAE=1
-NUMROPAJE=559
-OBJTYPE=3
-RAZAENANA=1
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=PIRATA
-CP11=TRABAJADOR
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
-
-[OBJ1488]
-GRHINDEX=27363
-LOG=1
-MAXDEF=28
-MINDEF=28
-NAME=Túnica de Hechicero Avanzado (Altos)
-NOSECAE=1
-NUMROPAJE=634
-OBJTYPE=3
-RAZAENANA=0
-SND1=202
-SND2=203
-Donante=1
-VALOR=2500
-VALORDONANTE=5000
-CP1=PIRATA
-CP11=TRABAJADOR
-CP2=CAZADOR
-CP3=PALADIN
-CP4=CLERIGO
-CP5=ASESINO
-CP6=LADRON
-CP7=BANDIDO
-CP8=GUERRERO
+NAME=Objeto Libre
+GrhIndex=932
+ObjType=2
+Agarrable=0
 
 [OBJ1455]
 CRUCIAL=0
@@ -19175,19 +19028,60 @@ NAME=Curar Heridas Criticas
 OBJTYPE=24
 VALOR=35000
 
-[OBJ1487]
-ANIM=16
-GRHINDEX=22969
-LOG=1
-MAXDEF=1
-MINDEF=1
-NAME=Corona de Donador
-NOSECAE=1
-NUMROPAJE=2
-OBJTYPE=17
-Donante=1
-VALOR=1000
-VALORDONANTE=5000
+[OBJ1482]
+Name=Cofre de armas de hierro Abierto
+GrhIndex=502
+ObjType=38
+IndexAbierta=1482
+IndexCerrada=1483
+NROITEMS=4 'Pociones
+Obj1=36-100-20
+Obj2=37-250-40
+Obj3=38-250-50
+Obj4=39-50-20
+NRODROPS=11
+UniqueDrop=0
+Drop1=37-250-200 'azules
+Drop2=38-250-300 'rojas
+Drop3=123-1-100 'Vikinga
+Drop4=126-1-100 'Hacha Larga de Guerra
+Drop5=129-1-100 'dos filos
+Drop6=540-1-100 'Flauta comun
+Drop7=469-1-100 'laud comun
+Drop8=1098-1-100 'Mazo del juicio
+Drop9=664-1-100 'Arco Compuesto Reforzado.
+Drop10=39-230-50 'Verdes
+Drop11=36-230-50 'Amarillas
+
+[OBJ1483]
+Name=Cofre de hierro Cerrado
+GrhIndex=503
+ObjType=38
+IndexAbierta=1482
+IndexCerrada=1483
+
+[OBJ1484]
+Name=Cofre mágico de hierro Abierto
+GrhIndex=502
+ObjType=38
+IndexAbierta=1484
+IndexCerrada=1485
+NRODROPS=7
+UniqueDrop=0
+Drop1=37-250-200 'azules
+Drop2=38-250-300 'rojas
+Drop3=659-1-100 'Bastón nudoso
+Drop4=662-1-100 'Sombrero Mágico
+Drop5=129-1-100 'dos filos
+Drop6=540-1-100 'Flauta comun
+Drop7=469-1-100 'laud comun
+
+[OBJ1485]
+Name=Cofre mágico de hierro Cerrado
+GrhIndex=503
+ObjType=38
+IndexAbierta=1484
+IndexCerrada=1485
 
 [OBJ1486]
 GRHINDEX=25741
@@ -19204,3 +19098,1876 @@ SND2=203
 Donante=1
 VALOR=2500
 VALORDONANTE=5000
+
+[OBJ1487]
+ANIM=16
+GRHINDEX=22969
+LOG=1
+MAXDEF=1
+MINDEF=1
+NAME=Corona de Donador
+NOSECAE=1
+NUMROPAJE=2
+OBJTYPE=17
+Donante=1
+VALOR=1000
+VALORDONANTE=5000
+
+[OBJ1488]
+GRHINDEX=27363
+LOG=1
+MAXDEF=28
+MINDEF=28
+NAME=Túnica de Hechicero Avanzado (Altos)
+NOSECAE=1
+NUMROPAJE=634
+OBJTYPE=3
+RAZAENANA=0
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=PIRATA
+CP11=TRABAJADOR
+CP2=CAZADOR
+CP3=PALADIN
+CP4=CLERIGO
+CP5=ASESINO
+CP6=LADRON
+CP7=BANDIDO
+CP8=GUERRERO
+
+[OBJ1489]
+GRHINDEX=20407
+LOG=1
+MAXDEF=28
+MINDEF=28
+NAME=Túnica de Hechicero Avanzado (E/G)
+NOSECAE=1
+NUMROPAJE=559
+OBJTYPE=3
+RAZAENANA=1
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=PIRATA
+CP11=TRABAJADOR
+CP2=CAZADOR
+CP3=PALADIN
+CP4=CLERIGO
+CP5=ASESINO
+CP6=LADRON
+CP7=BANDIDO
+CP8=GUERRERO
+
+[OBJ1490]
+GRHINDEX=25195
+LOG=1
+MAXDEF=35
+MINDEF=35
+NAME=Placas de Gala Doradas (E/G)
+NOSECAE=1
+NUMROPAJE=578
+OBJTYPE=3
+RAZAENANA=1
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
+
+[OBJ1491]
+GRHINDEX=25741
+LOG=1
+MAXDEF=30
+MINDEF=30
+MUJER=0
+NAME=Túnica Siniestra (Altos)
+NOSECAE=1
+NUMROPAJE=599
+OBJTYPE=3
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP9=TRABAJADOR
+
+[OBJ1492]
+GRHINDEX=12914
+LOG=1
+MAXDEF=25
+MINDEF=25
+MUJER=1
+NAME=Vestido Escarlata (Mujer Altos)
+NOSECAE=1
+NUMROPAJE=597
+OBJTYPE=3
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+
+[OBJ1493]
+GRHINDEX=25438
+LOG=1
+MAXDEF=25
+MINDEF=25
+NAME=Vestido de Realeza (Mujer Altos)
+NOSECAE=1
+NUMROPAJE=587
+OBJTYPE=3
+MUJER=1
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+
+[OBJ1494]
+GRHINDEX=26142
+LOG=1
+MAXDEF=28
+MINDEF=28
+NAME=Túnica de Soberano (Altos)
+NOSECAE=1
+NUMROPAJE=613
+OBJTYPE=3
+RAZAENANA=0
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=PIRATA
+CP2=CAZADOR
+CP3=PALADIN
+CP4=CLERIGO
+CP5=ASESINO
+CP6=LADRON
+CP7=BANDIDO
+CP8=GUERRERO
+CP9=TRABAJADOR
+
+[OBJ1495]
+GRHINDEX=26538
+LOG=1
+MAXDEF=28
+MINDEF=28
+NAME=Túnica de Soberano (E/G)
+NOSECAE=1
+NUMROPAJE=627
+OBJTYPE=3
+RAZAENANA=1
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=PIRATA
+CP2=CAZADOR
+CP3=PALADIN
+CP4=CLERIGO
+CP5=ASESINO
+CP6=LADRON
+CP7=BANDIDO
+CP8=GUERRERO
+CP9=TRABAJADOR
+
+[OBJ1496]
+GRHINDEX=25849
+LOG=1
+MAXDEF=40
+MINDEF=40
+NAME=Armadura Avernal (Altos)
+NOSECAE=1
+NUMROPAJE=603
+OBJTYPE=3
+RAZAENANA=0
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
+
+[OBJ1497]
+GRHINDEX=24952
+LOG=1
+MAXDEF=45
+MINDEF=40
+NAME=Armadura Avernal (E/G)
+NOSECAE=1
+NUMROPAJE=569
+OBJTYPE=3
+RAZAENANA=1
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
+
+[OBJ1498]
+GRHINDEX=24395
+LOG=1
+MAXDEF=35
+MINDEF=35
+NAME=Armadura Tenebrosa (E/G)
+NOSECAE=1
+NUMROPAJE=552
+OBJTYPE=3
+RAZAENANA=1
+SND1=202
+SND2=203
+Donante=1
+VALOR=2500
+VALORDONANTE=5000
+CP1=MAGO
+CP2=BARDO
+CP3=DRUIDA
+
+[OBJ1499]
+AGARRABLE=2
+GRHINDEX=27624
+LOG=1
+MAXDEF=60
+MINDEF=60
+NAME=Armadura de Dragón Alada (Prohibido Crear)
+NOSECAE=1
+NUMROPAJE=636
+OBJTYPE=3
+SND1=202
+SND2=203
+LOG=1
+VALOR=5000
+VALORDONANTE=5000
+
+[OBJ1500]
+Name=Cañon de Pirata
+GrhIndex=1023
+ObjType=2
+Agarrable=0
+Anim=41
+Proyectil=1
+Municiones=1
+Refuerzo=12
+MinHit=6
+MaxHit=11
+Valor=5000
+CP1=DRUIDA
+CP2=MAGO
+CP3=PALADIN
+CP4=CLERIGO
+CP5=ASESINO
+CP6=BANDIDO
+CP7=BARDO
+CP8=TRABAJADOR
+CP9=CAZADOR
+CP10=LADRON
+CP11=GUERRERO
+Madera=7500
+SkCarpinteria=75
+Bot_MaxLvl=70
+BOT_MINLVL=30
+SND1=208
+SND2=208
+SND3=232
+LOG=1
+
+[OBJ1501]
+Name=Bala de Cañon
+GrhIndex=753
+ObjType=32
+Agarrable=0
+MinHit=2
+MaxHit=6
+Valor=35
+CP1=DRUIDA
+CP2=MAGO
+CP3=PALADIN
+CP4=CLERIGO
+CP5=ASESINO
+CP6=BANDIDO
+CP7=BARDO
+CP8=TRABAJADOR
+CP9=CAZADOR
+CP10=LADRON
+CP11=GUERRERO
+Madera=18
+SkCarpinteria=75
+
+[OBJ1502]
+NAME=Skin 1
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=519
+GrhIndex=23285
+Donante=1
+
+[OBJ1503]
+NAME=Skin 2
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=520
+GrhIndex=23330
+Donante=1
+
+[OBJ1504]
+NAME=Skin 3
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=521
+GrhIndex=23353
+Donante=1
+
+[OBJ1505]
+NAME=Skin 4
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=522
+GrhIndex=23370
+Donante=1
+
+[OBJ1506]
+NAME=Skin 5
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=523
+GrhIndex=23393
+Donante=1
+
+[OBJ1507]
+NAME=Skin 6
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=524
+GrhIndex=23416
+Donante=1
+
+[OBJ1508]
+NAME=Skin 7
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=525
+GrhIndex=23447
+Donante=1
+
+[OBJ1509]
+NAME=Skin 8
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=526
+GrhIndex=23471
+Donante=1
+
+[OBJ1510]
+NAME=Skin 9
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=527
+GrhIndex=23494
+Donante=1
+
+[OBJ1511]
+NAME=Skin 10
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=528
+GrhIndex=23883
+Donante=1
+
+[OBJ1512]
+NAME=Skin 11
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=529
+GrhIndex=23910
+Donante=1
+
+[OBJ1513]
+NAME=Skin 12
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=530
+GrhIndex=23856
+Donante=1
+
+[OBJ1514]
+NAME=Skin 13
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=531
+GrhIndex=23937
+Donante=1
+
+[OBJ1515]
+NAME=Skin 14
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=532
+GrhIndex=23964
+Donante=1
+
+[OBJ1516]
+NAME=Skin 15
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=533
+GrhIndex=23991
+Donante=1
+
+[OBJ1517]
+NAME=Skin 16
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=534
+GrhIndex=24018
+Donante=1
+
+[OBJ1518]
+NAME=LIBRE
+
+
+[OBJ1519]
+NAME=Skin 18
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=536
+GrhIndex=24065
+Donante=1
+
+[OBJ1520]
+NAME=Skin 19
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=537
+GrhIndex=24092
+Donante=1
+
+[OBJ1521]
+NAME=Skin 20
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=538
+GrhIndex=24119
+Donante=1
+
+[OBJ1522]
+NAME=LIBRE
+
+[OBJ1523]
+NAME=Skin 22
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=540
+GrhIndex=24180
+Donante=1
+
+[OBJ1524]
+NAME=Skin 23
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=541
+GrhIndex=24207
+Donante=1
+
+[OBJ1525]
+NAME=Skin 24
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=542
+GrhIndex=24504
+Donante=1
+
+[OBJ1526]
+NAME=Skin 25
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=543
+GrhIndex=24666
+Donante=1
+
+[OBJ1527]
+NAME=Skin 26
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=544
+GrhIndex=24639
+Donante=1
+
+[OBJ1528]
+NAME=Skin 27
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=545
+GrhIndex=24585
+Donante=1
+
+[OBJ1529]
+NAME=Skin 28
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=546
+GrhIndex=24531
+Donante=1
+
+[OBJ1530]
+NAME=Skin 29
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=547
+GrhIndex=24558
+Donante=1
+
+[OBJ1531]
+NAME=Skin 30
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=548
+GrhIndex=24612
+Donante=1
+
+[OBJ1532]
+NAME=Skin 31
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=549
+GrhIndex=24234
+Donante=1
+
+[OBJ1533]
+NAME=Skin 32
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=550
+GrhIndex=24477
+Donante=1
+
+[OBJ1534]
+NAME=Skin 33
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=551
+GrhIndex=24450
+Donante=1
+
+[OBJ1535]
+NAME=Skin 34
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=552
+GrhIndex=24396
+Donante=1
+
+[OBJ1536]
+NAME=Skin 35
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=553
+GrhIndex=24423
+Donante=1
+
+[OBJ1537]
+NAME=Skin 36
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=554
+GrhIndex=24369
+Donante=1
+
+[OBJ1538]
+NAME=Skin 37
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=555
+GrhIndex=24342
+Donante=1
+
+[OBJ1539]
+NAME=Skin 38
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=556
+GrhIndex=24315
+Donante=1
+
+[OBJ1540]
+NAME=Skin 39
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=557
+GrhIndex=24288
+Donante=1
+
+[OBJ1541]
+NAME=Skin 40
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=558
+GrhIndex=24261
+Donante=1
+
+[OBJ1542]
+NAME=Skin 41
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=559
+GrhIndex=20408
+Donante=1
+
+[OBJ1543]
+NAME=Skin 42
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=560
+GrhIndex=20435
+Donante=1
+
+[OBJ1544]
+NAME=Skin 43
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=561
+GrhIndex=20462
+Donante=1
+
+[OBJ1545]
+NAME=Skin 44
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=562
+GrhIndex=24705
+Donante=1
+
+[OBJ1546]
+NAME=Skin 45
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=563
+GrhIndex=24732
+Donante=1
+
+[OBJ1547]
+NAME=Skin 46
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=564
+GrhIndex=24791
+Donante=1
+
+[OBJ1548]
+NAME=Skin 47
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=565
+GrhIndex=24818
+Donante=1
+
+[OBJ1549]
+NAME=Skin 48
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=566
+GrhIndex=24845
+Donante=1
+
+[OBJ1550]
+NAME=Skin 49
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=567
+GrhIndex=24872
+Donante=1
+
+[OBJ1551]
+NAME=Skin 50
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=568
+GrhIndex=24899
+Donante=1
+
+[OBJ1552]
+NAME=Skin 51
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=569
+GrhIndex=24953
+Donante=1
+
+[OBJ1553]
+NAME=Skin 52
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=570
+GrhIndex=24980
+Donante=1
+
+[OBJ1554]
+NAME=Skin 53
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=571
+GrhIndex=25007
+Donante=1
+
+[OBJ1555]
+NAME=Skin 54
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=572
+GrhIndex=25034
+Donante=1
+
+[OBJ1556]
+NAME=Skin 55
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=573
+GrhIndex=25061
+Donante=1
+
+[OBJ1557]
+NAME=Skin 56
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=574
+GrhIndex=25088
+Donante=1
+
+[OBJ1558]
+NAME=Skin 57
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=575
+GrhIndex=25115
+Donante=1
+
+[OBJ1559]
+NAME=Skin 58
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=576
+GrhIndex=25142
+Donante=1
+
+[OBJ1560]
+NAME=Skin 59
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=577
+GrhIndex=25169
+Donante=1
+
+[OBJ1561]
+NAME=Skin 60
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=578
+GrhIndex=25196
+Donante=1
+
+[OBJ1562]
+NAME=Skin 61
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=579
+GrhIndex=25223
+Donante=1
+
+[OBJ1563]
+NAME=Skin 62
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=580
+GrhIndex=25250
+Donante=1
+
+[OBJ1564]
+NAME=Skin 63
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=581
+GrhIndex=25277
+Donante=1
+
+[OBJ1565]
+NAME=Skin 64
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=582
+GrhIndex=25304
+Donante=1
+
+[OBJ1566]
+NAME=Skin 65
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=583
+GrhIndex=25331
+Donante=1
+
+[OBJ1567]
+NAME=Skin 66
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=584
+GrhIndex=25358
+Donante=1
+
+[OBJ1568]
+NAME=Skin 67
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=585
+GrhIndex=25385
+Donante=1
+
+[OBJ1569]
+NAME=Skin 68
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=586
+GrhIndex=25412
+Donante=1
+
+[OBJ1570]
+NAME=Skin 69
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=587
+GrhIndex=25439
+Donante=1
+
+[OBJ1571]
+NAME=Skin 70
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=588
+GrhIndex=25466
+Donante=1
+
+[OBJ1572]
+NAME=Skin 71
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=589
+GrhIndex=25493
+Donante=1
+
+[OBJ1573]
+NAME=Skin 72
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=590
+GrhIndex=25520
+Donante=1
+
+[OBJ1574]
+NAME=Skin 73
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=591
+GrhIndex=25547
+Donante=1
+
+[OBJ1575]
+NAME=Skin 74
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=592
+GrhIndex=25574
+Donante=1
+
+[OBJ1576]
+NAME=Skin 75
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=593
+GrhIndex=25661
+Donante=1
+
+[OBJ1577]
+NAME=Skin 76
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=594
+GrhIndex=25547
+Donante=1
+
+[OBJ1578]
+NAME=Skin 77
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=595
+GrhIndex=25634
+Donante=1
+
+[OBJ1579]
+NAME=Skin 78
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=596
+GrhIndex=25715
+Donante=1
+
+[OBJ1580]
+NAME=Skin 79
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=597
+GrhIndex=12915
+Donante=1
+
+[OBJ1581]
+NAME=Skin 80
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=598
+GrhIndex=25688
+Donante=1
+
+[OBJ1582]
+NAME=Skin 81
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=599
+GrhIndex=25742
+Donante=1
+
+[OBJ1583]
+NAME=Skin 82
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=600
+GrhIndex=25769
+Donante=1
+
+[OBJ1584]
+NAME=Skin 83
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=601
+GrhIndex=25796
+Donante=1
+
+[OBJ1585]
+NAME=Skin 84
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=602
+GrhIndex=25823
+Donante=1
+
+[OBJ1586]
+NAME=Skin 85
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=603
+GrhIndex=25850
+Donante=1
+
+[OBJ1587]
+NAME=LIBRE
+
+[OBJ1588]
+NAME=LIBRE
+
+[OBJ1589]
+NAME=LIBRE
+
+[OBJ1590]
+NAME=LIBRE
+
+[OBJ1591]
+NAME=LIBRE
+
+[OBJ1592]
+NAME=LIBRE
+
+[OBJ1593]
+NAME=Skin 92
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=610
+GrhIndex=26062
+Donante=1
+
+[OBJ1594]
+NAME=Skin 93
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=611
+GrhIndex=26089
+Donante=1
+
+[OBJ1595]
+NAME=Skin 94
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=612
+GrhIndex=26116
+Donante=1
+
+[OBJ1596]
+NAME=Skin 95
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=613
+GrhIndex=26143
+Donante=1
+
+[OBJ1597]
+NAME=Skin 96
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=614
+GrhIndex=26170
+Donante=1
+
+[OBJ1598]
+NAME=Skin 97
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=615
+GrhIndex=26197
+Donante=1
+
+[OBJ1599]
+NAME=Skin 98
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=616
+GrhIndex=26224
+Donante=1
+
+[OBJ1600]
+NAME=Skin 99
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=617
+GrhIndex=26251
+Donante=1
+
+[OBJ1601]
+NAME=Skin 100
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=618
+GrhIndex=26278
+Donante=1
+
+[OBJ1602]
+NAME=Skin 101
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=619
+GrhIndex=26305
+Donante=1
+
+[OBJ1603]
+NAME=Skin 102
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=620
+GrhIndex=26351
+Donante=1
+
+[OBJ1604]
+NAME=Skin 103
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=621
+GrhIndex=26378
+Donante=1
+
+[OBJ1605]
+NAME=Skin 104
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=622
+GrhIndex=26404
+Donante=1
+
+[OBJ1606]
+NAME=Skin 105
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=623
+GrhIndex=26431
+Donante=1
+
+[OBJ1607]
+NAME=Skin 106
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=624
+GrhIndex=26458
+Donante=1
+
+[OBJ1608]
+NAME=Skin 107
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=625
+GrhIndex=26485
+Donante=1
+
+[OBJ1609]
+NAME=Skin 108
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=626
+GrhIndex=26512
+Donante=1
+
+[OBJ1610]
+NAME=Skin 109
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=627
+GrhIndex=26539
+Donante=1
+
+[OBJ1611]
+NAME=Skin 110
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=628
+GrhIndex=26587
+Donante=1
+
+[OBJ1612]
+NAME=Skin 111
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=629
+GrhIndex=26593
+Donante=1
+
+[OBJ1613]
+NAME=LIBRE
+
+[OBJ1614]
+NAME=LIBRE
+
+[OBJ1615]
+NAME=Skin 114
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=632
+GrhIndex=27418
+Donante=1
+
+[OBJ1616]
+NAME=Skin 115
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=633
+GrhIndex=27391
+Donante=1
+
+[OBJ1617]
+NAME=Skin 116
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=634
+GrhIndex=27364
+Donante=1
+
+[OBJ1618]
+NAME=Skin 117
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=635
+GrhIndex=27337
+Donante=1
+
+[OBJ1619]
+NAME=Skin 118
+ObjType=48
+VALOR=10000
+VALORDONANTE=20000
+NumRopaje=636
+GrhIndex=27490
+Donante=1
+
+[OBJ1620]
+NAME=Skin 119
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=637
+GrhIndex=27598
+Donante=1
+
+[OBJ1621]
+NAME=Skin 120
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=638
+GrhIndex=27736
+Donante=1
+
+[OBJ1622]
+NAME=LIBRE
+
+[OBJ1623]
+NAME=LIBRE
+
+[OBJ1624]
+NAME=LIBRE
+
+[OBJ1625]
+NAME=LIBRE
+
+[OBJ1626]
+NAME=LIBRE
+
+[OBJ1627]
+NAME=LIBRE
+
+[OBJ1628]
+NAME=LIBRE
+
+[OBJ1629]
+NAME=LIBRE
+
+[OBJ1630]
+NAME=LIBRE
+
+[OBJ1631]
+NAME=LIBRE
+
+[OBJ1632]
+NAME=LIBRE
+
+[OBJ1633]
+NAME=LIBRE
+
+[OBJ1634]
+NAME=LIBRE
+
+[OBJ1635]
+NAME=LIBRE
+
+[OBJ1636]
+NAME=LIBRE
+
+[OBJ1637]
+NAME=LIBRE
+
+[OBJ1638]
+NAME=Skin 137
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=655
+GrhIndex=28549
+Donante=1
+
+[OBJ1639]
+NAME=Skin 138
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=656
+GrhIndex=28576
+Donante=1
+
+[OBJ1640]
+NAME=Skin 139
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=657
+GrhIndex=28603
+Donante=1
+
+[OBJ1641]
+NAME=Skin 140
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=658
+GrhIndex=28633
+Donante=1
+
+[OBJ1642]
+NAME=Skin 141
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=659
+GrhIndex=28659
+SkinOrigin=519
+Donante=1
+
+[OBJ1643]
+NAME=Skin 142
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=660
+GrhIndex=28685
+Donante=1
+
+[OBJ1644]
+NAME=Skin 143
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=661
+GrhIndex=28711
+Donante=1
+
+[OBJ1645]
+NAME=Skin 144
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=662
+GrhIndex=28738
+Donante=1
+
+[OBJ1646]
+NAME=Skin 145
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=663
+GrhIndex=28764
+Donante=1
+
+[OBJ1647]
+NAME=LIBRE
+
+[OBJ1648]
+NAME=LIBRE
+
+[OBJ1649]
+NAME=LIBRE
+
+[OBJ1650]
+NAME=LIBRE
+
+[OBJ1651]
+NAME=LIBRE
+
+[OBJ1652]
+NAME=LIBRE
+
+[OBJ1653]
+NAME=Skin 152
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=670
+GrhIndex=28944
+Donante=1
+
+[OBJ1654]
+NAME=Skin 153
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=671
+GrhIndex=28971
+Donante=1
+
+[OBJ1655]
+NAME=Skin 154
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=672
+GrhIndex=28998
+Donante=1
+
+[OBJ1656]
+NAME=Skin 155
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=673
+GrhIndex=29025
+Donante=1
+
+[OBJ1657]
+NAME=Skin 156
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=674
+GrhIndex=29052
+Donante=1
+
+[OBJ1658]
+NAME=Skin 157
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=675
+GrhIndex=29079
+Donante=1
+
+[OBJ1659]
+NAME=Skin 158
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=676
+GrhIndex=29106
+Donante=1
+
+[OBJ1660]
+NAME=Skin 159
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=677
+GrhIndex=29133
+Donante=1
+
+[OBJ1661]
+NAME=Skin 160
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=678
+GrhIndex=29160
+Donante=1
+
+[OBJ1662]
+NAME=Skin 161
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=679
+GrhIndex=29187
+Donante=1
+
+[OBJ1663]
+NAME=Skin 162
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=680
+GrhIndex=29214
+Donante=1
+
+[OBJ1664]
+NAME=Skin 163
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=681
+GrhIndex=29241
+Donante=1
+
+[OBJ1665]
+NAME=Skin 164
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=682
+GrhIndex=29268
+Donante=1
+
+[OBJ1666]
+NAME=Skin 165
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=683
+GrhIndex=29295
+Donante=1
+
+[OBJ1667]
+NAME=Skin 166
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=684
+GrhIndex=29322
+Donante=1
+
+[OBJ1668]
+NAME=Skin 167
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=685
+GrhIndex=29349
+Donante=1
+
+[OBJ1669]
+Name=Remover Parálisis
+GrhIndex=27532
+ObjType=24
+Agarrable=0
+Valor=25000
+Crucial=0
+HechizoIndex=72
+
+[OBJ1670]
+Name=Invocar Mascota
+GrhIndex=27532
+ObjType=24
+Agarrable=0
+Valor=5000
+Crucial=0
+HechizoIndex=66
+
+[OBJ1671]
+Name=Poder de Invocar Mascota
+GrhIndex=27532
+ObjType=24
+Agarrable=0
+Valor=5000
+Crucial=0
+HechizoIndex=73
+
+[OBJ1672] 'Para Todos
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+ObjType=48
+GrhIndex=4924
+NumRopaje=174
+VALOR=10000
+REAL=1
+
+[OBJ1673] 'Para Todos
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12779
+NUMROPAJE=238
+VALOR=10000
+REAL=1
+
+[OBJ1674] 'Para Todos
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4925
+NumRopaje=175
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1675] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+ObjType=48
+GrhIndex=4924
+NumRopaje=174
+VALOR=10000
+REAL=1
+
+[OBJ1676] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12779
+NUMROPAJE=238
+VALOR=10000
+REAL=1
+
+[OBJ1677] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4925
+NumRopaje=175
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1678] 'Clérigos (2)
+Name=Skin Armadura Sacerdote del Imperio
+ObjType=48
+GrhIndex=759
+NumRopaje=92
+VALOR=10000
+REAL=1
+
+[OBJ1679] 'Clérigos (2)
+Name=Skin Armadura Sacerdotedel del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1680] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=690
+NumRopaje=64
+VALOR=10000
+REAL=1
+
+[OBJ1681] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1682] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=4922
+NumRopaje=172
+VALOR=10000
+REAL=1
+
+[OBJ1683] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+'############# SKINS CAOS ##############
+
+[OBJ1684] 'Para Todos 
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+GrhIndex=4926
+NumRopaje=176
+VALOR=10000
+CAOS=1
+
+[OBJ1685] 'Para Todos 
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12752
+NUMROPAJE=237
+VALOR=10000
+CAOS=1
+
+[OBJ1686] 'Para Todos 
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4927
+NumRopaje=177
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1687] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+GrhIndex=785
+NumRopaje=119
+VALOR=10000
+CAOS=1
+
+[OBJ1688] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12752
+NUMROPAJE=237
+VALOR=10000
+CAOS=1
+
+[OBJ1689] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4927
+NumRopaje=177
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1690] 'Clérigos (2)
+Name=Skin Armadura Sacerdote del Imperio
+ObjType=48
+GrhIndex=759
+NumRopaje=92
+VALOR=10000
+CAOS=1
+
+[OBJ1691] 'Clérigos (2)
+Name=Skin Armadura Sacerdotedel del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1692] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=690
+NumRopaje=64
+VALOR=10000
+CAOS=1
+
+[OBJ1693] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1694] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=4922
+NumRopaje=172
+VALOR=10000
+CAOS=1
+
+[OBJ1695] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1696]
+Name=Tijeras
+GrhIndex=260
+ObjType=42
+Agarrable=0
+MinHAM=10
+Valor=2
+Crucial=1
+
+[OBJ1697]
+Name=Maniquí
+GrhIndex=4500
+ObjType=45
+Agarrable=0
+MinHAM=10
+Valor=2
+Crucial=1

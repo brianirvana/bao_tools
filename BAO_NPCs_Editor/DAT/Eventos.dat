@@ -37,7 +37,7 @@ DiaSuperLiga1=7	'Osea Domingo
 DiaSuperLiga2=1 'Y lunes
 
 FullEventos=1
-MaxRandomEventos=8
+MaxRandomEventos=1
 RandomEvento1=T
 RandomEvento2=1
 RandomEvento3=2
@@ -45,7 +45,7 @@ RandomEvento4=3
 RandomEvento5=G
 RandomEvento6=D
 RandomEvento7=R
-RandomEvento8=
+RandomEvento8=T
 RandomEvento9=
 RandomEvento10=
 
@@ -59,3 +59,6 @@ ProbabilidadCostoDonante=5
 Pozo_Base_ORO_Rey=200000
 EntregarCopasReyvsRey=1
 EntregarCopasTorneos=1
+InscripcionDonantes=0
+InscripcionPlatino=0
+InscripcionOro=0

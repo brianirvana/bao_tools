@@ -2,56 +2,56 @@
 MAX_DUNGEONS_NEWBIE=4
 
 [TURGON]
-X=467
-Y=832
+X=477
+Y=822
 MAPA=1
 
 [Ullathorpe]
-X=550
-Y=527
+X=555
+Y=529
 MAPA=1
 
 [ANGROD]
-X=622
-Y=410
+X=625
+Y=413
 MAPA=1
 
 [HARROGATH]
-X=806
-Y=573
+X=769
+Y=120
 MAPA=1
 
 [MURUS]
 X=727
-Y=686
+Y=689
 MAPA=1
 
 [ATLANTIS]
-X=819
-Y=415
+X=850
+Y=393
 MAPA=2
 
 [NewbieDungeon1] 'Este
-X=348
-Y=134
-MAPA=2
+X=625
+Y=612
+MAPA=4
 
 [NewbieDungeon2] 'Oeste
-X=28
-Y=134
-MAPA=2
+X=305
+Y=612
+MAPA=4
 
 [NewbieDungeon3] 'Norte
-X=188
-Y=50
-MAPA=2
+X=465
+Y=528
+MAPA=4
 
 [NewbieDungeon4] 'Sur
-X=188
-Y=206
-MAPA=2
+X=465
+Y=684
+MAPA=4
 
 [InitialPos]
-X=252
-Y=122
-MAPA=2
+X=545
+Y=600
+MAPA=4

@@ -44,7 +44,7 @@ Public Type tNPCRespawn
     CountRespawn                As Integer
     Nivel                       As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
     FactorMulExp                As Single   'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
-    Pos                         As WorldPos    'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
+    Pos                         As WorldPos 'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
     PosRespawns()               As WorldPos
     NumPosRespawns              As Long
 End Type

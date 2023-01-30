@@ -118,9 +118,14 @@ Public Sub DrawGraphic(ByRef SP As Sprite, X As Single, Y As Single, Escala As S
         SP.Update_Pos X, Y
         SP.Update_Scale Escala, Escala
         SP.Draw
+        
+        'Debug.Print "Sprite num: " & SP.GetCurrentSubFrame
+        
     End If
     'Call EngineLibrary.Draw_Texture(Tex, X, Y, Width, Height, , , , , , , , , Escala, Escala)
+    
 End Sub
+
 Public Sub Resize()
     Call EngineLibrary.Change_Resolution(1, 1980, 1280)
 End Sub

@@ -223,9 +223,11 @@ Public Sub ResizeGraphic(Index As Integer, Mode As Byte)
 End Sub
 
 Private Sub EfectosGraficos(ByVal Index As Integer, ByVal BaseX As Integer, ByVal BaseY As Integer)
+
 Dim EjesX(3) As Single, EjesY(3) As Single
 Dim i                           As Long
-If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
+
+    If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
         With GrhData(Index)
             EjesX(0) = BaseX
             EjesY(0) = BaseY
@@ -254,6 +256,7 @@ If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
             End If
         End With
     End If
+    
     If Encuadrar Then          '<-- Cuando tiene que encuadrar hace esto
         With GrhData(Index)
             EjesX(0) = BaseX
@@ -299,13 +302,17 @@ If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
         End With
     End If
 End Sub
+
 Private Sub DrawAnimGraphic(ByVal Index As Integer, ByVal X As Integer, ByVal Y As Integer)
+
     Call GameEngine.Draw_Text(GetDirectionString(Index), CSng(X), CSng(Y), D3DColorRGBA(0, 255, 255, 255))
+    
     Dim BodyDatas               As BodyData
     Dim OffsetX                 As Integer
     Dim OffsetY                 As Integer
 
-
+    'If Index = 3 Then Stop
+    
     If NumGraphic_Cuerpos(Index) Then
         BodyDatas = BodyData(NumAnim_Cuerpos)
         Call GameEngine.Draw_Text("OffSet: " & BodyDatas.HeadOffset.X & " - " & BodyDatas.HeadOffset.Y, 0, 0, D3DColorRGBA(0, 255, 255, 255))
@@ -313,6 +320,8 @@ Private Sub DrawAnimGraphic(ByVal Index As Integer, ByVal X As Integer, ByVal Y 
         Call GameEngine.Draw_Text("Center: " & CenterX(NumGraphic_Cuerpos(Index)) & " - " & CenterY(NumGraphic_Cuerpos(Index)), 0, 10, D3DColorRGBA(0, 255, 255, 255))
 
         Call DrawAnimGraphicCenter(SP_Cuerpos(Index), NumGraphic_Cuerpos(Index), X, Y)
+        
+        'Debug.Print "GRH body: " & GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1)
     End If
 
     If NumGraphic_Cabezas(Index) Then
@@ -338,11 +347,16 @@ Private Sub DrawAnimGraphic(ByVal Index As Integer, ByVal X As Integer, ByVal Y 
     If NumGraphic_Efectos Then
         Call DrawAnimGraphicCenter(SP_Efectos, NumGraphic_Efectos, X + FxData(NumAnim_Efectos).OffsetX, Y + FxData(NumAnim_Efectos).OffsetY)
     End If
+    
 End Sub
+
 Private Sub DrawAnimGraphicCenter(ByRef SP As Sprite, GrhIndex As Integer, ByVal X As Integer, ByVal Y As Integer)
+
     If GrhIndex Then
+        
         Dim OffsetX             As Single
         Dim OffsetY             As Single
+        
         'X = X - CenterX(GrhIndex)
         'Y = Y - CenterY(GrhIndex)
 
@@ -356,11 +370,16 @@ Private Sub DrawAnimGraphicCenter(ByRef SP As Sprite, GrhIndex As Integer, ByVal
             OffsetY = (Int(GrhData(GrhIndex).TileHeight * 32) + 32) * Escala
             Y = Y - OffsetY
         End If
+        
         'Debug.Print GrhData(GrhIndex).pixelWidth & "-" & GrhData(GrhIndex).pixelHeight
         'End If
+        'Debug.Print "GRH: " & GrhData(GrhIndex).Frames(1)
+        
         Call GameEngine.DrawGraphic(SP, CSng(X + 50), CSng(Y + 100), Escala)
     End If
+    
 End Sub
+
 Private Function CenterY(ByVal GrhIndex As Integer) As Integer
     If GrhData(GrhIndex).TileHeight <> 1 Then
         CenterY = Int(GrhData(GrhIndex).TileHeight * 32) + 32
@@ -378,9 +397,13 @@ End Function
 
 'Función principal de todo el programa en que realizara un loop infinito para renderizar todo
 Private Function GameLoop()
+
 'GameEngine.EngineLibrary.Check_State , , DInput
+
 Dim i                           As Long
-Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezieza a dibujar las cosas
+
+    Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezieza a dibujar las cosas
+    
     If RenderStyle = 2 Then
         Call DrawAnimGraphic(0, GraphicX, GraphicY)
         Call DrawAnimGraphic(1, GraphicX + (frmMain.renderer.Width / 1.5), GraphicY)
@@ -403,6 +426,7 @@ Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezie
     Info = Info & "Mouse State: " & MousePress & vbCrLf
     Info = Info & "Mouse Pos: " & System.CursorX & "-" & System.CursorY & vbCrLf
     Info = Info & "Object Pos: " & "Object Pos: " & GraphicX & "-" & GraphicY
+    
     Call GameEngine.Draw_Text_MultiLine(Info, 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
 
     'Call GameEngine.Draw_Text("Escala: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
@@ -443,7 +467,7 @@ Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezie
     Call GameEngine.DrawFPS(frmMain.renderer.ScaleWidth - 75, 0)
 
     While (GetTime - fpsLastCheck) \ 10 < FramesPerSecCounter
-        'DoEvents
+        DoEvents
         Sleep 5
     Wend
     
@@ -458,7 +482,6 @@ Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezie
     'ProgramStatus = ProgramStatus & vbNewLine & "FPS: " & FramesPerSecCounter
 
     If Len(ProgramStatus) Then Call GameEngine.Draw_Text_MultiLine(ProgramStatus, 10, 10, D3DColorRGBA(255, 0, 0, 255))
-
     Call GameEngine.End_Scene  '<-- Esto indica que termina la escena y dibuja todo lo que se renderizo
     
 End Function

@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmMain 
    BackColor       =   &H00C0C0C0&
    Caption         =   "tX"
@@ -13,6 +13,320 @@ Begin VB.Form frmMain
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   1234
    StartUpPosition =   2  'CenterScreen
+   Begin VB.Frame Frame 
+      Height          =   6375
+      Left            =   120
+      TabIndex        =   14
+      Top             =   1440
+      Visible         =   0   'False
+      Width           =   2415
+      Begin VB.TextBox txtEnum 
+         Height          =   2175
+         Left            =   120
+         MultiLine       =   -1  'True
+         TabIndex        =   26
+         Top             =   3600
+         Width           =   2175
+      End
+      Begin VB.ComboBox cmbEfectos 
+         Height          =   315
+         ItemData        =   "frmMain.frx":0000
+         Left            =   1080
+         List            =   "frmMain.frx":0002
+         Style           =   2  'Dropdown List
+         TabIndex        =   25
+         Top             =   2520
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbEscudos 
+         Height          =   315
+         ItemData        =   "frmMain.frx":0004
+         Left            =   1080
+         List            =   "frmMain.frx":0006
+         Style           =   2  'Dropdown List
+         TabIndex        =   24
+         Top             =   2160
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbCuerpos 
+         Height          =   315
+         ItemData        =   "frmMain.frx":0008
+         Left            =   1080
+         List            =   "frmMain.frx":000A
+         Style           =   2  'Dropdown List
+         TabIndex        =   23
+         Top             =   1800
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbCascos 
+         Height          =   315
+         ItemData        =   "frmMain.frx":000C
+         Left            =   1080
+         List            =   "frmMain.frx":000E
+         Style           =   2  'Dropdown List
+         TabIndex        =   22
+         Top             =   1440
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbCabezas 
+         Height          =   315
+         ItemData        =   "frmMain.frx":0010
+         Left            =   1080
+         List            =   "frmMain.frx":0012
+         Style           =   2  'Dropdown List
+         TabIndex        =   21
+         Top             =   1080
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbArmas 
+         Height          =   315
+         ItemData        =   "frmMain.frx":0014
+         Left            =   1080
+         List            =   "frmMain.frx":0016
+         Style           =   2  'Dropdown List
+         TabIndex        =   20
+         Top             =   720
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbTipo 
+         Height          =   315
+         ItemData        =   "frmMain.frx":0018
+         Left            =   1080
+         List            =   "frmMain.frx":002E
+         Style           =   2  'Dropdown List
+         TabIndex        =   16
+         Top             =   3000
+         Width           =   1215
+      End
+      Begin VB.ComboBox cmbFondo 
+         Enabled         =   0   'False
+         Height          =   315
+         ItemData        =   "frmMain.frx":0065
+         Left            =   1080
+         List            =   "frmMain.frx":0067
+         Style           =   2  'Dropdown List
+         TabIndex        =   15
+         Top             =   240
+         Width           =   1215
+      End
+      Begin VB.Label lblResetTip 
+         Alignment       =   2  'Center
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "Reset"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   720
+         TabIndex        =   34
+         Top             =   5760
+         Width           =   735
+      End
+      Begin VB.Label lblSaveTip 
+         Alignment       =   2  'Center
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "Save"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   1440
+         TabIndex        =   33
+         Top             =   5760
+         Width           =   855
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Efectos:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   7
+         Left            =   120
+         TabIndex        =   32
+         Top             =   2520
+         Width           =   930
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Escudos:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   5
+         Left            =   120
+         TabIndex        =   31
+         Top             =   2160
+         Width           =   930
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Cuerpos:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   4
+         Left            =   120
+         TabIndex        =   30
+         Top             =   1800
+         Width           =   930
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Cascos:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   3
+         Left            =   120
+         TabIndex        =   29
+         Top             =   1440
+         Width           =   930
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Cabezas:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   2
+         Left            =   120
+         TabIndex        =   28
+         Top             =   1080
+         Width           =   930
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Armas:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   1
+         Left            =   120
+         TabIndex        =   27
+         Top             =   720
+         Width           =   930
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Tipo:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   0
+         Left            =   120
+         TabIndex        =   19
+         Top             =   3000
+         Width           =   930
+      End
+      Begin VB.Label lblTipo 
+         Alignment       =   2  'Center
+         BorderStyle     =   1  'Fixed Single
+         Caption         =   "Cabeza"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   120
+         TabIndex        =   18
+         Top             =   3360
+         Width           =   2130
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Fondo:"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Index           =   6
+         Left            =   120
+         TabIndex        =   17
+         Top             =   240
+         Width           =   930
+      End
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Auto Skins"
+      Height          =   255
+      Left            =   14520
+      TabIndex        =   72
+      Top             =   1680
+      Width           =   1215
+   End
    Begin VB.CommandButton cmdCopyBodiesPNGtoFolder 
       Caption         =   "Copy Bodies PNG to folder"
       Height          =   255
@@ -426,316 +740,10 @@ Begin VB.Form frmMain
       BackColor       =   &H00000000&
       ForeColor       =   &H00E0E0E0&
       Height          =   7440
-      Left            =   120
+      Left            =   0
       TabIndex        =   13
       Top             =   1200
       Width           =   2415
-   End
-   Begin VB.Frame Frame 
-      Height          =   6375
-      Left            =   120
-      TabIndex        =   14
-      Top             =   1440
-      Visible         =   0   'False
-      Width           =   2415
-      Begin VB.TextBox txtEnum 
-         Height          =   2175
-         Left            =   120
-         MultiLine       =   -1  'True
-         TabIndex        =   26
-         Top             =   3600
-         Width           =   2175
-      End
-      Begin VB.ComboBox cmbEfectos 
-         Height          =   315
-         ItemData        =   "frmMain.frx":0000
-         Left            =   1080
-         List            =   "frmMain.frx":0002
-         Style           =   2  'Dropdown List
-         TabIndex        =   25
-         Top             =   2520
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbEscudos 
-         Height          =   315
-         ItemData        =   "frmMain.frx":0004
-         Left            =   1080
-         List            =   "frmMain.frx":0006
-         Style           =   2  'Dropdown List
-         TabIndex        =   24
-         Top             =   2160
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbCuerpos 
-         Height          =   315
-         ItemData        =   "frmMain.frx":0008
-         Left            =   1080
-         List            =   "frmMain.frx":000A
-         Style           =   2  'Dropdown List
-         TabIndex        =   23
-         Top             =   1800
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbCascos 
-         Height          =   315
-         ItemData        =   "frmMain.frx":000C
-         Left            =   1080
-         List            =   "frmMain.frx":000E
-         Style           =   2  'Dropdown List
-         TabIndex        =   22
-         Top             =   1440
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbCabezas 
-         Height          =   315
-         ItemData        =   "frmMain.frx":0010
-         Left            =   1080
-         List            =   "frmMain.frx":0012
-         Style           =   2  'Dropdown List
-         TabIndex        =   21
-         Top             =   1080
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbArmas 
-         Height          =   315
-         ItemData        =   "frmMain.frx":0014
-         Left            =   1080
-         List            =   "frmMain.frx":0016
-         Style           =   2  'Dropdown List
-         TabIndex        =   20
-         Top             =   720
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbTipo 
-         Height          =   315
-         ItemData        =   "frmMain.frx":0018
-         Left            =   1080
-         List            =   "frmMain.frx":002E
-         Style           =   2  'Dropdown List
-         TabIndex        =   16
-         Top             =   3000
-         Width           =   1215
-      End
-      Begin VB.ComboBox cmbFondo 
-         Enabled         =   0   'False
-         Height          =   315
-         ItemData        =   "frmMain.frx":0065
-         Left            =   1080
-         List            =   "frmMain.frx":0067
-         Style           =   2  'Dropdown List
-         TabIndex        =   15
-         Top             =   240
-         Width           =   1215
-      End
-      Begin VB.Label lblResetTip 
-         Alignment       =   2  'Center
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "Reset"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Left            =   720
-         TabIndex        =   34
-         Top             =   5760
-         Width           =   735
-      End
-      Begin VB.Label lblSaveTip 
-         Alignment       =   2  'Center
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "Save"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Left            =   1440
-         TabIndex        =   33
-         Top             =   5760
-         Width           =   855
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Efectos:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   7
-         Left            =   120
-         TabIndex        =   32
-         Top             =   2520
-         Width           =   930
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Escudos:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   5
-         Left            =   120
-         TabIndex        =   31
-         Top             =   2160
-         Width           =   930
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Cuerpos:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   4
-         Left            =   120
-         TabIndex        =   30
-         Top             =   1800
-         Width           =   930
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Cascos:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   3
-         Left            =   120
-         TabIndex        =   29
-         Top             =   1440
-         Width           =   930
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Cabezas:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   2
-         Left            =   120
-         TabIndex        =   28
-         Top             =   1080
-         Width           =   930
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Armas:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   1
-         Left            =   120
-         TabIndex        =   27
-         Top             =   720
-         Width           =   930
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Tipo:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   0
-         Left            =   120
-         TabIndex        =   19
-         Top             =   3000
-         Width           =   930
-      End
-      Begin VB.Label lblTipo 
-         Alignment       =   2  'Center
-         BorderStyle     =   1  'Fixed Single
-         Caption         =   "Cabeza"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   375
-         Left            =   120
-         TabIndex        =   18
-         Top             =   3360
-         Width           =   2130
-      End
-      Begin VB.Label lblInfo 
-         Alignment       =   1  'Right Justify
-         Caption         =   "Fondo:"
-         BeginProperty Font 
-            Name            =   "MS Sans Serif"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   255
-         Index           =   6
-         Left            =   120
-         TabIndex        =   17
-         Top             =   240
-         Width           =   930
-      End
    End
    Begin VB.Label Label13 
       BackColor       =   &H00C0C0C0&
@@ -1448,20 +1456,20 @@ End Sub
 
 Private Sub cmdCopyBodiesPNGtoFolder_Click()
 
-Dim i                           As Long
-Dim lastNum                     As Long
-Dim strTemp                     As String
-
-
-    For i = 1 To UBound(BodyData)
-    
-        strTemp = BodyData(i).Walk(1).GrhIndex
-        
-        If GrhData(BodyData(i).Walk(1).GrhIndex).FileNum > 0 And lastNum <> GrhData(BodyData(i).Walk(1).GrhIndex).FileNum Then
-            Debug.Print "strTemp: " & strTemp & " File PNG: " & GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
-            lastNum = GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
-        End If
-    Next i
+'Dim i                           As Long
+'Dim lastNum                     As Long
+'Dim strTemp                     As String
+'
+'
+'    For i = 1 To UBound(BodyData)
+'
+'        strTemp = BodyData(i).Walk(1).GrhIndex
+'
+'        If GrhData(BodyData(i).Walk(1).GrhIndex).FileNum > 0 And lastNum <> GrhData(BodyData(i).Walk(1).GrhIndex).FileNum Then
+'            Debug.Print "strTemp: " & strTemp & " File PNG: " & GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
+'            lastNum = GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
+'        End If
+'    Next i
 
 End Sub
 
@@ -1570,6 +1578,29 @@ Dim sTmpGrh                     As String
     
 End Sub
 
+Private Sub Command1_Click()
+
+Dim i                       As Integer
+Dim j                       As Integer
+Dim tmpObj                  As Integer
+Dim BodyDatas               As BodyData
+
+    tmpObj = 1502
+    j = 1
+    For i = 519 To 685
+        BodyDatas = BodyData(i)
+        Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NAME", "Skin " & j)
+        Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "ObjType", CStr(48))
+        Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALOR", CStr(10000))
+        Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALORDONANTE", CStr(2000))
+        Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NumRopaje", CStr(i))
+        Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "GrhIndex", CStr(GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1) & vbNewLine))
+        tmpObj = tmpObj + 1
+        j = j + 1
+    Next i
+
+End Sub
+
 Public Sub Escala_Scroll()
     If Not (TileEngine Is Nothing) Then
         TileEngine.Escala = Escala.Value / 3
@@ -1609,10 +1640,13 @@ Private Sub lblIndexarTODO_Click()
 End Sub
 
 Private Sub lblOption_Click(Index As Integer)
+
 Dim i                           As Long
-    For i = lblOption.LBound To lblOption.ubound
+
+    For i = lblOption.LBound To lblOption.UBound
         lblOption(i).BackColor = &H8000000F
     Next i
+    
     lblOption(Index).BackColor = vbRed
 
     Select Case Index
@@ -1627,6 +1661,7 @@ Dim i                           As Long
     If Not (TileEngine Is Nothing) Then
         Call TileEngine.ChangeRenderStyle(Index)
     End If
+    
 End Sub
 
 Private Sub lblResetTip_Click()

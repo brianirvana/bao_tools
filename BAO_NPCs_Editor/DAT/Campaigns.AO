@@ -24,6 +24,7 @@
 'Time= segundos. Si el time está en la misión, TODA la misión tiene el tiempo que está definido ahí. Ej Time=5 (5 segundos y se cancela la misión completa)
 'Time= segundos. Si el time está en el objetivo, el objetivo se REINICIA cuando el tiempo llega a 0. 
 'Class = numclase (Clase necesaria para poder hacer la misión. Ej Mago = 1 Clérigo= 2 Guerrero = 3 Asesino = 4 Ladrón = 5 Bardo = 6 Druida = 7 Bandido= 8 Paladin = 9 Cazador = 10 Trabajador= 11 Pirata = 12)
+'PartyNeeded = Cantidad de miembros en party necesarios para poder realizar la misión.
 
 '################################ RECOMPENSAS (Rewards) ################################################
 'RewardPlateCoins = cantidad (Monedas de platino necesarias para poder hacer la misión.)
@@ -32,12 +33,11 @@
 'RewardForgive=0 '1 te da 500 de nobleza, 2 te da 1000 de nobleza, y así. En cero no te da nada.
 'RewardExp=1000 (da mil de exp la misión completada)
 'RewardGold=10000 (da 10k de oro la misión completada)
-'NumRewardObj=2   'Cantidad de obj de recompensa que da la misión completada (2)
+'NumRewardObj=2 'Cantidad de obj de recompensa que da la misión completada (2)
 'RewardObj1Index=474 	'Primer objeto de recompesa que da la misión completada (Barca = 474)
-'RewardObj1Amount=1  	'Cantidad del primer objeto que da de la misión completada (1)
+'RewardObj1Amount=1	'Cantidad del primer objeto que da de la misión completada (1)
 'RewardObj2Index=38 	'Primer objeto de recompesa que da la misión completada (Poción roja = 38)
-'RewardObj2Amount=15  	'Cantidad del primer objeto que da de la misión completada (15)
-'RewardByClass=1 	'Todas las clases reciben premios especificos según la clase a la que pertenezcan. Si está en cero no da premios por clase.
+'RewardObj2Amount=15	'Cantidad del primer objeto que da de la misión completada (15)
 'NumRewardObjByClass=5 	'Todas las clases reciben esta misma cantidad de objetos
 'Ej1: Mago (Class1)
 'Class1ObjIndex1=383 'Sombrero mágico
@@ -50,7 +50,7 @@
 'Class1ObjAmount4=1
 
 [INIT]
-NumCampaigns=62
+NumCampaigns=63
 '############################################################################################################################################################
 
 [Campaign1]
@@ -58,8 +58,8 @@ Name=¡Inicia la aventura!
 Description=¡Bienvenido a BenderAO! ||A continuación, realizarás un puñado de acciones, que te ayudarán con tu aprendizaje inicial, y a comenzar con tu entrenamiento.||
 Deberás comprar los objetos básicos para armarte, vestirte, alimentarte y equipártelos con la letra E. ||¡Mucha suerte en tu inicio y ten cuidado con las criaturas!
 Dialog1=Hola aventurero tengo una misión para ti!
-Dialog2=¡Ahora ve en busca de esas criaturas!
-Dialog3=¿Todavía no has matado los 20 lobos o no tienes las pieles? ¡Debes hacer ambas cosas! Para entregar las pieles, debes hacer DOBLE CLIC.
+Dialog2=¡Busca a Lilian por aquí cerca y cómprale las cosas!
+Dialog3=¿Todavía no has encontrado a Lilian?
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, hazme doble clic o coloca /RECOMPENSAQUEST
 Dialog5=Toma esta daga y este hechizo
 NumStages=4
@@ -137,17 +137,16 @@ PreviousStage=0
 
 [Campaign2]
 Name=Tumulto en la ciudad
-Description=Me han robado y necesito que me digas quién fue.  
+Description=Me han robado y necesito que me digas quién fue.
 Dialog1=¡Tengo un trabajo en Ullathorpe para ofrecerte! (Haz doble clic sobre mi o /QUEST)
 Dialog2=Ve a hablar con el sacerdote de Ullathorpe y haz clic sobre él. Apresúrate!
 Dialog3=¿Todavía no tienes la información? Si ya la tienes escribe /RESPUESTA o hazme doble click
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, hazme doble clic o coloca /RECOMPENSAQUEST
 Dialog5=Esta recompesa te servirá para tu entrenamiento
 NumStages=9
-MinLvl=1
-RewardExp=2000
+MinLvl=15
+RewardExp=1300
 RewardGold=8000
-RewardByClass=1 'Todas las clases reciben premios especificos según la clase a la que pertenezcan.
 NumRewardObjByClass=5 'No todas las clases tendrán el honor de recibir este premio!
 
 'Mago
@@ -155,10 +154,10 @@ Class1ObjIndex1=383 'Sombrero Mágico
 Class1ObjAmount1=2
 Class1ObjIndex2=658 'Bastón Nudoso
 Class1ObjAmount2=2
-Class1ObjIndex3=38  'Poción roja
+Class1ObjIndex3=38 'Poción roja
 Class1ObjAmount3=500
-Class1ObjIndex4=37  'Poción azul
-Class1ObjAmount4=500  
+Class1ObjIndex4=37 'Poción azul
+Class1ObjAmount4=500
 Class1ObjIndex5=238 'Túnica de Sacerdote
 Class1ObjAmount5=2
 
@@ -167,9 +166,9 @@ Class2ObjIndex1=1098 'Mazo del Juicio
 Class2ObjAmount1=2
 Class2ObjIndex2=132 'Casco de hierro
 Class2ObjAmount2=2
-Class2ObjIndex3=38  'Poción roja
+Class2ObjIndex3=38 'Poción roja
 Class2ObjAmount3=500
-Class2ObjIndex4=37  'Poción azul
+Class2ObjIndex4=37 'Poción azul
 Class2ObjAmount4=500
 Class2ObjIndex5=238 'Túnica de Sacerdote
 Class2ObjAmount5=2
@@ -179,9 +178,9 @@ Class3ObjIndex1=126 'Hacha Larga de Guerra
 Class3ObjAmount1=2
 Class3ObjIndex2=132 'Casco de hierro
 Class3ObjAmount2=2
-Class3ObjIndex3=38  'Poción roja
+Class3ObjIndex3=38 'Poción roja
 Class3ObjAmount3=1000
-Class3ObjIndex4=36  'Poción Amarilla
+Class3ObjIndex4=36 'Poción Amarilla
 Class3ObjAmount4=200
 Class3ObjIndex5=672 'Armadura de Élite (E/G)
 Class3ObjAmount5=2
@@ -191,21 +190,21 @@ Class4ObjIndex1=366 'Daga +3
 Class4ObjAmount1=2
 Class4ObjIndex2=132 'Casco de hierro
 Class4ObjAmount2=2
-Class4ObjIndex3=38  'Poción roja
+Class4ObjIndex3=38 'Poción roja
 Class4ObjAmount3=500
-Class4ObjIndex4=37  'Poción azul
+Class4ObjIndex4=37 'Poción azul
 Class4ObjAmount4=500
 Class4ObjIndex5=238 'Túnica de Sacerdote
 Class4ObjAmount5=2
 
 'Ladrón
-Class5ObjIndex1=552 'Flechas  
+Class5ObjIndex1=552 'Flechas
 Class5ObjAmount1=750
 Class5ObjIndex2=664 'Arco Compuesto Reforzado
 Class5ObjAmount2=2
-Class5ObjIndex3=38  'Poción roja
+Class5ObjIndex3=38 'Poción roja
 Class5ObjAmount3=500
-Class5ObjIndex4=36  'Poción Amarilla
+Class5ObjIndex4=36'Poción Amarilla
 Class5ObjAmount4=200
 Class5ObjIndex5=873 'Guantes de Hurto
 Class5ObjAmount5=1
@@ -215,9 +214,9 @@ Class6ObjIndex1=366 'Daga +3
 Class6ObjAmount1=1
 Class6ObjIndex2=469 'Laúd
 Class6ObjAmount2=2
-Class6ObjIndex3=38  'Poción roja
+Class6ObjIndex3=38 'Poción roja
 Class6ObjAmount3=500
-Class6ObjIndex4=37  'Poción azul
+Class6ObjIndex4=37 'Poción azul
 Class6ObjAmount4=500
 Class6ObjIndex5=238 'Túnica de Sacerdote
 Class6ObjAmount5=2
@@ -227,21 +226,21 @@ Class7ObjIndex1=366 'Daga +3
 Class7ObjAmount1=1
 Class7ObjIndex2=540 'Flauta
 Class7ObjAmount2=2
-Class7ObjIndex3=38  'Poción roja
+Class7ObjIndex3=38 'Poción roja
 Class7ObjAmount3=500
-Class7ObjIndex4=37  'Poción azul
+Class7ObjIndex4=37 'Poción azul
 Class7ObjAmount4=500
 Class7ObjIndex5=238 'Túnica de Sacerdote
 Class7ObjAmount5=2
 
 'Bandido
-Class8ObjIndex1=552 'Flechas  
+Class8ObjIndex1=552 'Flechas
 Class8ObjAmount1=750
 Class8ObjIndex2=123 'Espada Vikinga
 Class8ObjAmount2=2
-Class8ObjIndex3=38  'Poción roja
+Class8ObjIndex3=38 'Poción roja
 Class8ObjAmount3=500
-Class8ObjIndex4=36  'Poción Amarilla
+Class8ObjIndex4=36 'Poción Amarilla
 Class8ObjAmount4=200
 Class8ObjIndex5=873 'Guantes de Hurto
 Class8ObjAmount5=1
@@ -251,45 +250,45 @@ Class9ObjIndex1=126 'Hacha Larga de Guerra
 Class9ObjAmount1=2
 Class9ObjIndex2=132 'Casco de hierro
 Class9ObjAmount2=2
-Class9ObjIndex3=38  'Poción roja
+Class9ObjIndex3=38 'Poción roja
 Class9ObjAmount3=500
-Class9ObjIndex4=37  'Poción azul
+Class9ObjIndex4=37 'Poción azul
 Class9ObjAmount4=500
 Class9ObjIndex5=238 'Túnica de Sacerdote
 Class9ObjAmount5=2
 
 'Cazador
-Class10ObjIndex1=552 'Flechas  
+Class10ObjIndex1=552 'Flechas
 Class10ObjAmount1=1000
 Class10ObjIndex2=664 'Arco Compuesto Reforzado
 Class10ObjAmount2=2
-Class10ObjIndex3=38  'Poción roja
+Class10ObjIndex3=38 'Poción roja
 Class10ObjAmount3=500
-Class10ObjIndex4=36  'Poción Amarilla
+Class10ObjIndex4=36 'Poción Amarilla
 Class10ObjAmount4=250
 Class10ObjIndex5=672 'Armadura de Élite (E/G)
 Class10ObjAmount5=2
 
 'Trabajador
-Class11ObjIndex1=552 'Flechas  
+Class11ObjIndex1=552 'Flechas
 Class11ObjAmount1=750
 Class11ObjIndex2=664 'Arco Compuesto Reforzado
 Class11ObjAmount2=2
-Class11ObjIndex3=38  'Poción roja
+Class11ObjIndex3=38 'Poción roja
 Class11ObjAmount3=500
-Class11ObjIndex4=36  'Poción Amarilla
+Class11ObjIndex4=36 'Poción Amarilla
 Class11ObjAmount4=200
 Class11ObjIndex5=672 'Armadura de Élite (E/G)
 Class11ObjAmount5=2
 
 'Pirata
-Class12ObjIndex1=552 'Flechas  
+Class12ObjIndex1=552 'Flechas
 Class12ObjAmount1=750
 Class12ObjIndex2=664 'Arco Compuesto Reforzado
 Class12ObjAmount2=2
-Class12ObjIndex3=38  'Poción roja
+Class12ObjIndex3=38 'Poción roja
 Class12ObjAmount3=500
-Class12ObjIndex4=36  'Poción Amarilla
+Class12ObjIndex4=36 'Poción Amarilla
 Class12ObjAmount4=200
 Class12ObjIndex5=672 'Armadura de Élite (E/G)
 Class12ObjAmount5=2
@@ -399,7 +398,7 @@ TargetUserAlignment=1
 '############################################################################################################################################################
 
 [Campaign4]
-Name=Consigue tu primer Barca   
+Name=Consigue tu primer Barca 
 Description=Debes matar 20 árboles encantados por mi, en menos de una hora y media, y te construiré una barca.
 Dialog1=¡Tengo un trabajo para ofrecerte! (Haz doble clic sobre mi)
 Dialog2=Ve a matar 20 árboles encantados al sur de ullathorpe y vuelve por tu recompensa.
@@ -440,24 +439,19 @@ TargetObjAmount=1
 
 [Campaign5]
 Name=Cacería de Ogros y Tarántulas
-Description=Debes matar 1 Ogro y 5 Tarántulas.  
+Description=Debes matar 1 Ogro y 5 Tarántulas.
 Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=¡Ve en busca de esas criaturas! Puedes encontrarlas en el desierto al noroeste. ¡Ten cuidado con los criminales! Busca las criaturas en el mapa de la letra "Q" para mayor exactitud.
 Dialog3=¿Todavía no has matado las criaturas que te pedí?
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, hazme doble clic o coloca /RECOMPENSAQUEST
 Dialog5=¡Toma esta recompensa y este hechizo!
 NumStages=2
-MinLvl=20
+MinLvl=21
 PreviousCampaign=7
-RewardExp=14000
+RewardExp=2000
 RewardGold=10000
-NumRewardObj=2
-RewardObj1Index=207
-RewardObj1Amount=1
-RewardObj2Index=367
-RewardObj2Amount=1
+NumRewardObj=0
 
-RewardByClass=1 'Todas las clases reciben premios especificos según la clase a la que pertenezcan.
 NumRewardObjByClass=5 'Todas las clases reciben esta misma cantidad de objetos, más o menos.
 'Mago
 Class1ObjIndex1=662 'Sombrero de Mago
@@ -470,7 +464,7 @@ Class1ObjAmount3=1
 'Clérigo
 Class2ObjIndex1=128 'Escudo de Hierro
 Class2ObjAmount1=1
-Class2ObjIndex2=129 'Dos filos  
+Class2ObjIndex2=129 'Dos filos
 Class2ObjAmount2=1
 Class2ObjIndex3=361 'Tormenta de fuego
 Class2ObjAmount3=1
@@ -478,7 +472,7 @@ Class2ObjIndex4=131 'Casco de hierro completo
 Class2ObjAmount4=1
 
 'Guerrero
-Class3ObjIndex1=129 'Dos filos  
+Class3ObjIndex1=129 'Dos filos
 Class3ObjAmount1=1
 Class3ObjIndex2=128 'Escudo de Hierro
 Class3ObjAmount2=1
@@ -534,7 +528,7 @@ Class6ObjAmount4=1
 'Paladin
 Class9ObjIndex1=128 'Escudo de Hierro
 Class9ObjAmount1=1
-Class9ObjIndex2=129 'Dos filos  
+Class9ObjIndex2=129 'Dos filos
 Class9ObjAmount2=1
 Class9ObjIndex3=361 'Tormenta de fuego
 Class9ObjAmount3=1
@@ -562,7 +556,7 @@ Class11ObjAmount3=1
 'Pirata
 Class12ObjIndex1=998 'Espada BenderAO
 Class12ObjAmount1=1
-Class12ObjIndex2=128 'Escudo de Hierro  
+Class12ObjIndex2=128 'Escudo de Hierro
 Class12ObjAmount2=1
 Class12ObjIndex3=131 'Casco de hierro completo
 Class12ObjAmount3=1
@@ -586,21 +580,21 @@ TargetNpcAction=1
 
 [Campaign6]
 Name=¡Inicia la cacería! Aprende a combatir con las primeras criaturas.
-Description=Deberás combatir con pequeñas criaturas en el Dungeon Newbie, que progresivamente irán siendo más complejas de matar. || Desarrolla tus habilidades arcanas o guerreras, y haz tu propia aventura.
+Description=Deberás combatir con pequeñas criaturas en el Dungeon Newbie, que progresivamente irán siendo más complejas de matar. || Desarrolla tus habilidades arcanas o guerreras, y haz tu propia aventura.||Para salir del Dungeon Newbie, debes finalizar esta misión obligadamente. Sino, permanecerás en en el Dungeon Newbie por toda la eternidad.
 Dialog1=Hola aventurero ¡Tengo una misión para ti!
 Dialog2=¡Ve en busca de esas criaturas! Busca las criaturas en el mapa de la letra "Q" para mayor exactitud.
-Dialog3=¿Todavía no has matado los 20 murciélagos?
+Dialog3=¿Todavía no has matado esas criaturas?
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, hazme doble clic o coloca /RECOMPENSAQUEST
 Dialog5=
 NumStages=11
 MinLvl=2
-RewardExp=16500
+RewardExp=4500
 RewardGold=2500
 NumRewardObj=0
+RewardPosHogar=1
 RewardObj2Index=164
 RewardObj2Amount=1
 PreviousCampaign=1
-RewardByClass=1 'Todas las clases reciben premios especificos según la clase a la que pertenezcan.
 NumRewardObjByClass=4 'Todas las clases reciben esta misma cantidad de objetos
 
 'Mago
@@ -647,7 +641,7 @@ Class4ObjAmount4=2
 
 
 'Ladrón
-Class5ObjIndex1=552 'Flechas   
+Class5ObjIndex1=552 'Flechas
 Class5ObjAmount1=750
 Class5ObjIndex2=1000 'Arco BenderAO
 Class5ObjAmount2=1
@@ -721,7 +715,7 @@ Class11ObjAmount4=1
 'Pirata
 Class12ObjIndex1=998 'Espada BenderAO
 Class12ObjAmount1=1
-Class12ObjIndex2=404 'Escudo de Tortuga   
+Class12ObjIndex2=404 'Escudo de Tortuga
 Class12ObjAmount2=2
 Class12ObjIndex3=863 'Casco de aguila
 Class12ObjAmount3=1
@@ -729,7 +723,7 @@ Class12ObjIndex4=507 'Ropa violeta (E/G)
 Class12ObjAmount4=2
 
 [Campaign6 - Stage1]
-Description=Debes matar 5 Ratas Salvajes. Presiona la letra "Q" para buscarlas en el mapa.
+Description=Debes matar 5 Ratas Salvajes.
 TargetNpcIndex=536
 TargetNpcAmount=5
 TargetNpcAction=1
@@ -751,6 +745,145 @@ Description=Debes matar 5 Escorpiones
 TargetNpcIndex=529
 TargetNpcAmount=5
 TargetNpcAction=1
+
+NumRewardObjByClass=5 'Todas las clases reciben esta misma cantidad de objetos
+
+'Mago
+Class1ObjIndex1=661 'Sombrero de Aprendiz
+Class1ObjAmount1=1
+Class1ObjIndex2=658 'Vara de Fresno
+Class1ObjAmount2=1
+Class1ObjIndex3=197 'Flecha mágica
+Class1ObjAmount3=1
+Class1ObjIndex4=201 'Curar heridas leves
+Class1ObjAmount4=1
+CLASS1OBJINDEX5=200 'Curar Veneno
+CLASS1OBJAMOUNT5=1
+
+'Clérigo
+Class2ObjIndex1=404 'Escudo de Tortuga
+Class2ObjAmount1=1
+Class2ObjIndex2=999 'Hacha BenderAO
+Class2ObjAmount2=1
+Class2ObjIndex3=197 'Flecha mágica
+Class2ObjAmount3=1
+Class2ObjIndex4=200 'Curar Veneno
+Class2ObjAmount4=1
+Class2ObjIndex5=201 'Curar heridas leves
+Class2ObjAmount5=1
+
+'Guerrero
+Class3ObjIndex1=999 'Hacha BenderAO
+Class3ObjAmount1=1
+Class3ObjIndex2=404 'Escudo de Tortuga
+Class3ObjAmount2=1
+Class3ObjIndex3=863 'Casco de aguila
+Class3ObjAmount3=1
+Class3ObjIndex4=507 'Ropa violeta (E/G)
+Class3ObjAmount4=1
+
+'Asesino
+Class4ObjIndex1=404 'Escudo de Tortuga
+Class4ObjAmount1=1
+Class4ObjIndex2=1062 'Daga BenderAO
+Class4ObjAmount2=1
+Class1ObjIndex3=197 'Flecha mágica
+Class4ObjAmount3=1
+Class4ObjIndex4=200 'Curar Veneno
+Class4ObjAmount4=1
+
+'Ladrón
+Class5ObjIndex1=550 'Flechas newbi
+Class5ObjAmount1=350
+Class5ObjIndex2=1059 'Arco simple BenderAO
+Class5ObjAmount2=1
+Class5ObjIndex3=863 'Casco de aguila
+Class5ObjAmount3=1
+Class5ObjIndex4=930 'Toga de aprendiz
+Class5ObjAmount4=1
+
+'Bardo
+Class6ObjIndex1=404 'Escudo de Tortuga
+Class6ObjAmount1=1
+Class6ObjIndex2=863 'Casco de aguila
+Class6ObjAmount2=1
+Class6ObjIndex3=197 'Flecha mágica
+Class6ObjAmount3=1
+Class6ObjIndex4=200 'Curar Veneno
+Class6GObjAmount4=2
+
+'Druida
+Class7ObjIndex1=999 'Hacha BenderAO
+Class7ObjAmount1=1
+Class7ObjIndex2=863 'Casco de aguila
+Class7ObjAmount2=1
+Class7ObjIndex3=197 'Flecha mágica
+Class7ObjAmount3=1
+Class7ObjIndex4=200 'Curar Veneno
+Class7ObjAmount4=1
+
+'Bandido
+Class8ObjIndex1=404 'Escudo de Tortuga
+Class8ObjAmount1=1
+Class8ObjIndex2=863 'Casco de aguila
+Class8ObjAmount2=1
+Class8ObjIndex3=197 'Flecha mágica
+Class8ObjAmount3=1
+Class8ObjIndex4=200 'Curar Veneno
+Class8ObjAmount4=1
+Class8ObjIndex5=201 'Curar heridas leves
+Class8ObjAmount5=1
+
+'Paladin
+Class9ObjIndex1=404 'Escudo de Tortuga
+Class9ObjAmount1=1
+Class9ObjIndex2=999 'Hacha BenderAO
+Class9ObjAmount2=1
+Class9ObjIndex3=197 'Flecha mágica
+Class9ObjAmount3=1
+Class9ObjIndex4=200 'Curar Veneno
+Class9ObjAmount4=1
+
+'Cazador
+Class10ObjIndex1=1059 'Arco simple BenderAO
+Class10ObjAmount1=1
+Class10ObjIndex2=550 'Flecha newbie
+Class10ObjAmount2=350
+Class10ObjIndex3=507 'Ropa violeta (E/G)
+Class10ObjAmount3=1
+Class10ObjIndex4=863 'Casco de aguila
+Class10ObjAmount4=1
+
+'Trabajador
+Class11ObjIndex1=1059 'Arco simple BenderAO
+Class11ObjAmount1=1
+Class11ObjIndex2=550 'Flecha newbie
+Class11ObjAmount2=350
+Class11ObjIndex3=507 'Ropa violeta (E/G)
+Class11ObjAmount3=1
+Class11ObjIndex4=863 'Casco de aguila
+Class11ObjAmount4=1
+
+'Pirata
+Class12ObjIndex1=1059 'Arco simple BenderAO
+Class12ObjAmount1=1
+Class12ObjIndex2=404 'Escudo de Tortuga
+Class12ObjAmount2=1
+Class12ObjIndex3=863 'Casco de aguila
+Class12ObjAmount3=1
+Class12ObjIndex4=507 'Ropa violeta (E/G)
+Class12ObjAmount4=1
+CLASS12OBJINDEX5=550 'Flecha newbie
+CLASS12OBJAMOUNT5=350
+CLASS4OBJINDEX3=197 'Flecha mágica
+CLASS4OBJINDEX5=201 'Curar heridas leves
+CLASS6OBJAMOUNT4=1
+CLASS6OBJINDEX5=201 'Curar heridas leves
+CLASS4OBJAMOUNT5=2
+CLASS7OBJAMOUNT5=1
+CLASS7OBJINDEX5=201 'Curar heridas leves
+CLASS9OBJAMOUNT5=1
+CLASS9OBJINDEX5=201 'Curar heridas leves
 
 [Campaign6 - Stage5]
 Description=Debes matar 5 Lobos
@@ -805,22 +938,15 @@ Dialog3=¿Todavía no has matado los 15 osos o no tienes las pieles? ¡Debes hacer 
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, hazme doble clic o coloca /RECOMPENSAQUEST
 Dialog5=Toma esta recompensa y este hechizo
 NumStages=2
-MinLvl=15
+MinLvl=18
 PreviousCampaign=8
-RewardExp=12000
-RewardGold=25000
-NumRewardObj=5
+RewardExp=2000
+RewardGold=8000
+NumRewardObj=2
 RewardObj1Index=207
 RewardObj1Amount=1
 RewardObj2Index=164
 RewardObj2Amount=1
-RewardObj3Index=129
-RewardObj3Amount=1
-RewardObj4Index=131
-RewardObj4Amount=1
-RewardObj5Index=659
-RewardObj5Amount=1
-Redoable=1
 
 [Campaign7 - Stage1]
 Description=Matar 15 Osos Pardos
@@ -839,7 +965,7 @@ TargetObjAmount=15
 
 [Campaign8]
 Name=Cacería de Hombres Lobo y Araña
-Description=Debes matar 2 Hombres Lobo y 1 Araña Gigante. 
+Description=Debes matar 2 Hombres Lobo y 1 Araña Gigante.  
 Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=¡Ve en busca de esas criaturas! Puedes encontrarlas en las catacumbas al este de Ullathorpe. ¡Ten cuidado con los criminales! Busca las criaturas en el mapa de la letra "Q" para mayor exactitud.
 Dialog3=¿Todavía no has matado las criaturas que te pedí? ¡Debes matar todas las que te pedí!
@@ -847,16 +973,14 @@ Dialog4=Ah! Veo que vienes en busca de tu recompensa, hazme doble clic o coloca 
 Dialog5=Toma esta recompensa y este hechizo
 NumStages=2
 MinLvl=17
-PreviousCampaign=1
-RewardExp=17000
-RewardGold=20000
-NumRewardObj=3
-RewardObj1Index=530
+PreviousCampaign=6
+RewardExp=800
+RewardGold=4000
+NumRewardObj=2
+RewardObj1Index=206
 RewardObj1Amount=1
-RewardObj2Index=366
+RewardObj2Index=394
 RewardObj2Amount=1
-RewardObj3Index=394
-RewardObj3Amount=1
 
 [Campaign8 - Stage1]
 Description=Matar 2 Hombres lobos
@@ -1025,7 +1149,7 @@ TargetObjAmount=1
 
 [Campaign12]
 Name=Cacería Furtiva de Lobos
-Description=Debes matar 100 lobos y entregarme 100 pieles de lobo. 
+Description=Debes matar 20 lobos y entregarme 20 pieles de lobo. 
 Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=¡Ahora ve en busca de esas criaturas!
 Dialog3=¿Todavía no has matado los 100 lobos o no tienes las 100 pieles? ¡Debes hacer ambas cosas! Para entregar las pieles, debes hacer DOBLE CLIC.
@@ -1034,12 +1158,11 @@ Dialog5=Toma esta daga y este hechizo
 NumStages=2
 MinLvl=15
 PreviousCampaign=6
-RewardExp=3500
+RewardExp=350
 RewardGold=5000
 NumRewardObj=1
 RewardObj1Index=38
-RewardObj1Amount=5000
-RewardByClass=1 'Todas las clases reciben premios especificos según la clase a la que pertenezcan.
+RewardObj1Amount=1000
 NumRewardObjByClass=5 'Todas las clases reciben esta misma cantidad de objetos
 
 'Mago
@@ -1170,17 +1293,17 @@ Class12ObjAmount4=2
 
 
 [Campaign12 - Stage1]
-Description=Matar 100 lobos
+Description=Matar 20 lobos
 TargetNpcIndex=501
-TargetNpcAmount=100
+TargetNpcAmount=20
 TargetNpcAction=1
 
 [Campaign12 - Stage2]
-Description=Entregar las 100 pieles de lobos
+Description=Entregar las 20 pieles de lobo
 TargetNpcIndex=143
 TargetNpcAction=3
 TargetObjIndex=414
-TargetObjAmount=100
+TargetObjAmount=20
 
 '############################################################################################################################################################
 
@@ -1197,13 +1320,13 @@ RewardGold=60000
 
 Description=Hablar con Morgan
 Dialog1=Ey, gracias por venir, necesitaba tu ayuda. Perdí mi tesoro por alguna parte de este mundo, ¡Ve con el Capitán pirata del barco, el te dirá que hacer!
-TargetNpcIndex=283  
+TargetNpcIndex=283
 TargetNpcAction=2
 
 [Campaign13 - Stage2]
 Description=Hablar con Capitán en el Barco
 Dialog1=Mis soldados han perdido su equipamiento contra el ejército fantasma, ve y mata sus galeones, y te daré la información que necesitas para que se la entregues a Morgan.
-Dialog2=¿Quieres tu recompensa?  ¡Ve y mata esos galeones primero! 
+Dialog2=¿Quieres tu recompensa? ¡Ve y mata esos galeones primero! 
 TargetNpcIndex=607
 TargetNpcAction=2
 
@@ -1239,7 +1362,7 @@ TargetNpcIndex=283
 
 [Campaign13 - Stage7]
 Description=Descubre el tesoro con morgan
-Dialog1=Unos de los sables tiene una coordenada que indica que el tesoro está en las afueras de catacumbas, al oeste de Ullathorpe. Encuentralo  y al abrirlo colócate arriba de él para recibir el premio.
+Dialog1=Unos de los sables tiene una coordenada que indica que el tesoro está en las afueras de catacumbas, al oeste de Ullathorpe. Encuentralo y al abrirlo colócate arriba de él para recibir el premio.
 Dialog2=Ve y busca el baúl abierto, espero que no mueras en el intento.
 TargetLocationPosX=453
 TargetLocationPosY=566
@@ -1288,25 +1411,25 @@ TargetNpcAction=2
 Description=Hablar con 1 decapitado impuro isla circe
 Dialog1=Tu que haces aquí ? Vete no tengo nada para entregarte.
 Dialog2=Sigues insistiendo, escoria humana !!, no necesito nada de ti. Ven y mátame si puedes
-TargetNpcIndex=618  
+TargetNpcIndex=618
 TargetNpcAction=2
 
 [Campaign14 - Stage3]
 Description=Matar 1 decapitado impuro
 Dialog1=Bien hecho! si ya has acabado con el demonio, ve con el gobernador de harrogath el te dirá que hacer.
-TargetNpcIndex=618  
+TargetNpcIndex=618
 TargetNpcAction=1
 
 [Campaign14 - Stage4]
 Description=Matar 1 demonio
 Dialog1=Bien hecho! si ya has acabado con el decapitado, ve con el gobernador de harrogath el te dirá que hacer.
-TargetNpcIndex=543  
+TargetNpcIndex=543
 TargetNpcAction=1
 
 [Campaign14 - Stage5]
 Description=Hablar con gobernador de Harrogath
 Dialog1=Bienvenido a nuestra ciudad de hielo, veo que tienes que encontrar el tesoro. 
-Dialog2=Unos criminales pasaron por aquí hace algunos días, hablaron sobre nuestros osos polares al oeste de esta ciudad, ve y fijate si ellos pueden ayudarte!  
+Dialog2=Unos criminales pasaron por aquí hace algunos días, hablaron sobre nuestros osos polares al oeste de esta ciudad, ve y fijate si ellos pueden ayudarte!
 TargetNpcIndex=13
 TargetNpcAction=2
 
@@ -1319,7 +1442,7 @@ TargetNpcAction=1
 [Campaign14 - Stage7]
 Description=Entregar 10 pieles de osos polares a Morgan y encuentra el tesoro
 Dialog1=Ya tienes las pieles? Excelente hombre! 
-Dialog2=En unas de las pieles puedo leer una coordenada cerca del desierto, más exactamente al sur de pirámide. Encuentralo  y al abrirlo colócate arriba de él para recibir el premio.
+Dialog2=En unas de las pieles puedo leer una coordenada cerca del desierto, más exactamente al sur de pirámide. Encuentralo y al abrirlo colócate arriba de él para recibir el premio.
 Dialog3=Ve y busca el baúl cerrado, espero que no mueras en el intento.
 TargetNpcIndex=283
 TargetNpcAction=3
@@ -1384,8 +1507,8 @@ Dialog1=Excelente! Con esta leña podré fabricar más armas para mis soldados, per
 Dialog2=Ve y busca el Tesoro de Tiral ! Seguro se encuentra en Isla del Kraken
 Dialog3=¿Todavía no tienes mi tesoro? No pierdas tiempo y mata esas criaturas, espero que no mueras en el intento.
 TargetNpcIndex=283 
-TargetNpcAction=3     
-TargetObjIndex=58  
+TargetNpcAction=3 
+TargetObjIndex=58
 TargetObjAmount=500
 
 [Campaign15 - Stage4]
@@ -1431,7 +1554,7 @@ TargetNpcAction=2
 [Campaign16]
 Name=Volviendo a ser ciudadano
 Description=Matar 100 pollos
-Dialog1=Oye tú criminal, así que estas arrepentido? Mata estos pollos y ven conmigo!  
+Dialog1=Oye tú criminal, así que estas arrepentido? Mata estos pollos y ven conmigo!
 NumStages=2
 RewardForgive=50
 Alignment=2
@@ -1439,14 +1562,14 @@ redoable=0
 
 [Campaign16 - Stage1]
 Description=Matar 100 pollos
-Dialog1=Oye tú criminal, así que estas arrepentido? Mata esto pollos y ven conmigo!  
+Dialog1=Oye tú criminal, así que estas arrepentido? Mata esto pollos y ven conmigo!
 TargetNpcIndex=506
 TargetNpcAmount=100
 TargetNpcAction=1
 
 [Campaign16 - Stage2]
 Description=Entregar los 100 pollos asesinados
-Dialog1=Bien hecho, espero que no vuelvas a fallarme, toma tu recompensa!          
+Dialog1=Bien hecho, espero que no vuelvas a fallarme, toma tu recompensa!
 TargetNpcIndex=932
 TargetNpcAction=3
 TargetObjIndex=26
@@ -1457,7 +1580,7 @@ TargetObjAmount=100
 [Campaign17]
 
 Name=Isla en Peligro
-Description=Debes dirigirte a la Isla del Kraken y eliminar 5 Kraken además de 10 guardianes de las profundidades.    
+Description=Debes dirigirte a la Isla del Kraken y eliminar 5 Kraken además de 10 guardianes de las profundidades.
 Dialog1=Hola aventurero tengo una misión para ti!!
 Dialog2= Dirigite a la Isla del Kraken, dentro del dungeon encontrarás las criaturas.
 Dialog3=¿Todavía no has matado esas criaturas? Una vez que lo hayas hecho vuelve hacia mí.
@@ -1492,16 +1615,16 @@ TargetNpcAction=2
 
 [Campaign18]
 Name=Aventura Rocosa
-Description=Jena pide que mates 5 Golems de Piedra  
+Description=Jena pide que mates 5 Golems de Piedra
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
 Dialog2=Bienvenido benderiano! Veo que estás interesado en esta misión.. Te cuento, en dungeon marabel habitan unos golems de piedra, que son agresivos cuando alguien quiere transitar por allí.
 Dialog3=¿Todavía no has matado esas 5 criaturas? Una vez que lo hayas hecho vuelve hacia mí. Espero que no mueras en el intento.
-Dialog4=Ah! Veo que vienes en busca de tu recompensa, haz doble click!  
+Dialog4=Ah! Veo que vienes en busca de tu recompensa, haz doble click!
 NumStages=2
 Redoable=1
 MinLvl=25
-RewardExp=100000
-RewardGold=50000
+RewardExp=35000
+RewardGold=15000
 
 [Campaign18 - Stage1]
 Description=Matar 5 Golems de piedra.
@@ -1523,14 +1646,13 @@ TargetNpcAction=2
 Name=Dominando Helado
 Description=Si eliminas 25 golems y 10 copiscuas en mi nombre, te daré una buena recompensa. 
 Dialog1=Hola aventurero tengo una misión para ti!
-Dialog2=Con que quieres visitar dungeon helado. Escucha atentamente. Hace mucho tiempo fui a combatir con unos golems helados, pero estas criaturas eran muy poderosas, además de que las copiscuas defienden este dungeon.    
+Dialog2=Con que quieres visitar dungeon helado. Escucha atentamente. Hace mucho tiempo fui a combatir con unos golems helados, pero estas criaturas eran muy poderosas, además de que las copiscuas defienden este dungeon.
 Dialog3=Ten cuidado, espero que no mueras en el intento.
 Dialog4=Ahh! Veo que vienes en busca de tu recompensa, has doble click!
 NumStages=3
 Redoable=1
 MinLvl=40
 RewardExp=2500000
-RewardByClass=1
 NumRewardObjByClass=5
 'Mago
 Class1ObjIndex1=662 'Sombrero de mago
@@ -1575,7 +1697,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=5
 Class4ObjIndex4=519 'Tunica legendaria
 Class4ObjAmount4=3
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino
 Class4ObjAmount5=10
 
 'Ladrón
@@ -1615,7 +1737,7 @@ Class7ObjAmount4=5
 'Bandido
 Class8ObjIndex1=404 'Escudo de Tortuga
 Class8ObjAmount1=10
-Class8ObjIndex2=123 'Espada vikinga                
+Class8ObjIndex2=123 'Espada vikinga
 Class8ObjAmount2=20
 Class8ObjIndex3=519 'Tunica legendaria
 Class8ObjAmount3=7
@@ -1661,9 +1783,9 @@ Class11ObjAmount4=15
 'Pirata
 Class12ObjIndex1=519 'Tunica legendaria
 Class12ObjAmount1=12
-Class12ObjIndex2=404 'Escudo de Tortuga                
+Class12ObjIndex2=404 'Escudo de Tortuga
 Class12ObjAmount2=20
-Class12ObjIndex3=123 'Espada vikinga                
+Class12ObjIndex3=123 'Espada vikinga
 Class12ObjAmount3=30
 Class12ObjIndex4=525 'Tunica reforzada EG
 Class12ObjAmount4=12
@@ -1693,7 +1815,7 @@ TargetNpcAction=2
 [Campaign20]
 
 Name=Extrañas Guardianas
-Description= Debes eliminar 20 Medusas y además derrotar 10 Medusas rojas.    
+Description= Debes eliminar 20 Medusas y además derrotar 10 Medusas rojas.
 Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=En dungeon veril habitan unas medusas realmente poderosas, unas bestias que con solo magia negra podrían eliminarte. Ten cuidado y acaba con estas criaturas.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
@@ -1730,7 +1852,7 @@ TargetNpcAction=2
 [Campaign21]
 
 Name=Gigantes de Fuego
-Description=En este reto deberás eliminar 40 Golem de Lava Bugartico . Los mismos los encontrarás en Dungeon lava.  
+Description=En este reto deberás eliminar 40 Golem de Lava Bugartico . Los mismos los encontrarás en Dungeon lava.
 Dialog1= Hola aventurero tengo una misión para ti!
 Dialog2=Deberás adentrarte en el Dungeon Lava y acabar con los Golems que habitan en esta tierra. Pero ten cuidado es una zona muy transitada.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
@@ -1760,15 +1882,15 @@ TargetNpcAction=2
 [Campaign22] 'No magicos
 
 Name=Combatiendo en las profundidades
-Description=Busca  y elimina al menos 20 Enanos y 20 Guerreros de las profundidades. 
-Dialog1=Hola aventurero tengo una misión para ti!    
+Description=Busca y elimina al menos 20 Enanos y 20 Guerreros de las profundidades.  
+Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=Al parecer en dungeon lava existe una cueva en donde se han podido ver unas extrañas criaturas llamadas enanos y guerreros de las profundidades. La poca poblacion que aun queda en la cueva teme que se este organizando una invasion maligna, ve tu y acaba con eso!
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click !
 NumStages=3
 Redoable=1
 MinLvl=35
-Class=5 'Ladron
+Class=0
 RewardExp=400000
 RewardGold=180000
 
@@ -1798,8 +1920,8 @@ TargetNpcAction=2
 [Campaign23] 'No magicos
 
 Name=Combatiendo en las profundidades
-Description=Busca  y elimina al menos 20 Enanos y 20 Guerreros de las profundidades. 
-Dialog1=Hola aventurero tengo una misión para ti!        
+Description=Busca y elimina al menos 20 Enanos y 20 Guerreros de las profundidades. 
+Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=Al parecer en dungeon lava existe una cueva en donde se han podido ver unas extrañas criaturas llamadas enanos y guerreros de las profundidades. La poca poblacion que aun queda en la cueva teme que se este organizando una invasion maligna, ve tu y acaba con eso!
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click !
@@ -1836,8 +1958,8 @@ TargetNpcAction=2
 [Campaign24] 'No magicos
 
 Name=Combatiendo en las profundidades
-Description=Busca  y elimina al menos 20 Enanos y 20 Guerreros de las profundidades. 
-Dialog1=Hola aventurero tengo una misión para ti!    
+Description=Busca y elimina al menos 20 Enanos y 20 Guerreros de las profundidades. 
+Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=Al parecer en dungeon lava existe una cueva en donde se han podido ver unas extrañas criaturas llamadas enanos y guerreros de las profundidades. La poca poblacion que aun queda en la cueva teme que se este organizando una invasion maligna, ve tu y acaba con eso!
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click !
@@ -1874,8 +1996,8 @@ TargetNpcAction=2
 [Campaign25] 'No magicos
 
 Name=Combatiendo en las profundidades
-Description=Busca  y elimina al menos 20 Enanos y 20 Guerreros de las profundidades.    
-Dialog1=Hola aventurero tengo una misión para ti!        
+Description=Busca y elimina al menos 20 Enanos y 20 Guerreros de las profundidades.
+Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=Al parecer en dungeon lava existe una cueva en donde se han podido ver unas extrañas criaturas llamadas enanos y guerreros de las profundidades. La poca poblacion que aun queda en la cueva teme que se este organizando una invasion maligna, ve tu y acaba con eso!
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click !
@@ -1912,49 +2034,49 @@ TargetNpcAction=2
 [Campaign26]
 
 Name=Dominando el dragon
-Description=Jena necesita que elimines 10 de las siguientes criaturas en Dungeon Dragon (Continental): Engendro de las profundidades, Ogro, Beholder, Orco brujo y Djinn de viento.
+Description=Jena necesita que elimines 5 de las siguientes criaturas en Dungeon Dragon (Continental): Engendro de las profundidades, Ogro, Beholder, Orco brujo y Djinn de viento.
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
 Dialog2=El dragón y sus secuases han tomado el poder en este mundo. Necesito que llegues al Dungeon Dragón Continental y domines la situación!
 Dialog3=Ahh! Veo que vienes en busca de tu recompensa, has doble click!
 NumStages=6
 Redoable=1
-MinLvl=20
-RewardExp=50000
-RewardGold=100000
+MinLvl=22
+RewardExp=10000
+RewardGold=10000
 
 [Campaign26 - Stage1]
 Description=Matar 10 Engendro de las Profundidades B
 Dialog1=¡Bien hecho! si ya acabaste con las demas criaturas,vuelve a por Jena. 
 TargetNpcIndex=599
-TargetNpcAmount=10
+TargetNpcAmount=5
 TargetNpcAction=1
 
 [Campaign26 - Stage2]
 Description=Matar 10 Ogros
 Dialog1=¡Bien hecho! si ya acabaste con las demas criaturas,vuelve a por Jena.
 TargetNpcIndex=541
-TargetNpcAmount=10
+TargetNpcAmount=5
 TargetNpcAction=1
 
 [Campaign26 - Stage3]
 Description=Matar 10 Beholder
 Dialog1=¡Bien hecho! si ya acabaste con las demas criaturas,vuelve a por Jena. 
 TargetNpcIndex=537
-TargetNpcAmount=10
+TargetNpcAmount=5
 TargetNpcAction=1
 
 [Campaign26 - Stage4]
 Description=Matar 10 Orco Brujo
 Dialog1=¡Bien hecho! si ya acabaste con las demas criaturas,vuelve a por Jena.
 TargetNpcIndex=549
-TargetNpcAmount=10
+TargetNpcAmount=5
 TargetNpcAction=1
 
 [Campaign26 - Stage5]
 Description=Matar 10 Djinn de Viento
-Dialog1=¡Bien hecho! si ya acabaste con las demas criaturas,vuelve a por Jena.  
+Dialog1=¡Bien hecho! si ya acabaste con las demas criaturas,vuelve a por Jena.
 TargetNpcIndex=517
-TargetNpcAmount=10
+TargetNpcAmount=5
 TargetNpcAction=1
 
 [Campaign26 - Stage6]
@@ -1969,9 +2091,9 @@ PREVIOUSSTAGE=5
 [Campaign27] 
 
 Name=Una nueva especie
-Description=Debes deshacerte de 2 Nukers, 5 Demonios y 10 engendros impuros.        
-Dialog1=Hola aventurero tengo una misión para ti!     
-Dialog2=El demonio acaba de llegar a Isla Circe con su ejercito maligno. Su capitan, el guerrero nuker es quien comanda el dungeon. Voy a necesitar de tus habilidades para acabar con todo el ejercito!  
+Description=Debes deshacerte de 2 Nukers, 5 Demonios y 10 engendros impuros.
+Dialog1=Hola aventurero tengo una misión para ti! 
+Dialog2=El demonio acaba de llegar a Isla Circe con su ejercito maligno. Su capitan, el guerrero nuker es quien comanda el dungeon. Voy a necesitar de tus habilidades para acabar con todo el ejercito!
 Dialog3=Ah! Veo que vienes en busca de tu recompensa, has doble click !
 NumStages=4
 Redoable=1
@@ -2012,7 +2134,7 @@ TargetNpcAction=2
 
 Name=Bosque Encantado
 Description= Mata 25 enths. 
-Dialog1=Muchacho es bueno verte por aqui. Justo te estaba por mandarte a llamar.  
+Dialog1=Muchacho es bueno verte por aqui. Justo te estaba por mandarte a llamar.
 Dialog2=Necesito que me hagas un gran favor. Quiero ir a conocer bosque de los ents, pero me han dicho que hay Arboles malignos alli. Gracias por investigar, buena suerte. 
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click!
@@ -2041,22 +2163,22 @@ TargetNpcAction=2
 [Campaign29]
 
 Name=El desierto benderiano
-Description=Elimina 30 Ogros egipcios en los desiertos, cercanía de la pirámide.
+Description=Elimina 15 Ogros egipcios en los desiertos, cercanía de la pirámide.
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
 Dialog2=Deseas combatir en el desierto? Entonces deberás dirigirte a las afueras de Dungeon Píramide para ello.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click !
 NumStages=2
 Redoable=1
-MinLvl=20
-RewardExp=50000
-RewardGold=50000
+MinLvl=18
+RewardExp=7000
+RewardGold=10000
 
 [Campaign29 - Stage1]
-Description= Elimina 30 Ogros egipcios en los desiertos, cercanía de la pirámide.  
+Description= Elimina 15 Ogros egipcios en los desiertos, cercanía de la pirámide.
 Dialog1=¡Bien hecho! si ya acabaste con las criaturas,vuelve a por Jena.
 TargetNpcIndex=621
-TargetNpcAmount=30
+TargetNpcAmount=15
 TargetNpcAction=1
 
 [Campaign29 - Stage2]
@@ -2077,7 +2199,7 @@ Dialog3=Ah! Veo que vienes en busca de tu recompensa, has doble click!
 Dialog4=Te deseo mucha suerte joven. La necesitarás!
 NumStages=6
 Redoable=1
-MinLvl=27
+MinLvl=25
 RewardExp=100000
 RewardGold=100000
 
@@ -2128,7 +2250,7 @@ PREVIOUSSTAGE=5
 [Campaign31]
 
 Name=Piratas del Caribe
-Description=Debes eliminar 20 Galeones Piratas en el mar.
+Description=Debes eliminar 10 Galeones Piratas en el mar.
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
 Dialog2= Deseas combatir contra piratas? Entonces deberás dirigirte a las afueras de Dungeon Kraken para ello.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
@@ -2136,14 +2258,14 @@ Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click!
 NumStages=2
 Redoable=1
 MinLvl=22
-RewardExp=30000
-RewardGold=40000
+RewardExp=7500
+RewardGold=8500
 
 [Campaign31 - Stage1]
 Description=Matar 20 Galeones Piratas 
 Dialog1=¡Bien hecho! si ya acabaste con las criaturas,vuelve a por Jena.
 TargetNpcIndex=609
-TargetNpcAmount=20
+TargetNpcAmount=10
 TargetNpcAction=1
 
 [Campaign31 - Stage2]
@@ -2158,15 +2280,15 @@ TargetNpcAction=2
 
 Name=El bosque arácnido
 Description=Debes Eliminar 20 Tarantulas, 10 Arañas pollito gigante y 10 Esqueletos guerreros.
-Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.   
+Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa. 
 cumplir el objetivo, vuelve conmigo, tendrás una gran recompensa. Suerte en tu nuevo reto 
-Dialog2=En este reto deberás eliminar las arañas del Bosque Perdido. Las mismas las encontrarás en el Bosque Perdido entre Ulllathorpe y Turgon.   
+Dialog2=En este reto deberás eliminar las arañas del Bosque Perdido. Las mismas las encontrarás en el Bosque Perdido entre Ulllathorpe y Turgon. 
 Dialog3=Ah! Veo que vienes en busca de tu recompensa, has doble click!
 NumStages=4
 Redoable=1
 MinLvl=18
-RewardExp=20000
-RewardGold=30000
+RewardExp=4000
+RewardGold=8500
 
 [Campaign32 - Stage1]
 Description=Matar 20 Tárantulas
@@ -2201,7 +2323,7 @@ TargetNpcAction=2
 
 Name=Aventura Elemental
 Description= Deberás dirigirte a Isla Argentum para eliminar 5 Elementales de agua ancianos.
-Dialog1=Hola aventurero tengo una misión para ti!    
+Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=Suerte en tu aventura elemental, quizás recibas alguna recompensa adicional de los ancianos.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click !
@@ -2231,15 +2353,15 @@ TargetNpcAction=2
 [Campaign34] 
 
 Name=Amenaza en catacumbas
-Description=Debes eliminar 10 Lord Orcos, 10 Beholders y 10 Arañas Gigantes.  
-Dialog1=   
+Description=Debes eliminar 10 Lord Orcos, 10 Beholders y 10 Arañas Gigantes.
+Dialog1= 
 Dialog2=Encontraras las criaturas dentro de las catacumbas, por Turgon. Ten cuidado, no estarás solo. 
 Dialog3=Ah! Veo que vienes en busca de tu recompensa, has doble click !
 NumStages=4
 Redoable=1
-MinLvl=18
-RewardExp=15000
-RewardGold=40000
+MinLvl=22
+RewardExp=9000
+RewardGold=20000
 
 [Campaign34 - Stage1]
 Description=Matar 10 Lord Orco
@@ -2274,7 +2396,7 @@ TargetNpcAction=2
 
 Name=Amuleto de Party 90/10
 Description=Prueba tu valía acabando con las siguientes criaturas, 5 Golem de piedra, 5 Elemental de agua anciano, 10 Golem de lava bugartico, 5 Enth y 2 Axoltl mutado.
-Dialog1=Hola aventurero tengo una misión para ti!  
+Dialog1=Hola aventurero tengo una misión para ti!
 Dialog2=¡Noble guerrero por lo que veo estas buscando la forma de conseguir este amuleto para formar tu sistema de entrenamiento. Fundar una party solo está reservado para verdaderos lideres, por lo cual te tendrás que someter a un gran desafio para poder lograrlo, eliminar al Axolotl Mutado y su ejercito
 Dialog3=Ah! Veo que vienes en busca de tu recompensa, has doble click !
 Dialog4=Toma el amuleto, disfrutalo, lo mereces.
@@ -2345,7 +2467,6 @@ Redoable=0
 RewardExp=15000
 RewardGold=25000
 RewardEnlistFaction=2
-RewardByClass=1 'Todas las clases reciben premios especificos según la clase a la que pertenezcan.
 NumRewardObjByClass=5
 
 'Mago
@@ -2391,7 +2512,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=2
 Class4ObjIndex4=356 'Armadura de asesino
 Class4ObjAmount4=2
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino 
 Class4ObjAmount5=2
 
 'Ladrón
@@ -2431,7 +2552,7 @@ Class7ObjAmount4=5
 'Bandido
 Class8ObjIndex1=404 'Escudo de Tortuga
 Class8ObjAmount1=10
-Class8ObjIndex2=123 'Espada vikinga    
+Class8ObjIndex2=123 'Espada vikinga
 Class8ObjAmount2=10
 Class8ObjIndex3=986 'Tunica de viajero
 Class8ObjAmount3=10
@@ -2477,9 +2598,9 @@ Class11ObjAmount4=10
 'Pirata
 Class12ObjIndex1=519 'Tunica legendaria
 Class12ObjAmount1=2
-Class12ObjIndex2=404 'Escudo de Tortuga    
+Class12ObjIndex2=404 'Escudo de Tortuga
 Class12ObjAmount2=20
-Class12ObjIndex3=123 'Espada vikinga    
+Class12ObjIndex3=123 'Espada vikinga
 Class12ObjAmount3=20
 Class12ObjIndex4=525 'Tunica reforzada EG
 Class12ObjAmount4=5
@@ -2554,7 +2675,7 @@ TargetNpcAction=1
 
 [Campaign38] 'La da Karkal
 Name=La leyenda del Kraken
-Description=Deberás eliminar 20 Piratas, 15  Capitan Pirata y 5 Krakens.
+Description=Deberás eliminar 20 Piratas, 15 Capitan Pirata y 5 Krakens.
 Dialog1=Novato ¿Otra vez rondando por la ciudad? Te tengo una nueva misión, esta vez un poco más complicada, ya que en el pasado no se te presentaron problemas.
 NumStages=3
 MinLvl=30
@@ -2602,7 +2723,6 @@ Faction=2
 Rank=3
 RewardExp=60000
 RewardGold=20000
-RewardByClass=1
 NumRewardObjByClass=5
 'Mago
 Class1ObjIndex1=662 'Sombrero de mago
@@ -2647,7 +2767,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=5
 Class4ObjIndex4=356 'Armadura de asesino
 Class4ObjAmount4=10
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino
 Class4ObjAmount5=10
 
 'Ladrón
@@ -2819,7 +2939,6 @@ Faction=2
 Rank=4
 RewardExp=200000
 RewardGold=20000
-RewardByClass=1
 NumRewardObjByClass=5
 'Mago
 Class1ObjIndex1=662 'Sombrero de mago
@@ -2864,7 +2983,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=5
 Class4ObjIndex4=519 'Tunica legendaria
 Class4ObjAmount4=3
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino
 Class4ObjAmount5=10
 
 'Ladrón
@@ -2968,7 +3087,7 @@ TargetUserAlignment=1
 
 '############################################################################################################################################################
 
-[Campaign43] 'La da  karkal
+[Campaign43] 'La da karkal
 Name=El gran volcán 
 Description=Matar 15 almas infernales, 15 Gólems Bugárticos y 1 Gólem de Lava.
 Dialog1=Ésta es la expedición más peligrosa que enfrentarás. Deberás adentrarte en uno de los Dungeons más peligrosos, Lava. Te deseo suerte soldado, conviértete en el mejor guerrero de nuestras tropas.
@@ -3045,7 +3164,6 @@ Alignment=1
 RewardExp=15000
 RewardGold=25000
 RewardEnlistFaction=1
-RewardByClass=1 'Todas las clases reciben premios especificos según la clase a la que pertenezcan.
 NumRewardObjByClass=5
 'Mago
 Class1ObjIndex1=662 'Sombrero de mago
@@ -3090,7 +3208,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=2
 Class4ObjIndex4=356 'Armadura de asesino
 Class4ObjAmount4=2
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino
 Class4ObjAmount5=2
 
 'Ladrón
@@ -3130,7 +3248,7 @@ Class7ObjAmount4=5
 'Bandido
 Class8ObjIndex1=404 'Escudo de Tortuga
 Class8ObjAmount1=10
-Class8ObjIndex2=123 'Espada vikinga  
+Class8ObjIndex2=123 'Espada vikinga
 Class8ObjAmount2=10
 Class8ObjIndex3=986 'Tunica de viajero
 Class8ObjAmount3=10
@@ -3176,9 +3294,9 @@ Class11ObjAmount4=10
 'Pirata
 Class12ObjIndex1=519 'Tunica legendaria
 Class12ObjAmount1=2
-Class12ObjIndex2=404 'Escudo de Tortuga  
+Class12ObjIndex2=404 'Escudo de Tortuga
 Class12ObjAmount2=20
-Class12ObjIndex3=123 'Espada vikinga  
+Class12ObjIndex3=123 'Espada vikinga
 Class12ObjAmount3=20
 Class12ObjIndex4=525 'Tunica reforzada EG
 Class12ObjAmount4=5
@@ -3253,7 +3371,7 @@ TargetNpcAction=1
 
 [Campaign47] 'La da gimbli (num 200)
 Name=La leyenda del Kraken
-Description=Deberás eliminar 20 Piratas, 15  Capitan Pirata y 5 Krakens.
+Description=Deberás eliminar 20 Piratas, 15 Capitan Pirata y 5 Krakens.
 Dialog1=Novato ¿Otra vez rondando por la ciudad? Te tengo una nueva misión, esta vez un poco más complicada, ya que en el pasado no se te presentaron problemas.
 NumStages=3
 MinLvl=30
@@ -3301,7 +3419,6 @@ Faction=1
 Rank=3
 RewardExp=60000
 RewardGold=20000
-RewardByClass=1
 NumRewardObjByClass=5
 'Mago
 Class1ObjIndex1=662 'Sombrero de mago
@@ -3346,7 +3463,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=5
 Class4ObjIndex4=356 'Armadura de asesino
 Class4ObjAmount4=10
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino
 Class4ObjAmount5=10
 
 'Ladrón
@@ -3518,7 +3635,6 @@ Faction=1
 Rank=4
 RewardExp=200000
 RewardGold=20000
-RewardByClass=1
 NumRewardObjByClass=5
 'Mago
 Class1ObjIndex1=662 'Sombrero de mago
@@ -3563,7 +3679,7 @@ Class4ObjIndex3=131 'Casco de Hierro completo
 Class4ObjAmount3=5
 Class4ObjIndex4=519 'Tunica legendaria
 Class4ObjAmount4=3
-Class4ObjIndex5=1143 'Armadura de asesino EG
+Class4ObjIndex5=356 'Armadura de asesino
 Class4ObjAmount5=10
 
 'Ladrón
@@ -3667,8 +3783,8 @@ TargetUserAlignment=2
 
 '############################################################################################################################################################
 
-[Campaign52] 'La da  Gimbli
-Name=El gran volcán  
+[Campaign52] 'La da Gimbli
+Name=El gran volcán
 Description=Debes matar 15 almas infernales, 15 Gólems de lava Bugárticos y 1 Gólem de Lava.
 Dialog1=Ésta es la expedición más peligrosa que enfrentarás. Deberás adentrarte en uno de los Dungeons más peligrosos, Lava. Te deseo suerte soldado, conviértete en el mejor guerrero de nuestras tropas.
 Dialog2=¿Qué es esto? Aún no has asesinado la cantidad que te encargué, vuelve a la batalla, cobarde.
@@ -3730,7 +3846,7 @@ TargetUserAlignment=2
 [Campaign54]
 
 Name=Infernales animarum
-Description=En este reto deberás eliminar 40 Almas Infernales. Las mismas las encontrarás en Dungeon lava.    
+Description=En este reto deberás eliminar 40 Almas Infernales. Las mismas las encontrarás en Dungeon lava.
 Dialog1= Hola aventurero tengo una misión para ti!
 Dialog2=¿Serás capaz de soportar las llamas del corazón del Gran Volcán?
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
@@ -3744,7 +3860,7 @@ RewardPlateCoins=5
 
 [Campaign54 - Stage1]
 Description=Matar 40 Almas Infernales
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=496
 TargetNpcAmount=40
 TargetNpcAction=1
@@ -3774,7 +3890,7 @@ RewardPlateCoins=5
 
 [Campaign55 - Stage1]
 Description=Matar 40 Parcas
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=208
 TargetNpcAmount=40
 TargetNpcAction=1
@@ -3804,13 +3920,13 @@ RewardPlateCoins=3
 
 [Campaign56 - Stage1]
 Description=Matar 20 Leviathanes
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a hablar con Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a hablar con Thalisha.
 TargetNpcIndex=548
 TargetNpcAmount=20
 TargetNpcAction=1
 
 [Campaign56 - Stage2]
-Description= Hablar con Thalisha.
+Description= Hablar con Theonor <MISIONES>
 Dialog1= Toma tu recompensa y gracias por liberar los mares de estas atrosidades.
 TargetNpcIndex=218
 TargetNpcAction=2
@@ -3820,7 +3936,7 @@ TargetNpcAction=2
 [Campaign57]
 Name=Volviendo a ser ciudadano II
 Description=Matar 250 pollos
-Dialog1=Oye tú criminal, así que estas arrepentido? Mata estos pollos y ven conmigo!  
+Dialog1=Oye tú criminal, así que estas arrepentido? Mata estos pollos y ven conmigo!
 NumStages=2
 RewardForgive=50
 Alignment=2
@@ -3828,14 +3944,14 @@ PreviousCampaign=16
 
 [Campaign57 - Stage1]
 Description=Matar 250 pollos
-Dialog1=Oye tú criminal, así que estas arrepentido? Mata esto pollos y ven conmigo!  
+Dialog1=Oye tú criminal, así que estas arrepentido? Mata esto pollos y ven conmigo!
 TargetNpcIndex=506
 TargetNpcAmount=250
 TargetNpcAction=1
 
 [Campaign57 - Stage2]
 Description=Entregar los 250 pollos asesinados
-Dialog1=Bien hecho, espero que no vuelvas a fallarme, toma tu recompensa!          
+Dialog1=Bien hecho, espero que no vuelvas a fallarme, toma tu recompensa!
 TargetNpcIndex=932
 TargetNpcAction=3
 TargetObjIndex=26
@@ -3906,7 +4022,7 @@ TargetObjAmount=1
 [Campaign59]
 
 Name=Mascotas de la muerte
-Description= Deberas matar 40 Aves de las profundidades. 
+Description= Deberas matar 40 Aves de las profundidades.
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
 Dialog2=Necesitamos de tu ayuda para adentrarte en una de las ultimas cámaras del cementerio.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
@@ -3919,7 +4035,7 @@ RewardGold=200000
 
 [Campaign59 - Stage1]
 Description=Matar 40 Aves de las prufundidades.
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Hamlet.  
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Hamlet.
 TargetNpcIndex=600
 TargetNpcAmount=40
 TargetNpcAction=1
@@ -3935,9 +4051,9 @@ TargetNpcAction=2
 [Campaign60]
 
 Name=Cementerio de noctámbulos
-Description=Deberas matar 3 Espiritus Ancestrales, 5 Brujas Oscuras y 10 Protectores de los Muertos.            
+Description=Deberas matar 3 Espiritus Ancestrales, 5 Brujas Oscuras y 10 Protectores de los Muertos.
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
-Dialog2=Encontrarás las criaturas en la zona donde descansan nuestros ancestros.        
+Dialog2=Encontrarás las criaturas en la zona donde descansan nuestros ancestros.
 Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el intento.
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, has doble click!
 NumStages=4
@@ -3948,21 +4064,21 @@ RewardGold=200000
 
 [Campaign60 - Stage1]
 Description=Matar 3 Espiritus ancestrales.
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=209
 TargetNpcAmount=3
 TargetNpcAction=1
 
 [Campaign60 - Stage2]
 Description=Matar 5 Bujas oscuras
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=598
 TargetNpcAmount=5
 TargetNpcAction=1
 
 [Campaign60 - Stage3]
 Description=Matar 10 Protectores de los muertos
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=597
 TargetNpcAmount=10
 TargetNpcAction=1
@@ -3990,14 +4106,14 @@ RewardGold=200000
 
 [Campaign61 - Stage1]
 Description=Matar 40 Nigromantes
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.  
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=240
 TargetNpcAmount=40
 TargetNpcAction=1
 
 [Campaign61 - Stage2]
 Description=Matar 20 Esqueletos Guerreros
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Thalisha.
 TargetNpcIndex=520
 TargetNpcAmount=20
 TargetNpcAction=1
@@ -4020,20 +4136,109 @@ Dialog3=¡Ahora ve en busca de esas criaturas! Pero ten cuidado, no mueras en el 
 Dialog4=Ah! Veo que vienes en busca de tu recompensa, haz doble click!
 NumStages=2
 Redoable=1
-MinLvl=28
-RewardExp=55000
-RewardGold=80000
+MinLvl=22
+RewardExp=7000
+RewardGold=15000
 
 [Campaign62 - Stage1]
 Description=Matar 15 Arañas pollito gigante
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Jena. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Jena.
 TargetNpcIndex=622
 TargetNpcAmount=15
 TargetNpcAction=1
 
 [Campaign62 - Stage2]
 Description=Matar 15 Tarantulas
-Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Jena. 
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Jena.
 TargetNpcIndex=547
 TargetNpcAmount=15
 TargetNpcAction=1
+
+
+'############################################################################################################################################################
+
+[Campaign63]
+Name=Trabajo en equipo
+Description=Todo el mundo elogia la victoria en la batalla, pero lo verdaderamente deseable es poder ver el mundo de lo sutil y darte cuenta del mundo de lo oculto, hasta el punto de ser capaz de alcanzar la victoria donde no existe forma. Tú y tu grupo, deben conquistar todos los objetivos antes que se acabe el tiempo. Consejo: Sepárense.
+Dialog1=Al finalizar todos los objetivos, deberán decidir quien liderará el clan.
+Dialog2=
+Dialog3=¡Ahora ve en busca de esas criaturas! Pero tengan cuidado, no mueran en el intento.
+Dialog4=Ah! Veo que vienes en busca de tu recompensa, haz doble click!
+NumStages=10
+Redoable=1
+MinLvl=25
+RewardExp=55000
+RewardGold=80000
+FinishWhenDie=0
+PartyNeeded=2
+FinishWhenDisconnect=0
+Time=3600
+RewardGuildPoints=5
+
+[Campaign63 - Stage1]
+Description=Matar 3 Golem de Lava Bugartico
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=633
+TargetNpcAmount=3
+TargetNpcAction=1
+
+[Campaign63 - Stage2]
+Description=Matar 1 Golem de Lava
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=586
+TargetNpcAmount=1
+TargetNpcAction=1
+
+[Campaign63 - Stage3]
+Description=Matar 3 Elemental de Agua Anciano
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a con Arwen.
+TargetNpcIndex=611
+TargetNpcAmount=3
+TargetNpcAction=1
+
+[Campaign63 - Stage4]
+Description=Matar 4 Brujas Oscuras
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=598
+TargetNpcAmount=4
+TargetNpcAction=1
+
+[Campaign63 - Stage5]
+Description=Matar 2 Protectores de los Muertos
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=597
+TargetNpcAmount=2
+TargetNpcAction=1
+
+[Campaign63 - Stage6]
+Description=Matar 1 Axolotl Mutado <Protector del Mimetismo>
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=924
+TargetNpcAmount=1
+
+[Campaign63 - Stage7]
+Description=Matar 10 Oseznos
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=532
+TargetNpcAmount=10
+TargetNpcAction=1
+
+[Campaign63 - Stage8]
+Description=Matar 1 Guardián de Tutankamon
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=223
+TargetNpcAmount=1
+TargetNpcAction=1
+
+[Campaign63 - Stage9]
+Description=Matar a Tutankamon
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=227
+TargetNpcAmount=1
+TargetNpcAction=1
+
+[Campaign63 - Stage10]
+Description=Volver a hablar con Arwen en la isla del Castillo de los Olvidos.
+Dialog1=¡Bien hecho! si ya acabaste, vuelve a por Arwen.
+TargetNpcIndex=289
+TargetNpcAction=2
