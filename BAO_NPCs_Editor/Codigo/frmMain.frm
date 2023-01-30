@@ -11,11 +11,13 @@ Begin VB.Form frmMain
    ScaleWidth      =   1299
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox txtMinHour 
+      BackColor       =   &H00000000&
+      ForeColor       =   &H00FFFFFF&
       Height          =   285
       Left            =   1200
       TabIndex        =   42
       Text            =   "0"
-      Top             =   6480
+      Top             =   6600
       Width           =   2055
    End
    Begin VB.CommandButton cmdListar 
@@ -205,14 +207,24 @@ Begin VB.Form frmMain
       Height          =   8655
       Left            =   120
       TabIndex        =   0
-      Top             =   0
+      Top             =   120
       Width           =   3255
+      Begin VB.TextBox txtFactorOro 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   1080
+         TabIndex        =   51
+         Text            =   "0"
+         Top             =   7560
+         Width           =   735
+      End
       Begin VB.CommandButton cmdCopyRespawn 
          Caption         =   "Add Copy Respawn"
-         Height          =   495
+         Height          =   375
          Left            =   120
          TabIndex        =   49
-         Top             =   8040
+         Top             =   8160
          Width           =   975
       End
       Begin VB.CommandButton cmdUpdateOrder 
@@ -224,6 +236,8 @@ Begin VB.Form frmMain
          Width           =   735
       End
       Begin VB.TextBox txtCountUsersRespawn 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   46
@@ -232,6 +246,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtMaxHour 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   43
@@ -240,6 +256,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtSearch 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1200
          TabIndex        =   40
@@ -247,6 +265,8 @@ Begin VB.Form frmMain
          Width           =   1815
       End
       Begin VB.TextBox txtExp 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   38
@@ -255,6 +275,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtRespawnOrder 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   34
@@ -263,6 +285,8 @@ Begin VB.Form frmMain
          Width           =   1095
       End
       Begin VB.TextBox txtAreaY 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   30
@@ -271,6 +295,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtFactor 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   28
@@ -279,6 +305,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtNPCLvl 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   27
@@ -288,22 +316,24 @@ Begin VB.Form frmMain
       End
       Begin VB.CommandButton cmdAgregar 
          Caption         =   "Add"
-         Height          =   495
+         Height          =   375
          Left            =   1080
          TabIndex        =   15
-         Top             =   8040
+         Top             =   8160
          Width           =   975
       End
       Begin VB.CommandButton cmdGuardar 
          Caption         =   "Guardar"
          Enabled         =   0   'False
-         Height          =   495
+         Height          =   375
          Left            =   2040
          TabIndex        =   14
-         Top             =   8040
+         Top             =   8160
          Width           =   1095
       End
       Begin VB.TextBox txtPos 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   13
@@ -312,6 +342,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtCantidad 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   12
@@ -320,6 +352,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtRespawnTime 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   11
@@ -328,6 +362,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtAreaX 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   10
@@ -336,6 +372,8 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.TextBox txtNumero 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   285
          Left            =   1080
          TabIndex        =   9
@@ -344,17 +382,45 @@ Begin VB.Form frmMain
          Width           =   2055
       End
       Begin VB.ListBox lstNPCs 
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
          Height          =   2010
          Left            =   120
          TabIndex        =   1
          Top             =   720
          Width           =   3015
       End
+      Begin VB.Label lblGoldGive 
+         BeginProperty Font 
+            Name            =   "Calibri"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   1800
+         TabIndex        =   53
+         Top             =   7560
+         Width           =   1335
+      End
+      Begin VB.Label lblInfo 
+         Alignment       =   1  'Right Justify
+         Caption         =   "Factor Oro*:"
+         Height          =   255
+         Index           =   16
+         Left            =   120
+         TabIndex        =   52
+         Top             =   7560
+         Width           =   855
+      End
       Begin VB.Label lblHP 
          Height          =   255
          Left            =   1080
          TabIndex        =   50
-         Top             =   7560
+         Top             =   7920
          Width           =   1935
       End
       Begin VB.Label lblInfo 
@@ -638,6 +704,7 @@ Private Sub cmdCopyRespawn_Click()
         .AreaY = NPCRespawn(iIDNpcSelected).AreaY ' txtAreaY.Text
         .Nivel = NPCRespawn(iIDNpcSelected).Nivel ' txtNPCLvl.Text
         .FactorMulExp = NPCRespawn(iIDNpcSelected).FactorMulExp 'txtFactor.Text
+        .FactorMulGold = NPCRespawn(iIDNpcSelected).FactorMulGold 'txtFactor.Text
         .MinHour = NPCRespawn(iIDNpcSelected).MinHour 'txtMinHour.Text
         .MaxHour = NPCRespawn(iIDNpcSelected).MaxHour 'txtMaxHour.Text
         .WithCountUsers = NPCRespawn(iIDNpcSelected).WithCountUsers 'txtCountUsersRespawn.Text
@@ -739,15 +806,15 @@ End Sub
 
 Private Sub ComboNPCS_Click()
 
-Dim index                       As Integer
-    index = ComboNPCS.ListIndex
-    If index = -1 Then Exit Sub
+Dim Index                       As Integer
+    Index = ComboNPCS.ListIndex
+    If Index = -1 Then Exit Sub
 
     'RespawnIndex As Integer
     'RespawnIndex = ComboNPCS.ListIndex
     'If RespawnIndex = -1 Then Exit Sub
 
-    With FormatRespawn(index)
+    With FormatRespawn(Index)
         Me.lblInfoLvl.Caption = "Nivel de la criatura: " & .Nivel
         Me.lblInfoExp.Caption = "Experiencia: " & .Experiencia
         Me.lblInfoOro.Caption = "Oro: " & .Oro
@@ -857,81 +924,88 @@ End Sub
 
 Private Sub lstNPCs_Click()
 
-      Dim NpcIndex                    As Integer
-      Dim RespawnIndex                As Integer
-      Dim NPCName                     As String
+Dim NpcIndex                    As Integer
+Dim RespawnIndex                As Integer
+Dim NPCName                     As String
 
- On Error GoTo lstNPCs_Click_Error
+10  On Error GoTo lstNPCs_Click_Error
 
     On Error GoTo lstNPCs_Click_Error:
 
-10        frmMain.Caption = "Cargando..."
-20        lstNPCs.Enabled = False
-          'DoEvents
+20  frmMain.Caption = "Cargando..."
+30  lstNPCs.Enabled = False
+    'DoEvents
 
-30        If lstNPCs.ListIndex = -1 Then Exit Sub
-          
-40        RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
-50        txtRespawnOrder.Text = RespawnIndex
-          'Call FindNpcByName(lstNPCs.List(RespawnIndex))
-          
-60        With NPCRespawn(RespawnIndex)
-70            iIDNpcSelected = RespawnIndex ' NpcIndex
-80            NpcIndex = .ID
-              
-90            SelectedRespawnIndex = RespawnIndex
-100           Call updateArea(RespawnIndex)
-              
-110            If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
-120               Area.Picture = cachePictures(.Pos.Map)
-130               NumMapa = .Pos.Map
-140           Else
-                  'MsgBox "Mapa inválido"
-150               Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
-160           End If
+40  If lstNPCs.ListIndex = -1 Then Exit Sub
 
-170           txtNumero.Text = .ID
-180           txtPos.Text = .Pos.Map & "-" & .Pos.X & "-" & .Pos.Y
-190           txtRespawnTime.Text = .RespawnTime
-200           txtCantidad.Text = .Count
-210           txtAreaX.Text = .AreaX
-220           txtAreaY.Text = .AreaY
-230           txtNPCLvl.Text = .Nivel
-240           txtFactor.Text = .FactorMulExp
-              
-250           txtMinHour.Text = .MinHour
-260           txtMaxHour.Text = .MaxHour
-270           txtCountUsersRespawn.Text = .WithCountUsers
+50  RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
+60  txtRespawnOrder.Text = RespawnIndex
+    'Call FindNpcByName(lstNPCs.List(RespawnIndex))
 
-280           If .ID > 0 Then
-                  Dim tExp As Double
-290               tExp = ((NpcList(.ID).STATS.MaxHP * 2) * .FactorMulExp)
-300               tExp = tExp + (tExp * ExpMul)
-310               txtExp.Text = Round(tExp, 0)
-320               NPCName = NpcList(.ID).Name
-330           Else
-340               txtExp.Text = ""
-350               NPCName = "NONE"
-360           End If
-              
-370           If .ID > 0 Then
-380               lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
-390           End If
-              
-400       End With
-          
-410       lstNPCs.Enabled = True
-420       lstNPCs.SetFocus
-430       frmMain.Caption = "NPC Seleccionado: " & NPCName
-440       tmpOrder = Val(txtRespawnOrder.Text)
+70  With NPCRespawn(RespawnIndex)
+80      iIDNpcSelected = RespawnIndex    ' NpcIndex
+90      NpcIndex = .ID
+
+100     SelectedRespawnIndex = RespawnIndex
+110     Call updateArea(RespawnIndex)
+
+120     If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
+130         Area.Picture = cachePictures(.Pos.Map)
+140         NumMapa = .Pos.Map
+150     Else
+            'MsgBox "Mapa inválido"
+160         Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
+170     End If
+
+180     txtNumero.Text = .ID
+190     txtPos.Text = .Pos.Map & "-" & .Pos.X & "-" & .Pos.Y
+200     txtRespawnTime.Text = .RespawnTime
+210     txtCantidad.Text = .Count
+220     txtAreaX.Text = .AreaX
+230     txtAreaY.Text = .AreaY
+240     txtNPCLvl.Text = .Nivel
+250     txtFactor.Text = .FactorMulExp
+260     txtFactorOro.Text = .FactorMulGold
+
+270     If .FactorMulGold > 0 Then
+280         lblGoldGive.Caption = Round(NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD * NPCRespawn(SelectedRespawnIndex).FactorMulGold, 0)
+290     Else
+300         lblGoldGive.Caption = NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD
+310     End If
+
+320     txtMinHour.Text = .MinHour
+330     txtMaxHour.Text = .MaxHour
+340     txtCountUsersRespawn.Text = .WithCountUsers
+
+350     If .ID > 0 Then
+            Dim tExp            As Double
+360         tExp = ((NpcList(.ID).STATS.MaxHP * 2) * .FactorMulExp)
+370         tExp = tExp + (tExp * ExpMul)
+380         txtExp.Text = Round(tExp, 0)
+390         NPCName = NpcList(.ID).Name
+400     Else
+410         txtExp.Text = ""
+420         NPCName = "NONE"
+430     End If
+
+440     If .ID > 0 Then
+450         lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
+460     End If
+
+470 End With
+
+480 lstNPCs.Enabled = True
+490 lstNPCs.SetFocus
+500 frmMain.Caption = "NPC Seleccionado: " & NPCName
+510 tmpOrder = Val(txtRespawnOrder.Text)
 
 
- On Error GoTo 0
- Exit Sub
+520 On Error GoTo 0
+530 Exit Sub
 lstNPCs_Click_Error:
-450       Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
-460       lstNPCs.Enabled = True
-          Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento lstNPCs_Click Formulario frmMain línea: " & Erl())
+540 Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
+550 lstNPCs.Enabled = True
+560 Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento lstNPCs_Click Formulario frmMain línea: " & Erl())
 
 End Sub
 
@@ -1139,6 +1213,23 @@ Private Sub txtFactor_Change()
     
     NPCRespawn(SelectedRespawnIndex).FactorMulExp = Factor
     cmdGuardar.Enabled = True
+    
+End Sub
+
+Private Sub txtFactorOro_Change()
+    '
+    Dim Factor As Single
+    Factor = Val(Replace(txtFactorOro.Text, ",", "."))
+    'txtFactor.Text = Factor
+    
+    NPCRespawn(SelectedRespawnIndex).FactorMulGold = Factor
+    cmdGuardar.Enabled = True
+    
+    If Factor > 0 Then
+        lblGoldGive.Caption = "Oro: " & Round(NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD * NPCRespawn(SelectedRespawnIndex).FactorMulGold, 0)
+    Else
+        lblGoldGive.Caption = "Oro: " & NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD
+    End If
     
 End Sub
 
