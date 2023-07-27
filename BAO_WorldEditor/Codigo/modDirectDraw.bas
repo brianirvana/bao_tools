@@ -849,8 +849,10 @@ Dim Y                           As Integer
     For X = 0 To SeleccionAncho - 1
         For Y = 0 To SeleccionAlto - 1
             If Y + SeleccionIY < YMaxMapSize And X + SeleccionIX < XMaxMapSize Then
-                DeSeleccionMap(X, Y) = MapData(X + SeleccionIX, Y + SeleccionIY)
-                ClickEdit vbLeftButton, SeleccionIX + X, SeleccionIY + Y
+                If X > 0 And Y > 0 Then
+                    DeSeleccionMap(X, Y) = MapData(X + SeleccionIX, Y + SeleccionIY)
+                    ClickEdit vbLeftButton, SeleccionIX + X, SeleccionIY + Y
+                End If
             End If
         Next
     Next
