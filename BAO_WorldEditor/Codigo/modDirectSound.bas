@@ -55,7 +55,7 @@ Public Sub IniciarDirectSound()
 
     Exit Sub
 fin:
-    End
+    'End
 End Sub
 
 Public Sub LiberarDirectSound()
