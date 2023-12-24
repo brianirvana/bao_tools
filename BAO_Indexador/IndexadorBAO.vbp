@@ -1,6 +1,6 @@
 Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWow64\stdole2.tlb#OLE Automation
-Reference=*\G{E1211242-8E94-11D1-8808-00C04FC2C603}#1.0#0#C:\Windows\SysWOW64\dx8vb.dll#DirectX 8 for Visual Basic Type Library
+Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+Reference=*\G{E1211242-8E94-11D1-8808-00C04FC2C603}#1.0#0#C:\Windows\SysWow64\DX8VB.DLL#DirectX 8 for Visual Basic Type Library
 Reference=*\G{7BAF2B1F-BB9B-4DDD-814F-1D2748946EE4}#1.0#0#C:\Windows\SysWow64\Entropia.dll#Entropia
 Form=CODIGO\frmMain.frm
 Module=modGeneral; CODIGO\modGeneral.bas
@@ -24,7 +24,7 @@ HelpContextID="0"
 CompatibleMode="0"
 MajorVer=2
 MinorVer=0
-RevisionVer=11
+RevisionVer=13
 AutoIncrementVer=1
 ServerSupportFiles=0
 VersionCompanyName="Needs"

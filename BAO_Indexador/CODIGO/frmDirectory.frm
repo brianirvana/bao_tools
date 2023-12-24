@@ -138,91 +138,136 @@ Private cBFolder As clsCBFolder
 
 
 Private Sub cmdExaminarExpo_Click()
-    Dim Ret As VbMsgBoxResult
-    If FileExist(Me.txtIndex.Text, vbDirectory) And Len(Me.txtIndex.Text) <> 0 Then
-        Ret = MsgBox("¿Desea crear una carpeta de exportación llamada ""Expo"" en la carpeta de indexación?", vbYesNo)
-    Else
-        Ret = vbNo
-    End If
-    If Ret = vbYes Then
-        If Not FileExist(Me.txtIndex.Text & "\Expo", vbDirectory) Then MkDir Me.txtIndex.Text & "\Expo"
-        txtExpo.Text = Me.txtIndex.Text & "\Expo"
-    Else
-        With cBFolder
-            .ShowButton = True
-            Dim sPath As String
-            sPath = .BrowseForFolder(Me, App.Path, "Seleccionar una carpeta de exportación...")
-            
-            txtExpo.Text = sPath
-        End With
-    End If
+          Dim Ret As VbMsgBoxResult
+   On Error GoTo cmdExaminarExpo_Click_Error
+
+10        If FileExist(Me.txtIndex.Text, vbDirectory) And Len(Me.txtIndex.Text) <> 0 Then
+20            Ret = MsgBox("¿Desea crear una carpeta de exportación llamada ""Expo"" en la carpeta de indexación?", vbYesNo)
+30        Else
+40            Ret = vbNo
+50        End If
+60        If Ret = vbYes Then
+70            If Not FileExist(Me.txtIndex.Text & "\Expo", vbDirectory) Then MkDir Me.txtIndex.Text & "\Expo"
+80            txtExpo.Text = Me.txtIndex.Text & "\Expo"
+90        Else
+100           With cBFolder
+110               .ShowButton = True
+                  Dim sPath As String
+120               sPath = .BrowseForFolder(Me, App.Path, "Seleccionar una carpeta de exportación...")
+                  
+130               txtExpo.Text = sPath
+140           End With
+150       End If
+
+   On Error GoTo 0
+   Exit Sub
+
+cmdExaminarExpo_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure cmdExaminarExpo_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub cmdExaminarGraficos_Click()
 
-    With cBFolder
-        .ShowButton = True
-        Dim sPath As String
-        sPath = .BrowseForFolder(Me, App.Path, "Seleccionar una carpeta para los graficos...")
-        
-        txtGraficos.Text = sPath
-    End With
+   On Error GoTo cmdExaminarGraficos_Click_Error
+
+10        With cBFolder
+20            .ShowButton = True
+              Dim sPath As String
+30            sPath = .BrowseForFolder(Me, App.Path, "Seleccionar una carpeta para los graficos...")
+              
+40            txtGraficos.Text = sPath
+50        End With
+
+   On Error GoTo 0
+   Exit Sub
+
+cmdExaminarGraficos_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure cmdExaminarGraficos_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub cmdExaminarInit_Click()
-    With cBFolder
-        .ShowButton = True
-        Dim sPath As String
-        sPath = .BrowseForFolder(Me, App.Path, "Seleccionar una carpeta para los init's...")
-        
-        txtIndex.Text = sPath
-    End With
+   On Error GoTo cmdExaminarInit_Click_Error
+
+10        With cBFolder
+20            .ShowButton = True
+              Dim sPath As String
+30            sPath = .BrowseForFolder(Me, App.Path, "Seleccionar una carpeta para los init's...")
+              
+40            txtIndex.Text = sPath
+50        End With
+
+   On Error GoTo 0
+   Exit Sub
+
+cmdExaminarInit_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure cmdExaminarInit_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub cmdAplicar_Click()
-    AppGraficos = txtGraficos.Text
-    AppInit = txtIndex.Text
-    AppExpo = txtExpo.Text
-    AppPNG = OptPNG1.Value
-    
-    Call Save_Settings("AppPNG", IIf(AppPNG, "1", "0"))
-    Call Save_Settings("AppGraficos", AppGraficos)
-    Call Save_Settings("AppInit", AppInit)
-    Call Save_Settings("AppExpo", AppExpo)
-    
-    If Not FileExist(AppExpo, vbDirectory) Then
-        MkDir AppExpo
-    End If
-    
-    Continue = True
-    
-'[INICIALIZAMOS VARIABLES]
-    frmCargando.Show
-    Unload Me
-    frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
-    'Iniciamos el TileEngine
-    'Set TileEngine = Nothing
-    'Set TileEngine = New clsTileEngine
-    'Call TileEngine.Initialize
-    
-    Set Resource = New clsRecursosBender
-    Resource.Initialize
-    
-'[/INICIALIZAMOS VARIABLES]
-    Unload frmCargando
-    Load frmMain
-    If Not frmMain.Visible Then
-        frmMain.Show
-    End If
-    frmMain.Enabled = True
+   On Error GoTo cmdAplicar_Click_Error
+
+10        AppGraficos = txtGraficos.Text
+20        AppInit = txtIndex.Text
+30        AppExpo = txtExpo.Text
+40        AppPNG = OptPNG1.Value
+          
+50        Call Save_Settings("AppPNG", IIf(AppPNG, "1", "0"))
+60        Call Save_Settings("AppGraficos", AppGraficos)
+70        Call Save_Settings("AppInit", AppInit)
+80        Call Save_Settings("AppExpo", AppExpo)
+          
+90        If Not FileExist(AppExpo, vbDirectory) Then
+100           MkDir AppExpo
+110       End If
+          
+120       Continue = True
+          
+      '[INICIALIZAMOS VARIABLES]
+130       frmCargando.Show
+140       Unload Me
+150       frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+          'Iniciamos el TileEngine
+          'Set TileEngine = Nothing
+          'Set TileEngine = New clsTileEngine
+          'Call TileEngine.Initialize
+          
+160       Set Resource = New clsRecursosBender
+170       Resource.Initialize
+          
+      '[/INICIALIZAMOS VARIABLES]
+180       Unload frmCargando
+190       Load frmMain
+200       If Not frmMain.Visible Then
+210           frmMain.Show
+220       End If
+230       frmMain.Enabled = True
+
+   On Error GoTo 0
+   Exit Sub
+
+cmdAplicar_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure cmdAplicar_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub Command1_Click()
-    AppGraficos = vbNullString
-    AppInit = vbNullString
-    AppExpo = vbNullString
-    
-    Call Display_Directorys
+   On Error GoTo Command1_Click_Error
+
+10        AppGraficos = vbNullString
+20        AppInit = vbNullString
+30        AppExpo = vbNullString
+          
+40        Call Display_Directorys
+
+   On Error GoTo 0
+   Exit Sub
+
+Command1_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Command1_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub Form_Activate()
@@ -231,61 +276,142 @@ Private Sub Form_Activate()
     Call Display_Directorys
 End Sub
 Private Sub Display_Directorys()
-    If AppPNG Then
-        OptPNG1.Value = True
-        OptPNG2.Value = False
-    Else
-        OptPNG1.Value = False
-        OptPNG2.Value = True
-    End If
-    txtGraficos.Text = AppGraficos
-    txtIndex.Text = AppInit
-    txtExpo.Text = AppExpo
+   On Error GoTo Display_Directorys_Error
+
+10        If AppPNG Then
+20            OptPNG1.Value = True
+30            OptPNG2.Value = False
+40        Else
+50            OptPNG1.Value = False
+60            OptPNG2.Value = True
+70        End If
+80        txtGraficos.Text = AppGraficos
+90        txtIndex.Text = AppInit
+100       txtExpo.Text = AppExpo
+
+   On Error GoTo 0
+   Exit Sub
+
+Display_Directorys_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Display_Directorys of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub Form_Load()
-    Set cBFolder = New clsCBFolder
+   On Error GoTo Form_Load_Error
+
+10        Set cBFolder = New clsCBFolder
+
+   On Error GoTo 0
+   Exit Sub
+
+Form_Load_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Form_Load of Formulario frmDirectory Linea: " & Erl())
 End Sub
 Private Sub Form_Unload(Cancel As Integer)
-    Set cBFolder = Nothing
-    If Not FormsEnabled(Me) Then Call CloseProgram
+   On Error GoTo Form_Unload_Error
+
+10        Set cBFolder = Nothing
+20        If Not FormsEnabled(Me) Then Call CloseProgram
+
+   On Error GoTo 0
+   Exit Sub
+
+Form_Unload_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Form_Unload of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub Check_TextBox(ByRef Text As TextBox)
-    If FileExist(Text.Text, vbDirectory) And Len(Text.Text) <> 0 Then
-        Text.BackColor = vbGreen
-    Else
-        Text.BackColor = vbRed
-    End If
+   On Error GoTo Check_TextBox_Error
+
+10        If FileExist(Text.Text, vbDirectory) And Len(Text.Text) <> 0 Then
+20            Text.BackColor = vbGreen
+30        Else
+40            Text.BackColor = vbRed
+50        End If
+
+   On Error GoTo 0
+   Exit Sub
+
+Check_TextBox_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Check_TextBox of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub OptPNG1_Click()
-    AppPNG = True
-    Call txtGraficos_Change
+   On Error GoTo OptPNG1_Click_Error
+
+10        AppPNG = True
+20        Call txtGraficos_Change
+
+   On Error GoTo 0
+   Exit Sub
+
+OptPNG1_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure OptPNG1_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub OptPNG2_Click()
-    AppPNG = False
-    Call txtGraficos_Change
+   On Error GoTo OptPNG2_Click_Error
+
+10        AppPNG = False
+20        Call txtGraficos_Change
+
+   On Error GoTo 0
+   Exit Sub
+
+OptPNG2_Click_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure OptPNG2_Click of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub txtExpo_Change()
-    Call Check_TextBox(txtExpo)
-    If txtExpo.BackColor = vbRed Then
-        txtExpo.BackColor = vbYellow
-    End If
+   On Error GoTo txtExpo_Change_Error
+
+10        Call Check_TextBox(txtExpo)
+20        If txtExpo.BackColor = vbRed Then
+30            txtExpo.BackColor = vbYellow
+40        End If
+
+   On Error GoTo 0
+   Exit Sub
+
+txtExpo_Change_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtExpo_Change of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub txtGraficos_Change()
-    Call Check_TextBox(txtGraficos)
-    If Not FileExist(txtGraficos.Text & "\1." & IIf(AppPNG = True, "png", "bmp"), vbArchive) And txtGraficos.BackColor = vbGreen Then
-        txtGraficos.BackColor = vbYellow
-    End If
+   On Error GoTo txtGraficos_Change_Error
+
+10        Call Check_TextBox(txtGraficos)
+20        If Not FileExist(txtGraficos.Text & "\1." & IIf(AppPNG = True, "png", "bmp"), vbArchive) And txtGraficos.BackColor = vbGreen Then
+30            txtGraficos.BackColor = vbYellow
+40        End If
+
+   On Error GoTo 0
+   Exit Sub
+
+txtGraficos_Change_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtGraficos_Change of Formulario frmDirectory Linea: " & Erl())
 End Sub
 
 Private Sub txtIndex_Change()
-    Call Check_TextBox(txtIndex)
-    If Not FileExist(txtIndex.Text & "\Graficos.ind", vbArchive) And txtIndex.BackColor = vbGreen Then
-        txtIndex.BackColor = vbYellow
-    End If
+   On Error GoTo txtIndex_Change_Error
+
+10        Call Check_TextBox(txtIndex)
+20        If Not FileExist(txtIndex.Text & "\Graficos.ind", vbArchive) And txtIndex.BackColor = vbGreen Then
+30            txtIndex.BackColor = vbYellow
+40        End If
+
+   On Error GoTo 0
+   Exit Sub
+
+txtIndex_Change_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtIndex_Change of Formulario frmDirectory Linea: " & Erl())
 End Sub

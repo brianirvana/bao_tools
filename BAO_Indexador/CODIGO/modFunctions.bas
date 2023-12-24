@@ -103,8 +103,7 @@ End Function
 Public Sub LogError(ByRef sError As String)
 
     Debug.Print Time & " " & Date & " " & sError
-    
-    
+    MsgBox sError
 
 End Sub
 
@@ -130,45 +129,63 @@ Function GetVar(ByRef file As String, ByRef Main As String, ByRef var As String,
 End Function
 
 Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As Byte) As String
-'*****************************************************************
-'Gets a field from a delimited string
-'Author: Juan Martín Sotuyo Dodero (Maraxus)
-'Last Modify Date: 11/15/2004
-'*****************************************************************
-    Dim i As Long
-    Dim LastPos As Long
-    Dim CurrentPos As Long
-    Dim delimiter As String * 1
-    
-    delimiter = Chr$(SepASCII)
-    
-    For i = 1 To Pos
-        LastPos = CurrentPos
-        CurrentPos = InStr(LastPos + 1, Text, delimiter, vbBinaryCompare)
-    Next i
-    
-    If CurrentPos = 0 Then
-        ReadField = Mid$(Text, LastPos + 1, Len(Text) - LastPos)
-    Else
-        ReadField = Mid$(Text, LastPos + 1, CurrentPos - LastPos - 1)
-    End If
+      '*****************************************************************
+      'Gets a field from a delimited string
+      'Author: Juan Martín Sotuyo Dodero (Maraxus)
+      'Last Modify Date: 11/15/2004
+      '*****************************************************************
+          Dim i As Long
+          Dim LastPos As Long
+          Dim CurrentPos As Long
+          Dim delimiter As String * 1
+          
+   On Error GoTo ReadField_Error
+
+10        delimiter = Chr$(SepASCII)
+          
+20        For i = 1 To Pos
+30            LastPos = CurrentPos
+40            CurrentPos = InStr(LastPos + 1, Text, delimiter, vbBinaryCompare)
+50        Next i
+          
+60        If CurrentPos = 0 Then
+70            ReadField = Mid$(Text, LastPos + 1, Len(Text) - LastPos)
+80        Else
+90            ReadField = Mid$(Text, LastPos + 1, CurrentPos - LastPos - 1)
+100       End If
+
+   On Error GoTo 0
+   Exit Function
+
+ReadField_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure ReadField of Módulo modFunctions Linea: " & Erl())
 End Function
 Public Function RangoValor(ByVal Valor As Long, ByVal min As Long, ByVal max As Long) As Boolean
     RangoValor = Valor >= min And Valor <= max
 End Function
 Public Function GetDirectionString(ByVal Heading As Byte) As String
-'0=Norte
-'1=Este
-'2=Sur
-'3=Oeste
-Select Case Heading
-    Case 0
-        GetDirectionString = "Norte"
-    Case 1
-        GetDirectionString = "Este"
-    Case 2
-        GetDirectionString = "Sur"
-    Case 3
-        GetDirectionString = "Oeste"
-End Select
+      '0=Norte
+      '1=Este
+      '2=Sur
+      '3=Oeste
+   On Error GoTo GetDirectionString_Error
+
+10    Select Case Heading
+          Case 0
+20            GetDirectionString = "Norte"
+30        Case 1
+40            GetDirectionString = "Este"
+50        Case 2
+60            GetDirectionString = "Sur"
+70        Case 3
+80            GetDirectionString = "Oeste"
+90    End Select
+
+   On Error GoTo 0
+   Exit Function
+
+GetDirectionString_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GetDirectionString of Módulo modFunctions Linea: " & Erl())
 End Function

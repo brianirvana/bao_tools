@@ -112,30 +112,30 @@ Dim IsVisible                   As Boolean
 
     On Error GoTo LoadResourceInterface_Error
 
-    IsEnabled = frmMain.Enabled
-    frmMain.Enabled = False
-    IsVisible = frmMain.Visible
-    If IsVisible Then
-        frmMain.Visible = False
-        frmCargando.Show
-    End If
+20  IsEnabled = frmMain.Enabled
+30  frmMain.Enabled = False
+40  IsVisible = frmMain.Visible
+50  If IsVisible Then
+60      frmMain.Visible = False
+70      frmCargando.Show
+80  End If
 
-    frmCargando.lblLoading.Caption = "Cargando interfaz de usuario..."
-    frmMain.lstGraphics.Clear
-    frmMain.cmbFondo.Clear
-    DoEvents
-    frmMain.cmbFondo.AddItem "0"
+90  frmCargando.lblLoading.Caption = "Cargando interfaz de usuario..."
+100 frmMain.lstGraphics.Clear
+110 frmMain.cmbFondo.Clear
+120 DoEvents
+130 frmMain.cmbFondo.AddItem "0"
 
-    frmMain.lstGraphics.Visible = False
-    frmMain.cmbFondo.Visible = False
+140 frmMain.lstGraphics.Visible = False
+150 frmMain.cmbFondo.Visible = False
 
-    For i = 1 To grhCount
-        frmMain.lstGraphics.AddItem NameLineGraphic(i)
+160 For i = 1 To grhCount
+170     frmMain.lstGraphics.AddItem NameLineGraphic(i)
         'frmMain.cmbFondo.AddItem NameLineGraphic(i)
         'frmMain.cmbAnim.AddItem NameLineGraphic(i)
-    Next i
+180 Next i
 
-    frmMain.lstGraphics.AddItem "Resize"
+190 frmMain.lstGraphics.AddItem "Resize"
 
     '    frmMain.cmbArmas.AddItem "0"
     '    frmMain.cmbCabezas.AddItem "0"
@@ -145,78 +145,79 @@ Dim IsVisible                   As Boolean
     '    frmMain.cmbEfectos.AddItem "0"
 
     'Armas
-    frmMain.cmbArmas.Clear
-    For i = 0 To NumWeaponAnims
-        frmMain.cmbArmas.AddItem i & IIf(i = 2, " (No-Anim)", "")
-    Next i
+200 frmMain.cmbArmas.Clear
+210 For i = 0 To NumWeaponAnims
+220     frmMain.cmbArmas.AddItem i & IIf(i = 2, " (No-Anim)", "")
+230 Next i
 
-    frmMain.cmbArmas.ListIndex = NumAnim_Armas
+240 frmMain.cmbArmas.ListIndex = NumAnim_Armas
 
     'Cabezas
-    frmMain.cmbCabezas.Clear
-    For i = 0 To Numheads
-        frmMain.cmbCabezas.AddItem i & IIf(HeadData(i).Head(1).GrhIndex = 0, " (Libre)", "")
-    Next i
-    frmMain.cmbCabezas.ListIndex = NumAnim_Cabezas
+250 frmMain.cmbCabezas.Clear
+260 For i = 0 To Numheads
+270     frmMain.cmbCabezas.AddItem i & IIf(HeadData(i).Head(1).GrhIndex = 0, " (Libre)", "")
+280 Next i
+290 frmMain.cmbCabezas.ListIndex = NumAnim_Cabezas
 
     'Cascos
-    frmMain.cmbCascos.Clear
-    For i = 0 To NumCascos
-        frmMain.cmbCascos.AddItem i & IIf(i = 2, " (No-Anim)", "")
-    Next i
-    frmMain.cmbCascos.ListIndex = NumAnim_Cascos
+300 frmMain.cmbCascos.Clear
+310 For i = 0 To NumCascos
+320     frmMain.cmbCascos.AddItem i & IIf(i = 2, " (No-Anim)", "")
+330 Next i
+340 frmMain.cmbCascos.ListIndex = NumAnim_Cascos
 
     'Cuerpos
-    frmMain.cmbCuerpos.Clear
-    For i = 0 To NumBodies
-        frmMain.cmbCuerpos.AddItem i
-    Next i
+350 frmMain.cmbCuerpos.Clear
+360 For i = 0 To NumBodies
+370     frmMain.cmbCuerpos.AddItem i
+380 Next i
 
-    frmMain.cmbCuerpos.ListIndex = NumAnim_Cuerpos
+390 frmMain.cmbCuerpos.ListIndex = NumAnim_Cuerpos
 
     'Escudos
-    frmMain.cmbEscudos.Clear
-    For i = 0 To NumEscudosAnims
-        frmMain.cmbEscudos.AddItem i & IIf(i = 2, " (No-Anim)", "")
-    Next i
+400 frmMain.cmbEscudos.Clear
+410 For i = 0 To NumEscudosAnims
+420     frmMain.cmbEscudos.AddItem i & IIf(i = 2, " (No-Anim)", "")
+430 Next i
 
-    frmMain.cmbEscudos.ListIndex = NumAnim_Escudos
+440 frmMain.cmbEscudos.ListIndex = NumAnim_Escudos
 
     'Efectos
-    frmMain.cmbEfectos.Clear
-    For i = 0 To NumFxs
-        frmMain.cmbEfectos.AddItem i
-    Next i
+450 frmMain.cmbEfectos.Clear
+460 For i = 0 To NumFxs
+470     frmMain.cmbEfectos.AddItem i
+480 Next i
 
-    frmMain.cmbEfectos.ListIndex = NumAnim_Efectos
+490 frmMain.cmbEfectos.ListIndex = NumAnim_Efectos
 
-    frmMain.cmbArmas.AddItem "Resize"
-    frmMain.cmbCabezas.AddItem "Resize"
-    frmMain.cmbCascos.AddItem "Resize"
-    frmMain.cmbCuerpos.AddItem "Resize"
-    frmMain.cmbEscudos.AddItem "Resize"
-    frmMain.cmbEfectos.AddItem "Resize"
+500 frmMain.cmbArmas.AddItem "Resize"
+510 frmMain.cmbCabezas.AddItem "Resize"
+520 frmMain.cmbCascos.AddItem "Resize"
+530 frmMain.cmbCuerpos.AddItem "Resize"
+540 frmMain.cmbEscudos.AddItem "Resize"
+550 frmMain.cmbEfectos.AddItem "Resize"
 
-    frmMain.lstGraphics.Visible = True
-    frmMain.cmbFondo.Visible = True
+560 frmMain.lstGraphics.Visible = True
+570 frmMain.cmbFondo.Visible = True
 
-    frmMain.cmbTipo.ListIndex = 0
-    frmMain.lstGraphics.ListIndex = 0
-    frmMain.cmbFondo.ListIndex = 0
+580 frmMain.cmbTipo.ListIndex = 0
+590 frmMain.lstGraphics.ListIndex = 0
+600 frmMain.cmbFondo.ListIndex = 0
 
-    Sleep 100: DoEvents
-    frmMain.Enabled = IsEnabled
-    If IsVisible Then
-        frmMain.Visible = True
-        Unload frmCargando
-    End If
+610 Sleep 100: DoEvents
+620 frmMain.Enabled = IsEnabled
+630 If IsVisible Then
+640     frmMain.Visible = True
+650     Unload frmCargando
+660 End If
 
-    On Error GoTo 0
-    Exit Sub
+670 On Error GoTo 0
+680 Exit Sub
 
 LoadResourceInterface_Error:
 
-    MsgBox "Error " & err.Number & " (" & err.Description & ") in procedure LoadResourceInterface of Módulo modRecursosBender line " & Erl()
+690 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure LoadResourceInterface of Módulo modRecursosBender line " & Erl())
+
 End Sub
 
 Public Function NameLineGraphic(ByRef i As Long) As String
@@ -301,77 +302,95 @@ Public Function ProcessGraphicBinToLine(ByVal i As Integer) As String
 Dim J                           As Long
 Dim Line                        As String
 
-    With GrhData(i)
-        If .NumFrames > 0 Then
-            Line = "Grh" & i & "=" & .NumFrames
-            If .NumFrames > 1 Then
+    On Error GoTo ProcessGraphicBinToLine_Error
 
-                If .NumFrames > 100 Then .NumFrames = 100
+10  With GrhData(i)
+20      If .NumFrames > 0 Then
+30          Line = "Grh" & i & "=" & .NumFrames
+40          If .NumFrames > 1 Then
 
-                For J = 1 To .NumFrames
-                    Line = Line & Separator & .Frames(J)
-                Next J
-                Line = Line & Separator & .speed
-                
-                frmMain.txtNumFrames.Text = .NumFrames
+50              If .NumFrames > 100 Then .NumFrames = 100
+
+60              For J = 1 To .NumFrames
+70                  Line = Line & Separator & .Frames(J)
+80              Next J
+90              Line = Line & Separator & .speed
+
+100             frmMain.txtNumFrames.Text = .NumFrames
                 'frmMain.lblNumPNG.Caption = "Num Grh's"
-                frmMain.txtNumPNG.Enabled = False
-                frmMain.txtXFrom.Text = .sX
-                frmMain.txtYFrom.Text = .sY
-                
-                frmMain.txtXTo.Text = 0 '.pixelWidth
-                frmMain.txtYTo.Text = 0 '.pixelHeight
-                
-                frmMain.txtXTo.Enabled = False
-                frmMain.txtYTo.Enabled = False
-                
-                frmMain.txtXFrom.Enabled = False
-                frmMain.txtYFrom.Enabled = False
-                
-                frmMain.txtVelocity.Text = .speed
-                
-            Else
-                Line = Line & Separator & .FileNum & Separator & .sX & Separator & .sY & Separator & .pixelWidth & Separator & .pixelHeight
-                
-                If frmMain.Visible Then
-                    frmMain.txtNumFrames.Text = .NumFrames
-                    frmMain.txtNumPNG.Enabled = True
-                    frmMain.txtNumPNG.Text = .FileNum
+110             frmMain.txtNumPNG.Enabled = False
+120             frmMain.txtXFrom.Text = .sX
+130             frmMain.txtYFrom.Text = .sY
+
+140             frmMain.txtXTo.Text = 0    '.pixelWidth
+150             frmMain.txtYTo.Text = 0    '.pixelHeight
+
+160             frmMain.txtXTo.Enabled = False
+170             frmMain.txtYTo.Enabled = False
+
+180             frmMain.txtXFrom.Enabled = False
+190             frmMain.txtYFrom.Enabled = False
+
+200             frmMain.txtVelocity.Text = .speed
+
+210         Else
+220             Line = Line & Separator & .FileNum & Separator & .sX & Separator & .sY & Separator & .pixelWidth & Separator & .pixelHeight
+
+230             If frmMain.Visible Then
+240                 frmMain.txtNumFrames.Text = .NumFrames
+250                 frmMain.txtNumPNG.Enabled = True
+260                 frmMain.txtNumPNG.Text = .FileNum
                     'frmMain.lblNumPNG.Caption = "Num PNG"
-                    frmMain.txtXFrom.Text = .sX
-                    frmMain.txtYFrom.Text = .sY
-                    frmMain.txtXTo.Text = .pixelWidth
-                    frmMain.txtYTo.Text = .pixelHeight
-                    frmMain.txtVelocity.Text = 0
-                    
-                    frmMain.txtXTo.Enabled = True
-                    frmMain.txtYTo.Enabled = True
-                    
-                    frmMain.txtXFrom.Enabled = True
-                    frmMain.txtYFrom.Enabled = True
-                End If
-            End If
-        End If
-    End With
-    
-    ProcessGraphicBinToLine = Line
-    
+270                 frmMain.txtXFrom.Text = .sX
+280                 frmMain.txtYFrom.Text = .sY
+290                 frmMain.txtXTo.Text = .pixelWidth
+300                 frmMain.txtYTo.Text = .pixelHeight
+310                 frmMain.txtVelocity.Text = 0
+
+320                 frmMain.txtXTo.Enabled = True
+330                 frmMain.txtYTo.Enabled = True
+
+340                 frmMain.txtXFrom.Enabled = True
+350                 frmMain.txtYFrom.Enabled = True
+360             End If
+370         End If
+380     End If
+390 End With
+
+400 ProcessGraphicBinToLine = Line
+
+    On Error GoTo 0
+    Exit Function
+
+ProcessGraphicBinToLine_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure ProcessGraphicBinToLine of Módulo modRecursosBender Linea: " & Erl())
+
 End Function
 
 Private Function GetValueExpo(sValue As String, Pos As Integer) As Single
 
-    On Error Resume Next
+    On Error GoTo GetValueExpo_Error
+
+10  On Error Resume Next
 
     Dim TempS                   As String
 
-    TempS = ReadField(Pos, sValue, Asc(Separator))
+20  TempS = ReadField(Pos, sValue, Asc(Separator))
 
-    If IsNumeric(TempS) Then
-        GetValueExpo = CSng(TempS)
-    ElseIf TempS = "*" Then
-        GetValueExpo = -1
-    Else
-        err.Number = 1
-    End If
+30  If IsNumeric(TempS) Then
+40      GetValueExpo = CSng(TempS)
+50  ElseIf TempS = "*" Then
+60      GetValueExpo = -1
+70  Else
+80      err.Number = 1
+90  End If
+
+    On Error GoTo 0
+    Exit Function
+
+GetValueExpo_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GetValueExpo of Módulo modRecursosBender Linea: " & Erl())
 
 End Function

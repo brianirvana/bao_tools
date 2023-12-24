@@ -62,53 +62,62 @@ Public AppExpo As String
 'Primera funcion que se ejecuta cuando iniciamos el programa
 Sub Main()
 
-'[DETECCIÓN DE PATHS]
-'Explicación: Lo que hace esto es verificar si las carpetas Graficos, Init y Expo son correctas. Si no lo estan sigue preguntando y dice "Paths Incorrectos."
-'[INICIAMOS INTERFAZ]
-    Load frmMain
-    FrmMainCaption = "PlusIndex - Desarrollado por MaTeO v" & App.Major & "." & App.Minor & "." & App.Revision
-    frmMain.Caption = FrmMainCaption
-    '[/INICIAMOS INTERFAZ]
+      '[DETECCIÓN DE PATHS]
+      'Explicación: Lo que hace esto es verificar si las carpetas Graficos, Init y Expo son correctas. Si no lo estan sigue preguntando y dice "Paths Incorrectos."
+      '[INICIAMOS INTERFAZ]
+   On Error GoTo Main_Error
+
+10        Load frmMain
+20        FrmMainCaption = "PlusIndex - Desarrollado por MaTeO v" & App.Major & "." & App.Minor & "." & App.Revision
+30        frmMain.Caption = FrmMainCaption
+          '[/INICIAMOS INTERFAZ]
 LoopPaths:
-    'Tiramos algo de facha para empezar :P
-    frmDirectory.Caption = "Directorios"
-    If Not Detect_Paths Then
-        frmDirectory.Show vbModal
-        If Not Detect_Paths Then
-            If frmDirectory.Continue Then
-                MsgBox "Directorios invalidos."
-                GoTo LoopPaths
-            Else
-                End
-            End If
-        End If
-    End If
-    '[/DETECCIÓN DE PATHS]
-    
-    FirstRun = True
+          'Tiramos algo de facha para empezar :P
+40        frmDirectory.Caption = "Directorios"
+50        If Not Detect_Paths Then
+60            frmDirectory.Show vbModal
+70            If Not Detect_Paths Then
+80                If frmDirectory.Continue Then
+90                    MsgBox "Directorios invalidos."
+100                   GoTo LoopPaths
+110               Else
+120                   End
+130               End If
+140           End If
+150       End If
+          '[/DETECCIÓN DE PATHS]
+          
+160       FirstRun = True
 
-    '[INICIALIZAMOS VARIABLES]
-    frmCargando.Show
-    
-    If CheckEntropia Then
-        Debug.Print "Se registró Entropia.dll"
-    End If
-    
-    frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
+          '[INICIALIZAMOS VARIABLES]
+170       frmCargando.Show
+          
+180       If CheckEntropia Then
+190           Debug.Print "Se registró Entropia.dll"
+200       End If
+          
+210       frmCargando.lblLoading.Caption = "Inicializando el motor gráfico..."
 
-    'Iniciamos el TileEngine
-    Set TileEngine = New clsTileEngine
-    Call TileEngine.Initialize
+          'Iniciamos el TileEngine
+220       Set TileEngine = New clsTileEngine
+230       Call TileEngine.Initialize
 
-    Set Resource = New clsRecursosBender
-    Resource.Initialize
+240       Set Resource = New clsRecursosBender
+250       Resource.Initialize
 
-    '[/INICIALIZAMOS VARIABLES]
-    Unload frmCargando
-    frmMain.Show
-    frmMain.Enabled = True
-    Call TileEngine.StartGameLoop    '[INICIAMOS A CORRER TODO]
-    
+          '[/INICIALIZAMOS VARIABLES]
+260       Unload frmCargando
+270       frmMain.Show
+280       frmMain.Enabled = True
+290       Call TileEngine.StartGameLoop    '[INICIAMOS A CORRER TODO]
+
+   On Error GoTo 0
+   Exit Sub
+
+Main_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Main of Módulo modGeneral Linea: " & Erl())
+          
 End Sub
 
 Public Sub CloseProgram()
@@ -127,57 +136,93 @@ End Sub
 '**************************************************************
 Public Function ObtenerDirectorioSO() As String
 
-Dim lngSize                     As Long
-Dim Retval                      As Long
-Dim strBuf                      As String
+      Dim lngSize                     As Long
+      Dim Retval                      As Long
+      Dim strBuf                      As String
 
-    'Obtener directorio de sistema
-    strBuf = String(255, 0)
-    lngSize = 255
-    Retval = GetSystemDirectoryA(strBuf, lngSize)
-    strBuf = Left(strBuf, Retval)
-    ObtenerDirectorioSO = strBuf
+          'Obtener directorio de sistema
+   On Error GoTo ObtenerDirectorioSO_Error
 
-    If FileExist(ObtenerDirectorioSO & "\..\SysWOW64\", vbDirectory) Then
-        ObtenerDirectorioSO = ObtenerDirectorioSO & "\..\SysWOW64"
-    End If
+10        strBuf = String(255, 0)
+20        lngSize = 255
+30        Retval = GetSystemDirectoryA(strBuf, lngSize)
+40        strBuf = Left(strBuf, Retval)
+50        ObtenerDirectorioSO = strBuf
+
+60        If FileExist(ObtenerDirectorioSO & "\..\SysWOW64\", vbDirectory) Then
+70            ObtenerDirectorioSO = ObtenerDirectorioSO & "\..\SysWOW64"
+80        End If
+
+   On Error GoTo 0
+   Exit Function
+
+ObtenerDirectorioSO_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure ObtenerDirectorioSO of Módulo modGeneral Linea: " & Erl())
 
 End Function
 
 Public Function CheckEntropia() As Boolean
-    
-    If Not FileExist(ObtenerDirectorioSO & "/Entropia.dll", vbArchive) Then
-        If FileExist(App.Path & "/Entropia.dll", vbArchive) Then
-            Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
-            Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
-            CheckEntropia = True
-        Else
-            MsgBox "No se encuentra la librería Entropia.dll en la carpeta " & App.Path
-            CheckEntropia = False
-            End
-        End If
-    End If
+          
+   On Error GoTo CheckEntropia_Error
+
+10        If Not FileExist(ObtenerDirectorioSO & "/Entropia.dll", vbArchive) Then
+20            If FileExist(App.Path & "/Entropia.dll", vbArchive) Then
+30                Call mCopyFile(App.Path & "/Entropia.dll", ObtenerDirectorioSO & "/Entropia.dll")
+40                Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/Entropia.dll" & """ /s")
+50                CheckEntropia = True
+60            Else
+70                MsgBox "No se encuentra la librería Entropia.dll en la carpeta " & App.Path
+80                CheckEntropia = False
+90                End
+100           End If
+110       End If
+
+   On Error GoTo 0
+   Exit Function
+
+CheckEntropia_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure CheckEntropia of Módulo modGeneral Linea: " & Erl())
 
 End Function
 
 Public Function Detect_Paths() As Boolean
-    AppPNG = IIf(modFunctions.Load_Settings("AppPNG") = "1", True, False)
-    AppGraficos = modFunctions.Load_Settings("AppGraficos")
-    AppInit = modFunctions.Load_Settings("AppInit")
-    AppExpo = modFunctions.Load_Settings("AppExpo")
-    
-    Detect_Paths = FileExist(AppGraficos, vbDirectory) And FileExist(AppInit, vbDirectory) And FileExist(AppExpo, vbDirectory)
-    Detect_Paths = Len(AppGraficos) <> 0 And Len(AppInit) <> 0 And Len(AppExpo) <> 0
+   On Error GoTo Detect_Paths_Error
+
+10        AppPNG = IIf(modFunctions.Load_Settings("AppPNG") = "1", True, False)
+20        AppGraficos = modFunctions.Load_Settings("AppGraficos")
+30        AppInit = modFunctions.Load_Settings("AppInit")
+40        AppExpo = modFunctions.Load_Settings("AppExpo")
+          
+50        Detect_Paths = FileExist(AppGraficos, vbDirectory) And FileExist(AppInit, vbDirectory) And FileExist(AppExpo, vbDirectory)
+60        Detect_Paths = Len(AppGraficos) <> 0 And Len(AppInit) <> 0 And Len(AppExpo) <> 0
+
+   On Error GoTo 0
+   Exit Function
+
+Detect_Paths_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Detect_Paths of Módulo modGeneral Linea: " & Erl())
 End Function
 Public Function EraseArrayInteger(ByRef ElArray() As Integer)
-    Dim max As Integer
-    Dim min As Integer
-    Dim i As Integer
-    max = UBound(ElArray)
-    min = LBound(ElArray)
-    For i = min To max
-        ElArray(i) = 0
-    Next i
+          Dim max As Integer
+          Dim min As Integer
+          Dim i As Integer
+   On Error GoTo EraseArrayInteger_Error
+
+10        max = UBound(ElArray)
+20        min = LBound(ElArray)
+30        For i = min To max
+40            ElArray(i) = 0
+50        Next i
+
+   On Error GoTo 0
+   Exit Function
+
+EraseArrayInteger_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure EraseArrayInteger of Módulo modGeneral Linea: " & Erl())
 End Function
 
 

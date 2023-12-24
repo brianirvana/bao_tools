@@ -55,62 +55,80 @@ Public Sub LiberarMemoria()
 End Sub
 
 Public Sub ChangeRenderStyle(Num As Integer)
-    RenderStyle = Num
-    If NumGraphic Then
-        If GrhData(NumGraphic).NumFrames > 1 Then
-            Call LoadSpriteAnimation(SP_Main, NumGraphic)
-        Else
-            Call LoadSprite(SP_Main, NumGraphic)
-        End If
-    End If
+   On Error GoTo ChangeRenderStyle_Error
+
+10        RenderStyle = Num
+20        If NumGraphic Then
+30            If GrhData(NumGraphic).NumFrames > 1 Then
+40                Call LoadSpriteAnimation(SP_Main, NumGraphic)
+50            Else
+60                Call LoadSprite(SP_Main, NumGraphic)
+70            End If
+80        End If
+
+   On Error GoTo 0
+   Exit Sub
+
+ChangeRenderStyle_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure ChangeRenderStyle of Módulo de clase clsTileEngine Linea: " & Erl())
 End Sub
 
 Public Function Load_Texture(GrhIndex As Integer) As Long
 
-    With GrhData(GrhIndex)
+   On Error GoTo Load_Texture_Error
 
-        FileNum = .FileNum
-        If TexList(FileNum) = 0 Then
-            TexList(FileNum) = TexFactory.Load_Texture(AppGraficos & "\" & FileNum & IIf(AppPNG, ".png", ".bmp"))
-        End If
+10        With GrhData(GrhIndex)
 
-        'CLng(GrhData(NumGraphic).sX), CLng(GrhData(NumGraphic).sY), CLng(GrhData(NumGraphic).pixelWidth), CLng(GrhData(NumGraphic).pixelHeight)
-        Load_Texture = TexList(FileNum)
-    End With
-    
+20            FileNum = .FileNum
+30            If TexList(FileNum) = 0 Then
+40                TexList(FileNum) = TexFactory.Load_Texture(AppGraficos & "\" & FileNum & IIf(AppPNG, ".png", ".bmp"))
+50            End If
+
+              'CLng(GrhData(NumGraphic).sX), CLng(GrhData(NumGraphic).sY), CLng(GrhData(NumGraphic).pixelWidth), CLng(GrhData(NumGraphic).pixelHeight)
+60            Load_Texture = TexList(FileNum)
+70        End With
+
+   On Error GoTo 0
+   Exit Function
+
+Load_Texture_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Load_Texture of Módulo de clase clsTileEngine Linea: " & Erl())
+          
 End Function
 
 Public Function LoadSprite(ByRef SP As Sprite, GrhIndex As Integer)
 
     On Error GoTo LoadSprite_Error
 
-    With GrhData(GrhIndex)
+20  With GrhData(GrhIndex)
 
-        FileNum = .FileNum
+30      FileNum = .FileNum
 
         'Set SP = New Sprite
-        Call Load_Texture(GrhIndex)
+40      Call Load_Texture(GrhIndex)
 
-        If SP Is Nothing Then Set SP = New Sprite: Debug.Print "Reload Static!"
+50      If SP Is Nothing Then Set SP = New Sprite: Debug.Print "Reload Static!"
 
-        SP.Create_Static TexList(FileNum)
-        SP.Update_Size TexFactory.Get_Tex_Width(TexList(FileNum)), TexFactory.Get_Tex_Height(TexList(FileNum))
+60      SP.Create_Static TexList(FileNum)
+70      SP.Update_Size TexFactory.Get_Tex_Width(TexList(FileNum)), TexFactory.Get_Tex_Height(TexList(FileNum))
 
 
-        Select Case RenderStyle    '<-- Tipo de Render (Estilo 1 y 2)
+80      Select Case RenderStyle    '<-- Tipo de Render (Estilo 1 y 2)
             Case 0, 2          '<-- Cuando esta en estilo 1
-                SP.Update_Sprite_Rect CLng(.sX), CLng(.sY), CLng(.sX + .pixelWidth), CLng(.sY + .pixelHeight)
-            Case 1             '<-- Cuando esta en estilo 2
-                SP.Update_Sprite_Rect 0, 0, TexFactory.Get_Tex_Width(TexList(FileNum)), TexFactory.Get_Tex_Height(TexList(FileNum))
-        End Select
-    End With
+90              SP.Update_Sprite_Rect CLng(.sX), CLng(.sY), CLng(.sX + .pixelWidth), CLng(.sY + .pixelHeight)
+100         Case 1             '<-- Cuando esta en estilo 2
+110             SP.Update_Sprite_Rect 0, 0, TexFactory.Get_Tex_Width(TexList(FileNum)), TexFactory.Get_Tex_Height(TexList(FileNum))
+120     End Select
+130 End With
 
-    On Error GoTo 0
-    Exit Function
+140 On Error GoTo 0
+150 Exit Function
 
 LoadSprite_Error:
-    Set SP = Nothing
-    ProgramStatus = "Error en la carga del grafico." & vbCrLf & "Revise si estan correctos los parametros." & vbCrLf & "Tipo de error: " & err.Description
+160 Set SP = Nothing
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure LoadSprite of Módulo de clase clsTileEngine Linea: " & Erl())
 End Function
 
 Public Function LoadSpriteAnimation(ByRef SP As Sprite, GrhIndex As Integer)
@@ -166,39 +184,48 @@ Public Function LoadSpriteAnimation(ByRef SP As Sprite, GrhIndex As Integer)
 
 LoadSpriteAnimation_Error:
 300 Set SP = Nothing
-310 ProgramStatus = "Error en la carga de la animacion." & vbCrLf & "Revise si estan correctos los parametros." & vbCrLf & "Tipo de error: " & err.Description
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure LoadSpriteAnimation of Módulo de clase clsTileEngine Linea: " & Erl())
 
 End Function
 
 'Iniciamos la clase
 Public Function Initialize()
-'Iniciamos el motor grafico
-    Set GameEngine = New clsEngine
+      'Iniciamos el motor grafico
+   On Error GoTo Initialize_Error
 
-    'Iniciamos las texturas
-    Set TexFactory = New TextureFactory
-    ReDim TexList(32000) As Long
+10        Set GameEngine = New clsEngine
 
-    Set System = New System
+          'Iniciamos las texturas
+20        Set TexFactory = New TextureFactory
+30        ReDim TexList(32000) As Long
 
-    Set SP_Main = New Sprite
-    Set SP_Main = New Sprite
-    Set SP_Anim = New Sprite
-    Set SP_Fondo = New Sprite
+40        Set System = New System
 
-    Dim i                       As Long
-    For i = 0 To 3
-        Set SP_Armas(i) = New Sprite
-        Set SP_Cabezas(i) = New Sprite
-        Set SP_Cascos(i) = New Sprite
-        Set SP_Cuerpos(i) = New Sprite
-        Set SP_Escudos(i) = New Sprite
-    Next i
-    Set SP_Efectos = New Sprite
+50        Set SP_Main = New Sprite
+60        Set SP_Main = New Sprite
+70        Set SP_Anim = New Sprite
+80        Set SP_Fondo = New Sprite
 
-    Call GameEngine.Initialize(frmMain.renderer.hwnd, True, frmMain, frmMain.renderer.Width, frmMain.renderer.Height, 32, 3)
+          Dim i                       As Long
+90        For i = 0 To 3
+100           Set SP_Armas(i) = New Sprite
+110           Set SP_Cabezas(i) = New Sprite
+120           Set SP_Cascos(i) = New Sprite
+130           Set SP_Cuerpos(i) = New Sprite
+140           Set SP_Escudos(i) = New Sprite
+150       Next i
+160       Set SP_Efectos = New Sprite
 
-    Escala = 1
+170       Call GameEngine.Initialize(frmMain.renderer.hwnd, True, frmMain, frmMain.renderer.Width, frmMain.renderer.Height, 32, 3)
+
+180       Escala = 1
+
+   On Error GoTo 0
+   Exit Function
+
+Initialize_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Initialize of Módulo de clase clsTileEngine Linea: " & Erl())
 End Function
 
 'Terminamos la clase y borramos todo
@@ -208,176 +235,212 @@ Public Function Terminate()
     GameEngine.Terminate
 End Function
 Public Sub ResizeGraphic(Index As Integer, Mode As Byte)
-    If Mode <> ResizeMode Then
-        ResizeIndex = Index
-        ResizeMode = Mode
-        Select Case Mode
-            Case 1, 2
-                frmMain.MousePointer = 9
-            Case 3, 4
-                frmMain.MousePointer = 7
-            Case Else
-                frmMain.MousePointer = 0
-        End Select
-    End If
+   On Error GoTo ResizeGraphic_Error
+
+10        If Mode <> ResizeMode Then
+20            ResizeIndex = Index
+30            ResizeMode = Mode
+40            Select Case Mode
+                  Case 1, 2
+50                    frmMain.MousePointer = 9
+60                Case 3, 4
+70                    frmMain.MousePointer = 7
+80                Case Else
+90                    frmMain.MousePointer = 0
+100           End Select
+110       End If
+
+   On Error GoTo 0
+   Exit Sub
+
+ResizeGraphic_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure ResizeGraphic of Módulo de clase clsTileEngine Linea: " & Erl())
 End Sub
 
 Private Sub EfectosGraficos(ByVal Index As Integer, ByVal BaseX As Integer, ByVal BaseY As Integer)
 
-Dim EjesX(3) As Single, EjesY(3) As Single
-Dim i                           As Long
+      Dim EjesX(3) As Single, EjesY(3) As Single
+      Dim i                           As Long
 
-    If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
-        With GrhData(Index)
-            EjesX(0) = BaseX
-            EjesY(0) = BaseY
-            EjesX(1) = BaseX + TexFactory.Get_Tex_Width(TexList(.FileNum)) * Escala
-            EjesY(1) = BaseY
-            EjesX(2) = BaseX
-            EjesY(2) = BaseY + TexFactory.Get_Tex_Height(TexList(.FileNum)) * Escala
-            EjesX(3) = BaseX + TexFactory.Get_Tex_Width(TexList(.FileNum)) * Escala
-            EjesY(3) = BaseY + TexFactory.Get_Tex_Height(TexList(.FileNum)) * Escala
+   On Error GoTo EfectosGraficos_Error
 
-            If RenderStyle = 0 Then
-                For i = 0 To 3
-                    EjesX(i) = EjesX(i) - .sX * Escala
-                    EjesY(i) = EjesY(i) - .sY * Escala
-                Next i
-            End If
+10        If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
+20            With GrhData(Index)
+30                EjesX(0) = BaseX
+40                EjesY(0) = BaseY
+50                EjesX(1) = BaseX + TexFactory.Get_Tex_Width(TexList(.FileNum)) * Escala
+60                EjesY(1) = BaseY
+70                EjesX(2) = BaseX
+80                EjesY(2) = BaseY + TexFactory.Get_Tex_Height(TexList(.FileNum)) * Escala
+90                EjesX(3) = BaseX + TexFactory.Get_Tex_Width(TexList(.FileNum)) * Escala
+100               EjesY(3) = BaseY + TexFactory.Get_Tex_Height(TexList(.FileNum)) * Escala
 
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(1), EjesY(1), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(2), EjesY(2), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(1), EjesY(1), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(2), EjesY(2), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
+110               If RenderStyle = 0 Then
+120                   For i = 0 To 3
+130                       EjesX(i) = EjesX(i) - .sX * Escala
+140                       EjesY(i) = EjesY(i) - .sY * Escala
+150                   Next i
+160               End If
 
-            If VerTamaño Then
-                Call GameEngine.Draw_Text(CStr(TexFactory.Get_Tex_Width(TexList(.FileNum))) & "p", EjesX(0) + (EjesX(3) - EjesX(0)) / 2 - 14, EjesY(3) + 1, D3DColorRGBA(0, 255, 0, 255))
-                Call GameEngine.Draw_Text(CStr(TexFactory.Get_Tex_Height(TexList(.FileNum))) & "p", EjesX(0) - 33, EjesY(0) + (EjesY(3) - EjesY(0)) / 2, D3DColorRGBA(0, 255, 0, 255))
-            End If
-        End With
-    End If
-    
-    If Encuadrar Then          '<-- Cuando tiene que encuadrar hace esto
-        With GrhData(Index)
-            EjesX(0) = BaseX
-            EjesY(0) = BaseY
-            EjesX(1) = BaseX + .pixelWidth * Escala
-            EjesY(1) = BaseY
-            EjesX(2) = BaseX
-            EjesY(2) = BaseY + .pixelHeight * Escala
-            EjesX(3) = BaseX + .pixelWidth * Escala
-            EjesY(3) = BaseY + .pixelHeight * Escala
-            If RenderStyle = 1 Then
-                For i = 0 To 3
-                    EjesX(i) = EjesX(i) + .sX * Escala
-                    EjesY(i) = EjesY(i) + .sY * Escala
-                Next i
-            End If
+170               Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(1), EjesY(1), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
+180               Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(2), EjesY(2), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
+190               Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(1), EjesY(1), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
+200               Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(2), EjesY(2), D3DColorRGBA(0, 255, 0, 255), D3DColorRGBA(0, 255, 0, 255))
 
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(1), EjesY(1), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(2), EjesY(2), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(1), EjesY(1), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
-            Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(2), EjesY(2), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
+210               If VerTamaño Then
+220                   Call GameEngine.Draw_Text(CStr(TexFactory.Get_Tex_Width(TexList(.FileNum))) & "p", EjesX(0) + (EjesX(3) - EjesX(0)) / 2 - 14, EjesY(3) + 1, D3DColorRGBA(0, 255, 0, 255))
+230                   Call GameEngine.Draw_Text(CStr(TexFactory.Get_Tex_Height(TexList(.FileNum))) & "p", EjesX(0) - 33, EjesY(0) + (EjesY(3) - EjesY(0)) / 2, D3DColorRGBA(0, 255, 0, 255))
+240               End If
+250           End With
+260       End If
+          
+270       If Encuadrar Then          '<-- Cuando tiene que encuadrar hace esto
+280           With GrhData(Index)
+290               EjesX(0) = BaseX
+300               EjesY(0) = BaseY
+310               EjesX(1) = BaseX + .pixelWidth * Escala
+320               EjesY(1) = BaseY
+330               EjesX(2) = BaseX
+340               EjesY(2) = BaseY + .pixelHeight * Escala
+350               EjesX(3) = BaseX + .pixelWidth * Escala
+360               EjesY(3) = BaseY + .pixelHeight * Escala
+370               If RenderStyle = 1 Then
+380                   For i = 0 To 3
+390                       EjesX(i) = EjesX(i) + .sX * Escala
+400                       EjesY(i) = EjesY(i) + .sY * Escala
+410                   Next i
+420               End If
 
-            '0 1
-            '2 3
-            If MouseButtons(1) = False And .NumFrames = 1 And (ResizeIndex = Index Or ResizeIndex = 0) Then
-                If Abs(EjesX(0) - RenderMouseX) <= 2 And RenderMouseY > EjesY(0) And RenderMouseY < EjesY(2) And RenderStyle = 1 Then
-                    Call ResizeGraphic(Index, 1)    'sX
-                ElseIf Abs(EjesX(1) - RenderMouseX) <= 2 And RenderMouseY > EjesY(1) And RenderMouseY < EjesY(3) Then
-                    Call ResizeGraphic(Index, 2)    'Width
-                ElseIf Abs(EjesY(0) - RenderMouseY) <= 2 And RenderMouseX > EjesX(0) And RenderMouseX < EjesX(1) And RenderStyle = 1 Then
-                    Call ResizeGraphic(Index, 3)    'sY
-                ElseIf Abs(EjesY(2) - RenderMouseY) <= 2 And RenderMouseX > EjesX(2) And RenderMouseX < EjesX(3) Then
-                    Call ResizeGraphic(Index, 4)    'Height
-                Else
-                    Call ResizeGraphic(0, 0)
-                End If
-            End If
+430               Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(1), EjesY(1), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
+440               Call GameEngine.EngineLibrary.Draw_Line(EjesX(0), EjesY(0), EjesX(2), EjesY(2), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
+450               Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(1), EjesY(1), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
+460               Call GameEngine.EngineLibrary.Draw_Line(EjesX(3), EjesY(3), EjesX(2), EjesY(2), D3DColorRGBA(255, 255, 255, 255), D3DColorRGBA(255, 255, 255, 255))
 
-            If VerTamaño Then
-                Call GameEngine.Draw_Text(CStr(.pixelWidth) & "p", EjesX(0) + (EjesX(3) - EjesX(0)) / 2 - 14, EjesY(0) - 8, D3DColorRGBA(255, 255, 255, 255))
-                Call GameEngine.Draw_Text(CStr(.pixelHeight) & "p", EjesX(3) + 1, EjesY(0) + (EjesY(3) - EjesY(0)) / 2, D3DColorRGBA(255, 255, 255, 255))
-            End If
-        End With
-    End If
+                  '0 1
+                  '2 3
+470               If MouseButtons(1) = False And .NumFrames = 1 And (ResizeIndex = Index Or ResizeIndex = 0) Then
+480                   If Abs(EjesX(0) - RenderMouseX) <= 2 And RenderMouseY > EjesY(0) And RenderMouseY < EjesY(2) And RenderStyle = 1 Then
+490                       Call ResizeGraphic(Index, 1)    'sX
+500                   ElseIf Abs(EjesX(1) - RenderMouseX) <= 2 And RenderMouseY > EjesY(1) And RenderMouseY < EjesY(3) Then
+510                       Call ResizeGraphic(Index, 2)    'Width
+520                   ElseIf Abs(EjesY(0) - RenderMouseY) <= 2 And RenderMouseX > EjesX(0) And RenderMouseX < EjesX(1) And RenderStyle = 1 Then
+530                       Call ResizeGraphic(Index, 3)    'sY
+540                   ElseIf Abs(EjesY(2) - RenderMouseY) <= 2 And RenderMouseX > EjesX(2) And RenderMouseX < EjesX(3) Then
+550                       Call ResizeGraphic(Index, 4)    'Height
+560                   Else
+570                       Call ResizeGraphic(0, 0)
+580                   End If
+590               End If
+
+600               If VerTamaño Then
+610                   Call GameEngine.Draw_Text(CStr(.pixelWidth) & "p", EjesX(0) + (EjesX(3) - EjesX(0)) / 2 - 14, EjesY(0) - 8, D3DColorRGBA(255, 255, 255, 255))
+620                   Call GameEngine.Draw_Text(CStr(.pixelHeight) & "p", EjesX(3) + 1, EjesY(0) + (EjesY(3) - EjesY(0)) / 2, D3DColorRGBA(255, 255, 255, 255))
+630               End If
+640           End With
+650       End If
+
+   On Error GoTo 0
+   Exit Sub
+
+EfectosGraficos_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure EfectosGraficos of Módulo de clase clsTileEngine Linea: " & Erl())
 End Sub
 
 Private Sub DrawAnimGraphic(ByVal Index As Integer, ByVal X As Integer, ByVal Y As Integer)
 
-    Call GameEngine.Draw_Text(GetDirectionString(Index), CSng(X), CSng(Y), D3DColorRGBA(0, 255, 255, 255))
-    
-    Dim BodyDatas               As BodyData
-    Dim OffsetX                 As Integer
-    Dim OffsetY                 As Integer
+   On Error GoTo DrawAnimGraphic_Error
 
-    'If Index = 3 Then Stop
-    
-    If NumGraphic_Cuerpos(Index) Then
-        BodyDatas = BodyData(NumAnim_Cuerpos)
-        Call GameEngine.Draw_Text("OffSet: " & BodyDatas.HeadOffset.X & " - " & BodyDatas.HeadOffset.Y, 0, 0, D3DColorRGBA(0, 255, 255, 255))
+10        Call GameEngine.Draw_Text(GetDirectionString(Index), CSng(X), CSng(Y), D3DColorRGBA(0, 255, 255, 255))
+          
+          Dim BodyDatas               As BodyData
+          Dim OffsetX                 As Integer
+          Dim OffsetY                 As Integer
 
-        Call GameEngine.Draw_Text("Center: " & CenterX(NumGraphic_Cuerpos(Index)) & " - " & CenterY(NumGraphic_Cuerpos(Index)), 0, 10, D3DColorRGBA(0, 255, 255, 255))
+          'If Index = 3 Then Stop
+          
+20        If NumGraphic_Cuerpos(Index) Then
+30            BodyDatas = BodyData(NumAnim_Cuerpos)
+40            Call GameEngine.Draw_Text("OffSet: " & BodyDatas.HeadOffset.X & " - " & BodyDatas.HeadOffset.Y, 0, 0, D3DColorRGBA(0, 255, 255, 255))
 
-        Call DrawAnimGraphicCenter(SP_Cuerpos(Index), NumGraphic_Cuerpos(Index), X, Y)
-        
-        'Debug.Print "GRH body: " & GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1)
-    End If
+50            Call GameEngine.Draw_Text("Center: " & CenterX(NumGraphic_Cuerpos(Index)) & " - " & CenterY(NumGraphic_Cuerpos(Index)), 0, 10, D3DColorRGBA(0, 255, 255, 255))
 
-    If NumGraphic_Cabezas(Index) Then
-        'Call GameEngine.DrawGraphic(SP_Cabezas(Index), X + BodyDatas.HeadOffset.X, Y + 10 + BodyDatas.HeadOffset.Y + IIf(GrhData(HeadData(NumAnim_Cabezas).Head(Index + 1).GrhIndex).pixelHeight = 16, 0, 34), Escala)
-        OffsetX = X + BodyDatas.HeadOffset.X
-        OffsetY = Y + BodyDatas.HeadOffset.Y + IIf(GrhData(HeadData(NumAnim_Cabezas).Head(Index + 1).GrhIndex).pixelHeight = 16, 0, 34)
-        Call DrawAnimGraphicCenter(SP_Cabezas(Index), NumGraphic_Cabezas(Index), OffsetX, OffsetY)
-        'Call EfectosGraficos(NumGraphic_Cabezas(Index), X, Y + 10)
-    End If
+60            Call DrawAnimGraphicCenter(SP_Cuerpos(Index), NumGraphic_Cuerpos(Index), X, Y)
+              
+              'Debug.Print "GRH body: " & GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1)
+70        End If
 
-    If NumGraphic_Cascos(Index) Then
-        Call DrawAnimGraphicCenter(SP_Cascos(Index), NumGraphic_Cascos(Index), X + (BodyDatas.HeadOffset.X * Escala), Y + (BodyDatas.HeadOffset.Y * Escala))
-    End If
+80        If NumGraphic_Cabezas(Index) Then
+              'Call GameEngine.DrawGraphic(SP_Cabezas(Index), X + BodyDatas.HeadOffset.X, Y + 10 + BodyDatas.HeadOffset.Y + IIf(GrhData(HeadData(NumAnim_Cabezas).Head(Index + 1).GrhIndex).pixelHeight = 16, 0, 34), Escala)
+90            OffsetX = X + BodyDatas.HeadOffset.X
+100           OffsetY = Y + BodyDatas.HeadOffset.Y + IIf(GrhData(HeadData(NumAnim_Cabezas).Head(Index + 1).GrhIndex).pixelHeight = 16, 0, 34)
+110           Call DrawAnimGraphicCenter(SP_Cabezas(Index), NumGraphic_Cabezas(Index), OffsetX, OffsetY)
+              'Call EfectosGraficos(NumGraphic_Cabezas(Index), X, Y + 10)
+120       End If
 
-    If NumGraphic_Armas(Index) Then
-        Call DrawAnimGraphicCenter(SP_Armas(Index), NumGraphic_Armas(Index), X, Y)
-    End If
+130       If NumGraphic_Cascos(Index) Then
+140           Call DrawAnimGraphicCenter(SP_Cascos(Index), NumGraphic_Cascos(Index), X + (BodyDatas.HeadOffset.X * Escala), Y + (BodyDatas.HeadOffset.Y * Escala))
+150       End If
 
-    If NumGraphic_Escudos(Index) Then
-        Call DrawAnimGraphicCenter(SP_Escudos(Index), NumGraphic_Escudos(Index), X, Y)
-    End If
+160       If NumGraphic_Armas(Index) Then
+170           Call DrawAnimGraphicCenter(SP_Armas(Index), NumGraphic_Armas(Index), X, Y)
+180       End If
 
-    If NumGraphic_Efectos Then
-        Call DrawAnimGraphicCenter(SP_Efectos, NumGraphic_Efectos, X + FxData(NumAnim_Efectos).OffsetX, Y + FxData(NumAnim_Efectos).OffsetY)
-    End If
-    
+190       If NumGraphic_Escudos(Index) Then
+200           Call DrawAnimGraphicCenter(SP_Escudos(Index), NumGraphic_Escudos(Index), X, Y)
+210       End If
+
+220       If NumGraphic_Efectos Then
+230           Call DrawAnimGraphicCenter(SP_Efectos, NumGraphic_Efectos, X + FxData(NumAnim_Efectos).OffsetX, Y + FxData(NumAnim_Efectos).OffsetY)
+240       End If
+
+   On Error GoTo 0
+   Exit Sub
+
+DrawAnimGraphic_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure DrawAnimGraphic of Módulo de clase clsTileEngine Linea: " & Erl())
+          
 End Sub
 
 Private Sub DrawAnimGraphicCenter(ByRef SP As Sprite, GrhIndex As Integer, ByVal X As Integer, ByVal Y As Integer)
 
-    If GrhIndex Then
-        
-        Dim OffsetX             As Single
-        Dim OffsetY             As Single
-        
-        'X = X - CenterX(GrhIndex)
-        'Y = Y - CenterY(GrhIndex)
+   On Error GoTo DrawAnimGraphicCenter_Error
 
-        'If Center Then
-        If GrhData(GrhIndex).TileWidth <> 1 Then
-            OffsetX = (Int(GrhData(GrhIndex).TileWidth * (32 \ 2)) + 32 \ 2) * Escala
-            X = X - OffsetX
-        End If
+10        If GrhIndex Then
+              
+              Dim OffsetX             As Single
+              Dim OffsetY             As Single
+              
+              'X = X - CenterX(GrhIndex)
+              'Y = Y - CenterY(GrhIndex)
 
-        If GrhData(GrhIndex).TileHeight <> 1 Then
-            OffsetY = (Int(GrhData(GrhIndex).TileHeight * 32) + 32) * Escala
-            Y = Y - OffsetY
-        End If
-        
-        'Debug.Print GrhData(GrhIndex).pixelWidth & "-" & GrhData(GrhIndex).pixelHeight
-        'End If
-        'Debug.Print "GRH: " & GrhData(GrhIndex).Frames(1)
-        
-        Call GameEngine.DrawGraphic(SP, CSng(X + 50), CSng(Y + 100), Escala)
-    End If
-    
+              'If Center Then
+20            If GrhData(GrhIndex).TileWidth <> 1 Then
+30                OffsetX = (Int(GrhData(GrhIndex).TileWidth * (32 \ 2)) + 32 \ 2) * Escala
+40                X = X - OffsetX
+50            End If
+
+60            If GrhData(GrhIndex).TileHeight <> 1 Then
+70                OffsetY = (Int(GrhData(GrhIndex).TileHeight * 32) + 32) * Escala
+80                Y = Y - OffsetY
+90            End If
+              
+              'Debug.Print GrhData(GrhIndex).pixelWidth & "-" & GrhData(GrhIndex).pixelHeight
+              'End If
+              'Debug.Print "GRH: " & GrhData(GrhIndex).Frames(1)
+              
+100           Call GameEngine.DrawGraphic(SP, CSng(X + 50), CSng(Y + 100), Escala)
+110       End If
+
+   On Error GoTo 0
+   Exit Sub
+
+DrawAnimGraphicCenter_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure DrawAnimGraphicCenter of Módulo de clase clsTileEngine Linea: " & Erl())
+          
 End Sub
 
 Private Function CenterY(ByVal GrhIndex As Integer) As Integer
@@ -398,109 +461,127 @@ End Function
 'Función principal de todo el programa en que realizara un loop infinito para renderizar todo
 Private Function GameLoop()
 
-'GameEngine.EngineLibrary.Check_State , , DInput
+      'GameEngine.EngineLibrary.Check_State , , DInput
 
-Dim i                           As Long
+      Dim i                           As Long
 
-    Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezieza a dibujar las cosas
-    
-    If RenderStyle = 2 Then
-        Call DrawAnimGraphic(0, GraphicX, GraphicY)
-        Call DrawAnimGraphic(1, GraphicX + (frmMain.renderer.Width / 1.5), GraphicY)
-        Call DrawAnimGraphic(2, GraphicX, GraphicY + (frmMain.renderer.Height / 1.5))
-        Call DrawAnimGraphic(3, GraphicX + (frmMain.renderer.Width / 1.5), GraphicY + (frmMain.renderer.Height / 1.5))
+   On Error GoTo GameLoop_Error
 
-    ElseIf NumGraphic Then
-        Call GameEngine.DrawGraphic(SP_Main, GraphicX, GraphicY, Escala)
+10        Call GameEngine.Begin_Scene    '<-- Esto indica que comienza la escena y empezieza a dibujar las cosas
+          
+20        If RenderStyle = 2 Then
+30            Call DrawAnimGraphic(0, GraphicX, GraphicY)
+40            Call DrawAnimGraphic(1, GraphicX + (frmMain.renderer.Width / 1.5), GraphicY)
+50            Call DrawAnimGraphic(2, GraphicX, GraphicY + (frmMain.renderer.Height / 1.5))
+60            Call DrawAnimGraphic(3, GraphicX + (frmMain.renderer.Width / 1.5), GraphicY + (frmMain.renderer.Height / 1.5))
 
-        'Call EfectosGraficos(NumGraphic, GraphicX, GraphicY)
-        For i = 0 To numSelectIndexs - 1
-            Call EfectosGraficos(SelectIndexs(i), GraphicX, GraphicY)
-        Next i
-    End If
+70        ElseIf NumGraphic Then
+80            Call GameEngine.DrawGraphic(SP_Main, GraphicX, GraphicY, Escala)
 
-    System.Get_Cursor_Pos
+              'Call EfectosGraficos(NumGraphic, GraphicX, GraphicY)
+90            For i = 0 To numSelectIndexs - 1
+100               Call EfectosGraficos(SelectIndexs(i), GraphicX, GraphicY)
+110           Next i
+120       End If
 
-    Info = "Escala: " & Round(Escala * 100) & "%" & vbCrLf
-    Info = Info & "Mouse Graphic: X" & Round((RenderMouseX - GraphicX) / Escala) & " Y" & Round((RenderMouseY - GraphicY) / Escala) & vbCrLf
-    Info = Info & "Mouse State: " & MousePress & vbCrLf
-    Info = Info & "Mouse Pos: " & System.CursorX & "-" & System.CursorY & vbCrLf
-    Info = Info & "Object Pos: " & "Object Pos: " & GraphicX & "-" & GraphicY
-    
-    Call GameEngine.Draw_Text_MultiLine(Info, 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
+130       System.Get_Cursor_Pos
 
-    'Call GameEngine.Draw_Text("Escala: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
-    'Call GameEngine.Draw_Text("Mouse Graphic: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
-    'Call GameEngine.Draw_Text("Mouse State: " & MousePress, 0, frmMain.renderer.ScaleHeight - 30, D3DColorRGBA(255, 0, 0, 255))
-    'Call GameEngine.Draw_Text("Mouse Pos: " & System.CursorX & "-" & System.CursorY, 0, frmMain.renderer.ScaleHeight - 20, D3DColorRGBA(255, 0, 0, 255))
-    'Call GameEngine.Draw_Text("Object Pos: " & GraphicX & "-" & GraphicY, 0, frmMain.renderer.ScaleHeight - 10, D3DColorRGBA(255, 0, 0, 255))
-    'If System.Get_Async_Key_State(1) Then 'Cuando se hace clic
+140       Info = "Escala: " & Round(Escala * 100) & "%" & vbCrLf
+150       Info = Info & "Mouse Graphic: X" & Round((RenderMouseX - GraphicX) / Escala) & " Y" & Round((RenderMouseY - GraphicY) / Escala) & vbCrLf
+160       Info = Info & "Mouse State: " & MousePress & vbCrLf
+170       Info = Info & "Mouse Pos: " & System.CursorX & "-" & System.CursorY & vbCrLf
+180       Info = Info & "Object Pos: " & "Object Pos: " & GraphicX & "-" & GraphicY
+          
+190       Call GameEngine.Draw_Text_MultiLine(Info, 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
 
-    'End If
-    If MouseButtons(1) Then
-        Select Case ResizeMode
-            Case 1
-                GrhData(ResizeIndex).sX = System.CursorX / Escala - TempX
-                Call GameEngine.Draw_Text("sX: " & CStr(GrhData(ResizeIndex).sX) & "p", RenderMouseX - 75, RenderMouseY - 16, D3DColorRGBA(255, 255, 0, 255))
-                Call frmMain.ProcessLine(ResizeIndex)
-            Case 2
-                GrhData(ResizeIndex).pixelWidth = System.CursorX / Escala - TempX
-                Call GameEngine.Draw_Text("Width: " & CStr(GrhData(ResizeIndex).pixelWidth) & "p", RenderMouseX + 2, RenderMouseY - 16, D3DColorRGBA(255, 255, 0, 255))
-                Call frmMain.ProcessLine(ResizeIndex)
-            Case 3
-                GrhData(ResizeIndex).sY = System.CursorY / Escala - TempY
-                Call GameEngine.Draw_Text("sY: " & CStr(GrhData(ResizeIndex).sY) & "p", RenderMouseX - 24, RenderMouseY - 16, D3DColorRGBA(255, 255, 0, 255))
-                Call frmMain.ProcessLine(ResizeIndex)
-            Case 4
-                GrhData(ResizeIndex).pixelHeight = System.CursorY / Escala - TempY
-                Call GameEngine.Draw_Text("Height: " & CStr(GrhData(ResizeIndex).pixelHeight) & "p", RenderMouseX - 42, RenderMouseY + 16, D3DColorRGBA(255, 255, 0, 255))
-                Call frmMain.ProcessLine(ResizeIndex)
-            Case Else
-                GraphicX = System.CursorX - TempX
-                GraphicY = System.CursorY - TempY
-        End Select
-    ElseIf MouseButtons(2) Then
-        frmMain.Escala.Value = (System.CursorX - ZoomTempX) / 50
-        Call frmMain.Escala_Scroll
-    End If
+          'Call GameEngine.Draw_Text("Escala: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
+          'Call GameEngine.Draw_Text("Mouse Graphic: " & Round(Escala * 100) & "%", 0, frmMain.renderer.ScaleHeight - 40, D3DColorRGBA(255, 0, 0, 255))
+          'Call GameEngine.Draw_Text("Mouse State: " & MousePress, 0, frmMain.renderer.ScaleHeight - 30, D3DColorRGBA(255, 0, 0, 255))
+          'Call GameEngine.Draw_Text("Mouse Pos: " & System.CursorX & "-" & System.CursorY, 0, frmMain.renderer.ScaleHeight - 20, D3DColorRGBA(255, 0, 0, 255))
+          'Call GameEngine.Draw_Text("Object Pos: " & GraphicX & "-" & GraphicY, 0, frmMain.renderer.ScaleHeight - 10, D3DColorRGBA(255, 0, 0, 255))
+          'If System.Get_Async_Key_State(1) Then 'Cuando se hace clic
 
-    Call GameEngine.DrawFPS(frmMain.renderer.ScaleWidth - 75, 0)
+          'End If
+200       If MouseButtons(1) Then
+210           Select Case ResizeMode
+                  Case 1
+220                   GrhData(ResizeIndex).sX = System.CursorX / Escala - TempX
+230                   Call GameEngine.Draw_Text("sX: " & CStr(GrhData(ResizeIndex).sX) & "p", RenderMouseX - 75, RenderMouseY - 16, D3DColorRGBA(255, 255, 0, 255))
+240                   Call frmMain.ProcessLine(ResizeIndex)
+250               Case 2
+260                   GrhData(ResizeIndex).pixelWidth = System.CursorX / Escala - TempX
+270                   Call GameEngine.Draw_Text("Width: " & CStr(GrhData(ResizeIndex).pixelWidth) & "p", RenderMouseX + 2, RenderMouseY - 16, D3DColorRGBA(255, 255, 0, 255))
+280                   Call frmMain.ProcessLine(ResizeIndex)
+290               Case 3
+300                   GrhData(ResizeIndex).sY = System.CursorY / Escala - TempY
+310                   Call GameEngine.Draw_Text("sY: " & CStr(GrhData(ResizeIndex).sY) & "p", RenderMouseX - 24, RenderMouseY - 16, D3DColorRGBA(255, 255, 0, 255))
+320                   Call frmMain.ProcessLine(ResizeIndex)
+330               Case 4
+340                   GrhData(ResizeIndex).pixelHeight = System.CursorY / Escala - TempY
+350                   Call GameEngine.Draw_Text("Height: " & CStr(GrhData(ResizeIndex).pixelHeight) & "p", RenderMouseX - 42, RenderMouseY + 16, D3DColorRGBA(255, 255, 0, 255))
+360                   Call frmMain.ProcessLine(ResizeIndex)
+370               Case Else
+380                   GraphicX = System.CursorX - TempX
+390                   GraphicY = System.CursorY - TempY
+400           End Select
+410       ElseIf MouseButtons(2) Then
+420           frmMain.Escala.Value = (System.CursorX - ZoomTempX) / 50
+430           Call frmMain.Escala_Scroll
+440       End If
 
-    While (GetTime - fpsLastCheck) \ 10 < FramesPerSecCounter
-        DoEvents
-        Sleep 5
-    Wend
-    
-    If fpsLastCheck + 100 < GetTime Then
-        FPS = FramesPerSecCounter
-        FramesPerSecCounter = 1
-        fpsLastCheck = GetTime
-    Else
-        FramesPerSecCounter = FramesPerSecCounter + 1
-    End If
+450       Call GameEngine.DrawFPS(frmMain.renderer.ScaleWidth - 75, 0)
 
-    'ProgramStatus = ProgramStatus & vbNewLine & "FPS: " & FramesPerSecCounter
+460       While (GetTime - fpsLastCheck) \ 10 < FramesPerSecCounter
+470           DoEvents
+480           Sleep 5
+490       Wend
+          
+500       If fpsLastCheck + 100 < GetTime Then
+510           FPS = FramesPerSecCounter
+520           FramesPerSecCounter = 1
+530           fpsLastCheck = GetTime
+540       Else
+550           FramesPerSecCounter = FramesPerSecCounter + 1
+560       End If
 
-    If Len(ProgramStatus) Then Call GameEngine.Draw_Text_MultiLine(ProgramStatus, 10, 10, D3DColorRGBA(255, 0, 0, 255))
-    Call GameEngine.End_Scene  '<-- Esto indica que termina la escena y dibuja todo lo que se renderizo
-    
+          'ProgramStatus = ProgramStatus & vbNewLine & "FPS: " & FramesPerSecCounter
+
+570       If Len(ProgramStatus) Then Call GameEngine.Draw_Text_MultiLine(ProgramStatus, 10, 10, D3DColorRGBA(255, 0, 0, 255))
+580       Call GameEngine.End_Scene  '<-- Esto indica que termina la escena y dibuja todo lo que se renderizo
+
+   On Error GoTo 0
+   Exit Function
+
+GameLoop_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GameLoop of Módulo de clase clsTileEngine Linea: " & Erl())
+          
 End Function
 
 'Iniciamos el loop infinito
 Public Sub StartGameLoop()
 
-    LoopRunning = True
+   On Error GoTo StartGameLoop_Error
 
-    'Loop infinito
-    Do While LoopRunning
+10        LoopRunning = True
 
-        'Llamamos a la variable que renderizara todo
-        Call GameLoop
+          'Loop infinito
+20        Do While LoopRunning
 
-        'Esperamos a que todo se renderize (negrada necesaria :/)
+              'Llamamos a la variable que renderizara todo
+30            Call GameLoop
 
-        DoEvents
-    Loop
+              'Esperamos a que todo se renderize (negrada necesaria :/)
+
+40            DoEvents
+50        Loop
+
+   On Error GoTo 0
+   Exit Sub
+
+StartGameLoop_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure StartGameLoop of Módulo de clase clsTileEngine Linea: " & Erl())
 End Sub
 'Terminamos el loop infinito
 Public Sub StopGameLoop()
@@ -509,80 +590,109 @@ End Sub
 
 Public Function LoadGraphic(ByRef SP As Sprite, Index As Integer) As Integer
 
-Dim Path                        As String
+      Dim Path                        As String
 
-    If Index = 0 Or Index > grhCount Then
-        LoadGraphic = 0
-        Exit Function
-    End If
+   On Error GoTo LoadGraphic_Error
 
-    Path = AppGraficos & "\" & GrhData(Index).FileNum & IIf(AppPNG, ".png", ".bmp")
+10        If Index = 0 Or Index > grhCount Then
+20            LoadGraphic = 0
+30            Exit Function
+40        End If
 
-    If GrhData(Index).NumFrames > 1 Then
-        LoadGraphic = Index
-        ProgramStatus = vbNullString
-        Call LoadSpriteAnimation(SP, Index)
-    ElseIf FileExist(Path, vbArchive) Then
-        LoadGraphic = Index
-        ProgramStatus = vbNullString
-        Call LoadSprite(SP, Index)
-    Else
-        LoadGraphic = 0
-        ProgramStatus = "No se encuentra el grafico."
-    End If
+50        Path = AppGraficos & "\" & GrhData(Index).FileNum & IIf(AppPNG, ".png", ".bmp")
+
+60        If GrhData(Index).NumFrames > 1 Then
+70            LoadGraphic = Index
+80            ProgramStatus = vbNullString
+90            Call LoadSpriteAnimation(SP, Index)
+100       ElseIf FileExist(Path, vbArchive) Then
+110           LoadGraphic = Index
+120           ProgramStatus = vbNullString
+130           Call LoadSprite(SP, Index)
+140       Else
+150           LoadGraphic = 0
+160           ProgramStatus = "No se encuentra el grafico."
+170       End If
+
+   On Error GoTo 0
+   Exit Function
+
+LoadGraphic_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure LoadGraphic of Módulo de clase clsTileEngine Linea: " & Erl())
 
 End Function
 
 Public Sub Resize()
     Call GameEngine.Resize
 End Sub
+
 Public Sub MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
-    MouseButtons(Button) = True
-    MousePress = Button
+   On Error GoTo MouseDown_Error
 
-    If MouseButtons(1) And MouseButtons(2) Then
-        Encuadrar = Not Encuadrar
-        frmMain.chkEncuadrarGrh = IIf(Encuadrar, vbChecked, vbUnchecked)
-    End If
+10        MouseButtons(Button) = True
+20        MousePress = Button
 
-    If MouseButtons(4) Then
-        EncuadrarGrafico = Not EncuadrarGrafico
-        frmMain.chkEncuadrarGrafico = IIf(EncuadrarGrafico, vbChecked, vbUnchecked)
-    End If
+30        If MouseButtons(1) And MouseButtons(2) Then
+40            Encuadrar = Not Encuadrar
+50            frmMain.chkEncuadrarGrh = IIf(Encuadrar, vbChecked, vbUnchecked)
+60        End If
 
-    If MousePress = 1 Then
-        Call System.Get_Cursor_Pos
-        Select Case ResizeMode
-            Case 1             'sX
-                TempX = System.CursorX / Escala - GrhData(ResizeIndex).sX
-            Case 2             'Width
-                TempX = System.CursorX / Escala - GrhData(ResizeIndex).pixelWidth
-            Case 3             'sY
-                TempY = System.CursorY / Escala - GrhData(ResizeIndex).sY
-            Case 4             'Height
-                TempY = System.CursorY / Escala - GrhData(ResizeIndex).pixelHeight
-            Case Else
-                TempX = System.CursorX - GraphicX
-                TempY = System.CursorY - GraphicY
-        End Select
-    ElseIf MousePress = 2 Then
-        Call System.Get_Cursor_Pos
-        ZoomTempX = System.CursorX - (frmMain.Escala.Value * 50)
-    End If
+70        If MouseButtons(4) Then
+80            EncuadrarGrafico = Not EncuadrarGrafico
+90            frmMain.chkEncuadrarGrafico = IIf(EncuadrarGrafico, vbChecked, vbUnchecked)
+100       End If
+
+110       If MousePress = 1 Then
+120           Call System.Get_Cursor_Pos
+130           Select Case ResizeMode
+                  Case 1             'sX
+140                   TempX = System.CursorX / Escala - GrhData(ResizeIndex).sX
+150               Case 2             'Width
+160                   TempX = System.CursorX / Escala - GrhData(ResizeIndex).pixelWidth
+170               Case 3             'sY
+180                   TempY = System.CursorY / Escala - GrhData(ResizeIndex).sY
+190               Case 4             'Height
+200                   TempY = System.CursorY / Escala - GrhData(ResizeIndex).pixelHeight
+210               Case Else
+220                   TempX = System.CursorX - GraphicX
+230                   TempY = System.CursorY - GraphicY
+240           End Select
+250       ElseIf MousePress = 2 Then
+260           Call System.Get_Cursor_Pos
+270           ZoomTempX = System.CursorX - (frmMain.Escala.Value * 50)
+280       End If
+
+   On Error GoTo 0
+   Exit Sub
+
+MouseDown_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure MouseDown of Módulo de clase clsTileEngine Linea: " & Erl())
 End Sub
-Public Sub MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
-Static DoubleClick              As Long
-    If Button = 2 And MouseButtons(1) = False Then
-        Debug.Print "Click derecho -> " & GetTime - DoubleClick
-        If GetTime - DoubleClick < 200 Then
-            GraphicX = 0
-            GraphicY = 0
-        End If
-        DoubleClick = GetTime()
-    End If
 
-    MouseButtons(Button) = False
-    MousePress = 0
+Public Sub MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+      Static DoubleClick              As Long
+   On Error GoTo MouseUp_Error
+
+10        If Button = 2 And MouseButtons(1) = False Then
+20            Debug.Print "Click derecho -> " & GetTime - DoubleClick
+30            If GetTime - DoubleClick < 200 Then
+40                GraphicX = 0
+50                GraphicY = 0
+60            End If
+70            DoubleClick = GetTime()
+80        End If
+
+90        MouseButtons(Button) = False
+100       MousePress = 0
+
+   On Error GoTo 0
+   Exit Sub
+
+MouseUp_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure MouseUp of Módulo de clase clsTileEngine Linea: " & Erl())
 End Sub
 
