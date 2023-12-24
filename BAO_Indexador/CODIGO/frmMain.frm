@@ -1880,12 +1880,13 @@ lblSaveTip_Click_Error:
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure lblSaveTip_Click of Formulario frmMain Linea: " & Erl())
 End Sub
 
-Private Sub lstGraphics_Click()
+Private Sub GraphicsChange()
+
 
       Dim Index                       As Integer
       Dim bCheck                      As Boolean
 
-   On Error GoTo lstGraphics_Click_Error
+   On Error GoTo GraphicsChange_Error
 
 10        Index = lstGraphics.ListIndex + 1
 
@@ -1963,10 +1964,20 @@ Private Sub lstGraphics_Click()
    On Error GoTo 0
    Exit Sub
 
-lstGraphics_Click_Error:
+GraphicsChange_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure lstGraphics_Click of Formulario frmMain Linea: " & Erl())
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GraphicsChange of Formulario frmMain Linea: " & Erl())
+    
+End Sub
 
+Private Sub lstGraphics_KeyUp(KeyCode As Integer, Shift As Integer)
+    Call GraphicsChange
+End Sub
+
+Private Sub lstGraphics_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+
+    Call GraphicsChange
+    
 End Sub
 
 Private Sub renderer_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -2273,7 +2284,7 @@ Private Sub txtGrh_Change()
 
 180       Next i
 
-190       Call lstGraphics_Click
+190       Call GraphicsChange
 
           '    If lstGraphics.ListIndex <> -1 Then
           '        If StrComp(txtGrh.Text, SaveLine(lstGraphics.ListIndex + 1)) <> 0 Then
