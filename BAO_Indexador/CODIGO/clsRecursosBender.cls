@@ -170,7 +170,7 @@ Public Sub Expo_To_Index()
 170 frmCargando.lblLoading.Caption = "Guardando GrhData..."
 180 Call SaveGrhData(AppInit & "\Graficos.ind")
 
-190 If FileExist(App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind", vbArchive) Then
+190 If FileExist(App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind", vbArchive) And FileExist(AppInit & "\Graficos.ind", vbArchive) Then
 200     FileCopy AppInit & "\Graficos.ind", App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind"
 210 End If
 
@@ -185,7 +185,7 @@ Public Sub Expo_To_Index()
 
 Expo_To_Index_Error:
 290 frmCargando.lblLoading.Caption = "Recuperandose del error..."
-300 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Expo_To_Index of Módulo de clase clsRecursosBender Linea: " & Erl())
+300 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Expo_To_Index of Módulo de clase clsRecursosBender Linea: " & Erl() & " AppInit: " & AppInit & " Path: " & App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind")
 
 310 ReDim GrhData(0)
 320 Call LoadGrhData(AppInit & "\Graficos.ind")
