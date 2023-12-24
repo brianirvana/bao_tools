@@ -7,5 +7,5 @@ frmDirectory = 100, 100, 1071, 629, C, 200, 200, 1230, 729, C
 modFunctions = 61, 93, 1091, 622, C
 clsCBFolder = 225, 225, 1196, 754, C
 frmCargando = 0, 0, 702, 560, C, 200, 200, 1167, 729, C
-clsRecursosBender = 0, 0, 1042, 529, C
-modRecursosBender = 50, 50, 1092, 579, Z
+clsRecursosBender = 0, 0, 1042, 529, Z
+modRecursosBender = 50, 50, 1092, 579, 

@@ -15,9 +15,9 @@ Option Explicit
 
 Public Sub Initialize()
 
-   On Error GoTo Initialize_Error
+    On Error GoTo Initialize_Error
 
-Dim Paths(6)                    As String
+    Dim Paths(6)                As String
 
 10  Paths(0) = "Graficos.ind"
 20  Paths(1) = "Cabezas.ind"
@@ -61,9 +61,9 @@ Dim Paths(6)                    As String
 240 frmCargando.lblLoading.Caption = "Listo!"
     'Sleep 500: DoEvents
 250 frmMain.Caption = FrmMainCaption
-   On Error GoTo 0
-   Exit Sub
-   
+    On Error GoTo 0
+    Exit Sub
+
 Initialize_Error:
     Dim Index                   As Integer
 270 Index = Erl() - 1
@@ -78,7 +78,7 @@ Dim J                           As Long
 Dim nfile                       As Integer
 Dim Line                        As String
 
-   On Error GoTo Index_To_Expo_Error
+    On Error GoTo Index_To_Expo_Error
 
 10  nfile = FreeFile
 
@@ -113,102 +113,104 @@ Dim Line                        As String
     'Sleep 500
 210 frmMain.Caption = FrmMainCaption
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 Index_To_Expo_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Index_To_Expo of Módulo de clase clsRecursosBender Linea: " & Erl())
-    
+
 End Sub
 
 Public Sub Save_Indexs()
-   On Error GoTo Save_Indexs_Error
+    On Error GoTo Save_Indexs_Error
 
-10        frmCargando.lblLoading.Caption = "Guardando GrhData..."
-20        Call SaveGrhData(AppInit & "\Graficos.ind")
-30        frmCargando.lblLoading.Caption = "Listo!"
-          'Call LoadResourceInterface
+10  frmCargando.lblLoading.Caption = "Guardando GrhData..."
+20  Call SaveGrhData(AppInit & "\Graficos.ind")
+30  frmCargando.lblLoading.Caption = "Listo!"
+    'Call LoadResourceInterface
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 Save_Indexs_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Save_Indexs of Módulo de clase clsRecursosBender Linea: " & Erl())
-    
+
 End Sub
 
 Public Sub Expo_To_Index()
 
-   On Error GoTo Expo_To_Index_Error
+10  On Error GoTo Expo_To_Index_Error
 
-Dim nfile                       As Integer
-Dim sValue                      As String
+    Dim nfile                   As Integer
+    Dim sValue                  As String
 
-Dim i                           As Long
-10  frmMain.Caption = FrmMainCaption & " - Indexando..."
-20  DoEvents
-30  grhCount = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
+    Dim i                       As Long
+20  frmMain.Caption = FrmMainCaption & " - Indexando..."
+30  DoEvents
+40  grhCount = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
 
-40  If grhCount = 0 Then
-50      MsgBox "Graficos.ini invalidos. Verifiquelos ya que no se encuentra el ""CountGrh""."
-60      Exit Sub
-70  End If
+50  If grhCount = 0 Then
+60      MsgBox "Graficos.ini invalidos. Verifiquelos ya que no se encuentra el ""CountGrh""."
+70      Exit Sub
+80  End If
 
-80  ReDim GrhData(1 To grhCount) As GrhData
+90  ReDim GrhData(1 To grhCount) As GrhData
 
-90  nfile = FreeFile           ' obtenemos un canal
-100 Open AppExpo & "\Graficos.ini" For Input As #nfile
-110 While Not EOF(nfile)
-120     Line Input #nfile, sValue
-130     If Len(sValue) Then Call ProcessGraphicLineToBin(sValue)
-140 Wend
-150 Close
+100 nfile = FreeFile           ' obtenemos un canal
+110 Open AppExpo & "\Graficos.ini" For Input As #nfile
+120 While Not EOF(nfile)
+130     Line Input #nfile, sValue
+140     If Len(sValue) Then Call ProcessGraphicLineToBin(sValue)
+150 Wend
+160 Close
 
     'CopyMemory GrhData(1), GrhTemp(1), NumberBytes
-160 frmCargando.lblLoading.Caption = "Guardando GrhData..."
-170 Call SaveGrhData(AppInit & "\Graficos.ind")
+170 frmCargando.lblLoading.Caption = "Guardando GrhData..."
+180 Call SaveGrhData(AppInit & "\Graficos.ind")
 
-180 FileCopy AppInit & "\Graficos.ind", App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind"
+190 If FileExist(App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind", vbArchive) Then
+200     FileCopy AppInit & "\Graficos.ind", App.Path & "\..\BAO_WorldEditor\INIT\Graficos.ind"
+210 End If
 
-190 frmCargando.lblLoading.Caption = "Listo!"
-200 Call LoadResourceInterface
-210 frmCargando.lblLoading.Caption = "Listo!"
-220 Sleep 50
-230 frmMain.Caption = FrmMainCaption
+220 frmCargando.lblLoading.Caption = "Listo!"
+230 Call LoadResourceInterface
+240 frmCargando.lblLoading.Caption = "Listo!"
+250 Sleep 50
+260 frmMain.Caption = FrmMainCaption
 
-   On Error GoTo 0
-   Exit Sub
+270 On Error GoTo 0
+280 Exit Sub
 
 Expo_To_Index_Error:
-250 frmCargando.lblLoading.Caption = "Recuperandose del error..."
-    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Expo_To_Index of Módulo de clase clsRecursosBender Linea: " & Erl())
-    
-270 ReDim GrhData(0)
-280 Call LoadGrhData(AppInit & "\Graficos.ind")
-290 frmCargando.lblLoading.Caption = "Listo!"
-300 Sleep 50
-310 frmMain.Caption = FrmMainCaption
+290 frmCargando.lblLoading.Caption = "Recuperandose del error..."
+300 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Expo_To_Index of Módulo de clase clsRecursosBender Linea: " & Erl())
+
+310 ReDim GrhData(0)
+320 Call LoadGrhData(AppInit & "\Graficos.ind")
+330 frmCargando.lblLoading.Caption = "Listo!"
+340 Sleep 50
+350 frmMain.Caption = FrmMainCaption
 
 End Sub
 
 Private Function AddText(ByRef Message As String, ByRef Text As String)
-   On Error GoTo AddText_Error
+    On Error GoTo AddText_Error
 
-10        If Len(Message) = 0 Then
-20            Message = Message & Text
-30        Else
-40            Message = Message & ", " & Text
-50        End If
+10  If Len(Message) = 0 Then
+20      Message = Message & Text
+30  Else
+40      Message = Message & ", " & Text
+50  End If
 
-   On Error GoTo 0
-   Exit Function
+    On Error GoTo 0
+    Exit Function
 
 AddText_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure AddText of Módulo de clase clsRecursosBender Linea: " & Erl())
-          
+
 End Function
 
 Private Function LoadGrhData(Path As String) As Boolean
@@ -225,7 +227,7 @@ Dim fileVersion                 As Long
 Dim lastNum                     As Integer
 
     'Open files
-   On Error GoTo LoadGrhData_Error
+    On Error GoTo LoadGrhData_Error
 
 10  handle = FreeFile()
 20  Open Path For Binary Access Read As handle
@@ -385,8 +387,8 @@ Dim lastNum                     As Integer
 1030    MsgBox "Errores detectados: " & Errors & " " & Grh
 1040 End If
 
-   On Error GoTo 0
-   Exit Function
+    On Error GoTo 0
+    Exit Function
 
 LoadGrhData_Error:
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure LoadGrhData of Módulo de clase clsRecursosBender Linea: " & Erl() & " Grh: " & Grh & " Errors: " & Errors)
@@ -398,7 +400,7 @@ End Function
 
 Private Function SaveGrhData(Path As String) As Boolean
 
-   On Error GoTo SaveGrhData_Error
+    On Error GoTo SaveGrhData_Error
 
     Dim Grh                     As Long
     Dim Frame                   As Long
@@ -450,8 +452,8 @@ Private Function SaveGrhData(Path As String) As Boolean
 280 Close handle
 
 290 SaveGrhData = True
-   On Error GoTo 0
-   Exit Function
+    On Error GoTo 0
+    Exit Function
 
 SaveGrhData_Error:
 
@@ -462,40 +464,40 @@ SaveGrhData_Error:
 End Function
 
 Private Sub CargarCabezas(Path As String)
-      Dim n                           As Integer
-      Dim i                           As Long
-      Dim Miscabezas()                As tIndiceCabeza
+Dim n                           As Integer
+Dim i                           As Long
+Dim Miscabezas()                As tIndiceCabeza
 
-   On Error GoTo CargarCabezas_Error
+    On Error GoTo CargarCabezas_Error
 
-10        n = FreeFile()
-20        Open Path For Binary Access Read As #n
+10  n = FreeFile()
+20  Open Path For Binary Access Read As #n
 
-          'cabecera
-30        Get #n, , MiCabecera
+    'cabecera
+30  Get #n, , MiCabecera
 
-          'num de cabezas
-40        Get #n, , Numheads
+    'num de cabezas
+40  Get #n, , Numheads
 
-          'Resize array
-50        ReDim HeadData(0 To Numheads) As HeadData
-60        ReDim Miscabezas(0 To Numheads) As tIndiceCabeza
+    'Resize array
+50  ReDim HeadData(0 To Numheads) As HeadData
+60  ReDim Miscabezas(0 To Numheads) As tIndiceCabeza
 
-70        For i = 1 To Numheads
-80            Get #n, , Miscabezas(i)
+70  For i = 1 To Numheads
+80      Get #n, , Miscabezas(i)
 
-90            If Miscabezas(i).Head(1) Then
-100               Call InitGrh(HeadData(i).Head(1), Miscabezas(i).Head(1), 0)
-110               Call InitGrh(HeadData(i).Head(2), Miscabezas(i).Head(2), 0)
-120               Call InitGrh(HeadData(i).Head(3), Miscabezas(i).Head(3), 0)
-130               Call InitGrh(HeadData(i).Head(4), Miscabezas(i).Head(4), 0)
-140           End If
-150       Next i
+90      If Miscabezas(i).Head(1) Then
+100         Call InitGrh(HeadData(i).Head(1), Miscabezas(i).Head(1), 0)
+110         Call InitGrh(HeadData(i).Head(2), Miscabezas(i).Head(2), 0)
+120         Call InitGrh(HeadData(i).Head(3), Miscabezas(i).Head(3), 0)
+130         Call InitGrh(HeadData(i).Head(4), Miscabezas(i).Head(4), 0)
+140     End If
+150 Next i
 
-160       Close #n
+160 Close #n
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 CargarCabezas_Error:
 
@@ -503,41 +505,41 @@ CargarCabezas_Error:
 End Sub
 
 Private Sub CargarCascos(Path As String)
-      Dim n                           As Integer
-      Dim i                           As Long
+Dim n                           As Integer
+Dim i                           As Long
 
-      Dim Miscabezas()                As tIndiceCabeza
+Dim Miscabezas()                As tIndiceCabeza
 
-   On Error GoTo CargarCascos_Error
+    On Error GoTo CargarCascos_Error
 
-10        n = FreeFile()
-20        Open Path For Binary Access Read As #n
+10  n = FreeFile()
+20  Open Path For Binary Access Read As #n
 
-          'cabecera
-30        Get #n, , MiCabecera
+    'cabecera
+30  Get #n, , MiCabecera
 
-          'num de cabezas
-40        Get #n, , NumCascos
+    'num de cabezas
+40  Get #n, , NumCascos
 
-          'Resize array
-50        ReDim CascoAnimData(0 To NumCascos) As HeadData
-60        ReDim Miscabezas(0 To NumCascos) As tIndiceCabeza
+    'Resize array
+50  ReDim CascoAnimData(0 To NumCascos) As HeadData
+60  ReDim Miscabezas(0 To NumCascos) As tIndiceCabeza
 
-70        For i = 1 To NumCascos
-80            Get #n, , Miscabezas(i)
+70  For i = 1 To NumCascos
+80      Get #n, , Miscabezas(i)
 
-90            If Miscabezas(i).Head(1) Then
-100               Call InitGrh(CascoAnimData(i).Head(1), Miscabezas(i).Head(1), 0)
-110               Call InitGrh(CascoAnimData(i).Head(2), Miscabezas(i).Head(2), 0)
-120               Call InitGrh(CascoAnimData(i).Head(3), Miscabezas(i).Head(3), 0)
-130               Call InitGrh(CascoAnimData(i).Head(4), Miscabezas(i).Head(4), 0)
-140           End If
-150       Next i
+90      If Miscabezas(i).Head(1) Then
+100         Call InitGrh(CascoAnimData(i).Head(1), Miscabezas(i).Head(1), 0)
+110         Call InitGrh(CascoAnimData(i).Head(2), Miscabezas(i).Head(2), 0)
+120         Call InitGrh(CascoAnimData(i).Head(3), Miscabezas(i).Head(3), 0)
+130         Call InitGrh(CascoAnimData(i).Head(4), Miscabezas(i).Head(4), 0)
+140     End If
+150 Next i
 
-160       Close #n
+160 Close #n
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 CargarCascos_Error:
 
@@ -550,7 +552,7 @@ Dim n                           As Integer
 Dim i                           As Long
 Dim MisCuerpos()                As tIndiceCuerpo
 
-   On Error GoTo CargarCuerpos_Error
+    On Error GoTo CargarCuerpos_Error
 
 10  On Error GoTo CargarCuerpos_Error
 
@@ -589,31 +591,31 @@ Dim MisCuerpos()                As tIndiceCuerpo
 CargarCuerpos_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure CargarCuerpos of Módulo de clase clsRecursosBender Linea: " & Erl() & " - " & i)
-    
+
 End Sub
 
 
 Sub CargarAnimEscudos(ByRef arch As String)
-      Dim loopc                       As Long
+Dim loopc                       As Long
 
-   On Error GoTo CargarAnimEscudos_Error
+    On Error GoTo CargarAnimEscudos_Error
 
-10        NumEscudosAnims = Val(GetVar(arch, "INIT", "NumEscudos"))
+10  NumEscudosAnims = Val(GetVar(arch, "INIT", "NumEscudos"))
 
-20        ReDim ShieldAnimData(1 To NumEscudosAnims) As ShieldAnimData
+20  ReDim ShieldAnimData(1 To NumEscudosAnims) As ShieldAnimData
 
-          Dim DirNum                  As Integer
-          Dim i                       As Long
+    Dim DirNum                  As Integer
+    Dim i                       As Long
 
-30        For loopc = 1 To NumEscudosAnims
-40            For i = 1 To 4
-50                DirNum = Val(GetVar(arch, "ESC" & loopc, "Dir" & i))
-60                If DirNum > 0 Then InitGrh ShieldAnimData(loopc).ShieldWalk(i), DirNum, 0
-70            Next i
-80        Next loopc
+30  For loopc = 1 To NumEscudosAnims
+40      For i = 1 To 4
+50          DirNum = Val(GetVar(arch, "ESC" & loopc, "Dir" & i))
+60          If DirNum > 0 Then InitGrh ShieldAnimData(loopc).ShieldWalk(i), DirNum, 0
+70      Next i
+80  Next loopc
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 CargarAnimEscudos_Error:
 
@@ -621,26 +623,26 @@ CargarAnimEscudos_Error:
 End Sub
 
 Sub CargarAnimArmas(ByRef arch As String)
-      Dim loopc                       As Long
+Dim loopc                       As Long
 
-   On Error GoTo CargarAnimArmas_Error
+    On Error GoTo CargarAnimArmas_Error
 
-10        NumWeaponAnims = Val(GetVar(arch, "INIT", "NumArmas"))
+10  NumWeaponAnims = Val(GetVar(arch, "INIT", "NumArmas"))
 
-20        ReDim WeaponAnimData(1 To NumWeaponAnims) As WeaponAnimData
+20  ReDim WeaponAnimData(1 To NumWeaponAnims) As WeaponAnimData
 
-          Dim i                       As Long
-          Dim DirNum                  As Integer
+    Dim i                       As Long
+    Dim DirNum                  As Integer
 
-30        For loopc = 1 To NumWeaponAnims
-40            For i = 1 To 4
-50                DirNum = Val(GetVar(arch, "ARMA" & loopc, "Dir" & i))
-60                If DirNum > 0 Then InitGrh WeaponAnimData(loopc).WeaponWalk(i), DirNum, 0
-70            Next i
-80        Next loopc
+30  For loopc = 1 To NumWeaponAnims
+40      For i = 1 To 4
+50          DirNum = Val(GetVar(arch, "ARMA" & loopc, "Dir" & i))
+60          If DirNum > 0 Then InitGrh WeaponAnimData(loopc).WeaponWalk(i), DirNum, 0
+70      Next i
+80  Next loopc
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 CargarAnimArmas_Error:
 
@@ -648,31 +650,31 @@ CargarAnimArmas_Error:
 End Sub
 
 Sub CargarFxs(ByRef arch As String)
-      Dim n                           As Integer
-      Dim i                           As Long
+Dim n                           As Integer
+Dim i                           As Long
 
-   On Error GoTo CargarFxs_Error
+    On Error GoTo CargarFxs_Error
 
-10        n = FreeFile()
-20        Open arch For Binary Access Read As #n
+10  n = FreeFile()
+20  Open arch For Binary Access Read As #n
 
-          'cabecera
-30        Get #n, , MiCabecera
+    'cabecera
+30  Get #n, , MiCabecera
 
-          'num de cabezas
-40        Get #n, , NumFxs
+    'num de cabezas
+40  Get #n, , NumFxs
 
-          'Resize array
-50        ReDim FxData(1 To NumFxs) As tIndiceFx
+    'Resize array
+50  ReDim FxData(1 To NumFxs) As tIndiceFx
 
-60        For i = 1 To NumFxs
-70            Get #n, , FxData(i)
-80        Next i
+60  For i = 1 To NumFxs
+70      Get #n, , FxData(i)
+80  Next i
 
-90        Close #n
+90  Close #n
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 CargarFxs_Error:
 
@@ -680,33 +682,33 @@ CargarFxs_Error:
 End Sub
 
 Sub SaveFxs(ByRef arch As String)
-      Dim n                           As Integer
-      Dim i                           As Long
+Dim n                           As Integer
+Dim i                           As Long
 
-   On Error GoTo SaveFxs_Error
+    On Error GoTo SaveFxs_Error
 
-10        n = FreeFile()
+10  n = FreeFile()
 
-20        If FileExist(arch, vbArchive) Then Kill arch
+20  If FileExist(arch, vbArchive) Then Kill arch
 
-30        MiCabecera.desc = "Copyright © Bender Games"
+30  MiCabecera.desc = "Copyright © Bender Games"
 
-40        Open arch For Binary Access Write As #n
+40  Open arch For Binary Access Write As #n
 
-          'cabecera
-50        Put #n, , MiCabecera
+    'cabecera
+50  Put #n, , MiCabecera
 
-          'num de cabezas
-60        Put #n, , NumFxs
+    'num de cabezas
+60  Put #n, , NumFxs
 
-70        For i = 1 To NumFxs
-80            Put #n, , FxData(i)
-90        Next i
+70  For i = 1 To NumFxs
+80      Put #n, , FxData(i)
+90  Next i
 
-100       Close #n
+100 Close #n
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 SaveFxs_Error:
 
@@ -714,21 +716,21 @@ SaveFxs_Error:
 End Sub
 
 Sub SaveAnimArmas(ByRef arch As String)
-      Dim loopc                       As Long
+Dim loopc                       As Long
 
-   On Error GoTo SaveAnimArmas_Error
+    On Error GoTo SaveAnimArmas_Error
 
-10        Call WriteVar(arch, "INIT", "NumArmas", CStr(NumWeaponAnims))
+10  Call WriteVar(arch, "INIT", "NumArmas", CStr(NumWeaponAnims))
 
-          Dim i                       As Long
-20        For loopc = 1 To NumWeaponAnims
-30            For i = 1 To 4
-40                Call WriteVar(arch, "ARMA" & loopc, "Dir" & i, CStr(WeaponAnimData(loopc).WeaponWalk(i).GrhIndex))
-50            Next i
-60        Next loopc
+    Dim i                       As Long
+20  For loopc = 1 To NumWeaponAnims
+30      For i = 1 To 4
+40          Call WriteVar(arch, "ARMA" & loopc, "Dir" & i, CStr(WeaponAnimData(loopc).WeaponWalk(i).GrhIndex))
+50      Next i
+60  Next loopc
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 SaveAnimArmas_Error:
 
@@ -736,22 +738,22 @@ SaveAnimArmas_Error:
 End Sub
 
 Sub SaveAnimEscudos(ByRef arch As String)
-      Dim loopc                       As Long
+Dim loopc                       As Long
 
-   On Error GoTo SaveAnimEscudos_Error
+    On Error GoTo SaveAnimEscudos_Error
 
-10        Call WriteVar(arch, "INIT", "NumEscudos", CStr(NumEscudosAnims))
+10  Call WriteVar(arch, "INIT", "NumEscudos", CStr(NumEscudosAnims))
 
-          Dim i                       As Long
+    Dim i                       As Long
 
-20        For loopc = 1 To NumEscudosAnims
-30            For i = 1 To 4
-40                Call WriteVar(arch, "ESC" & loopc, "Dir" & i, CStr(ShieldAnimData(loopc).ShieldWalk(i).GrhIndex))
-50            Next i
-60        Next loopc
+20  For loopc = 1 To NumEscudosAnims
+30      For i = 1 To 4
+40          Call WriteVar(arch, "ESC" & loopc, "Dir" & i, CStr(ShieldAnimData(loopc).ShieldWalk(i).GrhIndex))
+50      Next i
+60  Next loopc
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 SaveAnimEscudos_Error:
 
@@ -761,37 +763,37 @@ End Sub
 
 
 Sub SaveCabezas(Path As String)
-      Dim n                           As Integer
-      Dim i                           As Long
-      Dim J                           As Long
-      Dim Miscabezas                  As tIndiceCabeza
+Dim n                           As Integer
+Dim i                           As Long
+Dim J                           As Long
+Dim Miscabezas                  As tIndiceCabeza
 
 
-   On Error GoTo SaveCabezas_Error
+    On Error GoTo SaveCabezas_Error
 
-10        MiCabecera.desc = "Copyright © Bender Games"
+10  MiCabecera.desc = "Copyright © Bender Games"
 
-20        n = FreeFile()
-30        Open Path For Binary Access Write As #n
+20  n = FreeFile()
+30  Open Path For Binary Access Write As #n
 
-          'cabecera
-40        Put #n, , MiCabecera
+    'cabecera
+40  Put #n, , MiCabecera
 
-          'num de cabezas
-50        Put #n, , Numheads
+    'num de cabezas
+50  Put #n, , Numheads
 
-60        For i = 1 To Numheads
-70            For J = 1 To 4
-80                Miscabezas.Head(J) = HeadData(i).Head(J).GrhIndex
-90            Next J
+60  For i = 1 To Numheads
+70      For J = 1 To 4
+80          Miscabezas.Head(J) = HeadData(i).Head(J).GrhIndex
+90      Next J
 
-100           Put #n, , Miscabezas
-110       Next i
+100     Put #n, , Miscabezas
+110 Next i
 
-120       Close #n
+120 Close #n
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 SaveCabezas_Error:
 
@@ -799,37 +801,37 @@ SaveCabezas_Error:
 End Sub
 
 Sub SaveCascos(Path As String)
-      Dim n                           As Integer
-      Dim i                           As Long
-      Dim J                           As Byte
+Dim n                           As Integer
+Dim i                           As Long
+Dim J                           As Byte
 
 
-      Dim Miscabezas                  As tIndiceCabeza
+Dim Miscabezas                  As tIndiceCabeza
 
-   On Error GoTo SaveCascos_Error
+    On Error GoTo SaveCascos_Error
 
-10        n = FreeFile()
-20        Open Path For Binary Access Write As #n
+10  n = FreeFile()
+20  Open Path For Binary Access Write As #n
 
 
-30        MiCabecera.desc = "Copyright © Bender Games"
-          'cabecera
-40        Put #n, , MiCabecera
+30  MiCabecera.desc = "Copyright © Bender Games"
+    'cabecera
+40  Put #n, , MiCabecera
 
-          'num de cabezas
-50        Put #n, , NumCascos
+    'num de cabezas
+50  Put #n, , NumCascos
 
-60        For i = 1 To NumCascos
-70            For J = 1 To 4
-80                Miscabezas.Head(J) = CascoAnimData(i).Head(J).GrhIndex
-90            Next J
-100           Put #n, , Miscabezas
-110       Next i
+60  For i = 1 To NumCascos
+70      For J = 1 To 4
+80          Miscabezas.Head(J) = CascoAnimData(i).Head(J).GrhIndex
+90      Next J
+100     Put #n, , Miscabezas
+110 Next i
 
-120       Close #n
+120 Close #n
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 SaveCascos_Error:
 
@@ -837,49 +839,49 @@ SaveCascos_Error:
 End Sub
 
 Sub SaveCuerpos(Path As String)
-      Dim n                           As Integer
-      Dim i                           As Long
-      Dim J                           As Byte
-      Dim MisCuerpos                  As tIndiceCuerpo
+Dim n                           As Integer
+Dim i                           As Long
+Dim J                           As Byte
+Dim MisCuerpos                  As tIndiceCuerpo
 
-   On Error GoTo SaveCuerpos_Error
+    On Error GoTo SaveCuerpos_Error
 
-10        On Error GoTo CargarCuerpos_Error
+10  On Error GoTo CargarCuerpos_Error
 
-20        n = FreeFile()
-30        MiCabecera.desc = "Copyright © Bender Games"
+20  n = FreeFile()
+30  MiCabecera.desc = "Copyright © Bender Games"
 
-40        Open Path For Binary Access Write As #n
+40  Open Path For Binary Access Write As #n
 
-          'cabecera
-50        Put #n, , MiCabecera
+    'cabecera
+50  Put #n, , MiCabecera
 
-          'num de cabezas
-60        Put #n, , NumBodies
+    'num de cabezas
+60  Put #n, , NumBodies
 
 
-70        For i = 1 To NumBodies
-80            For J = 1 To 4
-90                MisCuerpos.Body(J) = BodyData(i).Walk(J).GrhIndex
-100           Next J
+70  For i = 1 To NumBodies
+80      For J = 1 To 4
+90          MisCuerpos.Body(J) = BodyData(i).Walk(J).GrhIndex
+100     Next J
 
-110           MisCuerpos.HeadOffsetX = BodyData(i).HeadOffset.X
-120           MisCuerpos.HeadOffsetY = BodyData(i).HeadOffset.Y
+110     MisCuerpos.HeadOffsetX = BodyData(i).HeadOffset.X
+120     MisCuerpos.HeadOffsetY = BodyData(i).HeadOffset.Y
 
-130           Put #n, , MisCuerpos
-140       Next i
+130     Put #n, , MisCuerpos
+140 Next i
 
-150       Close #n
+150 Close #n
 
-160       On Error GoTo 0
-170       Exit Sub
+160 On Error GoTo 0
+170 Exit Sub
 
 CargarCuerpos_Error:
 
-180       MsgBox "Error " & err.Number & " (" & err.Description & ") in procedure CargarCuerpos of Módulo de clase clsRecursosBender " & Erl() & "-" & i
+180 MsgBox "Error " & err.Number & " (" & err.Description & ") in procedure CargarCuerpos of Módulo de clase clsRecursosBender " & Erl() & "-" & i
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 SaveCuerpos_Error:
 
@@ -887,41 +889,41 @@ SaveCuerpos_Error:
 End Sub
 
 Private Sub InitGrh(ByRef Grh As Grh, ByVal GrhIndex As Integer, Optional ByVal Started As Byte = 2)
-      '*****************************************************************
-      'Sets up a grh. MUST be done before rendering
-      '*****************************************************************
-   On Error GoTo InitGrh_Error
+    '*****************************************************************
+    'Sets up a grh. MUST be done before rendering
+    '*****************************************************************
+    On Error GoTo InitGrh_Error
 
-10        Grh.GrhIndex = GrhIndex
+10  Grh.GrhIndex = GrhIndex
 
-20        If Started = 2 Then
-30            If GrhData(Grh.GrhIndex).NumFrames > 1 Then
-40                Grh.Started = 1
-50            Else
-60                Grh.Started = 0
-70            End If
-80        Else
-              'Make sure the graphic can be started
-90            If Grh.GrhIndex <= UBound(GrhData) Then
-100               If GrhData(Grh.GrhIndex).NumFrames = 1 Then Started = 0
-110               Grh.Started = Started
-120           End If
-130       End If
+20  If Started = 2 Then
+30      If GrhData(Grh.GrhIndex).NumFrames > 1 Then
+40          Grh.Started = 1
+50      Else
+60          Grh.Started = 0
+70      End If
+80  Else
+        'Make sure the graphic can be started
+90      If Grh.GrhIndex <= UBound(GrhData) Then
+100         If GrhData(Grh.GrhIndex).NumFrames = 1 Then Started = 0
+110         Grh.Started = Started
+120     End If
+130 End If
 
 
-140       If Grh.Started Then
-150           Grh.Loops = INFINITE_LOOPS
-160       Else
-170           Grh.Loops = 0
-180       End If
+140 If Grh.Started Then
+150     Grh.Loops = INFINITE_LOOPS
+160 Else
+170     Grh.Loops = 0
+180 End If
 
-190       Grh.FrameCounter = 1
-200       If Grh.GrhIndex <= UBound(GrhData) Then
-210           Grh.speed = GrhData(Grh.GrhIndex).speed
-220       End If
+190 Grh.FrameCounter = 1
+200 If Grh.GrhIndex <= UBound(GrhData) Then
+210     Grh.speed = GrhData(Grh.GrhIndex).speed
+220 End If
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 InitGrh_Error:
 
