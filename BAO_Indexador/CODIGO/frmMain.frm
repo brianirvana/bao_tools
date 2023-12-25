@@ -3,15 +3,15 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmMain 
    BackColor       =   &H00C0C0C0&
    Caption         =   "tX"
-   ClientHeight    =   9750
+   ClientHeight    =   9270
    ClientLeft      =   120
    ClientTop       =   750
-   ClientWidth     =   18510
+   ClientWidth     =   13935
    Enabled         =   0   'False
    LinkTopic       =   "Form1"
-   ScaleHeight     =   650
+   ScaleHeight     =   618
    ScaleMode       =   3  'Pixel
-   ScaleWidth      =   1234
+   ScaleWidth      =   929
    StartUpPosition =   2  'CenterScreen
    Begin VB.Frame Frame 
       Height          =   6375
@@ -323,7 +323,7 @@ Begin VB.Form frmMain
       Caption         =   "Auto Skins"
       Height          =   255
       Left            =   14520
-      TabIndex        =   72
+      TabIndex        =   68
       Top             =   1680
       Width           =   1215
    End
@@ -331,7 +331,7 @@ Begin VB.Form frmMain
       Caption         =   "Copy Bodies PNG to folder"
       Height          =   255
       Left            =   14520
-      TabIndex        =   71
+      TabIndex        =   67
       Top             =   960
       Width           =   2295
    End
@@ -341,7 +341,7 @@ Begin VB.Form frmMain
       ForeColor       =   &H00FFFFFF&
       Height          =   285
       Left            =   120
-      TabIndex        =   69
+      TabIndex        =   65
       Top             =   840
       Width           =   2415
    End
@@ -350,43 +350,23 @@ Begin VB.Form frmMain
       Height          =   2055
       Left            =   9840
       TabIndex        =   55
-      Top             =   360
+      Top             =   480
       Width           =   3735
-      Begin VB.OptionButton Option1 
+      Begin VB.OptionButton optHeads 
          Caption         =   "Cabeza"
          Height          =   255
-         Left            =   1440
-         TabIndex        =   68
+         Left            =   1200
+         TabIndex        =   64
          Top             =   240
-         Width           =   975
+         Width           =   855
       End
       Begin VB.OptionButton optTexture 
          Caption         =   "Textura"
          Height          =   255
          Left            =   240
-         TabIndex        =   67
+         TabIndex        =   63
          Top             =   240
          Value           =   -1  'True
-         Width           =   975
-      End
-      Begin VB.TextBox txtTextureFrom 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00000000&
-         ForeColor       =   &H00FFFFFF&
-         Height          =   285
-         Left            =   240
-         TabIndex        =   66
-         Top             =   1035
-         Width           =   855
-      End
-      Begin VB.TextBox txtTextureTo 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00000000&
-         ForeColor       =   &H00FFFFFF&
-         Height          =   285
-         Left            =   1320
-         TabIndex        =   65
-         Top             =   1035
          Width           =   855
       End
       Begin VB.TextBox txtTextureWidth 
@@ -394,9 +374,9 @@ Begin VB.Form frmMain
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
-         Left            =   240
-         TabIndex        =   62
-         Top             =   1560
+         Left            =   360
+         TabIndex        =   60
+         Top             =   960
          Width           =   855
       End
       Begin VB.TextBox txtTextureHeigth 
@@ -404,8 +384,8 @@ Begin VB.Form frmMain
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
-         Left            =   1320
-         TabIndex        =   61
+         Left            =   360
+         TabIndex        =   59
          Top             =   1560
          Width           =   855
       End
@@ -414,20 +394,20 @@ Begin VB.Form frmMain
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
-         Left            =   2520
-         TabIndex        =   59
+         Left            =   2400
+         TabIndex        =   57
          Top             =   1035
          Width           =   855
       End
       Begin VB.CommandButton cmdMadeTexture 
          Caption         =   "Crear"
-         Height          =   255
+         Height          =   375
          Left            =   2400
-         TabIndex        =   58
-         Top             =   1560
-         Width           =   1095
+         TabIndex        =   56
+         Top             =   1440
+         Width           =   855
       End
-      Begin VB.Label Label12 
+      Begin VB.Label lblCrearTexturasAlto 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
          Caption         =   "Alto:"
@@ -440,13 +420,13 @@ Begin VB.Form frmMain
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   495
-         Left            =   1200
-         TabIndex        =   64
+         Height          =   255
+         Left            =   120
+         TabIndex        =   62
          Top             =   1320
-         Width           =   975
+         Width           =   1455
       End
-      Begin VB.Label Label11 
+      Begin VB.Label lblCrearTexturasAncho 
          Alignment       =   2  'Center
          BackStyle       =   0  'Transparent
          Caption         =   "Ancho"
@@ -459,11 +439,11 @@ Begin VB.Form frmMain
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
-         Height          =   255
+         Height          =   375
          Left            =   120
-         TabIndex        =   63
-         Top             =   1320
-         Width           =   1095
+         TabIndex        =   61
+         Top             =   720
+         Width           =   1455
       End
       Begin VB.Label Label10 
          Alignment       =   2  'Center
@@ -479,47 +459,9 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   2400
-         TabIndex        =   60
+         Left            =   2280
+         TabIndex        =   58
          Top             =   720
-         Width           =   975
-      End
-      Begin VB.Label Label9 
-         Alignment       =   2  'Center
-         BackStyle       =   0  'Transparent
-         Caption         =   "Index hasta:"
-         BeginProperty Font 
-            Name            =   "Verdana"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   495
-         Left            =   1200
-         TabIndex        =   57
-         Top             =   600
-         Width           =   975
-      End
-      Begin VB.Label Label8 
-         Alignment       =   2  'Center
-         BackStyle       =   0  'Transparent
-         Caption         =   "Index desde"
-         BeginProperty Font 
-            Name            =   "Verdana"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   700
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   495
-         Left            =   120
-         TabIndex        =   56
-         Top             =   600
          Width           =   975
       End
    End
@@ -682,12 +624,21 @@ Begin VB.Form frmMain
    Begin VB.TextBox txtGrh 
       Appearance      =   0  'Flat
       BackColor       =   &H00000000&
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
       ForeColor       =   &H00FFFFFF&
-      Height          =   285
+      Height          =   360
       Left            =   3720
       TabIndex        =   5
       Top             =   2280
-      Width           =   4335
+      Width           =   4500
    End
    Begin VB.CheckBox chkEncuadrarGrh 
       Appearance      =   0  'Flat
@@ -759,7 +710,7 @@ Begin VB.Form frmMain
       EndProperty
       Height          =   255
       Left            =   360
-      TabIndex        =   70
+      TabIndex        =   66
       Top             =   630
       Width           =   1935
    End
@@ -928,7 +879,7 @@ Begin VB.Form frmMain
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   8640
+      Left            =   8760
       TabIndex        =   12
       Top             =   2280
       Width           =   615
@@ -967,7 +918,7 @@ Begin VB.Form frmMain
          Strikethrough   =   0   'False
       EndProperty
       Height          =   285
-      Left            =   8040
+      Left            =   8160
       TabIndex        =   7
       Top             =   2280
       Width           =   615
@@ -1135,11 +1086,8 @@ Private Sub ResetAnimations()
 60            SP_Armas(i).SetCurrentFrame = 1
 70            SP_Efectos.SetCurrentFrame = 1
 80        Next i
-          Static LastChange           As Integer
-          'If LastChange <> cmbTipo.ListIndex + 1 Then
+
 90        Call cmbTipo_Click
-          '    LastChange = cmbTipo.ListIndex + 1
-          'End If
 
    On Error GoTo 0
    Exit Sub
@@ -1161,7 +1109,7 @@ Private Sub cmbArmas_Click()
 20        Index = cmbArmas.ListIndex
 30        txtEnumArgArmas = vbNullString
 
-          Dim MaxVar                  As Integer
+          Dim MaxVar                  As Long
 
 40        MaxVar = ResizeList(TipList.Armas, Index, NumWeaponAnims, cmbArmas)
 
@@ -1199,7 +1147,7 @@ Private Sub cmbCabezas_Click()
 20        Index = cmbCabezas.ListIndex
 30        txtEnumArgCabezas = vbNullString
 
-          Dim MaxVar                  As Integer
+          Dim MaxVar                  As Long
 40        MaxVar = ResizeList(TipList.Cabezas, Index, Numheads, cmbCabezas)
 
 50        If MaxVar Then
@@ -1236,7 +1184,7 @@ Private Sub cmbCascos_Click()
 30  Index = cmbCascos.ListIndex
 40  txtEnumArgCascos = vbNullString
 
-    Dim MaxVar                  As Integer
+    Dim MaxVar                  As Long
 50  MaxVar = ResizeList(TipList.Cascos, Index, NumCascos, cmbCascos)
 
 60  If MaxVar Then
@@ -1265,83 +1213,129 @@ cmbCascos_Click_Error:
 
 End Sub
 
-Private Function ResizeList(ByVal Tip As Integer, ByRef Index As Integer, ByRef TempVar As Integer, cmbList As ComboBox) As Integer
+Private Function ResizeList(ByVal Tip As Integer, ByRef Index As Integer, ByRef TempVar As Integer, cmbList As ComboBox, Optional ByVal bForceResize As Boolean = False, Optional ByVal bCantResize As Integer = 0) As Long
 
-      Dim IsTrue                      As Boolean
+Dim IsTrue                      As Boolean
 
-   On Error GoTo ResizeList_Error
+    On Error GoTo ResizeList_Error
 
-10        If cmbList Is Nothing Then
-20            Index = Index + 1
-30            IsTrue = (lstGraphics.ListCount + 1) = Index
-40        Else
-50            IsTrue = (cmbList.ListCount - 1) = Index
-60        End If
+    If cmbList Is Nothing Then
+        Index = Index + 1
+        IsTrue = (lstGraphics.ListCount + 1) = Index
+    Else
+        IsTrue = (cmbList.ListCount - 1) = Index
+    End If
 
-70        If IsTrue Then
-              Dim textInput           As String
-              Dim AddResize           As Integer
-              Dim OldVar              As Integer
-              Dim i                   As Long
+    If IsTrue Then
+        Dim textInput           As String
+        Dim AddResize           As Long
+        Dim OldVar              As Long
+        Dim i                   As Long
 
-80            textInput = InputBox("El actual valor es " & TempVar & vbCrLf & "¿Que valor desea setear?")
+        If Not bForceResize Then
 
-90            If Left$(textInput, 1) = "+" Then
-100               textInput = Mid$(textInput, 2, Len(textInput) - 1)
-110               AddResize = Val(textInput) + Index - 2
-120           ElseIf Left$(textInput, 1) = "-" Then
-130               textInput = Mid$(textInput, 2, Len(textInput) - 1)
-140               AddResize = Index - 2 - Val(textInput)
-150           Else
-                  ' AddResize = Val(textInput)
-160               MsgBox "+1 Agrega uno, -1 resta 1."
-170               Exit Function
-180           End If
+            textInput = InputBox("El actual valor es " & TempVar & vbCrLf & "¿Que valor desea setear?")
 
-190           If TempVar = AddResize Or AddResize = 0 Then
-200               Index = Index - 1
-210           ElseIf MsgBox("¿Estas seguro de redimencionar el valor de " & TempVar & " a " & AddResize & "?", vbYesNo) = vbNo Then
-220               Index = Index - 1
-230           Else
-240               OldVar = TempVar
-250               TempVar = AddResize
+            If Left$(textInput, 1) = "+" Then
+                textInput = Mid$(textInput, 2, Len(textInput) - 1)
+                AddResize = Val(textInput) + Index - 2
+            ElseIf Left$(textInput, 1) = "-" Then
+                textInput = Mid$(textInput, 2, Len(textInput) - 1)
+                AddResize = Index - 2 - Val(textInput)
+            Else
+                ' AddResize = Val(textInput)
+                MsgBox "Para añadir un nuevo gráfico escriba: +1 (Agrega uno)" & vbNewLine & "Para borrar el último gráfico de la lista escriba: -1 (resta 1)."
+                Exit Function
+            End If
 
-260               If TempVar < OldVar Then
-                      'Menor cantidad
-270                   Index = TempVar
-280                   For i = OldVar To TempVar + 1 Step -1
-290                       If cmbList Is Nothing Then
-300                           lstGraphics.RemoveItem i - 1
-310                       Else
-320                           cmbList.RemoveItem i
-330                       End If
-340                   Next i
-350               ElseIf TempVar > OldVar Then
-                      'Mayor cantidad
-360                   For i = OldVar + 1 To TempVar
-370                       If cmbList Is Nothing Then
-380                           lstGraphics.List(i - 1) = i
-390                       Else
-400                           cmbList.List(i) = i
-410                       End If
-420                   Next i
+            If TempVar = AddResize Or AddResize = 0 Then
+                Index = Index - 1
+            ElseIf MsgBox("¿Estas seguro de redimencionar el valor de " & TempVar & " a " & AddResize & "?", vbYesNo) = vbNo Then
+                Index = Index - 1
+            Else
+                OldVar = TempVar
+                TempVar = AddResize
 
-430                   If cmbList Is Nothing Then
-440                       lstGraphics.AddItem "Resize"
-450                   Else
-460                       cmbList.AddItem "Resize"
-470                   End If
-480               End If
-490               ResizeList = AddResize
-500           End If
-510       End If
+                If TempVar < OldVar Then
+                    'Menor cantidad
+                    Index = TempVar
+                    For i = OldVar To TempVar + 1 Step -1
+                        If cmbList Is Nothing Then
+                            lstGraphics.RemoveItem i - 1
+                        Else
+                            cmbList.RemoveItem i
+                        End If
+                    Next i
+                ElseIf TempVar > OldVar Then
+                    'Mayor cantidad
+                    For i = OldVar + 1 To TempVar
+                        If cmbList Is Nothing Then
+                            lstGraphics.List(i - 1) = i
+                        Else
+                            cmbList.List(i) = i
+                        End If
+                    Next i
 
-520       If cmbList Is Nothing Then
-530           Index = Index - 1
-540       End If
+                    If cmbList Is Nothing Then
+                        lstGraphics.AddItem "Resize"
+                    Else
+                        cmbList.AddItem "Resize"
+                    End If
+                End If
+                ResizeList = AddResize
+            End If
+        Else
+            bCantResize = TempVar + bCantResize
+            OldVar = TempVar
+            TempVar = bCantResize
 
-   On Error GoTo 0
-   Exit Function
+            If TempVar < OldVar Then
+                'Menor cantidad
+                Index = TempVar
+                For i = OldVar To TempVar + 1 Step -1
+                    If cmbList Is Nothing Then
+                        lstGraphics.RemoveItem i - 1
+                    Else
+                        cmbList.RemoveItem i
+                    End If
+                Next i
+            ElseIf TempVar > OldVar Then
+                'Mayor cantidad
+                For i = OldVar + 1 To TempVar
+                    If cmbList Is Nothing Then
+                        lstGraphics.List(i - 1) = i
+                    Else
+                        cmbList.List(i) = i
+                    End If
+                Next i
+
+                If cmbList Is Nothing Then
+                    lstGraphics.AddItem "Resize"
+                Else
+                    cmbList.AddItem "Resize"
+                End If
+            End If
+            ResizeList = TempVar
+            ReDim Preserve GrhData(1 To TempVar)
+            
+            If TempVar Then
+                grhCount = TempVar
+                Call WriteVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh", CStr(grhCount))
+            End If
+        
+        End If
+
+    End If
+    
+    If cmbList Is Nothing Then
+        Index = Index - 1
+        lstGraphics.Refresh
+    Else
+        cmbList.Refresh
+    End If
+    
+    On Error GoTo 0
+    Exit Function
 
 ResizeList_Error:
 
@@ -1358,7 +1352,7 @@ Private Sub cmbCuerpos_Click()
 30  Index = cmbCuerpos.ListIndex
 40  txtEnumArgCuerpos = vbNullString
 
-    Dim MaxVar                  As Integer
+    Dim MaxVar                  As Long
 50  MaxVar = ResizeList(TipList.Cuerpos, Index, NumBodies, cmbCuerpos)
 
 60  If MaxVar Then
@@ -1396,7 +1390,7 @@ Private Sub cmbEfectos_Click()
 20  Index = cmbEfectos.ListIndex
 30  txtEnumArgEfectos = vbNullString
 
-    Dim MaxVar                  As Integer
+    Dim MaxVar                  As Long
 40  MaxVar = ResizeList(TipList.Efectos, Index, NumFxs, cmbEfectos)
 
 50  If MaxVar Then
@@ -1432,7 +1426,7 @@ Private Sub cmbEscudos_Click()
 20        Index = cmbEscudos.ListIndex
 30        txtEnumArgEscudos = vbNullString
 
-          Dim MaxVar                  As Integer
+          Dim MaxVar                  As Long
 40        MaxVar = ResizeList(TipList.Escudos, Index, NumEscudosAnims, cmbEscudos)
 
 50        If MaxVar Then
@@ -1461,7 +1455,7 @@ End Sub
 
 Private Sub cmbTipo_Click()
 
-      Static LastIndex                As Integer
+      Static LastIndex                As Long
       Static NoProcess                As Boolean
    On Error GoTo cmbTipo_Click_Error
 
@@ -1469,7 +1463,7 @@ Private Sub cmbTipo_Click()
 
           Dim i                       As Long
 20        If Not txtEnum.Text = txtEnumNoProcess Then
-              Dim NewIndex            As Integer
+              Dim NewIndex            As Long
 30            NewIndex = cmbTipo.ListIndex
 40            NoProcess = True
 50            cmbTipo.ListIndex = LastIndex
@@ -1599,65 +1593,107 @@ End Sub
 
 Private Sub cmdMadeTexture_Click()
 
-      Dim X                           As Integer
-      Dim Y                           As Integer
-      Dim LastX                       As Integer
-      Dim LastY                       As Integer
-      Dim i                           As Integer
-      Dim tCount                      As Integer
-      Dim sTmpGrh                     As String
+Dim X                           As Integer
+Dim Y                           As Integer
+Dim LastX                       As Integer
+Dim LastY                       As Integer
+Dim i                           As Long
+Dim tCount                      As Long
+Dim sTmpGrh                     As String
+Dim sValue                      As String
 
-   On Error GoTo cmdMadeTexture_Click_Error
+    On Error GoTo cmdMadeTexture_Click_Error
 
-10        If Val(txtTextureFrom.Text) = 0 Then
-20            MsgBox "Ingrese un valor DESDE"
-30            Exit Sub
-40        End If
+    '20  If Val(txtTextureFrom.Text) = 0 Then
+    '30      MsgBox "Ingrese un valor DESDE"
+    '40      Exit Sub
+    '50  End If
+    '
+    '60  If Val(txtTextureTo.Text) = 0 Then
+    '70      MsgBox "Ingrese un valor HASTA"
+    '80      Exit Sub
+    '90  End If
 
-50        If Val(txtTextureTo.Text) = 0 Then
-60            MsgBox "Ingrese un valor HASTA"
-70            Exit Sub
-80        End If
-          
-90        If Val(txtPngNum.Text) = 0 Then
-100           MsgBox "Ingrese un número de PNG (de la carpeta /GRAFICOS/"
-110           Exit Sub
-120       End If
-          
-130       If Val(txtTextureWidth.Text) = 0 Then
-140           MsgBox "Ingrese un valor de Ancho"
-150           Exit Sub
-160       End If
+    If Val(txtPngNum.Text) = 0 Then
+        MsgBox "Ingrese un número de PNG (de la carpeta /GRAFICOS/"
+        Exit Sub
+    End If
 
-170       If Val(txtTextureHeigth.Text) = 0 Then
-180           MsgBox "Ingrese un valor de Alto"
-190           Exit Sub
-200       End If
-          
-210       If optTexture.Value = True Then
-          
-220           If Val(txtTextureTo.Text) - Val(txtTextureFrom.Text) <> 16 Then
-230               MsgBox "La cantidad de índices libres debe ser 16 (4 ancho x 4 alto)"
-240               Exit Sub
-250           End If
-              
-260           For X = 1 To Val(txtTextureFrom.Text)   'For X = 0 To Val(txtTextureFrom.Text) - 1
-270               For Y = 0 To Val(txtTextureTo.Text) - 1
-                      'Ej: 1.5534.32.32.32.32
-280                   sTmpGrh = "1" & "-" & txtPngNum.Text & "-" & (32 * X) & "-" & (32 * Y) & "-" & "32" & "-" & "32" 'Ancho y alto
-290                   txtGrh.Text = sTmpGrh
-300               Next Y
-310           Next X
-320       End If
-          
+    If Val(txtTextureWidth.Text) = 0 Then
+        MsgBox "Ingrese un valor de Ancho"
+        Exit Sub
+    End If
 
-   On Error GoTo 0
-   Exit Sub
+    If Val(txtTextureHeigth.Text) = 0 Then
+        MsgBox "Ingrese un valor de Alto"
+        Exit Sub
+    End If
+
+    If optTexture.Value = True Then
+        i = UBound(GrhData)
+        tCount = ResizeList(TipList.Graficos, lstGraphics.ListCount, CInt(grhCount), Nothing, True, 16)
+        LastX = 0
+        LastY = 0
+        
+        For i = i + 1 To tCount
+            'Ej: 1.5534.32.32.32.32
+            'sTmpGrh = "1" & "-" & txtPngNum.Text & "-" & (32 * X) & "-" & (32 * Y) & "-" & "32" & "-" & "32"    'Ancho y alto
+            sValue = "1" & Separator & Val(frmMain.txtPngNum.Text) & Separator & LastX & Separator & LastY & Separator & 32 & Separator & 32
+            txtGrh.Text = sValue
+            txtGrh.Text = sValue    'Call ProcessGraphicLineToBin(sValue)
+            GrhData(i).FileNum = Val(frmMain.txtPngNum.Text)
+            GrhData(i).sX = LastX
+            GrhData(i).sY = LastY
+            GrhData(i).pixelWidth = 32
+            GrhData(i).pixelHeight = 32
+            GrhData(i).NumFrames = 1
+            GrhData(i).TileWidth = LastX
+            GrhData(i).TileHeight = LastX
+
+            frmMain.lblGrh.Caption = i & "="
+            LastX = LastX + 32
+            
+            If LastX > 0 Then
+                If LastX / 4 = 32 Then
+                    LastY = LastY + 32
+                    LastX = 0
+                End If
+            End If
+        Next i
+    End If
+
+    If frmMain.optHeads.Value = True Then
+        i = UBound(GrhData)
+        tCount = ResizeList(TipList.Graficos, lstGraphics.ListCount, CInt(grhCount), Nothing, True, 4)
+
+        LastX = 0
+
+        For i = i + 1 To tCount
+            sValue = "1" & Separator & Val(frmMain.txtPngNum.Text) & Separator & "0" & Separator & "0" & Separator & Val(frmMain.txtTextureWidth.Text) & Separator & Val(frmMain.txtTextureHeigth.Text)
+            txtGrh.Text = sValue    'Call ProcessGraphicLineToBin(sValue)
+            GrhData(i).FileNum = Val(frmMain.txtPngNum.Text)
+            GrhData(i).sX = LastX
+            GrhData(i).sY = 0
+            GrhData(i).pixelWidth = Val(frmMain.txtTextureWidth.Text)
+            GrhData(i).pixelHeight = Val(frmMain.txtTextureHeigth.Text)
+            GrhData(i).NumFrames = 1
+            GrhData(i).TileWidth = Val(frmMain.txtTextureWidth.Text)
+            GrhData(i).TileHeight = Val(frmMain.txtTextureHeigth.Text)
+
+            frmMain.lblGrh.Caption = i & "="
+            LastX = LastX + Val(frmMain.txtTextureWidth.Text)
+        Next i
+
+        Debug.Print "ASDASDASD"
+    End If
+
+    On Error GoTo 0
+    Exit Sub
 
 cmdMadeTexture_Click_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure cmdMadeTexture_Click of Formulario frmMain Linea: " & Erl())
-          
+
 End Sub
 
 Private Sub Command1_Click()
@@ -1683,6 +1719,8 @@ Private Sub Command1_Click()
 120           J = J + 1
 130       Next i
 
+          MsgBox "Archivo OBJ.dat finalizado. Ruta: " & App.Path & "/OBJ.dat"
+        
    On Error GoTo 0
    Exit Sub
 
@@ -1719,11 +1757,17 @@ Form_Resize_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Form_Resize of Formulario frmMain Linea: " & Erl())
 End Sub
-Private Function TransformMod13(ByVal Value As Single) As Integer
+
+Private Function TransformMod13(ByVal Value As Single) As Long
     TransformMod13 = Fix(Value / 13) * 13 + 4
 End Function
+
 Private Sub Form_Unload(Cancel As Integer)
     If Not FormsEnabled(Me) Then Call CloseProgram
+End Sub
+
+Private Sub Label8_Click()
+
 End Sub
 
 Private Sub lblReset_Click()
@@ -1811,7 +1855,7 @@ End Sub
 ' Purpose   :
 '---------------------------------------------------------------------------------------
 '
-Public Sub ProcessLine(ByVal Index As Integer)
+Public Sub ProcessLine(ByVal Index As Long)
 
       Dim Line                        As String
 
@@ -1882,7 +1926,6 @@ End Sub
 
 Private Sub GraphicsChange()
 
-
       Dim Index                       As Integer
       Dim bCheck                      As Boolean
 
@@ -1892,7 +1935,7 @@ Private Sub GraphicsChange()
 
 20        If Index = lstGraphics.ListCount Then
 
-              Dim MaxVar              As Integer
+              Dim MaxVar              As Long
 
 30            NoProcessTxt = True
 40            MaxVar = ResizeList(TipList.Graficos, Index, CInt(grhCount), Nothing)
@@ -1919,7 +1962,7 @@ Private Sub GraphicsChange()
 190           If GrhData(Index).NumFrames = 1 Then
 200               For i = 0 To lstGraphics.ListCount - 1
 210                   If lstGraphics.Selected(i) = True Then
-220                       If i + 1 < grhCount Then
+220                       If i + 1 <= grhCount Then
 230                           If GrhData(i + 1).FileNum = GrhData(Index).FileNum And GrhData(Index).FileNum > 0 Then
 240                               ReDim Preserve SelectIndexs(numSelectIndexs)
 250                               SelectIndexs(numSelectIndexs) = i + 1
@@ -1949,7 +1992,7 @@ Private Sub GraphicsChange()
 470           If numSelectIndexs = 1 Then
 480               Call ProcessLine(Index)    'TEST 24-04-2020
 490           Else
-500               txtGrh.Text = "1.0.0.0.32.32"
+500               txtGrh.Text = "1.1.0.0.32.32"
 510           End If
 
 520           If TileEngine.RenderStyle = 2 Then Call lblOption_Click(0)
@@ -1978,6 +2021,20 @@ Private Sub lstGraphics_MouseUp(Button As Integer, Shift As Integer, X As Single
 
     Call GraphicsChange
     
+End Sub
+
+Private Sub optHeads_Click()
+    txtTextureWidth.Text = 17
+    txtTextureHeigth.Text = 50
+    lblCrearTexturasAncho.Caption = "Ancho (Pixels)"
+    lblCrearTexturasAlto.Caption = "Alto (Pixels)"
+End Sub
+
+Private Sub optTexture_Click()
+    txtTextureWidth.Text = 4
+    txtTextureHeigth.Text = 4
+    lblCrearTexturasAncho.Caption = "Ancho (Tiles)"
+    lblCrearTexturasAlto.Caption = "Alto (Tiles)"
 End Sub
 
 Private Sub renderer_KeyUp(KeyCode As Integer, Shift As Integer)
@@ -2016,53 +2073,56 @@ End Sub
 
 Sub searchPNG()
 
-      Dim i                           As Long
-      Static LastIndex                As Long
-      Dim sTmp                        As String
+Dim bFound                      As Boolean
+Dim i                           As Long
+Static LastIndex                As Long
+Dim sTmp                        As String
 
+10  On Error GoTo searchPNG_Error
 
-   On Error GoTo searchPNG_Error
+20  If Len(txtFiltroPNG.Text) > 0 Then
+30      If IsNumeric(txtFiltroPNG.Text) Then
 
-10        If Len(txtFiltroPNG.Text) > 0 Then
-20            If IsNumeric(txtFiltroPNG.Text) Then
-              
-30                If LastIndex <= lstGraphics.ListIndex + 1 And lstGraphics.ListIndex + 1 < lstGraphics.ListCount Then
-40                    LastIndex = lstGraphics.ListIndex + 1
-50                Else
-60                    LastIndex = 1
-70                End If
-                  
-80                For i = LastIndex To lstGraphics.ListCount - 1
-90                    If GrhData(i).FileNum > 0 And LastIndex <> i Then
-100                       If GrhData(i).FileNum = Val(txtFiltroPNG.Text) Then
-110                           lstGraphics.Selected(i - 1) = True
-120                           LastIndex = i - 1
-130                           Exit For
-140                       End If
-150                   End If
-160                   LastIndex = i - 1
-170               Next i
-180           Else
-190               MsgBox "Coloque el número únicamente, de .png en la carpeta GRAFICOS, sin la extensión .png"
-200           End If
-          
-210       End If
+40          If LastIndex <= lstGraphics.ListIndex + 1 And lstGraphics.ListIndex + 1 < lstGraphics.ListCount Then
+50              LastIndex = lstGraphics.ListIndex + 1
+60          Else
+70              LastIndex = 1
+80          End If
+90          For i = LastIndex To lstGraphics.ListCount - 1
+100             If GrhData(i).FileNum > 0 And LastIndex <> i Then
+110                 If GrhData(i).FileNum = Val(txtFiltroPNG.Text) Then
+120                     lstGraphics.Selected(i - 1) = True
+130                     LastIndex = i - 1
+140                     bFound = True
+150                     lstGraphics.ListIndex = LastIndex
+160                     Call GraphicsChange
+170                     Exit For
+180                 End If
+190             End If
+200             LastIndex = i - 1
+210         Next i
+220         If Not bFound Then
+230             MsgBox "No se encontraron resultados para el número de .PNG " & txtFiltroPNG.Text
+240         End If
+250     Else
+260         MsgBox "Coloque el número únicamente, de .png en la carpeta GRAFICOS, sin la extensión .png"
+270     End If
 
-   On Error GoTo 0
-   Exit Sub
+280 End If
+
+290 On Error GoTo 0
+300 Exit Sub
 
 searchPNG_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure searchPNG of Formulario frmMain Linea: " & Erl())
-          
+310 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure searchPNG of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtEnum_Change()
    On Error GoTo txtEnum_Change_Error
 
-    On Error GoTo err:
-
-      Dim Index                       As Integer
+      Dim Index                       As Long
       Dim i                           As Long
 
 10        Select Case cmbTipo.ListIndex
@@ -2083,7 +2143,7 @@ Private Sub txtEnum_Change()
           Dim Linea()                 As String
 140       If Len(txtEnum.Text) = 0 Then Exit Sub
 150       Linea = Split(txtEnum.Text, vbCrLf)
-          Dim Nums(5)                 As Integer
+          Dim Nums(5)                 As Long
 
           Dim txtEnumArg              As String
 160       If cmbTipo.ListIndex <> 5 Then
@@ -2173,8 +2233,6 @@ Private Sub txtEnum_Change()
 860           Case 5                 'Efectos
 870               txtEnumArgEfectos = txtEnumArg
 880       End Select
-890       Exit Sub
-err:
 
    On Error GoTo 0
    Exit Sub
@@ -2257,58 +2315,58 @@ End Sub
 
 Private Sub txtGrh_Change()
 
-      Dim i                           As Long
+Dim i                           As Long
 
-   On Error GoTo txtGrh_Change_Error
-          
-20        If lstGraphics.ListIndex < 1 Then Exit Sub
-          
-30        For i = 0 To numSelectIndexs - 1
+10  On Error GoTo txtGrh_Change_Error
 
-40            If StrComp(txtGrh.Text, SaveLine(SelectIndexs(i))) <> 0 Then
-50                lblReset.BackColor = vbRed
-60                lblSave.BackColor = vbRed
-70            Else
-80                lblReset.BackColor = &H8000000F
-90                lblSave.BackColor = &H8000000F
-100           End If
+20  If lstGraphics.ListIndex < 1 Then Exit Sub
 
-110           If Not NoProcessTxt Then
-120               Call ProcessGraphicLineToBin("Grh" & SelectIndexs(i) & "=" & txtGrh.Text)
-130               If SelectIndexs(i) <> NumGraphic Then
-140                   NumGraphic = TileEngine.LoadGraphic(SP_Main, SelectIndexs(i))
-150               End If
-160               lstGraphics.List(SelectIndexs(i) - 1) = NameLineGraphic(CLng(SelectIndexs(i)))
-                  'cmbFondo.List(selectindexs(i)) = NameLineGraphic(selectindexs(i))
-170           End If
+30  For i = 0 To numSelectIndexs - 1
 
-180       Next i
+40      If StrComp(txtGrh.Text, SaveLine(SelectIndexs(i))) <> 0 Then
+50          lblReset.BackColor = vbRed
+60          lblSave.BackColor = vbRed
+70      Else
+80          lblReset.BackColor = &H8000000F
+90          lblSave.BackColor = &H8000000F
+100     End If
 
-190       Call GraphicsChange
+110     If Not NoProcessTxt Then
+120         Call ProcessGraphicLineToBin("Grh" & SelectIndexs(i) & "=" & txtGrh.Text)
+130         If SelectIndexs(i) <> NumGraphic Then
+140             NumGraphic = TileEngine.LoadGraphic(SP_Main, SelectIndexs(i))
+150         End If
+160         lstGraphics.List(SelectIndexs(i) - 1) = NameLineGraphic(CLng(SelectIndexs(i)))
+            'cmbFondo.List(selectindexs(i)) = NameLineGraphic(selectindexs(i))
+170     End If
 
-          '    If lstGraphics.ListIndex <> -1 Then
-          '        If StrComp(txtGrh.Text, SaveLine(lstGraphics.ListIndex + 1)) <> 0 Then
-          '            lblReset.BackColor = vbRed
-          '            lblSave.BackColor = vbRed
-          '        Else
-          '            lblReset.BackColor = &H8000000F
-          '            lblSave.BackColor = &H8000000F
-          '        End If
-          '        If NoProcessTxt = False Then
-          '            Call ProcessGraphicLineToBin("Grh" & lstGraphics.ListIndex + 1 & "=" & txtGrh.Text)
-          '            NumGraphic = TileEngine.LoadGraphic(SP_Main, lstGraphics.ListIndex + 1)
-          '            lstGraphics.List(lstGraphics.ListIndex) = NameLineGraphic(lstGraphics.ListIndex + 1)
-          '            'cmbFondo.List(lstGraphics.ListIndex + 1) = NameLineGraphic(lstGraphics.ListIndex + 1)
-          '        End If
-          '    End If
+180 Next i
+
+190 Call GraphicsChange
+
+200 If lstGraphics.ListIndex <> -1 Then
+210     If StrComp(txtGrh.Text, SaveLine(lstGraphics.ListIndex + 1)) <> 0 Then
+220         lblReset.BackColor = vbRed
+230         lblSave.BackColor = vbRed
+240     Else
+250         lblReset.BackColor = &H8000000F
+260         lblSave.BackColor = &H8000000F
+270     End If
+280     If NoProcessTxt = False Then
+290         Call ProcessGraphicLineToBin("Grh" & lstGraphics.ListIndex + 1 & "=" & txtGrh.Text)
+300         NumGraphic = TileEngine.LoadGraphic(SP_Main, lstGraphics.ListIndex + 1)
+310         lstGraphics.List(lstGraphics.ListIndex) = NameLineGraphic(lstGraphics.ListIndex + 1)
+            'cmbFondo.List(lstGraphics.ListIndex + 1) = NameLineGraphic(lstGraphics.ListIndex + 1)
+320     End If
+330 End If
 
 
-200    On Error GoTo 0
-210    Exit Sub
+340 On Error GoTo 0
+350 Exit Sub
 
 txtGrh_Change_Error:
 
-220    Call LogError("Error " & err.Number & " (" & err.Description & ") procedimiento txtGrh_Change Formulario frmMain línea: " & Erl())
+360 Call LogError("Error " & err.Number & " (" & err.Description & ") procedimiento txtGrh_Change Formulario frmMain línea: " & Erl())
 
 End Sub
 
@@ -2338,7 +2396,7 @@ Private Sub txtGrh_KeyUp(KeyCode As Integer, Shift As Integer)
 140               End If
 150           End If
 160       Else
-              Dim Index               As Integer
+              Dim Index               As Long
 170           Index = lstGraphics.ListIndex + 1
 180           If Index > 0 And Index <= grhCount Then
 190               If GrhData(Index).NumFrames = 1 Then
