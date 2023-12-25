@@ -1081,7 +1081,7 @@ Option Explicit
 'frmMain - Programado por MaTeO - 18:55hs 13/05/2012
 'Changelog (ultima modificacion 13/05/2012):
 '13/05/2012 - Primer release de esta clase, sera la interfaz del programa
-Private SaveLine(32000)         As String
+Private SaveLine(40000)         As String
 Public NoProcessTxt             As Boolean
 
 Public txtEnumNoProcess         As String
@@ -1980,7 +1980,7 @@ Private Sub lstGraphics_MouseUp(Button As Integer, Shift As Integer, X As Single
     
 End Sub
 
-Private Sub renderer_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub renderer_KeyUp(KeyCode As Integer, Shift As Integer)
 
     On Error Resume Next
     Me.lstGraphics.SetFocus
@@ -2312,9 +2312,9 @@ txtGrh_Change_Error:
 
 End Sub
 
-Private Sub txtGrh_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtGrh_KeyUp(KeyCode As Integer, Shift As Integer)
 
-   On Error GoTo txtGrh_KeyDown_Error
+   On Error GoTo txtGrh_KeyUp_Error
 
 10        If Shift > 0 Then
 20            Select Case KeyCode
@@ -2361,45 +2361,45 @@ Private Sub txtGrh_KeyDown(KeyCode As Integer, Shift As Integer)
    On Error GoTo 0
    Exit Sub
 
-txtGrh_KeyDown_Error:
+txtGrh_KeyUp_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtGrh_KeyDown of Formulario frmMain Linea: " & Erl())
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtGrh_KeyUp of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub txtGrh_KeyPress(KeyAscii As Integer)
     Debug.Print KeyAscii
 End Sub
 
-Private Sub txtNumGrhs_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtNumGrhs_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
 
-Private Sub txtNumFrames_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtNumFrames_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
-Private Sub txtNumPNG_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtNumPNG_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
-Private Sub txtVelocity_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtVelocity_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
-Private Sub txtXFrom_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtXFrom_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
-Private Sub txtXTo_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtXTo_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
-Private Sub txtYFrom_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtYFrom_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 
-Private Sub txtYTo_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtYTo_KeyUp(KeyCode As Integer, Shift As Integer)
     Call ProcessTxtsChanges
 End Sub
 

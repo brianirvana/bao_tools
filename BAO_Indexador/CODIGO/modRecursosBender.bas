@@ -252,7 +252,9 @@ Public Sub ProcessGraphicLineToBin(ByRef sValue As String)
 90      GrhIndex = Val(TempValue)
 
 100     TempValue = ReadField(2, sValue, Asc("="))
-
+        
+101     If Val(TempValue) <= 0 Then Exit Sub
+        
 110     With GrhData(GrhIndex)
 120         Call changeValue(.NumFrames, GetValueExpo(TempValue, 1))    'IIf(GetValueExpo(TempValue, 1) = -1, .NumFrames, GetValueExpo(TempValue, 1))
 130         If .NumFrames > 1 Then
