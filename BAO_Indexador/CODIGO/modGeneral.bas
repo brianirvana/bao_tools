@@ -68,7 +68,7 @@ Sub Main()
    On Error GoTo Main_Error
 
 10        Load frmMain
-20        FrmMainCaption = "PlusIndex - Desarrollado por MaTeO v" & App.Major & "." & App.Minor & "." & App.Revision
+20        FrmMainCaption = "PlusIndex - By Mateo & About v" & App.Major & "." & App.Minor & "." & App.Revision
 30        frmMain.Caption = FrmMainCaption
           '[/INICIAMOS INTERFAZ]
 LoopPaths:

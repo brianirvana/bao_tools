@@ -347,11 +347,22 @@ Begin VB.Form frmMain
    End
    Begin VB.Frame frmCrearTexturaPiso 
       Caption         =   "Crear Textura/Piso"
-      Height          =   2055
+      Height          =   2295
       Left            =   9840
       TabIndex        =   55
       Top             =   480
       Width           =   3735
+      Begin VB.TextBox Text1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   1560
+         TabIndex        =   69
+         Text            =   "4"
+         Top             =   960
+         Width           =   1935
+      End
       Begin VB.OptionButton optHeads 
          Caption         =   "Cabeza"
          Height          =   255
@@ -377,7 +388,7 @@ Begin VB.Form frmMain
          Left            =   360
          TabIndex        =   60
          Text            =   "8"
-         Top             =   960
+         Top             =   1320
          Width           =   855
       End
       Begin VB.TextBox txtTextureHeigth 
@@ -388,7 +399,7 @@ Begin VB.Form frmMain
          Left            =   360
          TabIndex        =   59
          Text            =   "4"
-         Top             =   1560
+         Top             =   1920
          Width           =   855
       End
       Begin VB.TextBox txtPngNum 
@@ -399,7 +410,7 @@ Begin VB.Form frmMain
          Left            =   2520
          TabIndex        =   57
          Text            =   "6000"
-         Top             =   960
+         Top             =   1560
          Width           =   855
       End
       Begin VB.CommandButton cmdMadeTexture 
@@ -407,8 +418,27 @@ Begin VB.Form frmMain
          Height          =   255
          Left            =   2520
          TabIndex        =   56
-         Top             =   1560
+         Top             =   1920
          Width           =   855
+      End
+      Begin VB.Label Label8 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Alias textura (Nombre WE)"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   720
+         TabIndex        =   70
+         Top             =   600
+         Width           =   2775
       End
       Begin VB.Label lblCrearTexturasAlto 
          Alignment       =   2  'Center
@@ -426,7 +456,7 @@ Begin VB.Form frmMain
          Height          =   255
          Left            =   120
          TabIndex        =   62
-         Top             =   1320
+         Top             =   1680
          Width           =   1455
       End
       Begin VB.Label lblCrearTexturasAncho 
@@ -445,7 +475,7 @@ Begin VB.Form frmMain
          Height          =   375
          Left            =   120
          TabIndex        =   61
-         Top             =   720
+         Top             =   1080
          Width           =   1455
       End
       Begin VB.Label Label10 
@@ -464,7 +494,7 @@ Begin VB.Form frmMain
          Height          =   255
          Left            =   2400
          TabIndex        =   58
-         Top             =   720
+         Top             =   1320
          Width           =   975
       End
    End
@@ -1653,24 +1683,30 @@ Dim sValue                      As String
             GrhData(i).FileNum = Val(frmMain.txtPngNum.Text)
 
             GrhData(i).sX = TempX + LastX
-            GrhData(i).sY = LastY
+            GrhData(i).sY = TempY + LastY
             
             GrhData(i).pixelWidth = 32              'Ancho del gráfico
             GrhData(i).pixelHeight = 32             'Alto del gráfico
             GrhData(i).NumFrames = 1                'Cuadros por segundo
             GrhData(i).TileWidth = TempX + LastX    'Posición inicial X
-            GrhData(i).TileHeight = LastY           'Posición inicial Y
+            GrhData(i).TileHeight = TempY + LastY           'Posición inicial Y
 
             frmMain.lblGrh.Caption = i & "="
             LastX = LastX + 32
             
-            If CountI Mod Val(txtTextureWidth.Text) * Val(txtTextureHeigth.Text) = 0 Then
-                TempX = LastX
+            If (CountI Mod 16 = 0) Then ' Or (CountI / 2 Mod 16 = 2) Or (CountI / 3 Mod 16 = 3) Or (CountI / 4 Mod 16 = 4) Then
+                TempX = TempX + LastX
             End If
             
             If LastX / 4 = 32 Then
                 LastX = 0
                 LastY = LastY + 32
+            End If
+            
+            If CountI Mod (Val(txtTextureWidth.Text) * Val(txtTextureHeigth.Text) / (txtTextureWidth.Text / 4)) = 0 Then
+                TempY = TempY + LastY
+                'LastY = 0
+                TempX = 0
             End If
 
             If LastY / 4 = 32 Then
