@@ -352,6 +352,26 @@ Begin VB.Form frmMain
       TabIndex        =   55
       Top             =   480
       Width           =   3735
+      Begin VB.TextBox txtStartY 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   1440
+         TabIndex        =   71
+         Top             =   1560
+         Width           =   855
+      End
+      Begin VB.TextBox txtStartX 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00000000&
+         ForeColor       =   &H00FFFFFF&
+         Height          =   285
+         Left            =   1440
+         TabIndex        =   69
+         Top             =   960
+         Width           =   855
+      End
       Begin VB.OptionButton optHeads 
          Caption         =   "Cabeza"
          Height          =   255
@@ -394,18 +414,56 @@ Begin VB.Form frmMain
          BackColor       =   &H00000000&
          ForeColor       =   &H00FFFFFF&
          Height          =   285
-         Left            =   2400
+         Left            =   2520
          TabIndex        =   57
-         Top             =   1035
+         Top             =   960
          Width           =   855
       End
       Begin VB.CommandButton cmdMadeTexture 
          Caption         =   "Crear"
-         Height          =   375
-         Left            =   2400
+         Height          =   255
+         Left            =   2520
          TabIndex        =   56
-         Top             =   1440
+         Top             =   1560
          Width           =   855
+      End
+      Begin VB.Label Label9 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Start Y"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1200
+         TabIndex        =   72
+         Top             =   1320
+         Width           =   1455
+      End
+      Begin VB.Label Label8 
+         Alignment       =   2  'Center
+         BackStyle       =   0  'Transparent
+         Caption         =   "Start X"
+         BeginProperty Font 
+            Name            =   "Verdana"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   375
+         Left            =   1200
+         TabIndex        =   70
+         Top             =   720
+         Width           =   1455
       End
       Begin VB.Label lblCrearTexturasAlto 
          Alignment       =   2  'Center
@@ -459,7 +517,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   2280
+         Left            =   2520
          TabIndex        =   58
          Top             =   720
          Width           =   975
@@ -1597,6 +1655,8 @@ Dim X                           As Integer
 Dim Y                           As Integer
 Dim LastX                       As Integer
 Dim LastY                       As Integer
+Dim CountX                      As Integer
+Dim CountY                      As Integer
 Dim i                           As Long
 Dim tCount                      As Long
 Dim sTmpGrh                     As String
@@ -1631,10 +1691,11 @@ Dim sValue                      As String
 
     If optTexture.Value = True Then
         i = UBound(GrhData)
-        tCount = ResizeList(TipList.Graficos, lstGraphics.ListCount, CInt(grhCount), Nothing, True, 16)
+        tCount = ResizeList(TipList.Graficos, lstGraphics.ListCount, CInt(grhCount), Nothing, True, Val(txtTextureWidth.Text) * Val(txtTextureHeigth.Text))
         LastX = 0
         LastY = 0
-        
+        CountX = 1
+        CountY = 1
         For i = i + 1 To tCount
             'Ej: 1.5534.32.32.32.32
             'sTmpGrh = "1" & "-" & txtPngNum.Text & "-" & (32 * X) & "-" & (32 * Y) & "-" & "32" & "-" & "32"    'Ancho y alto
@@ -1647,15 +1708,20 @@ Dim sValue                      As String
             GrhData(i).pixelWidth = 32
             GrhData(i).pixelHeight = 32
             GrhData(i).NumFrames = 1
-            GrhData(i).TileWidth = LastX
-            GrhData(i).TileHeight = LastX
+            GrhData(i).TileWidth = LastX * CountX
+            GrhData(i).TileHeight = LastY * CountY
 
             frmMain.lblGrh.Caption = i & "="
             LastX = LastX + 32
             
             If LastX > 0 Then
                 If LastX / 4 = 32 Then
+                    If LastY / 4 = 32 Then
+                        CountY = CountY + 1
+                        LastY = 0
+                    End If
                     LastY = LastY + 32
+                    CountX = CountX + 1
                     LastX = 0
                 End If
             End If
@@ -1736,6 +1802,10 @@ Public Sub Escala_Scroll()
     End If
 End Sub
 
+Private Sub Form_Load()
+    Call optTexture_Click
+End Sub
+
 Private Sub Form_Resize()
    On Error GoTo Form_Resize_Error
 
@@ -1747,7 +1817,6 @@ Private Sub Form_Resize()
 60            If Not (TileEngine Is Nothing) Then
 70                Call TileEngine.Resize
 80            End If
-
 90        End If
 
    On Error GoTo 0
