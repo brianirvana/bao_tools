@@ -1,0 +1,10 @@
+/sum bum@@/sum alicia+keys@@/sum nela
+/mata
+COFRE PLATA ACA
+COFRE ORO ACA
+SYSTEM CALL: MaxBots @20
+SYSTEM CALL: MaxBots @250
+asd
+/addusers
+/online
+/ping

@@ -1,0 +1,397 @@
+[FAQGMS1]
+QUESTION=¡Muchas gracias!
+REPLY=Espero que su consulta haya sido respondida correctamente. 
+
+[FAQGMS10]
+QUESTION=¿Cómo me hago ciudadano?
+REPLY=Para ser ciudadano deberá superar los puntos de ASESINO + BANDIDO (sumados) con sus puntos de PLEBE + NOBLEZA (sumados).||- Para hacer puntos de NOBLEZA y PLEBE deberá matar criaturas o resucitar a Ciudadanos.||- Los puntos de ASESINO y BANDIDO se generan cuando se ROBA o se ATACA/MATA a un Ciudadano, seas la alineación que seas (Ciudadano, o Criminal).
+
+[FAQGMS11]
+QUESTION=¿Cómo fundo un clan?
+REPLY=Para fundar un clan se necesitan los siguientes requisitos.||- Ser nivel 25 o superior |-Tener 5 GuildPoints.||- Una vez cumplidos estos requisitos tipee /FUNDARCLAN y selecciona los detalles de cómo quiere su clan.  Para conseguir un GuildPoint necesitas viajar al Castillo de los Olvidos, y aceptar una misión especial que la otorga Arwen. Para aceptar la misión, debes estar en un party de al menos 3 personas.
+
+[FAQGMS12]
+QUESTION=¿Cómo consigo los GuildPoints?
+REPLY=Para conseguir un GuildPoint necesitas viajar al Castillo de los Olvidos, y aceptar una misión especial que la otorga Arwen. Para aceptar la misión, debes estar en un party de al menos 3 personas.
+
+[FAQGMS13]
+QUESTION=¿Como miro mis GuildPoints?
+REPLY=Para ver la cantidad de GuildPoints que su personaje tiene, tipee /MIREPUTACION. Le dirá cuántos GuildPoints tiene y quienes se los otorgaron.
+
+[FAQGMS14]
+QUESTION=¿Cuáles son las ciudades?
+REPLY=En las tierras de Bender hay un total de 6 ciudades, las cuales son... Ullathorpe (Mapa 1 - x550 - y550).||Harrogath (Mapa 1 - x806 - y570) ||Turgon (1 - x466 - y834)||Murus (Ciudad Legionaria) (Entrada en Mapa 1 - x723 - y748)||Angrod (Ciudad Real) (entrada en Mapa 1 - x630 - y426)||Y por último tenemos la ciudad Perdida de Atlantida (ó Atlanthis) (Entrada en Mapa 1 - x1002 - y650).
+
+[FAQGMS15]
+QUESTION=¿Por qué se me desconecta cuando estoy jugando?
+REPLY=Por lo general, tu usuario se desconecta cuando ocurren las siguientes acciones:||- Por el constante corte de intervalo, es decir, clicks del mouse hacia una o varias ubicaciones/opciones.||- Por el constante corte de intervalo de clicks en el inventario o hechizos.||- Por el incremento del LAG.||- Por el uso indebido e ilegal de cheats o macros externos al juego.
+
+[FAQGMS16]
+QUESTION=URLs importantes.
+REPLY=Web oficial: www.bender-online.com.ar||Foro oficial: www.foro-bender.com.ar||REGLAMENTO (OBLIGATORIO): http://www.milenium-argentina.com.ar/bender/?op=Reglamento||Manual del Juego: 
+WWW.MANUAL.BENDER-ONLINE.COM.AR||DISCORD: HTTPS://DISCORD.GG/NUXMY3G||INSTA: HTTPS://INSTAGRAM.COM/BENDER.AO?IGSHID=martd3ptksc7 .
+
+[FAQGMS17]
+QUESTION=¿Cómo denunciar un incumplimiento del reglamento?
+REPLY= Si usted nota que un usuario realiza un acto que está prohibido (de acuerdo al reglamento oficial de BenderAO), lo que debe hacer es tipear el comando: ||/denunciar “nick” y describir el acto que está realizando el usuario.||Estos pueden ser por ejemplo: Insultos; Abusos de Bug; Cheats; encierros, entre otros.||Si usted no está seguro que lo que vió, está prohibido, puede enviar mediante el comando /GM, y seleccione "Otra consulta..." y especifique lo ocurrido.
+
+[FAQGMS18]
+QUESTION=¿Donde consigo el hechizo Invisibilidad?
+REPLY=El hechizo "Invisibilidad" se puede conseguir en el Dungeon Infernal, ubicado en la posición: 1 - x751 - y488. Una vez allí, entrá en la caverna, y busca una criatura llamada: "No ves nada interesante".||Tener en cuenta: es invisible, posee mucha vida, y realiza mucho daño. Es la única que puede tirar el hechizo invisibilidad.||Con la letra "Q" puedes ver el mapa global del juego.
+
+[FAQGMS19]
+QUESTION=¿Cómo creo una party y cuáles son sus comandos?
+REPLY=- /CREARPARTY o F3: Para crear una party.||- /ACCEPTPARTY “nick” : Para aceptar un usuario.||- /PARTY : Para revisar la experiencia conseguida.||- /PMSG o botón SUPR: Para mensaje privado entre miembros de la party.||- /ONLINEPARTY : Aparece quiénes integran la party, experiencia lograda por cada miembro y el total de exp acumulada en la party.||- /SALIRPARTY : Abandona la party y cobra la experiencia que tenga acumulada, si el fundador abandona la party se disuelve.||- /PARTYLIDER “nick” : Pasa el liderazgo a otro personaje que esté dentro de la party.||- /ECHARPARTY “nick” : Echa un personaje de la party, sólo el fundador puede utilizar este comando.
+
+[FAQGMS2]
+QUESTION=¿Que necesita? Disponible para /IRA
+REPLY=¡Hola estimado usuario! ¿Qué necesita? Estoy disponible para responderle a la brevedad cualquier tipo de consulta. Muchas gracias. 
+
+[FAQGMS20]
+QUESTION=¿Qué son y para qué son los Atributos?
+REPLY=Los Atributos son generados por "dados" lanzados aleatoriamente al tirar dados en la pantalla de creación personaje. Además, según la clase y la raza del personaje creado, los atributos varían. Los mismos, son los que determinan qué tan bueno será el personaje.||Para mas información, ingresa a: http://bender-online.com.ar/manual/razasyatributos.php?seccion=Razas_atributos#ver .
+
+[FAQGMS21]
+QUESTION=¿Se cae el oro?
+REPLY=- Siempre que el oro aparezca en color ROJO y no seas NEWBIE: Se CAE. ||- Cuando el oro en tu billetera es de color amarillo significa que no se caerá al morir.||- Si tenés menos de 100.000 (cien mil) monedas de oro, se te cae todo el oro que tengas.||- Cada nivel podés llevar 100.000 (cien mil) monedas más de de oro, por lo tanto, si sos nivel 45, cuando posees 4.500.000 de oro, se pondrá en rojo (te avisa que se caerá un resto al morir)  y de ahí en más cuando te maten o mueras, el oro en tu billetera caerá hasta dejar el oro correspondiente a tu nivel en tu billetera. 
+
+[FAQGMS22]
+QUESTION=¿Dónde entreno?
+REPLY=Inicialmente, los Newbies entrenan protegidos en el Dungeon Newbie, un Dungeon del que no pueden salir hasta terminar la misión inicial llamada Inicia la cacería.||Posteriormente, los mapas de entrenamiento podrían ser los bosques de los alrededores, o bien catacumbas cercanas a las ciudades más conocidas (Ullathorpe, Turgon, Murus, Angrod), o dungeons de entrenamiento moderado (Pirámide, Kraken, Isla de Circe, Dungeon Marvel) o bien, los mapas de mayor entrenamiento y más peligrosos de estas tierras (Dungeon Veriil, Dungeon Lava, Fuerte Pretoriano, Dungeon Lava No-Mágico)
+
+[FAQGMS23]
+QUESTION=¿Dónde compro los hechizos?
+REPLY=Los hechizos no se compran. Se consiguen matando criaturas:||Las criaturas tienen un pequeño porcentaje de probabilidades de tirar un hechizo.||- Para ver qué criatura te tira cierto hechizo, podés ver el mapa (con la letra "Q") y buscar el nombre del hechizo que desees obtener: ||- Hacer clic en "buscar item" y te marca en el mapa en qué sector del mundo está esa criatura. Además, podrás ver las características principales del npc y qué hechizos tira. 
+
+[FAQGMS24]
+QUESTION=¿A qué nivel cambio de meditación?
+REPLY=Las meditaciones son únicamente para las clases con uso de mana y progresan según los niveles:||- De nivel 1 a 14.||- De nivel 15 a 29.||- De nivel 30 a 34.||- De nivel 35 a 44.||-De nivel 45 a 54 en adelante.
+
+[FAQGMS25]
+QUESTION=¿Cómo funcionan los elementales? ¿Por qué desaparecen?
+REPLY=Al invocar un elemental, mientras tu elemental no esté atacando criaturas, podés hacerle doble clic y desaparecerá. Es una función exclusiva de BenderAO. Si la criatura está atacando, entonces al hacerle doble clic, dejará de atacar y quedará a tus órdenes.||Cuando el npc te golpea, los elementales (Agua y resto de animales) se aproximan y comienzan a atacar a la criatura. Los elementales de Tierra y Fuego, se activan al ser atacados por un usuario.||Para mas información, lo invitamos a ver nuestro Manual: http://www.bender-online.com.ar/manual/criaturasinvocables.php?seccion=criaturasinvocadas#ver.
+
+[FAQGMS26]
+QUESTION=¿Dónde consigo Apocalipsis, Ántrax, Rayo o Descarga?
+REPLY=Los hechizos Apocalipsis, Ántrax, Rayo o Descarga Eléctrica se pueden conseguir en el Dungeon Infernal, ubicado en la posición : 1 - x751 - y488.||Una vez allí, entrá a la caverna y buscá una criatura llamada: "Dark Chatillon". Atención, esta criatura es muy poderosa y posee mucha vida, pero es el único que puede tirar estos hechizos.||Con la letra "Q" puedes ver el mapa global del juego.
+
+[FAQGMS27]
+QUESTION=¿Donde consigo Inmovilizar o Paralizar?
+REPLY=El hechizo Inmovilizar, puede ser conseguido matando la criatura “Lord Ordo”, ya que es la única que puede tirar este hechizo al morir.||Esta criatura, la podemos encontrar en la Isla de Circe, en el Dungeon Marvel, o bien en Dungeon Veriil.||Si desea saber este tipo de información por usted mismo, no dude en utilizar el mapa de la letra "Q" y colocar el nombre del hechizo al lado del botón "buscar ítem" para luego buscar la criatura que tire ese ítem y dónde se encuentra. Muchísimas gracias.
+
+[FAQGMS28]
+QUESTION=¿Me cambia la túnica de donante?
+REPLY=Las túnicas de donante, pueden ser cambiadas de modelos por usted mismo, en la ciudad oculta de Atlanthis. El requisito es haber donado al menos una vez y tener al menos una túnica en el inventario.
+
+[FAQGMS29]
+QUESTION=¿No sube la energía?
+REPLY=Posiblemente te este faltando agua o comida, una vestimenta o bien, está lloviendo en ese mapa. De no ser ninguna de éstas cosas, reporta esto a un administrador utilizando el comando /GM. Muchísimas gracias.
+
+[FAQGMS3]
+QUESTION=¿Puedo salir del Dungeon Newbie?
+REPLY=Inicialmente, los Newbies entrenan protegidos en el Dungeon Newbies hasta terminar la misión inicial llamada Inicia la cacería. Para poder entrenar, deberán aceptar las misiones ¡Inicia la aventura! para poder luego hacer la misión llamada ¡Inicia la cacería! Una vez terminadas ambas misiones, automáticamente saldrás a la ciudad que hayas elegido al crear tu personaje.||- Posteriormente, los mapas de entrenamiento podrían ser los bosques de los alrededores, o bien catacumbas cercanas a las ciudades más conocidas como Ullathorpe, Murus o Turgon.||- Dungeons de entrenamiento de dificultad moderada como la Gran Pirámide.||- Por último, los mapas de mayor entrenamiento y más peligrosos de estas tierras, como son Lava y Dungeon Veriil.
+
+[FAQGMS30]
+QUESTION=¿Cómo me hago ciudadano de una ciudad /HOGAR?
+REPLY=Para hacerse ciudadano de una ciudad específica, vaya a la ciudad que usted desee, y ubique al Gobernador de esa ciudad (es un NPC azul, que normalmente se encuentra por el centro de la ciudad) y coloque el comando /hogar + nombre de ciudad. Ejemplo: /HOGAR Ullathorpe. Atentamente.
+
+[FAQGMS31]
+QUESTION=¿Cómo hago espadas matadragones? 
+REPLY=Para construir espadas matadragones, debe conseguir minerales de hierro, plata y oro (550+550+ 650) , para luego hacerlos lingotes. Debemos tener:||- Un trabajador con 100 skills en herrería.||- Un martillo de herrero.||- Equipar el martillo, hacer clic + clic sobre un Yunque (en las ciudades hay normalmente) y verá el panel para construir objetos.|| Para mas información, visite nuestro manual: http://bender-online.com.ar/manual/herreria.php?seccion=herreria#ver .Muchísimas gracias. 
+
+[FAQGMS32]
+QUESTION=¿Cómo me hago armada si tengo más de 2 ciudadanos matados? 
+REPLY=Debe pedir el perdón real vía discord al Consejo de Angrod. El consejo de Angrod es una agrupación de los mejores Armadas del reino, quienes están a cargo de dicha función. Lea el foro www.foro-bender.com.ar en la sección Roleros> Consejo de Angrod está toda la info necesaria. Atentamente.
+
+[FAQGMS33]
+QUESTION=¿Cómo averiguo los personajes registrados a mi e-mail?
+REPLY=Con el comando /MISPJS podrá saber cuales personajes tienes registrados a tu e-mail. Lo que sí, tendrás que recordar a qué e-mail los registraste.||Para esta y más info sobre nuevos comandos, visita el manual oficial en la sección controles y comandos. Atentamente.
+
+[FAQGMS34]
+QUESTION=¿Qué utilidades tienen los ítems de Donantes?
+REPLY=- Las túnicas de donante, no se caen y tienen 30/30 de defensa. Esa es su utilidad máxima.||- Los lingotes de donante, sirven para construir cualquier ítem de herrería, con tan solo uno solo de estos lingotes||- Y los Laureles son un ítem meramente decorativo, no tienen utilidad alguna. Atentamente.
+
+[FAQGMS35]
+QUESTION=¿Cómo pido el perdón Real?
+REPLY=Para poder ser Armada Real, deberás pedir el perdón llenando la planilla estipulada en el discord oficial de Bender AO, sección Facciones> Armada Real (https://discord.gg/nuXMy3g)
+
+[FAQGMS36]
+QUESTION=¿Cómo pido el perdón Legionario?
+REPLY=Para poder ser Armada Real, deberás pedir el perdón llenando la planilla estipulada en el discord oficial de Bender AO, sección Facciones> Legión Oscura
+
+[FAQGMS37]
+QUESTION=¿Cómo guardo oro en el banco? 
+REPLY=Para poder guardar el oro de tu billetera en el banco, deberás utilizar el comando /DEPOSITAR seguido de la cantidad en números que quieras depositar. Ejemplo: /DEPOSITAR 100. Atentamente. 
+
+[FAQGMS38]
+QUESTION=¿Dónde quemo MDs??
+REPLY=Las espadas matadragones, sirven especialmente para poder matar al Gran Dragón Negro, la criatura más poderosa de estas tierras, la cual al morir, deja muchas recompensas.||Se puede encontrar a este Gran Dragón en Lava, en mapa 2 - x1063 - y592.
+
+[FAQGMS39]
+QUESTION=Ya doné.. ¿Cuando me llega el código?
+REPLY=Una vez efectuado el pago, debe esperar entre 24 y 48hs y le llegará por correo electrónico al e-mail que utilizó para imprimir la boleta, el código de donación (con instrucciones incluídas); Muchas gracias.
+
+[FAQGMS4]
+QUESTION=¿Donde compro barca?
+REPLY=Las barcas NO se pueden comprar a una criatura del juego que las venda.||Los personajes Trabajadores, necesitan de herramientas para construir objetos. En el caso de la carpintería, necesitarás de un Serrucho y 40 puntos de habilidades en Carpintería para construir objetos con leños (entre ellos, una Barca). Otra opción podría ser conseguirla mediante un intercambio / compra de la barca, a otros users del juego. 
+
+[FAQGMS40]
+QUESTION=¿Me cambian el nick?
+REPLY=Los cambios de nicks se realizan únicamente a usuarios con el nick inválido y/o considerados Anti Roleros. Sólo debe esperar a que un Role Master anuncie que está realizando cambios de nicks, y solicitar el mismo mediante el comando /ROL seguido de su petición. Espero le haya servido. Atentamente.
+
+[FAQGMS41]
+QUESTION=¿Me cambian la cabeza?
+REPLY=No se realizan los cambios de cabeza, pero existe la posibilidad de cambiarse la cabeza con el comando /RESETEAR que puede ser utilizado de nivel 1 al 17, pero su personaje volverá a nivel 1 y todos los skills volverán a 0, la vida y mana volverá a nivel 1.||La excepción es que un Role Master organice una Quest, y anuncie como premio dicha modificación.
+
+[FAQGMS42]
+QUESTION=¿Por qué las criaturas no me dan experiencia?
+REPLY=Ahora las criaturas tienen niveles y es muy importante saber para qué sirven.||- Si una criatura es 10 niveles mayor ó menor a tu nivel, esa criatura no te dará experiencia.||- Si esa criatura es de 7 a 9 niveles de diferencia, solo te dará el 50% de la experiencia.||- Si la criatura es de 5 a 6 niveles de diferencia te dará 75% de la experiencia.||- Si es de 1 a 4 niveles de diferencia te dará el 100% de la experiencia.||- Y si en cambio es igual a tu nivel, te dará un bonus de 10% más de experiencia, es decir: 110% de experiencia total que da esa criatura.||Es recomendable matar criaturas que estén cerca de tu nivel para entrenar más rápido. Atentamente.
+
+[FAQGMS43]
+QUESTION=¿Donde quedan las minas de Hierro?
+REPLY=Las minas de hierro, las podemos ubicar desde el mapa terrestre, cercanas a la ciudad de Turgon, yendo hacia la posición 1 - x393 - y935, encontrarás una caverna, adéntrate y llegarás a tu destino.||Luego hay otras minas de Hierro en Mapa 1 - x630 - y579. Espero le haya servido esta información.
+
+[FAQGMS44]
+QUESTION=¿Donde quedan las minas de Plata?
+REPLY=Podemos ubicar las minas de plata, en la isla del Mapa 1 - x892 - y939. Espero le haya servido esta información.
+
+[FAQGMS45]
+QUESTION=¿Cómo donar?
+REPLY=Para donar, hay que visitar la página web www.bender-online.com.ar, en la sección "PREMIUM" o "DONACIONES" podrás encontrar los botones de pago de MercadoPago, o también el botón de suscripciñon mensual, el cual tiene los mismos beneficios que un botón de pago normal, y adicionalmente más recompensas y facilidades por mantener tu suscripción.
+
+[FAQGMS46]
+QUESTION=¿Cómo domar una criatura?
+REPLY=Cuando apretas Clic + D sobre la criatura, intentas domar una criatura, lo que haces es intentar domarla, pero una vez que la domaste, si le volves a hacer "doble clic" esta criatura desaparece, porque es una función de BenderAO para matar criaturas domadas o mascotas. Entonces tenes que hacerle clic y cuando te avise en consola "La criatura ya te ha aceptado como su amo" dejas de hacer clic o sino, va a desaparecer. Espero que hayas entendido bien. ¡Muchas gracias! 
+
+[FAQGMS47]
+QUESTION=¿Cada cuánto respawnean/aparece el Gran Dragón Negro?
+REPLY=Esta criatura es la más poderosa del juego y aparece cada 10 minutos luego de haberlo matado. Tenga mucho cuidado. ¡Saludos! 
+
+[FAQGMS48]
+QUESTION=¿Los ítems de donante expiran/desaparecen?
+REPLY=Una nueva función de "algunos ítems" de donante, es que duran una cantidad determinada de tiempo. En el nombre del objeto, aparecerá la durabilidad de este objeto, pero el tiempo solo resta cuando está equipado el ítem. Por ende, podemos tener un ítem eternamente en el inventario sin usarlo, pero cuando lo usemos, irá perdiendo tiempo de uso.|| Posicionando el cursor sobre el ítem, podremos ver sus cualidades ej; defensa mágica, multiplicador de experiencia o de oro, y también su duración restante. ¡Gracias! 
+
+[FAQGMS49]
+QUESTION=¿Cómo Funciona la Minería / Talador / Pescador?
+REPLY=Si sos menor o igual a nivel 20, el mínimo de minerales por vez es: 1 y el máximo es: (TU NIVEL + 10). Si sos mayor a nivel 20, te da entre 3 y (TU NIVEL + 15), si sos mayor o igual a nivel 30, te da entre 7 y (TU NIVEL + 25).||Minar, talar y pescar, funcionan de la misma manera. Para mas información, te invitamos a ver nuestro manual: http://www.bender-online.com.ar/manual/ . Muchas gracias. 
+
+[FAQGMS5]
+QUESTION=¿Cómo hago una barca?
+REPLY=Las barcas solamente se fabrican con un personaje de clase Trabajador, 9000 leños, un Serrucho y 40 skills (Puntos de Habilidades) mínimo en carpintería. Además, en Ulla podemos encontrar una misión que nos dará una barca a cambio de matar algunos Npcs.
+
+[FAQGMS50]
+QUESTION=¿Cómo hago skills en supervivencia?
+REPLY=Para hacer skills o puntos de habilidad en "Supervivencia" debes tirar al piso 3 leños como mínimo, luego con una daga común equipada, apretar "U" + Clic sobre los leños en el piso, hasta que empiecen a volverse ramitas, y luego una fogata. Ese proceso, hará que ganes puntos (skills) en esa habilidad.
+
+[FAQGMS51]
+QUESTION=¿Por qué Turgon es zona insegura?
+REPLY=Luego de una temible invasión liderada por el Gran Demonio Legionario, la ciudad quedó devastada y ahora es una zona insegura. El rey tomó la decisión de ordenar la retirada de la custodia real en dicha ciudad y, producto de esto, se produjeron múltiples robos, saqueos y muertes. Por esta razón, tomá las precauciones correspondientes para circular por la zona. #QuedateEnCasa #UllaEsTuHogar #HarrogathEsTuHogar 
+
+[FAQGMS52]
+QUESTION=¿Donde están los dungeons? 
+REPLY=Las dungeons podrás encontrarlos con sus respectivos nombres abriendo el mapa (con la letra Q).
+
+[FAQGMS53]
+QUESTION=¿Dónde entreno? Lvl 1 a 20
+REPLY=- Dungeon Newbie: Es un dungeon que contiene NPCs apropiados para entrenar personajes "Newbies", hasta terminar la misión inicial llamada Inicia la cacería.||- Catacumbas: Es un lugar ideal para entrenar luego de salir del Dungeon Newbie, tiene NPCs variados que pueden dar ítems y oro para la supervivencia en los niveles más avanzados. 
+
+[FAQGMS54]
+QUESTION=¿Dónde entreno? Lvl 20 a 25
+REPLY=- Dungeon Maleghin: Es un excelente lugar para entrenar en estos niveles. Contiene NPCs poderosos, no conviene subestimar a los habitantes de este Dungeon, se puede tornar muy peligroso.||- Black Dungeon: También conocido como Dungeon Dragon, ya que allí habita el Gran Dragón Negro. Es un lugar muy peligroso, pero a la vez recomendable para entrenar.||Dungeon Cementerio: Es un Dungeon que contiene NPCs como Esqueletos guerreros y brujas, es un lugar muy tenebroso y lleno de misterios. 
+
+[FAQGMS55]
+QUESTION=¿Dónde entreno? Lol 25 a 40
+REPLY=- Gran Pirámide: En esta pirámide habitan NPCs muy buenos para el entrenamiento, muy recomendable para niveles de 25 hasta 40, la experiencia que se puede obtener aquí es muy buena, y deja frutos en tanto al oro..||Isla de Circe: Es una isla merodeada por cocodrilos, y tiene una cueva adentro, la cual es muy peligrosa, pero las recompensas que se obtienen en esta cueva, te aseguro aventurero, que no se consiguen en ninguna otra parte..
+
+[FAQGMS56]
+QUESTION=¿Dónde entreno? lvl 30/35 a MAX
+REPLY=- Lava: Para aventurarte en este lugar requieres de buen equipamiento y mucha destreza. El dungeon está lleno de Golems, dragones rojos, almas infernales y hasta Dragones Negros. El lugar también tiene una cueva la cual a los hechiceros no les permite utilizar sus magias, ideal para clases no mágicas.||Fuerte Benderiano: Aquí habita el Rey de estas tierras junto a sus fieles protectores. Su entrada está muy bien escondida, para poder entrar a este dungeon, se requiere pasar por un largo laberinto donde muy pocos guerreros lograron pasarlo sin morir en el intento. Si logras derrotar al ejército del rey, serás muy bien recompensado joven... Pero el riesgo, es muy alto.
+
+[FAQGMS57]
+QUESTION=¿Qué significan las estrellas en cada pj?
+REPLY=- Un personaje puede tener estrellas a ambos lados, a su izquierda las que anuncian su nivel:||- Dorada en el nivel máximo.||- Plata 1 nivel menos que el máximo.||- Bronce, a 2 niveles menos que el límite.||Por otro lado, al costado derecho podemos encontrar la estrella violeta, la cual indica a un usuario donante.
+
+[FAQGMS58]
+QUESTION=¿Cómo me hago Concilio de las Sombras? 
+REPLY=Para alcanzar el puesto de Concilio de las sombras, deberá aguardar la apertura de postulaciones vía foro/discord de la facción en cuestión. La cúpula faccionaria es quien decidirá de qué manera se llevará adelante la elección. Para más información utilice el comando /rol.
+
+[FAQGMS59]
+QUESTION=¿Cómo me hago Consejo de Angrod?
+REPLY=Para alcanzar el puesto de Consejo de Angrod, deberá aguardar la apertura de postulación vía foro/discord de la facción en cuestión. La cúpula faccionaria es quien decidirá de qué manera se llevará adelante la elección. Para más información utilice el comando /rol.
+
+[FAQGMS6]
+QUESTION=¿Donde están minas de oro?
+REPLY=Las minas de oro se encuentran en el mapa 2 - x1046 - y644. Se entra por lava, se atraviesa un laberinto tan oscuro que ni los mismos dioses creadores de la noche y la oscuridad pueden ver la luz.||Con la letra 'Q' puede ver el mapa del juego, y con la flecha para arriba, las referencias del mapa. Coordenadas corregidas
+
+[FAQGMS60]
+QUESTION=¿Cómo asciendo de Rango Faccionario?
+REPLY=Deberá acercarse hacia su Líder Faccionario, ya sea al Gran Demonio o al Rey de Angrod, darle click y tipear /recompensa, de cumplir con todos los requisitos recibirá su ascenso, de no ser así, recibirá instrucciones de su Líder.
+
+[FAQGMS61]
+QUESTION=¿Cuál es el nivel máximo que puedo alcanzar?
+REPLY=El nivel máximo durante la versión oficial será el 55.
+
+[FAQGMS62]
+QUESTION=¿A qué nivel puedo enlistarme en una Facción?
+REPLY=Puedes enlistarse en una Facción a partir del nivel 25 Armada real y nivel 20 Legión oscura  y deberás cumplir con los requisitos que pidan.
+
+[FAQGMS63]
+QUESTION=¿Por qué veo el juego en ventana minimizada?
+REPLY=Para ver el juego en pantalla completa, debe dirigirse a su inventario donde dice OPCIONES> CONFIGURAR> y tildar la opción PANTALLA COMPLETA. Espero haber sido de su ayuda. 
+
+[FAQGMS64]
+QUESTION=¿Puedo jugar en una pc y talar/minar/pescar en otra?
+REPLY=No, ésta actividad es considerada DOBLE CLIENTE, y es penada por el staff de BenderAo, para más información le sugiero visitar el manual en su inventario haciendo click en OPCIONES>MANUAL. 
+
+[FAQGMS65]
+QUESTION=¿Puedo cambiar el nick?
+REPLY=Los GM’S se reservan el cambio de nick  para casos en los que él mismo considere el nombre de un personaje como “inapropiado”/”antirolero”. De ser de otra manera, el nick no sufrirá modificaciones a menos que haya justas explicaciones. Además, con el comando /aname y teniendo puntos donantes te lo podes cambiar. 
+
+[FAQGMS66]
+QUESTION= Puedo cambiar la cara?
+REPLY= La cara de un personaje sólo puede ser modificada con puntos de donante con el comando /cara, los cuales son obtenidos mediante una donación. Para más info haga click en su inventario OPCIONES> DONACIÓN . Espero haber sido de su ayuda.
+
+[FAQGMS67]
+QUESTION=¿Cómo me hago pk?
+REPLY=Para convertirse en un CRIMINAL, usted debe tipear el comando /SEG, al ser desactivado, usted cuando ataque a un ciudadano, causándole heridas/robándole o matándolo, se convertirá en criminal. Espero haber sido de su ayuda.  
+
+[FAQGMS68]
+QUESTION=¿Cómo se si está bien mi vida?
+REPLY=Para conocer el promedio de su personaje debe tipear el comando /PROMEDIO, en consola. Obtendrá toda la información necesaria. 
+
+[FAQGMS69]
+QUESTION=¿Cuál es el máximo de vida que tira un persona?
+REPLY= El máximo de vida depende de la clase y raza que usted elija o haya elegido, además de los dados de su personaje. Para más información puede ingresar a OPCIONES>MANUAL o bien continuar ésta consulta especificando su raza y clase. 
+
+[FAQGMS7]
+QUESTION=¿Donde hago oro?
+REPLY=Inicialmente, debe recorrer los bosques y catacumbas, en búsqueda de algunas criaturas para obtener algunas monedas luego de matarlas, como también los hechizos (ya que no se pueden comprar) luego se podrá aventurar hacia la Isla de circe (se encuentra en el mapa: 1 - x751 - y488) en donde existen criaturas que dejan grandes recompensas en oro de estas tierras, también es posible encontrar los hechizos más importantes en la misma caverna, en distintos sectores. 
+
+[FAQGMS70]
+QUESTION=¿Cómo ordeno mi inventario sin tirar items al piso?
+
+[FAQGMS71]
+QUESTION=¿Cómo hago para que me resuciten?
+REPLY=Para poder ser resucitado por otro usuario debe asegurarse de presionar la tecla FIN al momento de morir, de ésta manera, con el seguro desactivado, podrán resucitarlo. También haciendo click en el icono del “casper” el seguro.. abajo a la derecha de la pantalla. 
+
+[FAQGMS72]
+QUESTION=¿Cómo consigo puntos de nobleza para enlistarme?
+REPLY=Para conseguir los puntos necesarios de nobleza, deberá dirigirse a la zona insegura de la ciudad de Ullathorpe y matar npcs tales como “lobos”, “duendes”, “esqueletos”.
+
+[FAQGMS73]
+QUESTION=¿Cómo hago ítems de herrería?
+REPLY=Para producir ítems de herreria deberá seguir los siguientes pasos:||- Crearse un trabajador||- Dirigirse hacia cualquiera de las minas: Oro, plata o hierro y minar con un pico de minero.||- Dirigirse a cualquiera de los hogares de zona segura que contengan una fragua y transformar sus minerales en lingotes.||- Transformar los lingotes en ítems, con un martillo y en un yunque de cualquier zona segura. Espero haber podido ayudarle,
+
+[FAQGMS74]
+QUESTION=¿Cómo realizo un torneo?
+REPLY=Usted podrá realizar torneos tipeando el comando el comando /itorneo, siempre y cuando posea puntos de donante; Los cuales únicamente se consiguen donando. Para más info en su inventario clickee OPCIONES> DONAR. 
+
+[FAQGMS75]
+QUESTION=¿Puedo mover personajes de slot al crearlos?
+REPLY=No hay posibilidad de realizar dicha acción, cada personaje permanecerá en el slot en el que ha sido creado.
+
+[FAQGMS76]
+QUESTION=¿Cómo me uno a un clan?
+REPLY=Para unirse a un clan, deberá dirigirse a su inventario, darle click a CLANES, se le abrirá una pestaña donde podrá ver todos los clanes existentes. Puede buscar su preferencia y enviar una solicitud. Deberá aguardar que el líder le responda. 
+
+[FAQGMS77]
+QUESTION=¿Para qué sirven los minerales?
+REPLY=Los minerales deben ser convertidos en lingotes (mediante un trabajador en una fragua) para luego poder convertirlos en lingotes, y éstos. en ítems de herrería.
+
+[FAQGMS78]
+QUESTION= ¿Cómo puedo pedir la ayuda de un bot?
+REPLY=Para que un bot pueda ayudarlo debe tipear la siguiente oración “Alguien me ayuda?” (sin comillas) y “nick” dejame en paz para sacarlo.
+
+[FAQGMS79]
+QUESTION= ¿Cómo funciona el sistema de castillo?
+REPLY=El sistema de castillo está programado de tal manera que saca puntos dependiendo la cantidad de usuarios online del clan al cual le conquistes.
+
+[FAQGMS8]
+QUESTION=¿Donde me enlisto?
+REPLY=Si eres ciudadano, y deseás enlistarte en las tropas Reales, deberás ir hacia el mapa 1 - x630 - y426 (ciudad real de Angrod).||En cambio, si eres un criminal o aspirante al mal, deberás dirigirte hacia el mapa 1 - x723 - y748 (ciudad legionaria de Murus).||Deberás buscar al Rey o en su defecto, al Gran Demonio, y en ambos casos hacerle clic y colocar /ENLISTAR.||Pulsa la letra "Q" para ver el mapa del juego. Tambien puedes enlistarse a traves de una quest, para mas informacion podes visitar nuestro manual.
+
+[FAQGMS80]
+QUESTION= ¿Cómo salgo del Dungeon Newbie?
+REPLY=Primero tenes que hacer la primer misión, que te la da el bardo que tiene un signo de pregunta en la cabeza. Esa misión es simplemente encontrar el Mercader que se llama Lilian, y hacerle varias veces doble clic, y comprar 100 rojas, 100 bebida y 100 comida.||Luego, debes aceptar y finalizar la misión 'Inicia la cacería', que es otra misión diferente. Una vez finalizada esa misión (es decir la segunda misión), te lleva automáticamente a al hogar que hayas elegido al crear el personaje.
+
+[FAQGMS81]
+QUESTION=Anda lento el Cliente, falta rendimiento
+REPLY=Me han reportado que apenas terminas de instalar, se lagea un toque. Si reinicias el cliente se soluciona y anda de 10. Te recomiendo poner 1000 fps, el máximo de memoria, y elegí la opción de video que mejor te resulte en cuanto a rendimiento y fluidez. Eso podes hacerlo en la ruedita arriba a la derecha.
+
+[FAQGMS82]
+QUESTION=Estaría bueno que aumenten el % de subir skill
+REPLY=Ya está solucionado, los skills ahora suben más rápido. De todas formas, no es super rápido, pero antes estaban imposibles en niveles muy altos. Ahora no tanto.
+
+[FAQGMS83]
+QUESTION=donde estan las 65 personas xd
+REPLY=Hay varios bots como usuarios, y la mayoría están cerca o alrededor de Turgon, ullathorpe y Murus.
+
+[FAQGMS84]
+QUESTION=Che, se puso la experiencia dificilisima de repente... que onda es un error o queda asi-?
+REPLY=Ya está solucionado, la experiencia ahora suben más rápido. De todas formas, no es super rápido, pero antes estaban imposibles en niveles muy altos. Ahora no tanto.
+
+[FAQGMS85]
+QUESTION=Hay mision de golem en dungeon helado=?
+REPLY=Si, ahora las misiones están todas en Harrogath.
+
+[FAQGMS86]
+QUESTION=NO ESTA LA PARCA...................................
+REPLY=La parca respawnea por tiempo. No es instantánea. Para ver el tiempo que demora, buscala en el mapa de la letra "Q" o en el botón "MAPA" abajo del minimapa del juego.
+
+[FAQGMS87]
+QUESTION=sigue sin haber draco en lava
+REPLY=El dragón respawnea cada 10 minutos, esa información la podes ver en el mapa de la letra "Q" o en el botón "MAPA" abajo del minimapa. Ahora cuando el dragón respawnea, también avisa en consola, para que lo puedas visualizar.
+
+[FAQGMS88]
+QUESTION=Hola Gm como veo comos seguir la quest para saber q tengo q hacer
+REPLY=Para ver el progreso de las misiones, tenes un botón llamado "MISIONES" abajo a la derecha del juego. 
+
+[FAQGMS89]
+QUESTION=HOLA COMO ES EL TEMA DE LAS FACCIONES EN ESTE AO A LO QUE ME REFIERO ES CUANTOS FRAGS SE NECECITAN
+REPLY=No es con frags acá. ES con puntos. Si matas un nivel 30, tenes 30 puntos. Necesitas "X" cantidad de puntos para entrar en la facción. El rey te dice cuántos puntos necesitas. A eso se refiere.
+
+[FAQGMS9]
+QUESTION=¿Cómo veo el mapa?
+REPLY=Para ver el mapa del mundo presione la letra Q, o debajo del minimapa hay un botón que dice "MAPA". En ese mapa también podrás seleccionar una criatura para calcular cuántas debes matar (con el botón "calcular") y también ver sus características, como: Nombre, Nivel, Vida, Experiencia, oro, Drops (es decir, los ítems que tira y el porcentaje de probabilidades de tirar ese ítem al morir).
+
+[FAQGMS90]
+QUESTION=Soy criminal estoy matando pollitos para hacerme ciuda y ni se mueve la nobleza... mate como 50 pollos y sigo siendo criminal :(
+REPLY=No es un bug, si sos criminal, no podes volver a hacerte ciudadano. No sube más la nobleza matando bichos, sino que te sube en bandido. Para hacerte ciudadano hay una única misión que podes hacer una sola vez, que es matar 1k de pollitos, pero tenes que tener la misión tomada, y la recompensa te perdona y vuelve ciudadano. Si te volves a hacer criminal, hay una última misión que podes hacer, pero es muchísimo más difícil, son 10k de pollitos y muchos otros objetivos más complejos. Elije bien tu bando y respetalo!
+
+[FAQGMS91]
+QUESTION=Gm buenas, queria saber que beneficio te da ser donardor, gracias.
+REPLY=Por ahora no están implementadas las nuevas cosas para donadores. Existirán 2 tipos de donaciones, una suscripción mensual, que tendrá un paquete de beneficios a nivel mensual, osea todos los meses el mismo beneficio. Y otro tipo de aporte único, donde uno hace un pago cualquiera, y recibe una cantidad de diamantes y con eso compra ciertas cosas que estarán a la venta en Atlanthis sobre todo.
+
+[FAQGMS92]
+QUESTION=NO PUEDO SALIR DE NW SOY 33....
+REPLY=Primero tenes que hacer la primer misión, que te la da el bardo que tiene un signo de pregunta en la cabeza. Esa misión es simplemente encontrar el Mercader que se llama Lilian, y hacerle varias veces doble clic, y comprar 100 rojas, 100 bebida y 100 comida y listo. La segunda misión que te da, te deja entrar al dungeon newbie, y al terminarla te saca automáticamente cuando la completas.
+
+[FAQGMS93]
+QUESTION=No es azar la vida hasta lvl 20 tiran ups a lo loco, de 20 a 40 mantiene/baja promediio y despues termina por debajo (porque el promedio toma los iniciales)
+REPLY=Promedio es promedio, vida / nivel. A menor nivel, tenes mayor promedio, porque arrancas con un promedio de 20 de vida aproximadamente. Que sería casi el doble de promedio de vida que cualquier clase. El sistema esta hecho para que en nivel 40 se empareje, y tengas un promedio más real, y no tengas que crear 20 pjs para q salga con buena vida. Ningun pj es inservible en bender, ni tampoco vas a encontrar uno +20, porque sino todo el balance del juego se rompería. De todas formas, existe una remota chance q te salga con buena vida arriba (bastante)
+
+[FAQGMS94]
+QUESTION=donde esta la entrada de maravel?
+REPLY=La entrada al Dungeon Maravel se encuentra en el mapa 1 (El continente), en la posición X: 558 Y: 300. Esto queda al NORTE de Ullathorpe, siguiendo el sendero que hay hacia arriba de la ciudad.
+
+[FAQGMS95]
+QUESTION=un error del juego no aparece donde estan los arboles encantados en el mapa
+REPLY=Los Árboles Encantados si aparecen en el mapa. Pero al tener tilde, cuando apretas la A no te lleva automáticamente. Tenes que apretar el tilde y luego la A y ahí te muestra los árboles en el mapa.
+
+[FAQGMS96]
+QUESTION=Como llego a catacumbas del río??
+REPLY=Para encontrar las catacumbas del río, tenes que ir hacia el norte desde ullathorpe, hasta que te encuentres con el río y una pequeña isla con una arena de combate en ella. Si vas hacia el Oeste (izquierda) y seguís subiendo, encontrarás un puente y a su izquierda un camino que te llevará directo a la entrada a las Catacumbas del Río  (Pos: 1 477 323) aprox.
+
+[FAQGMS97]
+QUESTION=Necesito saber donde estan las arañas pollito
+REPLY=Para buscar una criatura y saber en qué area respawnea, podes apretar el botón "MAPA" y ahí buscar en la lista de criaturas la que estes buscando, y te marcará la posición del mapa donde aparecen esas criaturas en color amarillo. A veces una misma criatura aparece varias veces en la lista, porque son de diferentes niveles.
+
+[FAQGMS98]
+REPLY=Reparado! Mil disculpas por la demora en la respuesta. Quiero agradecerte por haber participado activamente y ayudado a corregir los errores del juego. Estamos volviendo de a poco con el desarrollo del proyecto, para poder lanzar la última versión de BenderAO!
+QUESTION=dungeon helado tiene una parte que no se puede pasar. Creo que faltan spawns tabien pq no encuentro golems
+
+
+[INIT]
+MOSTRAR=1
+NUMFAQS=98
+

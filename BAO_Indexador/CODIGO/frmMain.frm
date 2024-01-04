@@ -369,6 +369,7 @@ Begin VB.Form frmMain
          Left            =   1200
          TabIndex        =   64
          Top             =   240
+         Value           =   -1  'True
          Width           =   855
       End
       Begin VB.OptionButton optTexture 
@@ -377,7 +378,6 @@ Begin VB.Form frmMain
          Left            =   240
          TabIndex        =   63
          Top             =   240
-         Value           =   -1  'True
          Width           =   855
       End
       Begin VB.TextBox txtTextureWidth 
@@ -1791,7 +1791,7 @@ Public Sub Escala_Scroll()
 End Sub
 
 Private Sub Form_Load()
-    Call optTexture_Click
+    Call optHeads_Click
 End Sub
 
 Private Sub Form_Resize()
@@ -2081,6 +2081,7 @@ Private Sub optHeads_Click()
     txtTextureHeigth.Text = 50
     lblCrearTexturasAncho.Caption = "Ancho (Pixels)"
     lblCrearTexturasAlto.Caption = "Alto (Pixels)"
+    txtPngNum.Text = 2083
 End Sub
 
 Private Sub optTexture_Click()
@@ -2088,6 +2089,7 @@ Private Sub optTexture_Click()
     txtTextureHeigth.Text = 4
     lblCrearTexturasAncho.Caption = "Ancho (Tiles)"
     lblCrearTexturasAlto.Caption = "Alto (Tiles)"
+    txtPngNum.Text = 6000
 End Sub
 
 Private Sub renderer_KeyUp(KeyCode As Integer, Shift As Integer)
@@ -2392,7 +2394,6 @@ Dim i                           As Long
 160         lstGraphics.List(SelectIndexs(i) - 1) = NameLineGraphic(CLng(SelectIndexs(i)))
             'cmbFondo.List(selectindexs(i)) = NameLineGraphic(selectindexs(i))
 170     End If
-
 180 Next i
 
 190 Call GraphicsChange
@@ -2412,7 +2413,6 @@ Dim i                           As Long
             'cmbFondo.List(lstGraphics.ListIndex + 1) = NameLineGraphic(lstGraphics.ListIndex + 1)
 320     End If
 330 End If
-
 
 340 On Error GoTo 0
 350 Exit Sub

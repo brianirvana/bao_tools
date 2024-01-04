@@ -1,0 +1,10 @@
+/mercado
+
+/recompensa
+/transparente
+/mercado
+/vencedorarma
+/vencedor
+/est
+/ping
+/online

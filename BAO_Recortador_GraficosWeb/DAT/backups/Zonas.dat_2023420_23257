@@ -1,0 +1,2792 @@
+'Info limite de zonas es 255, si se usa mas cambiar esta linea
+'"Zona as Byte 'Si se usan mas de 255 zonas, cambiar este valor por INTEGER [MaTeO]"
+
+'Name                        As String   'Nombre de la zona
+'PK                          As Boolean  'Zona segura/insegura
+'BackToMap                   As Byte     'Mapa de regreso, por si la zona tiene algún factor que patee al usuario en dicha zona, a otra zona por default.
+'BackToX                     As Integer  'Pos X de regreso, por si la zona tiene algún factor que patee al usuario en dicha zona, a otra zona por default.
+'BackToY                     As Integer  'Pos Y de regreso, por si la zona tiene algún factor que patee al usuario en dicha zona, a otra zona por default.
+'SoloParty                   As Byte     'Zona sólo para usuarios en party. El número de SoloParty indica la cantidad mínima de miembros en la party para poder ingresar a la zona.
+'SoloClanes                  As Byte     'Zona sólo para usuarios en clan. El número de SoloParty indica la cantidad mínima de miembros en el clan para poder ingresar a la zona.
+'SoloCampaign                As Integer  'Zona sólo para usuarios en Misión. El número de misión indica la misión actual del usuario necesaria para poder ingresar a la zona.
+'SoloCampaignStage           As Integer  'Zona sólo para usuarios en un objetivo determinado de una Misión. El número de objetivo indica el objetivo de la misión actual del usuario necesaria para poder ingresar a la zona.
+'SoloGuildIndex              As Integer  'Zona sólo para usuarios de un clan específico. El número de SoloGuildIndex indica el clan para poder ingresar a la zona, que es el clan dominante del castillo.
+'SoloDonantes                As Integer  'Zona sólo para usuarios donantes. El número de SoloDonantes indica la cantidad mínima de puntos donantes para poder ingresar a la zona.
+'SoloPlata                   As Integer  'Zona sólo para usuarios con Monedas de Platino. El número de SoloPlata indica la cantidad mínima de Monedas de Platino para poder ingresar a la zona.
+'MaxLevel                    As Byte     'Nivel máximo para ingresar/permanecer y permanecer en la zona. Si logeas en la zona siendo mayor nivel al permitido, te patea a BackTo + map,x,y (si tiene, sino tiene configurado BackTo,  te manda a ulla)
+'MinLevel                    As Byte     'Nivel Mínimo para ingresar/permanecer a la zona.
+'MinOnlines                  As Integer  'Mínima cantidad de usuarios online en el server, para poder ingresar/permanecer a la zona. MinOnlines
+'MaxUsers                    As Integer  'Máxima cantidad de usuarios en la zona.
+    
+'MagiaSinEfecto              As Byte     'Magia sin efecto en la zona 1 Desactivado = 0
+'InviSinEfecto               As Byte     'Invi sin efecto en la zona 1 Desactivado = 0
+'ResuSinEfecto               As Byte     'Resu sin efecto en la zona 1 Desactivado = 0
+'RestringirGM                As eGMRestriccionZona 'Suma en bits de restricciones de la zona.
+'OcuSinEfecto                As Byte
+'BenderSinEfecto             As Byte
+'Terreno                     As eZona
+'Zona                        As eZona
+'Restringir                  As String
+''Backup                      As Byte
+'Niebla(3)                   As Byte
+'Luz(3)                      As Byte
+'VelocidadCambioLuz          As Integer
+'MaxMp3                      As Byte
+'MaxMidi                     As Byte
+'Mp3()                       As Byte
+'Midi()                      As Byte
+'MaxWav                      As Byte
+'Wav()                       As String
+
+MaxMidi=65
+Midi1=135 'Hard Day's Night - The Beatles :D
+Midi2=137 'ALF! :D
+Midi3=136 'Acrros the universe - The Beatles
+Midi4=138 'All apollogies - Nirvana
+Midi5=139 'All my loving - The Beatles
+Midi6=140 'All you need is love - The Beatles
+Midi7=141 ' - The Beatles
+Midi8=142 'Shalala - The Beatles
+Midi9=143 'Back un the USA - The Beatles
+Midi10=144 'Because - The Beatles
+Midi11=145 'Blackbird - The Beatles
+Midi12=146 'Come togheter - The Beatles
+Midi13=147 'Im in love with you - The Beatles
+Midi14=148 'Drive my car - The Beatles
+Midi15=149 'Inspector Gadchet
+Midi16=150 'Eleanor rigby - The Beatles
+Midi17=151 'Expedientes secretos X
+Midi18=152 'Frances Farmer Will Have Her Revenge On Seattle - Nirvana
+Midi19=153 'Banda sonora de el Gladiador.
+Midi20=154 'Carry That Weight - The Beatles
+Midi21=155 'Hapiness - The Beatles
+Midi22=156 'Here's Come the Sun - The Beatles
+Midi23=157 'Hey Jude - The Beatles
+Midi24=158 'I am the Walrus - The Beatles
+Midi25=159 'I saw her standing there - The Beatles
+Midi26=160 'I wanna hold your hand - The Beatles
+Midi27=161 'I will - The Beatles
+Midi28=162 'If I fell - The Beatles
+Midi29=163 'There's a Place - The Beatles
+Midi30=164 'Indiana Johnes - The Beatles
+Midi31=165 'Pink Panter
+Midi32=166 'Love me do - The Beatles
+Midi33=167 'Lucy in the sky with diamonds - The Beatles
+Midi34=168 'Tema rarisimo de harrison - The Beatles
+Midi34=169 'Michelle - The Beatles
+Midi35=170 'Misery - The Beatles
+Midi36=171 'Misión IMPOSIBLE
+Midi37=172 'No reply - The Beatles
+Midi38=173 'Obladi Oblada - The Beatles
+Midi39=174 'Oh darling - The Beatles
+Midi40=175 'Penny lane - The Beatles
+Midi41=176 'Please Please - The Beatles
+Midi42=177 'Rain - The Beatles
+Midi43=178 'Revolution - The Beatles
+Midi44=179 ' - Queen
+Midi45=180 'Somenthing in the way - The Beatles
+Midi46=181 'Strawberry Fields Forever - The Beatles
+Midi47=182 'No me acuerdo, tema tranqui - The Beatles
+Midi48=183 'No me acuerdo - The Beatles
+Midi49=184 ' - The Beatles
+Midi50=185 ' - The Beatles
+Midi51=186 'DO HAST - Ramsteing
+Midi52=187 'There's a Place - The Beatles
+Midi53=188 'No me acuerdo, otro tranqui - The Beatles
+Midi54=189 'Beat it - Michael Jackson
+Midi55=190 'TIBURON
+Midi56=191 'Ticket to ride - The Beatles
+Midi57=192 'While my guitarr gentle weaps - The Beatles
+Midi58=193 'Yellow submarine - The Beatles
+Midi59=194 'Go with the flow - Queens of The Stone Age
+Midi60=195 'Mosquito Song - Queens of The Stone Age
+Midi61=196 'No One Knows - Queens of The Stone Age
+Midi62=197 'Futurama
+Midi65=200 'NI IDEA, re tétrico mal.
+
+'/*Tipo de Terrenos
+'00. Bosque
+'01. Nieve 
+'02. Desierto 
+'03. Ciudad
+'04. Campo
+
+'Tipo de Zonas
+'05. Dungeon
+'06. Agite
+'07. SiCae
+'08. NoCae
+'09. Faccion
+'Tipo de Zonas y Terrenos*/
+
+[INIT]
+MaxZonas=110
+
+[ZONA0]
+Name=Desconocido
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+BackToMap=1
+BackToX=550
+BackToY=550
+
+[ZONA1]
+Name=Ullathorpe
+Map=1
+X=517
+Y=507
+Ancho=72
+Alto=87
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=8
+Zona=6
+Restringir=0
+Luz=255-255-255-255
+Niebla=0-0-0-0
+MaxMp3=0
+MaxMidi=1
+Midi1=197
+MaxWav=55
+Wav1=21-50-0 'Pajaritos
+Wav2=22-50-0 'Pajaritos
+Wav3=28-50-0 'Pajaritos
+Wav4=29-50-0 'Pajaritos
+Wav5=34-50-0 'Pajaritos
+Wav6=50-10-0 'Barca suave
+Wav7=53-50-0 'Aguila
+Wav8=61-50-0 'Cuervo
+Wav9=62-50-0 'Cuervo 2
+Wav10=63-50-0 'Cuervo 3
+Wav11=67-50-0 'Gallo cantando
+Wav12=71-50-0 'Ranas en pantano
+Wav13=81-30-0 'Lobo Auyando
+Wav14=87-10-0 'Barco navegando
+Wav15=88-10-0 'Barco navegando 2
+Wav16=90-50-0 'Oveja
+Wav17=91-50-0 'Oveja 2
+Wav18=92-10-0 'Monos en la selva
+Wav19=93-10-0 'Monos en la selva 2 (suave)
+Wav20=95-50-0 'Pato loco
+Wav21=97-50-0 'Perro ladrando
+Wav22=101-50-0 'Rana sola
+Wav23=102-50-0 'Chicharra grave
+Wav24=105-10-1 'Tormenta lejana
+Wav25=107-10-1 'Tormenta de viento
+Wav26=108-10-1 'Tormenta de viento 2
+Wav27=115-10-0 'Burbujas sonando
+Wav28=116-10-0 'Sonido de Lava
+Wav29=120-10-0 'Gente cantando IGLESIA
+Wav30=121-10-0 'Barca navegando 3
+Wav31=124-10-0 'Burbujas sonando 2
+Wav32=125-10-0 'Ratas cuchicheando
+Wav33=129-10-0 'Jauría de lobos auyando
+Wav34=131-50-0 'Grillos
+Wav35=144-10-0 'Risas de mujer con eco    
+Wav36=145-10-0 'Risas de mujer con eco 2
+Wav37=150-10-0 'Campana sonando
+Wav38=181-50-0 'Gallo cantando 2
+Wav39=182-10-0 'Perro auyando 3
+Wav40=209-10-0 'Gota sonando con eco
+Wav41=214-50-0 'Grillos sonando
+Wav42=215-50-0 'Sonido de selva
+Wav43=216-50-0 'Sonido de selva 2
+Wav44=217-50-0 'Sonido de selva 3
+Wav45=218-50-0 'Pajaritos sonando 4
+Wav46=219-50-0 'Búo sonando
+Wav47=220-50-0 'Pajaritos sonando 5
+Wav48=221-50-0 'Aguila sonando 3
+Wav49=222-50-0 'Pajaritos sonando 6
+Wav50=223-50-0 'Pajaritos sonando 7
+Wav51=224-50-0 'Pajaritos sonando 8
+Wav52=225-50-0 'Gaviotas sonando
+Wav53=226-10-0 'Barca navegando 5
+Wav54=227-10-0 'Barca navegando 6
+Wav55=236-50-0 'Ventisca corta
+OCUSINEFECTO=1
+BackToMap=1
+BackToX=550
+BackToY=550
+
+[ZONA2]
+Name=Los Cuatro Caminos, entrada al Dungeon Maravel
+Map=1
+X=531
+Y=285
+Ancho=47
+Alto=33
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=3
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA3]
+Name=Dungeon Lava Sector 45
+Map=2
+X=966
+Y=26
+Ancho=27
+Alto=12
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=1
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=150-150-150-150
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+SoloParty=0
+MinLevel=42
+BackToMap=2
+BackToX=1030
+BackToY=525
+RestringirGM=1
+MinOnlines=1
+
+[ZONA4]
+Name=Harrogath
+Map=4
+X=1
+Y=1
+Ancho=1
+Alto=1
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=1
+Restringir=0
+Luz=100-100-100-100
+Niebla=120
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA5]
+Name=Dungeon Black Dragon
+Map=2
+X=1018
+Y=92
+Ancho=56
+Alto=35
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=3
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+RestringirGM=11
+
+[ZONA6]
+Name=Dungeon Lava No Magico
+Map=2
+X=1084
+Y=68
+Ancho=67
+Alto=71
+Pk=1
+MagiaSinEfecto=1
+OcuSinEfecto=1
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=1
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+RestringirGM=1
+MINLEVEL=30
+
+[ZONA7] 'Angrod
+Name=Consejo
+Map=1
+X=629
+Y=372
+Ancho=21
+Alto=9
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=4
+Zona=3
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA8] 'Murus
+Name=Consejo
+Map=1
+X=758
+Y=684
+Ancho=24
+Alto=7
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=4
+Zona=3
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=7
+Mp3_2=8
+
+[ZONA9]
+Name=Castillo De los Olvidos
+Map=2
+X=821
+Y=124
+Ancho=67
+Alto=120
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=7
+Zona=7
+Restringir=0
+Luz=100-100-100-100
+Niebla=50
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+SoloClanes=1
+BackToMap=1
+BackToX=930
+BackToY=440
+RestringirGM=1
+
+[ZONA10]
+Name=Atlanthis
+Map=2
+X=781
+Y=379
+Ancho=78
+Alto=79
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=5
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA11]
+Name=Dungeon Newbie Inicial
+Map=4
+X=504
+Y=576
+Ancho=79
+Alto=46
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=NO
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=1
+Mp3_2=2
+Mp3_3=3
+Mp3_4=4
+MaxMidi=5
+Midi1=135 'Hard Day's Night - The Beatles :D
+Midi2=137 'ALF! :D
+Midi3=136 'Acrros the universe - The Beatles
+Midi4=138 'All apollogies - Nirvana
+Midi5=139 'All my loving - The Beatles
+BackToMap=4
+BackToX=542
+BackToY=599
+
+[ZONA12]
+Name=Prisión penitenciaria. Si estás aquí, probablemente haz violado las reglas y leyes de Bender.
+Map=2
+X=24
+Y=200
+Ancho=54
+Alto=64
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=1
+BenderSinEfecto=0
+Terreno=3
+Zona=0
+Restringir=0
+Luz=50-50-50-50
+Niebla=100
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+MaxMidi=1
+Midi1=197
+
+[ZONA13]
+Name=Catacumbas de las Ciudades
+Map=2
+X=419
+Y=544
+Ancho=67
+Alto=340
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=50-50-50-50
+Niebla=50-220-220-220
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA14]
+Name=Dungeon Veriil, El Gran Fuerte
+Map=2
+X=854
+Y=475
+Ancho=25
+Alto=30
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+MinLevel=30
+
+[ZONA15]
+Name=Dungeon del Kraken, Señor de los Oceanos
+Map=2
+X=34
+Y=289
+Ancho=62
+Alto=85
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA16]
+Name=Catacumbas del Río
+Map=2
+X=416
+Y=270
+Ancho=47
+Alto=28
+Pk=1
+MagiaSinEfecto=1
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0´
+OcuSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=50-50-50-50
+Niebla=50-50-50-250
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+SoloParty=0
+MinLevel=25
+MaxLevel=40
+RestringirGM=1
+
+[ZONA17]
+Name=Dungeon Lava Sector 46
+Map=2
+X=998
+Y=26
+Ancho=23
+Alto=12
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=1
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+SoloParty=0
+BackToMap=2
+BackToX=1030
+BackToY=525
+MinLevel=45
+RestringirGM=1
+
+[ZONA18]
+Name=Minas de Plata
+Map=2
+X=891
+Y=881
+Ancho=92
+Alto=58
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=0-0-0-0
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=11
+
+[ZONA19]
+Name=Dungeon Infernal
+Map=2
+X=660
+Y=487
+Ancho=137
+Alto=79
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=1
+BenderSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA20]
+Name=Minas de Hierro de Turgon
+Map=2
+X=390
+Y=903
+Ancho=66
+Alto=57
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=0-0-0-0
+Niebla=0
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+RestringirGM=11
+
+[ZONA21]
+Name=Minas de las Profundidades
+Map=2
+X=486
+Y=705
+Ancho=229
+Alto=154
+Pk=1
+OcuSinEfecto=1
+MagiaSinEfecto=1
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=5
+Zona=5
+Restringir=0
+Luz=0-0-0-0
+Niebla=50
+MaxMp3=2
+Mp3_1=7
+Mp3_2=8
+RestringirGM=63
+
+[ZONA22]
+Name=Entrada a Dungeon Helado
+Map=1
+X=540
+Y=150
+Ancho=45
+Alto=35
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=1
+Restringir=0
+Luz=100-100-100-100
+Niebla=100
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA23]
+Name=Pirámide Alcoba
+Map=2
+X=354
+Y=503
+Ancho=59
+Alto=65
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=25
+MaxLevel=50
+BackToMap=1
+BackToX=379
+BackToY=567
+
+[ZONA24]
+Name=Dungeon Helado Alcoba
+Map=2
+X=606
+Y=43
+Ancho=23
+Alto=18
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=1
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=44
+SoloParty=2
+BackToMap=2
+BackToX=830
+BackToY=209
+RestringirGM=1
+
+[ZONA25]
+Name=Sala de Espera de los Eventos
+Map=3
+X=16
+Y=186
+Ancho=129
+Alto=23
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=3
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA26]
+Name=Sala de Premios de los Eventos
+Map=3
+X=124
+Y=38
+Ancho=103
+Alto=77
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=3
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA27]
+Name=Cementerio Legendario, hábitad del señor de la muerte: La Parca.
+Map=2
+X=310
+Y=888
+Ancho=37
+Alto=52
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=0-0-0-0
+Niebla=0-0-0-0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+MinLevel=50
+BackToMap=1
+BackToX=1090
+BackToY=395
+SoloParty=3
+
+[ZONA28]
+Name=Castillo de Rey vs Rey
+Map=3
+X=991
+Y=87
+Ancho=99
+Alto=187
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=6
+Zona=6
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA29]
+Name=Teleports Reales
+Map=3
+X=408
+Y=43
+Ancho=26
+Alto=26
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=ARMADA
+Luz=100-100-100-100
+Niebla=30
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA30]
+Name=Teleports Legionarios
+Map=3
+X=362
+Y=43
+Ancho=26
+Alto=26
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=CAOS
+Luz=100-100-100-100
+Niebla=30
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA31]
+Name=Arena de Quest
+Map=3
+X=295
+Y=83
+Ancho=50
+Alto=110
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=3
+Zona=8
+Restringir=NO
+Luz=0-0-0-0
+Niebla=0-0-0-0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA32]
+Name=Laberinto del Drenaje del fuerte Benderiano
+Map=2
+X=972
+Y=358
+Ancho=63
+Alto=55
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=NO
+Luz=0-0-0-0
+Niebla=100
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA33]
+Name=Dungeon Black Dragon Continental
+Map=2
+X=660
+Y=616
+Ancho=105
+Alto=85
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=3
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=18
+RestringirGM=1
+
+[ZONA34]
+Name=Dungeon Lava, sector 36
+Map=2
+X=971
+Y=540
+Ancho=60
+Alto=40
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=2
+Mp3_1=8
+Mp3_2=6
+
+[ZONA35]
+Name=Dungeon Survivor
+Map=2
+X=120
+Y=645
+Ancho=145
+Alto=145
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=1
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=50
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA36]
+Name=Arena de Cruce Faccionario
+Map=3
+X=520
+Y=18
+Ancho=90
+Alto=28
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=9
+Zona=0
+Restringir=NO
+Luz=255-255-255-255
+Niebla=0-0-0-0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+OCUSINEFECTO=1
+
+[ZONA37] 
+Name=Castillo de Eventos de Rol
+Map=3
+X=567
+Y=770
+Ancho=138
+Alto=207
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=5
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA38]
+Name=Turgon
+Map=1
+X=430
+Y=800
+Ancho=85
+Alto=85
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=8
+Zona=3
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+OCUSINEFECTO=1
+
+[ZONA39] 'Angrod
+Name=Angrod
+Map=1
+X=594
+Y=350
+Ancho=152
+Alto=79
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=4
+Zona=3
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA40]
+Name=Murus
+Map=1
+X=676
+Y=665
+Ancho=160
+Alto=80
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=0
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA41] 
+Name=Arena de Duelos
+Map=1
+X=532
+Y=360
+Ancho=35
+Alto=14
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=4
+Zona=2
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+
+[ZONA42]
+Name=Zona Eventos
+Map=3
+X=783
+Y=783
+Ancho=319
+Alto=319
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=6
+Zona=7
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+OCUSINEFECTO=1
+
+[ZONA43]
+Name=Afueras del Cementerio
+Map=1
+X=252
+Y=829
+Ancho=80
+Alto=91
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=50-50-50-50
+Niebla=100
+MaxMp3=3
+Mp3_1=4
+Mp3_2=6
+Mp3_3=8
+MinLevel=35
+
+[ZONA44]
+Name=Sala de Resurección de Fuerte de Reclutamiento Legionario.
+Map=4
+X=1
+Y=1
+Ancho=1
+Alto=1
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=30
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA45]
+Name=Mercado de Harrogath
+Map=1
+X=766
+Y=112
+Ancho=27
+Alto=11
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=1
+Restringir=0
+Luz=10-150-150-150
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+OCUSINEFECTO=1
+
+[ZONA46]
+Name=Isla Benderiana, ingreso al gran fuerte Benderiano.
+Map=1
+X=1105
+Y=305
+Ancho=50
+Alto=50
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=0-150-150-150
+Niebla=75
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA47]
+Name=Fuerte Provicional Real.
+Map=4
+X=1
+Y=1
+Ancho=1
+Alto=1
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=50
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA48] 
+Name=Cancha de Futbol BAO
+Map=3
+X=257
+Y=195
+Ancho=45
+Alto=48
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=6
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA49] 
+Name=Desierto del Sahara, Ingreso a la Gran Pirámide.
+Map=1
+X=338
+Y=523
+Ancho=80
+Alto=67
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=250-180-180-90
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA50] 
+Name=Muelle Este de Ullathorpe
+Map=1
+X=590
+Y=507
+Ancho=121
+Alto=80
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA51] 
+Name=Bosques Norte de Ullathorpe
+Map=1
+X=475
+Y=150
+Ancho=220
+Alto=356
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=3
+Restringir=0
+Luz=150-150-150-150
+Niebla=25-50-125-50
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA52] 
+Name=Bosque Sur de Ullathorpe
+Map=1
+X=517
+Y=595
+Ancho=158
+Alto=305
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=0-150-150-150
+Niebla=100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA53] 
+Name=Bosque de los Ents
+Map=1
+X=309
+Y=384
+Ancho=100
+Alto=65
+Pk=1
+OcuSinEfecto=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=100-100-100-100
+Niebla=100-100-100-100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA54] 
+Name=Zona de los dioses
+Map=3
+X=37
+Y=41
+Ancho=26
+Alto=18
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0-0-0-0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA55] 
+Name=Cavernas de Supervivencia
+Map=3
+X=110
+Y=640
+Ancho=160
+Alto=135
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=5
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+OCUSINEFECTO=1
+
+[ZONA56] 
+Name=Fixture de Evento
+Map=3
+X=14
+Y=59
+Ancho=36
+Alto=78
+Pk=0
+OcuSinEfecto=1
+MagiaSinEfecto=1
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=5
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA57] 
+Name=Combate total: Deathmatch
+Map=3
+X=675
+Y=129
+Ancho=44
+Alto=37
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=8
+Zona=3
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+OCUSINEFECTO=1
+
+[ZONA58] 
+Name=Bosque Perdido
+Map=1
+X=202
+Y=628
+Ancho=273
+Alto=360
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=150-150-150-150
+Niebla=100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA59] 
+Name=Muelle Oeste de Ullathorpe
+Map=1
+X=395
+Y=507
+Ancho=121
+Alto=95
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0-0-0-0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA60] 
+Name=Bosque Sur Lúgubre de Murus
+Map=1
+X=676
+Y=750
+Ancho=195
+Alto=65
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=0-100-100-100
+Niebla=25-50-50-50
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA61] 
+Name=Dungeon del Cementerio
+Map=2
+X=237
+Y=892
+Ancho=85
+Alto=73
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=255-0-0-0
+Niebla=30
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=45
+BackToMap=1
+BackToX=1090
+BackToY=395
+
+[ZONA62] 
+Name=Isla de Circe, entrada al Dungeon Infernal.
+Map=1
+X=725
+Y=460
+Ancho=50
+Alto=60
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=0-100-100-100
+Niebla=50
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA63] 
+Name=Isla de la fortaleza de la Prisión
+Map=1
+X=10
+Y=246
+Ancho=50
+Alto=40
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=0-100-100-100
+Niebla=100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA64] 
+Name=Isla Kraken
+Map=1
+X=50
+Y=363
+Ancho=40
+Alto=50
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=0-150-150-150
+Niebla=100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+MinLevel=28
+
+[ZONA65] 
+Name=Isla de ingreso al Gran Castillo de los Olvidos
+Map=1
+X=890
+Y=400
+Ancho=85
+Alto=80
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=150-150-150-150
+Niebla=100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA66]
+Name=Bosques Nevados
+Map=1
+X=0
+Y=0
+Ancho=0
+Alto=0
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA67]
+Name=Isla Veriil, entrada al peligroso Dungeon Veriil, uno de los más peligrosos
+Map=1
+X=815
+Y=435
+Ancho=45
+Alto=50
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=80
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA68]
+Name=Dungeon Lava Norte, sector 26. Habitad de varias peligrosas criaturas
+Map=1
+X=1102
+Y=89
+Ancho=33
+Alto=34
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=75-75-75-75
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA69]
+Name=Dungeon Lava Sur, sector 27. Habitad del Astaroth
+Map=1
+X=1102
+Y=44
+Ancho=33
+Alto=30
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=75-75-75-75
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA70]
+Name=Montaña Lava Sector 29. Habitad del Golem de Lava
+Map=1
+X=1060
+Y=89
+Ancho=33
+Alto=34
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=0-150-150-150
+Niebla=75-75-75-75
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA71]
+Name=Montaña Lava Sector 28, habitad del Golem de Lava Bugartico
+Map=1
+X=1060
+Y=44
+Ancho=35
+Alto=30
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=75-75-75-75
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA72]
+Name=Dungeon Lava, entrada a Sectores 45 y 46
+Map=2
+X=1022
+Y=521
+Ancho=15
+Alto=11
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=200-200-200-200
+Niebla=0
+MaxMp3=2
+Mp3_1=8
+Mp3_2=6
+
+[ZONA73]
+Name=Isla Argentum, hábitad de los elementales de agua
+Map=1
+X=760
+Y=855
+Ancho=175
+Alto=115
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-200-200-250
+Niebla=80
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA74]
+Name=Arena de Combate (Torneos)
+Map=3
+X=16
+Y=397
+Ancho=777
+Alto=60
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+OcuSinEfecto=1
+Terreno=4
+Zona=4
+Restringir=0
+Luz=250-250-250-255
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA75]
+Name=Arena de Combate (Duelos)
+Map=3
+X=16
+Y=471
+Ancho=777
+Alto=60
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+OcuSinEfecto=1
+Terreno=8
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0-0-0-0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA76]
+Name=Dungeon Cementerio QUEST
+Map=3
+X=213
+Y=252
+Ancho=210
+Alto=118
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=7
+Zona=7
+Restringir=0
+Luz=255-255-255-255
+Niebla=0-0-0-0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+
+[ZONA77]
+Name=Purgatorio.
+Map=3
+X=24
+Y=222
+Ancho=80
+Alto=52
+Pk=0
+OcuSinEfecto=1
+MagiaSinEfecto=1
+InviSinEfecto=1
+ResuSinEfecto=1
+BenderSinEfecto=1
+Terreno=3
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=2
+Mp3_1=1
+Mp3_2=2
+Mp3_3=3
+Mp3_4=4
+Mp3_5=5
+Mp3_6=6
+
+[ZONA78]
+Name=Muelle Norte ingreso al peligroso Dungeon Lava
+Map=1
+X=1043
+Y=22
+Ancho=110
+Alto=16
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=0-0-0-0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA79]
+Name=Muelle Sur ingreso al peligroso Dungeon Lava
+Map=1
+X=1043
+Y=124
+Ancho=80
+Alto=30
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=0-0-0-0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA80]
+Name=Montaña Lava Sector 25, ingreso al peligroso Dungeon Lava
+Map=1
+X=1060
+Y=44
+Ancho=77
+Alto=79
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=80-250-50-50
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+BackToMap=1
+BackToX=1040
+BackToY=543
+RestringirGM=1
+
+[ZONA81]
+Name=Fortaleza Benderiana, alcobas.
+Map=2
+X=1060
+Y=364
+Ancho=94
+Alto=94
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=1
+BenderSinEfecto=1
+Terreno=1
+Zona=5
+Restringir=NO
+Luz=250-250-250-250
+Niebla=50
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=38
+RestringirGM=1
+
+[ZONA82]
+Name=Dungeon Maravel
+Map=2
+X=416
+Y=288
+Ancho=144
+Alto=75
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=20
+
+[ZONA83]
+Name=Dungeon Lava, Refugio e ingreso a Minas Secretas de Oro
+Map=2
+X=984
+Y=630
+Ancho=76
+Alto=57
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=200-200-200-200
+Niebla=0
+MaxMp3=2
+Mp3_1=8
+Mp3_2=6
+RestringirGM=11
+
+[ZONA84]
+Name=Montaña Lava Sector 19, muelle Oeste del peligroso Dungeon Lava
+Map=1
+X=1033
+Y=39
+Ancho=26
+Alto=100
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=1
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=75-75-75-75
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA85]
+Name=Bosque Norte Lúgubre de Murus
+Map=1
+X=685
+Y=640
+Ancho=200
+Alto=35
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=0
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=75
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA86] 
+Name=Isla Perdida, habitad del Leviathan, señor de los mares.
+Map=1
+X=1135
+Y=185
+Ancho=30
+Alto=30
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=100
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA87] 
+Name=Caminata de la verguenza, purgadora de penas.
+Map=1
+X=145
+Y=256
+Ancho=335
+Alto=50
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=75-255-128-128
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA88]
+Name=Harrogath
+Map=1
+X=735
+Y=72
+Ancho=62
+Alto=72
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+Terreno=1
+Zona=1
+Restringir=0
+Luz=10-150-150-150
+Niebla=0
+MaxMp3=2
+Mp3_1=5
+Mp3_2=6
+OCUSINEFECTO=1
+
+[ZONA89]
+Name=Montaña Lava, ingreso al peligroso Dungeon Lava
+Map=1
+X=1020
+Y=8
+Ancho=135
+Alto=135
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=0
+Restringir=0
+Luz=0-100-100-100
+Niebla=50-200-100-100
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA90]
+Name=Mar Sur, Americo
+Map=1
+X=10
+Y=801
+Ancho=1181
+Alto=392
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=250-250-250-250
+Niebla=75
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA91]
+Name=Mar Norte, Egeo
+Map=1
+X=10
+Y=8
+Ancho=1181
+Alto=382
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=1
+Restringir=0
+Luz=50-250-250-250
+Niebla=0
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA92]
+Name=Dungeon Veriil, Refugio
+Map=2
+X=845
+Y=515
+Ancho=45
+Alto=26
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=0-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA93]
+Name=Dungeon Veriil, Entrada a Dungeon Dragon de Veriil
+Map=2
+X=890
+Y=557
+Ancho=8
+Alto=8
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=0-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+
+[ZONA94]
+Name=Dungeon Veriil, Dungeon Dragon de Veriil (DD)
+Map=2
+X=862
+Y=543
+Ancho=17
+Alto=13
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=0-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=35
+RestringirGM=1
+
+[ZONA95]
+Name=Dungeon Veriil, Dos Medusas
+Map=2
+X=848
+Y=585
+Ancho=80
+Alto=39
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=0-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+RestringirGM=1
+
+[ZONA96]
+Name=Dungeon Veriil
+Map=2
+X=799
+Y=468
+Ancho=129
+Alto=156
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=0-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=30
+RestringirGM=1
+
+[ZONA97]
+Name=Dungeon Gran Black Dragon
+Map=2
+X=1054
+Y=132
+Ancho=19
+Alto=13
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=1
+OcuSinEfecto=1
+Terreno=1
+Zona=5
+Restringir=0
+Luz=50-50-50-50
+Niebla=0
+MaxMp3=2
+Mp3_1=8
+Mp3_2=6
+MinLevel=45
+
+[ZONA98]
+Name=Mar Mediterráneo, Kratos
+Map=1
+X=10
+Y=391
+Ancho=1181
+Alto=409
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=2
+Zona=0
+Restringir=0
+Luz=255-255-255-255
+Niebla=50-50-50-50
+MaxMp3=2
+Mp3_1=4
+Mp3_2=8
+
+[ZONA99]
+Name=Guarida de Clan
+Map=2
+X=852
+Y=87
+Ancho=35
+Alto=30
+Pk=1
+OcuSinEfecto=1
+MagiaSinEfecto=1
+InviSinEfecto=1
+ResuSinEfecto=1
+BenderSinEfecto=1
+Terreno=5
+Zona=5
+Restringir=0
+Luz=255-255-255-255
+Niebla=50
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+SoloClanes=1
+SoloGuildIndex=1
+BackToMap=2
+BackToX=1136
+BackToY=115
+SoloParty=2
+RestringirGM=3
+
+[ZONA100]
+Name=Sarcófago gran Pirámide.
+Map=2
+X=317
+Y=437
+Ancho=50
+Alto=60
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=27
+MaxLevel=0
+BackToMap=1
+BackToX=379
+BackToY=567
+RestringirGM=1
+MinOnlines=100
+
+[ZONA101]
+Name=Dungeon Helado
+Map=2
+X=458
+Y=43
+Ancho=171
+Alto=125
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=1
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=40
+RestringirGM=1
+
+[ZONA102]
+Name=Zona de eventos
+Map=3
+X=262
+Y=83
+Ancho=20
+Alto=29
+Luz=250-250-250-250
+Pk=0
+
+[ZONA103]
+Name=Dungeon Lava
+Map=2
+X=938
+Y=10
+Ancho=145
+Alto=193
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=100-100-100-100
+Niebla=0
+MaxMp3=2
+Mp3_1=8
+Mp3_2=6
+MinLevel=40
+
+[ZONA104]
+Name=Dungeon del Cementerio
+Map=2
+X=1075
+Y=430
+Ancho=70
+Alto=25
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=1
+Zona=5
+Restringir=0
+Luz=255-0-0-0
+Niebla=30
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=45
+BackToMap=1
+BackToX=1090
+BackToY=395
+
+[ZONA105]
+Name=Arena Faccionaria
+Map=3
+X=459
+Y=35
+Ancho=24
+Alto=25
+Pk=1
+InviSinEfecto=1
+BenderSinEfecto=1
+Zona=6
+Restringir=0
+Luz=200-200-200-200
+Mp3_1=5
+Mp3_2=6
+OCUSINEFECTO=1
+
+[ZONA106]
+Name=Dungeon Newbie Norte
+Map=4
+X=461
+Y=489
+Ancho=166
+Alto=65
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=NO
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=1
+Mp3_2=2
+Mp3_3=3
+Mp3_4=4
+MaxMidi=5
+Midi1=135 'Hard Day's Night - The Beatles :D
+Midi2=137 'ALF! :D
+Midi3=136 'Acrros the universe - The Beatles
+Midi4=138 'All apollogies - Nirvana
+Midi5=139 'All my loving - The Beatles
+MinLevel=1
+SoloCampaign=6
+BackToMap=4
+BackToX=465
+BackToY=528
+
+[ZONA107]
+Name=Dungeon Newbie Sur
+Map=4
+X=461
+Y=645
+Ancho=166
+Alto=65
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=NO
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=1
+Mp3_2=2
+Mp3_3=3
+Mp3_4=4
+MaxMidi=5
+Midi1=135 'Hard Day's Night - The Beatles :D
+Midi2=137 'ALF! :D
+Midi3=136 'Acrros the universe - The Beatles
+Midi4=138 'All apollogies - Nirvana
+Midi5=139 'All my loving - The Beatles
+MinLevel=1
+SoloCampaign=6
+BackToMap=4
+BackToX=465
+BackToY=684
+
+[ZONA108]
+Name=Dungeon Newbie Este
+Map=4
+X=621
+Y=573
+Ancho=166
+Alto=65
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=NO
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=1
+Mp3_2=2
+Mp3_3=3
+Mp3_4=4
+MaxMidi=5
+Midi1=135 'Hard Day's Night - The Beatles :D
+Midi2=137 'ALF! :D
+Midi3=136 'Acrros the universe - The Beatles
+Midi4=138 'All apollogies - Nirvana
+Midi5=139 'All my loving - The Beatles
+MinLevel=1
+SoloCampaign=6
+BackToMap=4
+BackToX=625
+BackToY=612
+
+[ZONA109]
+Name=Dungeon Newbie Oeste
+Map=4
+X=301
+Y=573
+Ancho=166
+Alto=65
+Pk=0
+MagiaSinEfecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=NO
+Luz=255-255-255-255
+Niebla=0
+MaxMp3=4
+Mp3_1=1
+Mp3_2=2
+Mp3_3=3
+Mp3_4=4
+MaxMidi=5
+Midi1=135 'Hard Day's Night - The Beatles :D
+Midi2=137 'ALF! :D
+Midi3=136 'Acrros the universe - The Beatles
+Midi4=138 'All apollogies - Nirvana
+Midi5=139 'All my loving - The Beatles
+MinLevel=1
+SoloCampaign=6
+BackToMap=4
+BackToX=305
+BackToY=612
+
+[ZONA110]
+Name=Pirámide (Interno)
+Map=2
+X=367
+Y=437
+Ancho=42
+Alto=60
+Pk=1
+MagiaSinEfecto=0
+InviSinEfecto=1
+ResuSinEfecto=0
+BenderSinEfecto=0
+Terreno=3
+Zona=5
+Restringir=0
+Luz=250-250-250-250
+Niebla=0
+MaxMp3=4
+Mp3_1=5
+Mp3_2=6
+Mp3_3=7
+Mp3_4=8
+MinLevel=27
+MaxLevel=0
+BackToMap=1
+BackToX=379
+BackToY=567
+RestringirGM=1
+
+[ZONAXX] 'Esta es una zona de ejemplo para usar el CopyZone, no sirve para nada mas!
+Map=2
+X=550
+Y=692
+Ancho=100
+Alto=100
+CopyZona=24
