@@ -467,18 +467,33 @@ Public Sub mCopyFile(sSource As String, sTarget As String) ' Procedimiento para 
 End Sub
 
 Public Function CheckDLLs() As Boolean
+          
+   On Error GoTo CheckDLLs_Error
+
+10        If Not FileExist(ObtenerDirectorioSO & "/dx7vb.dll", vbArchive) Then
+20            If FileExist(App.Path & "/dx7vb.dll", vbArchive) Then
+30                Call mCopyFile(App.Path & "/dx7vb.dll", ObtenerDirectorioSO & "/dx7vb.dll")
+40                Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/dx7vb.dll" & """ /s")
+50                CheckDLLs = True
+60            Else
+70                MsgBox "No se encuentra la librería dx7vb.dll en la carpeta " & App.Path
+80                CheckDLLs = False
+90                End
+100           End If
+110       Else
+120           If Not Val(GetSetting("WorldEditor", "Librerias", "DX7")) = "1" Then
+130               Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/dx7vb.dll" & """ /s")
+140               Call GetSetting("WorldEditor", "Librerias", "DX7", "1")
+150           End If
+160       End If
+
+   On Error GoTo 0
+   Exit Function
+
+CheckDLLs_Error:
     
-    If Not FileExist(ObtenerDirectorioSO & "/dx7vb.dll", vbArchive) Then
-        If FileExist(App.Path & "/dx7vb.dll", vbArchive) Then
-            Call mCopyFile(App.Path & "/dx7vb.dll", ObtenerDirectorioSO & "/dx7vb.dll")
-            Call Shell("regsvr32 """ & ObtenerDirectorioSO & "/dx7vb.dll" & """ /s")
-            CheckDLLs = True
-        Else
-            MsgBox "No se encuentra la librería dx7vb.dll en la carpeta " & App.Path
-            CheckDLLs = False
-            End
-        End If
-    End If
+    Call GetSetting("WorldEditor", "Librerias", "DX7", "0")
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure CheckDLLs of Módulo modGeneral Linea: " & Erl())
 
 End Function
 
