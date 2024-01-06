@@ -2,10 +2,6 @@
 *.basic
 *.vbw
 *.cfg
-Server/Charfile/*
-Server/Logs/*
-Server/WorldBackup/*
-Server/Guilds/*
 .DS_Store
 *.vbw
 *.csi
@@ -13,9 +9,6 @@ Server/Guilds/*
 *.log
 *.LOG
 *.bot
-bkNpcs.dat
-*.exe
-Guilds/guildsinfo.inf
 BAO_WorldEditor/ImagenesMundoBAO/Mapa1.bmp
 BAO_WorldEditor/ImagenesMundoBAO/Mapa2.bmp
 BAO_WorldEditor/ImagenesMundoBAO/Mapa3.bmp
