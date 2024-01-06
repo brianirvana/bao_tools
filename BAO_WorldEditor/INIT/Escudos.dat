@@ -1,7 +1,7 @@
 'Oso: NO USEN EL ESCUDO 2 (Es "No Animar" ^^)
 
 [INIT]
-NumEscudos=22
+NumEscudos=23
 
 [ESC1]
 Dir1=4727
@@ -120,3 +120,8 @@ Dir1=29515
 Dir2=29517
 Dir3=29514
 Dir4=29516
+[ESC23]
+Dir1=30450
+Dir2=30452
+Dir3=30449
+Dir4=30451
