@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "ComDlg32.OCX"
 Begin VB.Form frmMain 
    Appearance      =   0  'Flat
    BackColor       =   &H00000000&
@@ -3608,6 +3608,9 @@ Dim X, Y, i
 Dim Head                        As Integer
 Dim Body                        As Integer
 Dim Heading                     As Byte
+    
+    Exit Sub
+
     'Dim Leer As New clsIniReader
     i = n
 
@@ -3673,7 +3676,9 @@ Private Sub cAgregarFuncalAzar_Click(index As Integer)
 '*************************************************
 
     On Error GoTo cAgregarFuncalAzar_Click_Error
-
+    
+    Exit Sub
+    
 10  If IsNumeric(cCantFunc(index).Text) = False Or cCantFunc(index).Text > 200 Then
 20      MsgBox "El Valor de Cantidad introducido no es soportado!" & vbCrLf & "El valor maximo es 200.", vbCritical
 30      Exit Sub
@@ -3788,6 +3793,7 @@ Private Sub cInsertarFunc_Click(index As Integer)
 'Author: ^[GS]^
 'Last modified: 20/05/06
 '*************************************************
+    Exit Sub
     If cInsertarFunc(index).Value = True Then
         cQuitarFunc(index).Enabled = False
         cAgregarFuncalAzar(index).Enabled = False

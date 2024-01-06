@@ -207,6 +207,7 @@ Dim k                           As Integer
 
     On Error GoTo Superficie_Azar_Error
 
+    Exit Sub
 10  If Not MapaCargado Then
 20      Exit Sub
 30  End If
