@@ -269,7 +269,8 @@ Public Sub CargarIndicesSuperficie()
         SupData(i).Block = IIf(Val(Leer.GetValue("REFERENCIA" & i, "Bloquear")) = 1, True, False)
         SupData(i).Capa = Val(Leer.GetValue("REFERENCIA" & i, "Capa"))
         frmMain.lListado(0).AddItem SupData(i).Name & " - #" & i
-    Next
+        'If i = 1050 Then Stop
+    Next i
 
     DoEvents
     Exit Sub
