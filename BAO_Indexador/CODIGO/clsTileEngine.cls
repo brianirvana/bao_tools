@@ -487,7 +487,7 @@ Private Function GameLoop()
 130       System.Get_Cursor_Pos
 
 140       Info = "Escala: " & Round(Escala * 100) & "%" & vbCrLf
-150       Info = Info & "Mouse Graphic: X" & Round((RenderMouseX - GraphicX) / Escala) & " Y" & Round((RenderMouseY - GraphicY) / Escala) & vbCrLf
+150       Info = Info & "Mouse Graphic: X" & Round((CLng(RenderMouseX) - CLng(GraphicX)) / CLng(Escala)) & " Y" & Round((CLng(RenderMouseY) - CLng(GraphicY)) / CLng(Escala)) & vbCrLf
 160       Info = Info & "Mouse State: " & MousePress & vbCrLf
 170       Info = Info & "Mouse Pos: " & System.CursorX & "-" & System.CursorY & vbCrLf
 180       Info = Info & "Object Pos: " & "Object Pos: " & GraphicX & "-" & GraphicY
@@ -554,7 +554,7 @@ Private Function GameLoop()
 
 GameLoop_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GameLoop of Módulo de clase clsTileEngine Linea: " & Erl())
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GameLoop of Módulo de clase clsTileEngine Linea: " & Erl() & " GraphicX: " & GraphicX & " GraphicY " & GraphicY & " Escala " & Escala & " RenderMouseX " & RenderMouseX & " RenderMouseY " & RenderMouseY)
           
 End Function
 
