@@ -19,7 +19,7 @@ Option Explicit
 'Libreria de Entropia para dibujar con DirectX8
 Public EngineLibrary As Engine
 
-Private RenderText As Text
+Private RenderText As New Text
 
 'Función de inicialización
 Public Function Initialize(hwnd As Long, Windowed As Boolean, Form As Object, Res_Width As Integer, Res_Height As Integer, Res_BitColor As Byte, BackBuffer As Byte) As Boolean
