@@ -102,6 +102,14 @@ End Function
 
 Public Sub LogError(ByRef sError As String)
 
+Static LastErrorDesc As String
+
+    If StrComp(LastErrorDesc, sError) = 0 Then
+        Exit Sub
+    End If
+    
+    LastErrorDesc = sError
+
     Debug.Print Time & " " & Date & " " & sError
     MsgBox sError
 

@@ -1,8 +1,8 @@
 frmMain = 172, 120, 1137, 649, C, 525, 6, 1337, 535, C
 modGeneral = 173, 82, 1018, 611, C
-clsEngine = 99, 269, 911, 798, Z
+clsEngine = 99, 342, 911, 798, C
 modErrorMsg = -64, 161, 781, 690, C
-clsTileEngine = 74, -20, 1104, 509, 
+clsTileEngine = 74, -20, 1104, 509, C
 frmDirectory = 100, 100, 1071, 629, C, 200, 200, 1230, 729, C
 modFunctions = 61, 93, 1091, 622, C
 clsCBFolder = 225, 225, 1196, 754, C
