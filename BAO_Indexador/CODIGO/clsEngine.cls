@@ -80,7 +80,16 @@ Public Function Draw_Text_MultiLine(ByRef Text As String, X As Single, Y As Sing
 End Function
 
 Public Function Draw_Text(ByRef Text As String, X As Single, Y As Single, Color As Long)
-    RenderText.Render_String Text, X, Y, 8, 8, Color
+   On Error GoTo Draw_Text_Error
+
+10        RenderText.Render_String Text, X, Y, 8, 8, Color
+
+   On Error GoTo 0
+   Exit Function
+
+Draw_Text_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Draw_Text of Módulo de clase clsEngine Linea: " & Erl())
 End Function
 
 Public Function DisplayFPS(ByRef Active As Boolean)
@@ -88,11 +97,22 @@ Public Function DisplayFPS(ByRef Active As Boolean)
 End Function
 
 Public Function DrawFPS(Optional ByVal X As Single = 0, Optional ByVal Y As Single = 0, Optional ByVal Color As Long = &HFFFFFFFF)
-    If EngineLibrary.FPS Then
-        Call Draw_Text("FPS: " & EngineLibrary.FPS, X, Y, Color)
-    Else
-        Call Draw_Text("Loading..", X, Y, Color)
-    End If
+          
+   On Error GoTo DrawFPS_Error
+
+10        If EngineLibrary.FPS Then
+20            Call Draw_Text("FPS: " & EngineLibrary.FPS, X, Y, Color)
+30        Else
+40            Call Draw_Text("Loading..", X, Y, Color)
+50        End If
+
+   On Error GoTo 0
+   Exit Function
+
+DrawFPS_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure DrawFPS of Módulo de clase clsEngine Linea: " & Erl())
+          
 End Function
 
 'Public Sub LoadAnimation(TexNum As Long, GrhIndex As Integer, NumFrames As Integer, Width As Long, Height As Long)

@@ -2108,12 +2108,34 @@ Private Sub renderer_MouseDown(Button As Integer, Shift As Integer, X As Single,
 End Sub
 
 Private Sub renderer_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    TileEngine.RenderMouseX = X
-    TileEngine.RenderMouseY = Y
+10  On Error GoTo renderer_MouseMove_Error
+
+20  If X = 0 And Y = 0 Then
+30      TileEngine.RenderMouseX = 1
+40      TileEngine.RenderMouseY = 1
+50  Else
+60      TileEngine.RenderMouseX = X
+70      TileEngine.RenderMouseY = Y
+80  End If
+90  On Error GoTo 0
+100 Exit Sub
+
+renderer_MouseMove_Error:
+
+110 Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure renderer_MouseMove of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub renderer_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
-    Call TileEngine.MouseUp(Button, Shift, X, Y)
+    On Error GoTo renderer_MouseUp_Error
+
+10  Call TileEngine.MouseUp(Button, Shift, X, Y)
+
+    On Error GoTo 0
+    Exit Sub
+
+renderer_MouseUp_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure renderer_MouseUp of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub SaveIndexs_Click()
