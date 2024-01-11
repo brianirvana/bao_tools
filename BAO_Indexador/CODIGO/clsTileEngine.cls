@@ -197,7 +197,7 @@ Public Function Initialize()
 
           'Iniciamos las texturas
 20        Set TexFactory = New TextureFactory
-30        ReDim TexList(32000) As Long
+30        ReDim TexList(32700) As Long
 
 40        Set System = New System
 
