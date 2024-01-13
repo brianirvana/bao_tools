@@ -5,14 +5,15 @@
 '4 materializa.
 '5 metamorfosis.
 
-'Targets....
+'Targets...
 '1.....Usuario.
 '2.....Npc.
 '3.....Usuario Y Npc.
 '4.....Terreno.
+'5.....Usuario PROPIO o Mascota (No puede tirarlo a otros usuarios)
 
 [INIT]
-NumeroHechizos=71
+NumeroHechizos=76
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -26,8 +27,8 @@ PropioMsg=Te has detenido el envenenamiento.
 TargetMsg=te ha detenido el envenenamiento.
 Tipo=2
 WAV=16
-FXgrh=2
-Loops=2
+FXgrh=41
+Loops=0
 MinSkill=10
 ManaRequerido=12
 StaRequerido=1
@@ -89,7 +90,7 @@ HechizeroMsg=Has lanzado un Dardo Alpha sobre
 TargetMsg=ha lanzado un Dardo Alpha sobre ti.
 Tipo=1
 WAV=114
-FXgrh=15
+FXgrh=42
 MinSkill=0
 ManaRequerido=10
 StaRequerido=10
@@ -111,7 +112,7 @@ HechizoBender=1
 Nombre=Curar Heridas Leves
 Desc=Con este sencillo conjuro podrás efectuar la sanación inmediata de pequeñas heridas y devolver lentamente la salud a quien se lo lances. Suele ser de gran utilidad para los jovenes aprendices de magia, para poder entrenar al resguardo del ataque de las fieras salvajes.
 PalabrasMagicas=CORP SANC
-HechizeroMsg=Le has curado algunas pequeñas heridas a 
+HechizeroMsg=Le has curado algunas pequeñas heridas a  
 TargetMsg=te ha curado algunas pequeñas heridas.
 PropioMsg=Te has curado algunas pequeñas heridas.
 Tipo=1
@@ -123,6 +124,7 @@ Target=3
 SubeHP=1
 MinHP=1
 MaxHP=7
+FXGRH=57
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -136,7 +138,7 @@ TargetMsg=te ha envenenado.
 PropioMsg=Te has envenenado.
 Tipo=2
 WAV=16
-FXgrh=3
+FXgrh=64
 Loops=2
 MinSkill=20
 ManaRequerido=24
@@ -152,13 +154,13 @@ Resis=1
 Nombre=Curar Heridas Graves
 Desc=Con esta milagrosa sanación para las heridas más profundas y dolorosas, podrás rapidamente devolver la salud a quienes agonizan. Se trata de un conjuro de una complejidad intermedia, pero que suele resultar fundamental para los jovenes aventureros que desean recorrer el mundo y enfrentarse con sus peligros.
 PalabrasMagicas=EN CORP SANCTIS
-HechizeroMsg=Le has sanado graves heridas a 
+HechizeroMsg=Le has sanado graves heridas a        
 TargetMsg=te ha sanado graves heridas.
 PropioMsg=Te has sanado graves heridas.
 Tipo=1
 WAV=18
-FXgrh=9
-Loops=0
+FXgrh=53
+Loops=3
 MinSkill=60
 ManaRequerido=40
 StaRequerido=5
@@ -219,11 +221,11 @@ Resis=1
 Nombre=Misil Mágico
 Desc=Este rentable hechizo de ataque resulta el ideal para los niveles intermedios, pues les permitirá un gran poder de ataque que no sólo te permitirá entrenar velozmente, sino que además puede ser utilizado como una respetable arma en los combates contra tus adversarios.
 PalabrasMagicas=VAX IN TAR
-HechizeroMsg=Has lanzado un misil magico sobre   
+HechizeroMsg=Has lanzado un misil magico sobre        
 TargetMsg=ha lanzado un misil magico sobre ti.
 Tipo=1
 WAV=251
-FXgrh=10
+FXgrh=55
 MinSkill=45
 ManaRequerido=40
 StaRequerido=6
@@ -240,12 +242,12 @@ Resis=1
 Nombre=Paralizar
 Desc=Con este arcano encantamiento podrás dejar completamente petrificado a la víctima durante un determinado lapso de tiempo. Se trata de uno de los hechizos más utilizado en estas tierras por su gran utilidad tanto en el combate como en el entrenamiento.
 PalabrasMagicas=HOAX VORP
-HechizeroMsg=Has paralizado a 
+HechizeroMsg=Has paralizado a     
 TargetMsg=te ha paralizado.
 PropioMsg=Te has paralizado.
 Tipo=2
 WAV=36
-FXgrh=8
+FXgrh=86
 loops=0
 MinSkill=72
 ManaRequerido=400
@@ -260,12 +262,12 @@ Target=3
 Nombre=Remover Parálisis
 Desc=Conjuro con el cual podrás contrarrestar los efectos tanto de la parálisis como de la inmovilización. En virtud de que los hecizos de estatismo son usados con mucha frecuencia por todos las clases mágicas que habitan estas tierras, este conjuro se vuelve practicamente vital para cualquier valiente que esté dispuesto a combatir.
 PalabrasMagicas=AN HOAX VORP
-HechizeroMsg=Le has devuelto la movilidad a 
+HechizeroMsg=Le has devuelto la movilidad a   
 TargetMsg=te ha devuelto la movilidad.
 PropioMsg=Te has devuelto la movilidad.
 Tipo=2
 WAV=110
-FXgrh=31
+FXgrh=51
 Loops=0
 MinSkill=60
 ManaRequerido=200
@@ -278,13 +280,13 @@ RemoverParalisis=1
 
 [HECHIZO11]
 Nombre=Resucitar
-Desc=Encanto sagrado que te permitirá devolver la vida a los difuntos. Esta increíble habilidad fue enseñada personalmente por el mismo Gulfas Morgolock al otrora Rey de los hombres en las remotas épocas del Árbol Blanco. Su aprendizaje no es fácil y su utilización resulta muy desgastante, pero sin dudas es una de las piezas más importantes de la magia de las tierras del Argentum.  
+Desc=Encanto sagrado que te permitirá devolver la vida a los difuntos. Esta increíble habilidad fue enseñada personalmente por el mismo About Rey de los hombres en las remotas épocas del Árbol Blanco. Su aprendizaje no es fácil y su utilización resulta muy desgastante, pero sin dudas es una de las piezas más importantes de la magia de las tierras de Bender.     
 PalabrasMagicas=AHIL KNÄ XÄR
-HechizeroMsg=Has resucitado a  
+HechizeroMsg=Has resucitado a     
 TargetMsg=te ha resucitado.
 Tipo=2
-WAV=117
-FXgrh=0
+WAV=20
+FXgrh=100
 Loops=0
 MinSkill=85
 ManaRequerido=300
@@ -364,7 +366,7 @@ COOLDOWN=0
 Nombre=Tormenta de Fuego
 Desc=Poderoso hechizo de ataque. Su costo en relación al daño que provoca lo convierte en un arma más propia para el combate que para el entrenamiento. Es ideal para aquellos aprendices de magia que todavía no alcanzaron a conocer el secreto de los hechizos mayores y necesitan estar bien equipados para la guerra.
 PalabrasMagicas=EN VAX ON TAR
-HechizeroMsg=Has lanzado una tormenta de fuego sobre  
+HechizeroMsg=Has lanzado una tormenta de fuego sobre      
 TargetMsg=lanzó una tormenta de fuego sobre ti.
 Tipo=1
 WAV=256
@@ -386,7 +388,7 @@ Resis=1
 Nombre=Llamado a la Naturaleza
 Desc=El secreto druídico de la invocación se concentra en este embrujo, que te permitirá implorar por ayuda a la madre naturaleza. Al hacerlo, dos temibles lobos acudirán en tu auxilio, para socorrerte de cualquier peligro que pudieses estar padeciendo.
 PalabrasMagicas=Nature et worg
-HechizeroMsg=Has Llamado a la naturaleza contra 
+HechizeroMsg=Has Llamado a la naturaleza contra    
 TargetMsg=ha llamado a la naturaleza sobre ti.
 Tipo=4
 WAV=17
@@ -396,8 +398,10 @@ StaRequerido=16
 Target=4
 Invoca=1
 NumNpc=512
-Cant=2
+Cant=1
 HechizoBender=1
+FXGRH=85
+AFECTABENDER=1
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -406,7 +410,7 @@ HechizoBender=1
 Nombre=Llamado Nigromante
 Desc=Con este espantoso ritual de magia negra podrás lograr que los restos mortales de Zombies quienes no descansan en paz, se alcen en tu ayuda. Al hacerlo, dos tenebrosos zombies emergerán de la tierra para colaborar contigo.
 PalabrasMagicas=MoÎ cámus
-HechizeroMsg=Has invocado la ayuda de los Zombies contra 
+HechizeroMsg=Has invocado la ayuda de los Zombies contra  
 TargetMsg=ha utilizado la Nigromancia Zombie sobre ti.
 Tipo=4
 WAV=17
@@ -416,7 +420,7 @@ StaRequerido=31
 Target=4
 Invoca=1
 NumNpc=546
-Cant=2
+Cant=1
 NeedStaff=1
 HechizoBender=1
 
@@ -427,12 +431,12 @@ HechizoBender=1
 Nombre=Celeridad
 Desc=Podrás aumenta la agilidad del destinatario a través de este muy útil sortilegio. Con él devolverás al cuerpo toda la ligereza y velocidad que necesita para adquirir una verdadera destreza guerrera. Su facilidad y los pocos recursos que insume su práctica, lo convierten en una herramienta sumamente útil que no puede faltarle a ningún buen combatiente.
 PalabrasMagicas=YUP A'INC
-HechizeroMsg=Has aumentado la agilidad de    
+HechizeroMsg=Has aumentado la agilidad de     
 TargetMsg=ha aumentado tu agilidad.
 PropioMsg=Has aumentado tu agilidad.
 Tipo=1
 WAV=17
-FXgrh=20
+FXgrh=68
 MinSkill=20
 ManaRequerido=20
 StaRequerido=5
@@ -471,12 +475,12 @@ MaxAG=6
 Nombre=Fuerza
 Desc= El poder mágico que encierra este hechizo te permitirá aumentar notoriamente la fuerza y el poderío de la persona sobre quien lo invoques. Al igual que el hechizo de celeridad Su facilidad y los pocos recursos que insume su práctica, lo convierten en una herramienta sumamente útil que no puede faltarle a ningún buen combatiente.
 PalabrasMagicas=Ar A'kron
-HechizeroMsg=Has lanzado fuerza sobre 
+HechizeroMsg=Has lanzado fuerza sobre   
 TargetMsg=ha lanzado fuerza sobre ti.
 PropioMsg=Has lanzado fuerza sobre ti.
 Tipo=1
 WAV=112
-FXgrh=17
+FXgrh=58
 MinSkill=35
 ManaRequerido=35
 StaRequerido=6
@@ -520,7 +524,7 @@ ManaRequerido=1
 StaRequerido=1
 Target=4
 Invoca=1
-NumNpc=233
+NumNpc=707
 Cant=1
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -528,13 +532,13 @@ Cant=1
 
 [HECHIZO23]
 Nombre=Descarga Eléctrica
-Desc=Éste es uno de los hechizos de daño más poderoso de todo el Argentum. Al controlarlo podrás controlar las fuerzas de la naturaleza de modo tal que del cielo mismo caiga una fuerte descarga de electricidad sobre el objetivo. El daño que provoca en sus vícitimas puede ser mortal frente a principiantes o aprendices.
+Desc=Éste es uno de los hechizos de daño más poderoso de todo el Bender. Al controlarlo podrás controlar las fuerzas de la naturaleza de modo tal que del cielo mismo caiga una fuerte descarga de electricidad sobre el objetivo. El daño que provoca en sus vícitimas puede ser mortal frente a principiantes o aprendices.
 PalabrasMagicas=T'HY KOOOL
-HechizeroMsg=Has lanzado una descarga eléctrica sobre  
+HechizeroMsg=Has lanzado una descarga eléctrica sobre     
 TargetMsg=ha lanzado una descarga eléctrica sobre ti.
 Tipo=1
-WAV=247
-FXgrh=11
+WAV=113
+FXgrh=65
 MinSkill=85
 ManaRequerido=460
 StaRequerido=73
@@ -551,14 +555,14 @@ MANABONUS=10
 
 [HECHIZO24]
 Nombre=Inmovilizar
-Desc=Este valioso sortilegio te permitirá dejar a la víctima sin la capacidad de desplazarse, tendrá la sensación de que una poderosa fuerza lo atrae hacia el piso, y si bien podrá mover sus miembros, no podrá dejar el lugar en el que se encuentra. 
+Desc=Este valioso sortilegio te permitirá dejar a la víctima sin la capacidad de desplazarse, tendrá la sensación de que una poderosa fuerza lo atrae hacia el piso, y si bien podrá mover sus miembros, no podrá dejar el lugar en el que se encuentra.     
 PalabrasMagicas=Är Prop s'uo
-HechizeroMsg=Has inmovilizado a 
+HechizeroMsg=Has inmovilizado a     
 TargetMsg=te ha inmovilizado.
 PropioMsg=Te has inmovilizado.
 Tipo=2
 WAV=16
-FXgrh=12
+FXgrh=98
 MinSkill=75
 ManaRequerido=250
 StaRequerido=44
@@ -570,9 +574,9 @@ Inmoviliza=1
 
 [HECHIZO25]
 Nombre=Apocalipsis
-Desc=El ataque mágico más letal de estas tierras. Sólo aquellos avezados en el arte de la magia pueden aprender este temible hechizo. Su poder es fulminante y suele ser mortal para quien es víctima de él.    
+Desc=El ataque mágico más letal de estas tierras. Sólo aquellos avezados en el arte de la magia pueden aprender este temible hechizo. Su poder es fulminante y suele ser mortal para quien es víctima de él.     
 PalabrasMagicas=Rahma Nañarak O'al
-HechizeroMsg=Has lanzado Apocalipsis sobre   
+HechizeroMsg=Has lanzado Apocalipsis sobre     
 TargetMsg=lanzó Apocalipsis sobre ti.
 Tipo=1
 WAV=27
@@ -595,11 +599,11 @@ MANABONUS=10
 Nombre=Invocar Elemental de Fuego
 Desc=Encontrarás la colaboración del uno de los elementos vitales del universo, el corazón mismo del ardoroso fuego vendrá en tu auxilio.
 PalabrasMagicas=Fir Yur'rax
-HechizeroMsg=Has invocado un elemental de fuego contra  
+HechizeroMsg=Has invocado un elemental de fuego contra     
 TargetMsg=ha invocado un elemental de fuego sobre ti.
 Tipo=4
 WAV=135
-FXgrh=7
+FXgrh=91
 MinSkill=100
 ManaRequerido=1200
 StaRequerido=145
@@ -618,11 +622,11 @@ MANABONUS=20
 Nombre=Invocar Elemental de Agua
 Desc=Encontrarás la colaboración del uno de los elementos que conforman el universo, el agua vital vendrá en tu auxilio.
 PalabrasMagicas=Wata Mantra'rax
-HechizeroMsg=Has invocado un elemental de agua contra   
+HechizeroMsg=Has invocado un elemental de agua contra     
 TargetMsg=ha invocado un elemental de agua sobre ti.
 Tipo=4
 WAV=135
-FXgrh=7
+FXgrh=83
 MinSkill=90
 ManaRequerido=1000
 StaRequerido=121
@@ -645,11 +649,11 @@ MANABONUS=50
 Nombre=Invocar Elemental de Tierra
 Desc=Encontrarás la colaboración del uno de los elementos vitales del universo, la sagrada tierra vendrá en tu auxilio.
 PalabrasMagicas=Mu Mantra'rax
-HechizeroMsg=Has invocado un elemental de tierra contra  
+HechizeroMsg=Has invocado un elemental de tierra contra      
 TargetMsg=ha invocado un elemental de tierra sobre ti.
 Tipo=4
 WAV=135
-FXgrh=7
+FXgrh=85
 MinSkill=100
 ManaRequerido=1100
 StaRequerido=191
@@ -679,7 +683,7 @@ StaRequerido=1
 Target=4
 Invoca=1
 NumNpc=89
-Cant=2
+Cant=1
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -708,7 +712,7 @@ Ceguera=1
 Nombre=Turbación
 Desc=Este sortilegio provocará que la víctima pierda momentaneamente todo tipo de sentido de la orientación.
 PalabrasMagicas=ASYNC GAM ALÛ
-HechizeroMsg=Has lanzado el Conjuro de la Turbación sobre 
+HechizeroMsg=Has lanzado el Conjuro de la Turbación sobre  
 TargetMsg=ha lanzado el Conjuro de la Turbación sobre ti.
 PropioMsg=Has lanzado el Conjuro de la Turbación sobre ti.
 Tipo=2
@@ -718,6 +722,7 @@ ManaRequerido=800
 StaRequerido=76
 Target=1
 Estupidez=1
+FXGRH=74
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -744,7 +749,7 @@ MaxHP=220
 Nombre=Invocación de Ultratumba
 Desc=Utilizando el obscuro y controvertido arte de la nigromancia eres capaz de reanimar los restos de un guerrero y ligarlos a tu voluntad.
 PalabrasMagicas=Cörpse Dûm Ex
-HechizeroMsg=Has invocado al guerrero de ultratumba contra  
+HechizeroMsg=Has invocado al guerrero de ultratumba contra   
 TargetMsg=ha invocado al guerrero de ultratumba sobre ti.
 Tipo=4
 WAV=17
@@ -754,7 +759,7 @@ StaRequerido=60
 Target=4
 Invoca=1
 NumNpc=520
-Cant=2
+Cant=1
 NeedStaff=1
 HECHIZOBENDER=1
 
@@ -765,7 +770,7 @@ HECHIZOBENDER=1
 Nombre=Por el culo
 Desc=Le das por el ano a tu contrincante, quien deberá ponerse luego pomadita.
 PalabrasMagicas=P'ER LE CÙ|_0
-HechizeroMsg=Se la has dado por el culo a                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        TargetMsg=te la ha dado por el culo.
+HechizeroMsg=Se la has dado por el culo aTargetMsg=te la ha dado por el culo.
 Tipo=1
 WAV=113
 FXgrh=19
@@ -777,7 +782,7 @@ MinHP=3200
 MaxHP=3200
 Invoca=1
 Numnpc=991
-Cant=2
+Cant=1
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -896,7 +901,7 @@ MaxHP=3999
 Nombre=Quitar la Turbación
 Desc=Con este conjuro podrás contrarrestar los nefastos efectos del hechizo de turbación.
 PalabrasMagicas=AN ASYNC GAM ALÛ
-HechizeroMsg=Le has quitado la turbación a 
+HechizeroMsg=Le has quitado la turbación a  
 TargetMsg=te ha quitado la turbación.
 PropioMsg=Te has quitado la turbación.
 Tipo=2
@@ -906,6 +911,7 @@ ManaRequerido=350
 StaRequerido=44
 Target=1
 RemoverEstupidez=1
+FXGRH=63
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -914,17 +920,18 @@ RemoverEstupidez=1
 Nombre=Mimetismo
 Desc=Con este encantamiento adquirirás temporalmente al apariencia física de otra persona.
 PalabrasMagicas=Cimim Ux Maïo
-HechizeroMsg=Haz adquirido la apariencia de  
+HechizeroMsg=Haz adquirido la apariencia de   
 TargetMsg=ha adquirido magicamente tu apariencia.
 PropioMsg=Generas una ilusión en tu apariencia actual.
 Tipo=2
-WAV=16
+WAV=132
 MinSkill=75
 ManaRequerido=800
 StaRequerido=44
 Target=3
 Mimetiza=1
 MANABONUS=50
+FXGRH=87
 
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
@@ -951,10 +958,10 @@ RemueveInvisibilidadParcial=1
 
 [HECHIZO44]
 Nombre=Apocalipsis BenderAO
-Desc=El ataque mágico más letal contra criaturas de estas tierras. Sólo aquellos avezados en el arte de la magia pueden aprender este temible hechizo. Su poder es fulminante y suele ser mortal para quien es víctima de él.   
-PalabrasMagicas=En Rahma Bender
-HechizeroMsg=Has lanzado Apocalipsis BenderAO sobre  
-TargetMsg=lanzó Apocalipsis BenderAO sobre ti  
+Desc=El ataque mágico más letal contra criaturas de estas tierras. Sólo aquellos avezados en el arte de la magia pueden aprender este temible hechizo. Su poder es fulminante y suele ser mortal para quien es víctima de él.     
+PalabrasMagicas=Ra'hma BenderAO
+HechizeroMsg=Has lanzado Apocalipsis BenderAO sobre     
+TargetMsg=lanzó Apocalipsis BenderAO sobre ti     
 Tipo=1
 WAV=27
 FXgrh=73
@@ -963,8 +970,8 @@ ManaRequerido=300
 StaRequerido=50
 Target=2
 SubeHP=2
-MinHP=50
-MaxHP=120
+MinHP=500
+MaxHP=1200
 StaffAffected=1
 Resis=1
 HechizoBender=1
@@ -974,13 +981,13 @@ HechizoBender=1
 
 [HECHIZO45]
 Nombre=Rayo
-Desc=Éste es uno de los hechizos de daño más poderoso de todo el Argentum. Al controlarlo podrás controlar las fuerzas de la naturaleza de modo tal que del cielo mismo caiga una fuerte rayo de electricidad sobre el objetivo. El daño que provoca en sus vícitimas puede ser mortal frente a principiantes o aprendices.
+Desc=Éste es uno de los hechizos de daño más poderoso de todo el Bender. Al controlarlo podrás controlar las fuerzas de la naturaleza de modo tal que del cielo mismo caiga una fuerte rayo de electricidad sobre el objetivo. El daño que provoca en sus vícitimas puede ser mortal frente a principiantes o aprendices.
 PalabrasMagicas=T'HY Ra!YeLi^
-HechizeroMsg=Has lanzado Rayo sobre  
-TargetMsg=lanzó Rayo sobre ti  
+HechizeroMsg=Has lanzado Rayo sobre     
+TargetMsg=lanzó Rayo sobre ti     
 Tipo=1
 WAV=113
-FXgrh=36
+FXgrh=99
 MinSkill=100
 ManaRequerido=600
 StaRequerido=95
@@ -999,13 +1006,13 @@ MANABONUS=20
 Nombre=Antrax
 Desc=El ataque mágico más letal para las criaturas de estas tierras. Sólo aquellos avezados en el arte de la magia pueden aprender este temible hechizo. Su poder es fulminante y suele ser mortal para quien es víctima de él.     
 PalabrasMagicas=Rahma An´tr^aX
-HechizeroMsg=Has lanzado Antrax sobre   
-TargetMsg=lanzó Antrax sobre ti   
+HechizeroMsg=Has lanzado Antrax sobre        
+TargetMsg=lanzó Antrax sobre ti        
 Tipo=1
 WAV=27
 FXgrh=37
 MinSkill=100
-ManaRequerido=1300
+ManaRequerido=1200
 StaRequerido=145
 Target=3
 SubeHP=2
@@ -1064,7 +1071,7 @@ Resis=1
 
 [HECHIZO49]
 Nombre=Descarga Eléctrica NPC
-Desc=Éste es uno de los hechizos de daño más poderoso de todo el Argentum. Al controlarlo podrás controlar las fuerzas de la naturaleza de modo tal que del cielo mismo caiga una fuerte descarga de electricidad sobre el objetivo. El daño que provoca en sus vícitimas puede ser mortal frente a principiantes o aprendices.
+Desc=Éste es uno de los hechizos de daño más poderoso de todo el Bender. Al controlarlo podrás controlar las fuerzas de la naturaleza de modo tal que del cielo mismo caiga una fuerte descarga de electricidad sobre el objetivo. El daño que provoca en sus vícitimas puede ser mortal frente a principiantes o aprendices.
 PalabrasMagicas=T'HY KOOOL
 HechizeroMsg=Has lanzado una descarga eléctrica sobre 
 TargetMsg=ha lanzado una descarga eléctrica sobre ti.
@@ -1317,7 +1324,7 @@ FXgrh=28
 RemueveInvisibilidadParcial=1
 Loops=2
 MinSkill=101
-Cant=10000
+Cant=1
 
 [HECHIZO62]
 Nombre=Invocar Hechizero (Only GMs)
@@ -1422,7 +1429,7 @@ HechizoBender=1
 '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 [HECHIZO67]
-DESC= Este hechizo logra desatar de manera instantanea el maximo potencial fisico del guerrero en el que sea invocado, esta magia es tan poderosa que no es posible canalizarla continuamente
+DESC=Este hechizo logra desatar de manera instantanea el maximo potencial fisico del guerrero en el que sea invocado, esta magia es tan poderosa que no es posible canalizarla continuamente
 FXGRH=
 HECHIZEROMSG=Has lanzado trance sobre
 MANAREQUERIDO=300
@@ -1442,15 +1449,18 @@ TARGETMSG=ha lanzado trance sobre ti.
 TIPO=1
 WAV=237
 
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 [HECHIZO68]
-DESC= La poderosa magia que invoca este hechizo drena la fuerza muscular del objetivo dejandolo completamente exhausto, esta magia es tan poderosa que no es posible canalizarla continuamente
+DESC=La poderosa magia que invoca este hechizo drena la fuerza muscular del objetivo dejandolo completamente exhausto, esta magia es tan poderosa que no es posible canalizarla continuamente
 FXGRH=
 HECHIZEROMSG=Has lanzado extenuación sobre
 MANAREQUERIDO=300
 MAXFU=25
 MAXAG=25
-MINAG=25
-MINFU=25
+MINAG=20
+MINFU=20
 MINSKILL=80
 NOMBRE=Extenuación
 PALABRASMAGICAS=Ex' Ånimatüm
@@ -1463,10 +1473,13 @@ TARGETMSG=ha lanzado extenuación sobre ti.
 TIPO=1
 WAV=235
 
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 [HECHIZO69]
-DESC= Te sientes con suerte, los dioses te sonrien, tu proximo golpe no fallará. esta magia es tan poderosa que no es posible canalizarla continuamente
+DESC=Te sientes con suerte, los dioses te sonrien, tu proximo golpe no fallará. esta magia es tan poderosa que no es posible canalizarla continuamente
 FXGRH=2
-HECHIZEROMSG=Has lanzado golpe de golpe de gracia sobre
+HECHIZEROMSG=Has lanzado golpe de gracia sobre
 MANAREQUERIDO=400
 MINSKILL=100
 NOMBRE=Golpe de gracia
@@ -1478,6 +1491,9 @@ TARGETMSG=ha lanzado golpe de gracia sobre ti.
 TIPO=1
 WAV=198
 COOLDOWN=60
+
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 [HECHIZO70]
 DESC=La mas complicada magia sanación para las heridas más mortales e incurables,. Se trata de un conjuro de una complejidad alta, requiere un gran esfuerzo fisico y espiritual por parte del invocador, esta magia es tan poderosa que no es posible canalizarla continuamente
@@ -1497,6 +1513,9 @@ TARGETMSG=te ha sanado criticas heridas.
 TIPO=1
 WAV=18
 
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 [HECHIZO71]
 DESC=Con esta poderosa magia podrás volverte (tú o a quien se lo lances) completamente invisible a la vista y a los oidos de los demás, dejaras de emitir sonido alguno. Se trata de un conjuro de una complejidad alta, requiere un gran esfuerzo fisico y espiritual por parte del invocador, esta magia es tan poderosa que no es posible canalizarla continuamente
 HECHIZEROMSG=Has ocultado la presencia de    
@@ -1511,6 +1530,9 @@ TARGETMSG=Ha ocultado tu presencia.
 TIPO=2
 WAV=306
 
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 [HECHIZO72]
 Nombre=Remover Parálisis
 Desc=Conjuro con el cual podrás contrarrestar los efectos tanto de la parálisis como de la inmovilización. En virtud de que los hecizos de estatismo son usados con mucha frecuencia por todos las clases mágicas que habitan estas tierras, este conjuro se vuelve practicamente vital para cualquier valiente que esté dispuesto a combatir.
@@ -1523,7 +1545,114 @@ WAV=110
 FXgrh=31
 Loops=0
 MinSkill=60
-HpRequerido=20
-StaRequerido=44
-Target=3
+HpRequerido=60
+StaRequerido=200
+Target=5
 RemoverParalisis=1
+
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+[HECHIZO73]
+Nombre=Invocar Mascota
+Desc=Podrás lograr que tu más lejana mascota regrese a tí.
+PalabrasMagicas=Tsälo Kai'Tor
+HechizeroMsg=Has invocado una mascota 
+TargetMsg=ha invocado una mascota sobre ti.
+Tipo=4
+WAV=17
+FXgrh=7
+MinSkill=35
+HpRequerido=50
+StaRequerido=300
+Target=4
+Warp=1
+HechizoBender=1
+
+
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+'&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+[HECHIZO74]
+Nombre=Resucitar Almas
+Desc=Encanto sagrado que te permitirá devolver la vida a los difuntos. Esta increíble habilidad fue enseñada personalmente por el mismo About Rey de los hombres en las remotas épocas del Árbol Blanco. Su aprendizaje no es fácil y su utilización resulta muy desgastante, pero sin dudas es una de las piezas más importantes de la magia de las tierras de Bender.  
+PalabrasMagicas=AHIL KNÄ XÄRS
+HechizeroMsg=Has resucitado a  
+TargetMsg=te ha resucitado.
+Tipo=2
+WAV=117
+FXgrh=0
+Loops=1
+MinSkill=85
+ManaRequerido=600
+StaRequerido=500
+Target=1
+Revivir=1
+NeedStaff=2
+Resis=1
+Rango=1
+HpRequerido=90
+MaxStaNeeded=1
+[HECHIZO75]
+DESC=Destrucción en una sola Habilidad.
+FXGRH=90
+HECHIZEROMSG=Has lanzado Agujero Negro sobre
+MANABONUS=20
+MANAREQUERIDO=1300
+MAXHP=350
+MINHP=350
+MINSKILL=100
+NOMBRE=Agujero Negro
+PALABRASMAGICAS=Nihil mORT'eM
+RESIS=1
+STAFFAFFECTED=1
+STAREQUERIDO=145
+SUBEHP=2
+TARGET=3
+TARGETMSG=lanzó Agujero Negro sobre ti
+TIPO=1
+WAV=27
+[HECHIZO76]
+GRHINDEX=0
+HECHIZOINDEX=0
+NAME=0
+OBJTYPE=0
+VALOR=0
+VALORDONANTE=0
+DESC=Un poderosa lluvia de escarcha capaz de dejar hasta la más moribunda criatura petrificada en el 0 absoluto.
+FXGRH=94
+HECHIZEROMSG=Has lanzado Lluvia gélida sobre
+MANABONUS=20
+MANAREQUERIDO=600
+MAXHP=105
+MINHP=85
+MINSKILL=100
+NOMBRE=Lluvia Gélida
+PALABRASMAGICAS=F'rosT RäiN
+RESIS=1
+STAFFAFFECTED=1
+STAREQUERIDO=95
+SUBEHP=2
+TARGET=3
+TARGETMSG=lanzó Luvia gélida sobre ti
+TIPO=1
+WAV=113
+[HECHIZO77]
+DESC=Incinera todo a su alcance.
+FXGRH=59
+HECHIZEROMSG=Has lanzado Niebla Solar
+MANABONUS=20
+MANAREQUERIDO=500
+MAXHP=350
+MINHP=350
+MINSKILL=100
+NOMBRE=Niebla Solar
+PALABRASMAGICAS=Nëbulus S'ol äR
+RESIS=1
+STAFFAFFECTED=1
+STAREQUERIDO=145
+SUBEHP=2
+TARGET=3
+TARGETMSG=lanzó Niebla Solar sobre ti
+TIPO=1
+WAV=27

@@ -864,7 +864,12 @@ Dim Heading                     As Byte
             
             If Button = 2 Then
                 If LastFinded = 0 Then
-                
+                    For LoopC = 1 To UBound(SupData)
+                        If DameGrhIndex(LoopC) = MapData(tX, tY).Graphic(1).GrhIndex Then
+                            
+                            Exit For
+                        End If
+                    Next LoopC
                 End If
             End If
         End If

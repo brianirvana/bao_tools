@@ -65,15 +65,15 @@ numero de OBJs libres (cuando se pueda hay que utilizarlos)
 'aca va el numero de OBJ mas alto, NO la cantidad de OBJs.
 'esto sirve para que los GMS puedan ver la lista completa de items para crear en una ventanita.
 
-NumOBJs=1501
+NumOBJs=1709
 
 [OBJ1]
-Name=Manzana Roja
+Name=Manzanas Roja
 GrhIndex=506
 ObjType=1
 Agarrable=0
 MinHAM=10
-Valor=2
+Valor=3
 Crucial=1
 
 [OBJ2]
@@ -468,6 +468,11 @@ DuracionEfecto=75
 Valor=100
 Crucial=1
 Respawn=1
+HongoRojo=0
+HongosAmarillos=1
+HongosAzules=0
+HongosVerdes=0
+HongosVioletas=0
 
 [OBJ37] 
 Name=Poción Azul
@@ -481,6 +486,11 @@ Valor=40
 Crucial=1
 Respawn=1
 Bot_MinLvl=18
+HongoRojo=0
+HongosAmarillos=0
+HongosAzules=1
+HongosVerdes=0
+HongosVioletas=0
 
 [OBJ38]
 Name=Poción Roja
@@ -488,12 +498,17 @@ GrhIndex=542
 ObjType=11
 Agarrable=0
 TipoPocion=3
-MaxModificador=33
-MinModificador=25
+MaxModificador=35
+MinModificador=30
 Valor=20
 Crucial=1
 Respawn=1
 Bot_MinLvl=18
+HongoRojo=1
+HongosAmarillos=0
+HongosAzules=0
+HongosVerdes=0
+HongosVioletas=0
 
 [OBJ39]
 Name=Poción Verde
@@ -507,6 +522,11 @@ DuracionEfecto=100
 Valor=150
 Crucial=1
 Respawn=1
+HongoRojo=0
+HongosAmarillos=0
+HongosAzules=0
+HongosVerdes=2
+HongosVioletas=0
 
 [OBJ40]
 Name=Atlas Argentum
@@ -1452,7 +1472,6 @@ Fundible=1
 Bot_MinLvl=20
 Bot_MaxLvl=70
 LOG=1
-CP7=CAZADOR
 
 [OBJ132]
 Name=Casco de Hierro
@@ -1470,7 +1489,6 @@ CP1=MAGO
 CP2=DRUIDA
 Bot_MinLvl=15
 Bot_MaxLvl=70
-CP3=CAZADOR
 LINGH=10
 SKHERRERIA=30
 
@@ -1535,8 +1553,8 @@ GrhIndex=574
 ObjType=41
 Agarrable=0
 Anim=42
-MinHit=1
-MaxHit=1
+MinHit=10
+MaxHit=20
 Valor=300
 Crucial=1
 SkCarpinteria=5
@@ -1548,7 +1566,7 @@ GrhIndex=573
 ObjType=1
 Agarrable=0
 MinHam=75
-Valor=10
+Valor=15
 Crucial=1
 
 '<--------------------MANSION Turgon ------------------------>
@@ -1800,6 +1818,11 @@ TipoPocion=5
 Valor=10
 Crucial=1
 Respawn=1
+HongoRojo=0
+HongosAmarillos=0
+HongosAzules=0
+HongosVerdes=0
+HongosVioletas=1
 
 [OBJ167]
 Name=Mueble Rústico
@@ -2022,14 +2045,14 @@ GrhIndex=608
 ObjType=39
 Agarrable=0
 Anim=35
-MinHit=4
+MinHit=5
 MaxHit=6
 Valor=2000
 Crucial=1
 SKHERRERIA=50
 LINGO=0
-LINGH=100
-LINGP=5
+LINGH=25
+LINGP=0
 
 [OBJ188]
 Name=Yacimiento de Hierro
@@ -2142,7 +2165,7 @@ HechizoIndex=6
 [OBJ198]
 Name=Serrucho
 GrhIndex=607
-ObjType=2
+ObjType=54
 Agarrable=0
 Anim=36
 MinHit=1
@@ -2247,6 +2270,7 @@ SND1=152
 SND2=152
 SND3=152
 LOG=1
+FUNDIBLE=1
 
 [OBJ209]
 Name=Cartel Mineros
@@ -2390,7 +2414,7 @@ GrhIndex=628
 VGrande=501
 ObjType=8
 Agarrable=1
-Texto=Estas son las cavernas más peligrosas, el Dungeon Lava
+Texto=Preparate para ingresar a tierras prohibidas y extremadamente peligrosas, el Dungeon Lava.
 
 [OBJ227]
 Name=Cartel Dungeon Lava Hacia el Sur
@@ -3881,7 +3905,7 @@ GrhIndex=682
 ObjType=3
 NumRopaje=57
 Agarrable=0
-MaxDef=22
+MaxDef=24
 MinDef=16
 Valor=6750
 CP1=MAGO
@@ -3897,8 +3921,8 @@ GrhIndex=683
 ObjType=3
 NumRopaje=58
 Agarrable=0
-MaxDef=20
-MinDef=10
+MaxDef=25
+MinDef=15
 Valor=4000
 Crucial=1
 CP1=PIRATA
@@ -3972,6 +3996,8 @@ LingH=25
 LingP=0
 LingO=0
 SkHerreria=25
+APUÑALA=1
+FUNDIBLE=1
 
 [OBJ366]
 Name=Daga +3
@@ -4039,13 +4065,13 @@ Texto=Aquí yace Altair de Oteren. Fue conocido y amado por todos, sobre todo en 
 [OBJ369]
 Name=Armadura Legionaria
 GrhIndex=691
-ObjType=3
+ObjType=48
 NumRopaje=77
 Agarrable=0
 Caos=1
-MaxDef=13
-MinDef=7
-Valor=2000
+MaxDef=0
+MinDef=0
+Valor=20000
 Crucial=1
 CP1=DRUIDA
 CP2=CLERIGO
@@ -4053,6 +4079,7 @@ CP3=BARDO
 CP4=MAGO
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ370]
 Name=Capucha de Cazador
@@ -4060,7 +4087,7 @@ GrhIndex=467
 ObjType=17
 NumRopaje=2
 Agarrable=0
-Anim=9
+Anim=37
 MaxDef=25
 MinDef=20
 Valor=9550
@@ -4075,13 +4102,14 @@ CP8=GUERRERO
 CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
-PIELLOBO=100
-PIELOSO=50
-PIELOSOPOLAR=25
-PIELTIGRE=10
+PIELLOBO=25
+PIELOSO=12
+PIELOSOPOLAR=4
+PIELTIGRE=5
 Fundible=1
 Bot_MinLvl=25
 Bot_MaxLvl=70
+SkSastreria=90
 
 [OBJ371]
 Name=Tumba de Mherlyna
@@ -4094,12 +4122,12 @@ Texto=Bajo este mármol descansan los restos de Mherlyna, esa pequeña demiurgo de
 [OBJ372]
 Name=Manto de Sacerdote del Imperio
 GrhIndex=759
-ObjType=3
+ObjType=48
 NumRopaje=92
 Agarrable=0
-MaxDef=14
-MinDef=8
-Valor=2900
+MaxDef=0
+MinDef=0
+Valor=29000
 Crucial=1
 Real=1
 CP1=GUERRERO
@@ -4111,6 +4139,7 @@ CP6=PIRATA
 CP7=BANDIDO
 CP8=MAGO
 CP9=LADRON
+NOSECAE=1
 
 '<<<<<<<<<<<<<<<Puerta casa 8 Atlanthis >>>>>>>>>>>>>>>>>
 
@@ -4177,19 +4206,20 @@ RangoTP=0
 [OBJ379]
 Name=Armadura Legionaria (E/G)
 GrhIndex=695
-ObjType=3
+ObjType=48
 NumRopaje=81
 Agarrable=0
 Razaenana=1
 Caos=1
-MaxDef=13
-MinDef=7
-Valor=3010
+MaxDef=0
+MinDef=0
+Valor=30100
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ380]
 Name=Invocación de Ultratumba
@@ -4489,6 +4519,7 @@ LOG=1
 SND1=208
 SND2=208
 SND3=179
+FUNDIBLE=1
 
 [OBJ401]
 Name=Martillo de Guerra
@@ -4507,13 +4538,14 @@ LingH=75
 LingP=0
 LingO=0
 SkHerreria=30
-CountParaliza=1
+CountParaliza=2
 FX=24
 SND1=253
 SND2=136
 SND3=248
 Bot_MinLvl=15
 Bot_MaxLvl=70
+FUNDIBLE=1
 
 [OBJ402]
 Name=Espada Mata Dragones Negra
@@ -4525,7 +4557,6 @@ MinHit=100
 MaxHit=100
 Valor=100000
 ValorDonante=5000
-CP1=TRABAJADOR
 LingH=1000
 LingP=1000
 LingO=1000
@@ -4545,7 +4576,7 @@ GrhIndex=713
 ObjType=2
 Agarrable=0
 Anim=13
-MinHit=16 ' Antes 14
+MinHit=16
 MaxHit=20
 Valor=20000
 CP1=MAGO
@@ -4609,7 +4640,6 @@ SkHerreria=85
 Fundible=1
 LOG=1
 BOT_MINLVL=35
-CP6=CAZADOR
 
 [OBJ406]
 Name=Gema Lunar
@@ -4660,7 +4690,7 @@ ObjType=29
 Agarrable=0
 
 [OBJ414]
-Name=Piel Lobo
+Name=Piel de Lobo
 GrhIndex=697
 ObjType=12
 Valor=200
@@ -5201,38 +5231,38 @@ Respawn=1
 Crucial=1
 
 [OBJ463]
-Name=Vestimentas Comunes (Newbie)
+Name=Vestimentas Comunes
 GrhIndex=527
 ObjType=3
 NumRopaje=1
-Agarrable=2
-newbie=1
-NoSeCae=1
+Agarrable=0
+newbie=0
+NoSeCae=0
 MaxDef=3
 MinDef=2
 SND1=202
 SND2=203
 
 [OBJ464]
-Name=Vestimentas Comunes (Newbie)
+Name=Vestimentas Comunes
 GrhIndex=528
 ObjType=3
 NumRopaje=2
-Agarrable=2
-newbie=1
-NoSeCae=1
+Agarrable=0
+newbie=0
+NoSeCae=0
 MaxDef=3
 MinDef=2
 SND1=202
 SND2=203
 
 [OBJ465]
-Name=Vestimentas Comunes (Newbie)
+Name=Vestimentas Comunes
 GrhIndex=535
 ObjType=3
 NumRopaje=3
-Agarrable=2
-newbie=1
+Agarrable=0
+newbie=0
 NoSeCae=1
 MaxDef=3
 MinDef=2
@@ -5240,15 +5270,15 @@ SND1=202
 SND2=203
 
 [OBJ466]
-Name=Harapos de Mendigo (E/G) (Newbie)
+Name=Harapos de Mendigo (E/G)
 GrhIndex=15249
 ObjType=3
 NumRopaje=300
-Agarrable=2
+Agarrable=0
 MaxDef=3
 MinDef=2
 RazaEnana=1
-Newbie=1
+Newbie=0
 NoSeCae=1
 SND1=202
 SND2=203
@@ -5280,6 +5310,7 @@ GrhIndex=685
 ObjType=26
 Agarrable=0
 StaffPower=2
+StaffDamageBonus=1
 MinHit=1
 MaxHit=1
 Valor=8500
@@ -5298,8 +5329,9 @@ CP11=TRABAJADOR
 Madera=3200
 SkCarpinteria=100
 SND1=38
-SND2=38
-SND3=38
+SND2=39
+SND3=40
+FUNDIBLE=1
 
 [OBJ470]
 Name=Fuerza
@@ -5326,9 +5358,8 @@ Agarrable=1
 [OBJ473]
 Name=Flor
 GrhIndex=731
-ObjType=30
+ObjType=25
 Agarrable=0
-
 
 [OBJ474]
 Name=Barca
@@ -5434,7 +5465,7 @@ SND1=208
 SND2=208
 SND3=232
 <<<<<<< HEAD
-Bot_MinLvl=55
+Bot_MinLvl=20
 Bot_MinLvl=1
 =======
 Bot_MaxLvl=70
@@ -5449,7 +5480,7 @@ ObjType=32
 Agarrable=0
 MinHit=1
 MaxHit=3
-Valor=5
+Valor=2
 Crucial=1
 Madera=1
 SkCarpinteria=5
@@ -5689,19 +5720,19 @@ Agarrable=1
 [OBJ492]
 Name=Armadura Real (E/G)
 GrhIndex=768
-ObjType=3
+ObjType=48
 NumRopaje=102
 Agarrable=0
 Real=1
 RazaEnana=1
-MaxDef=15
-MinDef=9
-Valor=3010
+MaxDef=0
+MinDef=0
+Valor=30100
 Crucial=1
 CP1=MAGO
-CP2=DRUIDA
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ493]
 Name=Armadura de Placas Rojas (H/E/EO-M)
@@ -5821,7 +5852,7 @@ ObjType=3
 NumRopaje=109
 Agarrable=0
 Mujer=1
-MaxDef=22
+MaxDef=24
 MinDef=16
 Valor=6750
 Crucial=1
@@ -5903,9 +5934,14 @@ Crucial=1
 CP1=MAGO
 CP2=PIRATA
 CP3=ASESINO
-CP4=BARDO
+CP4=
 CP5=CAZADOR
 CP6=DRUIDA
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ504]
 Name=Atuendo Combinado (H/E/EO-M)
@@ -5921,6 +5957,11 @@ Crucial=1
 CP1=PIRATA
 Bot_MinLvl=15
 Bot_MaxLvl=70
+PIELLOBO=5
+PIELOSO=0
+PIELOSOPOLAR=0
+PIELTIGRE=0
+SkSastreria=25
 
 [OBJ505]
 Name=Atuendo Azul (H/E/EO-M)
@@ -5987,14 +6028,14 @@ Bot_MaxLvl=70
 [OBJ509]
 Name=Túnica de Maga Oscura (H/E/EO-M)
 GrhIndex=785
-ObjType=3
+ObjType=48
 NumRopaje=119
 Agarrable=0
 Mujer=1
 Caos=1
-MaxDef=12
-MinDef=5
-Valor=2800
+MaxDef=0
+MinDef=0
+Valor=28000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6007,6 +6048,7 @@ CP8=BANDIDO
 CP9=LADRON
 SND1=202
 SND2=203
+NOSECAE=1
 
 
 [OBJ510]
@@ -6096,18 +6138,23 @@ Valor=3900
 Crucial=1
 Bot_MinLvl=15
 Bot_MaxLvl=70
+PIELLOBO=15
+PIELOSO=1
+PIELOSOPOLAR=1
+PIELTIGRE=1
+SkSastreria=50
 
 [OBJ516]
 Name=Túnica de Maga del Imperio (H/E/EO-M)
 GrhIndex=793
-ObjType=3
+ObjType=48
 NumRopaje=127
 Agarrable=0
 Real=1
 Mujer=1
-MaxDef=14
-MinDef=7
-Valor=2800
+MaxDef=0
+MinDef=0
+Valor=28000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6122,17 +6169,18 @@ CP10=LADRON
 CP11=TRABAJADOR
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ517]
 Name=Túnica de Mago del Imperio
 GrhIndex=794
-ObjType=3
+ObjType=48
 NumRopaje=128
 Agarrable=0
 Real=1
-MaxDef=14
-MinDef=7
-Valor=2800
+MaxDef=0
+MinDef=0
+Valor=28000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6147,17 +6195,18 @@ CP10=LADRON
 CP11=TRABAJADOR
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ518]
 Name=Túnica de Mago Oscuro
 GrhIndex=795
-ObjType=3
+ObjType=48
 NumRopaje=129
 Agarrable=0
 Caos=1
-MaxDef=12
-MinDef=5
-Valor=2800
+MaxDef=0
+MinDef=0
+Valor=28000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6170,6 +6219,7 @@ CP8=BANDIDO
 CP9=LADRON
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ519]
 Name=Túnica Legendaria
@@ -6187,18 +6237,23 @@ SND2=203
 LOG=1
 Bot_MinLvl=35
 Bot_MaxLvl=70
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ520]
 Name=Armadura de Teniente Real
 GrhIndex=797
-ObjType=3
+ObjType=48
 NumRopaje=131
 Agarrable=0
 Real=1
 Mujer=0
-MaxDef=35
-MinDef=35
-Valor=29240
+MaxDef=0
+MinDef=0
+Valor=292400
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -6208,17 +6263,18 @@ CP5=BARDO
 CP6=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ521]
 Name=Armadura Real
 GrhIndex=690
-ObjType=3
+ObjType=48
 NumRopaje=64
 Agarrable=0
 Real=1
-MaxDef=15
-MinDef=9
-Valor=3010
+MaxDef=0
+MinDef=0
+Valor=30100
 Crucial=1
 CP1=DRUIDA
 CP2=CLERIGO
@@ -6226,6 +6282,7 @@ CP3=BARDO
 CP4=MAGO
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ522]
 Name=Teleport a Mapa 24.
@@ -6236,13 +6293,13 @@ Agarrable=1
 [OBJ523]
 Name=Manto de Sacerdote Demoníaco
 GrhIndex=800
-ObjType=3
+ObjType=48
 NumRopaje=134
 Agarrable=0
 Caos=1
-MaxDef=12
-MinDef=6
-Valor=2900
+MaxDef=0
+MinDef=0
+Valor=29000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6253,6 +6310,7 @@ CP6=BANDIDO
 CP7=MAGO
 CP8=LADRON
 CP9=TRABAJADOR
+NOSECAE=1
 
 [OBJ524]
 Name=Túnica Roja Especial (E/G)
@@ -6269,6 +6327,11 @@ SND1=202
 SND2=203
 Bot_MinLvl=25
 Bot_MaxLvl=70
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ525]
 Name=Túnica Reforzada (E/G)
@@ -6332,6 +6395,9 @@ Crucial=1
 CP1=GUERRERO
 SND1=202
 SND2=203
+PIELLOBO=8
+PIELOSO=4
+SkSastreria=4
 
 [OBJ529]
 Name=Armadura de Cuero (H/E/EO-M)
@@ -6456,6 +6522,8 @@ SND2=51
 SND3=51
 Madera=2000
 SkCarpinteria=50
+StaffDamageBonus=1
+FUNDIBLE=1
 
 [OBJ541]
 Name=Ceguera
@@ -6476,7 +6544,7 @@ HechizoIndex=31
 [OBJ543]
 Name=Red de Pesca
 GrhIndex=844
-ObjType=2
+ObjType=41
 Agarrable=2
 Valor=5000
 ValorDonante=15000
@@ -6492,7 +6560,7 @@ GrhIndex=845
 ObjType=1
 Agarrable=0
 MinHam=75
-Valor=16
+Valor=10
 
 [OBJ545]
 Name=Pez Espada
@@ -6500,7 +6568,7 @@ GrhIndex=846
 ObjType=1
 Agarrable=0
 MinHam=75
-Valor=19
+Valor=45
 
 
 [OBJ546]
@@ -6509,7 +6577,7 @@ GrhIndex=847
 ObjType=1
 Agarrable=0
 MinHam=75
-Valor=15
+Valor=30
 
 
 [OBJ547]
@@ -6531,14 +6599,14 @@ Texto=Hacia el oeste (<---), más allá del océano se encuentra el cementerio, y h
 [OBJ549]
 Name=Túnica de Mago del Imperio (E/G)
 GrhIndex=799
-ObjType=3
+ObjType=48
 NumRopaje=133
 Agarrable=0
 Real=1
 RazaEnana=1
-MaxDef=14
-MinDef=7
-Valor=2800
+MaxDef=0
+MinDef=0
+Valor=28000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6579,7 +6647,7 @@ ObjType=32
 Agarrable=0
 MinHit=1
 MaxHit=4
-Valor=10
+Valor=4
 Respawn=1
 Crucial=1
 CP1=DRUIDA
@@ -6599,7 +6667,7 @@ ObjType=32
 Agarrable=0
 MinHit=1
 MaxHit=5
-Valor=20
+Valor=3
 CP1=PIRATA
 CP2=MAGO
 CP3=PALADIN
@@ -6611,6 +6679,7 @@ CP8=DRUIDA
 CP9=TRABAJADOR
 Madera=8
 SkCarpinteria=50
+FUNDIBLE=1
 
 [OBJ553]
 Name=Flecha +3
@@ -6619,7 +6688,7 @@ ObjType=32
 Agarrable=0
 MinHit=2
 MaxHit=6
-Valor=35
+Valor=5
 CP1=PIRATA
 CP2=MAGO
 CP3=PALADIN
@@ -6633,6 +6702,7 @@ CP10=TRABAJADOR
 CP11=PALADIN
 Madera=18
 SkCarpinteria=75
+FUNDIBLE=1
 
 [OBJ554]
 Name=Sangre
@@ -6679,14 +6749,14 @@ Agarrable=1
 [OBJ558]
 Name=Túnica de Mago Oscuro (E/G)
 GrhIndex=774
-ObjType=3
+ObjType=48
 NumRopaje=23
 Agarrable=0
 Caos=1
 RazaEnana=1
-MaxDef=12
-MinDef=5
-Valor=2800
+MaxDef=0
+MinDef=0
+Valor=28000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -6699,6 +6769,7 @@ CP8=BANDIDO
 CP9=LADRON
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ559]
 Name=Daga de Plata
@@ -6732,6 +6803,8 @@ CP12=ASESINO
 SND1=176
 SND2=177
 SND3=2
+APUÑALA=1
+FUNDIBLE=1
 
 [OBJ560]
 Name=Gema Sagrada.
@@ -6815,49 +6888,49 @@ Log=1
 [OBJ566]
 Name=Flores
 GrhIndex=867
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ567]
 Name=Flores
 GrhIndex=868
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ568]
 Name=Flores
 GrhIndex=869
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ569]
 Name=Flores
 GrhIndex=870
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ570]
 Name=Flores
 GrhIndex=871
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ571]
 Name=Flores
 GrhIndex=872
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ572]
 Name=Flores
 GrhIndex=873
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ573]
 Name=Flores
 GrhIndex=874
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ574]'Yendo a Arghal
@@ -7519,10 +7592,15 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 SND1=202
 SND2=203
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ615]]'2da Jerarq
 Name=Túnica de Archimago (E/G)
-GrhIndex=657
+GrhIndex=806
 ObjType=3
 NumRopaje=135
 Agarrable=0
@@ -7543,6 +7621,11 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 SND1=202
 SND2=203
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ616]]'2da Jerarq
 Name=Armadura de Guerrero Campeón
@@ -7630,7 +7713,7 @@ Texto=Teleport a las Catacumbas.
 
 
 [OBJ622]
-Name=Teleport a Hielo.
+Name=Teleport a Hielo
 GrhIndex=669
 ObjType=19
 Agarrable=1
@@ -7701,13 +7784,13 @@ SND2=203
 [OBJ629]
 Name=Armadura Nobilísima
 GrhIndex=688
-ObjType=3
+ObjType=48
 NumRopaje=62
 Agarrable=0
 Real=1
-MaxDef=52
-MinDef=44
-Valor=51830
+MaxDef=0
+MinDef=0
+Valor=518300
 Crucial=1
 CP1=BARDO
 CP2=DRUIDA
@@ -7715,6 +7798,7 @@ CP3=MAGO
 CP4=MAGO
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ630]
 Name=Túnica Celestial para Consejos de Angrod (Humanos-Altos)
@@ -7777,13 +7861,13 @@ SND2=203
 [OBJ634]
 Name=Túnica Egregia de Mago Oscuro
 GrhIndex=692
-ObjType=3
+ObjType=48
 NumRopaje=78
 Agarrable=0
 Caos=1
-MaxDef=20
-MinDef=15
-Valor=29500
+MaxDef=0
+MinDef=0
+Valor=295000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -7796,23 +7880,25 @@ CP8=BANDIDO
 CP9=TRABAJADOR
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ635]
 Name=Armadura Lóbrega (H/E/EO-M)
 GrhIndex=770
-ObjType=3
+ObjType=48
 NumRopaje=104
 Agarrable=0
 Caos=1
 Mujer=1
-MaxDef=52
-MinDef=44
-Valor=31830
+MaxDef=0
+MinDef=0
+Valor=318300
 Crucial=1
 CP1=MAGO
 SND1=241
 SND2=240
 CP2=DRUIDA
+NOSECAE=1
 
 [OBJ636] '2da jerarq
 Name=Túnica de Líder del Caos (E/G)
@@ -7963,6 +8049,11 @@ TipoPocion=6
 Valor=1000
 Crucial=1
 Respawn=1
+HongoRojo=1
+HongosAmarillos=1
+HongosAzules=1
+HongosVerdes=1
+HongosVioletas=1
 
 [OBJ646]
 Name=Túnica Real Benderiana
@@ -7995,8 +8086,8 @@ ObjType=3
 NumRopaje=155
 Agarrable=0
 RazaEnana=1
-MaxDef=20
-MinDef=10
+MaxDef=25
+MinDef=15
 Valor=4000
 Crucial=1
 CP1=PIRATA
@@ -8042,7 +8133,7 @@ SND2=203
 Name=Portal Mágico
 GrhIndex=308
 VGrande=501
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ652]
@@ -8144,9 +8235,10 @@ CP9=BARDO
 CP10=DRUIDA
 CP11=TRABAJADOR
 SkCarpinteria=50
-Madera=4500
+Madera=2500
 Bot_MinLvl=20
 Bot_MaxLvl=70
+FUNDIBLE=1
 
 [OBJ660]
 Name=Báculo Engarzado
@@ -8210,16 +8302,16 @@ Bot_MinLvl=1
 Bot_MaxLvl=70
 
 [OBJ383]
-Name=Sombrero Mágico
-GrhIndex=18994
+Name=Sombrero de Hechicero
+GrhIndex=1018
 ObjType=17
 NumRopaje=2
 Agarrable=0
-Anim=7
+Anim=4
 MaxDef=1
 MinDef=1
-DefensaMagicaMin=7
-DefensaMagicaMax=12
+DefensaMagicaMin=10
+DefensaMagicaMax=14
 Valor=15000
 CP1=PIRATA
 CP2=CAZADOR
@@ -8234,14 +8326,17 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 Bot_MinLvl=20
 Bot_MaxLvl=70
+PIELLOBO=5
+PIELOSO=5
+SkSastreria=25
 
 [OBJ662]
 Name=Sombrero de Mago
-GrhIndex=1018
+GrhIndex=26738
 ObjType=17
 NumRopaje=2
 Agarrable=0
-Anim=4
+Anim=33
 MaxDef=1
 MinDef=1
 DefensaMagicaMin=15
@@ -8260,6 +8355,10 @@ CP10=DRUIDA
 CP11=TRABAJADOR
 Bot_MaxLvl=70
 BOT_MINLVL=20
+PIELLOBO=10
+PIELOSO=5
+PIELTIGRE=3
+SkSastreria=25
 
 [OBJ663]
 Name=Arco Simple Reforzado
@@ -8306,8 +8405,7 @@ Respawn=1
 CP1=DRUIDA
 CP2=MAGO
 CP3=CLERIGO
-CP4=LADRON
-CP5=BARDO
+CP4=BARDO
 Bot_MaxLvl=70
 BOT_MINLVL=25
 Madera=5000
@@ -8315,9 +8413,10 @@ SkCarpinteria=50
 SND1=208
 SND2=208
 SND3=232
+FUNDIBLE=1
 
 [OBJ665]
-Name=Arco de Cazador
+Name=Arco Engarzado
 GrhIndex=1023
 ObjType=2
 Agarrable=0
@@ -8344,6 +8443,7 @@ SND1=208
 SND2=208
 SND3=232
 LOG=1
+FUNDIBLE=1
 
 [OBJ666]
 Name=Objetos Voodoo Satánicos
@@ -8360,7 +8460,7 @@ ObjType=3
 NumRopaje=156
 Agarrable=0
 RazaEnana=1
-MaxDef=22
+MaxDef=24
 MinDef=16
 Valor=6750
 Crucial=1
@@ -8491,8 +8591,8 @@ SND2=203
 [OBJ676]
 Name=Vestimenta Imperial (E/G)
 GrhIndex=4925
-ObjType=3
 NumRopaje=175
+ObjType=3
 Agarrable=0
 Real=1
 RazaEnana=1
@@ -8535,13 +8635,13 @@ SND2=203
 [OBJ679]
 Name=Túnica Conspicua de Mago Imperial
 GrhIndex=1181
-ObjType=3
+ObjType=48
 NumRopaje=173
 Agarrable=0
 Real=1
-MaxDef=22
-MinDef=17
-Valor=29500
+MaxDef=0
+MinDef=0
+Valor=295000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -8560,13 +8660,13 @@ SND2=203
 [OBJ680]
 Name=Armadura de Gran Sacerdote Imperial
 GrhIndex=4922
-ObjType=3
+ObjType=48
 NumRopaje=172
 Agarrable=0
 Real=1
-MaxDef=24
-MinDef=17
-Valor=39240
+MaxDef=0
+MinDef=0
+Valor=392400
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -8576,39 +8676,40 @@ CP5=PIRATA
 CP6=BANDIDO
 CP7=MAGO
 CP8=LADRON
-CP9=DRUIDA
-CP10=TRABAJADOR
+CP9=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ681]
 Name=Armadura Nobilísima (E/G)
 GrhIndex=4921
-ObjType=3
+ObjType=48
 NumRopaje=179
 Agarrable=0
 Real=1
 Razaenana=1
-MaxDef=52
-MinDef=44
-Valor=31830
+MaxDef=0
+MinDef=0
+Valor=318300
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ682]
 Name=Túnica Conspicua de Mago Imperial (E/G)
 GrhIndex=4920
-ObjType=3
+ObjType=48
 NumRopaje=171
 Agarrable=0
 Real=1
 Razaenana=1
-MaxDef=22
-MinDef=17
-Valor=29500
+MaxDef=0
+MinDef=0
+Valor=295000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -8622,17 +8723,18 @@ CP9=BARDO
 CP10=LADRON
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ683]
 Name=Armadura Lóbrega
 GrhIndex=4919
-ObjType=3
+ObjType=48
 NumRopaje=170
 Agarrable=0
 Caos=1
-MaxDef=52
-MinDef=44
-Valor=51830
+MaxDef=0
+MinDef=0
+Valor=518300
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -8640,17 +8742,18 @@ CP3=BARDO
 CP4=MAGO
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ684]
 Name=Armadura de Gran Sacerdote Demoníaco
 GrhIndex=4918
-ObjType=3
+ObjType=48
 NumRopaje=169
 Agarrable=0
 Caos=1
-MaxDef=22
-MinDef=15
-Valor=29240
+MaxDef=0
+MinDef=0
+Valor=292400
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -8664,35 +8767,37 @@ CP9=DRUIDA
 CP10=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ685]
 Name=Armadura Lóbrega (E/G)
 GrhIndex=4917
-ObjType=3
+ObjType=48
 NumRopaje=168
 Agarrable=0
 Caos=1
 RazaEnana=1
-MaxDef=52
-MinDef=44
-Valor=31830
+MaxDef=0
+MinDef=0
+Valor=318300
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ686]
 Name=Túnica Egregia de Mago Oscuro (E/G)
 GrhIndex=4916
-ObjType=3
+ObjType=48
 NumRopaje=167
 Agarrable=0
 Caos=1
 RazaEnana=1
-MaxDef=20
-MinDef=15
-Valor=29500
+MaxDef=0
+MinDef=0
+Valor=295000
 Crucial=1
 CP1=GUERRERO
 CP2=PALADIN
@@ -8705,79 +8810,84 @@ CP8=BANDIDO
 CP9=TRABAJADOR
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ687]
 Name=Túnica Palatina
 GrhIndex=687
-ObjType=3
+ObjType=48
 NumRopaje=61
 Agarrable=0
 Real=1
-MaxDef=37
-MinDef=32
-Valor=48000
+MaxDef=0
+MinDef=0
+Valor=480000
 Crucial=1
 CP1=MAGO
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ688]
 Name=Pequeña Túnica Palatina (E/G)
 GrhIndex=4915
-ObjType=3
+ObjType=48
 NumRopaje=166
 Agarrable=0
 Real=1
 Razaenana=1
-MaxDef=37
-MinDef=32
-Valor=48000
+MaxDef=0
+MinDef=0
+Valor=480000
 Crucial=1
 CP1=MAGO
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ689]
 Name=Túnica Avernal
 GrhIndex=806
-ObjType=3
+ObjType=48
 NumRopaje=140
 Agarrable=0
 Caos=1
-MaxDef=35
-MinDef=30
-Valor=48000
+MaxDef=0
+MinDef=0
+Valor=480000
 Crucial=1
 CP1=MAGO
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ690]
 Name=Pequeña Túnica Avernal (E/G)
 GrhIndex=4914
-ObjType=3
+ObjType=48
 NumRopaje=165
 Agarrable=0
 Caos=1
 RazaEnana=1
-MaxDef=35
-MinDef=30
-Valor=48000
+MaxDef=0
+MinDef=0
+Valor=480000
 Crucial=1
 CP1=MAGO
 SND1=202
 SND2=203
+NOSECAE=1
 
 [OBJ691]
 Name=Armadura de Ilustre Caballero
 GrhIndex=4913
-ObjType=3
+ObjType=48
 NumRopaje=178
 Agarrable=0
 Real=1
-MaxDef=42
-MinDef=37
-Valor=55060
+MaxDef=0
+MinDef=0
+Valor=550600
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -8789,17 +8899,18 @@ CP7=CAZADOR
 CP8=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ692]
 Name=Armadura Magna
 GrhIndex=798
-ObjType=3
+ObjType=48
 NumRopaje=132
 Agarrable=0
 Real=1
-MaxDef=42
-MinDef=37
-Valor=65060
+MaxDef=0
+MinDef=0
+Valor=650600
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -8811,6 +8922,7 @@ CP7=CAZADOR
 CP8=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ693]
 Name=Armadura Magna (H/E/EO-M)
@@ -8837,14 +8949,14 @@ SND2=240
 [OBJ694]
 Name=Armadura de Ilustre Caballero (E/G)
 GrhIndex=4912
-ObjType=3
+ObjType=48
 NumRopaje=164
 Agarrable=0
 Real=1
 Razaenana=1
-MaxDef=42
-MinDef=37
-Valor=55060
+MaxDef=0
+MinDef=0
+Valor=550600
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -8856,18 +8968,19 @@ CP7=CAZADOR
 CP8=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ695]
 Name=Armadura de Pequeño Pandemonium (E/G)
 GrhIndex=4910
-ObjType=3
+ObjType=48
 NumRopaje=163
 Agarrable=0
 Caos=1
 RazaEnana=1
-MaxDef=40
-MinDef=35
-Valor=65060
+MaxDef=0
+MinDef=0
+Valor=650600
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -8879,6 +8992,7 @@ CP7=CAZADOR
 CP8=TRABAJADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ696]
 Name=Laúd Mágico
@@ -8903,13 +9017,14 @@ CP11=TRABAJADOR
 Madera=10000
 SkCarpinteria=100
 StaffDamageBonus=4
-SND1=40
-SND2=40
+SND1=38
+SND2=39
 SND3=40
 LOG=1
+FUNDIBLE=1
 
 [OBJ697]
-Name=Anillo Mágico
+Name=Anillo de Neófito Arcano
 GrhIndex=4900
 ObjType=18
 Agarrable=0
@@ -8921,7 +9036,6 @@ CP2=DRUIDA
 CP3=LADRON
 CP4=GUERRERO
 CP5=PIRATA
-CP6=BANDIDO
 LingH=35
 LingP=0
 LingO=0
@@ -8999,13 +9113,13 @@ LOG=1
 [OBJ701]
 Name=Armadura Infame
 GrhIndex=4911
-ObjType=3
+ObjType=48
 NumRopaje=162
 Agarrable=0
 Caos=1
-MaxDef=40
-MinDef=35
-Valor=65060
+MaxDef=0
+MinDef=0
+Valor=650600
 Crucial=1
 CP1=MAGO
 CP2=DRUIDA
@@ -9017,6 +9131,7 @@ CP7=TRABAJADOR
 CP8=CAZADOR
 SND1=241
 SND2=240
+NOSECAE=1
 
 [OBJ702]
 Name=¿Dónde entreno más rápido? Parate sobre este cartel para más info.
@@ -9354,10 +9469,10 @@ ObjType=20
 Agarrable=1
 
 [OBJ748]
-Name=Sillón 
+Name=Sillón  
 GrhIndex=525
 ObjType=20
-Agarrable=0
+Agarrable=1
 Valor=666
 Madera=400
 SkCarpinteria=50
@@ -9482,31 +9597,41 @@ Agarrable=1
 [OBJ766]
 Name=Arbolito
 GrhIndex=653
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ767]
 Name=Margarita
 GrhIndex=729
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ768]
-Name=Hongo
+Name=Hongos Rojos
 GrhIndex=730
 ObjType=30
 Agarrable=0
+Valor=10
+RangoTP=5 'Tiles de ancho donde respawnea el item al ser agarrado
+PasajeMapa=1
+pasajePosX=50 'Orig POS
+pasajePosY=50 'Orig POS
 
 [OBJ769]
-Name=Hongos
+Name=Hongo
 GrhIndex=732
-ObjType=30
-Agarrable=1
+ObjType=25
+Agarrable=0
+Valor=10
+RangoTP=5 'Tiles de ancho donde respawnea el item al ser agarrado
+PasajeMapa=1
+pasajePosX=50 'Orig POS
+pasajePosY=50 'Orig POS
 
 [OBJ770]
 Name=Algas
 GrhIndex=733
-ObjType=30
+ObjType=25
 Agarrable=1
 
 [OBJ771]
@@ -9762,25 +9887,45 @@ Agarrable=1
 Name=Hongos Amarillos
 GrhIndex=2134
 ObjType=30
-Agarrable=1
+Agarrable=0
+Valor=10
+RangoTP=5 'Tiles de ancho donde respawnea el item al ser agarrado
+PasajeMap=1
+pasajePosX=50 'Orig POS
+pasajePosY=50 'Orig POS
 
 [OBJ810]
 Name=Hongos Azules
 GrhIndex=2135
 ObjType=30
-Agarrable=1
+Agarrable=0
+Valor=10
+RangoTP=3 'Tiles de ancho donde respawnea el item al ser agarrado
+PasajeMapa=1
+pasajePosX=438
+pasajePosY=661
 
 [OBJ811]
-Name=Hongos Rojos
+Name=Hongos Verdes
 GrhIndex=2136
 ObjType=30
-Agarrable=1
+Agarrable=0
+Valor=10
+RangoTP=5 'Tiles de ancho donde respawnea el item al ser agarrado
+PasajeMapa=1
+pasajePosX=50 'Orig POS
+pasajePosY=50 'Orig POS
 
 [OBJ812]
 Name=Hongos Violetas
 GrhIndex=2137
 ObjType=30
-Agarrable=1
+Agarrable=0
+Valor=10
+RangoTP=5 'Tiles de ancho donde respawnea el item al ser agarrado
+PasajeMapa=1
+pasajePosX=50 'Orig POS
+pasajePosY=50 'Orig POS
 
 [OBJ813]
 Name=Candelabro de Pie
@@ -10008,8 +10153,8 @@ Agarrable=1
 [OBJ850]
 Name=Arco de Flores
 GrhIndex=95
-ObjType=30
-Agarrable=2
+ObjType=25
+Agarrable=1
 NoSeCae=1
 
 [OBJ851]
@@ -10138,6 +10283,18 @@ GrhIndex=388
 ObjType=2
 Agarrable=0
 Anim=16
+CP1=ASESINO
+CP10=MAGO
+CP11=PALADIN
+CP12=LADRON
+CP2=BARDO
+CP3=BANDIDO
+CP4=CLERIGO
+CP5=DRUIDA
+CP6=GUERRERO
+CP7=CAZADOR
+CP8=PIRATA
+CP9=TRABAJADOR
 
 [OBJ866]
 Name=Mochila de Viajero
@@ -10162,6 +10319,9 @@ Valor=40
 Crucial=1
 SND1=202
 SND2=203
+PIELLOBO=2
+PIELOSO=0
+SkSastreria=10
 
 [OBJ868]
 Name=Tumba de Chatillon
@@ -10275,6 +10435,11 @@ SND1=202
 SND2=203
 Bot_MinLvl=15
 Bot_MaxLvl=70
+PIELLOBO=20
+PIELOSO=10
+PIELOSOPOLAR=5
+PIELTIGRE=4
+SkSastreria=50
 
 [OBJ878] 'enano mujer
 Name=Túnica de Gran Hechicera (E/G-M)
@@ -12186,15 +12351,15 @@ Texto=
 NAME=Estatua de Gengis
 GRHINDEX=20551
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos de Gengis, un gran dios que hizo mucho por estas tierras.
 
 [OBJ989]
-NAME=Estatua en honor al creador de BenderAO, llamado ALLPORT
+NAME=Estatua en honor al creador de BenderAO, Juan también conocido como ALLPORT
 GRHINDEX=20552
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos de Allport, nuestro creador. El pueblo de Bender AO agradece mucho a este dios, por darle vida a nuestro querído BenderAO.
 
@@ -12202,7 +12367,7 @@ TEXTO=Aquí yacen los restos de Allport, nuestro creador. El pueblo de Bender AO 
 NAME=Estatua del clan Valhalla
 GRHINDEX=20553
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del clan Campeon del antigüo Torneo de Clanes de la versión 0.1.6, <Valhalla>.
 
@@ -12218,7 +12383,7 @@ TEXTO=Aquí yacen los restos Curi, campeon del antigüo torneo de Cazadores año 20
 NAME=Estatua de Ku ganador torneo de clases año 2009
 GRHINDEX=20555
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Clérigos, Ku.
 
@@ -12226,7 +12391,7 @@ TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Clérigos, Ku.
 NAME=Estatua de Oakenfold
 GRHINDEX=20556
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Magos, Oakenfold.
 
@@ -12234,7 +12399,7 @@ TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Magos, Oakenfold.
 NAME=Estatua de Be jaiming
 GRHINDEX=20557
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Paladines, Be jaming.
 
@@ -12242,7 +12407,7 @@ TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Paladines, Be jami
 NAME=Estatua de Shi nnyne
 GRHINDEX=20558
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Asesinos, Shy Nnyne.
 
@@ -12250,7 +12415,7 @@ TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Asesinos, Shy Nnyn
 NAME=Estatua de Temud
 GRHINDEX=20559
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Bardos, Temud.
 
@@ -12258,7 +12423,7 @@ TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Bardos, Temud.
 NAME=Estatua de Godines
 GRHINDEX=20560
 VGRANDE=514
-OBJTYPE=30
+OBJTYPE=25
 AGARRABLE=1
 TEXTO=Aquí yacen los restos del campeon del antigüo torneo de Guerreros, Godines.
 
@@ -12302,13 +12467,8 @@ Municiones=1
 MINHIT=300
 MAXHIT=600
 VALOR=3000
-CP1=PIRATA
-CP2=MAGO
-CP3=PALADIN
-CP4=CLERIGO
-CP5=BANDIDO
-CP6=BARDO
-CP7=DRUIDA
+CP1=MAGO
+CP2=DRUIDA
 SND1=208
 SND2=208
 SND3=232
@@ -12331,7 +12491,7 @@ MINHIT=6
 MAXHIT=9
 Apuñala=1
 VALOR=20000
-CP1=PIRATA
+CP1=TRABAJADOR
 CP2=MAGO
 CP3=PALADIN
 CP4=CLERIGO
@@ -12357,10 +12517,10 @@ LOG=1
 
 [OBJ1003]
 NAME=Espada Mitrhil
-GrhIndex=713
+GrhIndex=26868
 OBJTYPE=2
 AGARRABLE=0
-ANIM=13
+ANIM=50
 MINHIT=16 ' Antes 14
 MAXHIT=21
 DashInterval=2000
@@ -12422,6 +12582,7 @@ SND1=208
 SND2=208
 SND3=232
 LOG=1
+FUNDIBLE=1
 
 [OBJ1005]
 NAME=Rayo
@@ -13274,6 +13435,9 @@ MinDef=1
 Valor=0
 SND1=202
 SND2=203
+PIELLOBO=1
+PIELOSO=0
+SkSastreria=0
 
 [OBJ1075]
 Name=Item Borrado
@@ -14008,7 +14172,7 @@ SND1=241
 SND2=240
 
 [OBJ1119]
-Name=Arapos Pirata 2da Jerarquía Caos
+Name=Harapos Pirata 2da Jerarquía Caos
 GrhIndex=21477
 NumRopaje=477
 ObjType=3
@@ -14033,7 +14197,7 @@ SND1=202
 SND2=203
 
 [OBJ1120]
-Name=Arapos Pirata 2da Jerarquía Caos (E/G)
+Name=Harapos Pirata 2da Jerarquía Caos (E/G)
 GrhIndex=21504
 NumRopaje=478
 ObjType=3
@@ -14569,7 +14733,7 @@ SND1=241
 SND2=240
 
 [OBJ1141]
-Name=Arapos Pirata 2da Jerarquía Real
+Name=Harapos Pirata 2da Jerarquía Real
 GrhIndex=22332
 NumRopaje=455
 ObjType=3
@@ -14594,7 +14758,7 @@ SND1=202
 SND2=203
 
 [OBJ1142]
-Name=Arapos Pirata 2da Jerarquía Real (E/G)
+Name=Harapos Pirata 2da Jerarquía Real (E/G)
 GrhIndex=22359
 NumRopaje=456
 ObjType=3
@@ -14670,6 +14834,11 @@ SND1=202
 SND2=203
 LOG=1
 BOT_MINLVL=35
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ1145]
 Name=Túnica de Viajera (M)
@@ -14823,67 +14992,67 @@ Agarrable=1
 'del 1200 al 1300 son items (QUEST)
 
 [OBJ1200]
-Name=Piel de Gran Oso Pardo (Quest)
+Name=Piel de Gran Oso Pardo (Misión)
 GrhIndex=699
 ObjType=29
 Agarrable=0
 
 [OBJ1201]
-Name=Amuleto de Piedras Verdes (Quest)
+Name=Amuleto de Piedras Verdes (Misión)
 GrhIndex=20891
 ObjType=29
 Agarrable=0
 
 [OBJ1202]
-Name=Muestra de Veneno de Gran Araña Pollito Gigante (Quest)
+Name=Muestra de Veneno de Gran Araña Pollito Gigante (Misión)
 GrhIndex=39
 ObjType=29
 Agarrable=0
 
 [OBJ1203]
-Name=Poción Especial (Quest)
+Name=Poción Especial (Misión)
 GrhIndex=579
 ObjType=29
 Agarrable=0
 
 [OBJ1204]
-Name=Gema Azul (Quest)
-GrhIndex=701
+Name=Gema de Resucitación
+GrhIndex=3716
 ObjType=29
 Agarrable=0
 
 [OBJ1205]
-Name=Leña Mágica (Quest)
+Name=Leña Mágica (Misión)
 GrhIndex=550
 ObjType=29
 Agarrable=0
 
 [OBJ1206]
-Name=Amuleto del Mago Lenus (Quest)
+Name=Amuleto del Mago Lenus (Misión)
 GrhIndex=20893
 ObjType=29
 Agarrable=0
 
 [OBJ1207]
-Name=Carta de Lenus (Quest)
+Name=Carta de Lenus (Misión)
 GrhIndex=609
 ObjType=29
 Agarrable=0
 
 [OBJ1208]
-Name=Baculo de Brujo (Quest)
-GrhIndex=715
+Name=Baculo de Brujo (Misión)
+GrhIndex=26778
 ObjType=29
 Agarrable=0
 
 [OBJ1209]
-Name=Ropa de Bandido (Quest)
+Name=Ropa de Bandido (Misión)
 GrhIndex=654
 ObjType=29
 Agarrable=0
 
 [OBJ1210]
-Name=Carta de Lenus (Quest)
+Name=Carta de Lenus (Misión)
 GrhIndex=609
 ObjType=29
 Agarrable=0
@@ -14913,7 +15082,7 @@ ObjType=29
 Agarrable=1
 
 [OBJ1215]
-Name=Pacman Point (Quest) (Item Sin Valor)
+Name=Pacman Point (Misión) (Item Sin Valor)
 GrhIndex=701
 ObjType=29
 Agarrable=0
@@ -14990,6 +15159,7 @@ Name=Libro de conjuros de Sonaur I
 GrhIndex=4546
 ObjType=29
 Agarrable=0
+NOSECAE=1
 
 [OBJ1225]
 Name=Armadura Klox
@@ -15035,14 +15205,14 @@ Agarrable=0
 Crucial=0
 
 [OBJ1231]
-Name=Piel de Serpiente Gigante
+Name=Capa de Invisibilidad (Misión)
 GrhIndex=4999
 ObjType=29
 Agarrable=0
 Crucial=0
 
 [OBJ1232]
-Name=Poción Negra
+Name=LIBRE
 GrhIndex=5357
 ObjType=29
 Agarrable=0
@@ -15184,6 +15354,11 @@ CP4=ASESINO
 CP5=BANDIDO
 CP6=BARDO
 CP7=DRUIDA
+HongoRojo=0
+HongosAmarillos=2
+HongosAzules=2
+HongosVerdes=2
+HongosVioletas=0
 
 [OBJ1248]
 Name=Túnica Diamante (E/G) (Modelo 4)
@@ -15595,12 +15770,12 @@ Agarrable=0
 ANIM=35
 CRUCIAL=1
 MAXHIT=12
-MINHIT=8
+MINHIT=12
 VALOR=7000
 SKHERRERIA=90
-LINGO=50
-LINGH=200
-LINGP=100
+LINGO=0
+LINGH=100
+LINGP=10
 
 [OBJ1290]
 Name=Arco Simple (Newbie)
@@ -15668,107 +15843,116 @@ Agarrable=1
 Texto=Este es un ejemplo de la ayuda|Utilizando la barra vertical se pueden realizar espacios.|||||Utilizandola muchas veces se pueden crear espacios mucho mas grandes ^^||Atte. MaTeO.
 
 [OBJ1294]
-Name=Amuleto Experiencia 25%
-Log=1
-Unico=2
-Agarrable=2
-TotalLife=60
-Life=0
-Destroy=1
 GrhIndex=20891
-ObjType=37
-DefensaMagicaMin=5
-DefensaMagicaMax=5
+Name=Amuleto Experiencia 5%
+Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
 Valor=2500
 ValorDonante=5000
-Log=1
-ModExp=125
-ModGOld=0
+DuracionEfecto=7200
+ModExp=5
+ModGold=5
+ModDrops=15
 NoSeCae=1
 Donante=1
 
 [OBJ1295]
-Name=Amuleto Experiencia 15%
-Log=1
-Unico=2
-Agarrable=2
-TotalLife=40
-Life=0
-Destroy=1
 GrhIndex=20890
-ObjType=37
-DefensaMagicaMin=0
-DefensaMagicaMax=1
-Valor=1800
-ValorDonante=5000
+Name=Amuleto Experiencia 10%
 Log=1
-ModExp=115
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=6500
+ModExp=10
+ModGold=0
 NoSeCae=1
 Donante=1
 
 [OBJ1296]
-Name=Amuleto Experiencia 10%
-Log=1
-Unico=2
-Agarrable=2
-TotalLife=60
-Life=0
-Destroy=1
 GrhIndex=20894
-ObjType=37
-DefensaMagicaMin=1
-DefensaMagicaMax=3
-Valor=900
-ValorDonante=5000
+Name=Amuleto Experiencia 15%
 Log=1
-ModExp=110
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=15
+ModGold=0
 NoSeCae=1
 Donante=1
 
 [OBJ1297]
-Name=Amuleto
-Log=1
-Agarrable=2
 GrhIndex=20892
-ObjType=37
-Valor=10000
+Name=Amuleto Experiencia 25%
 Log=1
-
-[OBJ1298]
-Name=Amuleto
-Log=1
-GrhIndex=20893
-ObjType=37
-Valor=15000
-Log=1
-
-[OBJ1299]
-Name=Amuleto Experiencia 20% y Oro 10%
-Log=1
-Unico=2
 Agarrable=2
-TotalLife=60
-Life=0
-Destroy=1
-GrhIndex=20890
-ObjType=37
-DefensaMagicaMin=3
-DefensaMagicaMax=10
-Valor=3000
+ObjType=11
+TipoPocion=8
+Valor=2500
 ValorDonante=5000
-Log=1
-ModExp=120
-ModGOld=115
+DuracionEfecto=5000
+ModExp=25
+ModGold=0
 NoSeCae=1
 Donante=1
+Bot_MinLvl=0
+Bot_MaxLvl=30
+
+[OBJ1298]
+GrhIndex=20893
+Name=Amuleto Experiencia 35%
+Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=35
+ModGold=0
+NoSeCae=1
+Donante=1
+Bot_MinLvl=0
+Bot_MaxLvl=29
+
+[OBJ1299]
+GrhIndex=20890
+Name=Amuleto Experiencia 35% y Oro 35%
+Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=35
+ModGold=35
+NoSeCae=1
+Donante=1
+Bot_MinLvl=0
+Bot_MaxLvl=25
 
 [OBJ1300]
-Name=Amuleto
-Log=1
 GrhIndex=20891
-ObjType=37
-Valor=40000
+Name=Amuleto Experiencia 35% y Oro 35%
 Log=1
+Agarrable=2
+ObjType=11
+TipoPocion=8
+Valor=2500
+ValorDonante=5000
+DuracionEfecto=5000
+ModExp=35
+ModGold=35
+NoSeCae=1
+Donante=1
 
 [OBJ1301]
 Name=Amuleto
@@ -15878,9 +16062,9 @@ NoSeCae=1
 Name=Armadura de Asesino Diamante del Caos
 GrhIndex=22386
 NumRopaje=457
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 ValorDonante=5000
 NoSeCae=1
@@ -15905,9 +16089,9 @@ SND2=240
 Name=Armadura de Asesino Diamante del Caos (E/G)
 GrhIndex=22413
 NumRopaje=458
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 ValorDonante=5000
 RazaEnana=1
@@ -15933,9 +16117,9 @@ SND2=240
 Name=Armadura de Clerigo Diamante del Caos
 GrhIndex=22440
 NumRopaje=459
-ObjType=3
-MaxDef=35
-MinDef=35
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 ValorDonante=5000
 NoSeCae=1
@@ -15960,9 +16144,9 @@ SND2=240
 Name=Armadura de Clerigo Diamante del Caos (E/G)
 GrhIndex=22467
 NumRopaje=460
-ObjType=3
-MaxDef=35
-MinDef=35
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 ValorDonante=5000
 RazaEnana=1
@@ -15988,9 +16172,9 @@ SND2=240
 Name=Armadura de Bardo Diamante del Caos
 GrhIndex=22494
 NumRopaje=461
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 ValorDonante=5000
 NoSeCae=1
@@ -16019,9 +16203,9 @@ SND2=240
 Name=Armadura de Bardo Diamante Caos (E/G)
 GrhIndex=22521
 NumRopaje=462
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16051,9 +16235,9 @@ SND2=240
 Name=Armadura de Bandido Diamante Caos
 GrhIndex=22548
 NumRopaje=463
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16082,9 +16266,9 @@ SND2=240
 Name=Armadura de Bandido Diamante Caos (E/G)
 GrhIndex=22575
 NumRopaje=464
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16114,9 +16298,9 @@ SND2=240
 Name=Armadura de Paladín Diamante Caos
 GrhIndex=22602
 NumRopaje=465
-ObjType=3
-MaxDef=43
-MinDef=38
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16145,9 +16329,9 @@ SND2=240
 Name=Armadura de Paladín Diamante Caos (E/G)
 GrhIndex=22629
 NumRopaje=466
-ObjType=3
-MaxDef=45
-MinDef=40
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16177,9 +16361,9 @@ SND2=240
 Name=Túnica de Druida Diamante Caos
 GrhIndex=22656
 NumRopaje=467
-ObjType=3
-MaxDef=32
-MinDef=30
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16208,9 +16392,9 @@ LOG=1
 Name=Túnica de Druida Diamante Caos (E/G)
 GrhIndex=22683
 NumRopaje=468
-ObjType=3
-MaxDef=32
-MinDef=30
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16240,9 +16424,9 @@ SND2=203
 Name=Armadura de Cazador Diamante Caos
 GrhIndex=22710
 NumRopaje=469
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16271,9 +16455,9 @@ SND2=240
 Name=Armadura de Cazador Diamante Caos (E/G)
 GrhIndex=22737
 NumRopaje=470
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16303,9 +16487,9 @@ SND2=240
 Name=Armadura de Ladrón Diamante Caos
 GrhIndex=22764
 NumRopaje=471
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16334,9 +16518,9 @@ SND2=240
 Name=Armadura de Ladrón Diamante Caos (E/G)
 GrhIndex=21342
 NumRopaje=472
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16366,9 +16550,9 @@ SND2=240
 Name=Túnica de Mago Diamante Caos
 GrhIndex=21369
 NumRopaje=473
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16397,9 +16581,9 @@ SND2=203
 Name=Túnica de Mago Diamante Caos (E/G)
 GrhIndex=21396
 NumRopaje=474
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16429,9 +16613,9 @@ SND2=203
 Name=Armadura de Guerrero Diamante Caos
 GrhIndex=21423
 NumRopaje=475
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16456,9 +16640,9 @@ SND2=240
 Name=Armadura de Guerrero Diamante Caos (E/G)
 GrhIndex=21450
 NumRopaje=476
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16481,12 +16665,12 @@ SND1=241
 SND2=240
 
 [OBJ1331]
-Name=Arapos Pirata Diamante Caos
+Name=Harapos Pirata Diamante Caos
 GrhIndex=21477
 NumRopaje=477
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16511,12 +16695,12 @@ SND1=202
 SND2=203
 
 [OBJ1332]
-Name=Arapos Pirata Diamante Caos (E/G)
+Name=Harapos Pirata Diamante Caos (E/G)
 GrhIndex=21504
 NumRopaje=478
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16545,9 +16729,9 @@ SND2=203
 Name=Armadura de Asesino Diamante Real
 GrhIndex=21792
 NumRopaje=435
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16576,9 +16760,9 @@ SND2=240
 Name=Armadura de Asesino Diamante Real (E/G)
 GrhIndex=21819
 NumRopaje=436
-ObjType=3
-MaxDef=33
-MinDef=33
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16608,7 +16792,7 @@ SND2=240
 Name=Armadura de Clerigo Diamante Real
 GrhIndex=21846
 NumRopaje=437
-ObjType=3
+ObjType=48
 MaxDef=35
 MinDef=35
 Valor=3000
@@ -16639,7 +16823,7 @@ SND2=240
 Name=Armadura de Clerigo Diamante Real (E/G)
 GrhIndex=21873
 NumRopaje=438
-ObjType=3
+ObjType=48
 MaxDef=35
 MinDef=35
 Valor=3000
@@ -16671,7 +16855,7 @@ SND2=240
 Name=Armadura de Bardo Diamante Real
 GrhIndex=21900
 NumRopaje=439
-ObjType=3
+ObjType=48
 MaxDef=32
 MinDef=32
 Valor=3000
@@ -16702,9 +16886,9 @@ SND2=240
 Name=Armadura de Bardo Diamante Real (E/G)
 GrhIndex=21927
 NumRopaje=440
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16734,9 +16918,9 @@ SND2=240
 Name=Armadura de Bandido Diamante Real
 GrhIndex=21954
 NumRopaje=441
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16765,9 +16949,9 @@ SND2=240
 Name=Armadura de Bandido Diamante Real (E/G)
 GrhIndex=21981
 NumRopaje=442
-ObjType=3
-MaxDef=32
-MinDef=32
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16797,9 +16981,9 @@ SND2=240
 Name=Armadura de Cazador Diamante Real
 GrhIndex=22008
 NumRopaje=443
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16828,9 +17012,9 @@ SND2=240
 Name=Armadura de Cazador Diamante Real (E/G)
 GrhIndex=22035
 NumRopaje=444
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16860,9 +17044,9 @@ SND2=240
 Name=Túnica de Druida Diamante Real
 GrhIndex=22062
 NumRopaje=445
-ObjType=3
-MaxDef=33
-MinDef=30
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16891,9 +17075,9 @@ SND2=203
 Name=Túnica de Druida Diamante Real (E/G)
 GrhIndex=22089
 NumRopaje=446
-ObjType=3
-MaxDef=33
-MinDef=30
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16923,9 +17107,9 @@ SND2=203
 Name=Armadura de Guerrero Diamante Real
 GrhIndex=22278
 NumRopaje=453
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -16954,9 +17138,9 @@ SND2=240
 Name=Armadura de Guerrero Diamante Real (E/G)
 NumRopaje=454
 GrhIndex=22305
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -16986,9 +17170,9 @@ SND2=240
 Name=Armadura de Ladrón Diamante Real
 GrhIndex=22170
 NumRopaje=449
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -17017,9 +17201,9 @@ SND2=240
 Name=Armadura de Ladrón Diamante Real (E/G)
 GrhIndex=22197
 NumRopaje=450
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -17049,9 +17233,9 @@ SND2=240
 Name=Túnica de Mago Diamante Real
 GrhIndex=22224
 NumRopaje=451
-ObjType=3
-MaxDef=33
-MinDef=30
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -17080,9 +17264,9 @@ SND2=203
 Name=Túnica de Mago Diamante Real (E/G)
 GrhIndex=22251
 NumRopaje=452
-ObjType=3
-MaxDef=33
-MinDef=30
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -17108,9 +17292,9 @@ SND2=203
 Name=Armadura de Paladín Diamante Real
 GrhIndex=22116
 NumRopaje=447
-ObjType=3
-MaxDef=43
-MinDef=38
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -17135,9 +17319,9 @@ SND2=240
 Name=Armadura de Paladín Diamante Real (E/G)
 GrhIndex=22143
 NumRopaje=448
-ObjType=3
-MaxDef=45
-MinDef=40
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 RazaEnana=1
@@ -17164,12 +17348,12 @@ SND1=241
 SND2=240
 
 [OBJ1353]
-Name=Arapos Pirata Diamante Real
+Name=Harapos Pirata Diamante Real
 GrhIndex=22332
 NumRopaje=455
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -17194,12 +17378,12 @@ SND1=202
 SND2=203
 
 [OBJ1354]
-Name=Arapos Pirata Diamante Real (E/G)
+Name=Harapos Pirata Diamante Real (E/G)
 GrhIndex=22359
 NumRopaje=456
-ObjType=3
-MaxDef=36
-MinDef=36
+ObjType=48
+MaxDef=0
+MinDef=0
 Valor=3000
 VALORDONANTE=5000
 NoSeCae=1
@@ -17618,6 +17802,11 @@ Valor=60000
 NoSeCae=1
 SND1=202
 SND2=203
+PIELLOBO=42
+PIELOSO=21
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=0
 
 [OBJ1399]
 Name=Túnica Consejo Mercenario (Altos)
@@ -17631,10 +17820,15 @@ Valor=60000
 NoSeCae=1
 SND1=202
 SND2=203
+PIELLOBO=42
+PIELOSO=21
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=0
 
 [OBJ1400]
 Name=Estatua de Silla
-GrhIndex=27283
+GrhIndex=23834
 VGrande=466
 ObjType=24
 Agarrable=1
@@ -17651,17 +17845,20 @@ NoSeCae=1
 LOG=1
 
 [OBJ1402]
-Name=Libre 'Vara de Kiko
-GrhIndex=932
+Name=Vara de Sernet
+GrhIndex=29572
 ObjType=2
 Agarrable=0
+ANIM=59
+STAFFDAMAGEBONUS=25
+STAFFPOWER=2
 
 [OBJ1403]
 Name=Anillo de Velocidad Rápida
 GrhIndex=4903
 ObjType=37
 Agarrable=0
-Velocity=50
+Velocity=100
 Valor=0
 NoSeCae=1
 Log=1
@@ -17682,7 +17879,7 @@ NAME=Libre 'Hacha de Guerra Dos Filos Evento.
 OBJTYPE=2
 
 [OBJ1450]
-NAME=Libre 'Hacha de Guerra Dos Filos Evento.
+NAME=Libre 
 OBJTYPE=2
 AGARRABLE=0
 
@@ -17720,7 +17917,7 @@ NUMROPAJE=2
 
 [OBJ1168]
 AGARRABLE=2
-ANIM=44
+ANIM=60
 APUÑALA=1
 CP1=GUERRERO
 CP10=TRABAJADOR
@@ -17734,11 +17931,11 @@ CP6=PIRATA
 CP7=BANDIDO
 CP8=BARDO
 CP9=LADRON
-GRHINDEX=24768
+GRHINDEX=29599
 LOG=1
 MAXHIT=1000
 MINHIT=1000
-NAME=Espada Argentum
+NAME=Espada Harbinger
 OBJTYPE=2
 VALOR=0
 
@@ -17809,6 +18006,9 @@ NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
 VALOR=0
+DEFENSAMAGICAMAX=200
+DEFENSAMAGICAMIN=200
+VELOCITY=0
 
 [OBJ1174]
 ANIM=22
@@ -17830,16 +18030,19 @@ CP4=DRUIDA
 
 [OBJ1175]
 AGARRABLE=2
-GRHINDEX=24704
+GRHINDEX=23232
 MAXDEF=100
 MINDEF=100
 NAME=Armadura de GM Legendario
 NOSECAE=1
-NUMROPAJE=562
+NUMROPAJE=510
 OBJTYPE=3
 SND1=202
 SND2=203
 LOG=1
+DEFENSAMAGICAMAX=200
+DEFENSAMAGICAMIN=200
+VELOCITY=0
 
 [OBJ1176]
 AGARRABLE=2
@@ -17877,14 +18080,14 @@ CP7=PALADIN
 CP8=BANDIDO
 CP9=CLERIGO
 CRUCIAL=0
-GRHINDEX=24731
+GRHINDEX=23232
 LINGH=0
 LINGO=0
 LINGP=0
 MAXDEF=60
 MINDEF=60
-NAME=Armadura de Sicario
-NUMROPAJE=563
+NAME=Armadura de GM
+NUMROPAJE=510
 OBJTYPE=3
 SKHERRERIA=0
 SND1=241
@@ -17897,13 +18100,17 @@ ANIM=23
 CRUCIAL=0
 GRHINDEX=24779
 LOG=1
-MAXDEF=20
-MINDEF=20
+MAXDEF=100
+MINDEF=100
 NAME=Corona Dorada
 NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
 VALOR=0
+DEFENSAMAGICAMAX=0
+DEFENSAMAGICAMIN=0
+STAFFDAMAGEBONUS=200
+STAFFPOWER=2
 
 [OBJ1178]
 AGARRABLE=0
@@ -17923,9 +18130,14 @@ SND2=203
 VALOR=70000
 RAZAENANA=1
 BOT_MINLVL=35
+PIELLOBO=35
+PIELOSO=18
+PIELOSOPOLAR=9
+PIELTIGRE=7
+SkSastreria=100
 
 [OBJ1179]
-ANIM=19
+ANIM=24
 CRUCIAL=0
 GRHINDEX=24784
 LOG=0
@@ -17971,21 +18183,23 @@ GRHINDEX=24763
 LOG=1
 MAXDEF=0
 MINDEF=0
-NAME=Corona de Rey
+NAME=Corona del Sol
 NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
 VALOR=0
 BOT_MINLVL=30
+DEFENSAMAGICAMAX=0
+DEFENSAMAGICAMIN=0
 
 [OBJ1182]
-ANIM=21
+ANIM=65
 CRUCIAL=0
-GRHINDEX=24769
+GRHINDEX=30282
 LOG=1
 MAXDEF=0
 MINDEF=0
-NAME=Corona Vikinga
+NAME=Corona Solari
 NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
@@ -18028,10 +18242,11 @@ CP6=BARDO
 CP7=GUERRERO
 CP8=CLERIGO
 CP9=TRABAJADOR
-LINGH=80
+LINGH=5
 LINGP=40
 LINGH=5
 SKHERRERIA=100
+FUNDIBLE=1
 
 [OBJ1186]
 Name=Espada Vikinga Acero Damasco
@@ -18083,6 +18298,11 @@ CP5=ASESINO
 CP6=LADRON
 CP7=BANDIDO
 CP8=GUERRERO
+PIELLOBO=25
+PIELOSO=12
+PIELOSOPOLAR=6
+PIELTIGRE=5
+SkSastreria=75
 
 [OBJ1188]
 AGARRABLE=0
@@ -18102,10 +18322,10 @@ MUJER=1
 AGARRABLE=0
 CRUCIAL=0
 GRHINDEX=12779
+NUMROPAJE=238
 MAXDEF=5
 MINDEF=3
 NAME=Vestimenta Imperial Mujer
-NUMROPAJE=238
 OBJTYPE=3
 REAL=1
 SND1=202
@@ -18143,13 +18363,14 @@ CP8=LADRON
 CP9=TRABAJADOR
 CRUCIAL=0
 GRHINDEX=24233
-MAXDEF=12
-MINDEF=6
+MAXDEF=0
+MINDEF=0
 NAME=Manto de Sacerdote Demoníaco (E/G)
 NUMROPAJE=549
-OBJTYPE=3
-VALOR=2900
+OBJTYPE=48
+VALOR=29000
 RAZAENANA=1
+NOSECAE=1
 
 [OBJ1192]
 AGARRABLE=0
@@ -18160,15 +18381,16 @@ CP3=BARDO
 CP4=MAGO
 CRUCIAL=0
 GRHINDEX=24449
-MAXDEF=13
-MINDEF=7
+MAXDEF=0
+MINDEF=0
 NAME=Armadura Legionaria (E/G)
 NUMROPAJE=551
-OBJTYPE=3
+OBJTYPE=48
 SND1=241
 SND2=240
-VALOR=8010
+VALOR=80100
 RAZAENANA=1
+NOSECAE=1
 
 [OBJ1193]
 AGARRABLE=0
@@ -18181,16 +18403,17 @@ CP8=TRABAJADOR
 CP9=TRABAJADOR
 CRUCIAL=1
 GRHINDEX=24341
-MAXDEF=35
-MINDEF=35
+MAXDEF=0
+MINDEF=0
 NAME=Armadura de Teniente Real (E/G)
 NUMROPAJE=555
-OBJTYPE=3
+OBJTYPE=48
 REAL=1
 SND1=241
 SND2=240
-VALOR=29240
+VALOR=292400
 RAZAENANA=1
+NOSECAE=1
 
 [OBJ1194]
 AGARRABLE=0
@@ -18207,16 +18430,17 @@ CP8=BANDIDO
 CP9=BARDO
 CRUCIAL=0
 GRHINDEX=24368
-MAXDEF=14
-MINDEF=7
+MAXDEF=0
+MINDEF=0
 NAME=Túnica de Mago del Imperio (E/G)
 NUMROPAJE=554
-OBJTYPE=3
+OBJTYPE=48
 REAL=1
 SND1=202
 SND2=203
-VALOR=2800
+VALOR=280000
 RAZAENANA=1
+NOSECAE=1
 
 [OBJ1195]
 AGARRABLE=2
@@ -18333,14 +18557,24 @@ ANIM=29
 CRUCIAL=0
 GRHINDEX=26331
 LOG=1
-MAXDEF=10
-MINDEF=10
+MAXDEF=18
+MINDEF=15
 NAME=Sombrero Pirata
 NOSECAE=1
 NUMROPAJE=2
 OBJTYPE=17
 VALOR=0
 BOT_MINLVL=30
+CP1=MAGO
+CP2=DRUIDA
+CP3=BARDO
+CP4=CLERIGO
+CP5=PALADIN
+CP6=ASESINO
+CP7=TRABAJADOR
+CP8=GUERRERO
+CP9=LADRON
+CP10=BANDIDO
 
 [OBJ1409]
 ANIM=30
@@ -18580,16 +18814,18 @@ CP8=TRABAJADOR
 CRUCIAL=0
 FUNDIBLE=0
 GRHINDEX=26196
-LINGH=0
-LINGO=0
-LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Gea
+NAME=Túnica de Gea
 NUMROPAJE=615
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1423]
 CP1=MAGO
@@ -18608,11 +18844,16 @@ LINGO=0
 LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Gea (E/G)
+NAME=Túnica de Gea (E/G)
 NUMROPAJE=628
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1424]
 CP1=MAGO
@@ -18857,16 +19098,18 @@ CP8=TRABAJADOR
 CRUCIAL=0
 FUNDIBLE=0
 GRHINDEX=23963
-LINGH=0
-LINGO=0
-LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Trovador
+NAME=Túnica de Trovador
 NUMROPAJE=532
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1435]
 CP1=MAGO
@@ -18880,22 +19123,25 @@ CP8=TRABAJADOR
 CRUCIAL=0
 FUNDIBLE=0
 GRHINDEX=26377
-LINGH=0
-LINGO=0
-LINGP=0
 MAXDEF=40
 MINDEF=35
-NAME=Tunica de Trovador (E/G)
+NAME=Túnica de Trovador (E/G)
 NUMROPAJE=621
 OBJTYPE=3
 SKHERRERIA=0
 VALOR=1
+PIELLOBO=40
+PIELOSO=20
+PIELOSOPOLAR=10
+PIELTIGRE=8
+SkSastreria=100
 
 [OBJ1436]
 NAME=Objeto Libre
 GrhIndex=932
 ObjType=2
 Agarrable=0
+SKHERRERIA=101
 
 [OBJ1455]
 CRUCIAL=0
@@ -18906,7 +19152,7 @@ OBJTYPE=24
 VALOR=35000
 [OBJ1456]
 GRHINDEX=27488
-HECHIZOINDEX=68
+HECHIZOINDEX=48
 NAME=Extenuación
 OBJTYPE=24
 VALOR=35000
@@ -18926,16 +19172,19 @@ OBJTYPE=24
 VALOR=35000
 
 [OBJ1482]
-Name=Cofre de armas de hierro Abierto
+Name=Cofre de Hierro Abierto
 GrhIndex=502
 ObjType=38
 IndexAbierta=1482
 IndexCerrada=1483
-NROITEMS=4 'Pociones
-Obj1=36-100-20
-Obj2=37-250-40
-Obj3=38-250-50
-Obj4=39-50-20
+NROITEMS=6
+Obj1=36-370
+Obj2=37-700
+Obj3=38-750
+Obj4=39-250
+Obj5=31-1
+Obj6=486-1
+
 NRODROPS=11
 UniqueDrop=0
 Drop1=37-250-200 'azules
@@ -18948,24 +19197,24 @@ Drop7=469-1-100 'laud comun
 Drop8=1098-1-100 'Mazo del juicio
 Drop9=664-1-100 'Arco Compuesto Reforzado.
 Drop10=39-230-50 'Verdes
-Drop11=36-230-50 'Amarillas
+Drop11=36-230-50 'Amarillas}
 
 [OBJ1483]
-Name=Cofre de hierro Cerrado
+Name=Cofre de Hierro Cerrado
 GrhIndex=503
 ObjType=38
 IndexAbierta=1482
 IndexCerrada=1483
 
 [OBJ1484]
-Name=Cofre mágico de hierro Abierto
-GrhIndex=502
+Name=Cofre de Plata Abierto
+GrhIndex=28800
 ObjType=38
 IndexAbierta=1484
 IndexCerrada=1485
 NRODROPS=7
 UniqueDrop=0
-Drop1=37-250-200 'azules
+Drop1=37-250-200 'azules cant 250 random: 200
 Drop2=38-250-300 'rojas
 Drop3=659-1-100 'Bastón nudoso
 Drop4=662-1-100 'Sombrero Mágico
@@ -18974,8 +19223,8 @@ Drop6=540-1-100 'Flauta comun
 Drop7=469-1-100 'laud comun
 
 [OBJ1485]
-Name=Cofre mágico de hierro Cerrado
-GrhIndex=503
+Name=Cofre de Plata Cerrado
+GrhIndex=28800
 ObjType=38
 IndexAbierta=1484
 IndexCerrada=1485
@@ -19282,6 +19531,7 @@ SND1=208
 SND2=208
 SND3=232
 LOG=1
+FUNDIBLE=1
 
 [OBJ1501]
 Name=Bala de Cañon
@@ -19304,3 +19554,1849 @@ CP10=LADRON
 CP11=GUERRERO
 Madera=18
 SkCarpinteria=75
+FUNDIBLE=1
+
+[OBJ1502]
+NAME=Skin = Túnica Infernal Benderiana 
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=599
+GrhIndex=25741
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+REAL=1
+
+[OBJ1503]
+NAME=Skin 2: Ropa de Navidad (H/E/M)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=520
+GrhIndex=23323
+Donante=1
+Mujer=1
+
+[OBJ1504]
+NAME=Skin 3: Ropa de Navidad (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=521
+GrhIndex=23346
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1505]
+NAME=Skin 4: Ropa de Navidad (EO - M)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=522
+GrhIndex=23369
+Donante=1
+NOSECAE=1
+RazaDrow=1
+Mujer=1
+
+[OBJ1506]
+NAME=Skin 5: Ropa de Navidad (E/G-M)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=523
+GrhIndex=23392
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+MUJER=1
+
+[OBJ1507]
+NAME=Skin 6: Ropa de Navidad (H/E/EO)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=524
+GrhIndex=23415
+Donante=1
+RAZAENANA=0
+NOSECAE=1
+
+[OBJ1508]
+NAME=Skin 7: Atuendo Navideño (H/E/EO)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=525
+GrhIndex=23446
+Donante=1
+NOSECAE=1
+
+[OBJ1509]
+NAME=Skin 8: Armadura Mitrhril (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=602
+GrhIndex=25822
+Donante=1
+NOSECAE=1
+REAL=1
+
+[OBJ1510]
+NAME=Skin 9: Papa Noel (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=527
+GrhIndex=23494
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1511]
+NAME=Skin 10: Armadura Infernal (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=528
+GrhIndex=23882
+Donante=1
+NOSECAE=1
+
+[OBJ1512]
+NAME=Skin 11: Armadura Sombría (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=529
+GrhIndex=23909
+Donante=1
+NOSECAE=1
+
+[OBJ1513]
+NAME=Skin 12: Túnica Sagrada (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=530
+GrhIndex=23855
+Donante=1
+NOSECAE=1
+
+[OBJ1514]
+NAME=Skin 13: Armadura de Placas Doradas (Altos) 
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=531
+GrhIndex=23936
+Donante=1
+NOSECAE=1
+
+[OBJ1515]
+NAME=Skin 14: Túnica Imperial (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=532
+GrhIndex=23964
+Donante=1
+NOSECAE=1
+
+[OBJ1516]
+NAME=Skin 15: Túnica Legendaria (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=533
+GrhIndex=23990
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1517]
+NAME=Skin 16: Armadura de Héroe (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=534
+GrhIndex=24017
+Donante=1
+NOSECAE=1
+
+[OBJ1518]
+NAME=Skin 16: Túnica de Mago Sagrado (Altos)
+DONANTE=1
+GRHINDEX=25519
+NOSECAE=1
+NUMROPAJE=590
+OBJTYPE=48
+VALOR=10000
+VALORDONANTE=2000
+
+
+[OBJ1519]
+NAME=Skin 18: Armadura Platinada (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=536
+GrhIndex=24064
+Donante=1
+NOSECAE=1
+
+[OBJ1520]
+NAME=Skin 19: Armadura Mallada Real (Altos) 
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=544
+GrhIndex=24638
+Donante=1
+NOSECAE=1
+
+[OBJ1521]
+NAME=Skin 20: Túnica Oscura (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=538
+GrhIndex=24118
+Donante=1
+NOSECAE=1
+
+[OBJ1522]
+NAME=Skin 20: Armadura Sigilosa (Altos)
+DONANTE=1
+GRHINDEX=24179
+NUMROPAJE=540
+OBJTYPE=48
+VALOR=10000
+VALORDONANTE=2000
+NOSECAE=1
+
+[OBJ1523]
+NAME=Skin 22: Túnica de Señor Oscuro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=558
+GrhIndex=24260
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1524]
+NAME=Skin 23: Túnica de Clérigo Real (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=541
+GrhIndex=24206
+Donante=1
+NOSECAE=1
+
+[OBJ1525]
+NAME=Skin 24: Armadura Sombría (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=552
+GrhIndex=24395
+Donante=1
+RAZAENANA=1
+
+[OBJ1526]
+NAME=Skin 25: Manto Real (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=543
+GrhIndex=24665
+Donante=1
+NOSECAE=1
+
+[OBJ1527]
+NAME=Skin 26: Manto Real (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=568
+GrhIndex=24898
+Donante=1
+RAZAENANA=1
+
+[OBJ1528]
+NAME=Skin 27: Armadura de Sargento (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=545
+GrhIndex=24584
+Donante=1
+NOSECAE=1
+REAL=1
+
+[OBJ1529]
+NAME=Skin 28: Túnica de Hechicero Oscuro (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=546
+GrhIndex=24530
+Donante=1
+NOSECAE=1
+
+[OBJ1530]
+NAME=Skin 29: Túnica de Bardo Oscuro (Altos) 
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=547
+GrhIndex=24557
+Donante=1
+NOSECAE=1
+
+[OBJ1531]
+NAME=Skin 30: Túnica de Corrupto (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=548
+GrhIndex=24611
+Donante=1
+NOSECAE=1
+
+[OBJ1532]
+NAME=Skin 31: Manto Oscuro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=567
+GrhIndex=24871
+Donante=1
+NOSECAE=1
+
+[OBJ1533]
+NAME=Skin 32: Armadura de Cazador Oscuro (E/G)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=575
+GrhIndex=25114
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1534]
+NAME=Skin 33: Vestido Exótico (H/E/EO-M)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=597
+GrhIndex=12914
+Donante=1
+MUJER=1
+NOSECAE=1
+
+[OBJ1535]
+NAME=Skin 34: Túnica Putrefacta (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=599
+GrhIndex=25741
+Donante=1
+NOSECAE=1
+
+[OBJ1536]
+NAME=Skin 35: Armadura de Clérigo Oscuro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=553
+GrhIndex=24422
+Donante=1
+NOSECAE=1
+
+[OBJ1537]
+NAME=Skin 36: Túnica de Mago de la Luz (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=554
+GrhIndex=24368
+Donante=1
+NOSECAE=1
+
+[OBJ1538]
+NAME=Skin 37: Túnica Real Benderiana (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=600
+GrhIndex=25768
+Donante=1
+NOSECAE=1
+
+[OBJ1539]
+NAME=Skin 38: Malla de Sicario (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=556
+GrhIndex=24314
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1540]
+NAME=Skin 39: Túnica del Condenado (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=557
+GrhIndex=24287
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1541]
+NAME=Skin 40: Armadura de Asesino Real (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=602
+GrhIndex=25822
+Donante=1
+
+[OBJ1542]
+NAME=Skin 41: Armadura de Teniente (Bajos)  
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=559
+GrhIndex=20408
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1543]
+NAME=Skin 42: Túnica de Dios Oscuro (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=603
+GrhIndex=25849
+Donante=1
+NOSECAE=1
+
+[OBJ1544]
+NAME=Skin 43: Armadura de Ejecutor (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=616
+GrhIndex=26223
+Donante=1
+NOSECAE=1
+
+[OBJ1545]
+NAME=Skin 44: Armadura de Caballero Dorado (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=562
+GrhIndex=24704
+Donante=1
+NOSECAE=1
+
+[OBJ1546]
+NAME=Skin 45: Gran Armadura Sombría (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=563
+GrhIndex=24731
+Donante=1
+NOSECAE=1
+
+[OBJ1547]
+NAME=Skin 46: Armadura del Guardian (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=564
+GrhIndex=24790
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1548]
+NAME=Skin 47: Armadura de Luxor (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=617
+GrhIndex=26250
+Donante=1
+NOSECAE=1
+
+[OBJ1549]
+NAME=Skin 48: Túnica de Archimago (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=566
+GrhIndex=24844
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1550]
+NAME=Skin 49: Vestido Negro (H/E/EO-M)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=587
+GrhIndex=25438
+Donante=1
+NOSECAE=1
+MUJER=1
+
+[OBJ1551]
+NAME=Skin 50: Túnica Benderiana Oscura (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=571
+GrhIndex=25006
+Donante=1
+NOSECAE=1
+
+[OBJ1552]
+NAME=Skin 51: Armadura de Dios Oscuro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=569
+GrhIndex=24952
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1553]
+NAME=Skin 52: Túnica Lunar (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=506
+GrhIndex=22888
+Donante=1
+NOSECAE=1
+
+[OBJ1554]
+NAME=Skin 53: Túnica Lunar (H/E/EO-M)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=507
+GrhIndex=22915
+Donante=1
+MUJER=1
+NOSECAE=1
+
+[OBJ1555]
+NAME=Skin 54: Armadura de Dragón Negro (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=494
+GrhIndex=20137
+Donante=1
+NOSECAE=1
+
+[OBJ1556]
+NAME=Skin 55: Armadura Sangrienta (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=573
+GrhIndex=25060
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1557]
+NAME=Skin 56: Armadura de los Caídos (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=574
+GrhIndex=25087
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1558]
+NAME=Skin 57: Armadura de Acólito (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=575
+GrhIndex=25114
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1559]
+NAME=Skin 58: Armadura de Dragón Negro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=493
+GrhIndex=20110
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1560]
+NAME=Skin 59: Armadura Tenebrosa (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=577
+GrhIndex=25168
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1561]
+NAME=Skin 60: Placas Doradas (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=578
+GrhIndex=25195
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1562]
+NAME=Skin 61: Armadura del Protector (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=655
+GrhIndex=28575
+Donante=1
+NOSECAE=1
+
+[OBJ1563]
+NAME=Skin 62: Vestido Negro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=660
+GrhIndex=28685
+Donante=1
+NOSECAE=1
+MUJER=1
+RAZAENANA=1
+
+[OBJ1564]
+NAME=Skin 63: Túnica de Teniente Real (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=581
+GrhIndex=25276
+Donante=1
+NOSECAE=1
+
+[OBJ1565]
+NAME=Skin 64: Túnica de Conjurador (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=671
+GrhIndex=28970
+Donante=1
+NOSECAE=1
+
+[OBJ1566]
+NAME=Skin 65: Armadura del Protector Real (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=583
+GrhIndex=25330
+Donante=1
+NOSECAE=1
+
+[OBJ1567]
+NAME=Skin 66: Túnica del Conjurador (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=584
+GrhIndex=28997
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1568]
+NAME=Skin 67: Placas Reales (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=585
+GrhIndex=25384
+Donante=1
+NOSECAE=1
+
+[OBJ1569]
+NAME=Skin 68: Placas Doradas (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=661
+GrhIndex=25195
+Donante=1
+NOSECAE=1
+
+[OBJ1570]
+NAME=Skin 69: Armadura del Equilibrio (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=673
+GrhIndex=29024
+Donante=1
+NOSECAE=1
+
+[OBJ1571]
+NAME=Skin 70: Armadura del Equilibrio (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=674
+GrhIndex=29051
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1572]
+NAME=Skin 71: Atuendo del Gran Pirata (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=589
+GrhIndex=25492
+Donante=1
+NOSECAE=1
+
+[OBJ1573]
+NAME=Skin 72: Túnica Negra (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=632
+GrhIndex=27417
+Donante=1
+NOSECAE=1
+
+[OBJ1574]
+NAME=Skin 73: Vestimenta Deportiva (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=591
+GrhIndex=25546
+Donante=1
+NOSECAE=1
+
+[OBJ1575]
+NAME=Skin 74: Atuendo de Selección Argentina (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=592
+GrhIndex=25573
+Donante=1
+NOSECAE=1
+
+[OBJ1576]
+NAME=Skin 75: Atuendo de Selección Argentina (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=593
+GrhIndex=25660
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1577]
+NAME=Skin 76: Vestimenta Deportiva (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=595
+GrhIndex=25633
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1578]
+NAME=Skin 77: Túnica del Hechicero Sagrado (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=498
+GrhIndex=20245
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1579]
+NAME=Skin 78: Armadura del Titan Oscuro (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=497
+GrhIndex=20218
+Donante=1
+RAZAENANA=1
+NOSECAE=1
+
+[OBJ1580]
+NAME=Skin 79: Túnica Apocaliptica (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=508
+GrhIndex=22942
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1581]
+NAME=Skin 80: Túnica del Invocador (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=495
+GrhIndex=20164
+Donante=1
+NOSECAE=1
+
+[OBJ1582]
+NAME=Skin 81: Vestido Blanco (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=482
+GrhIndex=19786
+Donante=1
+RAZAENANA=1
+MUJER=1
+NOSECAE=1
+
+[OBJ1583]
+NAME=Skin 82: Túnica del Sacrificio (Altos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=500
+GrhIndex=20326
+Donante=1
+NOSECAE=1
+
+[OBJ1584]
+NAME=Skin 83: Túnica del Sacrificio (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=499
+GrhIndex=20299
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1585]
+NAME=Skin 84: Armadura del Titan Real (Bajos)
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=488
+GrhIndex=19975
+Donante=1
+NOSECAE=1
+RAZAENANA=1
+
+[OBJ1586]
+NAME=Skin 85: Túnica Divina
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=490
+GrhIndex=20029
+Donante=1
+NOSECAE=1
+
+[OBJ1587]
+NAME=LIBRE
+
+[OBJ1588]
+NAME=LIBRE
+
+[OBJ1589]
+NAME=LIBRE
+
+[OBJ1590]
+NAME=LIBRE
+
+[OBJ1591]
+NAME=LIBRE
+
+[OBJ1592]
+NAME=LIBRE
+
+[OBJ1593]
+NAME=Skin 92
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=610
+GrhIndex=26062
+Donante=1
+
+[OBJ1594]
+NAME=Skin 93
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=611
+GrhIndex=26089
+Donante=1
+
+[OBJ1595]
+NAME=Skin 94
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=612
+GrhIndex=26116
+Donante=1
+
+[OBJ1596]
+NAME=Skin 95
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=613
+GrhIndex=26143
+Donante=1
+
+[OBJ1597]
+NAME=Skin 96
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=614
+GrhIndex=26170
+Donante=1
+
+[OBJ1598]
+NAME=Skin 97
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=615
+GrhIndex=26197
+Donante=1
+
+[OBJ1599]
+NAME=Skin 98
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=616
+GrhIndex=26224
+Donante=1
+
+[OBJ1600]
+NAME=Skin 99
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=617
+GrhIndex=26251
+Donante=1
+
+[OBJ1601]
+NAME=Skin 100
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=618
+GrhIndex=26278
+Donante=1
+
+[OBJ1602]
+NAME=Skin 101
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=619
+GrhIndex=26305
+Donante=1
+
+[OBJ1603]
+NAME=Skin 102
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=620
+GrhIndex=26351
+Donante=1
+
+[OBJ1604]
+NAME=Skin 103
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=621
+GrhIndex=26378
+Donante=1
+
+[OBJ1605]
+NAME=Skin 104
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=622
+GrhIndex=26404
+Donante=1
+
+[OBJ1606]
+NAME=Skin 105
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=623
+GrhIndex=26430
+Donante=1
+
+[OBJ1607]
+NAME=Skin 106
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=624
+GrhIndex=26458
+Donante=1
+
+[OBJ1608]
+NAME=Skin 107
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=625
+GrhIndex=26484
+Donante=1
+
+[OBJ1609]
+NAME=Skin 108
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=626
+GrhIndex=26512
+Donante=1
+
+[OBJ1610]
+NAME=Skin 109
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=627
+GrhIndex=26539
+Donante=1
+
+[OBJ1611]
+NAME=Skin 110
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=628
+GrhIndex=26587
+Donante=1
+
+[OBJ1612]
+NAME=Skin 111
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=629
+GrhIndex=26593
+Donante=1
+
+[OBJ1613]
+NAME=LIBRE
+
+[OBJ1614]
+NAME=LIBRE
+
+[OBJ1615]
+NAME=Skin 114
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=632
+GrhIndex=27418
+Donante=1
+
+[OBJ1616]
+NAME=Skin 115
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=633
+GrhIndex=27391
+Donante=1
+
+[OBJ1617]
+NAME=Skin 116
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=634
+GrhIndex=27364
+Donante=1
+
+[OBJ1618]
+NAME=Skin 117
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=635
+GrhIndex=27337
+Donante=1
+
+[OBJ1619]
+NAME=Skin 118
+ObjType=48
+VALOR=10000
+VALORDONANTE=20000
+NumRopaje=636
+GrhIndex=27490
+Donante=1
+
+[OBJ1620]
+NAME=Skin 119
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=637
+GrhIndex=27598
+Donante=1
+
+[OBJ1621]
+NAME=Skin 120
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=638
+GrhIndex=27736
+Donante=1
+
+[OBJ1622]
+NAME=LIBRE
+
+[OBJ1623]
+NAME=LIBRE
+
+[OBJ1624]
+NAME=LIBRE
+
+[OBJ1625]
+NAME=LIBRE
+
+[OBJ1626]
+NAME=LIBRE
+
+[OBJ1627]
+NAME=LIBRE
+
+[OBJ1628]
+NAME=LIBRE
+
+[OBJ1629]
+NAME=LIBRE
+
+[OBJ1630]
+NAME=LIBRE
+
+[OBJ1631]
+NAME=LIBRE
+
+[OBJ1632]
+NAME=LIBRE
+
+[OBJ1633]
+NAME=LIBRE
+
+[OBJ1634]
+NAME=LIBRE
+
+[OBJ1635]
+NAME=LIBRE
+
+[OBJ1636]
+NAME=LIBRE
+
+[OBJ1637]
+NAME=LIBRE
+
+[OBJ1638]
+NAME=Skin 137
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=655
+GrhIndex=28549
+Donante=1
+
+[OBJ1639]
+NAME=Skin 138
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=656
+GrhIndex=28576
+Donante=1
+
+[OBJ1640]
+NAME=Skin 139
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=657
+GrhIndex=28603
+Donante=1
+
+[OBJ1641]
+NAME=Skin 140
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=658
+GrhIndex=28633
+Donante=1
+
+[OBJ1642]
+NAME=Skin 141
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=659
+GrhIndex=28659
+SkinOrigin=519
+Donante=1
+
+[OBJ1643]
+NAME=Skin 142
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=660
+GrhIndex=28685
+Donante=1
+
+[OBJ1644]
+NAME=Skin 143
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=661
+GrhIndex=28711
+Donante=1
+
+[OBJ1645]
+NAME=Skin 144
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=662
+GrhIndex=28737
+Donante=1
+
+[OBJ1646]
+NAME=Skin 145
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=663
+GrhIndex=28764
+Donante=1
+
+[OBJ1647]
+NAME=LIBRE
+
+[OBJ1648]
+NAME=LIBRE
+
+[OBJ1649]
+NAME=LIBRE
+
+[OBJ1650]
+NAME=Agujero Negro
+GRHINDEX=27527
+HECHIZOINDEX=75
+OBJTYPE=24
+VALOR=1100000
+VALORDONANTE=5000
+
+[OBJ1651]
+NAME=Lluvia Gélida
+GRHINDEX=27525
+HECHIZOINDEX=76
+OBJTYPE=24
+VALOR=1100000
+VALORDONANTE=5000
+
+[OBJ1652]
+NAME=Barbijo
+ANIM=50
+GRHINDEX=27629
+LOG=1
+MAXDEF=20
+MINDEF=20
+NOSECAE=1
+NUMROPAJE=2
+OBJTYPE=17
+
+[OBJ1653]
+NAME=Skin 152
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=670
+GrhIndex=28944
+Donante=1
+
+[OBJ1654]
+NAME=Skin 153
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=671
+GrhIndex=28971
+Donante=1
+
+[OBJ1655]
+NAME=Skin 154
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=672
+GrhIndex=28998
+Donante=1
+
+[OBJ1656]
+NAME=Skin 155
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=673
+GrhIndex=29025
+Donante=1
+
+[OBJ1657]
+NAME=Skin 156
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=674
+GrhIndex=29052
+Donante=1
+
+[OBJ1658]
+NAME=Skin 157
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=675
+GrhIndex=29079
+Donante=1
+
+[OBJ1659]
+NAME=Skin 158
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=676
+GrhIndex=29106
+Donante=1
+
+[OBJ1660]
+NAME=Skin 159
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=677
+GrhIndex=29133
+Donante=1
+
+[OBJ1661]
+NAME=Skin 160
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=678
+GrhIndex=29160
+Donante=1
+
+[OBJ1662]
+NAME=Skin 161
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=679
+GrhIndex=29187
+Donante=1
+
+[OBJ1663]
+NAME=Skin 162
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=680
+GrhIndex=29214
+Donante=1
+
+[OBJ1664]
+NAME=Skin 163
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=681
+GrhIndex=29241
+Donante=1
+
+[OBJ1665]
+NAME=Skin 164
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=682
+GrhIndex=29268
+Donante=1
+
+[OBJ1666]
+NAME=Skin 165
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=683
+GrhIndex=29295
+Donante=1
+
+[OBJ1667]
+NAME=Skin 166
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=684
+GrhIndex=29322
+Donante=1
+
+[OBJ1668]
+NAME=Skin 167
+ObjType=48
+VALOR=10000
+VALORDONANTE=2000
+NumRopaje=685
+GrhIndex=29349
+Donante=1
+
+[OBJ1669]
+Name=Remover Parálisis
+GrhIndex=27532
+ObjType=24
+Agarrable=0
+Valor=25000
+Crucial=0
+HechizoIndex=72
+
+[OBJ1670]
+Name=Invocar Mascota
+GrhIndex=27532
+ObjType=24
+Agarrable=0
+Valor=5000
+Crucial=0
+HechizoIndex=66
+
+[OBJ1671]
+Name=Poder de Invocar Mascota
+GrhIndex=27532
+ObjType=24
+Agarrable=0
+Valor=5000
+Crucial=0
+HechizoIndex=73
+
+[OBJ1672] 'Para Todos
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+ObjType=48
+GrhIndex=4924
+NumRopaje=174
+VALOR=10000
+REAL=1
+
+[OBJ1673] 'Para Todos
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12779
+NUMROPAJE=238
+VALOR=10000
+REAL=1
+
+[OBJ1674] 'Para Todos
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4925
+NumRopaje=175
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1675] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+ObjType=48
+GrhIndex=4924
+NumRopaje=174
+VALOR=10000
+REAL=1
+
+[OBJ1676] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12779
+NUMROPAJE=238
+VALOR=10000
+REAL=1
+
+[OBJ1677] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4925
+NumRopaje=175
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1678] 'Clérigos (2)
+Name=Skin Armadura Sacerdote del Imperio
+ObjType=48
+GrhIndex=759
+NumRopaje=92
+VALOR=10000
+REAL=1
+
+[OBJ1679] 'Clérigos (2)
+Name=Skin Armadura Sacerdotedel del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1680] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=690
+NumRopaje=64
+VALOR=10000
+REAL=1
+
+[OBJ1681] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+[OBJ1682] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=4922
+NumRopaje=172
+VALOR=10000
+REAL=1
+
+[OBJ1683] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+REAL=1
+RAZAENANA=1
+
+'############# SKINS CAOS ##############
+
+[OBJ1684] 'Para Todos 
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+GrhIndex=4926
+NumRopaje=176
+VALOR=10000
+CAOS=1
+
+[OBJ1685] 'Para Todos 
+Name=Skin de Vestimenta del legionaria (H/M)
+ObjType=48
+GRHINDEX=12752
+NUMROPAJE=237
+VALOR=10000
+CAOS=1
+
+[OBJ1686] 'Para Todos 
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4927
+NumRopaje=177
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1687] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H)
+ObjType=48
+GrhIndex=785
+NumRopaje=119
+VALOR=10000
+CAOS=1
+
+[OBJ1688] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (H/M)
+ObjType=48
+GRHINDEX=12752
+NUMROPAJE=237
+VALOR=10000
+CAOS=1
+
+[OBJ1689] 'Para Magos (1)
+Name=Skin de Vestimenta del Imperio (E/G)
+ObjType=48
+GrhIndex=4927
+NumRopaje=177
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1690] 'Clérigos (2)
+Name=Skin Armadura Sacerdote del Imperio
+ObjType=48
+GrhIndex=759
+NumRopaje=92
+VALOR=10000
+CAOS=1
+
+[OBJ1691] 'Clérigos (2)
+Name=Skin Armadura Sacerdotedel del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1692] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=690
+NumRopaje=64
+VALOR=10000
+CAOS=1
+
+[OBJ1693] 'Para Guerreros (3)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1694] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio
+ObjType=48
+GrhIndex=4922
+NumRopaje=172
+VALOR=10000
+CAOS=1
+
+[OBJ1695] 'Para Druidas (7) y Bardos (6)
+Name=Skin Armadura Real del Imperio (E/G)
+ObjType=48
+GrhIndex=768
+NumRopaje=102
+VALOR=10000
+CAOS=1
+RAZAENANA=1
+
+[OBJ1696]
+Name=Tijeras
+GrhIndex=6886
+ObjType=42
+Agarrable=0
+Valor=575
+Crucial=1
+DuracionEfecto=5 'Multipica la cantidad de hongos recolectados por este valor.
+
+[OBJ1697]
+Name=Maniquí
+GrhIndex=4500
+ObjType=45
+Agarrable=0
+Valor=2
+Crucial=1
+
+[OBJ1698]
+Name=Resucitar Almas
+GrhIndex=27533
+ObjType=24
+Agarrable=0
+Valor=90000
+HechizoIndex=74
+
+'####################################################################################################################################
+
+[OBJ1699]
+Name=Suscripción Nivel 1 (2 días)
+GrhIndex=27533
+ObjType=53
+Valor=90000
+Donante=1
+ValorPlata=5
+ValorDonante=1000
+DuracionEfecto=2
+Desc=Puedes comprar ítems donantes, usar Skins, aumenta la cantidad de slots del inventario a 20, y de tu bóveda y baúl a 25 slots respectivamente.
+
+[OBJ1700]
+Name=Suscripción Nivel 1 (15 días)
+GrhIndex=27533
+ObjType=53
+Valor=900000
+Donante=1
+ValorPlata=12
+ValorDonante=6000
+DuracionEfecto=15
+Desc=Puedes comprar ítems donantes, usar Skins, aumenta la cantidad de slots del inventario a 20, y de tu bóveda y baúl a 25 slots respectivamente.
+
+[OBJ1701]
+Name=Suscripción Nivel 1 (30 días)
+GrhIndex=27533
+ObjType=53
+Valor=1500000
+Donante=1
+ValorPlata=20
+ValorDonante=10000
+DuracionEfecto=30
+Desc=Puedes comprar ítems donantes, usar Skins, aumenta la cantidad de slots del inventario a 20, y de tu bóveda y baúl a 25 slots respectivamente.
+
+'####################################################################################################################################
+
+[OBJ1702]
+Name=Suscripción Nivel 2 (2 días)
+GrhIndex=27533
+ObjType=53
+Valor=120000
+Donante=2
+ValorPlata=8
+ValorDonante=1500
+DuracionEfecto=2
+Desc=Puedes comprar ítems donantes, usar Skins, aumenta la cantidad de slots del inventario a 20, y de tu bóveda y baúl a 35 slots respectivamente.
+
+[OBJ1703]
+Name=Suscripción Nivel 2 (15 días)
+GrhIndex=27533
+ObjType=53
+Valor=1200000
+Donante=2
+ValorPlata=17
+ValorDonante=11000
+DuracionEfecto=15
+Desc=Puedes comprar ítems donantes, usar Skins, aumenta la cantidad de slots del inventario a 20, y de tu bóveda y baúl a 35 slots respectivamente.
+
+[OBJ1704]
+Name=Suscripción Nivel 2 (30 días)
+GrhIndex=27533
+ObjType=53
+Valor=1800000
+Donante=2
+ValorPlata=25
+ValorDonante=20000
+DuracionEfecto=30
+Desc=Puedes comprar ítems donantes, usar Skins, aumenta la cantidad de slots del inventario a 20, y de tu bóveda y baúl a 35 slots respectivamente.
+
+'####################################################################################################################################
+
+[OBJ1705]
+Name=Suscripción Nivel 3 (2 días)
+GrhIndex=27533
+ObjType=53
+Valor=200000
+Donante=3
+ValorPlata=20
+ValorDonante=2500
+DuracionEfecto=2
+Desc=Puedes comprar y usar ítems donantes, aumenta la cantidad de slots del inventario a 25, y de tu bóveda y baúl a 50 slots respectivamente, cambiar tu cara infinitas veces.
+
+[OBJ1706]
+Name=Suscripción Nivel 3 (15 días)
+GrhIndex=27533
+ObjType=53
+Valor=1900000
+Donante=3
+ValorPlata=30
+ValorDonante=15000
+DuracionEfecto=15
+Desc=Puedes comprar y usar ítems donantes, aumenta la cantidad de slots del inventario a 25, y de tu bóveda y baúl a 50 slots respectivamente, cambiar tu cara infinitas veces.
+
+[OBJ1707]
+Name=Suscripción Nivel 3 (30 días)
+GrhIndex=27533
+ObjType=53
+Valor=2500000
+Donante=3
+ValorPlata=50
+ValorDonante=25000
+DuracionEfecto=30
+Desc=Puedes comprar y usar ítems donantes, aumenta la cantidad de slots del inventario a 25, y de tu bóveda y baúl a 50 slots respectivamente, cambiar tu cara infinitas veces.
+
+[OBJ1708]
+Name=Mortero
+GrhIndex=12706
+ObjType=44
+Agarrable=1
+
+[OBJ1709]
+Name=Macilla de Mortero
+GrhIndex=12707
+ObjType=43
+Agarrable=0
+VALOR=300

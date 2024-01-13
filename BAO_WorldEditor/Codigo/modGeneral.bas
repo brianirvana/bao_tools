@@ -678,7 +678,7 @@ Dim Chkflag                     As Integer
 1210    If frmMain.PreviewGrh.Visible = True Then
 1220        Call modPaneles.VistaPreviaDeSup
 1230    End If
-1240    Sleep 1
+1240    Sleep 3
 1250    DoEvents
 1260 Loop
 

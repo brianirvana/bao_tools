@@ -103,7 +103,7 @@
 
 [INIT]
 
-NumNPCs=1030
+NumNPCs=1032
 
 
 ####################### NPCS COMERCIANTES ############################
@@ -150,7 +150,7 @@ Body=93
 Movement=1
 Comercia=1
 TipoItems=23
-NROITEMS=5
+NROITEMS=6
 Obj1=625-1000 'Pico de Bronce
 Obj2=127-1000 'Hacha de leñador
 Obj3=198-1000 'Serrucho
@@ -160,6 +160,7 @@ Arma=34
 Escudo=3
 RangoVision=8
 WAV1=264
+OBJ6=1709-1000 'Macilla de Mortero
 
 #############################################
 
@@ -226,25 +227,30 @@ RangoVision=8
 #############################################
 
 [NPC48] 'Minero
-Name=LIBRE
+Name=Lilith (Newbie)
 NpcType=0
-Carteles=1
-Cartel1=Tengo los mejores utensillos para trabajadores de todas las tierras de BenderAO..
-Head=2
+Carteles=2
+Cartel1=Hola, tengo las mejores Pociones de la Alquimia.
+Head=77
 Heading=3
-Body=1
+Body=200
 Movement=1
 Comercia=1
-TipoItems=23
+TipoItems=11
 NROITEMS=5
-Obj1=187-1000 'Piquete de Minero
-Obj2=127-1000 'Hacha de leñador
-Obj3=198-1000 'Serrucho
-Obj4=389-1000 'Martillo de Herrero
-Obj5=138-1000 'Caña de Pescar
-Arma=1
+Obj1=461-10000 'Poción Roja newbie
+Obj2=562-10000 'Poción Azul newbie
+Obj3=1291-10000 'Poción Violeta newbie
+Obj4=462-10000 'Poción Verde newbie
+Obj5=563-10000 'Poción Amarilla newbie
+Arma=16
 Escudo=3
 RangoVision=8
+CARTEL2=Bienvenido, ¿Qué poción estás buscando?
+OBJ6=645-1000 'Poción Negra
+OBJ7=1247-1000
+WAV1=268
+WAV2=269
 
 #############################################
 
@@ -258,7 +264,7 @@ Heading=3
 Body=3
 Movement=1
 Comercia=1
-TipoItems=1000
+TipoItems=55
 NROITEMS=0
 Obj1=0-0
 Obj2=0-0 'Sombrero navideño
@@ -800,7 +806,7 @@ Movement=1
 
 [NPC143] 'Bardo
 ShowName=1
-Priv=32
+Priv=16
 Name=Fethresor <MISIONES>
 NpcType=0
 Carteles=1
@@ -870,7 +876,7 @@ Name=Herrero Armas
 NpcType=0
 Carteles=1
 Cartel1=Bienvenido, rata de alcantarilla, soy el Herrero de éstas tierras.. tengo algunas armas que pueden ayudarte en tus viajes.
-Head=505
+Head=4
 Heading=3
 Body=199
 Movement=1
@@ -901,8 +907,8 @@ Obj21=864-1000 'Casco de lobo
 Obj22=132-1000 'Casco de hierro
 Obj23=873-1000 'Guante de Hurto
 Obj24=370-1000 'Capucha de Cazador
-Arma=34
-Escudo=6
+Arma=0
+Escudo=0
 WAV1=264
 WAV2=265
 
@@ -2502,7 +2508,7 @@ Arma=13
 Escudo=5
 
 [NPC98]
-Name=Demonio Legionario <Lider de la Legion Oscura>
+Name=Lord Azimuth <Líder de la Legión Oscura>
 ShowName=1
 Priv=64
 Carteles=1
@@ -2510,7 +2516,7 @@ Cartel1=Si deseas unirte a la Legión Oscura escribe /ENLISTAR
 Desc1=¿Has matado a mas criminales? ¡Te dare una recompensa por la sangre que has derramado! Escribe /RECOMPENSA y te la dare.
 Desc2=¡Ni respirar podras hacerlo ante mi!
 Faccion=1
-Body=405
+Body=643
 Casco=10
 Arma=13
 Escudo=5
@@ -2705,7 +2711,7 @@ Name=Sacerdote Imperial <Ejército Real>
 NpcType=2
 Carteles=1
 Cartel1=Ohhh hijo mío!! que la llama de la virtud arda en tu corazón!!!
-Head=5
+Head=1
 Heading=3
 Body=92
 Movement=11
@@ -3043,7 +3049,7 @@ Name=Conejo
 NpcType=0
 Head=0
 Heading=3
-Body=11
+Body=725
 Movement=2
 AguaValida=0
 Attackable=1
@@ -3374,21 +3380,21 @@ Name=Elemental de Agua
 NpcType=0
 Head=0
 Heading=3
-Body=154
+Body=702
 Movement=2
 AguaValida=1
 TierraInvalida=0
 Attackable=1
 GiveEXP=0
 GiveGLD=0
-MinHP=200
+MinHP=400
 MaxHP=400
-MaxHIT=200
-MinHIT=150
+MaxHIT=10
+MinHIT=16
 DEF=0
-PoderAtaque=160
-PoderEvasion=160
-Velocity=300
+PoderAtaque=16
+PoderEvasion=16
+Velocity=250
 
 #############################################
 
@@ -3397,7 +3403,7 @@ Name=Elemental de Fuego
 NpcType=0
 Head=0
 Heading=3
-Body=153
+Body=701
 Movement=2
 AguaValida=0
 Attackable=1
@@ -3415,7 +3421,7 @@ DEF=0
 PoderAtaque=120
 PoderEvasion=70
 LanzaSpells=1
-Sp1=67
+Sp1=36
 
 #############################################
 
@@ -3424,7 +3430,7 @@ Name=Elemental de Tierra
 NpcType=0
 Head=0
 Heading=3
-Body=152
+Body=703
 Movement=2
 AguaValida=0
 Attackable=1
@@ -3611,7 +3617,7 @@ Name=Tiburón Blanco
 NpcType=0
 Head=0
 Heading=3
-Body=513
+Body=705
 Movement=3
 AguaValida=1
 Attackable=1
@@ -3728,11 +3734,11 @@ Name=Lobo
 NpcType=0
 Head=0
 Heading=3
-Body=10
+Body=706
 Movement=3
 Attackable=1
 Hostile=1
-Domable=1250
+Domable=592
 GiveEXP=100
 GiveGLD=0
 MinHP=75
@@ -3745,7 +3751,7 @@ PoderAtaque=80
 PoderEvasion=35
 Snd1=35
 Snd2=9
-NROITEMS=1
+NROITEMS=5
 Obj1=414-1
 Velocity=250
 NpcLvl=15
@@ -4068,7 +4074,7 @@ Name=Lobo Invocado
 NpcType=0
 Head=0
 Heading=3
-Body=10
+Body=706
 Movement=3
 AguaValida=0
 Attackable=1
@@ -4079,13 +4085,14 @@ GiveEXP=0
 GiveGLD=0
 MinHP=75
 MaxHP=75
-MaxHIT=25
-MinHIT=10
+MaxHIT=4
+MinHIT=3
 DEF=8
-PoderAtaque=80
-PoderEvasion=25
+PoderAtaque=8
+PoderEvasion=5
 Snd1=35
 Snd2=9
+NPCLVL=25
 
 ############################################
 
@@ -4305,8 +4312,8 @@ GiveEXP=0
 GiveGLD=0
 MinHP=320
 MaxHP=320
-MaxHIT=55
-MinHIT=45
+MaxHIT=7
+MinHIT=5
 DEF=25
 PoderAtaque=100
 PoderEvasion=120
@@ -4338,7 +4345,7 @@ PoderEvasion=45
 Velocity=250
 NpcLvl=20
 NROITEMS=1
-OBJ1=414-1
+OBJ1=4-3
 
 ############################################
 
@@ -4372,7 +4379,7 @@ NpcLvl=20
 ############################################
 
 [NPC523]
-Name=Euriale
+Name=Medusa Roja
 NpcType=0
 Head=0
 Heading=3
@@ -4546,6 +4553,8 @@ PoderEvasion=0
 SND2=103
 Velocity=400
 NpcLvl=7
+NROITEMS=1
+Obj1=480-100
 
 ############################################
 
@@ -4659,7 +4668,7 @@ DEF=0
 PoderAtaque=230
 PoderEvasion=60
 NROITEMS=1
-Obj1=415-1
+Obj1=415-2
 Velocity=350
 NpcLvl=20
 
@@ -4821,7 +4830,7 @@ DEF=0
 PoderAtaque=250
 PoderEvasion=65
 NROITEMS=1
-Obj1=415-1
+Obj1=415-3
 Velocity=350
 NpcLvl=20
 
@@ -5042,6 +5051,8 @@ Snd2=9
 Velocity=350
 NpcLvl=22
 DROP6=204-1-5
+NROITEMS=1
+OBJ1=414-15
        
 ############################################
 
@@ -5061,8 +5072,8 @@ GiveEXP=0
 GiveGLD=0
 MinHP=250
 MaxHP=250
-MaxHIT=65
-MinHIT=40
+MaxHIT=5
+MinHIT=4
 DEF=20
 PoderAtaque=300
 PoderEvasion=20
@@ -5454,7 +5465,7 @@ NpcType=0
 Head=101
 Heading=3
 Body=56
-Movement=11
+Movement=3
 AguaValida=0
 Attackable=1
 Hostile=1
@@ -5483,7 +5494,7 @@ Sp9=45
 Casco=6
 Arma=14
 Escudo=3
-NpcLvl=49
+NpcLvl=100
 NRODROP=2
 DROP1=319-1-75
 DROP2=361-1-65
@@ -5775,7 +5786,7 @@ Movement=3
 AguaValida=0
 Attackable=1
 Hostile=1
-Domable=0
+Domable=600
 Comercia=0
 GiveEXP=150
 GiveGLD=0
@@ -5827,7 +5838,7 @@ Name=Galeón Fantasmal
 NpcType=0
 Head=0
 Heading=3
-Body=87
+Body=719
 Movement=3
 AguaValida=1
 TierraInvalida=1
@@ -5919,7 +5930,6 @@ MineralIndex=58
 [NPC575] 'Ent de movimiento camuflado
 Name=Árbol de Jungla
 NpcType=25
-MineralIndex=58
 Head=0
 Heading=3
 Body=25
@@ -5951,7 +5961,6 @@ MineralIndex=58
 [NPC576]
 Name=Árbol de Jungla
 NpcType=25
-MineralIndex=58
 Head=0
 Heading=4
 Body=25
@@ -6214,7 +6223,7 @@ PoderEvasion=140
 Snd2=79
 Snd3=89
 SND4=172
-AfectaBender=1
+AfectaBender=0
 AfectaParalisis=1
 Velocity=500
 NpcLvl=45
@@ -6226,7 +6235,7 @@ Name=Astaroth
 NpcType=0
 Head=0
 Heading=3
-Body=204
+Body=726
 Movement=3
 Attackable=1
 Hostile=1
@@ -6826,7 +6835,7 @@ NpcLvl=32
 ############################################
 
 [NPC608] 'Vende Pociones NEWBIES
-Name=Lilian Newbie
+Name=Lilian <Newbie>
 NpcType=0
 Carteles=1
 Cartel1=Hola, ¡Tengo las mejores Ítemes Newbies de la zona!
@@ -6860,11 +6869,11 @@ Arma=16
 RangoVision=8
 InvReSpawn=1
 SHOWNAME=1
-Priv=32
-OBJ17=38-10000 'Rojas
-OBJ18=37-10000
-OBJ19=480-10000
-OBJ20=166-10000
+Priv=16
+OBJ17=31-10000 'Rojas
+OBJ18=32-10000
+OBJ19=35-10000
+OBJ20=480-10000
 
 [NPC609]
 Name=Galeón Pirata 
@@ -7080,7 +7089,7 @@ DEF=0
 PoderAtaque=250
 PoderEvasion=65
 NROITEMS=1
-Obj1=416-1
+Obj1=416-5
 Velocity=400
 NpcLvl=28
 
@@ -7268,6 +7277,7 @@ NRODROP=1
 Drop1=166-5-7 'Poción violeta
 Velocity=400
 NpcLvl=25
+EQUIPO=99
 
 ############################################
 
@@ -7629,6 +7639,11 @@ Velocity=500
 NpcLvl=43
 DROP13=696-1-4 'Laud magico
 DROP14=208-1-4 'Flauta magica
+LANZASPELLS=3
+SP=45
+SP1=76
+SP2=9
+SP3=45
 
 ############################################
 
@@ -7681,7 +7696,7 @@ Arma=9
 #############################################
 
 [NPC638] 'Mercader FRUTA
-Name=Mercader Beta
+Name=Mercader Beta <Armaduras, Armas y Barcas>
 ShowName=1
 Priv=16
 NpcType=0
@@ -7728,7 +7743,7 @@ RangoVision=8
 #############################################
 
 [NPC639] 'Mercader FRUTA 2
-Name=Mercader Beta
+Name=Mercader Beta <Hechizos>
 ShowName=1
 Priv=16
 NpcType=0
@@ -7945,7 +7960,6 @@ MineralIndex=194
 [NPC735]
 Name=Árbol
 NpcType=25
-MineralIndex=58
 Carteles=0
 Head=0
 Heading=3
@@ -7963,7 +7977,6 @@ MineralIndex=58
 
 [NPC736]
 Name=Arbol
-MineralIndex=58
 NpcType=25
 Carteles=0
 Head=0
@@ -7983,7 +7996,6 @@ MineralIndex=58
 [NPC737]
 Name=Árbol
 NpcType=25
-MineralIndex=58
 Carteles=0
 Head=0
 Heading=3
@@ -8006,17 +8018,18 @@ Carteles=0
 Head=0
 Heading=3
 Body=698
-Movement=2
+Movement=1
 TipoItems=0
 Arma=16
 RangoVision=8
 GiveGLD=0
 Attackable=1
-PoderEvasion=50
+PoderEvasion=10
 MinHP=200000
 MaxHP=200000
 TierraInvalida=1
 AguaValida=1
+MineralIndex=544
 
 [NPC739]
 Name=Peces
@@ -8025,17 +8038,18 @@ Carteles=0
 Head=0
 Heading=3
 Body=699
-Movement=2
+Movement=1
 TipoItems=0
 Arma=16
 RangoVision=8
 GiveGLD=0
 Attackable=1
-PoderEvasion=50
+PoderEvasion=10
 MinHP=200000
 MaxHP=200000
 TierraInvalida=1
 AguaValida=1
+MineralIndex=545
 
 [NPC740]
 Name=Peces
@@ -8044,17 +8058,18 @@ Carteles=0
 Head=0
 Heading=3
 Body=700
-Movement=2
+Movement=1
 TipoItems=0
 Arma=16
 RangoVision=8
 GiveGLD=0
 Attackable=1
-PoderEvasion=50
+PoderEvasion=10
 MinHP=200000
 MaxHP=200000
 TierraInvalida=1
 AguaValida=1
+MineralIndex=546
 
 ############################################################################################################################
 ############################################################################################################################
@@ -10016,7 +10031,7 @@ Velocity=180
 ############################################
 
 [NPC927]
-Name=Esteno
+Name=Medusa <Protectora del Dungeon>
 showname=1
 priv=32
 NpcType=0
@@ -10053,7 +10068,7 @@ Remueveinvisibilidad=61
 afectaparalisis=0
 maxmascotas=30
 tiempoinvocacion=40000
-nroitems=12
+nroitems=0
 obj1=206-1 'Paralizar
 obj2=207-1 'Quitar paralizar
 obj3=361-1 'Tormenta de fuego
@@ -10155,6 +10170,7 @@ MinHIT=0
 DEF=0
 PoderAtaque=0
 PoderEvasion=0
+NpcLvl=0
 
 ############################################
 
@@ -10180,6 +10196,7 @@ MinHIT=0
 DEF=0
 PoderAtaque=0
 PoderEvasion=0
+NpcLvl=0
 
 ############################################
 
@@ -10478,7 +10495,7 @@ Obj1=1146-1
 ############################################
 
 [NPC195]
-Name=Organizador de Eventos
+Name=Organizador de Eventos <Organizalos y Juega>
 NpcType=13
 Carteles=1
 Cartel1=¡Bienvenido Luchador! Escribe /PARTICIPAR si deseas participar en un grán y multitudinario Evento.
@@ -10491,6 +10508,9 @@ Hostile=0
 Domable=0
 Comercia=0
 RangoVision=8
+SHOWNAME=1
+PRIVILEGIO=1
+PRIV=16
 
 ############################################
 
@@ -11070,7 +11090,7 @@ Heading=3
 Body=56
 Arma=16
 Movement=0
-CampaignsGiven=11
+CampaignsGiven=7-66-67-65-64-68-69-71-33-70-72-74-11
 SND1=270
 SND2=271
 
@@ -11363,11 +11383,11 @@ NpcLvl=25
 ############################################
 
 [NPC226] 'Momia pequeña
-Name=Momia Pequeña Protectora
+Name=Soldado Momia
 NpcType=0
 Head=0
 Heading=3
-Body=501
+Body=631
 Movement=3
 AguaValida=0
 Attackable=1
@@ -11390,7 +11410,7 @@ Drop5=531-1-3
 Drop6=659-1-10
 PoderAtaque=200
 PoderEvasion=150
-Velocity=350
+Velocity=450
 Snd1=165
 snd2=163
 Snd3=164
@@ -11632,12 +11652,12 @@ BACKUP=1
 ############################################
 
 [NPC236] 'El que tira el invi!! Este se usa.
-Name=No ves nada interesante.
+Name=Evanidus Spiritus
 NpcType=0
 Head=0
 Heading=3
 Body=0
-Movement=11
+Movement=3
 Attackable=1
 Hostile=1
 GiveEXP=18000
@@ -11662,11 +11682,11 @@ SP10=32
 NRODROP=4
 Drop1=530-1-25
 Drop2=318-1-40
-Drop3=37-350-30
-Drop4=38-250-25
+Drop3=37-350-300
+Drop4=38-250-250
 AfectaParalisis=1
 velocity=250
-NpcLvl=30
+NpcLvl=50
 
 ############################################
 
@@ -11813,13 +11833,10 @@ SP1=48
 SP2=33
 SP3=35
 SP4=49
-SP5=48
+SP5=9
 GolpeTimer=1100
 Velocity=250
 Arma=6
-LanzaSpells=2
-SP1=48
-SP2=9
 NpcLvl=44
 
 ############################################
@@ -12437,11 +12454,11 @@ Velocity=300
 [NPC258] 'Mercader de Donantes
 ShowName=1
 Priv=16
-Name=Mercader <Donantes>
+Name=Celebrimbor <Mercader de Diamantes>
 NpcType=20
 Carteles=1
 Cartel1=¡Hola buen amigo, permuto todo tipo de Túnicas de Donante! ¿Quieres ver nuevos modelos? ¡Pues yo los tengo todos!
-Head=9
+Head=105
 Heading=3
 Body=258
 Movement=1
@@ -12451,15 +12468,15 @@ Domable=0
 Comercia=1
 TipoItems=0
 NROITEMS=21
-Obj1=1066-1  'Altos modelo 1
-Obj2=1072-1  'E/G modelo 1
-Obj3=1073-1  'E/G modelo 2
-Obj4=1152-1  'Altos Mujer modelo 1
-Obj5=1216-1  'Altos modelo 2
-Obj6=1217-1  'E/G modelo 3
-Obj7=1245-1  'Altos modelo 3
-Obj8=1246-1  'Altos modelo 4
-Obj9=1248-1  'E/G modelo 4
+Obj1=1066-1 'Altos modelo 1
+Obj2=1072-1 'E/G modelo 1
+Obj3=1073-1 'E/G modelo 2
+Obj4=1152-1 'Altos Mujer modelo 1
+Obj5=1216-1 'Altos modelo 2
+Obj6=1217-1 'E/G modelo 3
+Obj7=1245-1 'Altos modelo 3
+Obj8=1246-1 'Altos modelo 4
+Obj9=1248-1 'E/G modelo 4
 Obj10=1249-1 'Altos modelo 4
 Obj11=1250-1 'Altos modelo 5
 Obj12=1280-1 'Mujer modelo 6
@@ -12468,12 +12485,12 @@ Obj14=1282-1 'Enanos modelo 6
 Obj15=1288-1 'Enanos modelo 7
 Obj16=1382-1 'Túnica Donante (Altos-M) (Modelo 7)
 Obj17=1383-1 'Túnica Donante (Altos-M) (Modelo 8)
-Obj18=543-1  'Red de Pesca Donante
+Obj18=543-1 'Red de Pesca Donante
 Obj19=1244-1 'Lingote de Donante
-Obj20=851-1  'Laureles
+Obj20=851-1 'Laureles
 Obj21=0-0
-Obj22=0-0    '384-1  'PIQUETE MINERO DONANTE
-Obj23=0-0    '561-1  'HACHA LEÑADOR DONANTE
+Obj22=0-0 '384-1 'PIQUETE MINERO DONANTE
+Obj23=0-0 '561-1 'HACHA LEÑADOR DONANTE
 Obj24=0-0        
 Obj25=0-0
 Escudo=7
@@ -13185,7 +13202,6 @@ Movement=1
 Comercia=1
 Escudo=0
 Arma=0
-NumeroSubasta=1
 
 ############################################
 
@@ -13274,11 +13290,11 @@ Arma=0
 [NPC952] 'Mercader de Donantes
 ShowName=1
 Priv=16
-Name=Mercader <Donantes>
+Name=Fëanor <Mercader de Diamantes>
 NpcType=20
 Carteles=1
-Cartel1=¡Precausión! Cualquier objeto que me compres, no podras venderlo, tirarlo ni comerciarlo. Si deseas comprar cosas con otros personajes, deberás pasarle puntos de donantes.
-Head=14
+Cartel1=¡Precaución! Cualquier objeto que me compres, no podrás venderlo, tirarlo ni comerciarlo. Si deseas comprar cosas con otros personajes, deberás pasarle puntos de donantes.
+Head=109
 Heading=3
 Body=258
 Movement=1
@@ -13287,28 +13303,30 @@ Hostile=0
 Domable=0
 Comercia=1
 TipoItems=0
-NROITEMS=7
+NROITEMS=9
 Obj1=1305-1 'Rayo
 Obj2=1306-1 'Antrax
 Obj3=1307-1 'Descarga elecrtica
 Obj4=1308-1 'Apocalipsis
 Obj5=1309-1 'Resucitar
 Obj6=1310-1 'Invisibilidad
-Obj7=1381-1 'Apocalipsis BenderAO
+Obj7=1294-1000 'Amuleto exp 5%
 Escudo=7
 Arma=15
 RangoVision=8
+OBJ8=1295-1000 'Amuleto exp 10%
+OBJ9=1296-1000 'Amuleto exp 15%
 
 [NPC953] 'Mercader de Donantes REAL
 ShowName=1
 Priv=128
-Name=Mercader <Donante Real>
+Name=Elendil <Mercader de Diamantes Real>
 NpcType=20
 Carteles=1
 Cartel1=¡Hola buen amigo, permuto todo tipo de Túnicas Faccionarias de Donante! ¿Quieres ver nuevos modelos? ¡Pues yo los tengo todos!
-Head=9
+Head=26
 Heading=3
-Body=453
+Body=602
 Movement=1
 Attackable=0
 Hostile=0
@@ -13331,30 +13349,31 @@ Obj12=1344-1 'Túnica de Druida Donante Real (E/G)
 Obj13=1345-1 'Armadura de Guerrero Donante Real
 Obj14=1346-1 'Armadura de Guerrero Donante Real (E/G)
 Obj15=1347-1 'Armadura de Ladrón Donante Real
-Obj16=1348-1  'Armadura de Ladrón Donante Real (E/G)
+Obj16=1348-1 'Armadura de Ladrón Donante Real (E/G)
 Obj17=1349-1 'Túnica de Mago Donante Real
-Obj18=1350-1  'Túnica de Mago Donante Real (E/G)
-Obj19=1351-1  'Armadura de Paladín Donante Real
-Obj20=1352-1  'Armadura de Paladín Donante Real (E/G)
+Obj18=1350-1 'Túnica de Mago Donante Real (E/G)
+Obj19=1351-1 'Armadura de Paladín Donante Real
+Obj20=1352-1 'Armadura de Paladín Donante Real (E/G)
 Obj21=1353-1 'Arapos Pirata Donante Real
 Obj22=1354-1 'Arapos Pirata Donante Real (E/G)
 Obj23=0-0
 Obj24=0-0
 Obj25=0-0
-Escudo=7
+Escudo=20
 Arma=15
 RangoVision=8
+CASCO=25
 
 [NPC954] 'Mercader de Donantes CAOS
 ShowName=1
 Priv=64
-Name=Mercader <Donante Legendario>
+Name=Mefisto <Mercader de Diamantes Legión>
 NpcType=20
 Carteles=1
 Cartel1=¡Hola buen amigo, permuto todo tipo de Túnicas Faccionarias de Donante! ¿Quieres ver nuevos modelos? ¡Pues yo los tengo todos!
-Head=9
+Head=225
 Heading=3
-Body=475
+Body=548
 Movement=1
 Attackable=0
 Hostile=0
@@ -13377,19 +13396,20 @@ Obj12=1322-1 'Túnica de Druida Donante Caos (E/G)
 Obj13=1323-1 'Armadura de Guerrero Donante Caos
 Obj14=1324-1 'Armadura de Guerrero Donante Caos (E/G)
 Obj15=1325-1 'Armadura de Ladrón Donante Caos
-Obj16=1326-1  'Armadura de Ladrón Donante Caos (E/G)
+Obj16=1326-1 'Armadura de Ladrón Donante Caos (E/G)
 Obj17=1327-1 'Túnica de Mago Donante Caos
-Obj18=1328-1  'Túnica de Mago Donante Caos (E/G)
-Obj19=1329-1  'Armadura de Paladín Donante Caos
-Obj20=1330-1  'Armadura de Paladín Donante Caos(E/G)
+Obj18=1328-1 'Túnica de Mago Donante Caos (E/G)
+Obj19=1329-1 'Armadura de Paladín Donante Caos
+Obj20=1330-1 'Armadura de Paladín Donante Caos(E/G)
 Obj21=1331-1 'Arapos Pirata Donante Caos
 Obj22=1332-1 'Arapos Pirata Donante Caos (E/G)
 Obj23=0-0
 Obj24=0-0
 Obj25=0-0
-Escudo=7
+Escudo=5
 Arma=15
 RangoVision=8
+CASCO=5
 
 [NPC955] 'Bloqueo
 Name=NPC para Bloqueo
@@ -13563,16 +13583,12 @@ NpcLvl=20
 ShowName=1
 Priv=0
 Hogar=3
-
 Heading=3
 Velocity=200
-
 BotBando=0
 PK=0
-
 Clase=9
 Raza=1-2-3
-
 DistanciaPeleaX=3
 DistanciaPeleaY=2
 MinTiempoRemo=1300
@@ -13582,19 +13598,15 @@ MaxTiempoRemoAmigo=2500
 MinTiempoResuAmigo=1500
 MaxTiempoResuAmigo=2500
 AIM=40
-
 NpcType=0
 Bot=1
-
 Movement=25
 Attackable=1
-
 Uphp=35
 UpMan=5
 RiesgoHP=200
 RiesgoAT=10
 RiesgoMan=600
-
 NroSpellsBot=10
 Att1=10 ' Remover Paralisis
 Att2=24 ' Inmovilizar
@@ -13775,7 +13787,7 @@ ShowName=1
 Priv=16
 NpcType=17
 Carteles=1
-Cartel1=Yo soy Raul, el que te guarda todo en el baul.
+Cartel1=Yo soy Raúl, el que te guarda todo en el baúl.
 Head=503
 Heading=3
 Body=337
@@ -14126,7 +14138,7 @@ HEAD=288
 HEADING=3
 INVRESPAWN=1
 MOVEMENT=1
-NAME=Mercader <Monedas de Plata>
+NAME=Mercader <Monedas de Platino>
 NPCTYPE=18
 NROITEMS=25
 OBJ1=475-1000
@@ -14317,7 +14329,7 @@ PRIV=32
 RANGOVISION=8
 SHOWNAME=1
 TIPOITEMS=0
-CAMPAIGNSGIVEN=63
+CAMPAIGNSGIVEN=63-75
 
 [NPC985]
 AFECTAPARALISIS=1
@@ -15310,7 +15322,7 @@ CASCO=5
 #############################################
 
 [NPC1013] 'Mercader FRUTA
-Name=Mercader Beta
+Name=Mercader Beta <Armas BenderAO>
 ShowName=1
 Priv=16
 NpcType=0
@@ -15354,7 +15366,7 @@ Escudo=6
 Casco=1
 RangoVision=8
 
-[NPC258] 'Mercader de Donantes
+[NPC1031] 'Mercader de Donantes
 ShowName=1
 Priv=16
 Name=Mercader <Skins Donantes>
@@ -15370,32 +15382,238 @@ Hostile=0
 Domable=0
 Comercia=1
 TipoItems=0
-NROITEMS=21
-Obj1=1066-1  'Altos modelo 1
-Obj2=1072-1  'E/G modelo 1
-Obj3=1073-1  'E/G modelo 2
-Obj4=1152-1  'Altos Mujer modelo 1
-Obj5=1216-1  'Altos modelo 2
-Obj6=1217-1  'E/G modelo 3
-Obj7=1245-1  'Altos modelo 3
-Obj8=1246-1  'Altos modelo 4
-Obj9=1248-1  'E/G modelo 4
-Obj10=1249-1 'Altos modelo 4
-Obj11=1250-1 'Altos modelo 5
-Obj12=1280-1 'Mujer modelo 6
-Obj13=1281-1 'Altos modelo 6
-Obj14=1282-1 'Enanos modelo 6
-Obj15=1288-1 'Enanos modelo 7
-Obj16=1382-1 'Túnica Donante (Altos-M) (Modelo 7)
-Obj17=1383-1 'Túnica Donante (Altos-M) (Modelo 8)
-Obj18=543-1  'Red de Pesca Donante
-Obj19=1244-1 'Lingote de Donante
-Obj20=851-1  'Laureles
-Obj21=0-0
-Obj22=0-0    '384-1  'PIQUETE MINERO DONANTE
-Obj23=0-0    '561-1  'HACHA LEÑADOR DONANTE
-Obj24=0-0        
-Obj25=0-0
+NROITEMS=20
+Obj1=1502-1000
+Obj2=1503-1000
+Obj3=1504-1000
+Obj4=1505-1000
+Obj5=1506-1000
+Obj6=1507-1000
+Obj7=1508-1000
+Obj8=1509-1000
+Obj9=1510-1000
+Obj10=1511-1000
+Obj11=1512-1000
+Obj12=1513-1000
+Obj13=1514-1000
+Obj14=1515-1000
+Obj15=1516-1000
+Obj16=1517-1000
+Obj17=1518-1000 
+Obj18=1519-1000
+Obj19=1520-1000
+Obj20=1521-1000
 Escudo=7
 Arma=15
 RangoVision=8
+
+[NPC1032] 'Mercader de Donantes
+ShowName=1
+Priv=16
+Name=Mercader <Suscripciones>
+NpcType=20
+Carteles=1
+Cartel1=¡Hola buen amigo, tengo todas las Suscripciones para BenderAO!
+Head=9
+Heading=3
+Body=258
+Movement=1
+Attackable=0
+Hostile=0
+Domable=0
+Comercia=1
+TipoItems=0
+NROITEMS=9
+Obj1=1699-1000
+Obj2=1700-1000
+Obj3=1701-1000
+Obj4=1702-1000
+Obj5=1703-1000
+Obj6=1704-1000
+Obj7=1705-1000
+Obj8=1706-1000
+Obj9=1707-1000
+Escudo=7
+Arma=15
+RangoVision=8
+[NPC707]
+ATTACKABLE=1
+BODY=709
+DEF=10
+DROP1=166-5-7 'Poción violeta
+GIVEEXP=3000
+GIVEGLD=500
+HEADING=3
+HOSTILE=1
+MAXHIT=75
+MAXHP=600
+MINHIT=50
+MINHP=600
+MOVEMENT=3
+NAME=Vástago de Ungoliant
+NPCLVL=27
+NRODROP=1
+PODERATAQUE=150
+PODEREVASION=70
+VELOCITY=400
+VENENO=1
+[NPC708]
+AFECTAPARALISIS=1
+AGUAVALIDA=0
+ATTACKABLE=1
+BODY=708
+EQUIPO=99
+GIVEEXP=50000
+GIVEGLD=5000
+GOLPETIMER=600
+HEADING=3
+HOSTILE=1
+INVISIBLE=0
+LANZASPELLS=1
+MAXHIT=150
+MAXHP=10000
+MAXMASCOTAS=8
+MINHIT=100
+MINHP=10000
+MOVEMENT=11
+NAME=Ungoliant <Guardián de las Catacumbas>
+PODERATAQUE=200
+PODEREVASION=200
+PRIV=8
+PUEDEROBAR=0
+REMUEVEINVISIBILIDAD=0
+SND1=126
+SND2=165
+SND3=160
+SP1=22
+SP2=0
+SP3=0
+TIEMPOINVOCACION=30000
+VELOCITY=600
+SHOWNAME=1
+VENENO=1
+[NPC709]
+ATTACKABLE=1
+BODY=704
+DOMABLE=2100
+GIVEEXP=1000
+HEADING=3
+HOSTILE=1
+MAXHIT=70
+MAXHP=2000
+MINHIT=30
+MINHP=2000
+MOVEMENT=3
+NAME=Alce de los bosques nevados
+NPCLVL=25
+NROITEMS=0
+OBJ1=0
+PODERATAQUE=700
+PODEREVASION=45
+VELOCITY=300
+[NPC710]
+ATTACKABLE=1
+BODY=641
+DOMABLE=30
+GIVEEXP=10
+HEADING=3
+MAXHIT=1
+MAXHP=15
+MINHIT=1
+MINHP=15
+MOVEMENT=2
+NAME=Ganzo
+PODERATAQUE=5
+PODEREVASION=5
+AGUAVALIDA=1
+TIERRAINVALIDA=1
+[NPC711]
+AFECTABENDER=1
+AFECTAPARALISIS=1
+ATTACKABLE=1
+BODY=609
+DEF=5
+DROP1=37-150-3
+DROP2=38-150-3
+DROP3=129-1-1
+DROP4=130-1-1
+DROP5=131-1-1
+GIVEEXP=122500
+GIVEGLD=340
+HEADING=3
+HOSTILE=1
+MAXHIT=475
+MAXHP=6000
+MINHIT=280
+MINHP=6000
+MOVEMENT=3
+NAME=Jötunn
+NPCLVL=43
+NRODROP=5
+PODERATAQUE=320
+PODEREVASION=140
+SND2=79
+SND3=89
+SND4=172
+VELOCITY=500
+[NPC712]
+ATTACKABLE=1
+BODY=608
+DEF=50
+DROP1=39-50-5 'Poción Verde
+DROP10=665-1-4 'Arco engarzado
+DROP11=480-350-4 'flechas
+DROP12=366-1-4 'daga +3
+DROP13=696-1-4 'Laud magico
+DROP14=208-1-4 'Flauta magica
+DROP2=38-250-6 'Poción Roja
+DROP3=390-1-4 'Placas + 1 altos
+DROP4=129-1-4 'Hacha de 2 f
+DROP5=130-1-4 'Escudo de plata
+DROP6=403-1-4 'Espada de plata
+DROP7=131-1-4 'Casco de hierro completo
+DROP8=36-100-6 ' Poción amarilla
+DROP9=500-1-4 'Bruñida
+GIVEEXP=149000
+GIVEGLD=2000
+HEADING=3
+HOSTILE=1
+LANZASPELLS=3
+MAXHIT=400
+MAXHP=42000
+MINHIT=100
+MINHP=42000
+MOVEMENT=3
+NAME=Titán Gélido
+NPCLVL=43
+NRODROP=14
+PODERATAQUE=250
+PODEREVASION=50
+SND2=79
+SND3=89
+SND4=172
+SP=45
+SP1=76
+SP2=9
+SP3=45
+VELOCITY=500
+[NPC713]
+BODY=724
+DEF=2
+GIVEEXP=10
+HEADING=3
+MAXHIT=3
+MAXHP=45
+MINHIT=1
+MINHP=45
+MOVEMENT=2
+NAME=Bárbol <Protector de los Bosques>
+PODERATAQUE=5
+PODEREVASION=5
+PRIV=2
+SHOWNAME=1
+CARTEL1=-El mundo está cambiando....lo siento en el agua... lo siento en la tierra... lo huelo en el aire.
+CARTEL2=-Muchos de estos árboles eran amigos míos, criaturas que conocía como la corteza de mi tronco.
+CARTEL3=-Desde que perdimos a las Ent-Mujeres no las hemos vuelto a encontrar, vivimos en soledad, protegiendo estos bosques.
+CARTELES=3
+VELOCITY=500
