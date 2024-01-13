@@ -858,6 +858,17 @@ Dim Heading                     As Byte
             End If
         End If
 
+        If frmMain.bSelectSurface Then
+            Static LastFinded As Byte
+            
+            
+            If Button = 2 Then
+                If LastFinded = 0 Then
+                
+                End If
+            End If
+        End If
+
         ' Limpieza
         If Len(frmMain.StatTxt.Text) > 4000 Then
             frmMain.StatTxt.Text = Right(frmMain.StatTxt.Text, 3000)
