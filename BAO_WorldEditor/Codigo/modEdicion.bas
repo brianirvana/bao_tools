@@ -58,20 +58,20 @@ Public Sub Deshacer_Add(ByVal Desc As String)
 
     Dim i                       As Integer
     Dim f                       As Integer
-    Dim J                       As Integer
+    Dim j                       As Integer
     ' Desplazo todos los deshacer uno hacia atras
     For i = maxDeshacer To 2 Step -1
         For f = XMinMapSize To XMaxMapSize
-            For J = YMinMapSize To YMaxMapSize
-                MapData_Deshacer(i, f, J) = MapData_Deshacer(i - 1, f, J)
+            For j = YMinMapSize To YMaxMapSize
+                MapData_Deshacer(i, f, j) = MapData_Deshacer(i - 1, f, j)
             Next
         Next
         MapData_Deshacer_Info(i) = MapData_Deshacer_Info(i - 1)
     Next
     ' Guardo los valores
     For f = XMinMapSize To XMaxMapSize
-        For J = YMinMapSize To YMaxMapSize
-            MapData_Deshacer(1, f, J) = MapData(f, J)
+        For j = YMinMapSize To YMaxMapSize
+            MapData_Deshacer(1, f, j) = MapData(f, j)
         Next
     Next
     MapData_Deshacer_Info(1).Desc = Desc
@@ -90,28 +90,28 @@ Public Sub Deshacer_Recover()
 '*************************************************
 Dim i                           As Integer
 Dim f                           As Integer
-Dim J                           As Integer
+Dim j                           As Integer
 Dim Body                        As Integer
 Dim Head                        As Integer
 Dim Heading                     As Byte
     If MapData_Deshacer_Info(1).Libre = False Then
         ' Aplico deshacer
         For f = XMinMapSize To XMaxMapSize
-            For J = YMinMapSize To YMaxMapSize
-                If (MapData(f, J).NPCIndex <> 0 And MapData(f, J).NPCIndex <> MapData_Deshacer(1, f, J).NPCIndex) Or (MapData(f, J).NPCIndex <> 0 And MapData_Deshacer(1, f, J).NPCIndex = 0) Then
+            For j = YMinMapSize To YMaxMapSize
+                If (MapData(f, j).NPCIndex <> 0 And MapData(f, j).NPCIndex <> MapData_Deshacer(1, f, j).NPCIndex) Or (MapData(f, j).NPCIndex <> 0 And MapData_Deshacer(1, f, j).NPCIndex = 0) Then
                     ' Si ahi un NPC, y en el deshacer es otro lo borramos
                     ' (o) Si aun no NPC y en el deshacer no esta
-                    MapData(f, J).NPCIndex = 0
-                    Call EraseChar(MapData(f, J).CharIndex)
+                    MapData(f, j).NPCIndex = 0
+                    Call EraseChar(MapData(f, j).CharIndex)
                 End If
-                If MapData_Deshacer(1, f, J).NPCIndex <> 0 And MapData(f, J).NPCIndex = 0 Then
+                If MapData_Deshacer(1, f, j).NPCIndex <> 0 And MapData(f, j).NPCIndex = 0 Then
                     ' Si ahi un NPC en el deshacer y en el no esta lo hacemos
-                    Body = NpcData(MapData_Deshacer(1, f, J).NPCIndex).Body
-                    Head = NpcData(MapData_Deshacer(1, f, J).NPCIndex).Head
-                    Heading = NpcData(MapData_Deshacer(1, f, J).NPCIndex).Heading
-                    Call MakeChar(NextOpenChar(), Body, Head, Heading, f, J)
+                    Body = NpcData(MapData_Deshacer(1, f, j).NPCIndex).Body
+                    Head = NpcData(MapData_Deshacer(1, f, j).NPCIndex).Head
+                    Heading = NpcData(MapData_Deshacer(1, f, j).NPCIndex).Heading
+                    Call MakeChar(NextOpenChar(), Body, Head, Heading, f, j)
                 Else
-                    MapData(f, J) = MapData_Deshacer(1, f, J)
+                    MapData(f, j) = MapData_Deshacer(1, f, j)
                 End If
             Next
         Next
@@ -119,8 +119,8 @@ Dim Heading                     As Byte
         ' Desplazo todos los deshacer uno hacia adelante
         For i = 1 To maxDeshacer - 1
             For f = XMinMapSize To XMaxMapSize
-                For J = YMinMapSize To YMaxMapSize
-                    MapData_Deshacer(i, f, J) = MapData_Deshacer(i + 1, f, J)
+                For j = YMinMapSize To YMaxMapSize
+                    MapData_Deshacer(i, f, j) = MapData_Deshacer(i + 1, f, j)
                 Next
             Next
             MapData_Deshacer_Info(i) = MapData_Deshacer_Info(i + 1)
@@ -241,12 +241,12 @@ Dim k                           As Integer
 250                 MapData(X, Y).Graphic(Val(frmMain.cCapas.Text)).GrhIndex = aux
 260                 InitGrh MapData(X, Y).Graphic(Val(frmMain.cCapas.Text)), aux
 270             Else
-                    Dim tXX As Integer, tYY As Integer, i As Integer, J As Integer, desptile As Integer
+                    Dim tXX As Integer, tYY As Integer, i As Integer, j As Integer, desptile As Integer
 280                 tXX = X
 290                 tYY = Y
 300                 desptile = 0
 310                 For i = 1 To frmConfigSup.mLargo.Text
-320                     For J = 1 To frmConfigSup.mAncho.Text
+320                     For j = 1 To frmConfigSup.mAncho.Text
 330                         aux = Val(frmMain.cGrh.Text) + desptile
 
 340                         If frmMain.cInsertarBloqueo.Value = True Then
@@ -860,14 +860,20 @@ Dim Heading                     As Byte
 
         If frmMain.bSelectSurface Then
             Static LastFinded As Byte
-            
-            
+            Dim k As Integer
             If Button = 2 Then
                 If LastFinded = 0 Then
-                    For LoopC = 1 To UBound(SupData)
-                        If DameGrhIndex(LoopC) = MapData(tX, tY).Graphic(1).GrhIndex Then
-                            
-                            Exit For
+                    For LoopC = 0 To MaxSup
+                        If SupData(LoopC).Grh = Val(MapData(tX, tY).Graphic(Val(frmMain.cCapas.Text)).GrhIndex) And Val(MapData(tX, tY).Graphic(Val(frmMain.cCapas.Text)).GrhIndex) > 0 Then
+                            For k = 0 To frmMain.lListado(0).ListCount - 1
+                                If DameGrhIndex(Val(ReadField(2, frmMain.lListado(0).List(k), Asc("#")))) = Val(SupData(LoopC).Grh) Then
+                                    'frmMain.lListado(0).listIndex = k - 1
+                                    frmMain.lListado(0).Selected(k - 1) = True
+                                    frmMain.lListado(0).listIndex = k - 1
+                                    'frmMain.lListado(0).Refresh
+                                    Exit For
+                                End If
+                            Next k
                         End If
                     Next LoopC
                 End If
@@ -1008,12 +1014,12 @@ Dim Heading                     As Byte
                 Else
                     modEdicion.Deshacer_Add "Insertar Auto-Completar Superficie' Hago deshacer"
                     MapInfo(CurMap).Changed = 1    'Set changed flag
-                    Dim tXX As Integer, tYY As Integer, i As Integer, J As Integer, desptile As Integer
+                    Dim tXX As Integer, tYY As Integer, i As Integer, j As Integer, desptile As Integer
                     tXX = tX
                     tYY = tY
                     desptile = 0
                     For i = 1 To frmConfigSup.mLargo.Text
-                        For J = 1 To frmConfigSup.mAncho.Text
+                        For j = 1 To frmConfigSup.mAncho.Text
                             aux = Val(frmMain.cGrh.Text) + desptile
                             MapData(tXX, tYY).Graphic(Val(frmMain.cCapas.Text)).GrhIndex = aux
                             InitGrh MapData(tXX, tYY).Graphic(Val(frmMain.cCapas.Text)), aux
