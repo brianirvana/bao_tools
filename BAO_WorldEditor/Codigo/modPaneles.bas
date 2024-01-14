@@ -265,6 +265,7 @@ Public Function DameGrhIndex(ByVal GrhIn As Integer) As Integer
 'If GrhIn >= 0 Then
 
     DameGrhIndex = SupData(GrhIn).Grh
+    Debug.Print "DameGrhIndex: " & DameGrhIndex
     If SupData(GrhIn).Width > 0 Then
         frmConfigSup.MOSAICO.Value = vbChecked
         frmConfigSup.mAncho.Text = SupData(GrhIn).Width
