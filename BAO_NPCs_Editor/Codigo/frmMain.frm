@@ -582,12 +582,12 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Private tmpOrder As Integer
+Private tmpOrder                As Integer
 
-Private cachePictures(1 To 4) As IPictureDisp
+Private cachePictures(1 To 4)   As IPictureDisp
 
 Private Type POINTAPI
-    X                           As Long
+    X                               As Long
     Y                           As Long
 End Type
 
@@ -612,234 +612,306 @@ Public SelectedRespawnIndex     As Integer
 
 Private Sub Area_DblClick()
     txtPos.Text = NumMapa & "-" & MouseX & "-" & MouseY
-    
+
 End Sub
 
 Private Sub Area_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
-    MouseX = X
-    MouseY = Y
-    
-    If Button = 1 Then
-        If InClick = False Then
-            Call GetCursorPos(ClickPos)
-            ClickX = Area.Left
-            ClickY = Area.Top
-            InClick = True
-            Debug.Print "Activado"
-        End If
-        
-        Call GetCursorPos(TempPos)
-        Area.Top = ClickY + TempPos.Y - ClickPos.Y
-        Area.Left = ClickX + TempPos.X - ClickPos.X
-        Debug.Print "Pos: " & X & "-" & Y
+    On Error GoTo Area_MouseMove_Error
 
-    Else
-        Debug.Print "Falsee Pos: " & X & "-" & Y
-        InClick = False
-    End If
-    
+10  MouseX = X
+20  MouseY = Y
+
+30  If Button = 1 Then
+40      If InClick = False Then
+50          Call GetCursorPos(ClickPos)
+60          ClickX = Area.Left
+70          ClickY = Area.Top
+80          InClick = True
+90          Debug.Print "Activado"
+100     End If
+
+110     Call GetCursorPos(TempPos)
+120     Area.Top = ClickY + TempPos.Y - ClickPos.Y
+130     Area.Left = ClickX + TempPos.X - ClickPos.X
+140     Debug.Print "Pos: " & X & "-" & Y
+
+150 Else
+160     Debug.Print "Falsee Pos: " & X & "-" & Y
+170     InClick = False
+180 End If
+
+    On Error GoTo 0
+    Exit Sub
+
+Area_MouseMove_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure Area_MouseMove of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub cmdAgregar_Click()
-    NPCRespawnCount = NPCRespawnCount + 1
-    ReDim Preserve NPCRespawn(NPCRespawnCount)
-    lstNPCs.AddItem "(NONE)-" & lstNPCs.ListCount
-    cmdGuardar.Enabled = True
+    On Error GoTo cmdAgregar_Click_Error
+
+10  NPCRespawnCount = NPCRespawnCount + 1
+20  ReDim Preserve NPCRespawn(NPCRespawnCount)
+30  lstNPCs.AddItem "(NONE)-" & lstNPCs.ListCount
+40  cmdGuardar.Enabled = True
+
+    On Error GoTo 0
+    Exit Sub
+
+cmdAgregar_Click_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure cmdAgregar_Click of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub cmdBuscar_Click()
-    Dim NombreItem As String
-    NombreItem = InputBox("Escribe el nombre del item que estas buscando.")
-    
-    Dim i As Long
-    Dim EsTrue As Boolean
-    Dim EnLoop As Boolean
-    
-    Dim min As Integer
-    Dim Max As Integer
-    min = ComboNPCS.ListIndex
-    If min = -1 Then min = 0
-    Max = NumFormatRespawn - 1
+Dim NombreItem                  As String
+    On Error GoTo cmdBuscar_Click_Error
+
+10  NombreItem = InputBox("Escribe el nombre del item que estas buscando.")
+
+    Dim i                       As Long
+    Dim EsTrue                  As Boolean
+    Dim EnLoop                  As Boolean
+
+    Dim min                     As Integer
+    Dim Max                     As Integer
+20  min = ComboNPCS.ListIndex
+30  If min = -1 Then min = 0
+40  Max = NumFormatRespawn - 1
 VolverHacer:
-    For i = min To Max
-        With FormatRespawn(i)
-            If InStr(1, UCase$(.Drop), UCase$(NombreItem)) And i <> ComboNPCS.ListIndex Then
-                EsTrue = True
-                Exit For
-            End If
-        End With
-    Next i
-    If EsTrue = False And EnLoop = False Then
-        min = 0
-        Max = ComboNPCS.ListIndex - 1
-        If Max = -1 Then Max = 0
-        EnLoop = True
-        GoTo VolverHacer
-    End If
-    
-    If EsTrue Then
-        ComboNPCS.ListIndex = i
-    Else
-        MsgBox "No se ha encontrado un NPC que tenga un item similar al que usted escribio."
-    End If
+50  For i = min To Max
+60      With FormatRespawn(i)
+70          If InStr(1, UCase$(.Drop), UCase$(NombreItem)) And i <> ComboNPCS.ListIndex Then
+80              EsTrue = True
+90              Exit For
+100         End If
+110     End With
+120 Next i
+130 If EsTrue = False And EnLoop = False Then
+140     min = 0
+150     Max = ComboNPCS.ListIndex - 1
+160     If Max = -1 Then Max = 0
+170     EnLoop = True
+180     GoTo VolverHacer
+190 End If
+
+200 If EsTrue Then
+210     ComboNPCS.ListIndex = i
+220 Else
+230     MsgBox "No se ha encontrado un NPC que tenga un item similar al que usted escribio."
+240 End If
+
+    On Error GoTo 0
+    Exit Sub
+
+cmdBuscar_Click_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure cmdBuscar_Click of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub cmdCopyRespawn_Click()
 
-'FALTA TERMINAR!
-    NPCRespawnCount = NPCRespawnCount + 1
-    ReDim Preserve NPCRespawn(NPCRespawnCount)
+    'FALTA TERMINAR!
+    On Error GoTo cmdCopyRespawn_Click_Error
 
-    With NPCRespawn(NPCRespawnCount - 1)
-    
+10  NPCRespawnCount = NPCRespawnCount + 1
+20  ReDim Preserve NPCRespawn(NPCRespawnCount)
+
+30  With NPCRespawn(NPCRespawnCount - 1)
+
         'iIDNpcSelected = NpcIndex
         'NpcIndex = .ID
-        .ID = NPCRespawn(iIDNpcSelected).ID  'Val(txtNumero.Text)
-        lstNPCs.AddItem NpcList(.ID).Name & "-" & NPCRespawn(iIDNpcSelected).ID & "-" & lstNPCs.ListCount  'Val(txtNumero.Text) & "-" & lstNPCs.ListCount
-        .Pos.Map = NPCRespawn(iIDNpcSelected).Pos.Map 'ReadField(1, txtPos.Text, 45)
-        .Pos.X = NPCRespawn(iIDNpcSelected).Pos.X  ' ReadField(2, txtPos.Text, 45)
-        .Pos.Y = NPCRespawn(iIDNpcSelected).Pos.Y 'ReadField(3, txtPos.Text, 45)
-        .AreaX = NPCRespawn(iIDNpcSelected).AreaX ' txtAreaX.Text
-        .AreaY = NPCRespawn(iIDNpcSelected).AreaY ' txtAreaY.Text
-        .Nivel = NPCRespawn(iIDNpcSelected).Nivel ' txtNPCLvl.Text
-        .FactorMulExp = NPCRespawn(iIDNpcSelected).FactorMulExp 'txtFactor.Text
-        .FactorMulGold = NPCRespawn(iIDNpcSelected).FactorMulGold 'txtFactor.Text
-        .MinHour = NPCRespawn(iIDNpcSelected).MinHour 'txtMinHour.Text
-        .MaxHour = NPCRespawn(iIDNpcSelected).MaxHour 'txtMaxHour.Text
-        .WithCountUsers = NPCRespawn(iIDNpcSelected).WithCountUsers 'txtCountUsersRespawn.Text
-        .RespawnTime = NPCRespawn(iIDNpcSelected).RespawnTime  'txtRespawnTime.Text
-        .Count = NPCRespawn(iIDNpcSelected).Count 'txtCantidad.Text
-        .Order = NPCRespawnCount
-        
-    End With
-    
+40      .ID = NPCRespawn(iIDNpcSelected).ID  'Val(txtNumero.Text)
+50      lstNPCs.AddItem NpcList(.ID).Name & "-" & NPCRespawn(iIDNpcSelected).ID & "-" & lstNPCs.ListCount  'Val(txtNumero.Text) & "-" & lstNPCs.ListCount
+60      .Pos.Map = NPCRespawn(iIDNpcSelected).Pos.Map    'ReadField(1, txtPos.Text, 45)
+70      .Pos.X = NPCRespawn(iIDNpcSelected).Pos.X  ' ReadField(2, txtPos.Text, 45)
+80      .Pos.Y = NPCRespawn(iIDNpcSelected).Pos.Y    'ReadField(3, txtPos.Text, 45)
+90      .AreaX = NPCRespawn(iIDNpcSelected).AreaX    ' txtAreaX.Text
+100     .AreaY = NPCRespawn(iIDNpcSelected).AreaY    ' txtAreaY.Text
+110     .Nivel = NPCRespawn(iIDNpcSelected).Nivel    ' txtNPCLvl.Text
+120     .FactorMulExp = NPCRespawn(iIDNpcSelected).FactorMulExp    'txtFactor.Text
+130     .FactorMulGold = NPCRespawn(iIDNpcSelected).FactorMulGold    'txtFactor.Text
+140     .MinHour = NPCRespawn(iIDNpcSelected).MinHour    'txtMinHour.Text
+150     .MaxHour = NPCRespawn(iIDNpcSelected).MaxHour    'txtMaxHour.Text
+160     .WithCountUsers = NPCRespawn(iIDNpcSelected).WithCountUsers    'txtCountUsersRespawn.Text
+170     .RespawnTime = NPCRespawn(iIDNpcSelected).RespawnTime  'txtRespawnTime.Text
+180     .Count = NPCRespawn(iIDNpcSelected).Count    'txtCantidad.Text
+190     .Order = NPCRespawnCount
+
+200 End With
+
+    On Error GoTo 0
+    Exit Sub
+
+cmdCopyRespawn_Click_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure cmdCopyRespawn_Click of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub cmdGuardar_Click()
-          
- On Error GoTo cmdGuardar_Click_Error
 
-10        Call lstNPCs_Click
-20        Call SaveNPCRespawn
-30        cmdGuardar.Enabled = False
+    On Error GoTo cmdGuardar_Click_Error
 
- On Error GoTo 0
- Exit Sub
+10  Call lstNPCs_Click
+20  Call SaveNPCRespawn
+30  cmdGuardar.Enabled = False
+
+    On Error GoTo 0
+    Exit Sub
 
 cmdGuardar_Click_Error:
 
- Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento cmdGuardar_Click Formulario frmMain línea: " & Erl())
-          
+    Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento cmdGuardar_Click Formulario frmMain línea: " & Erl())
+
 End Sub
 
 Private Sub cmdListar_Click()
 
-Dim i As Long
+Dim i                           As Long
 
-    For i = 0 To NumFormatRespawn - 1
-        With FormatRespawn(i)
-            ComboNPCS.AddItem .Nombre & " - Mapa " & .Respawns(0).Pos.Map
-        End With
-    Next i
+    On Error GoTo cmdListar_Click_Error
+
+10  For i = 0 To NumFormatRespawn - 1
+20      With FormatRespawn(i)
+30          ComboNPCS.AddItem .Nombre & " - Mapa " & .Respawns(0).Pos.Map
+40      End With
+50  Next i
+
+    On Error GoTo 0
+    Exit Sub
+
+cmdListar_Click_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure cmdListar_Click of Formulario frmMain Linea: " & Erl())
 
 End Sub
 
 Private Sub cmdUpdateOrder_Click()
 
-      Dim bFirstFound                 As Boolean
-      Dim i                           As Integer
-      Dim tmpNewOrder                 As Integer
-      Static LastIndex                As Long
+Dim bFirstFound                 As Boolean
+Dim i                           As Integer
+Dim tmpNewOrder                 As Integer
+Static LastIndex                As Long
 
-          
- On Error GoTo cmdUpdateOrder_Click_Error
 
-10        LastIndex = lstNPCs.ListIndex
+    On Error GoTo cmdUpdateOrder_Click_Error
 
-20        tmpNewOrder = Val(txtRespawnOrder.Text)
-30        tmptNPCRespawn = NPCRespawn
-40        bFirstFound = False
+10  LastIndex = lstNPCs.ListIndex
 
-50        If tmpNewOrder > UBound(NPCRespawn) Then
-60            MsgBox "El nuevo órden del npc no puede ser mayor al número de respawns totales existentes: " & UBound(NPCRespawn)
-70            Exit Sub
-80        End If
-          
-90        For i = 0 To UBound(NPCRespawn)
-              '¿Existe y no soy el que está modificado?
-100           If NPCRespawn(i).Order = tmpNewOrder And i <> tmpOrder Then
+20  tmpNewOrder = Val(txtRespawnOrder.Text)
+30  tmptNPCRespawn = NPCRespawn
+40  bFirstFound = False
 
-110               NPCRespawn(i) = tmptNPCRespawn(tmpOrder)
-                  'NPCRespawn(i).Order = tmpOrder
-                  
-120               If bFirstFound Then
-130                   Call SaveNPCRespawn
-140                   Call lstNPCs.Clear
-150                   Call LoadNPCs
-'                        DoEvents
-'                      lstNPCs.Refresh
-'160                   DoEvents
-                
-170                   lstNPCs.ListIndex = tmpNewOrder
-180                   Exit Sub
-190               End If
-200           Else
-210               If Not bFirstFound Then
-220                   NPCRespawn(tmpOrder) = tmptNPCRespawn(tmpNewOrder) 'Ej tmpNewOrder = 5 (tmptNPCRespawn(5).Orden)
-230                   bFirstFound = True
-240               End If
-250           End If
-260       Next i
-          
-270       DoEvents
-280       lstNPCs.ListIndex = tmpOrder
+50  If tmpNewOrder > UBound(NPCRespawn) Then
+60      MsgBox "El nuevo órden del npc no puede ser mayor al número de respawns totales existentes: " & UBound(NPCRespawn)
+70      Exit Sub
+80  End If
 
- On Error GoTo 0
- Exit Sub
+90  For i = 0 To UBound(NPCRespawn)
+        '¿Existe y no soy el que está modificado?
+100     If NPCRespawn(i).Order = tmpNewOrder And i <> tmpOrder Then
+
+110         NPCRespawn(i) = tmptNPCRespawn(tmpOrder)
+            'NPCRespawn(i).Order = tmpOrder
+
+120         If bFirstFound Then
+130             Call SaveNPCRespawn
+140             Call lstNPCs.Clear
+150             Call LoadNPCs
+                '                        DoEvents
+                '                      lstNPCs.Refresh
+                '160                   DoEvents
+
+170             lstNPCs.ListIndex = tmpNewOrder
+180             Exit Sub
+190         End If
+200     Else
+210         If Not bFirstFound Then
+220             NPCRespawn(tmpOrder) = tmptNPCRespawn(tmpNewOrder)    'Ej tmpNewOrder = 5 (tmptNPCRespawn(5).Orden)
+230             bFirstFound = True
+240         End If
+250     End If
+260 Next i
+
+270 DoEvents
+280 lstNPCs.ListIndex = tmpOrder
+
+    On Error GoTo 0
+    Exit Sub
 
 cmdUpdateOrder_Click_Error:
 
- Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento cmdUpdateOrder_Click Formulario frmMain línea: " & Erl())
-          
+    Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento cmdUpdateOrder_Click Formulario frmMain línea: " & Erl())
+
 End Sub
 
 Private Sub ComboNPCS_Click()
 
 Dim Index                       As Integer
-    Index = ComboNPCS.ListIndex
-    If Index = -1 Then Exit Sub
+    On Error GoTo ComboNPCS_Click_Error
+
+10  Index = ComboNPCS.ListIndex
+20  If Index = -1 Then Exit Sub
 
     'RespawnIndex As Integer
     'RespawnIndex = ComboNPCS.ListIndex
     'If RespawnIndex = -1 Then Exit Sub
 
-    With FormatRespawn(Index)
-        Me.lblInfoLvl.Caption = "Nivel de la criatura: " & .Nivel
-        Me.lblInfoExp.Caption = "Experiencia: " & .Experiencia
-        Me.lblInfoOro.Caption = "Oro: " & .Oro
-        Me.lblInfoVida.Caption = "Vida: " & .Vida
-        Me.lblInfoDrops.Caption = "Drops: " & .Drop
-    '    Me.lblInfoMinHit.Caption = "Golpe: " & .MinHit & "/" & .MaxHit
-    '    Me.lblInfoTimeRespawn.Caption = "Reparece en: " & .TiempoRespawn & " segundos."
-    End With
+30  With FormatRespawn(Index)
+40      Me.lblInfoLvl.Caption = "Nivel de la criatura: " & .Nivel
+50      Me.lblInfoExp.Caption = "Experiencia: " & .Experiencia
+60      Me.lblInfoOro.Caption = "Oro: " & .Oro
+70      Me.lblInfoVida.Caption = "Vida: " & .Vida
+80      Me.lblInfoDrops.Caption = "Drops: " & .Drop
+        '    Me.lblInfoMinHit.Caption = "Golpe: " & .MinHit & "/" & .MaxHit
+        '    Me.lblInfoTimeRespawn.Caption = "Reparece en: " & .TiempoRespawn & " segundos."
+90  End With
+
+    On Error GoTo 0
+    Exit Sub
+
+ComboNPCS_Click_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure ComboNPCS_Click of Formulario frmMain Linea: " & Erl())
 
 End Sub
 
 Private Sub cmdWizard_Click()
 
-    Call modFormatRespawn.ProcessFormat
-    Call modFormatRespawn.SaveFormatRespawn
+    On Error GoTo cmdWizard_Click_Error
+
+10  Call modFormatRespawn.ProcessFormat
+20  Call modFormatRespawn.SaveFormatRespawn
+
+    On Error GoTo 0
+    Exit Sub
+
+cmdWizard_Click_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure cmdWizard_Click of Formulario frmMain Linea: " & Erl())
 
 End Sub
 
 Private Sub Form_Load()
-    
-    Set cachePictures(1) = LoadPicture(App.Path & "\MAPS\MiniMapa1.jpg")
-    Set cachePictures(2) = LoadPicture(App.Path & "\MAPS\MiniMapa2.jpg")
-    Set cachePictures(3) = LoadPicture(App.Path & "\MAPS\MiniMapa3.jpg")
-    Set cachePictures(4) = LoadPicture(App.Path & "\MAPS\MiniMapa4.jpg")
-    frmMain.Caption = "V" & App.Major & "." & App.Minor & "." & App.Revision
+
+    On Error GoTo Form_Load_Error
+
+10  Set cachePictures(1) = LoadPicture(App.Path & "\MAPS\MiniMapa1.jpg")
+20  Set cachePictures(2) = LoadPicture(App.Path & "\MAPS\MiniMapa2.jpg")
+30  Set cachePictures(3) = LoadPicture(App.Path & "\MAPS\MiniMapa3.jpg")
+40  Set cachePictures(4) = LoadPicture(App.Path & "\MAPS\MiniMapa4.jpg")
+50  frmMain.Caption = "V" & App.Major & "." & App.Minor & "." & App.Revision
+
+    On Error GoTo 0
+    Exit Sub
+
+Form_Load_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure Form_Load of Formulario frmMain Linea: " & Erl())
 End Sub
 '
 'Private Sub FindNpcByName(ByVal sName As String)
@@ -904,22 +976,31 @@ End Sub
 '
 'End Sub
 Private Sub updateArea(ByVal RespawnIndex As Integer)
-    With NPCRespawn(RespawnIndex)
-        Area.Top = -.Pos.Y + (picMain.Height / 2)
-        Area.Left = -.Pos.X + (picMain.Width / 2)
+    On Error GoTo updateArea_Error
 
-        If Area.Top > 0 Then Area.Top = 0
-        If Area.Left > 0 Then Area.Left = 0
+10  With NPCRespawn(RespawnIndex)
+20      Area.Top = -.Pos.Y + (picMain.Height / 2)
+30      Area.Left = -.Pos.X + (picMain.Width / 2)
 
-        If Area.Top < -Area.Height + picMain.Height Then Area.Top = -Area.Height + picMain.Height
-        If Area.Left < -Area.Width + picMain.Width Then Area.Left = -Area.Width + picMain.Width
+40      If Area.Top > 0 Then Area.Top = 0
+50      If Area.Left > 0 Then Area.Left = 0
 
-        AreaNPC.Top = .Pos.Y - .AreaY / 2
-        AreaNPC.Left = .Pos.X - .AreaX / 2
-        AreaNPC.Width = .AreaX
-        AreaNPC.Height = .AreaY
-        AreaNPC.Visible = True
-    End With
+60      If Area.Top < -Area.Height + picMain.Height Then Area.Top = -Area.Height + picMain.Height
+70      If Area.Left < -Area.Width + picMain.Width Then Area.Left = -Area.Width + picMain.Width
+
+80      AreaNPC.Top = .Pos.Y - .AreaY / 2
+90      AreaNPC.Left = .Pos.X - .AreaX / 2
+100     AreaNPC.Width = .AreaX
+110     AreaNPC.Height = .AreaY
+120     AreaNPC.Visible = True
+130 End With
+
+    On Error GoTo 0
+    Exit Sub
+
+updateArea_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure updateArea of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub lstNPCs_Click()
@@ -928,143 +1009,178 @@ Dim NpcIndex                    As Integer
 Dim RespawnIndex                As Integer
 Dim NPCName                     As String
 
-10  On Error GoTo lstNPCs_Click_Error
-
     On Error GoTo lstNPCs_Click_Error:
 
-20  frmMain.Caption = "Cargando..."
-30  lstNPCs.Enabled = False
+10  frmMain.Caption = "Cargando..."
+20  lstNPCs.Enabled = False
     'DoEvents
 
-40  If lstNPCs.ListIndex = -1 Then Exit Sub
+30  If lstNPCs.ListIndex = -1 Then Exit Sub
 
-50  RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
-60  txtRespawnOrder.Text = RespawnIndex
+40  RespawnIndex = ReadField(3, lstNPCs.List(lstNPCs.ListIndex), Asc("-"))
+50  txtRespawnOrder.Text = RespawnIndex
     'Call FindNpcByName(lstNPCs.List(RespawnIndex))
 
-70  With NPCRespawn(RespawnIndex)
-80      iIDNpcSelected = RespawnIndex    ' NpcIndex
-90      NpcIndex = .ID
+60  With NPCRespawn(RespawnIndex)
+70      iIDNpcSelected = RespawnIndex    ' NpcIndex
+80      NpcIndex = .ID
 
-100     SelectedRespawnIndex = RespawnIndex
-110     Call updateArea(RespawnIndex)
+90      SelectedRespawnIndex = RespawnIndex
+100     Call updateArea(RespawnIndex)
 
-120     If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
-130         Area.Picture = cachePictures(.Pos.Map)
-140         NumMapa = .Pos.Map
-150     Else
+110     If NumMapa <> .Pos.Map And .Pos.Map <> 0 And .Pos.Map >= 1 And .Pos.Map <= 4 Then
+120         Area.Picture = cachePictures(.Pos.Map)
+130         NumMapa = .Pos.Map
+140     Else
             'MsgBox "Mapa inválido"
-160         Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
-170     End If
+150         Debug.Print "Mapa Inválido: " & .Pos.Map & " " & .Pos.X & " " & .Pos.Y
+160     End If
 
-180     txtNumero.Text = .ID
-190     txtPos.Text = .Pos.Map & "-" & .Pos.X & "-" & .Pos.Y
-200     txtRespawnTime.Text = .RespawnTime
-210     txtCantidad.Text = .Count
-220     txtAreaX.Text = .AreaX
-230     txtAreaY.Text = .AreaY
-240     txtNPCLvl.Text = .Nivel
-250     txtFactor.Text = .FactorMulExp
-260     txtFactorOro.Text = .FactorMulGold
+170     txtNumero.Text = .ID
+180     txtPos.Text = .Pos.Map & "-" & .Pos.X & "-" & .Pos.Y
+190     txtRespawnTime.Text = .RespawnTime
+200     txtCantidad.Text = .Count
+210     txtAreaX.Text = .AreaX
+220     txtAreaY.Text = .AreaY
+230     txtNPCLvl.Text = .Nivel
+240     txtFactor.Text = .FactorMulExp
+250     txtFactorOro.Text = .FactorMulGold
 
-270     If .FactorMulGold > 0 Then
-280         lblGoldGive.Caption = Round(NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD * NPCRespawn(SelectedRespawnIndex).FactorMulGold, 0)
-290     Else
-300         lblGoldGive.Caption = NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD
-310     End If
+260     If .FactorMulGold > 0 Then
+270         lblGoldGive.Caption = Round(NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD * NPCRespawn(SelectedRespawnIndex).FactorMulGold, 0)
+280     Else
+290         If NPCRespawn(SelectedRespawnIndex).ID > 0 Then
+300             lblGoldGive.Caption = NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD
+310         End If
+320     End If
 
-320     txtMinHour.Text = .MinHour
-330     txtMaxHour.Text = .MaxHour
-340     txtCountUsersRespawn.Text = .WithCountUsers
+330     txtMinHour.Text = .MinHour
+340     txtMaxHour.Text = .MaxHour
+350     txtCountUsersRespawn.Text = .WithCountUsers
 
-350     If .ID > 0 Then
+360     If .ID > 0 Then
             Dim tExp            As Double
-360         tExp = ((NpcList(.ID).STATS.MaxHP * 2) * .FactorMulExp)
-370         tExp = tExp + (tExp * ExpMul)
-380         txtExp.Text = Round(tExp, 0)
-390         NPCName = NpcList(.ID).Name
-400     Else
-410         txtExp.Text = ""
-420         NPCName = "NONE"
-430     End If
+370         tExp = ((NpcList(.ID).STATS.MaxHP * 2) * .FactorMulExp)
+380         tExp = tExp + (tExp * ExpMul)
+390         txtExp.Text = Round(tExp, 0)
+400         NPCName = NpcList(.ID).Name
+410     Else
+420         txtExp.Text = ""
+430         NPCName = "NONE"
+440     End If
 
-440     If .ID > 0 Then
-450         lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
-460     End If
+450     If .ID > 0 Then
+460         lblHP.Caption = "Vida: " & NpcList(.ID).STATS.MaxHP
+470     End If
 
-470 End With
+480 End With
 
-480 lstNPCs.Enabled = True
-490 lstNPCs.SetFocus
-500 frmMain.Caption = "NPC Seleccionado: " & NPCName
-510 tmpOrder = Val(txtRespawnOrder.Text)
+490 lstNPCs.Enabled = True
+500 lstNPCs.SetFocus
+510 frmMain.Caption = "NPC Seleccionado: " & NPCName
+520 tmpOrder = Val(txtRespawnOrder.Text)
 
-
-520 On Error GoTo 0
-530 Exit Sub
+530 On Error GoTo 0
+540 Exit Sub
 lstNPCs_Click_Error:
-540 Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
-550 lstNPCs.Enabled = True
-560 Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento lstNPCs_Click Formulario frmMain línea: " & Erl())
+550 Debug.Print "Error: " & Err.Number & " " & Err.Description & " Linea: " & Erl
+560 lstNPCs.Enabled = True
+570 Call MsgBox("Error " & Err.Number & " (" & Err.Description & ") procedimiento lstNPCs_Click Formulario frmMain línea: " & Erl())
 
 End Sub
 
 Private Sub lstNPCs_DblClick()
 
-'Dim NpcIndex                    As Integer
-'Dim RespawnIndex                As Integer
-'
-'    frmMain.Caption = "Cargando..."
-'    DoEvents
-'
-'    RespawnIndex = lstNPCs.ListIndex
-'    If RespawnIndex = -1 Then Exit Sub
-'
-'    Call FindNpcByName(lstNPCs.List(RespawnIndex))
-'
+    'Dim NpcIndex                    As Integer
+    'Dim RespawnIndex                As Integer
+    '
+    '    frmMain.Caption = "Cargando..."
+    '    DoEvents
+    '
+    '    RespawnIndex = lstNPCs.ListIndex
+    '    If RespawnIndex = -1 Then Exit Sub
+    '
+    '    Call FindNpcByName(lstNPCs.List(RespawnIndex))
+    '
 End Sub
 
 Private Sub lstNPCs_KeyDown(KeyCode As Integer, Shift As Integer)
 
-    If KeyCode = vbKeyF3 Then
-        tmpBuscar = lastBuscar
-        frmMain.Caption = "Buscando numero " & tmpBuscar
-        timerBuscar.Enabled = False
-        timerBuscar.Enabled = True
-    End If
-    
+10  On Error GoTo lstNPCs_KeyDown_Error
+
+20  If KeyCode = vbKeyF3 Then
+30      tmpBuscar = lastBuscar
+40      frmMain.Caption = "Buscando numero " & tmpBuscar
+50      timerBuscar.Enabled = False
+60      timerBuscar.Enabled = True
+70  End If
+
+    On Error GoTo 0
+    Exit Sub
+
+lstNPCs_KeyDown_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure lstNPCs_KeyDown of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub lstNPCs_KeyPress(KeyAscii As Integer)
 
-    Debug.Print KeyAscii
-    
-    If KeyAscii >= 48 And KeyAscii <= 57 Then
+10  On Error GoTo lstNPCs_KeyPress_Error
+
+20  Debug.Print KeyAscii
+
+30  If KeyAscii >= 48 And KeyAscii <= 57 Then
         'Numeros
-        tmpBuscar = tmpBuscar & Chr$(KeyAscii)
-        frmMain.Caption = "Buscando numero " & tmpBuscar
-        timerBuscar.Enabled = False
-        timerBuscar.Enabled = True
-    End If
-    
+40      tmpBuscar = tmpBuscar & Chr$(KeyAscii)
+50      frmMain.Caption = "Buscando numero " & tmpBuscar
+60      timerBuscar.Enabled = False
+70      timerBuscar.Enabled = True
+80  End If
+
+90  On Error GoTo 0
+100 Exit Sub
+
+lstNPCs_KeyPress_Error:
+
+110 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure lstNPCs_KeyPress of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtCountUsersRespawn_Change()
 
+    On Error GoTo txtCountUsersRespawn_Change_Error
+
     txtCountUsersRespawn.Text = Val(txtCountUsersRespawn.Text)
-    
-    Dim WithCountUsers As Integer
+
+    Dim WithCountUsers          As Integer
     WithCountUsers = Val(txtCountUsersRespawn.Text)
-    
+
     NPCRespawn(SelectedRespawnIndex).WithCountUsers = WithCountUsers
     cmdGuardar.Enabled = True
 
+    On Error GoTo 0
+    Exit Sub
+
+txtCountUsersRespawn_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtCountUsersRespawn_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
+'---------------------------------------------------------------------------------------
+' Procedure : txtExp_Change
+' Author    : bsabatier
+' Date      : 14/01/2024
+' Purpose   :
+'---------------------------------------------------------------------------------------
+'
 Private Sub txtExp_Change()
 
-Dim tFactor As Single
-Dim tExp As Double
+Dim tFactor                     As Single
+Dim tExp                        As Double
+
+    On Error GoTo txtExp_Change_Error
 
     If bChanginExp Then
         If iIDNpcSelected <= UBound(NpcList) Then
@@ -1077,7 +1193,14 @@ Dim tExp As Double
             End If
         End If
     End If
-    
+
+    On Error GoTo 0
+    Exit Sub
+
+txtExp_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtExp_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtExp_KeyDown(KeyCode As Integer, Shift As Integer)
@@ -1085,22 +1208,40 @@ Private Sub txtExp_KeyDown(KeyCode As Integer, Shift As Integer)
 End Sub
 
 Private Sub txtMaxHour_Change()
-    txtMaxHour.Text = Val(txtMaxHour.Text)
-    Dim MaxHour As Integer
-    MaxHour = Val(txtMaxHour.Text)
-    
-    NPCRespawn(SelectedRespawnIndex).MaxHour = MaxHour
-    cmdGuardar.Enabled = True
+    On Error GoTo txtMaxHour_Change_Error
+
+10  txtMaxHour.Text = Val(txtMaxHour.Text)
+    Dim MaxHour                 As Integer
+20  MaxHour = Val(txtMaxHour.Text)
+
+30  NPCRespawn(SelectedRespawnIndex).MaxHour = MaxHour
+40  cmdGuardar.Enabled = True
+
+    On Error GoTo 0
+    Exit Sub
+
+txtMaxHour_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtMaxHour_Change of Formulario frmMain Linea: " & Erl())
 End Sub
 
 
 Private Sub txtMinHour_Change()
-    txtMinHour.Text = Val(txtMinHour.Text)
-    Dim MinHour As Integer
-    MinHour = Val(txtMinHour.Text)
-    
-    NPCRespawn(SelectedRespawnIndex).MinHour = MinHour
-    cmdGuardar.Enabled = True
+    On Error GoTo txtMinHour_Change_Error
+
+10  txtMinHour.Text = Val(txtMinHour.Text)
+    Dim MinHour                 As Integer
+20  MinHour = Val(txtMinHour.Text)
+
+30  NPCRespawn(SelectedRespawnIndex).MinHour = MinHour
+40  cmdGuardar.Enabled = True
+
+    On Error GoTo 0
+    Exit Sub
+
+txtMinHour_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtMinHour_Change of Formulario frmMain Linea: " & Erl())
 End Sub
 
 Private Sub txtRespawnOrder_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
@@ -1110,203 +1251,304 @@ End Sub
 Private Sub txtSearch_Change()
 
 Dim i                           As Long
-    
-    If lstNPCs.ListCount > 0 Then
-        lstNPCs.Clear
-        For i = 0 To UBound(NPCRespawn)
-            If NPCRespawn(i).ID > 0 Then
-                If InStr(1, UCase$(NpcList(NPCRespawn(i).ID).Name), UCase$(txtSearch.Text)) Then
-                    frmMain.lstNPCs.AddItem NpcList(NPCRespawn(i).ID).Name & "-" & NPCRespawn(i).ID & "-" & i
+
+10  On Error GoTo txtSearch_Change_Error
+
+20  If lstNPCs.ListCount > 0 Then
+30      lstNPCs.Clear
+40      For i = 0 To UBound(NPCRespawn)
+50          If NPCRespawn(i).ID > 0 Then
+60              If InStr(1, UCase$(NpcList(NPCRespawn(i).ID).Name), UCase$(txtSearch.Text)) Then
+70                  frmMain.lstNPCs.AddItem NpcList(NPCRespawn(i).ID).Name & "-" & NPCRespawn(i).ID & "-" & i
                     'frmMain.lstNPCs.ItemData(frmMain.lstNPCs.ListCount - 1) = i
-                    Debug.Print "Clic en txtSearch: " & NpcList(NPCRespawn(i).ID).Name
-                End If
-            End If
-        Next i
-    Else
-        Call LoadNPCs
-    End If
-    
+80                  Debug.Print "Clic en txtSearch: " & NpcList(NPCRespawn(i).ID).Name
+90              End If
+100         End If
+110     Next i
+120 Else
+130     Call LoadNPCs
+140 End If
+
+150 On Error GoTo 0
+160 Exit Sub
+
+txtSearch_Change_Error:
+
+170 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtSearch_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub timerBuscar_Timer()
 
-    Dim i As Long
-    Dim Found As Boolean
-    Dim min As Long
-    
-    min = lstNPCs.ListIndex
-    
-    If min = -1 Then min = 0
-    
-    For i = min To NPCRespawnCount - 1
-        With NPCRespawn(i)
-            If .ID = Val(tmpBuscar) And i <> min Then
-                lstNPCs.ListIndex = i
-                Found = True
-                Exit For
-            End If
-        End With
-    Next i
-    
-    If Found = False Then
-        For i = 0 To min - 1
-            With NPCRespawn(i)
-                If .ID = Val(tmpBuscar) And i <> min Then
-                    lstNPCs.ListIndex = i
-                    Found = True
-                    Exit For
-                End If
-            End With
-        Next i
-    End If
-    
-    If Found Then
-        frmMain.Caption = "Encontrado :D"
-    Else
-        frmMain.Caption = "No se ha encontrado."
-    End If
-    
-    timerBuscar.Enabled = False
-    lastBuscar = tmpBuscar
-    tmpBuscar = vbNullString
-    
+Dim i                           As Long
+Dim Found                       As Boolean
+Dim min                         As Long
+
+10  On Error GoTo timerBuscar_Timer_Error
+
+20  min = lstNPCs.ListIndex
+
+30  If min = -1 Then min = 0
+
+40  For i = min To NPCRespawnCount - 1
+50      With NPCRespawn(i)
+60          If .ID = Val(tmpBuscar) And i <> min Then
+70              lstNPCs.ListIndex = i
+80              Found = True
+90              Exit For
+100         End If
+110     End With
+120 Next i
+
+130 If Found = False Then
+140     For i = 0 To min - 1
+150         With NPCRespawn(i)
+160             If .ID = Val(tmpBuscar) And i <> min Then
+170                 lstNPCs.ListIndex = i
+180                 Found = True
+190                 Exit For
+200             End If
+210         End With
+220     Next i
+230 End If
+
+240 If Found Then
+250     frmMain.Caption = "Encontrado :D"
+260 Else
+270     frmMain.Caption = "No se ha encontrado."
+280 End If
+
+290 timerBuscar.Enabled = False
+300 lastBuscar = tmpBuscar
+310 tmpBuscar = vbNullString
+
+320 On Error GoTo 0
+330 Exit Sub
+
+timerBuscar_Timer_Error:
+
+340 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure timerBuscar_Timer of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtAreaX_Change()
 
-    txtAreaX.Text = Val(txtAreaX.Text)
-    
-    NPCRespawn(SelectedRespawnIndex).AreaX = Val(txtAreaX.Text)
-    
+    On Error GoTo txtAreaX_Change_Error
+
+10  txtAreaX.Text = Val(txtAreaX.Text)
+
+20  NPCRespawn(SelectedRespawnIndex).AreaX = Val(txtAreaX.Text)
+
     'If lstNPCs.Enabled Then Call lstNPCs_Click
-    If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
-    cmdGuardar.Enabled = True
-    
+30  If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
+40  cmdGuardar.Enabled = True
+
+    On Error GoTo 0
+    Exit Sub
+
+txtAreaX_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtAreaX_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtAreaY_Change()
-    
-    txtAreaY.Text = Val(txtAreaY.Text)
-    
-    NPCRespawn(SelectedRespawnIndex).AreaY = Val(txtAreaY.Text)
-    
+
+    On Error GoTo txtAreaY_Change_Error
+
+10  txtAreaY.Text = Val(txtAreaY.Text)
+
+20  NPCRespawn(SelectedRespawnIndex).AreaY = Val(txtAreaY.Text)
+
     'If lstNPCs.Enabled Then Call lstNPCs_Click
-    If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
-    cmdGuardar.Enabled = True
-    
+30  If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
+40  cmdGuardar.Enabled = True
+
+    On Error GoTo 0
+    Exit Sub
+
+txtAreaY_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtAreaY_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtCantidad_Change()
-    
-    txtCantidad.Text = Val(txtCantidad.Text)
-    
-    NPCRespawn(SelectedRespawnIndex).Count = Val(txtCantidad.Text)
-    cmdGuardar.Enabled = True
-    
+
+    On Error GoTo txtCantidad_Change_Error
+
+10  txtCantidad.Text = Val(txtCantidad.Text)
+
+20  NPCRespawn(SelectedRespawnIndex).Count = Val(txtCantidad.Text)
+30  cmdGuardar.Enabled = True
+
+    On Error GoTo 0
+    Exit Sub
+
+txtCantidad_Change_Error:
+
+    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtCantidad_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtFactor_Change()
     '
-    Dim Factor As Single
-    Factor = Val(Replace(txtFactor.Text, ",", "."))
+Dim Factor                      As Single
+10  On Error GoTo txtFactor_Change_Error
+
+20  Factor = Val(Replace(txtFactor.Text, ",", "."))
     'txtFactor.Text = Factor
-    
-    NPCRespawn(SelectedRespawnIndex).FactorMulExp = Factor
-    cmdGuardar.Enabled = True
-    
+
+30  NPCRespawn(SelectedRespawnIndex).FactorMulExp = Factor
+40  cmdGuardar.Enabled = True
+
+50  On Error GoTo 0
+60  Exit Sub
+
+txtFactor_Change_Error:
+
+70  Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtFactor_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtFactorOro_Change()
     '
-    Dim Factor As Single
-    Factor = Val(Replace(txtFactorOro.Text, ",", "."))
+Dim Factor                      As Single
+10  On Error GoTo txtFactorOro_Change_Error
+
+20  Factor = Val(Replace(txtFactorOro.Text, ",", "."))
     'txtFactor.Text = Factor
-    
-    NPCRespawn(SelectedRespawnIndex).FactorMulGold = Factor
-    cmdGuardar.Enabled = True
-    
-    If Factor > 0 Then
-        lblGoldGive.Caption = "Oro: " & Round(NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD * NPCRespawn(SelectedRespawnIndex).FactorMulGold, 0)
-    Else
-        lblGoldGive.Caption = "Oro: " & NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD
-    End If
-    
+
+30  NPCRespawn(SelectedRespawnIndex).FactorMulGold = Factor
+40  cmdGuardar.Enabled = True
+
+50  If Factor > 0 Then
+60      lblGoldGive.Caption = "Oro: " & Round(NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD * NPCRespawn(SelectedRespawnIndex).FactorMulGold, 0)
+70  Else
+80      If NPCRespawn(SelectedRespawnIndex).ID > 0 Then
+90          lblGoldGive.Caption = "Oro: " & NpcList(NPCRespawn(SelectedRespawnIndex).ID).GiveGLD
+100     End If
+110 End If
+
+120 On Error GoTo 0
+130 Exit Sub
+
+txtFactorOro_Change_Error:
+
+140 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtFactorOro_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtNPCLvl_Change()
 
-    txtNPCLvl.Text = Val(txtNPCLvl.Text)
-    Dim Nivel As Integer
-    Nivel = Val(txtNPCLvl.Text)
-    
-    NPCRespawn(SelectedRespawnIndex).Nivel = Nivel
-    cmdGuardar.Enabled = True
-    
+10  On Error GoTo txtNPCLvl_Change_Error
+
+20  txtNPCLvl.Text = Val(txtNPCLvl.Text)
+    Dim Nivel                   As Integer
+30  Nivel = Val(txtNPCLvl.Text)
+
+40  NPCRespawn(SelectedRespawnIndex).Nivel = Nivel
+50  cmdGuardar.Enabled = True
+
+60  On Error GoTo 0
+70  Exit Sub
+
+txtNPCLvl_Change_Error:
+
+80  Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtNPCLvl_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtNumero_Change()
 
-    txtNumero.Text = Val(txtNumero.Text)
-    
-    Dim NpcIndex As Integer
-    
-    NpcIndex = Val(txtNumero.Text)
-    
-    If NpcIndex = 0 Then
-        lstNPCs.List(SelectedRespawnIndex) = "(NONE)-0-" & lstNPCs.ListIndex
-    Else
-        If NpcList(NpcIndex).Active = 0 Then
-            Call OpenNPC(NpcIndex, False)
-        End If
+10  On Error GoTo txtNumero_Change_Error
+
+20  txtNumero.Text = Val(txtNumero.Text)
+
+    Dim NpcIndex                As Integer
+
+30  NpcIndex = Val(txtNumero.Text)
+
+40  If NpcIndex = 0 Then
+50      lstNPCs.List(SelectedRespawnIndex) = "(NONE)-0-" & lstNPCs.ListIndex
+60  Else
+70      If NpcList(NpcIndex).Active = 0 Then
+80          Call OpenNPC(NpcIndex, False)
+90      End If
         'lstNPCs.List(lstNPCs.ListIndex) = NpcList(NpcIndex).Name & "-" & NpcIndex & "-" & lstNPCs.ListIndex
         'lstNPCs.List(SelectedRespawnIndex) = NpcList(NpcIndex).Name & "-" & NpcIndex & "-" & iNpcIndexSelected
-    End If
-    
-    NPCRespawn(SelectedRespawnIndex).ID = NpcIndex
-    cmdGuardar.Enabled = True
-    
-    If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
-    cmdGuardar.Enabled = True
-    
+100 End If
+
+110 NPCRespawn(SelectedRespawnIndex).ID = NpcIndex
+120 cmdGuardar.Enabled = True
+
+130 If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
+140 cmdGuardar.Enabled = True
+
+150 On Error GoTo 0
+160 Exit Sub
+
+txtNumero_Change_Error:
+
+170 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtNumero_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtPos_Change()
 
-    Static NoProcess As Boolean
-    
-    If NoProcess = True Then Exit Sub
-    
-    NoProcess = True
-    
-    Dim Map As Long
-    Dim X As Long
-    Dim Y As Long
-    
-    Map = Val(ReadField(1, txtPos.Text, Asc("-")))
-    X = Val(ReadField(2, txtPos.Text, Asc("-")))
-    Y = Val(ReadField(3, txtPos.Text, Asc("-")))
-        
-    NPCRespawn(SelectedRespawnIndex).Pos.Map = Map
-    NPCRespawn(SelectedRespawnIndex).Pos.X = X
-    NPCRespawn(SelectedRespawnIndex).Pos.Y = Y
-    
+Static NoProcess                As Boolean
+
+10  On Error GoTo txtPos_Change_Error
+
+20  If NoProcess = True Then Exit Sub
+
+30  NoProcess = True
+
+    Dim Map                     As Long
+    Dim X                       As Long
+    Dim Y                       As Long
+
+40  Map = Val(ReadField(1, txtPos.Text, Asc("-")))
+50  X = Val(ReadField(2, txtPos.Text, Asc("-")))
+60  Y = Val(ReadField(3, txtPos.Text, Asc("-")))
+
+70  NPCRespawn(SelectedRespawnIndex).Pos.Map = Map
+80  NPCRespawn(SelectedRespawnIndex).Pos.X = X
+90  NPCRespawn(SelectedRespawnIndex).Pos.Y = Y
+
     'Call lstNPCs_Click
-    
-    txtPos.Text = Map & "-" & X & "-" & Y
-    
-    NoProcess = False
-    cmdGuardar.Enabled = True
-    
-    If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
-    cmdGuardar.Enabled = True
-    
+
+100 txtPos.Text = Map & "-" & X & "-" & Y
+
+110 NoProcess = False
+120 cmdGuardar.Enabled = True
+
+130 If lstNPCs.Enabled Then Call updateArea(SelectedRespawnIndex)
+140 cmdGuardar.Enabled = True
+
+150 On Error GoTo 0
+160 Exit Sub
+
+txtPos_Change_Error:
+
+170 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtPos_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
 
 Private Sub txtRespawnTime_Change()
 
-    txtRespawnTime.Text = Val(txtRespawnTime.Text)
+10  On Error GoTo txtRespawnTime_Change_Error
 
-    NPCRespawn(SelectedRespawnIndex).RespawnTime = Val(txtRespawnTime.Text)
-    cmdGuardar.Enabled = True
-    
+20  txtRespawnTime.Text = Val(txtRespawnTime.Text)
+
+30  NPCRespawn(SelectedRespawnIndex).RespawnTime = Val(txtRespawnTime.Text)
+40  cmdGuardar.Enabled = True
+
+50  On Error GoTo 0
+60  Exit Sub
+
+txtRespawnTime_Change_Error:
+
+70  Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure txtRespawnTime_Change of Formulario frmMain Linea: " & Erl())
+
 End Sub
