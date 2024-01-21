@@ -1,0 +1,46 @@
+############ REPORTE DE BUGS ACA ############ 
+
+CLIENTE: 
+
+- Esta linea tira error: Automation Error. EN START del mod Engine. ---> If frmMain.picInv.Visible Then Call DrawInv
+- Esta también: linea: 910               If .FxIndex(i) <> 0 Then
+- Esta si no le anda la librería de los sonidos 3D también tira error: Call Audio.MoveListener(UserPos.X, UserPos.Y)
+- Este es el error más comun de siempre: Call DDrawGrhSurface_Alpha(.Graphic(3), PixelOffsetXTemp, PixelOffsetYTemp, 1, 1, OpcionesGraficas.TransArboles) en el módulo 'RenderScreen' - Linea nº1060
+
+SERVIDOR:
+
+
+############ FIN REPORTE DE BUGS ACA ############ 
+
+ORGANIZACION DE DESARROLLO: 25/10/2013
+
+Vamos a ir organizando por prioridades las cosas de desarrollo acá con un ítem (signo -)
+para diferenciar una cosa de otra.
+Las ideas que esten más arriba, son las de mayor prioridad.
+Las ideas que se vayan haciendo, hay que plasmarlas en el changelog.
+
+- Evento survivor:
+
+Empezas ejecutado, y dentro del evento, se respawnean varios npcs con ítems copados, tipo 2f, potas, etc etc.
+La idea, es empezar con ropita nada más.
+
+- /HONOR nick. Puntos de honor que se muestran al clickear un user. Se pueden dar al perder un torneo, o duelo.- Taria bueno hacer torneos automaticos faccionarios.
+
+- SISTEMA DE REFERENCIAS: Sistema mediante link: www.bender-online.com.ar/registrar_mail?referente=about
+para descargar el cliente y que me sume puntos ami (referente=about), al llegar a 10 referidos
+que sean mayores a nivel 32 (por ahora) ganaran 50 puntos de donantes.
+
+* Al crear un pj, podemos poner el nick de la persona que nos hizo descargar Bender por primera vez
+y así podemos identificar por UNICA VEZ a la persona que nos pasó el link.
+Hacemos un registro tipo el ban pc de todos los clientes activos instalados, y si esos usuarios ya juegan bender desde esa pc, que NO puedan referir a nadie. Ej: si tienen pjs mas de nivel 30 o ya jugaban antes del sistema, q no puedan utilizar el sistema :D
+parcheamos eso una semana antes de lanzar el sistema y listo :D
+osea que "SOLO PUEDAN RECIBIR REFERIDOS" pero que no puedan "OTORGAR"
+y para poder "otorgar" tu pc tiene q ser la primera vez q juega Bender ;)
+* Al agregar los puntos de donantes al user, tiene q registrar el mail como que dono, pero
+que diga que fue por referencia así sabemos de donde salieron los puntos.
+* Al referir un nick de IGUAL MAIL al REFERIDO, que sea IMPOSIBLE, sino es facil truchar.
+Finalidad de la idea: Es que todos los usuarios tengan motivo para publicar BENDER en todos
+lados, y así ganemos usuarios a roletes. Esto podría ser por un tiempo limitado y luego
+sacamos el sistema, y lo activamos cuando los usuarios "bajen". (Para: MATEO)
+
+
