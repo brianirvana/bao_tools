@@ -1,0 +1,172 @@
+En construcción.
+
+|||||||||||||||||||||||||||||||
+|||||||||||BY RUMAH||||||||||||
+|||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||
+|||||||||||03/12/11||||||||||||
+|||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||
+||||||||||||OBJETOS||||||||||||
+|||||||||||||||||||||||||||||||
+
+¿Que trabajamos DAT trabajamos? El OBJ.DAT
+
+Bien, hay cosas que se dan cuenta leyendo los dats, como por ejemplo que es el "NumOBJs=", 
+o los tipos de objetos y pociones.
+
+
+Acá les voy a explicar lo que yo se...
+
+Name= NOMBRE DEL OBJETO
+GrhIndex= GRAFICO INDEXADO DEL OBJETO (que aparece en el INVENTARIO o cuando está en el piso)
+ObjType= TIPO DE OBJETO (leer OBJ.DAT)
+Agarrable= SI SE PUEDE AGARRAR O NO (0 = SI EN ESTE CASO, 1 = NO EN ESTE CASO, por lo general es al revez) (Rumah) Cuando esta en 0 Se puede agarrar, cuando esta en 1 no se pueden agarrar los ítems. Ej: Agarrable=1 no se puede agarrar, solo se pueden tirar. (About)
+MinHAM= HAMBRE QUE RESTAURA
+Valor= VALOR EN EL MERCADO CON 0 EN COMERCIO (a mi entender) (Rumah) Si, es así (About)
+Anim= ANIMACION DEL ARMA U OBJETO DE TRABAJADORES, para esto es conveniente ver otros objetos para saber qué animación va con cada objeto. Sino, hay que indexar nuevas animaciones. (About)
+MinHit= GOLPE MÍNIMO (En caso de que el objeto sea un Arma)
+MaxHit= GOLPE MÁXIMO (En caso de que el objeto sea un Arma)
+CP1= CLASES PROHIBIDAS, osea QUE NO LO PUEDEN EQUIPAR AL ITEM EN CUESTION (Aca puede ser CP1=MAGO, CP2=CLERIGO, CP3=TRABAJADOR, etc)
+LingH= LINGOTES DE HIERRO PARA CONSTRUIRLO (De todas maneras, para que aparesca en la lista de herrería, hay que sumarlo a ArmasHerrero.dat o ArmadurasHerrero.dat)
+LingP= LINGOTES DE PLATA PARA CONSTRUIRLO (De todas maneras, para que aparesca en la lista de herrería, hay que sumarlo a ArmasHerrero.dat o ArmadurasHerrero.dat)
+LingO= DE ORO... (De todas maneras, para que aparesca en la lista de herrería, hay que sumarlo a ArmasHerrero.dat o ArmadurasHerrero.dat)
+SkHerreria= SKILL NECESARIO PARA CONSTRUIRLO (De todas maneras, para que aparesca en la lista de herrería, hay que sumarlo a ArmasHerrero.dat o ArmadurasHerrero.dat)
+SkCarpinteria= SKILL EN CARPIN NECESARIO PARA HACER EL OBJETO (De todas maneras, para que aparesca en la lista de herrería, hay que sumarlo a ArmasHerrero.dat o ArmadurasHerrero.dat)
+Fundible= Si se puede o no fundir (1 si, 0 no)
+Texto= TEXTO QUE MUESTRA SI EL OBJETO ES UN CARTEL Y LE DAN DOBLE CLICK
+Apuñala= Si el objeto tiene probabilidades de apuñalar. La probabilidad es segun la clase, no se puede datear. (Las propiedades son: Apuñala=1 SI apuñala, Apuñala=0 NO, jamas apuñala) 
+NumRopaje= Numero del grafico (creo) que sale al equipar una armadura/tunica o escudo.
+Real= SI ES UNO SOLO LO USAN MIEMBROS DE LA ARMI SI ES 0 TODOS. Es mejor nunca escribir una propiedad si van a poner 0. Asi al abrir el servidor no tiene que cargar esa variable y por default es 0. Eso jamás se bugea si no lo ponen. (About)
+Caos= Mismo caso que arriba pero de Caos
+MaxDef= Maxima defensa
+MinDef= Minima defensa
+MADERA= CANTIDAD DE MADERA NECESARIO PARA HACER EL OBJETO
+MinAgu= Sed que restaura 
+TipoPocion= El tipo de poción (leer OBJ.DAT)
+newbie= si es objeto nw o no (1 si)
+MaxModificador= Lo máximo que restaura ya sea de mana o vida
+MinModificador= Lo mínimo "     "        "         "      " (?
+DuracionEfecto= Lo que dura el efecto de una poción (cl fz) 'Nose si es en milisegundos o en que.
+RazaEnana= SI ES PARA GNOMOS Y ENANOS NOMAS, 0 SI ES PARA TODOS (DISCRIMINACION LOCO!)
+HechizoIndex= Sería el hechizo qe te mete en la pestaña "Hechizos" el objeto. Osea, tenes que leer el Hechizos.dat para saber cual es.
+Proyectil= Creeria que es 1 cuando es tipo arco y 0 cuando no lo es.
+Municiones= Es algo parecido a lo de arriba, pero creo que es para saber si "necesita o no municiones?"
+StaffDamageBonus= Ataque mágico que añade el arma equipada (ver laudes o báculos)
+DefensaMagicaMin= Defensa mágica minima (ver anillos)
+DefensaMagicaMax=  "        "    maxima
+
+
+[[NOTA]]
+Lo que no se escribe en el dateo 
+(porque por lo general ningún item tiene escrito TOOODO lo de arriba) 
+se toma como 0.
+Aca les traigo un ejemplo...
+
+[OBJ35]
+Name=Vestimentas Comunes
+GrhIndex=535
+ObjType=3
+NumRopaje=3
+Agarrable=0
+MaxDef=0
+MinDef=0
+Valor=50
+Crucial=1
+
+No tiene escrito el Caos=, el Real=, el Newbie=, eso lo toma como 0..
+
+
+[[[[[AGRADECIMIENTOS]]]]]
+Ami mismo y al que sea que complete el tutorial de objetos porque faltan cosas, 
+y que me corrija los errores porque no estoy seguro de que tan bien esté hecho xD
+Sería una base..
+
+
+|||||||||||||||||||||||||||||||
+|||||||||||BY ABOUT||||||||||||
+|||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||
+|||||||||||06/12/11||||||||||||
+|||||||||||||||||||||||||||||||
+
+
+|||||||||||||||||||||||||||||||
+|||||||||||HECHIZOS||||||||||||
+|||||||||||||||||||||||||||||||
+
+El primer hechizo de los Hechizos.dat tiene todos los ejemplos posibles, no se porque.. 
+debe ser para nunca olvidarlos.. asi que mejor lo dejamos ^^
+
+Info: Todo lo que esté escrito después del apóstrofe: osea ' <-- eso no se ejecuta, no se lee.
+Eso sirve para poder dejar comentarios y no cargar la memoria al pedo, porque los comentarios
+jamás se cargan en memoria del servidor.
+
+[HECHIZO1]
+Nombre=Curar Veneno 'Nombre del Hechizo.
+Desc= EJEMPLO EJEMPLO 'Esta es la descripción del hechizo cuando hacemos clic en "INFO" en el cliente.
+PalabrasMagicas=NIHIL VED ' Estas son las palabras magicas al tirar el hechizo. Creo que estan en Latin, o algun idioma de esos...
+HechizeroMsg=Le has detenido el envenenamiento a 'Esto no se usa más, pero se dan cuenta que era.
+PropioMsg=Te has detenido el envenenamiento. 'Esto no se usa más, pero se dan cuenta que era.
+TargetMsg=te ha detenido el envenenamiento. 'Esto no se usa más, pero se dan cuenta que era.
+Tipo=2 ' Apenas abren Hechizos.dat les dice los Tipos de hechizos. 
+WAV=16 'El wav que reproduce el hechizo al ser lanzado.
+FXgrh=2 'El gráfico que reproduce el hechi al ser lanzado. Esto esta indexado, y por lo general no tienen numeros consecutivos, osea que hay que aprender a leer los indices de los Index para saber cual es cada efecto.
+Loops=2 'Esta es la cantidad de veces que se emite el efecto. Podran ser 1, como 15 veces... depende la cantidad de Loops, cuanto dure el efecto sobre el personaje.
+MinSkill=10 'El minimo skill para utilizar el hechizo.
+ManaRequerido=12 'La mana requerida para lanzar el hechizo.
+StaRequerido=1 'La sTamina requerida para lanzar el hechizo.. es facil hasta acá, salvo por algunas cosas, o no?
+Target=1 'LOS Targets, estan apenas abren Hechizos.dat, son para determinar sobre qué se va a tirar el hechizo. Ej: Si el hechizo es un elemental, si el hechizo es solo para npcs, si es solo para usuarios, si es para ambos, etc.
+SubeHP=0 'Esto determina si el hechizo SUBE o BAJA la vida del personaje/NPC destino. Un hechizo con esta característica, nunca podría ser un elemental por ejemplo. Aunque creo que en ese caso, le restaría vida a uno mismo al ser lanzado, pero no estoy seguro. En fin: Si esta en 0 no hace nada, si esta en 2 RESTA VIDA, y si esta en 1 SUBE VIDA. Ej: El apoca es SubeHP=2, el curar graves es SubeHP=1
+MinHP=0 'Si sube o baja HP (vida) entonces determinamos el rango minimo de vida que va a CAUSAR.
+MaxHP=0 'lo mismo que arriba, pero con el máximo de hp (vida).
+SubeMana=0 'Esta característica creo que no se usa para nada.. pero si se usara, serviría para determinar cuanta mana curaría al target (al user destino) el hechizo al ser lanzado.
+MinMana=0 'el minimo de mana que restauraría un hechi con esta característica.
+MaxMana=0 'El máximo de mana que restauraría un hechi con esta característica.
+SubeSta=0 'Lo mismo que la HP. Si esta en 0 no hace nada, si esta en 1 SUBE Stamina, si esta en 2 BAJA estamina. Ej: El misil baja estamina, entonces es: SubeHP=2
+MinSta=0 'El min de stamina que sube/baja.
+MaxSta=0 'El max de stamina que sube/baja.
+SubeHam=0 'Lo mismo que la HP. Si esta en 0 no hace nada, si esta en 1 SUBE hambre si esta en 2 BAJA hambre. Ej: El terrible hambre de igor baja hambre. Entonces es: SubeHam=2, si hubiera un hechizo para subir el hambre seria: SubeHam=1 
+MinHam=0 'El min de hambre que sube/baja.
+MaxHam=0 'El max de hambre que sube/baja.
+SubeSed=0 'Lo mismo que la HP. Si esta en 0 no hace nada, si esta en 1 SUBE sed si esta en 2 BAJA hambre.
+MinSed=0 'El min de sed que sube/baja.
+MaxSed=0 'El max de sed que sube/baja.
+SubeAG=0 'Lo mismo que la HP pero con la AGILIDAD.
+MinAG=0  'El min de AGILIDAD que sube/baja.
+MaxAG=0  'El max de AGILIDAD que sube/baja.
+SubeFU=0 'Lo mismo que la HP pero con la FUERZA.
+MinFU=0 'El min de FUERZA que sube/baja.
+MaxFU=0 'El max de FUERZA que sube/baja.
+SubeCA=0 '¿Qué es esto? Em.. bueno.. buena pregunta (?)
+MinCA=0 '¿Qué es esto? Em.. bueno.. buena pregunta (?)
+MaxCA=0 '¿Qué es esto? Em.. bueno.. buena pregunta (?)
+Invisibilidad=0 '¿el hechizo vuelve invisible al target? 1 = si, 0 = no.
+Paraliza=0  '¿el hechizo paraliza al target? 1 = si, 0 = no.
+Inmoviliza=0 '¿el hechizo INMOVILIZA (no es lo mismo que paralizar) al target? 1 = si, 0 = no.
+RemoverParalisis=0 '¿el hechizo Remueve al target? 1 = si, 0 = no.
+RemoverEstupidez=0  ¿el hechizo Remueve estupidez al target? 1 = si, 0 = no.
+RemueveInvisibilidadParcial=0 ¿el hechizo Detecta invisibilidad al target? 1 = si, 0 = no. Este esta bueno, porque si le ponemos por ejemplo: 5 loops el detectar dura más, pero si le ponemos 2, dura menos ;D
+CuraVeneno=1 '¿el hechizo cura veneno al target? 1 = si, 0 = no. En este caso, cura veneno! :D
+Envenena=0 '¿el hechizo envenena al target? 1 = si, 0 = no.
+Revivir=0 '¿el hechizo revive al target? 1 = si, 0 = no.
+Ceguera=0 '¿el hechizo enseguece al target? 1 = si, 0 = no.
+Estupidez=0 '¿el hechizo estupidiza al target? 1 = si, 0 = no.
+Invoca=0 '¿el hechizo invoca un NPC? 1 = si, 0 = no.
+NumNpc=0 ¿Qué npc invoca el hechizo?
+Cant=0 '¿Cuantos NPCS invoca de 1 sola vez el hechizo? El maximo siempre es 3.
+Mimetiza=0 '¿el hechizo mimetiza a quien lo lanza con el target? 1 = si, 0 = no.
+Materializa=0 '¿el hechizo tira un item al piso? 1 = si, 0 = no. Re flashero este hechizo.. existía hace mil años en Alkon y tiraba 1 sola monedita de oro. jaja era para casar newbies abajo de ulla, era muy gracioso.
+itemindex=0 'El número ítem que materializa el hechizo.
+StaffAffected=0 'Si el hechizo tiene esta característica en 1, y sos MAGO, y SubeHP= es 2, entonces el hechizo pega el 70% de su valor original sumado a la bonificación de un báculo (Si es que tenemos uno puesto).
+NeedStaff=0 'Baculo mínimo necesario para lanzar el hechizo. 0 = ninguno. 1 = Frezno, 2 = Nudoso, 3 = Engarzado, 4 = Vara de Mago. (re pro)
+Resis=0 'Deshabilitado. Esto era, por si el hechizo subía o no Skills en Resistencia magica.
+
+Fin del tutorial! :D
+
+Espero les haya gustado, hasta la próximaa edición de NIVEL X!
+
+Digo.......

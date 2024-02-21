@@ -150,7 +150,7 @@ Body=93
 Movement=1
 Comercia=1
 TipoItems=23
-NROITEMS=6
+NROITEMS=7
 Obj1=625-1000 'Pico de Bronce
 Obj2=127-1000 'Hacha de leñador
 Obj3=198-1000 'Serrucho
@@ -161,6 +161,7 @@ Escudo=3
 RangoVision=8
 WAV1=264
 OBJ6=1709-1000 'Macilla de Mortero
+OBJ7=1696-1000 'Tijeras
 
 #############################################
 
@@ -264,7 +265,7 @@ Heading=3
 Body=3
 Movement=1
 Comercia=1
-TipoItems=55
+TipoItems=56
 NROITEMS=0
 Obj1=0-0
 Obj2=0-0 'Sombrero navideño
@@ -2902,7 +2903,7 @@ Carteles=1
 Cartel1=¡Por el Señor Oscuro, aniquilaré a quienes lo deshonran!
 Head=201
 Heading=3
-Body=170
+Body=584
 Movement=11
 PuedeRobar=1
 AfectaParalisis=1
@@ -2916,9 +2917,9 @@ MinHIT=115
 DEF=30
 PoderAtaque=400
 PoderEvasion=190
-ARMA=13
+ARMA=47
 ESCUDO=5
-CASCO=10
+CASCO=71
 SHOWNAME=1
 PRIV=64
 
@@ -2931,7 +2932,7 @@ Carteles=1
 Cartel1=¡El mal prevalecerá sobre estas tierras!
 Head=207
 Heading=3
-Body=129
+Body=538
 Movement=11
 PuedeRobar=1
 AfectaParalisis=1
@@ -2949,8 +2950,8 @@ LanzaSpells=4
 Sp1=24
 Sp2=48
 Sp3=49
-Casco=4
-Arma=6
+Casco=33
+Arma=53
 RemueveInvisibilidad=38
 SHOWNAME=1
 PRIV=64
@@ -9912,7 +9913,7 @@ golpetimer=1000
 [NPC924]
 ShowName=1
 Priv=64
-Name=Axolotl Mutado <Protector del Mimetismo>
+Name=Aetheris Speculum <Protector del Mimetismo>
 Heading=3
 Body=182
 NpcType=0
@@ -9941,7 +9942,7 @@ MaxMascotas=16
 LanzaSpells=3
 SP1=25
 SP2=23
-Sp3=65  ' Invoca condeando (= que el de sonaur)
+Sp3=65 ' Invoca condeando (= que el de sonaur)
 
 ############################################
 
@@ -11383,7 +11384,7 @@ NpcLvl=25
 ############################################
 
 [NPC226] 'Momia pequeña
-Name=Soldado Momia
+Name=Momia Protectora
 NpcType=0
 Head=0
 Heading=3
@@ -15278,18 +15279,18 @@ SHOWNAME=1
 
 [NPC1012]
 ARMA=15
-BODY=531
+BODY=258
 CARTEL1=¡Hola buen amigo, permuto todo tipo de Túnicas de Donante! ¿Quieres ver nuevos modelos? ¡Pues yo los tengo todos!
 CARTELES=1
 COMERCIA=1
-ESCUDO=13
-HEAD=516
+ESCUDO=7
+HEAD=4
 HEADING=3
 MOVEMENT=1
 NAME=Mercader <Donante>
 NpcType=20
 NROITEMS=21
-OBJ1=1176-1  'Armadura Tenebrosa (Altos) 1
+OBJ1=1176-1 'Armadura Tenebrosa (Altos) 1
 OBJ10=1490-1 'Placas de Gala Dorada (E/G) 4
 OBJ11=1489-1 'Túnica de Hechicero Avanzado (E/G 5
 OBJ12=1488-1 'Túinica de Hechicero Avanzado (Altos) 6
@@ -15298,22 +15299,22 @@ OBJ14=1487-1 'Corona de Donador
 OBJ15=0-0 'Enanos modelo 7
 OBJ16=0-0 'Túnica Donante (Altos-M) (Modelo 7)
 OBJ17=0-0 'Túnica Donante (Altos-M) (Modelo 8)
-OBJ18=0-0  'Red de Pesca Donante
+OBJ18=0-0 'Red de Pesca Donante
 OBJ19=0-0 'Corona de Donador
-OBJ2=1498-1  'Armadura Tenebrosa (E/G) 1
-OBJ20=0-0  'Laurel
+OBJ2=1498-1 'Armadura Tenebrosa (E/G) 1
+OBJ20=0-0 'Laurel
 OBJ21=0-0
-OBJ22=0-0    '384-1  'PIQUETE MINERO DONANTE
-OBJ23=0-0    '561-1  'HACHA LEÑADOR DONANTE
+OBJ22=0-0 '384-1 'PIQUETE MINERO DONANTE
+OBJ23=0-0 '561-1 'HACHA LEÑADOR DONANTE
 OBJ24=0-0
 OBJ25=0-0
-OBJ3=1497-1  'Armadura Avernal (E/G) 2
-OBJ4=1496-1  'Armadura Avernal (Altos) 1
-OBJ5=1495-1  'Túnica de Soberano (E/G) 2
-OBJ6=1494-1  'Túnica de Soberano (Altos) 3
-OBJ7=1493-1  'Vestido de Realeza (Mujer Altos) 3
-OBJ8=1492-1  'Vestido Escarlata (Mujer Altos) 4
-OBJ9=1491-1  'Túnica Siniestra (Altos) 4
+OBJ3=1497-1 'Armadura Avernal (E/G) 2
+OBJ4=1496-1 'Armadura Avernal (Altos) 1
+OBJ5=1495-1 'Túnica de Soberano (E/G) 2
+OBJ6=1494-1 'Túnica de Soberano (Altos) 3
+OBJ7=1493-1 'Vestido de Realeza (Mujer Altos) 3
+OBJ8=1492-1 'Vestido Escarlata (Mujer Altos) 4
+OBJ9=1491-1 'Túnica Siniestra (Altos) 4
 PRIV=16
 RANGOVISION=8
 SHOWNAME=1

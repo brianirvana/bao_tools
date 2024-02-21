@@ -1176,11 +1176,34 @@ TargetNpcAction=1
 Description=Hablar con el vendedor de magia de Atlanthis, la ciudad perdida.
 Dialog1=He oído rumores sobre la conjuración del antigüo Apocalipsis BenderAO, ¿Era cierto? ¡No puedo creerlo! Yo poseo la última lágrima de una sirena que se haya visto. ¡Entrégasela a Johan y conseguirás el éxito!
 Dialog2=¿Qué deseas noble viajero? Tu rostro parece contar algunas aventuras, ¿Qué tienes para decirme?
-TargetNpcIndex=59
+TargetNpcIndex=862
 TargetNpcAction=2
 NumGivenObj=1
+
+
+
+
+
+
+
+
 GivenObj1Index=1218
+
 GivenObj1Amount=1
+
+GIVENOBJ1AMOUNT=1
+
+GIVENOBJ1AMOUNT=1
+
+GIVENOBJ1AMOUNT=1
+
+GIVENOBJ1AMOUNT=1
+
+GIVENOBJ1AMOUNT=1
+
+GIVENOBJ1AMOUNT=1
+
+GIVENOBJ1AMOUNT=1
 
 [Campaign11 - Stage4]
 Description=Entregar la Última lágrima de una Sirena a Johan, en ullathorpe.
@@ -2237,7 +2260,7 @@ TargetNpcAction=2
 [Campaign30]
 
 Name=Desafio en Pirámides
-Description=Debes deshacerte de 10 impugres de barro, 10 Anubis, 5 Momias pequeña protectora, 5 Momias gigantes y 10 Guardianes de tutankamon.
+Description=Debes deshacerte de 10 impugres de barro, 10 Anubis, 5 Momias protectoras, 5 Momias gigantes y 10 Guardianes de tutankamon.
 Dialog1=Necesito que investigues la zona y derrotes a las criaturas que se encuentran en ella. Una vez que cumplas con tu objetivo, vuelve para reclamar tu recompensa.
 Dialog2=En dungeon piramide habitan unas criaturas realmente poderosas, unas bestias que con solo un puñetaso podrían arrancarte la cabeza.Si mastas a cada una de las criaturas que habitan en el, te daré una buena recompensa!
 Dialog3=Ah! Veo que vienes en busca de tu recompensa, has doble click!
