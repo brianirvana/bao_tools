@@ -102,13 +102,13 @@ Public Function Load_Texture(ByVal GrhIndex As Long) As Long
 
 10  On Error GoTo Load_Texture_Error
 
-    If IsArrayInitialized(VarPtrArray(TextureList)) Then
-        If UBound(TextureList) = 0 Then
-            Exit Function
-        End If
-    Else
-        Exit Function
-    End If
+'    If IsArrayInitialized(VarPtrArray(TextureList)) Then
+'        If UBound(TextureList) = 0 Then
+'            Exit Function
+'        End If
+'    Else
+'        Exit Function
+'    End If
     
 20  With GrhData(GrhIndex)
 
@@ -139,13 +139,13 @@ Public Function LoadSprite(ByRef SP As Sprite, ByVal GrhIndex As Long)
 
     On Error GoTo LoadSprite_Error
 
-    If IsArrayInitialized(VarPtrArray(TextureList)) Then
-        If UBound(TextureList) = 0 Then
-            Exit Function
-        End If
-    Else
-        Exit Function
-    End If
+'    If IsArrayInitialized(VarPtrArray(TextureList)) Then
+'        If UBound(TextureList) = 0 Then
+'            Exit Function
+'        End If
+'    Else
+'        Exit Function
+'    End If
 
 20  With GrhData(GrhIndex)
 
@@ -312,13 +312,13 @@ Dim i                           As Long
 
     On Error GoTo EfectosGraficos_Error
 
-    If IsArrayInitialized(VarPtrArray(TextureList)) Then
-        If UBound(TextureList) = 0 Then
-            Exit Sub
-        End If
-    Else
-        Exit Sub
-    End If
+'    If IsArrayInitialized(VarPtrArray(TextureList)) Then
+'        If UBound(TextureList) = 0 Then
+'            Exit Sub
+'        End If
+'    Else
+'        Exit Sub
+'    End If
 
 10  If EncuadrarGrafico Then       '<-- Cuando tiene que encuadrar hace esto
 20      With GrhData(Index)

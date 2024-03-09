@@ -219,19 +219,19 @@ Public Function LoadGrhData_From_Ini() As Boolean
 Dim isError                     As Boolean
 Dim i                           As Long
 Dim j                           As Long
-Dim Max                         As Long
 Dim Grh                         As Long
 Dim sTmp                        As String
 Dim Errors                      As String
 Dim TempError                   As String
 
-    Max = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
+    grhCount = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
 
-    If Max <= 0 Then Exit Function
+    If grhCount <= 0 Then Exit Function
+    
+    'Resize arrays
+    ReDim GrhData(0 To grhCount) As GrhData
 
-    ReDim GrhData(0 To Max) As GrhData
-
-    For i = 1 To Max
+    For i = 1 To grhCount
 
         TempError = vbNullString
         With GrhData(i)
@@ -346,7 +346,7 @@ Dim TempError                   As String
                 .TileWidth = .pixelWidth / 32
                 .TileHeight = .pixelHeight / 32
 
-                .Frames(1) = i
+                .Frames(1) = 1
 
             End If
         End With
@@ -530,6 +530,7 @@ Dim lastNum                     As Integer
 1000 Close handle
 
 1010 LoadGrhData = True
+
 1020 If Len(Errors) > 0 Then
 1030    MsgBox "Errores detectados: " & Errors & " " & Grh
 1040 End If
@@ -631,9 +632,8 @@ Dim Miscabezas()                As tIndiceCabeza
 50  ReDim HeadData(0 To NumHeads) As HeadData
 60  ReDim Miscabezas(0 To NumHeads) As tIndiceCabeza
 
-70  For i = 1 To NumHeads
+70   For i = 1 To NumHeads
 80      Get #n, , Miscabezas(i)
-
 90      If Miscabezas(i).Head(1) Then
 100         Call InitGrh(HeadData(i).Head(1), Miscabezas(i).Head(1), 0)
 110         Call InitGrh(HeadData(i).Head(2), Miscabezas(i).Head(2), 0)
@@ -1050,7 +1050,6 @@ Private Sub InitGrh(ByRef Grh As Grh, ByVal GrhIndex As Long, Optional ByVal Sta
 110         Grh.Started = Started
 120     End If
 130 End If
-
 
 140 If Grh.Started Then
 150     Grh.Loops = INFINITE_LOOPS
