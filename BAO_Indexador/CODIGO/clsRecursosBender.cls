@@ -15,99 +15,100 @@ Option Explicit
 
 Public Sub Initialize()
 
-    On Error GoTo Initialize_Error
+Dim bLoadGraficosIni            As Boolean
+Dim Paths(6)                    As String
 
-    Dim Paths(6)                As String
+10  On Error GoTo Initialize_Error
 
-10  Paths(0) = "Graficos.ind"
-20  Paths(1) = "Cabezas.ind"
-30  Paths(2) = "Personajes.ind"
-40  Paths(3) = "Cascos.ind"
-50  Paths(4) = "Escudos.dat"
-60  Paths(5) = "Armas.dat"
-70  Paths(6) = "Fxs.ind"
-80  DoEvents
-90  frmCargando.lblLoading.Caption = "Cargando LoadGrhData..."
+20  Paths(0) = "Graficos.ind"
+30  Paths(1) = "Cabezas.ind"
+40  Paths(2) = "Personajes.ind"
+50  Paths(3) = "Cascos.ind"
+60  Paths(4) = "Escudos.dat"
+70  Paths(5) = "Armas.dat"
+80  Paths(6) = "Fxs.ind"
 
-100 Call LoadGrhData(AppInit & "\" & Paths(0))
-    'Sleep 100: DoEvents
+90  DoEvents
+100 frmCargando.lblLoading.Caption = "Cargando LoadGrhData..."
 
-110 frmCargando.lblLoading.Caption = "Cargando Cabezas..."
-120 Call CargarCabezas(AppInit & "\" & Paths(1))
-    'Sleep 100: DoEvents
+110 bLoadGraficosIni = CBool(Val(GetVar(App.Path & "\Config.ini", "INIT", "Load_Graficos_ini")))
 
-130 frmCargando.lblLoading.Caption = "Cargando Cuerpos..."
-140 Call CargarCuerpos(AppInit & "\" & Paths(2))
-    'Sleep 100: DoEvents
+120 If bLoadGraficosIni Then
+130     Call LoadGrhData_From_Ini
+140 Else
+150     Call LoadGrhData(AppInit & "\" & Paths(0))
+160 End If
 
-150 frmCargando.lblLoading.Caption = "Cargando Cascos..."
-160 Call CargarCascos(AppInit & "\" & Paths(3))
-    'Sleep 100: DoEvents
+170 frmCargando.lblLoading.Caption = "Cargando Cabezas..."
+180 Call CargarCabezas(AppInit & "\" & Paths(1))
 
-170 frmCargando.lblLoading.Caption = "Cargando Escudos..."
-180 Call CargarAnimEscudos(AppInit & "\" & Paths(4))
-    'Sleep 100: DoEvents
+190 frmCargando.lblLoading.Caption = "Cargando Cuerpos..."
+200 Call CargarCuerpos(AppInit & "\" & Paths(2))
 
-190 frmCargando.lblLoading.Caption = "Cargando Armas..."
-200 Call CargarAnimArmas(AppInit & "\" & Paths(5))
-    'Sleep 100: DoEvents
+210 frmCargando.lblLoading.Caption = "Cargando Cascos..."
+220 Call CargarCascos(AppInit & "\" & Paths(3))
 
-210 frmCargando.lblLoading.Caption = "Cargando FXs..."
-220 Call CargarFxs(AppInit & "\" & Paths(6))
-    'Sleep 100: DoEvents
+230 frmCargando.lblLoading.Caption = "Cargando Escudos..."
+240 Call CargarAnimEscudos(AppInit & "\" & Paths(4))
 
-230 Call LoadResourceInterface
+250 frmCargando.lblLoading.Caption = "Cargando Armas..."
+260 Call CargarAnimArmas(AppInit & "\" & Paths(5))
 
-240 frmCargando.lblLoading.Caption = "Listo!"
-    'Sleep 500: DoEvents
-250 frmMain.Caption = FrmMainCaption
-    On Error GoTo 0
-    Exit Sub
+270 frmCargando.lblLoading.Caption = "Cargando FXs..."
+280 Call CargarFxs(AppInit & "\" & Paths(6))
+
+290 Call LoadResourceInterface
+
+300 frmCargando.lblLoading.Caption = "Listo!"
+
+310 frmMain.Caption = FrmMainCaption
+320 On Error GoTo 0
+330 Exit Sub
 
 Initialize_Error:
-    Dim Index                   As Integer
-270 Index = Erl() - 1
-    Call LogError("No se ha podido cargar correctamente el archivo " & Paths(Index) & " Error " & err.Number & " (" & err.Description & ") in procedure Initialize of Módulo de clase clsRecursosBender Linea: " & Erl())
+    Dim Index                   As Long
+340 Index = Erl() - 1
+350 Call LogError("No se ha podido cargar correctamente el archivo " & Paths(Index) & " Error " & err.Number & " (" & err.Description & ") in procedure Initialize of Módulo de clase clsRecursosBender Linea: " & Erl())
 
 End Sub
 
 Public Sub Index_To_Expo()
 
 Dim i                           As Long
-Dim J                           As Long
-Dim nfile                       As Integer
+Dim j                           As Long
+Dim nFile                       As Integer
 Dim Line                        As String
 
     On Error GoTo Index_To_Expo_Error
 
-10  nfile = FreeFile
+10  nFile = FreeFile
 
 20  frmMain.Caption = FrmMainCaption & " - Exportando..."
 
 30  If FileExist(AppExpo & "\Graficos.ini", vbArchive) Then Kill AppExpo & "\Graficos.ini"
 
-40  Open AppExpo & "\Graficos.ini" For Output As #nfile
-50  Print #nfile, "'ADVERTENCIA: No tener este archivo abierto cuando se vaya a trabajar con el INDEXADOR."
-60  Print #nfile, "[INIT]"
-70  Print #nfile, "CountGrh=" & grhCount
-80  Print #nfile, ""
+40  Open AppExpo & "\Graficos.ini" For Output As #nFile
+50  Print #nFile, "'ADVERTENCIA: No tener este archivo abierto cuando se vaya a trabajar con el INDEXADOR."
+60  Print #nFile, "[INIT]"
+70  Print #nFile, "CountGrh=" & grhCount
+80  Print #nFile, ""
 
-90  Print #nfile, "[GRAFICOS]"
+90  Print #nFile, "[GRAFICOS]"
 
 100 For i = 1 To grhCount
-110     Print #nfile, ProcessGraphicBinToLine(i)
+110     Print #nFile, ProcessGraphicBinToLine(i)
 120 Next i
 
-130 Close #nfile
+130 Close #nFile
 
-140 Open AppExpo & "\GraficosParsed.ini" For Output As #nfile
-150 Print #nfile, "[GRAFICOS]"
+140 Open AppExpo & "\GraficosParsed.ini" For Output As #nFile
+150 Print #nFile, "[GRAFICOS]"
 
 160 For i = 1 To grhCount
-170     Print #nfile, i & "=" & ReadField(2, ProcessGraphicBinToLine(i), Asc("."))
+170     Print #nFile, i & "=" & ReadField(2, ProcessGraphicBinToLine(i), Asc("."))
 180 Next i
 
-190 Close #nfile
+190 Close #nFile
 
 200 frmMain.Caption = FrmMainCaption & " - Listo!"
     'Sleep 500
@@ -141,12 +142,12 @@ End Sub
 
 Public Sub Expo_To_Index()
 
+Dim nFile                       As Integer
+Dim sValue                      As String
+Dim i                           As Long
+
 10  On Error GoTo Expo_To_Index_Error
 
-    Dim nfile                   As Integer
-    Dim sValue                  As String
-
-    Dim i                       As Long
 20  frmMain.Caption = FrmMainCaption & " - Indexando..."
 30  DoEvents
 40  grhCount = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
@@ -158,10 +159,10 @@ Public Sub Expo_To_Index()
 
 90  ReDim GrhData(1 To grhCount) As GrhData
 
-100 nfile = FreeFile           ' obtenemos un canal
-110 Open AppExpo & "\Graficos.ini" For Input As #nfile
-120 While Not EOF(nfile)
-130     Line Input #nfile, sValue
+100 nFile = FreeFile           ' obtenemos un canal
+110 Open AppExpo & "\Graficos.ini" For Input As #nFile
+120 While Not EOF(nFile)
+130     Line Input #nFile, sValue
 140     If Len(sValue) Then Call ProcessGraphicLineToBin(sValue)
 150 Wend
 160 Close
@@ -213,13 +214,155 @@ AddText_Error:
 
 End Function
 
-Private Function LoadGrhData(Path As String) As Boolean
+Public Function LoadGrhData_From_Ini() As Boolean
+
+Dim isError                     As Boolean
+Dim i                           As Long
+Dim j                           As Long
+Dim Max                         As Long
+Dim Grh                         As Long
+Dim sTmp                        As String
+Dim Errors                      As String
+Dim TempError                   As String
+
+    Max = Val(GetVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh"))
+
+    If Max <= 0 Then Exit Function
+
+    ReDim GrhData(0 To Max) As GrhData
+
+    For i = 1 To Max
+
+        TempError = vbNullString
+        With GrhData(i)
+
+            sTmp = GetVar(AppExpo & "\Graficos.ini", "GRAFICOS", "Grh" & i)
+            .NumFrames = Val(ReadField(1, sTmp, 46))
+
+            If .NumFrames <= 0 Then
+                Call AddText(TempError, "Grh: " & Grh & " NumFrames: " & .NumFrames)
+                .NumFrames = 1    'GoTo ErrorHandler
+                isError = True
+            End If
+
+            ReDim .Frames(1 To .NumFrames)
+
+            If .NumFrames > 1 Then
+
+                ReDim .Frames(1 To .NumFrames)
+
+                'Read a animation GRH set
+                For j = 1 To .NumFrames
+                    If .Frames(j) <= 0 Or .Frames(j) > grhCount Then
+                        .Frames(j) = 1
+                        isError = True
+                        Call AddText(TempError, "Frame" & j)
+                    End If
+                Next j
+
+                .speed = Val(ReadField(2, sTmp, 46))
+
+                If .speed <= 0 Then
+                    .speed = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " Speed: " & .speed)
+                End If
+
+                'Compute width and height
+                .pixelHeight = GrhData(.Frames(1)).pixelHeight    'OJO ACA!: .pixelHeight = GrhData(.Frames(1)).pixelHeight
+
+                If .pixelHeight <= 0 Then
+                    .pixelHeight = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " pixelHeight: " & .pixelHeight)
+                End If
+
+                .pixelWidth = GrhData(.Frames(1)).pixelWidth
+
+                If .pixelWidth <= 0 Then
+                    .pixelWidth = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " pixelWidth: " & .pixelWidth)
+                End If
+
+                .TileWidth = GrhData(.Frames(1)).TileWidth
+
+                If .TileWidth <= 0 Then
+                    .TileWidth = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " TileWidth: " & .TileWidth)
+                End If
+
+                .TileHeight = GrhData(.Frames(1)).TileHeight
+
+                If .TileHeight <= 0 Then
+                    .TileHeight = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " TileHeight: " & .TileHeight)
+                End If
+            Else
+
+                .FileNum = Val(ReadField(2, sTmp, 46))
+
+                If .FileNum <= 0 Then
+                    .FileNum = 1
+                    isError = True
+                    Call AddText(TempError, "FileNum")
+                End If
+
+                .sX = Val(ReadField(3, sTmp, 46))
+
+                If .sX < 0 Then
+                    .sX = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " sX: " & .sX)
+                End If
+
+                .sY = Val(ReadField(4, sTmp, 46))
+
+                If .sY < 0 Then
+                    .sY = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " sY: " & .sY)
+                End If
+
+                .pixelWidth = Val(ReadField(5, sTmp, 46))
+
+                If .pixelWidth <= 0 Then
+                    .pixelWidth = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " pixelWidth: " & .pixelWidth)
+                End If
+
+                .pixelHeight = Val(ReadField(6, sTmp, 46))
+
+                If .pixelHeight <= 0 Then
+                    .pixelHeight = 1
+                    isError = True
+                    Call AddText(TempError, "Grh: " & Grh & " pixelWidth: " & .pixelHeight)
+                End If
+
+                'Compute width and height
+                .TileWidth = .pixelWidth / 32
+                .TileHeight = .pixelHeight / 32
+
+                .Frames(1) = i
+
+            End If
+        End With
+    Next i
+
+    LoadGrhData_From_Ini = True
+
+End Function
+
+Private Function LoadGrhData(ByVal Path As String) As Boolean
     'On Error GoTo ErrorHandler
 Dim Errors                      As String
 Dim TempError                   As String
 Dim isError                     As Boolean
 
-Dim Grh                         As Long
+Dim Grh                         As Integer
 Dim Frame                       As Long
 Dim handle                      As Integer
 Dim fileVersion                 As Long
@@ -245,17 +388,20 @@ Dim lastNum                     As Integer
 70  While Not EOF(handle)
 80      Get handle, , Grh
 90      TempError = ""
-100     If Grh <> 0 Then
+
+100     If Grh <> 0 And Grh > 0 Then
+
 110         With GrhData(Grh)
                 'Get number of frames
 120             Get handle, , .NumFrames
+
 130             If .NumFrames <= 0 Then
+160                 Call AddText(TempError, "Grh: " & Grh & " NumFrames: " & .NumFrames)
 140                 .NumFrames = 1    'GoTo ErrorHandler
 150                 isError = True
-160                 Call AddText(TempError, "NumFrames")
 170             End If
 
-180             ReDim .Frames(1 To GrhData(Grh).NumFrames)
+180             ReDim .Frames(1 To .NumFrames)
 
 190             If .NumFrames > 1 Then
                     'Read a animation GRH set
@@ -264,7 +410,7 @@ Dim lastNum                     As Integer
 220                     If .Frames(Frame) <= 0 Or .Frames(Frame) > grhCount Then
 230                         .Frames(Frame) = 1
 240                         isError = True
-250                         Call AddText(TempError, "Frame" & Frame)
+250                         Call AddText(TempError, "Grh: " & Grh & " Frame: " & Frame)
 260                     End If
 270                 Next Frame
 
@@ -273,36 +419,37 @@ Dim lastNum                     As Integer
 290                 If .speed <= 0 Then
 300                     .speed = 1
 310                     isError = True
-320                     Call AddText(TempError, "Speed")
+320                     Call AddText(TempError, "Grh: " & Grh & " Speed: " & .speed)
 330                 End If
 
                     'Compute width and height
 340                 .pixelHeight = GrhData(.Frames(1)).pixelHeight
+
 350                 If .pixelHeight <= 0 Then
 360                     .pixelHeight = 1
 370                     isError = True
-380                     Call AddText(TempError, "pixelHeight")
+380                     Call AddText(TempError, "Grh: " & Grh & " pixelHeight: " & .pixelHeight)
 390                 End If
 
 400                 .pixelWidth = GrhData(.Frames(1)).pixelWidth
 410                 If .pixelWidth <= 0 Then
 420                     .pixelWidth = 1
 430                     isError = True
-440                     Call AddText(TempError, "pixelWidth")
+440                     Call AddText(TempError, "Grh: " & Grh & " pixelWidth: " & .pixelWidth)
 450                 End If
 
 460                 .TileWidth = GrhData(.Frames(1)).TileWidth
 470                 If .TileWidth <= 0 Then
 480                     .TileWidth = 1
 490                     isError = True
-500                     Call AddText(TempError, "TileWidth")
+500                     Call AddText(TempError, "Grh: " & Grh & " TileWidth: " & .TileWidth)
 510                 End If
 
 520                 .TileHeight = GrhData(.Frames(1)).TileHeight
 530                 If .TileHeight <= 0 Then
 540                     .TileHeight = 1
 550                     isError = True
-560                     Call AddText(TempError, "TileHeight")
+560                     Call AddText(TempError, "Grh: " & Grh & " TileHeight: " & .TileHeight)
 570                 End If
 
                     '                    If lastNum <> .FileNum Then
@@ -333,35 +480,35 @@ Dim lastNum                     As Integer
 600                 If .FileNum <= 0 Then
 610                     .FileNum = 1
 620                     isError = True
-630                     Call AddText(TempError, "FileNum")
+630                     Call AddText(TempError, "Grh: " & Grh & " FileNum: " & .FileNum)
 640                 End If
 
 650                 Get handle, , GrhData(Grh).sX
 660                 If .sX < 0 Then
 670                     .sX = 1
 680                     isError = True
-690                     Call AddText(TempError, "sX")
+690                     Call AddText(TempError, "Grh: " & Grh & " sX: " & .sX)
 700                 End If
 
 710                 Get handle, , .sY
 720                 If .sY < 0 Then
 730                     .sY = 1
 740                     isError = True
-750                     Call AddText(TempError, "sY")
+750                     Call AddText(TempError, "Grh: " & Grh & " sY: " & .sY)
 760                 End If
 
 770                 Get handle, , .pixelWidth
 780                 If .pixelWidth <= 0 Then
 790                     .pixelWidth = 1
 800                     isError = True
-810                     Call AddText(TempError, "pixelWidth")
+810                     Call AddText(TempError, "Grh: " & Grh & " pixelWidth: " & .pixelWidth)
 820                 End If
 
 830                 Get handle, , .pixelHeight
 840                 If .pixelHeight <= 0 Then
 850                     .pixelHeight = 1
 860                     isError = True
-870                     Call AddText(TempError, "pixelHeight")
+870                     Call AddText(TempError, "Grh: " & Grh & " pixelHeight: " & .pixelHeight)
 880                 End If
 
                     'Compute width and height
@@ -374,7 +521,7 @@ Dim lastNum                     As Integer
 940     End If
 
 950     If isError Then
-960         Errors = Errors & "Grh " & Grh & ": " & TempError & vbCrLf
+960         Errors = Errors & "GrhCount " & grhCount & ": " & TempError & vbCrLf
 970         isError = False
 980     End If
 
@@ -398,7 +545,7 @@ LoadGrhData_Error:
 
 End Function
 
-Private Function SaveGrhData(Path As String) As Boolean
+Private Function SaveGrhData(ByVal Path As String) As Boolean
 
     On Error GoTo SaveGrhData_Error
 
@@ -463,7 +610,8 @@ SaveGrhData_Error:
 
 End Function
 
-Private Sub CargarCabezas(Path As String)
+Private Sub CargarCabezas(ByVal Path As String)
+
 Dim n                           As Integer
 Dim i                           As Long
 Dim Miscabezas()                As tIndiceCabeza
@@ -477,13 +625,13 @@ Dim Miscabezas()                As tIndiceCabeza
 30  Get #n, , MiCabecera
 
     'num de cabezas
-40  Get #n, , Numheads
+40  Get #n, , NumHeads
 
     'Resize array
-50  ReDim HeadData(0 To Numheads) As HeadData
-60  ReDim Miscabezas(0 To Numheads) As tIndiceCabeza
+50  ReDim HeadData(0 To NumHeads) As HeadData
+60  ReDim Miscabezas(0 To NumHeads) As tIndiceCabeza
 
-70  For i = 1 To Numheads
+70  For i = 1 To NumHeads
 80      Get #n, , Miscabezas(i)
 
 90      If Miscabezas(i).Head(1) Then
@@ -504,7 +652,8 @@ CargarCabezas_Error:
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure CargarCabezas of Módulo de clase clsRecursosBender Linea: " & Erl())
 End Sub
 
-Private Sub CargarCascos(Path As String)
+Private Sub CargarCascos(ByVal Path As String)
+
 Dim n                           As Integer
 Dim i                           As Long
 
@@ -546,7 +695,7 @@ CargarCascos_Error:
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure CargarCascos of Módulo de clase clsRecursosBender Linea: " & Erl())
 End Sub
 
-Private Sub CargarCuerpos(Path As String)
+Private Sub CargarCuerpos(ByVal Path As String)
 
 Dim n                           As Integer
 Dim i                           As Long
@@ -604,7 +753,7 @@ Dim loopc                       As Long
 
 20  ReDim ShieldAnimData(1 To NumEscudosAnims) As ShieldAnimData
 
-    Dim DirNum                  As Integer
+    Dim DirNum                  As Long
     Dim i                       As Long
 
 30  For loopc = 1 To NumEscudosAnims
@@ -632,7 +781,7 @@ Dim loopc                       As Long
 20  ReDim WeaponAnimData(1 To NumWeaponAnims) As WeaponAnimData
 
     Dim i                       As Long
-    Dim DirNum                  As Integer
+    Dim DirNum                  As Long
 
 30  For loopc = 1 To NumWeaponAnims
 40      For i = 1 To 4
@@ -650,6 +799,7 @@ CargarAnimArmas_Error:
 End Sub
 
 Sub CargarFxs(ByRef arch As String)
+
 Dim n                           As Integer
 Dim i                           As Long
 
@@ -682,6 +832,7 @@ CargarFxs_Error:
 End Sub
 
 Sub SaveFxs(ByRef arch As String)
+
 Dim n                           As Integer
 Dim i                           As Long
 
@@ -691,7 +842,7 @@ Dim i                           As Long
 
 20  If FileExist(arch, vbArchive) Then Kill arch
 
-30  MiCabecera.desc = "Copyright © Bender Games"
+30  MiCabecera.Desc = "Copyright © Bender Games"
 
 40  Open arch For Binary Access Write As #n
 
@@ -760,19 +911,16 @@ SaveAnimEscudos_Error:
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure SaveAnimEscudos of Módulo de clase clsRecursosBender Linea: " & Erl())
 End Sub
 
-
-
 Sub SaveCabezas(Path As String)
+
 Dim n                           As Integer
 Dim i                           As Long
-Dim J                           As Long
+Dim j                           As Long
 Dim Miscabezas                  As tIndiceCabeza
 
 
     On Error GoTo SaveCabezas_Error
-
-10  MiCabecera.desc = "Copyright © Bender Games"
-
+10  MiCabecera.Desc = "Copyright © Bender Games"
 20  n = FreeFile()
 30  Open Path For Binary Access Write As #n
 
@@ -780,12 +928,12 @@ Dim Miscabezas                  As tIndiceCabeza
 40  Put #n, , MiCabecera
 
     'num de cabezas
-50  Put #n, , Numheads
+50  Put #n, , NumHeads
 
-60  For i = 1 To Numheads
-70      For J = 1 To 4
-80          Miscabezas.Head(J) = HeadData(i).Head(J).GrhIndex
-90      Next J
+60  For i = 1 To NumHeads
+70      For j = 1 To 4
+80          Miscabezas.Head(j) = HeadData(i).Head(j).GrhIndex
+90      Next j
 
 100     Put #n, , Miscabezas
 110 Next i
@@ -801,10 +949,10 @@ SaveCabezas_Error:
 End Sub
 
 Sub SaveCascos(Path As String)
+
 Dim n                           As Integer
 Dim i                           As Long
-Dim J                           As Byte
-
+Dim j                           As Byte
 
 Dim Miscabezas                  As tIndiceCabeza
 
@@ -814,7 +962,7 @@ Dim Miscabezas                  As tIndiceCabeza
 20  Open Path For Binary Access Write As #n
 
 
-30  MiCabecera.desc = "Copyright © Bender Games"
+30  MiCabecera.Desc = "Copyright © Bender Games"
     'cabecera
 40  Put #n, , MiCabecera
 
@@ -822,9 +970,9 @@ Dim Miscabezas                  As tIndiceCabeza
 50  Put #n, , NumCascos
 
 60  For i = 1 To NumCascos
-70      For J = 1 To 4
-80          Miscabezas.Head(J) = CascoAnimData(i).Head(J).GrhIndex
-90      Next J
+70      For j = 1 To 4
+80          Miscabezas.Head(j) = CascoAnimData(i).Head(j).GrhIndex
+90      Next j
 100     Put #n, , Miscabezas
 110 Next i
 
@@ -839,17 +987,16 @@ SaveCascos_Error:
 End Sub
 
 Sub SaveCuerpos(Path As String)
+
 Dim n                           As Integer
 Dim i                           As Long
-Dim J                           As Byte
+Dim j                           As Byte
 Dim MisCuerpos                  As tIndiceCuerpo
 
     On Error GoTo SaveCuerpos_Error
 
-10  On Error GoTo CargarCuerpos_Error
-
 20  n = FreeFile()
-30  MiCabecera.desc = "Copyright © Bender Games"
+30  MiCabecera.Desc = "Copyright © Bender Games"
 
 40  Open Path For Binary Access Write As #n
 
@@ -861,9 +1008,9 @@ Dim MisCuerpos                  As tIndiceCuerpo
 
 
 70  For i = 1 To NumBodies
-80      For J = 1 To 4
-90          MisCuerpos.Body(J) = BodyData(i).Walk(J).GrhIndex
-100     Next J
+80      For j = 1 To 4
+90          MisCuerpos.Body(j) = BodyData(i).Walk(j).GrhIndex
+100     Next j
 
 110     MisCuerpos.HeadOffsetX = BodyData(i).HeadOffset.X
 120     MisCuerpos.HeadOffsetY = BodyData(i).HeadOffset.Y
@@ -873,22 +1020,16 @@ Dim MisCuerpos                  As tIndiceCuerpo
 
 150 Close #n
 
-160 On Error GoTo 0
-170 Exit Sub
-
-CargarCuerpos_Error:
-
-180 MsgBox "Error " & err.Number & " (" & err.Description & ") in procedure CargarCuerpos of Módulo de clase clsRecursosBender " & Erl() & "-" & i
-
     On Error GoTo 0
     Exit Sub
 
 SaveCuerpos_Error:
 
-    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure SaveCuerpos of Módulo de clase clsRecursosBender Linea: " & Erl())
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure SaveCuerpos of Módulo de clase clsRecursosBender Linea: " & Erl() & " Ultimo Cuerpo - i: " & i)
+    
 End Sub
 
-Private Sub InitGrh(ByRef Grh As Grh, ByVal GrhIndex As Integer, Optional ByVal Started As Byte = 2)
+Private Sub InitGrh(ByRef Grh As Grh, ByVal GrhIndex As Long, Optional ByVal Started As Byte = 2)
     '*****************************************************************
     'Sets up a grh. MUST be done before rendering
     '*****************************************************************

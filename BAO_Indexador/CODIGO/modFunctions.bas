@@ -136,7 +136,7 @@ Function GetVar(ByRef file As String, ByRef Main As String, ByRef var As String,
     GetVar = Left$(GetVar, Len(GetVar) - 1)
 End Function
 
-Function ReadField(ByVal Pos As Integer, ByRef Text As String, ByVal SepASCII As Byte) As String
+Function ReadField(ByVal Pos As Long, ByRef Text As String, ByVal SepASCII As Byte) As String
       '*****************************************************************
       'Gets a field from a delimited string
       'Author: Juan Martín Sotuyo Dodero (Maraxus)

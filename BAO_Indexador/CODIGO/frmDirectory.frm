@@ -298,6 +298,7 @@ Display_Directorys_Error:
 End Sub
 
 Private Sub Form_Load()
+
    On Error GoTo Form_Load_Error
 
 10        Set cBFolder = New clsCBFolder
@@ -309,7 +310,9 @@ Form_Load_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure Form_Load of Formulario frmDirectory Linea: " & Erl())
 End Sub
+
 Private Sub Form_Unload(Cancel As Integer)
+   
    On Error GoTo Form_Unload_Error
 
 10        Set cBFolder = Nothing

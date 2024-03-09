@@ -27,13 +27,13 @@ Public Type GrhData
     TileHeight                  As Single    '20
     
     NumFrames                   As Integer    '22
-    Frames()                    As Long    '26
+    Frames()                    As Integer    '26
     
     speed                       As Single    '30
 End Type
 
 Public Type Grh
-    GrhIndex                    As Integer
+    GrhIndex                    As Long
     FrameCounter                As Single
     speed                       As Single
     Started                     As Byte
@@ -81,7 +81,7 @@ End Type
 Public grhCount                 As Long
 Public NumCascos                As Integer
 Public NumBodies                As Integer
-Public Numheads                 As Integer
+Public NumHeads                 As Integer
 Public NumFxs                   As Integer
 Public NumWeaponAnims           As Integer
 Public NumEscudosAnims          As Integer
@@ -99,7 +99,7 @@ Public MiCabecera               As tCabecera
 Public Const INFINITE_LOOPS     As Integer = -1
 
 Public Type tCabecera          'Cabecera de los con
-    desc                        As String * 255
+    Desc                        As String * 255
     CRC                         As Long
     MagicWord                   As Long
 End Type
@@ -154,7 +154,7 @@ Dim IsVisible                   As Boolean
 
     'Cabezas
 250 frmMain.cmbCabezas.Clear
-260 For i = 0 To Numheads
+260 For i = 0 To NumHeads
 270     frmMain.cmbCabezas.AddItem i & IIf(HeadData(i).Head(1).GrhIndex = 0, " (Libre)", "")
 280 Next i
 290 frmMain.cmbCabezas.ListIndex = NumAnim_Cabezas
@@ -236,7 +236,7 @@ Public Sub ProcessGraphicLineToBin(ByRef sValue As String)
 
     Dim TempValue               As String
     Dim TempValueB              As String
-    Dim GrhIndex                As Integer
+    Dim GrhIndex                As Long
     Dim i                       As Long
 
 20  If StrComp(UCase$(Left$(sValue, 3)), "GRH") = 0 Then
@@ -299,7 +299,7 @@ ProcessGraphicLineToBin_Error:
 
 End Sub
 
-Public Function ProcessGraphicBinToLine(ByVal i As Integer) As String
+Public Function ProcessGraphicBinToLine(ByVal i As Long) As String
 
 Dim J                           As Long
 Dim Line                        As String
@@ -370,7 +370,7 @@ ProcessGraphicBinToLine_Error:
 
 End Function
 
-Private Function GetValueExpo(sValue As String, Pos As Integer) As Single
+Private Function GetValueExpo(sValue As String, Pos As Long) As Single
 
     On Error GoTo GetValueExpo_Error
 

@@ -48,7 +48,7 @@ Private Const SWP_NOACTIVATE = &H10
 'Mensajes, no usa ninguna, salvo WM_DESTROY
 Private Const WM_DESTROY        As Long = &H2
 Private Const WM_MOUSEWHEEL = &H20A
-Private Const WM_VSCROLL As Integer = &H115
+Private Const WM_VSCROLL        As Integer = &H115
 Private Const WM_CLOSE          As Long = &H10
 Private Const WM_NCLBUTTONDOWN  As Long = &HA1
 Private Const WM_MOUSEMOVE      As Long = &H200

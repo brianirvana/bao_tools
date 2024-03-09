@@ -1108,22 +1108,22 @@ Private Sub cmbAnim_Change()
 End Sub
 
 Private Sub ResetAnimations()
-      Dim i                           As Long
-   On Error GoTo ResetAnimations_Error
+Dim i                           As Long
+    On Error GoTo ResetAnimations_Error
 
-10        For i = 0 To 3
-20            SP_Escudos(i).SetCurrentFrame = 1
-30            SP_Cuerpos(i).SetCurrentFrame = 1
-40            SP_Cascos(i).SetCurrentFrame = 1
-50            SP_Cabezas(i).SetCurrentFrame = 1
-60            SP_Armas(i).SetCurrentFrame = 1
-70            SP_Efectos.SetCurrentFrame = 1
-80        Next i
+10  For i = 0 To 3
+20      SP_Escudos(i).SetCurrentFrame = 1
+30      SP_Cuerpos(i).SetCurrentFrame = 1
+40      SP_Cascos(i).SetCurrentFrame = 1
+50      SP_Cabezas(i).SetCurrentFrame = 1
+60      SP_Armas(i).SetCurrentFrame = 1
+70      SP_Efectos.SetCurrentFrame = 1
+80  Next i
 
-90        Call cmbTipo_Click
+90  Call cmbTipo_Click
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 ResetAnimations_Error:
 
@@ -1132,39 +1132,39 @@ End Sub
 
 Private Sub cmbArmas_Click()
 
-   On Error GoTo cmbArmas_Click_Error
+    On Error GoTo cmbArmas_Click_Error
 
-10        If cmbArmas.ListIndex = -1 Then Exit Sub
+10  If cmbArmas.ListIndex = -1 Then Exit Sub
 
-          Dim Index                   As Integer
-          Dim i                       As Long
+    Dim Index                   As Long
+    Dim i                       As Long
 
-20        Index = cmbArmas.ListIndex
-30        txtEnumArgArmas = vbNullString
+20  Index = cmbArmas.ListIndex
+30  txtEnumArgArmas = vbNullString
 
-          Dim MaxVar                  As Long
+    Dim MaxVar                  As Long
 
-40        MaxVar = ResizeList(TipList.Armas, Index, NumWeaponAnims, cmbArmas)
+40  MaxVar = ResizeList(TipList.Armas, Index, CLng(NumWeaponAnims), cmbArmas)
 
-50        If MaxVar Then
-60            ReDim Preserve WeaponAnimData(1 To MaxVar)
-70        End If
+50  If MaxVar Then
+60      ReDim Preserve WeaponAnimData(1 To MaxVar)
+70  End If
 
-80        If Index = 0 Then
-90            Call EraseArrayInteger(NumGraphic_Armas)
-100           NumAnim_Armas = 0
-110       Else
-              'txtEnumArg = "[ARMA" & Index & "]"
-120           NumAnim_Armas = Index
-130           For i = 0 To 3
-140               NumGraphic_Armas(i) = TileEngine.LoadGraphic(SP_Armas(i), WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex)
-150               txtEnumArgArmas = txtEnumArgArmas & GetDirectionString(i) & "=" & WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex & vbCrLf
-160           Next i
-170       End If
-180       Call ResetAnimations
+80  If Index = 0 Then
+90      Call EraseArray(NumGraphic_Armas)
+100     NumAnim_Armas = 0
+110 Else
+        'txtEnumArg = "[ARMA" & Index & "]"
+120     NumAnim_Armas = Index
+130     For i = 0 To 3
+140         NumGraphic_Armas(i) = TileEngine.LoadGraphic(SP_Armas(i), WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex)
+150         txtEnumArgArmas = txtEnumArgArmas & GetDirectionString(i) & "=" & WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex & vbCrLf
+160     Next i
+170 End If
+180 Call ResetAnimations
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 cmbArmas_Click_Error:
 
@@ -1172,36 +1172,36 @@ cmbArmas_Click_Error:
 End Sub
 
 Private Sub cmbCabezas_Click()
-   On Error GoTo cmbCabezas_Click_Error
+    On Error GoTo cmbCabezas_Click_Error
 
-10        If cmbCabezas.ListIndex = -1 Then Exit Sub
-          Dim Index                   As Integer
-          Dim i                       As Long
-20        Index = cmbCabezas.ListIndex
-30        txtEnumArgCabezas = vbNullString
+10  If cmbCabezas.ListIndex = -1 Then Exit Sub
+    Dim Index                   As Long
+    Dim i                       As Long
+20  Index = cmbCabezas.ListIndex
+30  txtEnumArgCabezas = vbNullString
 
-          Dim MaxVar                  As Long
-40        MaxVar = ResizeList(TipList.Cabezas, Index, Numheads, cmbCabezas)
+    Dim MaxVar                  As Long
+40  MaxVar = ResizeList(TipList.Cabezas, Index, CLng(NumHeads), cmbCabezas)
 
-50        If MaxVar Then
-60            ReDim Preserve HeadData(0 To MaxVar)
-70        End If
+50  If MaxVar Then
+60      ReDim Preserve HeadData(0 To MaxVar)
+70  End If
 
-80        If Index = 0 Then
-90            Call EraseArrayInteger(NumGraphic_Cabezas)
-100           NumAnim_Cabezas = 0
-110       Else
-              'txtEnumArg = "[HEAD" & Index & "]"
-120           NumAnim_Cabezas = Index
-130           For i = 0 To 3
-140               NumGraphic_Cabezas(i) = TileEngine.LoadGraphic(SP_Cabezas(i), HeadData(Index).Head(i + 1).GrhIndex)
-150               txtEnumArgCabezas = txtEnumArgCabezas & GetDirectionString(i) & "=" & HeadData(Index).Head(i + 1).GrhIndex & vbCrLf
-160           Next i
-170       End If
-180       Call ResetAnimations
+80  If Index = 0 Then
+90      Call EraseArray(NumGraphic_Cabezas)
+100     NumAnim_Cabezas = 0
+110 Else
+        'txtEnumArg = "[HEAD" & Index & "]"
+120     NumAnim_Cabezas = Index
+130     For i = 0 To 3
+140         NumGraphic_Cabezas(i) = TileEngine.LoadGraphic(SP_Cabezas(i), HeadData(Index).Head(i + 1).GrhIndex)
+150         txtEnumArgCabezas = txtEnumArgCabezas & GetDirectionString(i) & "=" & HeadData(Index).Head(i + 1).GrhIndex & vbCrLf
+160     Next i
+170 End If
+180 Call ResetAnimations
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 cmbCabezas_Click_Error:
 
@@ -1212,20 +1212,20 @@ Private Sub cmbCascos_Click()
 10  On Error GoTo cmbCascos_Click_Error
 
 20  If cmbCascos.ListIndex = -1 Then Exit Sub
-    Dim Index                   As Integer
+    Dim Index                   As Long
     Dim i                       As Long
 30  Index = cmbCascos.ListIndex
 40  txtEnumArgCascos = vbNullString
 
     Dim MaxVar                  As Long
-50  MaxVar = ResizeList(TipList.Cascos, Index, NumCascos, cmbCascos)
+50  MaxVar = ResizeList(TipList.Cascos, Index, CLng(NumCascos), cmbCascos)
 
 60  If MaxVar Then
 70      ReDim Preserve CascoAnimData(0 To MaxVar)
 80  End If
 
 90  If Index = 0 Then
-100     Call EraseArrayInteger(NumGraphic_Cascos)
+100     Call EraseArray(NumGraphic_Cascos)
 110     NumAnim_Cascos = 0
 120 Else
         'txtEnumArg = "[CASCO" & Index & "]"
@@ -1246,7 +1246,7 @@ cmbCascos_Click_Error:
 
 End Sub
 
-Private Function ResizeList(ByVal Tip As Integer, ByRef Index As Integer, ByRef TempVar As Integer, cmbList As ComboBox, Optional ByVal bForceResize As Boolean = False, Optional ByVal bCantResize As Integer = 0) As Long
+Private Function ResizeList(ByVal Tip As Long, ByRef Index As Long, ByRef TempVar As Long, cmbList As ComboBox, Optional ByVal bForceResize As Boolean = False, Optional ByVal bCantResize As Long = 0) As Long
 
 Dim IsTrue                      As Boolean
 
@@ -1350,23 +1350,23 @@ Dim IsTrue                      As Boolean
             End If
             ResizeList = TempVar
             ReDim Preserve GrhData(1 To TempVar)
-            
+
             If TempVar Then
                 grhCount = TempVar
                 Call WriteVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh", CStr(grhCount))
             End If
-        
+
         End If
 
     End If
-    
+
     If cmbList Is Nothing Then
         Index = Index - 1
         lstGraphics.Refresh
     Else
         cmbList.Refresh
     End If
-    
+
     On Error GoTo 0
     Exit Function
 
@@ -1380,20 +1380,20 @@ Private Sub cmbCuerpos_Click()
 10  On Error GoTo cmbCuerpos_Click_Error
 
 20  If cmbCuerpos.ListIndex = -1 Then Exit Sub
-    Dim Index                   As Integer
+    Dim Index                   As Long
     Dim i                       As Long
 30  Index = cmbCuerpos.ListIndex
 40  txtEnumArgCuerpos = vbNullString
 
     Dim MaxVar                  As Long
-50  MaxVar = ResizeList(TipList.Cuerpos, Index, NumBodies, cmbCuerpos)
+50  MaxVar = ResizeList(TipList.Cuerpos, Index, CLng(NumBodies), cmbCuerpos)
 
 60  If MaxVar Then
 70      ReDim Preserve BodyData(0 To MaxVar)
 80  End If
 
 90  If Index = 0 Then
-100     Call EraseArrayInteger(NumGraphic_Cuerpos)
+100     Call EraseArray(NumGraphic_Cuerpos)
 110     NumAnim_Cuerpos = 0
 120 Else
         'txtEnumArg = "[BODY" & Index & "]"
@@ -1418,13 +1418,13 @@ Private Sub cmbEfectos_Click()
     On Error GoTo cmbEfectos_Click_Error
 
 10  If cmbEfectos.ListIndex = -1 Then Exit Sub
-    Dim Index                   As Integer
+    Dim Index                   As Long
     Dim i                       As Long
 20  Index = cmbEfectos.ListIndex
 30  txtEnumArgEfectos = vbNullString
 
     Dim MaxVar                  As Long
-40  MaxVar = ResizeList(TipList.Efectos, Index, NumFxs, cmbEfectos)
+40  MaxVar = ResizeList(TipList.Efectos, Index, CLng(NumFxs), cmbEfectos)
 
 50  If MaxVar Then
 60      ReDim Preserve FxData(1 To MaxVar)
@@ -1451,35 +1451,38 @@ cmbEfectos_Click_Error:
 End Sub
 
 Private Sub cmbEscudos_Click()
-   On Error GoTo cmbEscudos_Click_Error
 
-10        If cmbEfectos.ListIndex = -1 Then Exit Sub
-          Dim Index                   As Integer
-          Dim i                       As Long
-20        Index = cmbEscudos.ListIndex
-30        txtEnumArgEscudos = vbNullString
+Dim Index                       As Long
+Dim i                           As Long
 
-          Dim MaxVar                  As Long
-40        MaxVar = ResizeList(TipList.Escudos, Index, NumEscudosAnims, cmbEscudos)
+    On Error GoTo cmbEscudos_Click_Error
 
-50        If MaxVar Then
-60            ReDim Preserve ShieldAnimData(1 To MaxVar)
-70        End If
+10  If cmbEfectos.ListIndex = -1 Then Exit Sub
 
-80        If Index = 0 Then
-90            Call EraseArrayInteger(NumGraphic_Escudos)
-100           NumAnim_Escudos = 0
-110       Else
-              'txtEnumArg = "[SHIELD" & Index & "]"
-120           NumAnim_Escudos = Index
-130           For i = 0 To 3
-140               NumGraphic_Escudos(i) = TileEngine.LoadGraphic(SP_Escudos(i), ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex)
-150               txtEnumArgEscudos = txtEnumArgEscudos & GetDirectionString(i) & "=" & ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex & vbCrLf
-160           Next i
-170       End If
+20  Index = cmbEscudos.ListIndex
+30  txtEnumArgEscudos = vbNullString
 
-   On Error GoTo 0
-   Exit Sub
+    Dim MaxVar                  As Long
+40  MaxVar = ResizeList(TipList.Escudos, Index, CLng(NumEscudosAnims), cmbEscudos)
+
+50  If MaxVar Then
+60      ReDim Preserve ShieldAnimData(1 To MaxVar)
+70  End If
+
+80  If Index = 0 Then
+90      Call EraseArray(NumGraphic_Escudos)
+100     NumAnim_Escudos = 0
+110 Else
+        'txtEnumArg = "[SHIELD" & Index & "]"
+120     NumAnim_Escudos = Index
+130     For i = 0 To 3
+140         NumGraphic_Escudos(i) = TileEngine.LoadGraphic(SP_Escudos(i), ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex)
+150         txtEnumArgEscudos = txtEnumArgEscudos & GetDirectionString(i) & "=" & ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex & vbCrLf
+160     Next i
+170 End If
+
+    On Error GoTo 0
+    Exit Sub
 
 cmbEscudos_Click_Error:
 
@@ -1488,48 +1491,48 @@ End Sub
 
 Private Sub cmbTipo_Click()
 
-      Static LastIndex                As Long
-      Static NoProcess                As Boolean
-   On Error GoTo cmbTipo_Click_Error
+Static LastIndex                As Long
+Static NoProcess                As Boolean
+    On Error GoTo cmbTipo_Click_Error
 
-10        If NoProcess = True Then Exit Sub
+10  If NoProcess = True Then Exit Sub
 
-          Dim i                       As Long
-20        If Not txtEnum.Text = txtEnumNoProcess Then
-              Dim NewIndex            As Long
-30            NewIndex = cmbTipo.ListIndex
-40            NoProcess = True
-50            cmbTipo.ListIndex = LastIndex
-60            Call lblSaveTip_Click
-70            cmbTipo.ListIndex = NewIndex
-80            NoProcess = False
-90        End If
+    Dim i                       As Long
+20  If Not txtEnum.Text = txtEnumNoProcess Then
+        Dim NewIndex            As Long
+30      NewIndex = cmbTipo.ListIndex
+40      NoProcess = True
+50      cmbTipo.ListIndex = LastIndex
+60      Call lblSaveTip_Click
+70      cmbTipo.ListIndex = NewIndex
+80      NoProcess = False
+90  End If
 
-100       If cmbTipo.ListIndex <> -1 Then
-110           lblTipo.Caption = Left$(cmbTipo.List(cmbTipo.ListIndex), Len(cmbTipo.List(cmbTipo.ListIndex)) - 1)
-120           txtEnum.Text = txtEnumNoProcess
-130           txtEnumNoProcess = vbNullString
-140           Select Case cmbTipo.ListIndex
-                  Case 0             'Armas
-150                   txtEnum.Text = txtEnumArgArmas
-160               Case 1             'Cabezas
-170                   txtEnum.Text = txtEnumArgCabezas
-180               Case 2             'Cascos
-190                   txtEnum.Text = txtEnumArgCascos
-200               Case 3             'Cuerpos
-210                   txtEnum.Text = txtEnumArgCuerpos
-220               Case 4             'Escudos
-230                   txtEnum.Text = txtEnumArgEscudos
-240               Case 5             'Efectos
-250                   txtEnum.Text = txtEnumArgEfectos
-260           End Select
+100 If cmbTipo.ListIndex <> -1 Then
+110     lblTipo.Caption = Left$(cmbTipo.List(cmbTipo.ListIndex), Len(cmbTipo.List(cmbTipo.ListIndex)) - 1)
+120     txtEnum.Text = txtEnumNoProcess
+130     txtEnumNoProcess = vbNullString
+140     Select Case cmbTipo.ListIndex
+            Case 0             'Armas
+150             txtEnum.Text = txtEnumArgArmas
+160         Case 1             'Cabezas
+170             txtEnum.Text = txtEnumArgCabezas
+180         Case 2             'Cascos
+190             txtEnum.Text = txtEnumArgCascos
+200         Case 3             'Cuerpos
+210             txtEnum.Text = txtEnumArgCuerpos
+220         Case 4             'Escudos
+230             txtEnum.Text = txtEnumArgEscudos
+240         Case 5             'Efectos
+250             txtEnum.Text = txtEnumArgEfectos
+260     End Select
 
-270       End If
+270 End If
 
-280       LastIndex = cmbTipo.ListIndex
+280 LastIndex = cmbTipo.ListIndex
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 cmbTipo_Click_Error:
 
@@ -1538,57 +1541,57 @@ End Sub
 
 Private Sub cmdCopyBodiesPNGtoFolder_Click()
 
-'Dim i                           As Long
-'Dim lastNum                     As Long
-'Dim strTemp                     As String
-'
-'
-'    For i = 1 To UBound(BodyData)
-'
-'        strTemp = BodyData(i).Walk(1).GrhIndex
-'
-'        If GrhData(BodyData(i).Walk(1).GrhIndex).FileNum > 0 And lastNum <> GrhData(BodyData(i).Walk(1).GrhIndex).FileNum Then
-'            Debug.Print "strTemp: " & strTemp & " File PNG: " & GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
-'            lastNum = GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
-'        End If
-'    Next i
+    'Dim i                           As Long
+    'Dim lastNum                     As Long
+    'Dim strTemp                     As String
+    '
+    '
+    '    For i = 1 To UBound(BodyData)
+    '
+    '        strTemp = BodyData(i).Walk(1).GrhIndex
+    '
+    '        If GrhData(BodyData(i).Walk(1).GrhIndex).FileNum > 0 And lastNum <> GrhData(BodyData(i).Walk(1).GrhIndex).FileNum Then
+    '            Debug.Print "strTemp: " & strTemp & " File PNG: " & GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
+    '            lastNum = GrhData(BodyData(i).Walk(1).GrhIndex).FileNum
+    '        End If
+    '    Next i
 
 End Sub
 
 Private Sub cmdCrearAnimacion_Click()
 
-      Dim i                           As Byte
-      Dim tCount                      As Long
-      Dim tLastCount                  As Long
-      Dim sStr                        As String
+Dim i                           As Byte
+Dim tCount                      As Long
+Dim tLastCount                  As Long
+Dim sStr                        As String
 
-   On Error GoTo cmdCrearAnimacion_Click_Error
+    On Error GoTo cmdCrearAnimacion_Click_Error
 
-10        If Val(txtAnimacionDesde.Text) > 0 And Val(txtAnimacionHasta.Text) > 0 Then
-20            tCount = Val(txtAnimacionHasta.Text) - Val(txtAnimacionDesde.Text)
-              'Valor absoluto.
-30            tCount = Abs(tCount)
-40            tLastCount = tCount
-50            For i = 1 To tCount
-60                If Len(sStr) = 0 Then
-70                    sStr = tCount & "." & Val(txtAnimacionDesde.Text)
-80                Else
-90                    sStr = sStr & "." & Val(txtAnimacionDesde.Text) + tLastCount
-100               End If
-110               tLastCount = tLastCount + 1
-                  
-120               If i = tCount Then
-130                   sStr = sStr & "." & "333,3333"
-140               End If
-150           Next i
-              
-160           txtGrh.Text = sStr
-170       Else
-180           MsgBox "Debe completar Animación desde (y el número de índice de la lista) y Animación Hasta"
-190       End If
+10  If Val(txtAnimacionDesde.Text) > 0 And Val(txtAnimacionHasta.Text) > 0 Then
+20      tCount = Val(txtAnimacionHasta.Text) - Val(txtAnimacionDesde.Text)
+        'Valor absoluto.
+30      tCount = Abs(tCount)
+40      tLastCount = tCount
+50      For i = 1 To tCount
+60          If Len(sStr) = 0 Then
+70              sStr = tCount & "." & Val(txtAnimacionDesde.Text)
+80          Else
+90              sStr = sStr & "." & Val(txtAnimacionDesde.Text) + tLastCount
+100         End If
+110         tLastCount = tLastCount + 1
 
-   On Error GoTo 0
-   Exit Sub
+120         If i = tCount Then
+130             sStr = sStr & "." & "333,3333"
+140         End If
+150     Next i
+
+160     txtGrh.Text = sStr
+170 Else
+180     MsgBox "Debe completar Animación desde (y el número de índice de la lista) y Animación Hasta"
+190 End If
+
+    On Error GoTo 0
+    Exit Sub
 
 cmdCrearAnimacion_Click_Error:
 
@@ -1603,21 +1606,21 @@ Private Sub cmdLiberar_Click()
 End Sub
 
 Private Sub cmdTips_Click()
-      Dim Message                     As String
-   On Error GoTo cmdTips_Click_Error
+Dim Message                     As String
+    On Error GoTo cmdTips_Click_Error
 
-10        Message = "Tips para PlusIndex" & vbCrLf & vbCrLf
+10  Message = "Tips para PlusIndex" & vbCrLf & vbCrLf
 
-20        Message = Message & "Manteniendo apretado el CLICK IZQUIERDO puedes arrastras el grafico por el render." & vbCrLf
-30        Message = Message & "Manteniendo apretado el CLICK DERECHO y moviendo el mouse horizontalmente agregas y sacas zoom." & vbCrLf
-40        Message = Message & "Haciendo DOBLE CLICK DERECHO reinicias la posicion del grafico a la izquierda superior izquierda." & vbCrLf
-50        Message = Message & "Haciendo CLICK IZQUIERDO + CLICK DERECHO puedes encuadrar el frame que tienes seleccionado" & vbCrLf
-60        Message = Message & "Haciendo CLICK CENTRAL (ruedita) puedes encuadrar el grafico que tienes seleccionado" & vbCrLf
+20  Message = Message & "Manteniendo apretado el CLICK IZQUIERDO puedes arrastras el grafico por el render." & vbCrLf
+30  Message = Message & "Manteniendo apretado el CLICK DERECHO y moviendo el mouse horizontalmente agregas y sacas zoom." & vbCrLf
+40  Message = Message & "Haciendo DOBLE CLICK DERECHO reinicias la posicion del grafico a la izquierda superior izquierda." & vbCrLf
+50  Message = Message & "Haciendo CLICK IZQUIERDO + CLICK DERECHO puedes encuadrar el frame que tienes seleccionado" & vbCrLf
+60  Message = Message & "Haciendo CLICK CENTRAL (ruedita) puedes encuadrar el grafico que tienes seleccionado" & vbCrLf
 
-70        MsgBox Message
+70  MsgBox Message
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 cmdTips_Click_Error:
 
@@ -1635,7 +1638,7 @@ Dim TempX                       As Integer
 Dim TempY                       As Integer
 Dim CountX                      As Integer
 Dim CountY                      As Integer
-Dim CountI                      As Integer
+Dim CountI                      As Long
 Dim i                           As Long
 Dim tCount                      As Long
 Dim sTmpGrh                     As String
@@ -1669,12 +1672,12 @@ Dim sValue                      As String
     End If
 
     If optTexture.Value = True Then
-        
+
         i = UBound(GrhData)
         tCount = ResizeList(TipList.Graficos, lstGraphics.ListCount, CInt(grhCount), Nothing, True, Val(txtTextureWidth.Text) * Val(txtTextureHeigth.Text))
         LastX = 0
         LastY = 0
-        
+
         For i = i + 1 To tCount
             CountI = CountI + 1
             sValue = "1" & Separator & Val(frmMain.txtPngNum.Text) & Separator & LastX & Separator & LastY & Separator & 32 & Separator & 32
@@ -1684,7 +1687,7 @@ Dim sValue                      As String
 
             GrhData(i).sX = TempX + LastX
             GrhData(i).sY = TempY + LastY
-            
+
             GrhData(i).pixelWidth = 32              'Ancho del gráfico
             GrhData(i).pixelHeight = 32             'Alto del gráfico
             GrhData(i).NumFrames = 1                'Cuadros por segundo
@@ -1693,16 +1696,16 @@ Dim sValue                      As String
 
             frmMain.lblGrh.Caption = i & "="
             LastX = LastX + 32
-            
-            If (CountI Mod 16 = 0) Then ' Or (CountI / 2 Mod 16 = 2) Or (CountI / 3 Mod 16 = 3) Or (CountI / 4 Mod 16 = 4) Then
+
+            If (CountI Mod 16 = 0) Then    ' Or (CountI / 2 Mod 16 = 2) Or (CountI / 3 Mod 16 = 3) Or (CountI / 4 Mod 16 = 4) Then
                 TempX = TempX + LastX
             End If
-            
+
             If LastX / 4 = 32 Then
                 LastX = 0
                 LastY = LastY + 32
             End If
-            
+
             If CountI Mod (Val(txtTextureWidth.Text) * Val(txtTextureHeigth.Text) / (txtTextureWidth.Text / 4)) = 0 Then
                 TempY = TempY + LastY
                 'LastY = 0
@@ -1713,7 +1716,7 @@ Dim sValue                      As String
                 LastY = 0
             End If
         Next i
-        
+
     End If
 
     If frmMain.optHeads.Value = True Then
@@ -1752,31 +1755,31 @@ End Sub
 
 Private Sub Command1_Click()
 
-      Dim i                       As Integer
-      Dim J                       As Integer
-      Dim tmpObj                  As Integer
-      Dim BodyDatas               As BodyData
+Dim i                           As Long
+Dim J                           As Long
+Dim tmpObj                      As Integer
+Dim BodyDatas                   As BodyData
 
-   On Error GoTo Command1_Click_Error
+    On Error GoTo Command1_Click_Error
 
-10        tmpObj = 1502
-20        J = 1
-30        For i = 519 To 685
-40            BodyDatas = BodyData(i)
-50            Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NAME", "Skin " & J)
-60            Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "ObjType", CStr(48))
-70            Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALOR", CStr(10000))
-80            Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALORDONANTE", CStr(2000))
-90            Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NumRopaje", CStr(i))
-100           Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "GrhIndex", CStr(GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1) & vbNewLine))
-110           tmpObj = tmpObj + 1
-120           J = J + 1
-130       Next i
+10  tmpObj = 1502
+20  J = 1
+30  For i = 519 To 685
+40      BodyDatas = BodyData(i)
+50      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NAME", "Skin " & J)
+60      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "ObjType", CStr(48))
+70      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALOR", CStr(10000))
+80      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALORDONANTE", CStr(2000))
+90      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NumRopaje", CStr(i))
+100     Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "GrhIndex", CStr(GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1) & vbNewLine))
+110     tmpObj = tmpObj + 1
+120     J = J + 1
+130 Next i
 
-          MsgBox "Archivo OBJ.dat finalizado. Ruta: " & App.Path & "/OBJ.dat"
-        
-   On Error GoTo 0
-   Exit Sub
+    MsgBox "Archivo OBJ.dat finalizado. Ruta: " & App.Path & "/OBJ.dat"
+
+    On Error GoTo 0
+    Exit Sub
 
 Command1_Click_Error:
 
@@ -1795,20 +1798,20 @@ Private Sub Form_Load()
 End Sub
 
 Private Sub Form_Resize()
-   On Error GoTo Form_Resize_Error
+    On Error GoTo Form_Resize_Error
 
-10        If frmMain.WindowState <> 1 Then
-20            renderer.Width = frmMain.ScaleWidth - renderer.Left - 5
-30            renderer.Height = frmMain.ScaleHeight - renderer.Top - 5
-40            lstGraphics.Height = TransformMod13(frmMain.ScaleHeight - lstGraphics.Top - 2)
-50            Frame.Height = lstGraphics.Height
-60            If Not (TileEngine Is Nothing) Then
-70                Call TileEngine.Resize
-80            End If
-90        End If
+10  If frmMain.WindowState <> 1 Then
+20      renderer.Width = frmMain.ScaleWidth - renderer.Left - 5
+30      renderer.Height = frmMain.ScaleHeight - renderer.Top - 5
+40      lstGraphics.Height = TransformMod13(frmMain.ScaleHeight - lstGraphics.Top - 2)
+50      Frame.Height = lstGraphics.Height
+60      If Not (TileEngine Is Nothing) Then
+70          Call TileEngine.Resize
+80      End If
+90  End If
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 Form_Resize_Error:
 
@@ -1838,36 +1841,36 @@ End Sub
 
 Private Sub lblOption_Click(Index As Integer)
 
-      Dim i                           As Long
+Dim i                           As Long
 
-   On Error GoTo lblOption_Click_Error
+    On Error GoTo lblOption_Click_Error
 
-10        For i = lblOption.LBound To lblOption.UBound
-20            lblOption(i).BackColor = &H8000000F
-30        Next i
-          
-40        lblOption(Index).BackColor = vbRed
+10  For i = lblOption.LBound To lblOption.UBound
+20      lblOption(i).BackColor = &H8000000F
+30  Next i
 
-50        Select Case Index
-              Case 0, 1
-60                lstGraphics.Visible = True
-70                Frame.Visible = False
-80            Case 2
-90                lstGraphics.Visible = False
-100               Frame.Visible = True
-110       End Select
+40  lblOption(Index).BackColor = vbRed
 
-120       If Not (TileEngine Is Nothing) Then
-130           Call TileEngine.ChangeRenderStyle(Index)
-140       End If
+50  Select Case Index
+        Case 0, 1
+60          lstGraphics.Visible = True
+70          Frame.Visible = False
+80      Case 2
+90          lstGraphics.Visible = False
+100         Frame.Visible = True
+110 End Select
 
-   On Error GoTo 0
-   Exit Sub
+120 If Not (TileEngine Is Nothing) Then
+130     Call TileEngine.ChangeRenderStyle(Index)
+140 End If
+
+    On Error GoTo 0
+    Exit Sub
 
 lblOption_Click_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure lblOption_Click of Formulario frmMain Linea: " & Erl())
-          
+
 End Sub
 
 Private Sub lblResetTip_Click()
@@ -1876,29 +1879,29 @@ End Sub
 
 Private Sub lblSave_Click()
 
-      Dim Line                        As String
+Dim Line                        As String
 
-   On Error GoTo lblSave_Click_Error
+    On Error GoTo lblSave_Click_Error
 
-10        If lstGraphics.ListIndex > 0 Then
-20            Line = ProcessGraphicBinToLine(lstGraphics.ListIndex + 1)
-              
-30            Line = ReadField(2, Line, Asc("="))
-40            SaveLine(lstGraphics.ListIndex + 1) = Line
-              
-50            Call WriteVar(AppExpo & "\Graficos.ini", "GRAFICOS", "Grh" & lstGraphics.ListIndex + 1, txtGrh.Text)
-              
-60            lblReset.BackColor = &H8000000F
-70            lblSave.BackColor = &H8000000F
-80        End If
+10  If lstGraphics.ListIndex > 0 Then
+20      Line = ProcessGraphicBinToLine(lstGraphics.ListIndex + 1)
 
-   On Error GoTo 0
-   Exit Sub
+30      Line = ReadField(2, Line, Asc("="))
+40      SaveLine(lstGraphics.ListIndex + 1) = Line
+
+50      Call WriteVar(AppExpo & "\Graficos.ini", "GRAFICOS", "Grh" & lstGraphics.ListIndex + 1, txtGrh.Text)
+
+60      lblReset.BackColor = &H8000000F
+70      lblSave.BackColor = &H8000000F
+80  End If
+
+    On Error GoTo 0
+    Exit Sub
 
 lblSave_Click_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure lblSave_Click of Formulario frmMain Linea: " & Erl())
-          
+
 End Sub
 
 '---------------------------------------------------------------------------------------
@@ -1910,22 +1913,22 @@ End Sub
 '
 Public Sub ProcessLine(ByVal Index As Long)
 
-      Dim Line                        As String
+Dim Line                        As String
 
-   On Error GoTo ProcessLine_Error
+    On Error GoTo ProcessLine_Error
 
-10        lblGrh.Caption = "Grh" & Index & "="
-20        Line = ProcessGraphicBinToLine(Index)
-30        Line = ReadField(2, Line, Asc("="))
+10  lblGrh.Caption = "Grh" & Index & "="
+20  Line = ProcessGraphicBinToLine(Index)
+30  Line = ReadField(2, Line, Asc("="))
 
-40        If Len(SaveLine(Index)) = 0 Then SaveLine(Index) = Line
+40  If Len(SaveLine(Index)) = 0 Then SaveLine(Index) = Line
 
-50        NoProcessTxt = True
-60        txtGrh.Text = Line
-70        NoProcessTxt = False
+50  NoProcessTxt = True
+60  txtGrh.Text = Line
+70  NoProcessTxt = False
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 ProcessLine_Error:
 
@@ -1947,30 +1950,30 @@ End Sub
 'End Sub
 
 Private Sub lblSaveTip_Click()
-   On Error GoTo lblSaveTip_Click_Error
+    On Error GoTo lblSaveTip_Click_Error
 
-10        If cmbTipo.ListIndex <> -1 Then
-20            Select Case cmbTipo.ListIndex
-                  Case 0             'Armas
-30                    Call Resource.SaveAnimArmas(AppInit & "\Armas.dat")
-40                Case 1             'Cabezas
-50                    Call Resource.SaveCabezas(AppInit & "\Cabezas.ind")
-60                Case 2             'Cascos
-70                    Call Resource.SaveCascos(AppInit & "\Cascos.ind")
-80                Case 3             'Cuerpos
-90                    Call Resource.SaveCuerpos(AppInit & "\Personajes.ind")
-100               Case 4             'Escudos
-110                   Call Resource.SaveAnimEscudos(AppInit & "\Escudos.dat")
-120               Case 5             'Efectos
-130                   Call Resource.SaveFxs(AppInit & "\Fxs.ind")
-140           End Select
-150           txtEnumNoProcess = txtEnum.Text
-160           lblResetTip.BackColor = &H8000000F
-170           lblSaveTip.BackColor = &H8000000F
-180       End If
+10  If cmbTipo.ListIndex <> -1 Then
+20      Select Case cmbTipo.ListIndex
+            Case 0             'Armas
+30              Call Resource.SaveAnimArmas(AppInit & "\Armas.dat")
+40          Case 1             'Cabezas
+50              Call Resource.SaveCabezas(AppInit & "\Cabezas.ind")
+60          Case 2             'Cascos
+70              Call Resource.SaveCascos(AppInit & "\Cascos.ind")
+80          Case 3             'Cuerpos
+90              Call Resource.SaveCuerpos(AppInit & "\Personajes.ind")
+100         Case 4             'Escudos
+110             Call Resource.SaveAnimEscudos(AppInit & "\Escudos.dat")
+120         Case 5             'Efectos
+130             Call Resource.SaveFxs(AppInit & "\Fxs.ind")
+140     End Select
+150     txtEnumNoProcess = txtEnum.Text
+160     lblResetTip.BackColor = &H8000000F
+170     lblSaveTip.BackColor = &H8000000F
+180 End If
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 lblSaveTip_Click_Error:
 
@@ -1979,91 +1982,91 @@ End Sub
 
 Private Sub GraphicsChange()
 
-      Dim Index                       As Integer
-      Dim bCheck                      As Boolean
+Dim Index                       As Long
+Dim bCheck                      As Boolean
 
-   On Error GoTo GraphicsChange_Error
+    On Error GoTo GraphicsChange_Error
 
-10        Index = lstGraphics.ListIndex + 1
+10  Index = lstGraphics.ListIndex + 1
 
-20        If Index = lstGraphics.ListCount Then
+20  If Index = lstGraphics.ListCount Then
 
-              Dim MaxVar              As Long
+        Dim MaxVar              As Long
 
-30            NoProcessTxt = True
-40            MaxVar = ResizeList(TipList.Graficos, Index, CInt(grhCount), Nothing)
+30      NoProcessTxt = True
+40      MaxVar = ResizeList(TipList.Graficos, Index, CInt(grhCount), Nothing)
 
-50            If MaxVar Then
-60                grhCount = MaxVar
-70                ReDim Preserve GrhData(1 To grhCount)
-80                Call WriteVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh", CStr(grhCount))
-90                bCheck = True
-100           End If
+50      If MaxVar Then
+60          grhCount = MaxVar
+70          ReDim Preserve GrhData(1 To grhCount)
+80          Call WriteVar(AppExpo & "\Graficos.ini", "INIT", "CountGrh", CStr(grhCount))
+90          bCheck = True
+100     End If
 
-110           NoProcessTxt = False
-120       Else
-130           bCheck = True
-140       End If
+110     NoProcessTxt = False
+120 Else
+130     bCheck = True
+140 End If
 
-150       If Index And bCheck Then   'And MaxVar <> 0 Then
-160           NumGraphic = TileEngine.LoadGraphic(SP_Main, Index)
+150 If Index And bCheck Then   'And MaxVar <> 0 Then
+160     NumGraphic = TileEngine.LoadGraphic(SP_Main, Index)
 
-              Dim i                   As Long
-170           ReDim SelectIndexs(0)
-180           numSelectIndexs = 0
+        Dim i                   As Long
+170     ReDim SelectIndexs(0)
+180     numSelectIndexs = 0
 
-190           If GrhData(Index).NumFrames = 1 Then
-200               For i = 0 To lstGraphics.ListCount - 1
-210                   If lstGraphics.Selected(i) = True Then
-220                       If i + 1 <= grhCount Then
-230                           If GrhData(i + 1).FileNum = GrhData(Index).FileNum And GrhData(Index).FileNum > 0 Then
-240                               ReDim Preserve SelectIndexs(numSelectIndexs)
-250                               SelectIndexs(numSelectIndexs) = i + 1
-260                               numSelectIndexs = numSelectIndexs + 1
-270                           Else
-280                               lstGraphics.Selected(i) = False
-290                           End If
-300                       End If
-310                   End If
-320               Next i
-330           Else
-340               For i = 0 To lstGraphics.ListCount - 1
-350                   If lstGraphics.Selected(i) = True Then
-360                       If i + 1 < grhCount Then
-370                           If Index <> i + 1 Then
-380                               lstGraphics.Selected(i) = False
-390                           End If
-400                       End If
-410                   End If
-420               Next i
-430               ReDim SelectIndexs(0)
-440               SelectIndexs(0) = Index
-450               numSelectIndexs = 1
-460           End If
+190     If GrhData(Index).NumFrames = 1 Then
+200         For i = 0 To lstGraphics.ListCount - 1
+210             If lstGraphics.Selected(i) = True Then
+220                 If i + 1 <= grhCount Then
+230                     If GrhData(i + 1).FileNum = GrhData(Index).FileNum And GrhData(Index).FileNum > 0 Then
+240                         ReDim Preserve SelectIndexs(numSelectIndexs)
+250                         SelectIndexs(numSelectIndexs) = i + 1
+260                         numSelectIndexs = numSelectIndexs + 1
+270                     Else
+280                         lstGraphics.Selected(i) = False
+290                     End If
+300                 End If
+310             End If
+320         Next i
+330     Else
+340         For i = 0 To lstGraphics.ListCount - 1
+350             If lstGraphics.Selected(i) = True Then
+360                 If i + 1 < grhCount Then
+370                     If Index <> i + 1 Then
+380                         lstGraphics.Selected(i) = False
+390                     End If
+400                 End If
+410             End If
+420         Next i
+430         ReDim SelectIndexs(0)
+440         SelectIndexs(0) = Index
+450         numSelectIndexs = 1
+460     End If
 
-              'Me.txtGrh.Enabled = numSelectIndexs = 1
-470           If numSelectIndexs = 1 Then
-480               Call ProcessLine(Index)    'TEST 24-04-2020
-490           Else
-500               txtGrh.Text = "1.1.0.0.32.32"
-510           End If
+        'Me.txtGrh.Enabled = numSelectIndexs = 1
+470     If numSelectIndexs = 1 Then
+480         Call ProcessLine(Index)    'TEST 24-04-2020
+490     Else
+500         txtGrh.Text = "1.1.0.0.32.32"
+510     End If
 
-520           If TileEngine.RenderStyle = 2 Then Call lblOption_Click(0)
-530       End If
+520     If TileEngine.RenderStyle = 2 Then Call lblOption_Click(0)
+530 End If
 
-540       If FirstRun Then
-550           chkEncuadrarGrafico = vbChecked
-560           chkEncuadrarGrh = vbChecked
-570           chkTamano = vbChecked
-580       End If
+540 If FirstRun Then
+550     chkEncuadrarGrafico = vbChecked
+560     chkEncuadrarGrh = vbChecked
+570     chkTamano = vbChecked
+580 End If
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 GraphicsChange_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure GraphicsChange of Formulario frmMain Linea: " & Erl())
-    
+
 End Sub
 
 Private Sub lstGraphics_KeyUp(KeyCode As Integer, Shift As Integer)
@@ -2073,7 +2076,7 @@ End Sub
 Private Sub lstGraphics_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
 
     Call GraphicsChange
-    
+
 End Sub
 
 Private Sub optHeads_Click()
@@ -2145,7 +2148,7 @@ End Sub
 Private Sub txtFiltroPNG_Change()
 
     'Call searchPNG
-    
+
 End Sub
 
 Sub searchPNG()
@@ -2197,122 +2200,122 @@ searchPNG_Error:
 End Sub
 
 Private Sub txtEnum_Change()
-   On Error GoTo txtEnum_Change_Error
+    On Error GoTo txtEnum_Change_Error
 
-      Dim Index                       As Long
-      Dim i                           As Long
+    Dim Index                   As Long
+    Dim i                       As Long
 
-10        Select Case cmbTipo.ListIndex
-              Case 0                 'Armas
-20                Index = cmbArmas.ListIndex
-30            Case 1                 'Cabezas
-40                Index = cmbCabezas.ListIndex
-50            Case 2                 'Cascos
-60                Index = cmbCascos.ListIndex
-70            Case 3                 'Cuerpos
-80                Index = cmbCuerpos.ListIndex
-90            Case 4                 'Escudos
-100               Index = cmbEscudos.ListIndex
-110           Case 5                 'Efectos
-120               Index = cmbEfectos.ListIndex
-130       End Select
+10  Select Case cmbTipo.ListIndex
+        Case 0                 'Armas
+20          Index = cmbArmas.ListIndex
+30      Case 1                 'Cabezas
+40          Index = cmbCabezas.ListIndex
+50      Case 2                 'Cascos
+60          Index = cmbCascos.ListIndex
+70      Case 3                 'Cuerpos
+80          Index = cmbCuerpos.ListIndex
+90      Case 4                 'Escudos
+100         Index = cmbEscudos.ListIndex
+110     Case 5                 'Efectos
+120         Index = cmbEfectos.ListIndex
+130 End Select
 
-          Dim Linea()                 As String
-140       If Len(txtEnum.Text) = 0 Then Exit Sub
-150       Linea = Split(txtEnum.Text, vbCrLf)
-          Dim Nums(5)                 As Long
+    Dim Linea()                 As String
+140 If Len(txtEnum.Text) = 0 Then Exit Sub
+150 Linea = Split(txtEnum.Text, vbCrLf)
+    Dim Nums(5)                 As Long
 
-          Dim txtEnumArg              As String
-160       If cmbTipo.ListIndex <> 5 Then
-170           Nums(0) = Val(ReadField(2, Linea(0), Asc("=")))
-180           Nums(1) = Val(ReadField(2, Linea(1), Asc("=")))
-190           Nums(2) = Val(ReadField(2, Linea(2), Asc("=")))
-200           Nums(3) = Val(ReadField(2, Linea(3), Asc("=")))
+    Dim txtEnumArg              As String
+160 If cmbTipo.ListIndex <> 5 Then
+170     Nums(0) = Val(ReadField(2, Linea(0), Asc("=")))
+180     Nums(1) = Val(ReadField(2, Linea(1), Asc("=")))
+190     Nums(2) = Val(ReadField(2, Linea(2), Asc("=")))
+200     Nums(3) = Val(ReadField(2, Linea(3), Asc("=")))
 
-210           txtEnumArg = txtEnumArg & "Norte=" & Nums(0) & vbCrLf
-220           txtEnumArg = txtEnumArg & "Este=" & Nums(1) & vbCrLf
-230           txtEnumArg = txtEnumArg & "Sur=" & Nums(2) & vbCrLf
-240           txtEnumArg = txtEnumArg & "Oeste=" & Nums(3)
-250       End If
+210     txtEnumArg = txtEnumArg & "Norte=" & Nums(0) & vbCrLf
+220     txtEnumArg = txtEnumArg & "Este=" & Nums(1) & vbCrLf
+230     txtEnumArg = txtEnumArg & "Sur=" & Nums(2) & vbCrLf
+240     txtEnumArg = txtEnumArg & "Oeste=" & Nums(3)
+250 End If
 
-260       Select Case cmbTipo.ListIndex
-              Case 0                 'Armas
-270               For i = 0 To 3
-280                   WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex = Nums(i)
-290                   NumGraphic_Armas(i) = TileEngine.LoadGraphic(SP_Armas(i), WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex)
-300               Next i
-310           Case 1                 'Cabezas
-320               For i = 0 To 3
-330                   HeadData(Index).Head(i + 1).GrhIndex = Nums(i)
-340                   NumGraphic_Cabezas(i) = TileEngine.LoadGraphic(SP_Cabezas(i), HeadData(Index).Head(i + 1).GrhIndex)
-350               Next i
-360               frmMain.cmbCabezas.List(Index) = Index & IIf(HeadData(Index).Head(1).GrhIndex = 0, " (Libre)", "")
-370           Case 2                 'Cascos
-380               For i = 0 To 3
-390                   CascoAnimData(Index).Head(i + 1).GrhIndex = Nums(i)
-400                   NumGraphic_Cascos(i) = TileEngine.LoadGraphic(SP_Cascos(i), CascoAnimData(Index).Head(i + 1).GrhIndex)
-410               Next i
-420           Case 3                 'Cuerpos
-430               Nums(4) = Val(ReadField(1, ReadField(2, Linea(4), Asc("=")), Asc(".")))
-440               Nums(5) = Val(ReadField(2, ReadField(2, Linea(4), Asc("=")), Asc(".")))
+260 Select Case cmbTipo.ListIndex
+        Case 0                 'Armas
+270         For i = 0 To 3
+280             WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex = Nums(i)
+290             NumGraphic_Armas(i) = TileEngine.LoadGraphic(SP_Armas(i), WeaponAnimData(Index).WeaponWalk(i + 1).GrhIndex)
+300         Next i
+310     Case 1                 'Cabezas
+320         For i = 0 To 3
+330             HeadData(Index).Head(i + 1).GrhIndex = Nums(i)
+340             NumGraphic_Cabezas(i) = TileEngine.LoadGraphic(SP_Cabezas(i), HeadData(Index).Head(i + 1).GrhIndex)
+350         Next i
+360         frmMain.cmbCabezas.List(Index) = Index & IIf(HeadData(Index).Head(1).GrhIndex = 0, " (Libre)", "")
+370     Case 2                 'Cascos
+380         For i = 0 To 3
+390             CascoAnimData(Index).Head(i + 1).GrhIndex = Nums(i)
+400             NumGraphic_Cascos(i) = TileEngine.LoadGraphic(SP_Cascos(i), CascoAnimData(Index).Head(i + 1).GrhIndex)
+410         Next i
+420     Case 3                 'Cuerpos
+430         Nums(4) = Val(ReadField(1, ReadField(2, Linea(4), Asc("=")), Asc(".")))
+440         Nums(5) = Val(ReadField(2, ReadField(2, Linea(4), Asc("=")), Asc(".")))
 
-450               txtEnumArg = txtEnumArg & vbCrLf & "OffSet=" & Nums(4) & "." & Nums(5)
+450         txtEnumArg = txtEnumArg & vbCrLf & "OffSet=" & Nums(4) & "." & Nums(5)
 
 
-460               For i = 0 To 3
-470                   BodyData(Index).Walk(i + 1).GrhIndex = Nums(i)
-480                   BodyData(Index).HeadOffset.X = Nums(4)
-490                   BodyData(Index).HeadOffset.Y = Nums(5)
-500                   NumGraphic_Cuerpos(i) = TileEngine.LoadGraphic(SP_Cuerpos(i), BodyData(Index).Walk(i + 1).GrhIndex)
-510               Next i
-520           Case 4                 'Escudos
-530               For i = 0 To 3
-540                   ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex = Nums(i)
-550                   NumGraphic_Escudos(i) = TileEngine.LoadGraphic(SP_Escudos(i), ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex)
-560               Next i
-570           Case 5                 'Efectos
-580               Nums(0) = Val(ReadField(2, Linea(0), Asc("=")))
-590               Nums(1) = Val(ReadField(1, ReadField(2, Linea(1), Asc("=")), Asc(".")))
-600               Nums(2) = Val(ReadField(2, ReadField(2, Linea(1), Asc("=")), Asc(".")))
-610               FxData(Index).Animacion = Nums(0)
-620               FxData(Index).OffsetX = Nums(1)
-630               FxData(Index).OffsetY = Nums(2)
+460         For i = 0 To 3
+470             BodyData(Index).Walk(i + 1).GrhIndex = Nums(i)
+480             BodyData(Index).HeadOffset.X = Nums(4)
+490             BodyData(Index).HeadOffset.Y = Nums(5)
+500             NumGraphic_Cuerpos(i) = TileEngine.LoadGraphic(SP_Cuerpos(i), BodyData(Index).Walk(i + 1).GrhIndex)
+510         Next i
+520     Case 4                 'Escudos
+530         For i = 0 To 3
+540             ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex = Nums(i)
+550             NumGraphic_Escudos(i) = TileEngine.LoadGraphic(SP_Escudos(i), ShieldAnimData(Index).ShieldWalk(i + 1).GrhIndex)
+560         Next i
+570     Case 5                 'Efectos
+580         Nums(0) = Val(ReadField(2, Linea(0), Asc("=")))
+590         Nums(1) = Val(ReadField(1, ReadField(2, Linea(1), Asc("=")), Asc(".")))
+600         Nums(2) = Val(ReadField(2, ReadField(2, Linea(1), Asc("=")), Asc(".")))
+610         FxData(Index).Animacion = Nums(0)
+620         FxData(Index).OffsetX = Nums(1)
+630         FxData(Index).OffsetY = Nums(2)
 
-640               NumGraphic_Efectos = TileEngine.LoadGraphic(SP_Efectos, FxData(Index).Animacion)
+640         NumGraphic_Efectos = TileEngine.LoadGraphic(SP_Efectos, FxData(Index).Animacion)
 
-650               txtEnumArg = "Anim=" & Nums(0) & vbCrLf
-660               txtEnumArg = txtEnumArg & "Offset=" & Nums(1) & "." & Nums(2) & vbCrLf
-670       End Select
+650         txtEnumArg = "Anim=" & Nums(0) & vbCrLf
+660         txtEnumArg = txtEnumArg & "Offset=" & Nums(1) & "." & Nums(2) & vbCrLf
+670 End Select
 
-          'txtEnum.Text = txtEnumArg
+    'txtEnum.Text = txtEnumArg
 
-680       If Len(txtEnumNoProcess) = 0 Then txtEnumNoProcess = txtEnum.Text
+680 If Len(txtEnumNoProcess) = 0 Then txtEnumNoProcess = txtEnum.Text
 
-690       If txtEnum.Text = txtEnumNoProcess Then
-700           lblResetTip.BackColor = &H8000000F
-710           lblSaveTip.BackColor = &H8000000F
-720       Else
-730           lblResetTip.BackColor = vbRed
-740           lblSaveTip.BackColor = vbRed
-750       End If
+690 If txtEnum.Text = txtEnumNoProcess Then
+700     lblResetTip.BackColor = &H8000000F
+710     lblSaveTip.BackColor = &H8000000F
+720 Else
+730     lblResetTip.BackColor = vbRed
+740     lblSaveTip.BackColor = vbRed
+750 End If
 
-760       Select Case cmbTipo.ListIndex
-              Case 0                 'Armas
-770               txtEnumArgArmas = txtEnumArg
-780           Case 1                 'Cabezas
-790               txtEnumArgCabezas = txtEnumArg
-800           Case 2                 'Cascos
-810               txtEnumArgCascos = txtEnumArg
-820           Case 3                 'Cuerpos
-830               txtEnumArgCuerpos = txtEnumArg
-840           Case 4                 'Escudos
-850               txtEnumArgEscudos = txtEnumArg
-860           Case 5                 'Efectos
-870               txtEnumArgEfectos = txtEnumArg
-880       End Select
+760 Select Case cmbTipo.ListIndex
+        Case 0                 'Armas
+770         txtEnumArgArmas = txtEnumArg
+780     Case 1                 'Cabezas
+790         txtEnumArgCabezas = txtEnumArg
+800     Case 2                 'Cascos
+810         txtEnumArgCascos = txtEnumArg
+820     Case 3                 'Cuerpos
+830         txtEnumArgCuerpos = txtEnumArg
+840     Case 4                 'Escudos
+850         txtEnumArgEscudos = txtEnumArg
+860     Case 5                 'Efectos
+870         txtEnumArgEfectos = txtEnumArg
+880 End Select
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 txtEnum_Change_Error:
 
@@ -2320,68 +2323,68 @@ txtEnum_Change_Error:
 End Sub
 
 Private Sub txtFiltro_Change()
-          
-   On Error GoTo txtFiltro_Change_Error
 
-10        If Len(txtFiltro.Text) > 0 Then
-20            If IsNumeric(txtFiltro.Text) Then
-30                If (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
-40                    lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
-50                End If
-60            Else
-                  Dim i As Long
-                  
-70                For i = 1 To lstGraphics.ListCount - 1
-80                    If InStrB(1, i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) > 0 Then
-                      'If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
-90                        lstGraphics.Selected(i) = True
-100                       Exit For
-110                   End If
-120               Next i
-130           End If
-140       End If
+    On Error GoTo txtFiltro_Change_Error
 
-   On Error GoTo 0
-   Exit Sub
+10  If Len(txtFiltro.Text) > 0 Then
+20      If IsNumeric(txtFiltro.Text) Then
+30          If (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
+40              lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
+50          End If
+60      Else
+            Dim i               As Long
+
+70          For i = 1 To lstGraphics.ListCount - 1
+80              If InStrB(1, i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) > 0 Then
+                    'If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
+90                  lstGraphics.Selected(i) = True
+100                 Exit For
+110             End If
+120         Next i
+130     End If
+140 End If
+
+    On Error GoTo 0
+    Exit Sub
 
 txtFiltro_Change_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtFiltro_Change of Formulario frmMain Linea: " & Erl())
-          
+
 End Sub
 
 Private Sub txtFiltro_KeyUp(KeyCode As Integer, Shift As Integer)
 
-   On Error GoTo txtFiltro_KeyUp_Error
+    On Error GoTo txtFiltro_KeyUp_Error
 
-10        If KeyCode = 13 Then
-          
-20            If Len(txtFiltro.Text) > 0 Then
-30                If IsNumeric(txtFiltro.Text) Then
-40                    If (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
-50                        lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
-60                    End If
-70                Else
-                      Dim i As Long
-                      
-80                    For i = lstGraphics.ListIndex + 1 To lstGraphics.ListCount - 1
-90                        If InStrB(1, lstGraphics.List(i), UCase$(txtFiltro.Text), vbBinaryCompare) > 0 Then
-                          'If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
-100                           lstGraphics.Selected(i) = True
-110                           Exit For
-120                       End If
-130                   Next i
-140               End If
-150           End If
-160       End If
+10  If KeyCode = 13 Then
 
-   On Error GoTo 0
-   Exit Sub
+20      If Len(txtFiltro.Text) > 0 Then
+30          If IsNumeric(txtFiltro.Text) Then
+40              If (Val(txtFiltro.Text) - 1 <= lstGraphics.ListCount) Then
+50                  lstGraphics.Selected(Val(txtFiltro.Text) - 1) = True
+60              End If
+70          Else
+                Dim i           As Long
+
+80              For i = lstGraphics.ListIndex + 1 To lstGraphics.ListCount - 1
+90                  If InStrB(1, lstGraphics.List(i), UCase$(txtFiltro.Text), vbBinaryCompare) > 0 Then
+                        'If StrComp(i + 1 & " " & txtFiltro.Text, lstGraphics.List(i)) = 0 Then
+100                     lstGraphics.Selected(i) = True
+110                     Exit For
+120                 End If
+130             Next i
+140         End If
+150     End If
+160 End If
+
+    On Error GoTo 0
+    Exit Sub
 
 txtFiltro_KeyUp_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure txtFiltro_KeyUp of Formulario frmMain Linea: " & Erl())
-          
+
 End Sub
 
 Private Sub txtFiltroPNG_KeyUp(KeyCode As Integer, Shift As Integer)
@@ -2447,52 +2450,52 @@ End Sub
 
 Private Sub txtGrh_KeyUp(KeyCode As Integer, Shift As Integer)
 
-   On Error GoTo txtGrh_KeyUp_Error
+    On Error GoTo txtGrh_KeyUp_Error
 
-10        If Shift > 0 Then
-20            Select Case KeyCode
-                  Case vbKeyRight, vbKeyLeft, vbKeyDown, vbKeyUp
-30                    Exit Sub
-40            End Select
-50        End If
+10  If Shift > 0 Then
+20      Select Case KeyCode
+            Case vbKeyRight, vbKeyLeft, vbKeyDown, vbKeyUp
+30              Exit Sub
+40      End Select
+50  End If
 
-60        If Shift = 0 Then
-70            If KeyCode = vbKeyUp Then
-80                If lstGraphics.ListIndex > 0 Then
-                      'lstGraphics.SetFocus
-90                    lstGraphics.ListIndex = lstGraphics.ListIndex - 1
-                      'lstGraphics.Refresh
-100               End If
-110           ElseIf KeyCode = vbKeyDown Then
-120               If lstGraphics.ListIndex <= lstGraphics.ListCount Then
-                      'lstGraphics.SetFocus
-130                   lstGraphics.ListIndex = lstGraphics.ListIndex + 1
-                      'lstGraphics.Refresh
-140               End If
-150           End If
-160       Else
-              Dim Index               As Long
-170           Index = lstGraphics.ListIndex + 1
-180           If Index > 0 And Index <= grhCount Then
-190               If GrhData(Index).NumFrames = 1 Then
-200                   With GrhData(Index)
-210                       If KeyCode = vbKeyUp Then
-220                           .sY = .sY - .pixelHeight
-230                       ElseIf KeyCode = vbKeyDown Then
-240                           .sY = .sY + .pixelHeight
-250                       ElseIf KeyCode = vbKeyLeft Then
-260                           .sX = .sX - .pixelWidth
-270                       ElseIf KeyCode = vbKeyRight Then
-280                           .sX = .sX + .pixelWidth
-290                       End If
-300                   End With
-310                   Call ProcessLine(Index)
-320               End If
-330           End If
-340       End If
+60  If Shift = 0 Then
+70      If KeyCode = vbKeyUp Then
+80          If lstGraphics.ListIndex > 0 Then
+                'lstGraphics.SetFocus
+90              lstGraphics.ListIndex = lstGraphics.ListIndex - 1
+                'lstGraphics.Refresh
+100         End If
+110     ElseIf KeyCode = vbKeyDown Then
+120         If lstGraphics.ListIndex <= lstGraphics.ListCount Then
+                'lstGraphics.SetFocus
+130             lstGraphics.ListIndex = lstGraphics.ListIndex + 1
+                'lstGraphics.Refresh
+140         End If
+150     End If
+160 Else
+        Dim Index               As Long
+170     Index = lstGraphics.ListIndex + 1
+180     If Index > 0 And Index <= grhCount Then
+190         If GrhData(Index).NumFrames = 1 Then
+200             With GrhData(Index)
+210                 If KeyCode = vbKeyUp Then
+220                     .sY = .sY - .pixelHeight
+230                 ElseIf KeyCode = vbKeyDown Then
+240                     .sY = .sY + .pixelHeight
+250                 ElseIf KeyCode = vbKeyLeft Then
+260                     .sX = .sX - .pixelWidth
+270                 ElseIf KeyCode = vbKeyRight Then
+280                     .sX = .sX + .pixelWidth
+290                 End If
+300             End With
+310             Call ProcessLine(Index)
+320         End If
+330     End If
+340 End If
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 txtGrh_KeyUp_Error:
 
@@ -2538,21 +2541,21 @@ End Sub
 
 Sub ProcessTxtsChanges()
 
-      Dim i                           As Long
-      Dim sValue                      As String
+Dim i                           As Long
+Dim sValue                      As String
 
-   On Error GoTo ProcessTxtsChanges_Error
+    On Error GoTo ProcessTxtsChanges_Error
 
-10        If Val(ReadField(2, frmMain.lblGrh.Caption & Val(frmMain.txtNumFrames.Text), Asc("="))) > 0 Then
-20            sValue = Val(frmMain.txtNumFrames.Text) & Separator & Val(frmMain.txtNumPNG.Text) & Separator & Val(frmMain.txtXFrom.Text) & Separator & Val(frmMain.txtYFrom.Text) & Separator & Val(frmMain.txtXTo.Text) & Separator & Val(frmMain.txtYTo.Text)
-30            txtGrh.Text = sValue 'Call ProcessGraphicLineToBin(sValue)
-40        End If
+10  If Val(ReadField(2, frmMain.lblGrh.Caption & Val(frmMain.txtNumFrames.Text), Asc("="))) > 0 Then
+20      sValue = Val(frmMain.txtNumFrames.Text) & Separator & Val(frmMain.txtNumPNG.Text) & Separator & Val(frmMain.txtXFrom.Text) & Separator & Val(frmMain.txtYFrom.Text) & Separator & Val(frmMain.txtXTo.Text) & Separator & Val(frmMain.txtYTo.Text)
+30      txtGrh.Text = sValue    'Call ProcessGraphicLineToBin(sValue)
+40  End If
 
-   On Error GoTo 0
-   Exit Sub
+    On Error GoTo 0
+    Exit Sub
 
 ProcessTxtsChanges_Error:
 
     Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure ProcessTxtsChanges of Formulario frmMain Linea: " & Erl())
-          
+
 End Sub
