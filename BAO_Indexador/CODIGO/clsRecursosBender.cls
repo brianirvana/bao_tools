@@ -217,6 +217,7 @@ End Function
 Public Function LoadGrhData_From_Ini() As Boolean
 
 Dim isError                     As Boolean
+Dim TempFrame                   As Integer
 Dim i                           As Long
 Dim j                           As Long
 Dim Grh                         As Long
@@ -253,19 +254,24 @@ Dim TempError                   As String
 
                 'Read a animation GRH set
                 For j = 1 To .NumFrames
-                    If .Frames(j) <= 0 Or .Frames(j) > grhCount Then
-                        .Frames(j) = 1
+                    TempFrame = Val(ReadField(j + 1, sTmp, 46))
+                    If TempFrame <= 0 Or TempFrame > grhCount Then
+                        .Frames(j) = TempFrame
                         isError = True
                         Call AddText(TempError, "Frame" & j)
+                    Else
+                        .Frames(j) = TempFrame
                     End If
                 Next j
 
-                .speed = Val(ReadField(2, sTmp, 46))
+                .speed = CSng(Val(ReadField(.NumFrames + 2, sTmp, 46)))
 
                 If .speed <= 0 Then
                     .speed = 1
                     isError = True
                     Call AddText(TempError, "Grh: " & Grh & " Speed: " & .speed)
+                Else
+                    .speed = CSng(ReadField(.NumFrames + 2, sTmp, 46))
                 End If
 
                 'Compute width and height
@@ -346,7 +352,7 @@ Dim TempError                   As String
                 .TileWidth = .pixelWidth / 32
                 .TileHeight = .pixelHeight / 32
 
-                .Frames(1) = 1
+                .Frames(1) = i
 
             End If
         End With

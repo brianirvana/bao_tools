@@ -51,7 +51,8 @@ Private fpsLastCheck            As Long
 
 Public Sub LiberarMemoria()
     TexFactory.Clear
-    ReDim TexList(32000) As Long
+    ReDim TextureList(50000) As Long
+    
 End Sub
 
 Public Sub ChangeRenderStyle(ByVal Num As Long)
@@ -159,7 +160,6 @@ Public Function LoadSprite(ByRef SP As Sprite, ByVal GrhIndex As Long)
 60      SP.Create_Static TextureList(FileNum)
 70      SP.Update_Size TexFactory.Get_Tex_Width(TextureList(FileNum)), TexFactory.Get_Tex_Height(TextureList(FileNum))
 
-
 80      Select Case RenderStyle    '<-- Tipo de Render (Estilo 1 y 2)
             Case 0, 2          '<-- Cuando esta en estilo 1
 90              SP.Update_Sprite_Rect CLng(.sX), CLng(.sY), CLng(.sX + .pixelWidth), CLng(.sY + .pixelHeight)
@@ -201,7 +201,7 @@ Public Function LoadSpriteAnimation(ByRef SP As Sprite, ByVal GrhIndex As Long)
 150             SP.AddFrame TextureList(GrhData(.Frames(i)).FileNum)    ', CLng(GrhData(.Frames(i)).pixelWidth), CLng(GrhData(.Frames(i)).pixelHeight), , , CLng(GrhData(.Frames(i)).sX), CLng(GrhData(.Frames(i)).sY), CLng(GrhData(.Frames(i)).sX + GrhData(.Frames(i)).pixelWidth), CLng(GrhData(.Frames(i)).sY + GrhData(.Frames(i)).pixelHeight)
 160             SP.Update_Sprite_Rect CLng(GrhData(.Frames(i)).sX), CLng(GrhData(.Frames(i)).sY), CLng(GrhData(.Frames(i)).sX + GrhData(.Frames(i)).pixelWidth), CLng(GrhData(.Frames(i)).sY + GrhData(.Frames(i)).pixelHeight), i
 170         End If
-            'SP.Update_Size TexFactory.Get_Tex_Width(TexList(FileNum)), TexFactory.Get_Tex_Height(TexList(FileNum)), i
+            'SP.Update_Size TexFactory.Get_Tex_Width(TextureList(FileNum)), TexFactory.Get_Tex_Height(TextureList(FileNum)), i
 180     Next i
 
 190     If .NumFrames = 2 Then
@@ -213,13 +213,13 @@ Public Function LoadSpriteAnimation(ByRef SP As Sprite, ByVal GrhIndex As Long)
 250         End If
 260     End If
 
-        'SP.Create_Static TexList(FileNum)
+        'SP.Create_Static TextureList(FileNum)
 
         '    Select Case RenderStyle '<-- Tipo de Render (Estilo 1 y 2)
         '       Case 0 '<-- Cuando esta en estilo 1
         '           SP.Update_Sprite_Rect CLng(GrhData(.Frames(i)).sX), CLng(GrhData(.Frames(i)).sY), CLng(GrhData(.Frames(i)).sX + GrhData(.Frames(i)).pixelWidth), CLng(GrhData(.Frames(i)).sY + GrhData(.Frames(i)).pixelHeight)
         '       Case 1 '<-- Cuando esta en estilo 2
-        '           SP.Update_Sprite_Rect 0, 0, TexFactory.Get_Tex_Width(TexList(FileNum)), TexFactory.Get_Tex_Height(TexList(FileNum))
+        '           SP.Update_Sprite_Rect 0, 0, TexFactory.Get_Tex_Width(TextureList(FileNum)), TexFactory.Get_Tex_Height(TextureList(FileNum))
         '    End Select
 
 270 End With
@@ -242,7 +242,7 @@ Public Function Initialize()
 
     'Iniciamos las texturas
 20  Set TexFactory = New TextureFactory
-30  ReDim TexList(50000) As Long
+30  ReDim TextureList(50000) As Long
 
 40  Set System = New System
 
