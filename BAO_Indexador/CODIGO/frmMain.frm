@@ -1756,24 +1756,24 @@ End Sub
 Private Sub Command1_Click()
 
 Dim i                           As Long
-Dim j                           As Long
+Dim J                           As Long
 Dim tmpObj                      As Integer
 Dim BodyDatas                   As BodyData
 
     On Error GoTo Command1_Click_Error
 
 10  tmpObj = 1502
-20  j = 1
+20  J = 1
 30  For i = 519 To 685
 40      BodyDatas = BodyData(i)
-50      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NAME", "Skin " & j)
+50      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NAME", "Skin " & J)
 60      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "ObjType", CStr(48))
 70      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALOR", CStr(10000))
 80      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "VALORDONANTE", CStr(2000))
 90      Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "NumRopaje", CStr(i))
 100     Call WriteVar(App.Path & "/OBJ.dat", "OBJ" & tmpObj, "GrhIndex", CStr(GrhData(BodyDatas.Walk(3).GrhIndex).Frames(1) & vbNewLine))
 110     tmpObj = tmpObj + 1
-120     j = j + 1
+120     J = J + 1
 130 Next i
 
     MsgBox "Archivo OBJ.dat finalizado. Ruta: " & App.Path & "/OBJ.dat"

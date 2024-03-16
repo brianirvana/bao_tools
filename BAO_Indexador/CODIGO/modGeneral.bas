@@ -63,6 +63,67 @@ Public AppInit                  As String
 Public AppExpo                  As String
 
 Public Declare Function VarPtrArray Lib "msvbvm60.dll" Alias "VarPtr" (var() As Any) As Long
+Public Declare Function SendMessageString Lib "user32" Alias "SendMessageA" (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, ByVal lParam As String) As Long
+Public Const LB_SETHORIZONTALEXTENT = &H194
+ 
+Public Sub AddHScroll(lst As ListBox)
+'***************************************************************************
+'Purpose: Add a horizontal scrollbar to a listbox. This routine only works
+'         if it is called after the listbox is filled.
+'Inputs:  lst - The listbox
+'Outputs: None
+'***************************************************************************
+ 
+    Dim intIndex As Long
+    Dim lngLength As Long
+    Dim lngWidth As Long
+    
+    'see what the longest entry is
+   On Error GoTo AddHScroll_Error
+
+    For intIndex = 0 To lst.ListCount - 1
+        If Len(lst.List(intIndex)) = Len(lst.List(lngLength)) Then
+            lngLength = intIndex
+        End If
+    Next intIndex
+    
+    'add a little space
+    lngWidth = lst.Parent.TextWidth(lst.List(lngLength) + Space$(5))
+    
+    'Convert to Pixels
+    lngWidth = lngWidth \ Screen.TwipsPerPixelX
+ 
+    'Use api to add scrollbar
+    Call SendMessageString(lst.hWnd, LB_SETHORIZONTALEXTENT, lngWidth, ByVal 0&)
+    
+
+   On Error GoTo 0
+   Exit Sub
+
+AddHScroll_Error:
+
+    Call LogError("Error " & err.Number & " (" & err.Description & ") in procedure AddHScroll of Módulo modGeneral Linea: " & Erl())
+ 
+End Sub
+
+Public Sub AddItem(ByVal pstrText As String)
+Dim lngIndex    As Long
+Dim strTemp     As String
+
+    If Printer.TextWidth(pstrText) > frmMain.lstGraphics.Width Then
+        For lngIndex = 1 To Len(pstrText)
+            If Printer.TextWidth(strTemp & Mid$(pstrText, lngIndex, 1) & "...") > frmMain.lstGraphics.Width Then
+                Exit For
+            Else
+                strTemp = strTemp & Mid$(pstrText, lngIndex, 1)
+            End If
+        Next lngIndex
+        strTemp = Trim$(strTemp) & "..."
+    Else
+        strTemp = pstrText
+    End If
+    frmMain.lstGraphics.AddItem strTemp
+End Sub
 
 'Primera funcion que se ejecuta cuando iniciamos el programa
 Sub Main()
@@ -215,16 +276,16 @@ End Function
 
 Public Function EraseArray(ByRef ElArray() As Long)
 
-Dim Max                         As Long
+Dim max                         As Long
 Dim min                         As Long
 Dim i                           As Long
 
     On Error GoTo EraseArray_Error
 
-10  Max = UBound(ElArray)
+10  max = UBound(ElArray)
 20  min = LBound(ElArray)
 
-30  For i = min To Max
+30  For i = min To max
 40      ElArray(i) = 0
 50  Next i
 

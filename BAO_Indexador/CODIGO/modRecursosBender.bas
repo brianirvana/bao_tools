@@ -137,6 +137,8 @@ Dim IsVisible                   As Boolean
 
 190 frmMain.lstGraphics.AddItem "Resize"
 
+    Call modGeneral.AddHScroll(frmMain.lstGraphics)
+
     '    frmMain.cmbArmas.AddItem "0"
     '    frmMain.cmbCabezas.AddItem "0"
     '    frmMain.cmbCascos.AddItem "0"
