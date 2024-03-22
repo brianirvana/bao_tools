@@ -1,0 +1,168 @@
+Grhs ambientación BenderAO.
+
+Dats números.Grhs
+
+26742
+26743
+26744
+26745
+26746
+26747 ||||||||||| Llaves de cofres (26742 A 26755) NUMERO DE GRAFICOS (14925 A 14936)
+26748
+26749
+26750
+26751
+26752
+26753
+26754
+26755
+.....................................
+
+Guardias Empalados.
+27268
+27269
+27270
+27271 >>>>>>>> (27268 A 27273) (14999 A 15004) Gráficos)
+27272
+27273 
+
+Estatuas.
+
+27274
+27275
+27276
+27276
+27277>>>>>> (27274 A 27281) (GRAFICO UNICO 14993 CON TODAS LAS ANIMACIONES) Todo en 1.
+27278
+27279
+27280
+27281
+
+Taberna y horca.
+
+27282 (15009)
+27283 (15009) Numero de gráfico todo en 1.
+
+Estandarte armada real.
+
+27284 (Gráfico 14995)
+
+Puestos mercader.
+
+27291
+27292 (Gráfico 15007)
+
+Npcs Misiones.
+
+27293 (15007)
+27304
+27305
+27306 >>>>> (Gráfico todo en uno 14994)
+27307
+27308 (Elfas sentada)  15008
+27309 (Humana sentada) 15008
+28547 28548 (Guardias fijos) 15282
+28859 a 28862 (Campesinos) 15302
+
+
+
+Ambientación nevada.
+
+27294
+27295
+27296
+27297
+27298>>>>>>> (Gráfico todo en uno 14992)
+27299
+27300
+27301
+27302
+27303
+
+Ambientación en general (cuadros, plantas, random)
+
+27310
+27311
+27312
+27313
+27314 >>>>>> (Gráfico todo en uno 15008)
+27315
+27316
+27318
+27319
+27320
+
+Cuadros y sillones.
+
+27321
+27322
+27323
+27324
+27325
+27326
+27327
+27328 >>>>>> Cuadros, estatus y decoración ( Gráfico uno 15010)
+27329
+27330
+27331
+27332
+27333
+27334
+27335
+
+Teleport lila exclusivo.
+
+Animación 27596 (gráfico 15076)
+
+Arboles.
+
+27872>>>15146
+28128 al 28150 (Conjunto de muchos arboles) Gráficos 15185 y 15184.
+28170 a 28177 (Otro conjunto más) 15204 único gráfico.
+29743 a 29754 (Arboles multicolores para alquimia) Gráfico desde el 15397 a 15408.
+
+
+
+Barco hundido.
+
+27873
+27874
+27875 (Gráfico único 15147) Los 3 en 1 están.
+
+Antorchas animadas
+
+28490 a 28493
+28494 a 28499 (Animaciones 28500 y 28501) 15239 gráfico.
+
+Bandera argentina AO.
+
+28502 A 28509 (Animación 28510) Gráfico 15240.
+
+Fuente de agua.
+
+28511 a 28517 (28518 animación) 15254 gráfico.
+
+Cofres y llaves + Gráfico 15300
+
+28795 a 28801 (Cofres) 
+28802 a 28808 (Llaves) 
+
+28809 y 28810 Dos cofres diferentes. 15300 Gráfico
+
+28812 a 28817 3 cofres y 3 llaves (15301)
+
+Decoración taberna.
+
+28818 a 28826 (Gráfico 15286)
+
+Cofres premium.
+
+28835 a 28853 (Gráfico 15299)
+
+
+
+
+
+
+
+
