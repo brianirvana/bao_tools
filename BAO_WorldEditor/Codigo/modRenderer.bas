@@ -614,7 +614,7 @@ Dim dX                          As Integer
     End If
     ScreenY = 0
     For Y = YMinMapSize2 To YMaxMapsize2
-        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+        'frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
         'DoEvents
         ScreenX = 0
         For X = XMinMapSize2 To XMaxMapSize2
@@ -704,7 +704,7 @@ Dim dX                          As Integer
     ScreenY = 0
     For Y = YMinMapSize2 To YMaxMapsize2
         ScreenX = 0
-        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+        'frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
         'DoEvents
         For X = XMinMapSize2 To XMaxMapSize2
             If InMapBounds(X, Y) Then
@@ -751,7 +751,7 @@ Dim dX                          As Integer
     ScreenY = 0
     For Y = YMinMapSize2 To YMaxMapsize2
         ScreenX = 0
-        frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
+        'frmRenderer.Caption = "Render " & YMinMapSize2 & "/" & YMaxMapsize2 & " " & Round(Y / (YMaxMapsize2 / 100)) & "%"
         'DoEvents
         For X = YMinMapSize2 To XMaxMapSize2
             If X < XMaxMapSize2 + 1 And X > XMinMapSize2 - 1 And Y < YMaxMapsize2 + 1 And Y > YMinMapSize2 + 1 Then    ' 30/05/2006
@@ -793,7 +793,7 @@ Dim dX                          As Integer
     frmRenderer.Picture1.Picture = frmRenderer.Picture1.Image
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-    frmRenderer.Caption = "Dibujando Render... 99%"
+    'frmRenderer.Caption = "Dibujando Render... 99%"
     'DoEvents
     Sleep 1
     ''''''''''''''''''''''''''''''''''''''''''''''''''''''''

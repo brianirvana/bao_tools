@@ -1,4 +1,4 @@
-frmMain = 100, 100, 1377, 763, Z, 25, 25, 1181, 491, C
+frmMain = 100, 100, 1377, 763, , 25, 25, 1181, 491, C
 modGeneral = 150, 150, 1427, 813, C
 modDeclaraciones = 300, 300, 695, 948, C
 modDirectDraw = 175, 175, 1452, 838, C
@@ -26,7 +26,7 @@ clsSurfaceManStatic = 275, 275, 1210, 922, C
 frmAbout = 0, 0, 0, 0, C, 125, 125, 1227, 573, C
 frmOptimizar = 275, 275, 670, 923, C, 150, 150, 1252, 598, C
 frmRenderer = 50, 50, 985, 697, C, 175, 175, 1277, 623, C
-modRenderer = 200, 200, 1477, 863, C
+modRenderer = 200, 200, 1477, 863, Z
 cDIBSection = 0, 0, 1369, 601, C
 frmGRHaBMP = 0, 0, 0, 0, C, 200, 200, 1302, 648, C
 frmDibujarMapa = 175, 175, 1110, 822, C, 0, 0, 1102, 448, C

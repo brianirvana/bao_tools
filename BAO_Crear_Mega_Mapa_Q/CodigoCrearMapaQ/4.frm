@@ -104,7 +104,7 @@ Dim C                           As cDIBSection
 
     If bMap = 0 Then bMap = 1
 
-    Escala = 10
+    Escala = 1
     EscalaMiniMapa = 15.8
     EscalaMiniMapaWE = 178
     EscalaMapaQ = 33.35
