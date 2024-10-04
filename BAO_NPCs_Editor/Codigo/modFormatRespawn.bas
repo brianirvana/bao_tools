@@ -259,37 +259,44 @@ Dim k                           As Long
 450                 End If
 460                 If NpcList(.ID).Invent.Object(k).ObjIndex > 0 Then
 470                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Invent.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Invent.Object(k).ObjIndex) & " (100%)"
-480                 End If
-490             Next k
+480                 Else
+490                     MsgBox "El NPC " & NpcList(.ID).Name & " Tiene mal dateado (en NroItems) el  OBJ: " & k
+500                 End If
+510             Next k
 
-500             For k = 1 To NpcList(.ID).Drop.NroItems
-510                 If Len(FormatRespawn(j).Drop) Then
-520                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
-530                 End If
-540                 FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Drop.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Drop.Object(k).ObjIndex) & " (" & CStr(NpcList(.ID).Drop.Object(k).ProbTirar / 10) & "%)"
-550             Next k
+520             For k = 1 To NpcList(.ID).Drop.NroItems
+530                 If Len(FormatRespawn(j).Drop) Then
+540                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
+550                 End If
 
-560             If Len(FormatRespawn(j).Drop) = 0 Then
-570                 FormatRespawn(j).Drop = "Nada"
-580             End If
+560                 If NpcList(.ID).Drop.Object(k).ObjIndex > 0 Then
+570                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Drop.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Drop.Object(k).ObjIndex) & " (" & CStr(NpcList(.ID).Drop.Object(k).ProbTirar / 10) & "%)"
+580                 Else
+590                     MsgBox "El NPC " & NpcList(.ID).Name & " Tiene mal dateado (en NroDrops) el OBJ: " & k
+600                 End If
+610             Next k
+
+620             If Len(FormatRespawn(j).Drop) = 0 Then
+630                 FormatRespawn(j).Drop = "Nada"
+640             End If
 
                 '                FormatRespawn(j).MinHit = NpcList(.ID).STATS.MinHit
                 '                FormatRespawn(j).MaxHit = NpcList(.ID).STATS.MaxHit
                 '                FormatRespawn(j).TiempoRespawn = NPCRespawn(j).RespawnTime '[/About] A verga
-590         End If
-600     End With
-610 Next i
+650         End If
+660     End With
+670 Next i
 
     'frmMain.Text.Text = ""
     'For i = 0 To NumFormatRespawn - 1
     '    frmMain.Text.Text = frmMain.Text.Text & FormatRespawn(i).Nombre & " - " & FormatRespawn(i).Nivel & vbCrLf
     'Next i
 
-620 On Error GoTo 0
-630 Exit Sub
+680 On Error GoTo 0
+690 Exit Sub
 
 ProcessFormat_Error:
 
-640 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure ProcessFormat of Módulo modFormatRespawn Linea: " & Erl())
+700 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure ProcessFormat of Módulo modFormatRespawn Linea: " & Erl())
 
 End Sub

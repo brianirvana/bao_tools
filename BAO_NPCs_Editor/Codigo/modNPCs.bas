@@ -478,201 +478,204 @@ End Sub
 
 Function OpenNPC(ByVal NpcNumber As Integer, Optional ByVal Respawn = True) As Integer
 
-    '###################################################
-    '#               ATENCION PELIGRO                  #
-    '###################################################
-    '
-    'El que ose desafiar esta LEY, se las tendrá que ver
-    'conmigo. Para leer los NPCS se deberá usar la
-    'nueva clase clsIniReader.
-    '
-    'Alejo
-    '
-    '###################################################
+'###################################################
+'#               ATENCION PELIGRO                  #
+'###################################################
+'
+'El que ose desafiar esta LEY, se las tendrá que ver
+'conmigo. Para leer los NPCS se deberá usar la
+'nueva clase clsIniReader.
+'
+'Alejo
+'
+'###################################################
 
 Dim NpcIndex                    As Integer
 Dim Leer                        As clsIniReader
 Dim TempTick                    As Long
-    On Error GoTo OpenNPC_Error
+10  On Error GoTo OpenNPC_Error
 
-10  TempTick = GetTickCount And &H7FFFFFFF
+20  TempTick = GetTickCount And &H7FFFFFFF
 
-20  Set Leer = LeerNPCs
+30  Set Leer = LeerNPCs
 
 
     'If requested index is invalid, abort
-30  If Not Leer.KeyExists("NPC" & NpcNumber) Then
-40      OpenNPC = 0
-50      Exit Function
-60  End If
+40  If Not Leer.KeyExists("NPC" & NpcNumber) Then
+50      OpenNPC = 0
+60      Exit Function
+70  End If
 
-70  NpcIndex = NpcNumber
+80  NpcIndex = NpcNumber
 
-80  NpcList(NpcIndex).TimerAI = TempTick + Rnd * 500
-90  NpcList(NpcIndex).PasosSound = Val(Leer.GetValue("NPC" & NpcNumber, "SND4"))
-100 NpcList(NpcIndex).PuedeRobar = Val(Leer.GetValue("NPC" & NpcNumber, "PuedeRobar"))
-110 NpcList(NpcIndex).Velocity = Val(Leer.GetValue("NPC" & NpcNumber, "Velocity"))
-120 NpcList(NpcIndex).Quest.Quest = Val(Leer.GetValue("NPC" & NpcNumber, "Quest"))
+90  With NpcList(NpcIndex)
 
-130 If NpcList(NpcIndex).Quest.Quest <> 0 Then
-140     NpcList(NpcIndex).Quest.ReDoo = Leer.GetValue("NPC" & NpcNumber, "ReDo")
-150     NpcList(NpcIndex).Quest.OroDa = Val(Leer.GetValue("NPC" & NpcNumber, "OroDa"))
-160     NpcList(NpcIndex).Quest.OroPide = Val(Leer.GetValue("NPC" & NpcNumber, "OroPide"))
-170     NpcList(NpcIndex).Quest.ExpDa = Val(Leer.GetValue("NPC" & NpcNumber, "ExpDa"))
-180     NpcList(NpcIndex).Quest.CantPide = Val(Leer.GetValue("NPC" & NpcNumber, "CantPide"))
-190     NpcList(NpcIndex).Quest.CantDa = Val(Leer.GetValue("NPC" & NpcNumber, "CantDa"))
-        Dim j                   As Byte
-200     If NpcList(NpcIndex).Quest.CantPide <> 0 Then
-210         ReDim NpcList(NpcIndex).Quest.ItemPide(1 To NpcList(NpcIndex).Quest.CantPide)
-220         For j = 1 To NpcList(NpcIndex).Quest.CantPide
-230             NpcList(NpcIndex).Quest.ItemPide(j).ObjIndex = Val(ReadField(1, Leer.GetValue("NPC" & NpcNumber, "PideOBJ" & j), Asc("-")))
-240             NpcList(NpcIndex).Quest.ItemPide(j).Amount = Val(ReadField(2, Leer.GetValue("NPC" & NpcNumber, "PideOBJ" & j), Asc("-")))
-250         Next j
-260     End If
-270     If NpcList(NpcIndex).Quest.CantDa <> 0 Then
-280         ReDim NpcList(NpcIndex).Quest.ItemDa(1 To NpcList(NpcIndex).Quest.CantDa)
-290         For j = 1 To NpcList(NpcIndex).Quest.CantDa
-300             NpcList(NpcIndex).Quest.ItemDa(j).ObjIndex = Val(ReadField(1, Leer.GetValue("NPC" & NpcNumber, "DaOBJ" & j), Asc("-")))
-310             NpcList(NpcIndex).Quest.ItemDa(j).Amount = Val(ReadField(2, Leer.GetValue("NPC" & NpcNumber, "DaOBJ" & j), Asc("-")))
-320         Next j
-330     End If
-340 End If
+100     .TimerAI = TempTick + Rnd * 500
+110     .PasosSound = Val(Leer.GetValue("NPC" & NpcNumber, "SND4"))
+120     .PuedeRobar = Val(Leer.GetValue("NPC" & NpcNumber, "PuedeRobar"))
+130     .Velocity = Val(Leer.GetValue("NPC" & NpcNumber, "Velocity"))
+140     .Quest.Quest = Val(Leer.GetValue("NPC" & NpcNumber, "Quest"))
 
-350 NpcList(NpcIndex).flags.Atravesable = Val(Leer.GetValue("NPC" & NpcNumber, "Atravesable"))
-360 NpcList(NpcIndex).Velocity = Val(Leer.GetValue("NPC" & NpcNumber, "Velocity"))
+        '130 If .Quest.Quest <> 0 Then
+        '140     .Quest.ReDoo = Leer.GetValue("NPC" & NpcNumber, "ReDo")
+        '150     .Quest.OroDa = Val(Leer.GetValue("NPC" & NpcNumber, "OroDa"))
+        '160     .Quest.OroPide = Val(Leer.GetValue("NPC" & NpcNumber, "OroPide"))
+        '170     .Quest.ExpDa = Val(Leer.GetValue("NPC" & NpcNumber, "ExpDa"))
+        '180     .Quest.CantPide = Val(Leer.GetValue("NPC" & NpcNumber, "CantPide"))
+        '190     .Quest.CantDa = Val(Leer.GetValue("NPC" & NpcNumber, "CantDa"))
+        '        Dim j                   As Byte
+        '200     If .Quest.CantPide <> 0 Then
+        '210         ReDim .Quest.ItemPide(1 To .Quest.CantPide)
+        '220         For j = 1 To .Quest.CantPide
+        '230             .Quest.ItemPide(j).ObjIndex = Val(ReadField(1, Leer.GetValue("NPC" & NpcNumber, "PideOBJ" & j), Asc("-")))
+        '240             .Quest.ItemPide(j).Amount = Val(ReadField(2, Leer.GetValue("NPC" & NpcNumber, "PideOBJ" & j), Asc("-")))
+        '250         Next j
+        '260     End If
+        '270     If .Quest.CantDa <> 0 Then
+        '280         ReDim .Quest.ItemDa(1 To .Quest.CantDa)
+        '290         For j = 1 To .Quest.CantDa
+        '300             .Quest.ItemDa(j).ObjIndex = Val(ReadField(1, Leer.GetValue("NPC" & NpcNumber, "DaOBJ" & j), Asc("-")))
+        '310             .Quest.ItemDa(j).Amount = Val(ReadField(2, Leer.GetValue("NPC" & NpcNumber, "DaOBJ" & j), Asc("-")))
+        '320         Next j
+        '330     End If
+        '340 End If
 
-370 If NpcList(NpcIndex).Velocity = 0 Then NpcList(NpcIndex).Velocity = 400    'Velocidad Defeult
+150     .flags.Atravesable = Val(Leer.GetValue("NPC" & NpcNumber, "Atravesable"))
+160     .Velocity = Val(Leer.GetValue("NPC" & NpcNumber, "Velocity"))
 
-380 NpcList(NpcIndex).TimerGolpe = TempTick + Rnd * 120
-390 NpcList(NpcIndex).GolpeTimer = Val(Leer.GetValue("NPC" & NpcNumber, "GolpeTimer"))
-400 NpcList(NpcIndex).TiempoInvocacion = Val(Leer.GetValue("NPC" & NpcNumber, "TiempoInvocacion"))
-410 NpcList(NpcIndex).MaxMascotas = Val(Leer.GetValue("NPC" & NpcNumber, "MaxMascotas"))
+170     If .Velocity = 0 Then .Velocity = 400    'Velocidad Defeult
 
-420 If NpcList(NpcIndex).MaxMascotas = 0 Then NpcList(NpcIndex).MaxMascotas = 1
-430 ReDim NpcList(NpcIndex).ListMascotas(1 To NpcList(NpcIndex).MaxMascotas) As Integer
+180     .TimerGolpe = TempTick + Rnd * 120
+190     .GolpeTimer = Val(Leer.GetValue("NPC" & NpcNumber, "GolpeTimer"))
+200     .TiempoInvocacion = Val(Leer.GetValue("NPC" & NpcNumber, "TiempoInvocacion"))
+210     .MaxMascotas = Val(Leer.GetValue("NPC" & NpcNumber, "MaxMascotas"))
 
-440 NpcList(NpcIndex).invisible = Val(Leer.GetValue("NPC" & NpcNumber, "Invisible"))
-450 If NpcList(NpcIndex).GolpeTimer = 0 Then NpcList(NpcIndex).GolpeTimer = 1700    'Timer de Golpe para NPC's
+220     If .MaxMascotas = 0 Then .MaxMascotas = 1
+230     ReDim .ListMascotas(1 To .MaxMascotas) As Integer
 
-460 NpcList(NpcIndex).RangoVision = Val(Leer.GetValue("NPC" & NpcNumber, "RangoVision"))    '[MODIFICADO] Rango de vision para sacerdotes - 25/2/10 MaTeO
-470 NpcList(NpcIndex).ID = NpcNumber
-480 NpcList(NpcIndex).Name = Leer.GetValue("NPC" & NpcNumber, "Name")
-490 NpcList(NpcIndex).desc = Leer.GetValue("NPC" & NpcNumber, "Desc")
-500 NpcList(NpcIndex).desc1 = Leer.GetValue("NPC" & NpcNumber, "Desc1")
-510 NpcList(NpcIndex).desc2 = Leer.GetValue("NPC" & NpcNumber, "Desc2")
-520 NpcList(NpcIndex).flags.AguaValida = Val(Leer.GetValue("NPC" & NpcNumber, "AguaValida"))
-530 NpcList(NpcIndex).flags.TierraInvalida = Val(Leer.GetValue("NPC" & NpcNumber, "TierraInValida"))
-540 NpcList(NpcIndex).flags.Faccion = Val(Leer.GetValue("NPC" & NpcNumber, "Faccion"))
-550 NpcList(NpcIndex).NPCtype = Val(Leer.GetValue("NPC" & NpcNumber, "NpcType"))
+240     .invisible = Val(Leer.GetValue("NPC" & NpcNumber, "Invisible"))
+250     If .GolpeTimer = 0 Then .GolpeTimer = 1700    'Timer de Golpe para NPC's
 
-    #If AutoDuelos = 1 Then
-560     If NpcList(NpcIndex).NPCtype = eNPCType.Duelo1vs1 Then
-570         NpcIndex1vs1 = NpcIndex
-580     ElseIf NpcList(NpcIndex).NPCtype = eNPCType.Duelo2vs2 Then
-590         NpcIndex2vs2 = NpcIndex
-600     End If
-    #End If
+260     .RangoVision = Val(Leer.GetValue("NPC" & NpcNumber, "RangoVision"))    '[MODIFICADO] Rango de vision para sacerdotes - 25/2/10 MaTeO
+270     .ID = NpcNumber
+280     .Name = Leer.GetValue("NPC" & NpcNumber, "Name")
+290     .desc = Leer.GetValue("NPC" & NpcNumber, "Desc")
+300     .desc1 = Leer.GetValue("NPC" & NpcNumber, "Desc1")
+310     .desc2 = Leer.GetValue("NPC" & NpcNumber, "Desc2")
+320     .flags.AguaValida = Val(Leer.GetValue("NPC" & NpcNumber, "AguaValida"))
+330     .flags.TierraInvalida = Val(Leer.GetValue("NPC" & NpcNumber, "TierraInValida"))
+340     .flags.Faccion = Val(Leer.GetValue("NPC" & NpcNumber, "Faccion"))
+350     .NPCtype = Val(Leer.GetValue("NPC" & NpcNumber, "NpcType"))
 
-610 NpcList(NpcIndex).Char.body = Val(Leer.GetValue("NPC" & NpcNumber, "Body"))
-620 NpcList(NpcIndex).Char.Head = Val(Leer.GetValue("NPC" & NpcNumber, "Head"))
-630 NpcList(NpcIndex).Char.ShieldAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Escudo"))
-640 NpcList(NpcIndex).Char.WeaponAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Arma"))
-650 NpcList(NpcIndex).Char.CascoAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Casco"))
-660 If NpcList(NpcIndex).Char.CascoAnim = 0 Then NpcList(NpcIndex).Char.CascoAnim = 2
-670 If NpcList(NpcIndex).Char.WeaponAnim = 0 Then NpcList(NpcIndex).Char.WeaponAnim = 2
-680 If NpcList(NpcIndex).Char.ShieldAnim = 0 Then NpcList(NpcIndex).Char.ShieldAnim = 2
-690 NpcList(NpcIndex).Char.heading = Val(Leer.GetValue("NPC" & NpcNumber, "Heading"))
-700 NpcList(NpcIndex).Attackable = Val(Leer.GetValue("NPC" & NpcNumber, "Attackable"))
-710 NpcList(NpcIndex).Comercia = Val(Leer.GetValue("NPC" & NpcNumber, "Comercia"))
-720 NpcList(NpcIndex).Hostile = Val(Leer.GetValue("NPC" & NpcNumber, "Hostile"))
-730 NpcList(NpcIndex).flags.OldHostil = NpcList(NpcIndex).Hostile
-740 NpcList(NpcIndex).NpcLvl = Val(Leer.GetValue("NPC" & NpcNumber, "NpcLvl"))    '[/About] 28-12-12
-750 NpcList(NpcIndex).GiveEXP = Val(Leer.GetValue("NPC" & NpcNumber, "GiveEXP"))
-760 NpcList(NpcIndex).flags.ExpCount = NpcList(NpcIndex).GiveEXP
-770 NpcList(NpcIndex).Veneno = Val(Leer.GetValue("NPC" & NpcNumber, "Veneno"))
-780 NpcList(NpcIndex).flags.Domable = Val(Leer.GetValue("NPC" & NpcNumber, "Domable"))
-790 NpcList(NpcIndex).GiveGLD = Val(Leer.GetValue("NPC" & NpcNumber, "GiveGLD"))    '[/About] Oro por 10
-800 NpcList(NpcIndex).PoderAtaque = Val(Leer.GetValue("NPC" & NpcNumber, "PoderAtaque"))
-810 NpcList(NpcIndex).PoderEvasion = Val(Leer.GetValue("NPC" & NpcNumber, "PoderEvasion"))
-820 NpcList(NpcIndex).InvReSpawn = Val(Leer.GetValue("NPC" & NpcNumber, "InvReSpawn"))
-830 NpcList(NpcIndex).STATS.MaxHP = Val(Leer.GetValue("NPC" & NpcNumber, "MaxHP"))
-840 NpcList(NpcIndex).STATS.MinHP = Val(Leer.GetValue("NPC" & NpcNumber, "MinHP"))
-850 NpcList(NpcIndex).STATS.MaxHit = Val(Leer.GetValue("NPC" & NpcNumber, "MaxHIT"))
-860 NpcList(NpcIndex).STATS.MinHit = Val(Leer.GetValue("NPC" & NpcNumber, "MinHIT"))
-870 NpcList(NpcIndex).STATS.def = Val(Leer.GetValue("NPC" & NpcNumber, "DEF"))
-880 NpcList(NpcIndex).STATS.defM = Val(Leer.GetValue("NPC" & NpcNumber, "DEFm"))
-890 NpcList(NpcIndex).STATS.Alineacion = Val(Leer.GetValue("NPC" & NpcNumber, "Alineacion"))
+        #If AutoDuelos = 1 Then
+360         If .NPCtype = eNPCType.Duelo1vs1 Then
+370             NpcIndex1vs1 = NpcIndex
+380         ElseIf .NPCtype = eNPCType.Duelo2vs2 Then
+390             NpcIndex2vs2 = NpcIndex
+400         End If
+        #End If
 
-    Dim LoopC                   As Integer
-    Dim ln                      As String
+410     .Char.body = Val(Leer.GetValue("NPC" & NpcNumber, "Body"))
+420     .Char.Head = Val(Leer.GetValue("NPC" & NpcNumber, "Head"))
+430     .Char.ShieldAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Escudo"))
+440     .Char.WeaponAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Arma"))
+450     .Char.CascoAnim = Val(Leer.GetValue("NPC" & NpcNumber, "Casco"))
+460     If .Char.CascoAnim = 0 Then .Char.CascoAnim = 2
+470     If .Char.WeaponAnim = 0 Then .Char.WeaponAnim = 2
+480     If .Char.ShieldAnim = 0 Then .Char.ShieldAnim = 2
+490     .Char.heading = Val(Leer.GetValue("NPC" & NpcNumber, "Heading"))
+500     .Attackable = Val(Leer.GetValue("NPC" & NpcNumber, "Attackable"))
+510     .Comercia = Val(Leer.GetValue("NPC" & NpcNumber, "Comercia"))
+520     .Hostile = Val(Leer.GetValue("NPC" & NpcNumber, "Hostile"))
+530     .flags.OldHostil = .Hostile
+540     .NpcLvl = Val(Leer.GetValue("NPC" & NpcNumber, "NpcLvl"))    '[/About] 28-12-12
+550     .GiveEXP = Val(Leer.GetValue("NPC" & NpcNumber, "GiveEXP"))
+560     .flags.ExpCount = .GiveEXP
+570     .Veneno = Val(Leer.GetValue("NPC" & NpcNumber, "Veneno"))
+580     .flags.Domable = Val(Leer.GetValue("NPC" & NpcNumber, "Domable"))
+590     .GiveGLD = Val(Leer.GetValue("NPC" & NpcNumber, "GiveGLD"))    '[/About] Oro por 10
+600     .PoderAtaque = Val(Leer.GetValue("NPC" & NpcNumber, "PoderAtaque"))
+610     .PoderEvasion = Val(Leer.GetValue("NPC" & NpcNumber, "PoderEvasion"))
+620     .InvReSpawn = Val(Leer.GetValue("NPC" & NpcNumber, "InvReSpawn"))
+630     .STATS.MaxHP = Val(Leer.GetValue("NPC" & NpcNumber, "MaxHP"))
+640     .STATS.MinHP = Val(Leer.GetValue("NPC" & NpcNumber, "MinHP"))
+650     .STATS.MaxHit = Val(Leer.GetValue("NPC" & NpcNumber, "MaxHIT"))
+660     .STATS.MinHit = Val(Leer.GetValue("NPC" & NpcNumber, "MinHIT"))
+670     .STATS.def = Val(Leer.GetValue("NPC" & NpcNumber, "DEF"))
+680     .STATS.defM = Val(Leer.GetValue("NPC" & NpcNumber, "DEFm"))
+690     .STATS.Alineacion = Val(Leer.GetValue("NPC" & NpcNumber, "Alineacion"))
 
-900 NpcList(NpcIndex).Invent.NroItems = Val(Leer.GetValue("NPC" & NpcNumber, "NROITEMS"))
+        Dim LoopC               As Integer
+        Dim ln                  As String
 
-910 For LoopC = 1 To NpcList(NpcIndex).Invent.NroItems
-920     ln = Leer.GetValue("NPC" & NpcNumber, "Obj" & LoopC)
-930     NpcList(NpcIndex).Invent.Object(LoopC).ObjIndex = Val(ReadField(1, ln, 45))
-940     NpcList(NpcIndex).Invent.Object(LoopC).Amount = Val(ReadField(2, ln, 45))
-950 Next LoopC
+700     .Invent.NroItems = Val(Leer.GetValue("NPC" & NpcNumber, "NROITEMS"))
 
-960 NpcList(NpcIndex).Drop.NroItems = Val(Leer.GetValue("NPC" & NpcNumber, "NRODROP"))
+710     For LoopC = 1 To .Invent.NroItems
+720         ln = Leer.GetValue("NPC" & NpcNumber, "Obj" & LoopC)
+730         .Invent.Object(LoopC).ObjIndex = Val(ReadField(1, ln, 45))
+740         .Invent.Object(LoopC).Amount = Val(ReadField(2, ln, 45))
+750     Next LoopC
 
-970 For LoopC = 1 To NpcList(NpcIndex).Drop.NroItems
-980     ln = Leer.GetValue("NPC" & NpcNumber, "Drop" & LoopC)
-990     NpcList(NpcIndex).Drop.Object(LoopC).ObjIndex = Val(ReadField(1, ln, 45))
-1000    NpcList(NpcIndex).Drop.Object(LoopC).Amount = Val(ReadField(2, ln, 45))
-1010    NpcList(NpcIndex).Drop.Object(LoopC).ProbTirar = Val(ReadField(3, ln, 45))
-1020 Next LoopC
+760     .Drop.NroItems = Val(Leer.GetValue("NPC" & NpcNumber, "NRODROP"))
 
-1030 NpcList(NpcIndex).flags.LanzaSpells = Val(Leer.GetValue("NPC" & NpcNumber, "LanzaSpells"))
+770     For LoopC = 1 To .Drop.NroItems
+780         ln = Leer.GetValue("NPC" & NpcNumber, "Drop" & LoopC)
+790         .Drop.Object(LoopC).ObjIndex = Val(ReadField(1, ln, 45))
+800         .Drop.Object(LoopC).Amount = Val(ReadField(2, ln, 45))
+810         .Drop.Object(LoopC).ProbTirar = Val(ReadField(3, ln, 45))
+820     Next LoopC
 
-1040 If NpcList(NpcIndex).flags.LanzaSpells > 0 Then ReDim NpcList(NpcIndex).Spells(1 To NpcList(NpcIndex).flags.LanzaSpells)
-1050 For LoopC = 1 To NpcList(NpcIndex).flags.LanzaSpells
-1060    NpcList(NpcIndex).Spells(LoopC) = Val(Leer.GetValue("NPC" & NpcNumber, "Sp" & LoopC))
-        'If NpcList(NpcIndex).Spells(LoopC) = 0 Then Call MsgBox("¡¡ERROR EN EL NPC NUMERO " & NpcNumber & " TIENE UN HECHIZO INVALIDO REVISAR LOS HECHIZOS DEL NPC!!!")
-1070 Next LoopC
+830     .flags.LanzaSpells = Val(Leer.GetValue("NPC" & NpcNumber, "LanzaSpells"))
 
-1080 NpcList(NpcIndex).flags.NPCActive = True
-1090 NpcList(NpcIndex).flags.UseAINow = False
-1100 NpcList(NpcIndex).flags.Respawn = 0
-1110 NpcList(NpcIndex).flags.Backup = Val(Leer.GetValue("NPC" & NpcNumber, "BackUp"))
-1120 NpcList(NpcIndex).flags.RespawnOrigPos = Val(Leer.GetValue("NPC" & NpcNumber, "OrigPos"))
-1130 NpcList(NpcIndex).flags.AfectaBender = Val(Leer.GetValue("NPC" & NpcNumber, "AfectaBender"))    '[/About] AfectaBender
-1140 NpcList(NpcIndex).flags.RemueveInvisibilidad = Val(Leer.GetValue("NPC" & NpcNumber, "RemueveInvisibilidad"))    '[/MaTeO] RemueveInvisibilidad ^^
-1150 NpcList(NpcIndex).flags.Equipo = Val(Leer.GetValue("NPC" & NpcNumber, "Equipo"))    '[/MaTeO] RemueveInvisibilidad ^^
-1160 NpcList(NpcIndex).flags.ShowName = Val(Leer.GetValue("NPC" & NpcNumber, "ShowName"))    '[/MaTeO] Muestra el nombre ^^
-1170 NpcList(NpcIndex).flags.priv = Val(Leer.GetValue("NPC" & NpcNumber, "Priv"))    '[/MaTeO] Privilegios para el color ^^
-1180 NpcList(NpcIndex).flags.AfectaParalisis = Val(Leer.GetValue("NPC" & NpcNumber, "AfectaParalisis"))
-1190 NpcList(NpcIndex).flags.GolpeExacto = Val(Leer.GetValue("NPC" & NpcNumber, "GolpeExacto"))
-1200 NpcList(NpcIndex).flags.Snd1 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd1"))
-1210 NpcList(NpcIndex).flags.Snd2 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd2"))
-1220 NpcList(NpcIndex).flags.Snd3 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd3"))
+840     If .flags.LanzaSpells > 0 Then ReDim .Spells(1 To .flags.LanzaSpells)
+850     For LoopC = 1 To .flags.LanzaSpells
+860         .Spells(LoopC) = Val(Leer.GetValue("NPC" & NpcNumber, "Sp" & LoopC))
+            'If .Spells(LoopC) = 0 Then Call MsgBox("¡¡ERROR EN EL NPC NUMERO " & NpcNumber & " TIENE UN HECHIZO INVALIDO REVISAR LOS HECHIZOS DEL NPC!!!")
+870     Next LoopC
 
-    '<<<<<<<<<<<<<< Expresiones >>>>>>>>>>>>>>>>
-    Dim aux                     As String
-1230 aux = Leer.GetValue("NPC" & NpcNumber, "NROEXP")
-1240 If LenB(aux) = 0 Then
-1250    NpcList(NpcIndex).NroExpresiones = 0
-1260 Else
-1270    NpcList(NpcIndex).NroExpresiones = Val(aux)
-1280    ReDim NpcList(NpcIndex).Expresiones(1 To NpcList(NpcIndex).NroExpresiones) As String
-1290    For LoopC = 1 To NpcList(NpcIndex).NroExpresiones
-1300        NpcList(NpcIndex).Expresiones(LoopC) = Leer.GetValue("NPC" & NpcNumber, "Exp" & LoopC)
-1310    Next LoopC
-1320 End If
-    '<<<<<<<<<<<<<< Expresiones >>>>>>>>>>>>>>>>
+880     .flags.NPCActive = True
+890     .flags.UseAINow = False
+900     .flags.Respawn = 0
+910     .flags.Backup = Val(Leer.GetValue("NPC" & NpcNumber, "BackUp"))
+920     .flags.RespawnOrigPos = Val(Leer.GetValue("NPC" & NpcNumber, "OrigPos"))
+930     .flags.AfectaBender = Val(Leer.GetValue("NPC" & NpcNumber, "AfectaBender"))    '[/About] AfectaBender
+940     .flags.RemueveInvisibilidad = Val(Leer.GetValue("NPC" & NpcNumber, "RemueveInvisibilidad"))    '[/MaTeO] RemueveInvisibilidad ^^
+950     .flags.Equipo = Val(Leer.GetValue("NPC" & NpcNumber, "Equipo"))    '[/MaTeO] RemueveInvisibilidad ^^
+960     .flags.ShowName = Val(Leer.GetValue("NPC" & NpcNumber, "ShowName"))    '[/MaTeO] Muestra el nombre ^^
+970     .flags.priv = Val(Leer.GetValue("NPC" & NpcNumber, "Priv"))    '[/MaTeO] Privilegios para el color ^^
+980     .flags.AfectaParalisis = Val(Leer.GetValue("NPC" & NpcNumber, "AfectaParalisis"))
+990     .flags.GolpeExacto = Val(Leer.GetValue("NPC" & NpcNumber, "GolpeExacto"))
+1000    .flags.Snd1 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd1"))
+1010    .flags.Snd2 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd2"))
+1020    .flags.Snd3 = Val(Leer.GetValue("NPC" & NpcNumber, "Snd3"))
 
-    'Tipo de items con los que comercia
-1330 NpcList(NpcIndex).TipoItems = Val(Leer.GetValue("NPC" & NpcNumber, "TipoItems"))
+        '<<<<<<<<<<<<<< Expresiones >>>>>>>>>>>>>>>>
+        Dim aux                 As String
+1030    aux = Leer.GetValue("NPC" & NpcNumber, "NROEXP")
+1040    If LenB(aux) = 0 Then
+1050        .NroExpresiones = 0
+1060    Else
+1070        .NroExpresiones = Val(aux)
+1080        ReDim .Expresiones(1 To .NroExpresiones) As String
+1090        For LoopC = 1 To .NroExpresiones
+1100            .Expresiones(LoopC) = Leer.GetValue("NPC" & NpcNumber, "Exp" & LoopC)
+1110        Next LoopC
+1120    End If
+        '<<<<<<<<<<<<<< Expresiones >>>>>>>>>>>>>>>>
 
-    'Devuelve el nuevo Indice
-1340 OpenNPC = NpcIndex
+        'Tipo de items con los que comercia
+1130    .TipoItems = Val(Leer.GetValue("NPC" & NpcNumber, "TipoItems"))
 
-    On Error GoTo 0
-    Exit Function
+        'Devuelve el nuevo Indice
+1140    OpenNPC = NpcIndex
+1150 End With
+
+1160 On Error GoTo 0
+1170 Exit Function
 
 OpenNPC_Error:
 
-    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure OpenNPC of Módulo modNPCs Linea: " & Erl())
+1180 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure OpenNPC of Módulo modNPCs Linea: " & Erl())
 
 End Function
 
