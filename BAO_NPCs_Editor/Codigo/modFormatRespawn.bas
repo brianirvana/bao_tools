@@ -1,25 +1,26 @@
 Attribute VB_Name = "modFormatRespawn"
 Option Explicit
 
-Public FormatRespawn()          As tFormatRespawn
+Public FormatRespawn()          As tFormatRespawn2
+Public FormatRespawn2()         As tFormatRespawn2
 
 Public NumFormatRespawn         As Long
 
 Public Type WorldPos
-    Map                             As Integer
+    Map                         As Integer
     X                           As Integer
     Y                           As Integer
 End Type
 
 Public Type tRespawns
-    Pos                             As WorldPos
+    Pos                         As WorldPos
     AreaX                       As Integer
     AreaY                       As Integer
 End Type
 
 '@ El que se ve en el mapa de la "Q"
 Public Type tFormatRespawn
-    ID                              As Integer
+    ID                          As Integer
     AreaX                       As Integer
     AreaY                       As Integer
     RespawnTime                 As Long
@@ -34,12 +35,33 @@ Public Type tFormatRespawn
     Drop                        As String
 End Type
 
+'@ El que se ve en el mapa de la "Q"
+Public Type tFormatRespawn2
+    ID                          As Integer
+    AreaX                       As Integer
+    AreaY                       As Integer
+    RespawnTime                 As Long
+    TickCount                   As Long
+    Nombre                      As String
+    Nivel                       As Integer
+    Experiencia                 As Long
+    Oro                         As Long
+    Vida                        As Long
+    Respawns()                  As tRespawns
+    NumRespawns                 As Integer
+    Drop                        As String
+    Count                       As Integer
+    MinHour                     As Byte
+    MaxHour                     As Byte
+End Type
+
+
 Public Type tNPCRespawn
-ID                              As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
-AreaX                           As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
-AreaY                           As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
-RespawnTime                     As Long     'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
-    TickCount                       As Long
+    ID                          As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
+    AreaX                       As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
+    AreaY                       As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
+    RespawnTime                 As Long     'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
+    TickCount                   As Long
     Count                       As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
     CountRespawn                As Integer
     Nivel                       As Integer  'NO CAMBIAR NUNCA EL TIPO DE VARIABLE
@@ -50,7 +72,7 @@ RespawnTime                     As Long     'NO CAMBIAR NUNCA EL TIPO DE VARIABL
 End Type
 
 Public Type tMap
-    UserIndex                       As Integer
+    UserIndex                   As Integer
     NpcIndex                    As Integer
 End Type
 
@@ -137,15 +159,15 @@ Dim i                           As Long
 Dim j                           As Long
 Dim tExp                        As Long
 
-    On Error GoTo SaveFormatRespawn_Error
+10  On Error GoTo SaveFormatRespawn_Error
 
-10  nFile = FreeFile()
-20  Open App.Path & "\DAT\RespawnInfo.dat" For Binary As #nFile
+20  nFile = FreeFile()
+30  Open App.Path & "\DAT\RespawnInfo.dat" For Binary As #nFile
 
-30  Put #nFile, , NumFormatRespawn
+40  Put #nFile, , NumFormatRespawn
 
-40  For i = 0 To NumFormatRespawn - 1
-50      With FormatRespawn(i)
+50  For i = 0 To NumFormatRespawn - 1
+60      With FormatRespawn(i)
 
             'tExp = Round(.Vida * 2 * NPCRespawn(i).FactorMulExp, 0)
             'tExp = tExp + Round(tExp * ExpMul, 0)
@@ -155,42 +177,45 @@ Dim tExp                        As Long
             '                    Stop
             '                End If
 
-60          Put #nFile, , .AreaX
-70          Put #nFile, , .AreaY
-80          Put #nFile, , .ID
-90          Put #nFile, , .Nivel
-100         Put #nFile, , .Experiencia
-110         Put #nFile, , .Oro
-120         Put #nFile, , .Vida
-130         Put #nFile, , .RespawnTime
-140         Put #nFile, , .NumRespawns
+70          Put #nFile, , .AreaX
+80          Put #nFile, , .AreaY
+90          Put #nFile, , .ID
+100         Put #nFile, , .Nivel
+110         Put #nFile, , .Experiencia
+120         Put #nFile, , .Oro
+130         Put #nFile, , .Vida
+140         Put #nFile, , .RespawnTime
+150         Put #nFile, , .NumRespawns
 
-150         For j = 0 To .NumRespawns - 1
-160             Put #nFile, , .Respawns(j)
-170         Next j
+160         Put #nFile, , .MinHour
+170         Put #nFile, , .MaxHour
 
-180         Put #nFile, , CInt(Len(.Nombre))
+180         For j = 0 To .NumRespawns - 1
+190             Put #nFile, , .Respawns(j)
+200         Next j
 
-190         For j = 1 To Len(.Nombre)
-200             Put #nFile, , CInt(Asc(mid$(.Nombre, j, 1)))
-210         Next j
+210         Put #nFile, , CInt(Len(.Nombre))
 
-220         Put #nFile, , CInt(Len(.Drop))
+220         For j = 1 To Len(.Nombre)
+230             Put #nFile, , CInt(Asc(mid$(.Nombre, j, 1)))
+240         Next j
 
-230         For j = 1 To Len(.Drop)
-240             Put #nFile, , CInt(Asc(mid$(.Drop, j, 1)))
-250         Next j
+250         Put #nFile, , CInt(Len(.Drop))
 
-260     End With
-270 Next i
-280 Close #nFile
+260         For j = 1 To Len(.Drop)
+270             Put #nFile, , CInt(Asc(mid$(.Drop, j, 1)))
+280         Next j
 
-    On Error GoTo 0
-    Exit Sub
+290     End With
+300 Next i
+310 Close #nFile
+
+320 On Error GoTo 0
+330 Exit Sub
 
 SaveFormatRespawn_Error:
 
-    Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure SaveFormatRespawn of Módulo modFormatRespawn Linea: " & Erl())
+340 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure SaveFormatRespawn of Módulo modFormatRespawn Linea: " & Erl())
 
 End Sub
 
@@ -228,7 +253,7 @@ Dim k                           As Long
 220             End If
 230             If EsTrue = False Then
 240                 NumFormatRespawn = NumFormatRespawn + 1
-250                 ReDim Preserve FormatRespawn(j) As tFormatRespawn
+250                 ReDim Preserve FormatRespawn(j) As tFormatRespawn2
 260             End If
 
 270             FormatRespawn(j).Nombre = NpcList(.ID).Name
@@ -247,56 +272,60 @@ Dim k                           As Long
 370             FormatRespawn(j).AreaX = .AreaX
 380             FormatRespawn(j).AreaY = .AreaY
 
-390             FormatRespawn(j).NumRespawns = FormatRespawn(j).NumRespawns + 1
-400             FormatRespawn(j).RespawnTime = .RespawnTime
+                'If .MinHour > 0 Then Stop
+390             FormatRespawn(j).MinHour = .MinHour
+400             FormatRespawn(j).MaxHour = .MaxHour
+
+410             FormatRespawn(j).NumRespawns = FormatRespawn(j).NumRespawns + 1
+420             FormatRespawn(j).RespawnTime = .RespawnTime
                 'FormatRespawn(j).Factor = .FactorMulExp
 
-410             FormatRespawn(j).Drop = vbNullString
+430             FormatRespawn(j).Drop = vbNullString
 
-420             For k = 1 To NpcList(.ID).Invent.NroItems
-430                 If Len(FormatRespawn(j).Drop) Then
-440                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
-450                 End If
-460                 If NpcList(.ID).Invent.Object(k).ObjIndex > 0 Then
-470                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Invent.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Invent.Object(k).ObjIndex) & " (100%)"
-480                 Else
-490                     MsgBox "El NPC " & NpcList(.ID).Name & " Tiene mal dateado (en NroItems) el  OBJ: " & k
-500                 End If
-510             Next k
+440             For k = 1 To NpcList(.ID).Invent.NroItems
+450                 If Len(FormatRespawn(j).Drop) Then
+460                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
+470                 End If
+480                 If NpcList(.ID).Invent.Object(k).ObjIndex > 0 Then
+490                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Invent.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Invent.Object(k).ObjIndex) & " (100%)"
+500                 Else
+510                     MsgBox "El NPC " & NpcList(.ID).Name & " Tiene mal dateado (en NroItems) el  OBJ: " & k
+520                 End If
+530             Next k
 
-520             For k = 1 To NpcList(.ID).Drop.NroItems
-530                 If Len(FormatRespawn(j).Drop) Then
-540                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
-550                 End If
+540             For k = 1 To NpcList(.ID).Drop.NroItems
+550                 If Len(FormatRespawn(j).Drop) Then
+560                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & ", "
+570                 End If
 
-560                 If NpcList(.ID).Drop.Object(k).ObjIndex > 0 Then
-570                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Drop.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Drop.Object(k).ObjIndex) & " (" & CStr(NpcList(.ID).Drop.Object(k).ProbTirar / 10) & "%)"
-580                 Else
-590                     MsgBox "El NPC " & NpcList(.ID).Name & " Tiene mal dateado (en NroDrops) el OBJ: " & k
-600                 End If
-610             Next k
+580                 If NpcList(.ID).Drop.Object(k).ObjIndex > 0 Then
+590                     FormatRespawn(j).Drop = FormatRespawn(j).Drop & NpcList(.ID).Drop.Object(k).Amount & " " & FuckingObjData(NpcList(.ID).Drop.Object(k).ObjIndex) & " (" & CStr(NpcList(.ID).Drop.Object(k).ProbTirar / 10) & "%)"
+600                 Else
+610                     MsgBox "El NPC " & NpcList(.ID).Name & " Tiene mal dateado (en NroDrops) el OBJ: " & k
+620                 End If
+630             Next k
 
-620             If Len(FormatRespawn(j).Drop) = 0 Then
-630                 FormatRespawn(j).Drop = "Nada"
-640             End If
+640             If Len(FormatRespawn(j).Drop) = 0 Then
+650                 FormatRespawn(j).Drop = "Nada"
+660             End If
 
                 '                FormatRespawn(j).MinHit = NpcList(.ID).STATS.MinHit
                 '                FormatRespawn(j).MaxHit = NpcList(.ID).STATS.MaxHit
                 '                FormatRespawn(j).TiempoRespawn = NPCRespawn(j).RespawnTime '[/About] A verga
-650         End If
-660     End With
-670 Next i
+670         End If
+680     End With
+690 Next i
 
     'frmMain.Text.Text = ""
     'For i = 0 To NumFormatRespawn - 1
     '    frmMain.Text.Text = frmMain.Text.Text & FormatRespawn(i).Nombre & " - " & FormatRespawn(i).Nivel & vbCrLf
     'Next i
 
-680 On Error GoTo 0
-690 Exit Sub
+700 On Error GoTo 0
+710 Exit Sub
 
 ProcessFormat_Error:
 
-700 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure ProcessFormat of Módulo modFormatRespawn Linea: " & Erl())
+720 Call LogError("Error " & Err.Number & " (" & Err.Description & ") in procedure ProcessFormat of Módulo modFormatRespawn Linea: " & Erl())
 
 End Sub

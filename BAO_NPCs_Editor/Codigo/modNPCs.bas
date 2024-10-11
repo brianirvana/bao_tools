@@ -296,7 +296,7 @@ Public EmptyNPCRespawn          As tNPCRespawn
 Public NPCRespawn2()            As tNPCRespawn2
 
 Public Type tNPCRespawn
-    Order                           As Integer
+    Order                       As Integer
     ID                          As Integer
     AreaX                       As Integer
     AreaY                       As Integer
@@ -317,7 +317,7 @@ Public Type tNPCRespawn
 End Type
 
 Public Type tNPCRespawn2
-    Order                           As Integer
+    Order                       As Integer
     ID                          As Integer
     AreaX                       As Integer
     AreaY                       As Integer
